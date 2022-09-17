@@ -1,0 +1,19 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Theorem 4.15}
+\begin{wts}
+Urysohn's Lemma. Let $X$ be a normal space, if $A$ and $B$ are disjoint closed subsets of $X$, then there exists a $f\in C(X,[0,1])$ such that $f=0$ on $A$ and $f=1$ on $B$.
+\end{wts}
+\begin{proof}
+Let $r\in \Delta$ be as in Lemma 4.14, and set $U_r$ accordingly except for $U_1=X$. Define 
+\[
+f(x) = \inf\{r:x\in U_r\}
+\]
+Then for every $x\in A$ we have $f(x)=0$, since by the construction of the 'onion' function in Lemma 4.14, for each $r\in \Delta\cap(0,1)$, 
+\[
+x\in A\subseteq U_r\implies f(x)\leq r
+\]
+Since $r>0$ is arbitrary, we have $f(x)=0$. Now, for every $x\in B$, since $A$ and $B$ are disjoint, and 
+\end{proof}
+\end{document}

@@ -55,7 +55,7 @@ jobs:
       run: |
         git config --global user.name "bighappysloth"
         git config --global user.email "ting.h.li@mail.mcgill.ca"
-        git add report.pdf
+        git add main.pdf
         git commit -m "commit message"
         git push
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'

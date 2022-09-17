@@ -1,0 +1,50 @@
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{enumitem}
+
+
+%Some headers to structure our assignments
+\newtheorem*{wts}{WTS}
+% \newtheorem*{answer}{Answer} removed
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{remark}{Remark}
+\newcommand{\problem}[1]{\section*{Problem #1}} %question command
+
+
+\usepackage{pifont}
+\usepackage{mathtools}
+
+%Useful for defining functions and variables. (not centered properly?)
+\newcommand{\defined}{\coloneqq}
+
+%Some common sets
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\integer}{\mathbb{Z}}
+
+\newcommand{\tx}[1]{\text{#1}}
+\setlength{\parindent}{0pt} %default no indent
+%New environment for labelling (a) (b) subproblems
+\newenvironment{enumalpha}{\begin{enumerate}[label=(\alph*)]}{\end{enumerate}}
+
+%Custom Operators, Real and Imaginary Parts
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}} % How do we use operators?
+
+%Custom Operators, Domain, Range, Codomain, identity function
+\newcommand{\range}{\operatorname{range}}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\codom}{\operatorname{codom}}
+\newcommand{\id}[1]{\operatorname{id}_{#1}} %use with \id_{\real} as the identity function the reals.
+\newcommand{\sgn}{\operatorname{sgn}}
+%always put this at last
+
+%shortcut for norms
+\newcommand{\norm}[1]{\lVert {#1} \rVert}
+\newcommand{\bignorm}[1]{\left\lVert {#1} \right\rVert}
+\usepackage{subfiles}

@@ -7,7 +7,7 @@ If $X$ is a topological space, and $E\subseteq X$ and $x\in X$, then $x\in\acc{E
 \end{wts}
 \newcommand{\nx}{\mathcal{N}(x)} %neighbourhood of x
 \begin{proof}
-Suppose that $x\in\acc{E}$, then for every neighbourhoor $U\in\mathcal{N}(x)$, $E\cap U\setminus\{x\}\neq\varnothing$, then choose $\mathcal{N}(x)$ as the set of neighbourhoods directed by reverse inclusion (and this makes $(\mathcal{N}(x),\lesssim)$ a directed set), and we will define the net as follows.\\
+Suppose that $x\in\acc{E}$, then for every neighbourhood $U\in\mathcal{N}(x)$, $E\cap U\setminus\{x\}\neq\varnothing$, then choose $\mathcal{N}(x)$ as the set of neighbourhoods directed by reverse inclusion (and this makes $(\mathcal{N}(x),\lesssim)$ a directed set), and we will define the net as follows.\\
 
 Map each $U\in \mathcal{N}(x)$ to some $x_U\in E\cap U\setminus\{x\}$, then this net converges to $x$. Suppose that we fix a neighbourhood, $V\in\nx$, then for every $U\gtrsim V$ we have $x_u\in U\subseteq V$. So $\langle x_U \rangle$ is eventually in $V$.\\
 
@@ -19,7 +19,7 @@ Hence $x\in\acc{E}$.\\
 
 Now for the second part of the Theorem, suppose that $x\in\overline{E}$, if $x\notin E$ then $E = E\setminus\{x\}$ and $x\in\acc{E}$, so there exists a net in $E\setminus\{x\}\subseteq E$ such that $x_\alpha\to x$. If $x\in E$ then simply choose $\abrackets{x_\alpha}=x$ for every $\alpha\in A$.\\
 
-Now, suppose that there is a net that converges to $x$, and this net $\abracket{x_\alpha}\subseteq E$, if $x\in E$ then there is nothing to prove, since $E\subseteq\overline{E}$, so suppose that $x\notin E$, then there exists a net in $E\setminus\{x\}=E$ such that 
+Now, suppose that there is a net that converges to $x$, and this net $\abrackets{x_\alpha}\subseteq E$, if $x\in E$ then there is nothing to prove, since $E\subseteq\overline{E}$, so suppose that $x\notin E$, then there exists a net in $E\setminus\{x\}=E$ such that 
 \[
 x_\alpha\to x\implies x\in\acc{E}\subseteq\overline{E}
 \]

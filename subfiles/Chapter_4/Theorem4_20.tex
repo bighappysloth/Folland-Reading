@@ -1,0 +1,45 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Theorem 4.20}
+\newcommand{\xa}{\abrackets{x_\alpha}} %<x_\alpha>
+\newcommand{\n}[1]{\mathcal{N}({#1})} %neighbourhood
+\begin{wts}
+If $\xa$ is a net in $X$, and $x\in X$ is a cluster point of $\xa\iff$ there exists a subnet of $\xa$ that converges to $x$.
+\end{wts}
+\begin{proof}
+Suppose that $\abrackets{y_\beta}_{\beta\in B}$ is a subnet of $\xa$ that converges to $x$, then for every neighbourhood $U\in\n{x}$ , there exists a $\beta_1$ such that for every $\beta\gtrsim\beta_1$ we get $y_\beta = x_{\alpha_\beta}\in U$.\\
+
+Furthermore, let us fix a $\alpha_0\in A$ to attempt to show that $\xa$ is frequently in $U$, then by the subnet property of $\abrackets{y_\beta}$, there exists some $\beta_2\in B$ such that for every $\beta\gtrsim\beta_2$, $\alpha_\beta\gtrsim \alpha_0$. (Intuitively this property means that the directed set of $B$ 'grows' as much as the directed set of $A$, so we can always find elements that are greater than any fixed $\alpha_0$.)\\
+
+Since $\abrackets{y_\beta}$ is a net, we there exists some $\beta\in B$ such that $\beta\gtrsim\beta_1$ and $\beta\gtrsim\beta_2$, we then apply the $\beta\mapsto \alpha_\beta$ map and we obtain some $\alpha=\alpha_\beta$ that satisfies:
+\begin{itemize}
+    \item $\alpha=\alpha_\beta\gtrsim\alpha_0$
+    \item $x_\alpha = x_{\alpha_\beta}\in U$
+\end{itemize}
+Where for the second property we used the fact that $\beta\gtrsim\beta_1$ so that $y_\beta$ falls into $U$.\\
+
+Conversely, suppose that $x$ is a cluster point of $\xa$, then by definition
+\[
+\forall U\in\n{x},\:\forall\alpha_0\in A,\:\exists\alpha\gtrsim\alpha_0,\:x_\alpha\in U
+\]
+Denote the directed neighbourhoods of $x$ by $\n{x}$, and construct our directed set $B$ for our subnet as follows, define
+\[
+B = \n{x}\times A
+\]
+Where for every $(U,\gamma)\in B$ we can map it to some $\alpha_{(U,\gamma)}\in A$, if we choose some $\alpha_{(U,\gamma)}\gtrsim\gamma$ and $\alpha_{(U,\gamma)}\in U$. \\
+
+To show that $B$ is a directed set, we say that $(U,\gamma)\gtrsim (U',\gamma')$ if and only if $U\subseteq U'$ and $\gamma\gtrsim\gamma'$. And to show that $\abrackets{y_\beta} = \abrackets{x_{\alpha_{(U,\gamma)}}}$ is indeed a subnet of $\xa$, fix any $\alpha_0\in A$, then simply take any neighbourhood $U$ of $x$ (we always have $X\in\n{x}$) — and therefore $(U,\alpha_0)\in B$.\\
+
+Now for every $(U',\alpha_0')\gtrsim(U,\alpha_0)$ implies that $\alpha_0'\gtrsim\alpha_0$, therefore we have 
+\[
+\alpha_{(U',\alpha_0')}\gtrsim\alpha_0'\gtrsim\alpha_0
+\]
+And this satisfies the subnet property. Now to show that $\abrackets{y_\beta}$ indeed converges to $x$, fix any $V\in\n{x}$, then with any $\alpha_0\in A$, and for every $(V',\alpha_0')\gtrsim(V,\alpha_0)\in B$, we have
+\[
+x_{\alpha_{(V',\alpha_0')}}\in V'\subseteq V
+\]
+So $\abrackets{x_{\alpha_{(U,\gamma)}}}$ converges to $x$.
+\end{proof}
+
+\end{document}

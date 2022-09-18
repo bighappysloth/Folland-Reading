@@ -1,0 +1,28 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Theorem 4.19}
+\begin{wts}
+Let $X$ and $Y$ be topological spaces, then every $f:X\to Y$ is continuous at a point $x\in X\iff$ every net $\abrackets{x_\alpha}$ that converges to $x$ implies that $\abrackets{f(x_\alpha)}$ converges to $f(x)$.
+\end{wts}
+\newcommand{\n}[1]{\mathcal{N}({#1})}
+\begin{proof}
+If $f$ is continuous at a point $x\in X$, then $V\in\n{f(x)}\implies f^{-1}(V)\in\n{x}$, then for every net $\abrackets{x_\alpha}$ that converges to this $x$, there there exists an $\alpha_0$ such that for every $\alpha\gtrsim\alpha_0$ implies that $x_\alpha\in f^{-1}(V)$. Hence 
+\[
+f(x_\alpha)\in f\left(f^{-1}(V)\right)\subseteq V
+\]
+And this is equivalent to saying that for every $V\in\n{f(x)}$, $\abrackets{f(x_\alpha)}$ is eventually in $V$, and this proves convergence.\\
+
+Now suppose that $f$ is not continuous at some $x$, then there exists a $V\in\n{f(x)}$ such that $f^{-1}(V)\notin\n{x}$, so 
+\[
+x\notin \left(f^{-1}(V)\right)^o\implies x\in \left(f^{-1}(V)\right)^{oc}=\overline{f^{-1}(V^c)}
+\]
+Where for the last equality we pulled the complement inside the inverse image. Then by Theorem 4.18, our $x\in\overline{f^{-1}(V^c)}$ induces a net $\abrackets{x_\alpha}\subseteq f^{-1}(V^c)$ that converges to $x$. But every element in the net is contained within $f^{-1}(V^c)$, and for every $\alpha\in A$
+\[
+f(x_\alpha)\in f\left(f^{-1}(V^c)\right)\subseteq V^c
+\]
+gives $f(x_\alpha)\notin V$, but $V$ is a neighbourhood of $f(x)$, hence there exists some $x_\alpha\to x$ and $f(x_\alpha)\not\to f(x)$.
+\end{proof}
+
+
+\end{document}

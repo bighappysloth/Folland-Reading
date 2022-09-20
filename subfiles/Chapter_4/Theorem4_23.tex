@@ -3,10 +3,20 @@
 \begin{document}
 \subsection{Theorem 4.23}
 \begin{wts}
-
+If $F$ is a compact subset of a Hausdorff space $X$, and $x\notin F$, there are disjoint open sets $U, V$ such that $x\in U$ and $F\subseteq V$.
 \end{wts}
 \begin{proof}
-
+Since $x\in F^c$, for every $y\in F$, $\x\neq y$ induces two sets $U_y, V_y$ (because $X$ is $T_2$).
+\begin{itemize}
+    \item $U_y\cap V_y=\varnothing$
+    \item $x\in U_y$
+    \item $y\in V_y$
+\end{itemize}
+But $\{V_y\}_{y\in F}$ is an open cover for the compact set $F$, then there exists a finite subcollection $H\subseteq F$ such that 
+\[
+F\subseteq \bigcup_{y\in H}V_y
+\]
+Since $H$ is finite, $U=\bigcap_{y\in H}U_y$ is an open set that contains $x$, also define $V = \bigcup_{y\in H}V_y$. If for every $y\in H$, $U_y\cap V_y=\varnothing$, then $U\cap V_y=U\cap V=\varnothing$. This completes the proof.
 \end{proof}
-
+\remark Every metric space $(X,d)$ is first countable, and $T_2$ (it is actually $T_4$, but that will require some effort to prove, see Exercise 3). The first claim is easily verified if we fix any element $x\in X$ and we notice that $W_x=\{V_{r}(x), r\in \mathbb{Q}^+\}$ is a countable neighbourhood base for every $x$. To show that $(X,d)$ is $T_2$, for every pair of elements $x\neq y$, we can take $r=d(x,y)/2$ and there exists disjoint open sets $V_r(x)$ and $V_r(y)$ such that $x\in V_r(x)$ and $y\in V_r(y)$.
 \end{document}

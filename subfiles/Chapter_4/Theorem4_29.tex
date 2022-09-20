@@ -3,10 +3,45 @@
 \begin{document}
 \subsection{Theorem 4.29}
 \begin{wts}
+If $X$ is any topological space, the following are equivalent.
 
+\begin{enumalpha}
+    \item $X$ is compact.
+    \item Every net has a cluster point.
+    \item Every net in $X$ has a convergent subnet.
+\end{enumalpha}
 \end{wts}
+%shortcut commands
+\newcommand{\xa}{\abrackets{x_\alpha}} %<x_\alpha>
+\newcommand{\n}[1]{\mathcal{N}({#1})} %neighbourhood
 \begin{proof}
+By Theorem 4.20, every net in $X$ has a cluster point $\iff$ there exists a subnet that converges to this cluster point, so these two points are equivalent. \\
 
+Suppose $a)$ holds, then $X$ is compact, and fix an arbitrary net $\xa$ in $X$. and define the 'tail' of the net 
+\[
+E_\alpha\defined\{x_\beta,\:\beta\gtrsim\alpha\}
+\]
+We wish to show that the arbitrary intersection of $\bigcap_{\alpha\in A}\overline{E_\alpha}\neq\varnothing$. Where $\overline{E_\alpha}$ is closed, so it suffices to check that every finite $B\subseteq A$, the intersection over $\overline{E_\alpha}$ is non-empty.\\
+
+Suppose we are given a finite $B\subseteq A$, then fix any two elements $\alpha$ and $\beta\in B$, by the definition of a net there exists a $\gamma\in A$ such that $\gamma\gtrsim\alpha$ and $\gamma\gtrsim\beta$, and
+\[
+\varnothing\neq\subseteq E_\alpha\cap E_\beta\implies \overline{E_\alpha}\cap\overline{E_\beta}\neq\varnothing
+\]
+Therefore for any finite collection of $\{\overline{E_{\alpha\in B}}\}$, then 
+\[
+\bigcap_{\alpha\in A}\overline{E_\alpha}\neq\varnothing
+\]
+Now fix an element $x\in \bigcap_{\alpha\in A}\overline{E_\alpha}$. Then for every $\alpha\in A$, $x\in \overline{E_\alpha}$, and for every neighbourhood $U\in\n{x}$, $U\cap E_\alpha\neq\nothing$. This is because if $x\in E_\alpha$, then $U\cap E_\alpha$ contains at least $\{x\}$, if $x\in\acc{E_\alpha}$, then by definition of an accumulation point, $U\cap E_\alpha\setminus\{x\}\neq\varnothing$, so the intersection is non empty.\\
+
+Now let us turn our attention to how we defined the 'tail' of the net, $E_\alpha$, if for every $\alpha\in A$, $x\in E_\alpha$ if and only if there exists some $\gamma\gtrsim\alpha$, $x_\gamma\in U\cap E_\alpha$, this is equivalent to saying that $x$ is a cluster point of $\xa$. So $a)\implies b)$.\\
+
+Now let us suppose that $X$ is not compact, then there exists an open cover $\{U_{\alpha\in A}\}$ of $X$ that has no finite subcover. Let $\mathbb{B}$ be the collection of all finite subsets of $A$, directed by set inclusion (we will show that this set is indeed a directed set at another time, for now it is a needless distraction).\\
+
+Now for every $B\in\mathbb{B}$, find some $x_B\in \left(\bigcup_{\alpha\in B} U_\alpha\right)^c$. So we have a net in $X$. Now we will show that no $x\in X$ can be a cluster point of this net. Suppose not, then take a neighbourhood $U_\beta$ with $\beta\in A$ such that $U_\beta$ belongs to the open cover we first discussed. Then for any $B\in \mathbb{B}$ such that $B\gtrsim\{\beta\}$ (meaning that $\{\beta\}\subseteq B$, where $B$ is a finite set), then
+\[
+x_B\in\left(\bigcup_{\alpha\in B}U_\alpha\right)^c\implies x_B\notin\left(\bigcup_{\alpha\in \{\beta\}}U_\beta\right)\implies x_B\in U_\beta^c
+\]
+Hence no point in $X$ can be a cluster point for this net, and the proof is complete.
 \end{proof}
 
 \end{document}

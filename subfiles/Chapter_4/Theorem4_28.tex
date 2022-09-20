@@ -3,10 +3,12 @@
 \begin{document}
 \subsection{Theorem 4.28}
 \begin{wts}
-
+If $X$ is compact, and if $Y$ is Hausdorff, then any continuous bijection $f:X\to Y$ is a homeomorphism.
 \end{wts}
 \begin{proof}
+If $E\in X$ is closed, then since $X$ is compact, $E$ is compact as well. By continuity of $f$, $f(X)$ is a compact set in $Y$, but compact subsets of $Y$ are closed, so $f$ is continuous.\\
 
+We used the fact that the inverse of $f^{-1}$ is $f$, since it suffices to check that every inverse image of a closed set is also closed, $f^{-1}$ is continuous. And by definition of a homeomorphism ($f$ has to be bijective and both $f$ and $f^{-1}$ hav eto be continuous), $f$ is a homeomorphism.
 \end{proof}
 
 \end{document}

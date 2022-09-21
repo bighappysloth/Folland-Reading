@@ -10,7 +10,31 @@ Suppose that $A$ is a subset of $X$, let $\acc{A}$ be the set of accumulation po
 and $A$ is closed if and only if $\acc{(A)}\subseteq A$.
 \end{wts}
 \begin{proof}
-
+Suppose that $x\notin \overline{A}$, then $x\in (\overline{A})^c=A^{co}$, then $A^c\in\nb{x}$. But this means that $x\notin\acc{(A)}$, since there exists a neighbourhood of $x$ (in the form of $A^c$), such that 
+\[
+A\cap A^c\setminus\{x\}=A\cap A^c=\varnothing
+\]
+Also, $A\subseteq \overline{A}\implies (\overline{A})^c\subseteq A^c$ which means that
+\[
+x\notin \overline{A}\implies x\notin A
+\]
+Since $x\notin \overline{A}\implies x\notin A$ and $x\notin \acc{(A)}$,
+\[
+(\overline{A})^c\subseteq A^c\cap \acc{(A)}^c = (A\cup \acc{(A)})^c
+\]
+Now, if $x\notin \acc{(A)}\cup A$, then $x\notin\acc{(A)}$, therefore there exists some $U\in\nb{x}$ such that 
+\[
+A\cap U\setminus\{x\} = A\cap U=\varnothing
+\]
+Where for the second last equality we used the fact that $x\notin A\implies A\setminus\{x\}=A$, and taking complements gives us
+\[
+U\subseteq A^c
+\]
+And since $U\in\nb{x}$, then $x\in U^o\substeq A^{co}$ (since $U^o$ is an open subset of $A^c$). then
+\[
+x\in A^{co} = (\overline{A})^c\implies x\notin (\overline{A})^c
+\]
+Therefore $(A\cup\acc{(A)})^c\subseteq (\overline{A})^c$.
 \end{proof}
 
 \end{document}

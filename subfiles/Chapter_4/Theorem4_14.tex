@@ -9,9 +9,45 @@
         \item $\overline{U_r}\subseteq U_s$ for $r<s$.
     \end{enumerate}
 \end{wts}
-
 \begin{proof}
-
+    The goal of this proof is to show that for every $r\in \Delta$, there exists a open $U_r$ that satisfies the above. As usual for these types of proofs we will proceed by induction. We can divide the problem by 'layers' (as I will hereinafter explain).\\
+    
+    For every $r\in \Delta$, $r = k/2^n$, where $k\in\nat^+$ sits between $1$ and $2^n-1$, this makes $r\in (0,1)$. Each layer of $r\in \Delta$ is fixed by $n$, so for any $n$ that is held fix, we want to prove that
+    \[
+    k\in[1,2^n-1], r = \dfrac{k}{2^n} \text{ satisfies: }
+    \]
+    \begin{enumerate}
+        \item $U_r$ is open
+        \item $A\subseteq U_r\subseteq B^c$
+        \item $\overline{U_r}\subseteq U_s$ for every $r<s$
+    \end{enumerate}
+    To get a better feel of the proof, let us suppose that, for a fixed layer $N$, that all the previous layers have been constructed, so for every $n\leq N-1$, we have all our $k/2^n$ where $1\leq k\leq 2^{n}-1$. If $k$ is even such that $k=2j$ for some positive integer $j$, then 
+    \[
+    \dfrac{k}{2^N} = \dfrac{2j}{2^N} = \dfrac{j}{2^{N-1}}
+    \]
+    So for every $k=2j$, $k/2^N$ is already defined (and it satisfies the above conditions). So we only have to construct for odd number $k$. So fix any odd $k$, then $U_r$ is well defined for $r = (k+1)/2^N$, and $r = (k-1)/2^N$. With 
+    \begin{itemize}
+        \item $\overline{U_0} = A$
+        \item $U_1^c = B$
+    \end{itemize}
+    Then both $U_0$ and $U_1$ are open sets. However it should be noted that $U_0$ and $U_1$ are not of the form of $\{U_r: r\in \Delta\}$. Now for any odd $k = 2j+1$,
+    \begin{align*}
+        \dfrac{2j+1}{2^N}<1&\iff 2j+1< 2^N\\
+        &\iff 2j+1<2^N\\
+        &\iff 2j < 2^N-1\\
+        &\iff j< 2^{N-1}-1/2\\
+        &\iff 0\leq j\leq 2^{N-1}
+    \end{align*}
+    Now, $k-1<k+1$ implies that (since we have assumed that $U_r$ is well constructed for $n\leq N-1$,
+    \[
+    \overline{U}_{\dfrac{k-1}{2^N}}\subseteq U_{\dfrac{k+1}{2^N}}
+    \]
+    Then by normality, since
+    \[
+    \overline{U}_{\dfrac{k-1}{2^N}}\cap U^c_{\dfrac{k+1}{2^N}}=\varnothing
+    \]
+    The above are two closed sets that are disjoint.
+    
 \end{proof}
 
 

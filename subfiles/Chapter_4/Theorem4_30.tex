@@ -3,10 +3,78 @@
 \begin{document}
 \subsection{Theorem 4.30}
 \begin{wts}
-
+    If $X$ is a LCH space, and for every $U\in\nb{x}\cap\Tau_X$, there exists a compact $N\subseteq U$ where $N\in\nb{x}$.
 \end{wts}
+\renewcommand{\oe}{\overline{E}}
 \begin{proof}
-
+    For every $U\in \nb{x}\cap\Tau_x$, we can find an $E$ open subset of $U$ that has a compact closure, since every $x\in X$ induces some compact $F\in\nb{x}$, therefore
+    \[
+    E\defined U\cap F^o\implies \overline{E}\subseteq F
+    \]
+    Since closed subsets of compact sets are compact (by Theorem 4.22), $\overline{E}$ is compact. More is true, since $E$ is open,
+    \[
+    x\in U\cap F^o\implies x\in E^o\implies E\in\nb{x}
+    \]
+    
+    %shortcut
+    
+    
+    Now it suffices to show that there exists some compact $N\subseteq E\subseteq U$ such that $N\in\nb{x}$. Since $\oe$ is compact, the closed subset $\partial E = \oe\cap\overline{E^c}$ of $\oe$ is also compact.\\
+    
+    Since $\partial E\cap E^o = \varnothing$, $x\in E^o=E$ means that $x\notin \partial E$. Applying Theorem 4.23 to the compact set $\partial E$ and $x\notin \partial E$ gives us two disjoint open sets $V'$ and $W'$. We list their properties
+    \begin{enumerate}
+        \item $V', W'\in\Tau_X$
+        \item $x\in V'$
+        \item $\partial E\subseteq W'$
+        \item $V'\cap W' = \varnothing$
+    \end{enumerate}
+    The two disjoint pairs induce another pair of open sets relative to $\oe$, recall the definition of the topology relative to $\oe$,
+    \[
+    \Tau_{\oe} = \left\{A\cap\oe:A\in\Tau_X\right\}
+    \]
+    We now agree to define
+    \begin{itemize}
+        \item $V = V'\cap \oe$
+        \item $W = W'\cap \oe$
+    \end{itemize}
+    Then evidently $V, W\in\Tau_{\oe}$ and 
+    \begin{enumerate}
+        \item $x\in V'\cap\oe\implies x\in V$
+        \item $\partial E\subseteq \oe\implies \partial E\subseteq W$
+        \item $V'\cap W'=\varnothing\implies V\cap W=\varnothing$
+    \end{enumerate}
+    Furthermore,
+    \[
+    \partial E\subseteq W\implies W^c\subseteq (\partial E)^c = E^o\cup E^{co}
+    \]
+    Taking the intersection over $\oe$ gives us
+    \[
+    \oe\setminus W\subseteq \oe\cap \left(E^o\cup E^{co}\right)
+    \]
+    Note that $E^{co} = (\oe)^c$, since $(E^c)^{oc} = \overline{(E^{cc})}=\oe$ therefore $\oe\cap E^{oc}=\varnothing$, hence
+    \[
+    \oe\setminus W\subseteq \oe\cap E^{o} = E^{o}
+    \]
+    Using the fact from 3, $V\subseteq W^c$ and $V\subseteq \oe$ and $V\subseteq W^c$ implies that $V\subseteq\oe\setminus W$. Compiling everything, we have
+    \[
+    V\subseteq \oe\setminus W\subseteq E
+    \]
+    Note that the set $\oe\setminus W$ is closed in $\Tau_X$ (and hence closed in $\oe$) by closure over intersections, $\overline{V}$ is therefore a closed subset of $\oe\setminus W$, and $\overline{V}$ is compact. Also
+    \[
+    \overline{V} \subseteq \oe\setminus W\subseteq E
+    \]
+    To check that $\overline{V}\in\nb{x}$, note that
+    \[
+    x\in V^o\subseteq (\overline{V})^o\implies \overline{V}\in\nb{x}
+    \]
+    The subset relation $V^o\subseteq \overline{V}^o$ comes from the fact that $V^o$ is an open subset of $\overline{V}$, and hence is contained in $(\overline{V})^o$ as a subset. Now let us define $N=\overline{V}$, and $N$ satisfies the assertions in the Theorem, since
+    \begin{itemize}
+        \item $N\in\nb{x}$
+        \item $N$ is compact
+        \item $N\subseteq E\subseteq U$
+    \end{itemize}
+    And this completes the proof.
 \end{proof}
+\remark Intuitively speaking, this means that if $X$ is any LCH space, then for every open neighbourhood $U\in\nb{x}$, there exists a compact $E\in\nb{x}$ such that $x\in E\subseteq U^o$. This property is indeed a very strong one as it allows us to have effectively 'infinite' descending compact neighbourhoods of $x$.
 
 \end{document}

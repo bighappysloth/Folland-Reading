@@ -5,11 +5,11 @@
 \begin{wts}
     Suppose that $A$ and $B$ are disjoint closed subsets of the normal space $X$, and let $\Delta = \{k2^{-n}: n\geq 1 \text{ and } 0<k<2^n\}$ be the set of dyadic rationals in $(0,1)$. There is a family $\{U_r:r\in\Delta\}$ of open sets such that
     \begin{enumerate}
-        \item $A\subseteq U_r\subseteq B^c$ for every $r\in \Delta$ and 
-        \item $\overline{U_r}\subseteq U_s$ for $r<s$.
+        \item $A\subseteq U_r\subseteq B^c$ for every $r\in \Delta$,
+        \item $\overline{U_r}\subseteq U_s$ for $r<s$, and
+        \item For every $r<s$, $\cl{U}_r\subseteq U_s$
     \end{enumerate}
 \end{wts}
-\renewcommand{\cl}[1]{\overline{#1}}
 \newcommand{\ksmall}{(k-1)/2^N}
 \newcommand{\kbig}{(k+1)/2^N}
 \newcommand{\jiggle}[1]{\mathcal{J}({#1})}

@@ -3,10 +3,16 @@
 \begin{document}
 \subsection{Theorem 4.33}
 \begin{wts}
-
+    Every LCH space is completely regular (or $T_{3.5}$).
 \end{wts}
 \begin{proof}
-
+    Recall that a space $X$ is completely regular if it is $T_1$ and every closed subset $A$ and every $x\notin A$ there exists some 
+    \[
+    f\in C(X,[0,1]),\quad f(x)=1,\:f|_A = 0
+    \]
+    Fix a closed set $A\subseteq X$, then for every $x\in A^c$, there exists a compact $E_x\in\nb{x}$ with $E_x\subseteq A^c$ (by Theorem 4.30).\\ 
+    
+    Note that $E_x\subseteq A^c$ where $E_x$ is compact and $A^c$ is closed, then an application of Theorem 4.31 tell us that there exists an $f\in C(X,[0,1])$ such that for every $x\in E_x$, $f(x)=1$ and for points $y\notin A^c$ (which means that $y\in A$), $f(y)=0$. Therefore $X$ is completely regular.
 \end{proof}
 
 \end{document}

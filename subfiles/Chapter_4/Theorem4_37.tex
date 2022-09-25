@@ -3,10 +3,20 @@
 \begin{document}
 \subsection{Theorem 4.37}
 \begin{wts}
-
+    If $X$ is an LCH space and $E\subseteq X$. $E$ is closed if and only if $E\cap K$ is closed for every compact $K\subseteq X$.
 \end{wts}
 \begin{proof}
-
+    Suppose that $E$ is closed, then $E\cap K$ is closed, since compact subsets of Hausdorff spaces are closed, and $E\cap K\subseteq K$ tells us that $E\cap K$ is indeed compact.\\
+    
+    Now suppose that $E$ is not closed, by Theorem 4.1, $E\neq \cl{E}$, so pick some $x\in (\cl{E}\setminus E)=\acc{(E)}\cap E^c$, since $X$ is locally compact, let $K_x$ be a compact neighbourhood of $x$, then for every neighbourhood $U\in\nb{x}$, we have
+    \[
+    x\in U^o,\:x\in K_x^o,\implies x\in (U^o\cap K_x^o)\subseteq (U\cap K_x)^o
+    \]
+    Since $(U^o\cap K_x^o)$ is an open subset of $(U\cap K_x)$, then $(U\cap K_x)\in\nb{x}$, and recall that $x\in \acc{(E)}$, therefore
+    \[
+    (U\cap K_x)\cap E\setminus\{x\}=U\cap(K_x\cap E)\neq\varnothing
+    \]
+    But $x\notin E\implies x\notin E\cap K_x$. So $x$ is an accumulation point of $E\cap K_x$ that is not in $E\cap K_x$. Therefore there exists some $E\cap K_x$ which is not closed.
 \end{proof}
 
 \end{document}

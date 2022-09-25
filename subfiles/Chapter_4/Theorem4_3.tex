@@ -23,14 +23,14 @@
     We first show that $\Tau$ is a topology.
     \begin{itemize}
         \item $\varnothing\in\Tau$ and $X\in \Tau$, the first is trivial and the second is from a)
-        \item Closure under unions: fix $\{U_\alpha\}_{\alpha\in A}\subseteq \Tau$, and $U = \bigcup U_\alpha$, and for every $x\in U$ there exists some $V_\alpha\in\Epsilon$ such that $x\in V_\alpha\subseteq U_\alpha\subseteq U$, therefore $U\in Tau$.
+        \item Closure under unions: fix $\{U_\alpha\}_{\alpha\in A}\subseteq \Tau$, and $U = \bigcup U_\alpha$, and for every $x\in U$ there exists some $V_\alpha\in\Epsilon$ such that $x\in V_\alpha\subseteq U_\alpha\subseteq U$, therefore $U\in \Tau$.
         \item Closure under finite intersections, fix any $U_1$, $U_2$ as elements in $\Tau$, then suppose that they are not disjoint (if they are disjoint then their intersection is the empty set, which is also contained in $\Tau$). If $U_1\cap U_2\neq\varnothing$, then for every $x\in U_1\cap U_2$ induces two sets $V_1, V_2\in\Epsilon$ with $x\in V_1\subseteq U_2$ and $x\in V_2\subseteq U_2$, taking their intersection and applying b) gives us some $V\subseteq V_1\cap V_2$ with $V\in\Epsilon$ therefore $x\in V\subseteq U_1\cap U_2$, and $\Tau$ is closed under finite intersections.
     \end{itemize}
-    Now to show that $\Epsilon$ is a base for $\Tau$, $\Epsilon\subseteq\Tau$ is obvious since very $V\in\Epsilon$ satisfies the properties laid out by $\Tau$ by simply choosing $V$ again for any $x\in V$. Now fix any member $U\in Tau$, then for every $x\in U$, there exists some $V\in \Epsilon$ with
+    Now to show that $\Epsilon$ is a base for $\Tau$, $\Epsilon\subseteq\Tau$ is obvious since very $V\in\Epsilon$ satisfies the properties laid out by $\Tau$ by simply choosing $V$ again for any $x\in V$. Now fix any member $U\in \Tau$, then for every $x\in U$, there exists some $V\in \Epsilon$ with
     \[
     x\in V\subseteq U
     \]
-    (This is an immediate consequence of how we defined $\Tau$). And we can conclude that $\Epsilon$ is a basef or this induced topology $\Tau$.
+    (This is an immediate consequence of how we defined $\Tau$). And we can conclude that $\Epsilon$ is a base for this induced topology $\Tau$.
 \end{proof}
 
 \end{document}

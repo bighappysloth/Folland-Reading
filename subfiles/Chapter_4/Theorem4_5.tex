@@ -6,7 +6,15 @@
     Every second countable space is separable. (Countable dense subset).
 \end{wts}
 \begin{proof}
-
+What we wish to prove is that if a space $X$ has a countable base, then it has a countable dense subset. Denote this base of $X$ by $\Epsilon$ as usual, then we claim that 
+\[
+W = \{x_u,\:U\in\Epsilon\}
+\]
+Is a dense subset in $X$. Note that $\clc{W}= W^{co}\in\Tau_X$. If $W^{co}=\varnothing$ then we simply take complements and we get $\cl{W}=X$. So suppose that $W^{co}$ is non-empty, then for each $x\in W^{co}$ (by definition of a base), it should induce some $V_x\in\Epsilon$ with
+\[
+x\in V_x\subseteq W^{co}
+\]
+But clearly, for every element in $\Epsilon$, the second estimate can never be satisfies, since for every $U\in\Epsilon$, $x_U\notin W^{co}$ for this particular set $W^{co}$. Therefore $W^{co}$ must be empty, and this completes the proof.
 \end{proof}
 
 \end{document}

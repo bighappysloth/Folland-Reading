@@ -8,6 +8,46 @@
     \Tau(\Epsilon)=\{\varnothing, X\}\cup\left\{\bigcup W_\alpha,\:W_\alpha = \bigcap E_{j\leq n},\: E_j\in\Epsilon\right\}
     \]
 \end{wts}
-
+\begin{proof}
+    Denote the set
+    \[
+    W = \{X\}\cup\left\{\bigcap V_{j\leq n},\:\: V_j\in\Epsilon\right\}
+    \]
+    We claim this set $W$ satisfies Theorem 4.3. Since 4.3a) is satisfied with $X\in W$. 4.3b) follows since the right member in $W$ is closed under intersections.\\
+    
+    And if we are taking an element from each member, $E_1\in\{\varnothing,X\}$ and $E_2$ is an element in the right member, then it is trivial to verify that their intersection is always contained within $W$. Therefore $W$ induces a topology by Theorem 4.2, and we call this topology $\Tau$ — and for the sake of completeness
+    \[
+    \Tau = \left\{U\subseteq X,\: \forall x\in U,\:\exists V\in \Epsilon, \: x\in V\subseteq U\right\}
+    \]
+    We so claim that if we define $\cl{W}$ as the union of all members $w\in W$, together with the empty set, is equal to the set $\Tau$.
+    \[
+    \cl{W} = \left\{\bigcup_{w\in W}w\right\}\cup\{\varnothing\}
+    \]
+    \begin{itemize}
+        \item We want to show $\Tau\subseteq\cl{W}$, since $W$ is a base for the topology $\Tau$, every (non-empty) $U\in \Tau$ is the union of members in $W$ (Theorem 4.2), and there exists some $B\subseteq W$ with
+        \[
+        U=\bigcup E_{\alpha\in B}\in \cl{W}
+        \]
+        Now if $U$ is the empty set then it is trivially contained within $\cl{W}$.
+        \item Next, we show that $\cl{W}\subseteq\Tau$, fix any element $E\in\cl{W}$, if $E=\varnothing$ then there is nothing to prove since $\Tau$ is a topology. Now for every $x\in E$,
+        \[
+        x\in E=\bigcup_{w\in W} w\implies x\in w
+        \]
+        Therefore $E\in \Tau$ by definition. This proves that $\Tau = \cl{W}$.
+    \end{itemize}
+    Now that $\cl{W}$ is a topology, that contains $\Epsilon$ as a subset, and by definition of $\Tau(\Epsilon)$
+    \[
+    \Tau(\Epsilon) = \bigcap \left\{A,\text{ is a topology, and } \Epsilon\subseteq A \right\}
+    \]
+    Tells us
+    \[
+    \Tau(\Epsilon) \subseteq \cl{W}, \quad\text{ since }\cl{W}\in\left\{A,\text{ is a topology, and } \Epsilon\subseteq A \right\}
+    \]
+    Conversely, fix any member $E\in\cl{W}$, if $E=\varnothing$ then $E\in\Tau(\Epsilon)$, if not, then there exists some subset $B\subseteq W$ such that
+    \[
+    E = \bigcup_{w\in B}w=\bigcup_{w\in B} \bigcap_{j\leq n}V_{j\leq n}^w \, V_j\in \Epsilon\cup\{X\}
+    \]
+    Since $\Tau(\Epsilon)$ is closed under finite intersections and unions, and it contains $\Epsilon$ as a subset, $\cl{W} = \Tau(\Epsilon)$ and we are done.
+\end{proof}
 
 \end{document}

@@ -3,8 +3,18 @@
 \begin{document}
 \subsection{Theorem 4.8}
 \begin{wts}
-
+The map $f:X\to Y$ is continuous if and only if at $f$ is continuous at every $x\in X$.
 \end{wts}
-
+\begin{proof}
+    Suppose that $f$ is continuous, then fix any $f(x)\in Y$ and any of its neighbourhood $V\in\nb{f(x)}$,
+    \[
+    f(x)\in V^o\implies f^{-1}(V^o)\in \nb{x}
+    \]
+    But by continuity, $f^{-1}(V^o)$ is an open set that contains $x$, with
+    \[
+    f\left(f^{-1}(V^o)\right)\subseteq V^o
+    \]
+    Therefore $f$ is continuous at $x$. Now suppose that $f$ is continuous at every $x\in X$, then for every open subset $V\subseteq Y$, and for every point $f(x)\in V=V^o$ means that $V\in\nb{f(x)}$ for all such points $f(x)$. By continuity, for every $x$ in $f^{-1}(V)$, implies that $f^{-1}(V)$ is a neighbourhood of all of its elements, therefore $f^{-1}(V)\subseteq\left(f^{-1}(V)\right)^o$, and $f^{-1}(V)$ is open.
+\end{proof}
 
 \end{document}

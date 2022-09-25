@@ -3,10 +3,65 @@
 \begin{document}
 \subsection{Theorem 4.35}
 \begin{wts}
-
+If $X$ is a LCH space, we claim that
+\[
+\cl{\cc{X}}=\cnot{X}
+\]
 \end{wts}
 \begin{proof}
+We begin by proving several things that are mentioned before this Theorem, namely
+\[
+\cc{X}\subseteq\cnot{X}\subseteq\bc{X}
+\]
+Fix an $f\in \cc{X}$, and for every $\varepsilon>0$, 
+\[
+x\in|f|^{-1}([\varepsilon,+\infty))\implies |f(x)|\geq\varepsilon>0
+\]
+Therefore $|f|^{-1}([\varepsilon,+\infty))$ is a closed subset of $\supp{f}$, since $(-\infty,\varepsilon)$ is open in $\mathbb{R}$, then $[\varepsilon,+\infty)$ is a closed set. And by continuity of $|\cdot|\circ f$ (a composition of two continuous functions), $|f|^{-1}([\varepsilon,+\infty))$ is closed. Using the fact that closed subsets of compact $\supp{f}$ are also compact, we get $f\in \cnot{X}$.\\
 
+Next, we show that $\cnot{X}\subseteq \bc{X}$. Fix any element $f$ of $\cnot{X}$ with an arbitrary $\varepsilon>0$, then $E_\varepsilon = \{x\in X:|f(x)|\geq \varepsilon\}$ is compact. The continuity of $f$ guarantees that the direct image of a compact set is another compact set (Theorem 4.26)
+\[
+|f|(E_\varepsilon)\:\text{ is a compact subset of }\mathbb{R}
+\]
+And therefore for every $x\in E_\varepsilon\implies |f(x)|\in f(E\varepsilon)$, then by Heine-Borel, there exists some $M\geq 0$ such that $|f(x)|\leq M$. If $x\notin E_\varepsilon$, then by definition of $E_\varepsilon$, implies that $|f(x)|< \varepsilon$. Then $|f(x)|\leq M+\varepsilon$ for every $x\in X$. Hence $f\in\bc{X}$.\\
+
+Here I wish to offer an alternate proof for $\cnot{X}\subseteq\bc{X}$, we begin by constructing an open cover for $\supp{f}$ such that
+\[
+\{U_n\}_{n>0} = \{x\in X |f(x)|<n\}
+\]
+Then there exists a finite subcollection of $\{U_n\}_{n\in B}$ where $B$ is a finite set, then define $M = 1+\sum_{n\in B}n$ and for every $x\in \supp{f}$ we have $|f(x)|<n$ and since $n>0$ this holds for every $x\in X$ too. Therefore $f\in \bc{X}$.\\
+
+For the main proof of Theorem 4.35, since $\bc{X}$ is endowed with the uniform metric, it is also first countable, and therefore by Theorem 4.6, it suffices to show that every sequence $\{f_n\}_{n\geq 1}\subseteq \cc{X}$ converges in $\cnot{X}$. And every element $f\in \cnot{X}$ has a convergence sequence in $\cc{X}$.\\
+
+Fix a convergent sequence $\{f_n\}_{n\geq 1}\subseteq \cc{X}$ that converges uniformly to some $f\in \bc{X}$ (since $\bc{X}$ is a closed subset of $C(X)$ with respect to the uniform norm), then for every $\varepsilon>0$, there exists some $n\geq 1$ with
+\[
+\norm{f_n-f}_u<\varepsilon
+\]
+We aim to show that $\left(\supp{f_n}\right)^c\subseteq |f|^{-1}((-\infty,\varepsilon))$, so fix any $x\notin \supp{f_n}$, then
+\[
+|f(x)-f_n(x)|=|f(x)|\leq\norm{f-f_n}_u<\varepsilon
+\]
+This establishes the estimate, and taking complements
+\[
+|f|^{-1}([\varepsilon, +\infty))\subseteq\supp{f_n}
+\]
+Therefore for any arbitrary $\varepsilon>0, \{x\in X,\:|f(x)|\geq\varepsilon\}$ is compact, and $\cl{\cc{X}}\subseteq\cnot{X}$. Conversely, fix any $f\in\cnot{X}$, and for every $n\geq 1$, define
+\[
+K_n = \left\{x\in X,\:|f(x)|\geq 1/n\right\}
+\]
+Using Urysohn's Lemma for our LCH space $X$, there exists some $g_n$ that has a compact support, and $g_n(x)=1$ for every $x\in K_n$. We then write $f_n=g_n\cdot f\in\cc{X}$. We wish to show that $f_n\to f$ uniformly. Notice that for any fixed $n\geq 1$, if $x\in K_n$ then
+\[
+f_n(x)=f(x)\implies |f_n-f|(x)=0
+\]
+If $x\notin K_n,\: |f(x)|<1/n$ (recall what $K_n$ does), and $f_n=g_n\cdot f\in[0,1]$ by definition of $g_n$ from Theorem 4.32, hence
+\[
+|f_n(x)-f(x)|=|f(x)|\cdot|1-g_n|\leq|f(x)|<1/n
+\]
+Taking the supremum over $x\in X$, we have
+\[
+\norm{f_n-f}_u<1/n\to 0
+\]
+As we send $n$ to $+\infty$, and $f_n\to f$ uniformly. This completes the proof.
 \end{proof}
 
 \end{document}

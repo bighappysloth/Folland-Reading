@@ -29,8 +29,8 @@ PDF Progress
 - [ ] Section 3.5 Functions of Bounded Variation
 
 ### Chapter 4 Point Set Topology
-- [ ] Section 4.1 Topological Spaces 
-- [ ] Section 4.2 Continuous Maps
+- [x] Section 4.1 Topological Spaces 
+- [x] Section 4.2 Continuous Maps
 - [x] Section 4.3 Nets
 - [x] Section 4.4 Compact Spaces
 - [ ] Section 4.5 Locally Compact Hausdorff Spaces

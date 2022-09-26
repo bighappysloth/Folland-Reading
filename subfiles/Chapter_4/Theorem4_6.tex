@@ -10,7 +10,7 @@
     \[
     U_1\supseteq U_2\supseteq \cdots\supseteq U_j\supseteq U_{j+1}
     \]
-    If $x\in A$, take $x_n = x$ for all $n\geq 1$. If $x\in\acc{(A)}$, then take $x_n\in U_1\cap A\setminus \{x\}=U_1\cap A$, which is not empty. Then it remains to show that this sequence converges to $x$. Fix any neighbourhood $U\in\nb{x}$ then there exists some $N$, for every $n\geq N$
+    If $x\in A$, take $x_n = x$ for all $n\geq 1$. If $x\in\acc{(A)}$, then take $x_n\in U_n\cap A\setminus \{x\}=U_n\cap A$, which is not empty. Then it remains to show that this sequence converges to $x$. Fix any neighbourhood $U\in\nb{x}$ then there exists some $N$, for every $n\geq N$
     \[
     x\in U^o\implies \exists N\in\nat^+, \: x\in U_N\subseteq U^o
     \]
@@ -24,5 +24,6 @@
     \]
     Since $\{x_j\}_{j\geq 1}\subseteq A\implies x_j\notin A^c$ for every $j\geq 1$, then choose $V$ as the neighbourhood around $x$, and $x_j\not\to x$ for any arbitrary sequence $x_j$ in $A$.
 \end{proof}
+\remark To truly understand what is going on one should recall that all metric space spaces are first countable.
 
 \end{document}

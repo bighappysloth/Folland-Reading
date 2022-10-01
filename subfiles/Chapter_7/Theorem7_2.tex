@@ -3,8 +3,105 @@
 \begin{document}
 \subsection{Theorem 7.2}
 \begin{wts}
-    The Riesz-Markov-Kakutani Representation Theorem
+    The Riesz-Markov-Kakutani Representation Theorem. If (for every) $I$ is a positive lienar functional on $\cc{X}$, then there exists a unique Radon measure $\mu$ on $X$, such that
+    \[
+    I(f) = \int fd\mu
+    \]
+    for every $f\in\cc{X}$. $\mu$ also satisfies, for every open $U$, and every compact $K\subseteq X$
+    \begin{equation}\label{open approximated by If}
+        \mu(U) = \sup\left\{I(f),\:f\in\cc{X},\:f\prec U\right\}
+    \end{equation}
+    \begin{equation}\label{compact approximated by If}
+        \mu(K)=\inf\left\{I(f),\:f\in\cc{X},\:f\geq\chi_K\right\}
+    \end{equation}
 \end{wts}
+\newcommand{\borel}{\mathbb{B}_{\Tau}} %Borel generated from Tau
+\newcommand{\mustar}{\mu^*} %mu star for outer measure
+%
+For the sake of completeness, we place the definitions for a Radon measure. Let $X$ be a LCH space, and $\borel$ be its usual $\sigma$-algebra, a measure $\nu$ is a Radon measure iff
+\begin{enumroman}
+    \item $\nu(K)<+\infty$ for every compact $K$.
+    \item $\nu$ is outer-regular on all Borel sets $E$,
+    \[
+    \nu(E) = \inf\left\{\nu(U),\: U\supseteq E,\:U\in\Tau\right\}
+    \]
+    Intuition: approximation by open supersets.
+    \item $\nu$ is inner-regular on all open sets $U\in\Tau$,
+    \[
+    \nu(U) = \sup\left\{\mu(K),\: K\subseteq U,\:K\text{ compact}\right\}
+    \]
+\end{enumroman}
+%
+
+The main proof is extremely long, so we will divide it into several parts. Following Folland's argumentation closely, we will prove (in order)
+\begin{enumalpha}
+    \item If $\mu_1$, $\mu_2$ are Radon measures on $X$ such that for every $f\in\cc{X}$
+    \[
+    \int fd\mu_1=I(f)=\int fd\mu_2
+    \]
+    then $\mu_1$, $\mu_2$ must satisfy \eqref{open approximated by If}, and $\mu_1 =\mu_2$ on $\borel$.
+%
+%
+    \item If we define, for every open set $U$, define $\mu:\Tau\to[0,+\infty]$ such that
+    \begin{equation}
+    \mu(U) = \sup\left\{I(f),\:f\in\cc{X},\:f\prec U\right\}
+    \end{equation}
+    Then $\mu$ is countably subadditive, meaning for every $U\in\Tau$, $\{U_{j\geq 1}\}\subseteq \Tau$
+    \[
+    U = \bigcup U_{j\geq 1}\implies \mu(U)\leq \sum\mu(U_{j\geq 1})
+    \]
+%
+%
+    \item $\mu(\varnothing)=0$, $\{\varnothing, X\}\subseteq \Tau$, so that by Theorem 1.10 $\mu$ induces an outer-measure $\mu^*$
+    \begin{equation}
+    \mu^*(E)= \inf\left\{\sum \mu(U_{j\geq 1}),\:U_j\in\Tau,\:E\subseteq\bigcup U_{j\geq 1}\right\}\label{mustar outermeasure def}
+    \end{equation}
+    \item If $\mu^*$ is as described above, then if $\mu$ is countably subadditive on $\Tau$, then
+    \begin{equation}
+    \mu^*(E) = \inf\left\{\mu(U),\:U\supset E,\: U\in\Tau\right\} \label{mustar outer regularity on Borel Sets}
+    \end{equation}
+    Meaning the two definitions in \eqref{mustar outermeasure def} and \eqref{mustar outer regularity on Borel Sets} are equal.
+%
+%
+    \item $\mustar$ and $\mu$ agree on all open sets, and $\mustar|_\Tau = \mu$, 
+%
+%    
+    \item Using again the definition in \ref{mustar outermeasure def} and \ref{mustar outer regularity on Borel Sets}, we show that every open set $U\in\Tau_X$ is $\mustar$-measurable, meaning for every $E\subseteq X$,
+    \[
+    \mustar(E) = \mustar(E\cap U) + \mustar(E\setminus U)
+    \]
+    With this, since the set of all outer-measurable ($\mustar$-measurable) sets, $\mathcal{M}^*$ form a $\sigma$-algebra, 
+    \[
+    \Tau\subseteq \mathcal{M}^*\implies \borel\subseteq\mathcal{M}^*
+    \]
+    By Theorem 1.1, and define 
+    \begin{equation}
+    \mu = \mustar|_{\borel}\label{mu borel extension}
+    \end{equation} 
+    is a Borel measure.
+%
+%
+    \item Using \eqref{mu borel extension} for the definition of  $\mu$ on $\borel$, we prove that
+    \begin{itemize}
+        \item $\mu$ is outer-regular on all Borel sets, and
+        \item $\mu$ satisfies \eqref{open approximated by If}.
+    \end{itemize}
+%
+%
+    \item Equation \eqref{compact approximated by If} holds for $\mu$, this gives us another way of approximating $\mu(K)$ for every compact $K$.
+%
+%
+    \item If equation \eqref{compact approximated by If} holds, then $\mu$ is finite on all compact sets.
+%
+%
+    \item $\mu$ is inner-regular on all open sets.
+%
+%
+    \item For every $f\in\cc{X}$, 
+    \[
+    I(f) = \int fd\mu
+    \]
+\end{enumalpha}
 \begin{proof}
     
 \end{proof}

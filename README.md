@@ -2,7 +2,7 @@
 Reading of Folland's Real Analysis. I will try to fill in as many details as possible.
 You can read the PDF [here](./main.pdf).
 
-Sections I have yet to read are: 2.6-2.7, 3.4-3.5, 4.5-4.8, 5.3-5.5, some of 6.3, most parts of 6.5, and chapters 7-9
+Sections I have yet to read are: 2.6-2.7, 3.4-3.5, 4.5-4.8, 5.3-5.5, some of 6.3, most parts of 6.5, 7.2 - 7.4and chapters 8 and9
 
 PDF Progress
 ### Chapter 1 Measures
@@ -43,7 +43,7 @@ PDF Progress
 - [ ] Section 5.2 Linear Functionals
 - [ ] Section 5.3 The Blaire Category Theorem and its Consequences
 - [ ] Section 5.4 Topological Vector Spcaes
-- [ ] Section 5.5 Hilbert Spaces \
+- [ ] Section 5.5 Hilbert Spaces 
 
 ### Chapter 6 Lp Spaces
 - [ ] Section 6.1 Basic Theory of Lp Spaces
@@ -53,7 +53,7 @@ PDF Progress
 - [ ] Section 6.5 Interpolation of Lp Spaces
 
 ### Chapter 7 Radon Measures
-- [ ] Section 7.1 Positive Linear Functionals on Cc(X)
+- [x] Section 7.1 Positive Linear Functionals on Cc(X)
 - [ ] Section 7.2 Regularity and Approximation Theorems
 - [ ] Section 7.3 The Dual of C0(X)
 - [ ] Section 7.4 Products of Radon Measures

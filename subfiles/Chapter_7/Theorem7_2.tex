@@ -3,7 +3,7 @@
 \begin{document}
 \subsection{Theorem 7.2}
 \begin{wts}
-    The Riesz-Markov-Kakutani Representation Theorem. If (for every) $I$ is a positive lienar functional on $\cc{X}$, then there exists a unique Radon measure $\mu$ on $X$, such that
+    The Riesz-Markov-Kakutani Representation Theorem. If (for every) $I$ is a positive linear functional on $\cc{X}$, then there exists a unique Radon measure $\mu$ on $X$, such that
     \[
     I(f) = \int fd\mu
     \]
@@ -30,43 +30,53 @@ For the sake of completeness, we place the definitions for a Radon measure. Let 
     \[
     \nu(U) = \sup\left\{\mu(K),\: K\subseteq U,\:K\text{ compact}\right\}
     \]
+    Intuition: approximation by compact subsets 
 \end{enumroman}
 %
-
+%
 The main proof is extremely long, so we will divide it into several parts. Following Folland's argumentation closely, we will prove (in order)
+%
+%
 \begin{enumalpha}
     \item If $\mu_1$, $\mu_2$ are Radon measures on $X$ such that for every $f\in\cc{X}$
     \[
     \int fd\mu_1=I(f)=\int fd\mu_2
     \]
     then $\mu_1$, $\mu_2$ must satisfy \eqref{open approximated by If}, and $\mu_1 =\mu_2$ on $\borel$.
+    \label{7.2.a}
 %
 %
     \item If we define, for every open set $U$, define $\mu:\Tau\to[0,+\infty]$ such that
-    \begin{equation}
+    \begin{equation}\label{mu definition on open sets}
     \mu(U) = \sup\left\{I(f),\:f\in\cc{X},\:f\prec U\right\}
     \end{equation}
     Then $\mu$ is countably subadditive, meaning for every $U\in\Tau$, $\{U_{j\geq 1}\}\subseteq \Tau$
     \[
     U = \bigcup U_{j\geq 1}\implies \mu(U)\leq \sum\mu(U_{j\geq 1})
-    \]
+    \]\label{7.2.b}
 %
 %
     \item $\mu(\varnothing)=0$, $\{\varnothing, X\}\subseteq \Tau$, so that by Theorem 1.10 $\mu$ induces an outer-measure $\mu^*$
-    \begin{equation}
-    \mu^*(E)= \inf\left\{\sum \mu(U_{j\geq 1}),\:U_j\in\Tau,\:E\subseteq\bigcup U_{j\geq 1}\right\}\label{mustar outermeasure def}
+    
+    \begin{equation}\label{mustar outermeasure def}
+        \mu^*(E)= \inf\left\{\sum \mu(U_{j\geq 1}),\:U_j\in\Tau,\:E\subseteq\bigcup U_{j\geq 1}\right\}
     \end{equation}
+    \label{7.2.c}
+%    
+%    
     \item If $\mu^*$ is as described above, then if $\mu$ is countably subadditive on $\Tau$, then
-    \begin{equation}
-    \mu^*(E) = \inf\left\{\mu(U),\:U\supset E,\: U\in\Tau\right\} \label{mustar outer regularity on Borel Sets}
+    \begin{equation}\label{mustar outer regularity on Borel Sets}
+        \mu^*(E) = \inf\left\{\mu(U),\:U\supseteq E,\: U\in\Tau\right\} 
     \end{equation}
     Meaning the two definitions in \eqref{mustar outermeasure def} and \eqref{mustar outer regularity on Borel Sets} are equal.
+    \label{7.2.d}
 %
 %
     \item $\mustar$ and $\mu$ agree on all open sets, and $\mustar|_\Tau = \mu$, 
+    \label{7.2.e}
 %
 %    
-    \item Using again the definition in \ref{mustar outermeasure def} and \ref{mustar outer regularity on Borel Sets}, we show that every open set $U\in\Tau_X$ is $\mustar$-measurable, meaning for every $E\subseteq X$,
+    \item Using again the definition in \eqref{mustar outermeasure def} and \eqref{mustar outer regularity on Borel Sets}, we show that every open set $U\in\Tau_X$ is $\mustar$-measurable, meaning for every $E\subseteq X$,
     \[
     \mustar(E) = \mustar(E\cap U) + \mustar(E\setminus U)
     \]
@@ -75,10 +85,11 @@ The main proof is extremely long, so we will divide it into several parts. Follo
     \Tau\subseteq \mathcal{M}^*\implies \borel\subseteq\mathcal{M}^*
     \]
     By Theorem 1.1, and define 
-    \begin{equation}
-    \mu = \mustar|_{\borel}\label{mu borel extension}
+    \begin{equation}\label{mu borel extension}
+        \mu = \mustar|_{\borel}
     \end{equation} 
     is a Borel measure.
+    \label{7.2.f}
 %
 %
     \item Using \eqref{mu borel extension} for the definition of  $\mu$ on $\borel$, we prove that
@@ -86,24 +97,221 @@ The main proof is extremely long, so we will divide it into several parts. Follo
         \item $\mu$ is outer-regular on all Borel sets, and
         \item $\mu$ satisfies \eqref{open approximated by If}.
     \end{itemize}
+    \label{7.2.g}
 %
 %
     \item Equation \eqref{compact approximated by If} holds for $\mu$, this gives us another way of approximating $\mu(K)$ for every compact $K$.
+    \label{7.2.h}
 %
 %
     \item If equation \eqref{compact approximated by If} holds, then $\mu$ is finite on all compact sets.
+    \label{7.2.i}
 %
 %
     \item $\mu$ is inner-regular on all open sets.
+    \label{7.2.j}
 %
 %
     \item For every $f\in\cc{X}$, 
     \[
     I(f) = \int fd\mu
     \]
+    \label{7.2.k}
 \end{enumalpha}
+%Lemma
+
+A small lemma needs to be made before proceeding,
+    \begin{lemma}\label{lemma I is monotonic}
+        Suppose that $f,\, g\in\cc{X}$, and $f\geq g\geq 0$ for every $X$, then $f-g\in\cc{X}$ and $I(f)\geq I(g)$
+    \end{lemma}
+    \begin{proof}
+        We will prove this in the contrapositive. Suppose that $x\in X$ where $f(x) = 0$, then
+        \[
+        f(x)-g(x) = -g(x)\geq 0\implies g(x)=0\implies f-g=0
+        \]
+        Hence
+        \begin{align*}
+            \left\{x,\:f(x)=0\right\}\subseteq\left\{x,\:g(x)=0\right\}&\implies \left\{x,\:g(x)\neq0\right\}\subseteq \left\{x,\:f(x)-g(x)\neq0\right\}\\
+            &\implies \supp{f-g}\subseteq \supp{f}
+        \end{align*}
+        Since $\supp{f}$ is compact, and $\supp{f-g}$ is a closed subset of $\supp{f}$, yields $f-g\in\cc{X}$. And if $I$ is any positive linear functional on $\cc{X}$, then
+        \begin{align*}
+            f-g\geq 0&\implies I(f-g)\geq 0\\
+            &\implies I(f)\geq I(g)\geq 0
+        \end{align*}
+    \end{proof}
+    %End of Lemma proving monotonicity.
+\remark If $f\prec U$ and $g\prec U$ for some open subset $U\subseteq X$, then clearly $\supp{f-g}\subseteq \supp{f}\subseteq U$, and $1\geq f\geq f-g\geq 0$ means that $f-g\prec U$ as well.
+
+\subsubsection{Part a}
 \begin{proof}
-    
+    Suppose that $\mu_1$ and $\mu_2$ are Radon measures on $X$, and for every $f\in\cc{X}$,
+    \[
+    \int fd\mu_1 = I(f) = \int fd\mu_2
+    \]
+    We first prove \eqref{open approximated by If}. Without loss of generality, by monotonicity of $L^+$, if $f\prec U$ for some open $U$, then $0\leq f\leq \norm{f}_u\chi_U=\chi_U$ for all $x$ and
+    \[
+    \int fd\mu_1\leq \int \norm{f}_u\,\chi_U\:d\mu_1 \leq \mu_1(U)
+    \]
+    Therefore $\mu_1(U)$ (resp. $\mu_2(U)$) is an upper-bound for the set
+    \[
+    \left\{I(f),\:f\in\cc{X},\:f\prec U\right\}
+    \]
+    Since $\mu_1$ is inner-regular on $U\in\Tau$, for every $\varepsilon>0$ we can find some compact $K\subseteq U$ where
+    \[
+    \mu_1(U)-\varepsilon<\mu_1(K)
+    \]
+    By Urysohn's Lemma (Theorem 4.32), there exists some $g\in\cc{X}$ with
+    \begin{itemize}
+        \item $g\in\cc{X,[0,1]}$,
+        \item $g=1$ on $K\subseteq U$,
+        \item $g=0$ outside some $\overline{V}\subseteq U$, and
+        \item $g\prec U$.
+    \end{itemize}
+    Hence for every $x\in K$, $g\geq \chi_K$. If $x\notin K$ then $g\geq 0 = \chi_K$; so $g-\chi_K\geq 0$ for every $x\in X$. Since $\chi_K\prec U$, using Lemma \ref{lemma I is monotonic}, we get
+    \[
+    \mu_1(K)\leq \int\,\chi_K\:d\mu_1=I(\chi_K)\leq I(g)
+    \]
+    So for every $\varepsilon>0$, there exists a $g\in\cc{X}$, and $g\prec U$ where
+    \[
+    \mu_1(U)-\varepsilon<\mu_1(K)\leq I(g)
+    \]
+    Therefore $\mu_1(U) = \sup\left\{I(f),\:f\in\cc{X},\:f\prec U\right\}$, and the first claim in \ref{7.2.a} is proven. To show that $\mu$ is indeed unique, since for every open set $U$, we must have $\mu_1(U)=\mu_2(U)$, and if $E\in\borel$ is any Borel set, and by outer-regularity,
+    \[
+    \mu_1(E) = \inf\left\{\mu_1(U), U\supseteq E, U\in\Tau\right\} = \inf\left\{\mu_2(U), U\supseteq E, U\in\Tau\right\}=\mu_2(E)
+    \]
+    Therefore this measure is unique.
+\end{proof}
+%
+%
+\subsubsection{Part b}
+\begin{proof}
+To show countable subadditivity for $\mu$ with equation \eqref{mu definition on open sets}, fix any $U\in\Tau$ and a sequence $\{U_{j\geq 1}\}\subseteq \Tau$ with $U = \bigcup U_{j\geq 1}$. It suffices to show that the partial sum of $\sum \mu(U_{j\leq n})$ is greater than $I(f)$ for any $f\in\cc{X},\:f\prec U$ (hence it is an upper bound).\\
+
+Fix any $f$, then denote $K=\supp{f}\subseteq U$, and since $\{U_{j\geq 1}\}$ is an open cover for $K$, there exists a finite subcollection, $B\subseteq\nat^+$ such that 
+\[
+K\subseteq \bigcup_{j\in B}U_j
+\]
+Using Theorem 4.41 on this finite cover of $K$, there exists a partition of unity in $\{g_{j\leq n}\}$ where
+\begin{itemize}
+    \item $g_j\in\cc{X,[0,1]}$,
+    \item $g_j\prec U_j\subseteq U$ for every $j\leq n$, and
+    \item $\sum g_j=1$ on $K$,
+\end{itemize}
+And notice for every $j\leq n$, 
+\begin{align*}
+    \{f=0\}\cup\{g_j=0\}\subseteq \{f\cdot g_j=0\}&\implies\{f\cdot g_j\neq 0\}\subseteq \{f\neq 0\}\cap \{g_j\neq 0\}\\
+    &\implies \supp{f\cdot g_j}\subseteq \supp{f}\cap \supp{g_j}\\
+    &\implies \supp{f\cdot g_j}\subseteq U_j\subseteq U
+\end{align*}
+Hence $f\cdot g_j\prec U$ and $f\cdot g_j\in\cc{X,[0,1]}$ for every $1\leq j\leq n$. Moreover, if we take the sum over a finite $n$, we obtain $f = \sum f\cdot g_{j\leq n}$, this is because for every $x\in X$, so we have 
+\[
+\sum_{j\leq n}f(x)\cdot g_j{x} = f(x)\cdot\sum_{j\leq n}g_j(x) = f(x)
+\]
+Then $I(f) = I(\sum f\cdot g_j) = \sum I(f\cdot g_j)$. And by definition of $\mu(U_j)$, since it is the supremum over all $I(h_j)$, where $h_j\in\cc{X,[0,1]}$ and $h_j\prec U_j$
+\[
+I(f\cdot g_j)\leq \mu(U_j),\quad \forall j\leq n
+\]
+Hence
+\[
+I(f)\leq \sum_{j\leq n} \mu(U_j)\leq \sum_{j\geq 1}\mu(U_j)
+\]
+Where for the last estimate we used the fact that $\mu$ is non-negative, and since this holds for any $f$, we can conclude that $\mu(U)\leq \sum_{j\geq 1} \mu(U_j)$.
 \end{proof}
 
+\subsubsection{Part c}
+\begin{proof}
+    By definition of a topology, $\{\varnothing, X\}\subseteq \Tau$, and $\mu(\varnothing) = \sup\{I(f),\: f\in\cc{X},\:f\prec \varnothing\}$, so $\supp{f}=\varnothing$, and $\{x,\:f(x)\neq 0\}\subseteq\varnothing$, so the set contains one element, namely $I(0)=0$ by linearity. So $\mu(\varnothing)=0$. The assumptions for Theorem 1.10 are satisfied and \eqref{mustar outermeasure def} is indeed an outer-measure.
+\end{proof}
+
+\subsubsection{Part d}
+\begin{proof}
+    Denote the right members of \eqref{mustar outermeasure def} and \eqref{mustar outer regularity on Borel Sets} by $W_1$ and $W_2$, we wish to show that $\inf{W_1} = \inf{W_2}$. Clearly $\inf{W_1}\leq \inf{W_2}$, since $W_2\subseteq W_1$. Now, if $\mu$ is countably additive, then for every $\omega\in W_1$ induces a sequence of open sets $\{U_{j\geq 1}\}$ such that $E\subseteq \bigcup U_{j\geq 1}$. Denote the union over $\{U_{j\geq 1}\}$ by $U$, which is also another open set, 
+    \[
+    \inf{W_2}\leq\mu(U)\leq \sum \mu(U_{j\geq 1})=\omega
+    \]
+    Since $\omega$ is arbitrary, we conclude that $\inf{W_2}=\inf{W_1}$, and this proves \ref{7.2.d}.
+\end{proof}
+\subsubsection{Part e}
+\begin{proof}
+    If $U$ and $V$ are open subsets of $X$, and if $U\subseteq V$, then
+    \begin{align*}
+        U\subseteq V &\implies\left\{f\in\cc{X},\:f\prec U\right\}\subseteq\left\{f\in\cc{X},\:f\prec V\right\} \\
+        &\implies \left\{I(f),\:f\in\cc{X},\:f\prec U\right\}\subseteq\left\{I(f),\:f\in\cc{X},\:f\prec V\right\}
+    \end{align*}
+    Hence $\mu(U)\leq \mu(V)$. Now by equation \eqref{mustar outer regularity on Borel Sets}, $\mustar(U)\leq \mu(U)$. To show the reverse inequality, suppose by contradiction that $\mustar(U)<\mu(U)$.\\
+    
+    Since $\mustar(U)$ is an infimum, then for every $\varepsilon>0$ there exists some $V\supseteq U$ where if we write $\mustar(U)+\varepsilon=\mu(U)$
+    \[
+    \mu(V)<\mustar(U)+\varepsilon=\mu(U)\implies \mu(V)<\mu(U),\:U\subseteq V
+    \]
+    This contradicts what we have just proven, and therefore $\mustar(U)=\mu(U)$ for every open set $U$.
+\end{proof}
+\subsubsection{Part f}
+\begin{proof}
+We wish to show that every open set $U$ is $\mustar$-measurable. By Theorem 1.10, it suffices to show that for every $E\subseteq X$
+\begin{equation}\label{mustar measurable}
+\mustar(E) \geq \mustar(E\cap U) +\mustar(E\setminus U)
+\end{equation}
+because the reverse inequality is given by subadditivity of $\mustar$, and we can also assume that $\mustar(E)<+\infty$. Let us assume that $E$ is open, we wish to find some function $h\in\cc{X},\: h\prec E$ with
+\[
+I(h)> \mustar(E\cap U) + \mustar(E\setminus U) - 2\varepsilon
+\]
+The above formula is fussy, but the liberty is taken to show it beforehand to avoid any potential confusion that follows. Since $E\cap U$ is an open subset of $X$, the definition of $\mu(E\cap U) = \mustar(E\cap U)$ in \eqref{mu definition on open sets} tells us that every $\varepsilon>0$ induces some $f\in\cc{X},\:f\prec E\cap U$ where
+\begin{equation}\label{If part f}
+    I(f)>\mu(E\cap U)-\varepsilon=\mustar(E\cap U)-\varepsilon
+\end{equation}
+Also, $\supp{f}$ is a closed set (compact subsets of Hausdorff spaces are closed), therefore $E\setminus\supp{f}$ is an open set. We make a small diversion from the current part of the proof and turn out attention to the fact that
+\begin{align*}
+    \supp{f}\subseteq U&\implies U^c\subseteq (\supp{f})^c\\
+    &\implies E\setminus U\subseteq E\setminus\supp{f}
+\end{align*}
+And because the outer-measure $\mustar$ is monotone,
+\begin{equation}\label{mustar motone part f Esuppf}
+    \mustar(U)\leq \mustar(E\setminus \supp{f})
+\end{equation}
+Now, using the definition of $\mu(E\setminus\supp{f})$ (recall that $E\setminus\supp{F}$ is an open set), for every $\varepsilon>0$, there exists some $g\in\cc{X}$, $g\prec E\setminus\supp{F}$ with
+\begin{equation}\label{Ig part f}
+I(g)>\mu(E\setminus \supp{f})-\varepsilon =\mustar(E\setminus \supp{f})-\varepsilon
+\end{equation}
+It is at this part of the proof where we wish to define $h=f+g$, but first we must verify
+\begin{itemize}
+    \item $f+g\in\cc{X,[0,1]}$,
+    \item $f+g\prec E$
+\end{itemize}
+The sum of two non-negative functions is non-negative, and for every $x\in\supp{f}$, $f\leq 1$. Also
+\begin{align*}
+    \supp{g}\subseteq (\supp{f})^c&\implies\supp{f}\subseteq (\supp{g})^c\\
+    &\implies \supp{f}\subseteq \{g=0\}
+\end{align*}
+The last implication comes from taking complements on both sides of $\{g\neq 0\}\subseteq \supp{g}$. So $x\in\supp{f}\implies f+g\leq 1$. Now if $x\notin\supp{f}$, then $f+g=g\leq 1$. Furthermore, $\supp{f+g}$ is a closed subset of compact $\supp{f}\cup\supp{g}$. This is because $\{f+g\neq 0\}\subseteq \{f\neq 0\}\cup\{g\neq 0\}$, and the finite union of two compact sets is again again compact.\\
+
+A moment's thought should yield the fact that the last estimate should be an equality, but it is a needless distraction. Therefore $\supp{f+g}$ is compact and $f+g\in\cc{X,[0,1]}$.\\
+
+Now both bullet points are satisfied, and we can set $h=f+g$. Adding equation \eqref{Ig part f} with \eqref{If part f} gives us
+\[
+I(h) = I(f) + I(g) > \mustar(E\cap U)+\mustar(E\setminus \supp{f})-2\varepsilon
+\]
+Upon \eqref{mustar motone part f Esuppf} to the right member of the above estimate, we have
+\[
+I(h)>\mustar(E\cap U)+\mustar(E\setminus U)-2\varepsilon
+\]
+But this particular $h\in\cc{X}\cap\{f\prec E\}$, therefore
+\[
+\mustar(E)\geq I(h)>\mustar(E\cap U)+\mustar(E\setminus U)-2\varepsilon
+\]
+Since $\varepsilon>0$ is arbitrary, equation \eqref{mustar measurable} holds for every open $E$. Now for any general $E\subseteq X$, fix any $\varepsilon>0$ and by how we defined $\mustar(E)$, there exists some open $V\supseteq E$ —recall that $\mustar(E)$ is the infimum over the set of $\mu(V)$ where $V$ is an open superset of $E$ — hence
+\[
+\mustar(E)+\varepsilon>\mu(V)\geq\mustar{V\cap U} + \mustar{V\setminus U}
+\]
+By monotonicity (twice) of the outer-measure $\mustar$, we have
+\[
+\mustar(E)+\varepsilon>\mustar{E\cap U} + \mustar{E\setminus U}
+\]
+Let $\varnothing\to 0$, and we get
+\[
+\mustar(E)\geq \mustar{E\cap U} + \mustar{E\setminus U}
+\]
+Therefore every open $U\subseteq X$ is $\mustar$-measurable.
+\end{proof}
 \end{document}

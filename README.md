@@ -2,7 +2,7 @@
 Reading of Folland's Real Analysis. I will try to fill in as many details as possible.
 You can read the PDF [here](./main.pdf).
 
-Sections I have yet to read are: 2.6-2.7, 3.4-3.5, 4.5-4.8, 5.3-5.5, some of 6.3, most parts of 6.5, 7.2 - 7.4and chapters 8 and9
+Sections I have yet to read are: 2.6-2.7, 3.4-3.5, 4.5-4.8, 5.3-5.5, some of 6.3, most parts of 6.5, 7.2 - 7.4 and chapters 8 and9
 
 PDF Progress
 ### Chapter 1 Measures

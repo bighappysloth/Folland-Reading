@@ -1,7 +1,8 @@
 \documentclass[../../main.tex]{subfiles}
-
+\graphicspath{{\subfix{../images/}}}
 \begin{document}
 \subsection{Theorem 7.2}
+
 \begin{wts}
     The Riesz-Markov-Kakutani Representation Theorem. If (for every) $I$ is a positive linear functional on $\cc{X}$, then there exists a unique Radon measure $\mu$ on $X$, such that
     \[
@@ -88,23 +89,26 @@ The main proof is extremely long, so we will divide it into several parts. Follo
     \begin{equation}\label{mu borel extension}
         \mu = \mustar|_{\borel}
     \end{equation} 
-    is a Borel measure.
+    is a Borel measure. And we note in passing that $\mu$ is outer-regular on all $E\in\borel$,
+    \begin{equation}\label{mu outer-regular on all Borel}
+         \mu(E) = \inf\left\{\mu(U),\:U\supseteq E,\: U\in\Tau\right\} 
+    \end{equation}
     \label{7.2.f}
 %
 %
     \item Using \eqref{mu borel extension} for the definition of  $\mu$ on $\borel$, we prove that
     \begin{itemize}
         \item $\mu$ is outer-regular on all Borel sets, and
-        \item $\mu$ satisfies \eqref{open approximated by If}.
+        \item $\mu$ satisfies Equation \eqref{open approximated by If}.
     \end{itemize}
     \label{7.2.g}
 %
 %
-    \item Equation \eqref{compact approximated by If} holds for $\mu$, this gives us another way of approximating $\mu(K)$ for every compact $K$.
+    \item $\mu$ satisfies Equation \eqref{compact approximated by If}
     \label{7.2.h}
 %
 %
-    \item If equation \eqref{compact approximated by If} holds, then $\mu$ is finite on all compact sets.
+    \item $\mu$ is finite on all compact sets.
     \label{7.2.i}
 %
 %
@@ -112,11 +116,17 @@ The main proof is extremely long, so we will divide it into several parts. Follo
     \label{7.2.j}
 %
 %
-    \item For every $f\in\cc{X}$, 
-    \[
-    I(f) = \int fd\mu
-    \]
+    \item For every $f\in\cc{X,[0,1]}$, 
+    \begin{equation}\label{integral equation}
+        I(f) = \int fd\mu
+    \end{equation}
     \label{7.2.k}
+%
+%
+    \item For every $f\in\cc{X}$,
+    \begin{equation}\label{integral equation general}
+        I(f) = \int fd\mu
+    \end{equation}
 \end{enumalpha}
 %Lemma
 
@@ -292,7 +302,7 @@ Now both bullet points are satisfied, and we can set $h=f+g$. Adding equation \e
 \[
 I(h) = I(f) + I(g) > \mustar(E\cap U)+\mustar(E\setminus \supp{f})-2\varepsilon
 \]
-Upon \eqref{mustar motone part f Esuppf} to the right member of the above estimate, we have
+Upon applying \eqref{mustar motone part f Esuppf} to the right member of the above estimate, we have
 \[
 I(h)>\mustar(E\cap U)+\mustar(E\setminus U)-2\varepsilon
 \]
@@ -302,16 +312,187 @@ But this particular $h\in\cc{X}\cap\{f\prec E\}$, therefore
 \]
 Since $\varepsilon>0$ is arbitrary, equation \eqref{mustar measurable} holds for every open $E$. Now for any general $E\subseteq X$, fix any $\varepsilon>0$ and by how we defined $\mustar(E)$, there exists some open $V\supseteq E$ —recall that $\mustar(E)$ is the infimum over the set of $\mu(V)$ where $V$ is an open superset of $E$ — hence
 \[
-\mustar(E)+\varepsilon>\mu(V)\geq\mustar{V\cap U} + \mustar{V\setminus U}
+\mustar(E)+\varepsilon>\mu(V)\geq\mustar(V\cap U) + \mustar(V\setminus U)
 \]
 By monotonicity (twice) of the outer-measure $\mustar$, we have
 \[
-\mustar(E)+\varepsilon>\mustar{E\cap U} + \mustar{E\setminus U}
+\mustar(E)+\varepsilon>\mustar(E\cap U) + \mustar{E\setminus U}
 \]
-Let $\varnothing\to 0$, and we get
+Let $\varepsilon\to 0$, and we get
 \[
-\mustar(E)\geq \mustar{E\cap U} + \mustar{E\setminus U}
+\mustar(E)\geq \mustar(E\cap U) + \mustar(E\setminus U)
 \]
-Therefore every open $U\subseteq X$ is $\mustar$-measurable.
+Therefore every open $U\subseteq X$ is $\mustar$-measurable. So $\mu = \mustar|_{\borel}$ is a Borel measure on $X$.
 \end{proof}
+\subsubsection{Part g}
+\begin{proof}
+    To show outer-regularity, fix any $E\in\borel$, then by definition,
+    \[
+    \mu(E) =\mustar(E)= \inf\left\{\mu(U),\:U\supseteq E,\:U\in\Tau\right\}
+    \]
+    And for every open $U$, \eqref{open approximated by If} follows from Equation \eqref{mu definition on open sets}.
+\end{proof}
+\subsubsection{Part h}
+\begin{proof}
+We want to show that for every compact $K$, Equation \eqref{compact approximated by If} holds. To reduce the notational baggage that follows, we agree to define
+\[
+\left\{I(f),\: f\in\cc{X},\:f\prec U\right\} = \{I(f),\: f\prec U\}
+\]
+Similarily for $\{I(f),\: f\geq \chi_K\}$. If $\mu(K)=0$, then $\mu(K)$ is obviously a lower bound, since $f\geq \chi_K\geq 0$ means that $I(f)\geq 0$, for every $f\geq \chi_K$. So we can suppose $\mu(K)>0$.\\
+
+Fix an arbitrary $f\geq \chi_K$, then this particular $f$ induces an open set $U_\alpha=\{f>1-\alpha\}$, where $\alpha>0$. Notice also that
+\[
+K\subseteq\{f\geq 1\}\subseteq \{f>1-\alpha\}=U_\alpha
+\]
+Since $U_\alpha$ is an open superset of $K$, by Equation \eqref{mu outer-regular on all Borel}, $\mu(K)\leq \mu(U_\alpha)$, but $\mu(U_\alpha)$ is simply the supremum of $\{I(g),\:g\prec U_\alpha\}$. If we wish to show that $\mu(K)\leq \mu(U_\alpha)\leq I(f)$, it suffices to show that $I(f)$ is an upper-bound for $\{I(g),\:g\prec U_\alpha\}$.\\
+
+Fix any $I(g)\in\{I(g),\:g\prec U_\alpha\}$, note that $1-\alpha\neq 0$ for any $\alpha$ small enough, then 
+\begin{itemize}
+    \item $f/(1-\alpha)>1$ on $U_\alpha$,
+    \item $1\geq g\geq 0$ on $U_\alpha$, in particular, $f/(1-\alpha)-g\geq 0$ on $U_\alpha$,
+    \item If $x\notin U_\alpha$, then $f/(1-\alpha)-g = f(1-\alpha)\geq 0$.
+    \item Therefore $f/(1-\alpha)-g\geq 0$ for any $x$, and by Lemma \ref{lemma I is monotonic},
+    \[
+    I(f/(1-\alpha))\geq I(g)\quad\forall g\prec U_\alpha
+    \]
+\end{itemize}
+Combining the above estimate with $\mu(K)\leq \mu(U_\alpha)$ gives us
+\[
+\mu(K)\leq \dfrac{1}{1-\alpha}I(f)
+\]
+Now write $\varepsilon = \alpha/\mu(K)>0$ and for every $\varepsilon>0$ we get
+\[
+\mu(K)-I(f)\leq\alpha\mu(K)=\varepsilon
+\]
+Send $\varepsilon\to 0$ and $\mu(K)\leq I(f)$ for every $f\geq\chi_K$.\\ 
+
+To show that $\mu(K)$ is indeed the infimum for $\{I(f),\: f\geq \chi_K\}$, notice that for every $\varepsilon>0$ we can obtain some open superset $U\supseteq K$ (by outer-regularity) where $\mu(U)<\mu(K)+\varepsilon$. By Urysohn's Lemma, there exists some $g\prec U$, $g(x)=1$ for every $x\in K$.
+\[
+g\in \{I(f),\: f\prec U\}\cap\{I(f),\: f\geq\chi_K\}
+\]
+Therefore $I(g)\leq\mu(U)<\mu(K)+\varepsilon$ as desired, and Equation \eqref{compact approximated by If} holds.
+\end{proof}
+\subsubsection{Part i}
+\begin{proof}
+$\mu(K)<+\infty$ for every compact $K$. Indeed, since $I(\chi_K)\in\{I(f),\:f\geq\chi_K\}$, then by Theorem 7.1, there exists a constant $C_K\geq 0$ that bounds
+\[
+\mu(K)\leq |I(\chi_K)| = I(\chi_K)\leq C_K\cdot \norm{\chi_K} = C_K<+\infty
+\]
+\end{proof}
+\subsubsection{Part j}
+\begin{proof}
+Fix any open set $U$, then for every $\varepsilon>0$, there exists some $f\prec U$ with $\mu(U)-\varepsilon<I(f)$. Then denote $K=\supp{f}\subseteq U$. If we take any $I(h)\in\{I(h),\:h\geq \chi_K\}$, then $h\geq f$ gives us $I(h)\geq I(f)$ by Lemma \ref{lemma I is monotonic}. So $I(f)$ is a lower bound of $\{I(h),\: h\geq \chi_K\}$, therefore
+\[
+\mu(U)-\varepsilon\leq I(f)\leq \mu(K)
+\]
+Since $\supp{f}=K\subseteq U$, this proves inner-regularity of $\mu$ on open sets.
+\end{proof}
+\subsubsection{Part k}
+\begin{proof}
+    Suppose $f\in\cc{X,[0,1]}$, we first show that Equation \eqref{integral equation} holds. We divide the interval $[0,1]$ into $N\geq1$ chunks by writing 
+    \[
+    K_j = \{f\geq j/N\}
+    \]
+    for every $1\geq j\geq N$. And define $K_0=\supp{f}$. Each $K_j$ is a closed subset of $\supp{f}$, and therefore compact. More is true, 
+    \begin{itemize}
+        \item $K_{j-1}\supseteq K_j$ for every $1\leq j\leq N$.
+        \item $x\in K_j$ iff $f(x)\in \left[\frac{j}{N},\: 1\right]$,
+        \item $x\notin K_j$ iff $f(x)\in \left[0,\frac{j}{N}\right)$, and
+        \item $x\in (K_{j-1}\setminus K_j)$ iff $f(x)\in \left[\frac{j-1}{N},\:\frac{j}{N}\right)$
+    \end{itemize}
+    Folland constructs a finite sequence of compactly supported functions, $\{f_j\}$, where $1\leq j \leq N$ such that
+    \begin{itemize}
+        \item Each $0\leq f_j\leq 1/N$,
+        \item If $x\in (K_{m}\setminus K_{m+1})$ iff $f(x)\in\left[\frac{m}{N},\:\frac{m+1}{N}\right)$ means that $f_j=1$ for all $1\leq j\leq m$, and
+        \item $f_{m+1} = f-m/N$ on $K_m$, such that 
+        \[
+        f(x) = \left(\sum f_{j\leq m}(x)\right) + \left(f(x)-\dfrac{m}{N}\right) = \dfrac{m}{N} + \left(f(x)-\dfrac{m}{N}\right)
+        \]
+        \item And for every $m<j\leq N$, $f_j=0$.
+        \item If $x\notin K_m$ iff $f(x)\in\left[0,\:\frac{m}{N}\right)$ then for every $m+1\leq j\leq N,\:f_j=0$.
+        
+    \end{itemize}
+    The illustration for when $N=5$ below should make things clearer.\\
+    \includegraphics[scale=0.50]{images/FollandTheorem7_2.png}
+    \\ It is also trivial to verify that
+    \begin{itemize}
+        \item For every $x\in K_j$, $f_j=N^{-1}$, and
+        \begin{equation}\label{f_j greater than K j}
+        \chi_{K_{j}}N^{-1}\leq f_j
+        \end{equation}
+        Also, if $x\notin K_j$ then $f_j\geq 0$, therefore $f_j\geq \chi_{K_j}N^{-1}$ at every $x$.
+        \item If $x\notin K_{j-1}$ then $f_j = 0\leq \chi_{K_{j-1}}\cdot N^{-1}$. If $x$ is in $K_{j-1}$ then $f_j\leq N^{-1}$ by construction and therefore
+        \begin{equation}\label{f_j less than K j-1}
+        f_j\leq \chi_{K_{j-1}}N^{-1}
+        \end{equation}
+        for all $x$.
+        \item $f_j\in\cc{X}$, since $\supp{f_j}\subseteq \supp{f}$.
+    \end{itemize}
+   Combining Equations \eqref{f_j greater than K j} with \eqref{f_j less than K j-1}, and by monotonicity in $L^+(X,\borel,\mu)$, since $f_j\in L^+$
+   \[
+   \int \dfrac{1}{N}\chi_{K_j}d\mu\leq \int f_jd\mu\leq\int \dfrac{1}{N}\chi_{K_{j-1}}d\mu
+   \]
+  % 
+   And for every $1\leq j\leq N$, 
+   \begin{equation}\label{integral fj estimate}
+   \frac{1}{N}\mu(K_j)\leq \int f_jd\mu\leq \frac{1}{N}\mu(K_{j-1})
+   \end{equation}
+   Furthermore, from Equation \eqref{f_j greater than K j}, since $Nf_j\geq \chi_{K_j}$ then by Equation \eqref{compact approximated by If},
+    \[
+    \mu(K_j)\leq I(N f_j)\implies\dfrac{1}{N}\mu(K_j)\leq I(f_j)
+    \]
+    Now for any arbitrary $I(h)\in\{I(h),\: h\geq \chi_{K_{j-1}}\}$, since
+    \[
+    h\geq\chi_{K_{j-1}}\geq N f_j\implies I(h)\geq I(N f_j)
+    \]
+    So $NI(f_j)$ is a lower bound for $\{I(h),\: h\geq \chi_{K_{j-1}}\}$ and 
+    \[
+    I(f_j)\leq\dfrac{1}{N}\mu(K_{j-1})
+    \]
+    Combining the last two results, with $I(f_j)$, we get
+    \begin{equation}\label{I fj estimate}
+    \dfrac{1}{N}\mu(K_j)\leq I(f_j)\leq\dfrac{1}{N}\mu(K_{j-1})    
+    \end{equation}
+    Taking the sum over $1\leq j\leq N$ for Equations \eqref{integral fj estimate} and \eqref{I fj estimate}. Define $A = N^{-1}\sum_0^{N-1}\mu(K_j)$, and $B=N^{-1}\sum_1^{N}\mu(K_j)$
+    \[
+        B\leq \int fd\mu \leq A
+    \]
+    And also
+    \[
+        B\leq I(f)\leq A
+    \]
+    This is because of finite additivity of both $I$ and the integral, and $f = \sum f_j$ on $K_0=\supp{f}$. Subtracting the two equations (keeping in mind that $\mu(K_j)<+\infty$ for any compact $K_j$), we get
+    \[
+        (-1)(A-B)\leq \left(\int fd\mu - I(f)\right)\leq A-B\implies \left|\int fd\mu - I(f)\right|\leq A-B
+    \]
+    It is trivial to verify that 
+    \[
+    0\leq A-B = N^{-1}(\mu(K_0)-\mu(K_N))\leq N^{-1}\mu(K_0)
+    \]
+    as $K_N\subseteq K_0$. Let $N\to\infty$ and
+    \[
+    \int fd\mu = I(f)
+    \]
+    Equation \eqref{integral equation} holds as desired.
+\end{proof}
+
+\subsubsection{Part l}
+\begin{proof}
+Now for any general $f\in\cc{X}$, $f$ must be bounded on the plane since $\cc{X}\subseteq \bc{X}$, and $|f|\leq M_0$ for some $M_0\geq 0$. Since $\supp{f}$ is compact, we know that 
+\[
+\int |f|d\mu\leq \int M_0\chi_{\supp{f}}d\mu\leq M_0\mu(\supp{f})<+\infty
+\]
+And $\cc{X}\subseteq L^1(\mu)$. Furthermore,
+\[
+\frac{1}{2}( |\Re{f}| + |\Im{f}| ) \leq |f|\leq M_0
+\]
+So that $\Re{f}$ and $\Im{f}$ are in $\cc{X}$. Without loss of generality, we may assume that $f$ is real. Define $f_1 = \Re{f}^+/M_0$ and $f_2 = \Re{f}^-/M_0$ and it immediately follows that $f_1,\,f_2\in\cc{X,[0,1]}$.\\
+
+By linearity of $I$ on $\cc{X}$ and the integral in $L^1(\mu)$, 
+\[
+I(f_1-f_2) = I(f) = \int fd\mu = \int f_1d\mu - \int f_2d\mu
+\]
+Then we may apply the above to the real and imaginary parts of a general $f\in\cc{X}$, and this completes the proof.
+\end{proof}
+
 \end{document}

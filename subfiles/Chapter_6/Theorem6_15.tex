@@ -5,38 +5,38 @@
 \begin{wts}
     
 \end{wts}
-
+\begin{proof}
 First suppose that $(X,\mathcal{M}, \mu)$ is finite measure space. If $\mu(X)<+\infty$, then for every $E\in\mathcal{M}$, by monotonicity $E\subseteq X$ yields $\mu(E)\leq \mu(X)<+\infty$. Next, for any $p<+\infty$, $\norm{\chi_E} ^p_p<+\infty$ and $\norm{\chi_E}_{+\infty}\leq 1<+\infty$. So all indicator functions are in $L^p$.\\
 
 It follows that every simple function is also in $L^p$, since it is a finite linear combination of indicators. We now define $\nu(E) = \phi(\chi_E)$, we wish to show that $\nu:\mathcal{M}\longrightarrow \mathbb{C}$ is a complex measure which is absolutely continuous with respect to $\mu$.\\
 
 To show $\sigma$-additivity, fix any disjoint sequence $\{E_j\}_{j\geq 1}\subseteq \mathcal{M}$. Where we also note that $\mu(E) = \mu(\cup E_j) <+\infty$. Now suppose that $p<+\infty$, then the following converges in the $p$-norm
 
-$$
+\[
 \chi_E = \sum_{j\geq 1}\chi_{E_j}
-$$
+\]
 
 We divert our attention to the following,
-$$
+\[
 E\setminus\left(\bigcup E_{j\leq n}\right) = \left(\bigcup E_{j\geq 1}\right)\setminus \left(\bigcup E_{j\leq n}\right) = \bigcup E_{j\geq n+1}
-$$
+\]
 and define $F_{n+1}$ as the rightmost member above. Then $\{F_{n\geq 1}\}$ is a decreasing sequence of sets. All sets are of finite measure, hence $\mu(E) - \mu(\cup E_{j\leq n}) = \mu(F_{n+1})\to 0$.\\ 
 
 Now, for any fixed $n\geq 1$, 
-$$
+\[
 \left|\chi_E - \sum \chi_{E_{j\leq n}}\right| = \left|\sum \chi_{E_{j\geq n+1}}\right| 
-$$
+\]
 the above holds pointwise almost everywhere. Since the above function evaluates either to $0$ or to $1$, taking the $p$th power does not change pointwise, and 
 
-$$
+\[
 \left|\sum \chi_{E_{j\geq n+1}}\right|^p = \left|\sum \chi_{E_{j\geq n+1}}\right| = \sum \chi_{E_{j\geq n+1}}
-$$
+\]
 
 Convergence in $p$-norm is given by
 
-$$
+\[
 \bignorm{\chi_E - \sum \chi_{E_{j\leq n}}} = \bignorm{\sum \chi_{E_{j\geq n+1}}} = \mu(F_{n+1})^{1/p}
-$$
+\]
 
 Applying continuity, and linearity to our $\phi\in L^{p*}$
 \begin{align*}
@@ -49,14 +49,14 @@ Applying continuity, and linearity to our $\phi\in L^{p*}$
 
 To show absolute convergence, recall that for any $\phi(\chi_{E_j})\in\mathbb{C}$, define $\beta_j = \overline{\sgn(\norm{\phi(\chi_{E_j})}})$ then multiplication yields
 
-$$
+\[
 \norm{\phi(\chi_{E_j})} = \beta_j\phi(\chi_{E_j}) = \phi(\beta_j\chi_{E_j})
-$$
+\]
 
 Then, the following series converges in the $p$-norm.
-$$
+\[
 \bignorm{\sum_{j\geq 1} \beta_j\chi_{E_j} - \sum_{j\leq n} \beta_j\chi_{E_j}}_p  = \bignorm{\sum_{j\geq n+1} \beta_j\chi_{E_j}}_p
-$$
+\]
 
 And because $\left|\sum_{j\geq n+1} \beta_j\chi_{E_j}\right|$ is pointwise equal to $\left|\sum_{j\geq n+1} \chi_{E_j}\right|$, since $|\beta_j|=1$ for every $j\geq 1$. We can reuse the same continuity and linearity argument. We also note that $\sum_{j\geq 1} \beta_j\chi_{E_j}\in L^p$  since its $p$-norm is equal to $\mu(E)^{1/p}$.
 
@@ -71,15 +71,15 @@ And because $\left|\sum_{j\geq n+1} \beta_j\chi_{E_j}\right|$ is pointwise equal
 \end{align*}
 
 Assuming the above estimate holds, then we only need $\nu(E) = \phi(\chi_E) = \mu(E) = 0$ ($\nu$ is now a measure and $\nu\ll\mu$), As the indicator of a null set is equal to the zero element in $L^p$. Then by Radon-Nikodym we can have some $g\in L^1(\mu)$ such that 
-$$
+\[
 d\nu = gd\mu
-$$
+\]
 
 We wish to satisfy the hypothesis of Theorem 6.14 for our function $g$. For every $\chi_E$ measurable, $\left\lVert \chi_E g\right\rVert_1\leq \lVert g\rVert_1<+\infty$, by monotonicity of the integral in $L^+$. So any simple function, $\alpha = \sum a_j\cdot\chi_{E_j}$ means that $\alpha g$ is in $L^1(\mu)$, and
 
-$$
+\[
 \phi(\alpha) = \int \alpha g d\mu
-$$
+\]
 
 If $\lVert \alpha \rVert_p = 1$, then 
 
@@ -88,36 +88,37 @@ $$
 $$
 
 Then 
-$$M_q(g) = \sup\left\{\left|\int \alpha\cdot g\right|, \lVert \alpha \rVert_p = 1, \text{ and $\alpha$ is simple and vanishes outside a set of finite measure.}\right\}<\infty$$
+\[M_q(g) = \sup\left\{\left|\int \alpha\cdot g\right|,\: \lVert \alpha \rVert_p = 1,\quad  \parbox{15em}{ and $\alpha$ is simple, and vanishes outside a set of finite measure.}\right\}<\infty\]
 
 Since $S_g = \left\{x\in X, g(x) \neq 0\right\}$ is $\sigma$-finite, an application of Theorem 6.14 tells us that $g\in L^q$, and $M_q(g) = \lVert g \rVert_q\leq \lVert \phi \rVert<+\infty$. Now that we know $g$ is in $L^q$ we can use the density of $\alpha$ in $L^p$ to show, for every single $f\in L^p$
 
-$$
+\[
 \phi(f) = \int fg d\mu
-$$
+\]
 
 Conjure a sequence of '$\alpha$'s, and call them $\{f_n\} \to f$ p.w.a.e, then each $f_n\cdot g\in L^1$. An application of the DCT and continuity gives us
 
-$$
+\[
 \phi(\lim f_n) = \lim\phi(f_n) = \lim \int f_n\,gd\mu = \int fgd\mu=\phi(f)
-$$
+\]
 
 This completes the proof for when $\mu$ is finite.\\[2ex]
 
 Let us upgrade our $\mu$ into a $\sigma$-finite measure. Then there exists an increasing sequence $\{E_n\}\nearrow X$ such that each $E_n$ is of finite measure. Define 
 
-$$
+\[
 P_n = \left\{L^p, \forall f, |f| = |f|\cdot\chi_{E_n}\right\}
-$$
+\]
 So every function in $P_n$ vanishes outside a set of finite measure and is also in $L^p$. And $Q_n$ is defined in a similar manner. Now, fix our $\phi\in L^{p*}$, and for each $f\in P_n$, there exists a corresponding $g_n\in Q_n$. Then $p\in[1,+\infty)$ tells us that $q\in ( 1,+\infty]$, and the assumptions for Theorem 6.13 all hold. Therefore for each $g_n\in Q_n$, there is a corresponding  bounded linear operator $\phi_{g_n} \in (P_n)^*$ such that 
 
-$$
+\[
 \phi(f) = \phi|_{P_n}(f) = \int fg_n d\mu = \phi_{g_n}(f)
-$$
+\]
 
-The remainder of the proof consists of taking the sequence of $g_n$ towards some $g\in L^q$. We claim that this limit makes sense. As for any $n<m$, such that $E_n\subseteq E_m$ then $g_n = g_m$ on $E_n$ pointwise. The proof is simple since each the restriction of our $\phi\in L^{p*}$ onto $E_n$ and $E_m$ spawns two functions $g_n$ and $g_m\in L^1$. To verify, take any subset $Z\subseteq E_n$ then $$
+The remainder of the proof consists of taking the sequence of $g_n$ towards some $g\in L^q$. We claim that this limit makes sense. As for any $n<m$, such that $E_n\subseteq E_m$ then $g_n = g_m$ on $E_n$ pointwise. The proof is simple since each the restriction of our $\phi\in L^{p*}$ onto $E_n$ and $E_m$ spawns two functions $g_n$ and $g_m\in L^1$. To verify, take any subset $Z\subseteq E_n$ then
+\[
 \phi|_{P_n}(\chi_Z) = \int \chi_Z\cdot g_n = \int \chi_Z\cdot g_m = \phi|_{Q_n}(\chi_Z)
-$$
+\]
 So $g_n = g_m$ pointwise a.e on $E_n$. Now we define $g$ measurable such that $g|_{E_n} = g_n$ for every $n$. And
 
 \begin{align*}
@@ -150,7 +151,7 @@ Finally, we will show that $\phi(f) = \int fg$ for every $f\in L^p$. Redefine $f
     &\leq 2|f|
 \end{align*}
 
-And $|f_n -f|^p \leq 2^p\cdot |f|^p \in L^+\cap L^1$. Now it is permissiable to apply the Dominated Theorem, and we will do so.
+And $|f_n -f|^p \leq 2^p\cdot |f|^p \in L^+\cap L^1$. Now it is permissible to apply the Dominated Theorem, and we will do so.
 
 \begin{align*}
     \lim \int |f_n -f|^p &= \int \lim |f_n-f|^p\\
@@ -172,9 +173,9 @@ Where we used the DCT again in the second last equality. The justification is a 
 
 Suppose now $\mu$ is arbitrary, and $p\in(1,+\infty)$, then $q<+\infty$. Now let us agree to define, for every $\sigma$-finite $E\subseteq X$
 
-$$
+\[
 P_E = \left\{L^p, |f| = |f|\cdot\chi_E\right\}
-$$
+\]
 
 Where $Q_E$ does not hold any surprises. Then for each $E$ we have a $\phi|_E$ which induces a $g_E$ that vanishes outside $E$. We are ready for the final part of the proof.\\
 
@@ -182,17 +183,19 @@ First, if $E\subseteq F$ and both $E$ and $F$ are $\sigma$-finite, then $\lVert 
 
 Second, we define
 
-$$
+\[
 W = \left\{\lVert g_E\rVert_q, E \text{ is } \sigma \text{-finite, and }\phi|_{P_E} \text{ induces } g_E\right\}
-$$
+\]
 
 Let $M$ be the supremum of $W$, then there exists a sequence of $\sigma$-finite sets, $\{E_n\}$ where $\lVert g_{E_n}\rVert_q \to M\leq \lVert \phi \rVert_{p*}$. Take a set $F = \cup E_{n\geq 1}$, which is also $\sigma$-finite, so that $\lVert g_F \rVert_q = M$. Now assume there exists another $\sigma$-finite superset of $F$, let us call it $A$. Then 
 
-$$
+\[
 \int |g_F|^q + \int |g_{A\setminus F}|^q = \int |g_A|^q \leq M^q = \lVert g_F \rVert^q_q
-$$
+\]
 
 Everything is finite here so there is no need for caution, subtracting we have $g_{A\setminus F} = 0$ pointwise a.e. For any $f\in L^p$, the spots where $f$ does not vanish is $\sigma$-finite. This comes from $\int |f|^p < +\infty$. So it suffices to integrate over this $\sigma$-finite set. But we already know, even if this set $A$ contains $F$ as a subset,  $\int fg_{F} = \int fg_{A}$.\\
 
-We now define $g = g_F$, and the proof is complete. As for every $\phi\in L^{p*}$, there exists a $g\in L^q$ such that the evaluation of any $f\in L^p$ is given by integrating $f$ with $g$. $\blacksquare$
+We now define $g = g_F$, and the proof is complete. As for every $\phi\in L^{p*}$, there exists a $g\in L^q$ such that the evaluation of any $f\in L^p$ is given by integrating $f$ with $g$.
+\end{proof}
+
 \end{document}

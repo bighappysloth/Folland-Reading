@@ -1,100 +1,58 @@
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{enumitem}
-\usepackage{titlesec}
+\usepackage{import}
+\import{./}{packages.tex}
+\import{./}{headers.tex}
+% Commands
 
-\usepackage{graphicx}
-%\graphicspath{ {./images/} }
+    % Essentials
+    \renewcommand{\Re}{\operatorname{Re}} % Real Part
+    \renewcommand{\Im}{\operatorname{Im}} % Imaginary Part
+    \newcommand{\defined}{\coloneqq} % := sign
+    
+    % Fonts
+    \newcommand{\bb}[1]{\mathbb{#1}} %shortcut for mathbb
+    \renewcommand{\cal}[1]{\mathcal{#1}} %shortcut for mathcal
+    
+    % Common Sets
+    \newcommand{\real}{\mathbb{R}}
+    \newcommand{\nat}{\mathbb{N}}
+    \newcommand{\integer}{\mathbb{Z}}
+    
+    % Operators
+    \newcommand{\range}{\operatorname{range}} %Range of a function
+    \newcommand{\dom}{\operatorname{dom}} %Domain of a Function
+    \newcommand{\codom}{\operatorname{codom}} % Codomain
+    \newcommand{\id}[1]{\operatorname{id}_{#1}} % Identity Mapping
+    \newcommand{\sgn}{\operatorname{sgn}} %Signum function
+    
+    \newcommand{\wt}{\operatorname{wt}} %Hamming weight
+    \newcommand{\image}{\operatorname{im}} %Image of a linear map or any map in general
+    
+    % Norms
+    \newcommand{\norm}[1]{\lVert {#1} \rVert} % || . ||
+    \newcommand{\bignorm}[1]{\left\lVert {#1} \right\rVert} % || . || but larger
+    
+    % Topology
+    \newcommand{\acc}{\operatorname{acc}} % Set of Accumulation Points
+    \newcommand{\abrackets}[1]{\langle {#1} \rangle} % Angled Brackets for Nets
+    \newcommand{\nb}[1]{\mathcal{N}_B({#1})} %N_b(x) is a neighbourhood of x
+    \newcommand{\Tau}{\mathcal{T}} % Big Tau Denoting Topological Space
+    \newcommand{\cl}[1]{\overline{#1}} % Closure of a set
+    \newcommand{\clc}[1]{(\overline{#1})^c} %  Complement of the Closure
+    \newcommand{\Epsilon}{\mathcal{E}} % Base, generating set for Topology and Sigma algebras
+    
+    % Projection Maps
+    \newcommand{\pmap}[2]{\pi_{#1}({#2})} % projection maps 
+    \newcommand{\pnv}[2]{\pi_{#1}^{-1}({#2})} %inverse projection maps
+    
+    % Functions on a Topological Space
+    \newcommand{\bc}[1]{\operatorname{BC}({#1})} %Bounded and Continuous Functions
+    \newcommand{\cc}[1]{\operatorname{C}_c({#1})} %Continuous on a Compact Set
+    \newcommand{\cnot}[1]{\operatorname{C}_0({#1})} %Vanishes at Infinity
+    \newcommand{\supp}[1]{\operatorname{supp}{(#1)}} %Support of a function
 
-%Changing the font?
-%\usepackage{fourier}
-\usepackage{mlmodern}
-
-
-%Some headers to structure our assignments
-\newtheorem*{wts}{WTS}
-% \newtheorem*{answer}{Answer} removed
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem*{remark}{Remark}
-\newcommand{\problem}[1]{\section*{Problem #1}} %question command
-
-
-\usepackage{pifont}
-\usepackage{mathtools}
-
-%for putting chapter numbers after the title
-%\titleformat{\section}[hang]{\normalfont\Large\bfseries}{Chapter }{0em}{}{}
-
-%Useful for defining functions and variables. (not centered properly?)
-\newcommand{\defined}{\coloneqq}
-
-%sigma algebras
-\renewcommand{\cal}[1]{\mathcal{#1}}
-
-
-
-%Some common sets
-\newcommand{\real}{\mathbb{R}}
-\newcommand{\nat}{\mathbb{N}}
-\newcommand{\integer}{\mathbb{Z}}
-
-\newcommand{\tx}[1]{\text{#1}}
+% Settings
 \setlength{\parindent}{0pt} %default no indent
-%New environment for labelling (a) (b) subproblems
-\newenvironment{enumalpha}{\begin{enumerate}[label=(\alph*)]}{\end{enumerate}}
-\newenvironment{enumroman}{\begin{enumerate}[label=(\roman*)]}{\end{enumerate}}
 
-%Custom Operators, Real and Imaginary Parts
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}} % How do we use operators?
 
-%Custom Operators, Domain, Range, Codomain, identity function
-\newcommand{\range}{\operatorname{range}}
-\newcommand{\dom}{\operatorname{dom}}
-\newcommand{\codom}{\operatorname{codom}}
-\newcommand{\id}[1]{\operatorname{id}_{#1}} %use with \id_{\real} as the identity function the reals.
-\newcommand{\sgn}{\operatorname{sgn}}
 %always put this at last
-
-%shortcut for norms
-\newcommand{\norm}[1]{\lVert {#1} \rVert}
-\newcommand{\bignorm}[1]{\left\lVert {#1} \right\rVert}
-
-%topology
-\newcommand{\acc}{\operatorname{acc}} % Set of Accumulation Points
-\newcommand{\abrackets}[1]{\langle {#1} \rangle} % Angled Brackets for Nets
-\newcommand{\nb}[1]{\mathcal{N}_B({#1})} %N_b(x) is a neighbourhood of x
-\newcommand{\Tau}{\mathcal{T}} % Big Tau Denoting Topological Space
-\newcommand{\cl}[1]{\overline{#1}} % Closure
-\newcommand{\clc}[1]{(\overline{#1})^c} %  Complement of the Closure
-\newcommand{\Epsilon}{\mathcal{E}} % Base for a topology, or genearting set for an Algebra, Sigma Algebra, Topology, etc.
-
-%pi maps for toplogy
-\newcommand{\pmap}[2]{\pi_{#1}({#2})}
-\newcommand{\pnv}[2]{\pi_{#1}^{-1}({#2})}
-
-% Spaces of Functions on a Topological Space
-\newcommand{\bc}[1]{\operatorname{BC}({#1})}
-\newcommand{\cc}[1]{\operatorname{C}_c({#1})}
-\newcommand{\cnot}[1]{\operatorname{C}_0({#1})}
-\newcommand{\supp}[1]{\operatorname{supp}{(#1)}}
-\usepackage[]{hyperref}
-\hypersetup{
-    pdftitle={Your title here},
-    pdfauthor={Your name here},
-    pdfsubject={Your subject here},
-    pdfkeywords={keyword1, keyword2},
-    bookmarksnumbered=true,     
-    bookmarksopen=true,         
-    bookmarksopenlevel=1,       
-    colorlinks=true,            
-    pdfstartview=Fit,           
-    pdfpagemode=UseOutlines,    % this is the option you were lookin for
-    pdfpagelayout=TwoPageRight
-}
 \usepackage{subfiles}

@@ -3,10 +3,14 @@
 \begin{document}
 \subsection{Theorem 7.9}
 \begin{wts}
-
+    If $\mu$ is a Radon measure on $X$, then $\cc{X}$ is dense in $L^p(\mu)$ for $1\leq p<+\infty$.
 \end{wts}
 \begin{proof}
-
+    Theorem 6.7 tells us that the set of $L^p$ simple functions (as Folland calls them), which are
+    \[
+        \Lambda=\biggl\{f,\,f=\sum_{j\leq n}a_j\chi_{E_j},\:a_j\in\mathbb{C},\,\mu(E_j)<+\infty\biggr\}
+    \]
+    So for every $f\in L^p$, there exists a sequence $\{f_n\}\subseteq\Lambda$ with $f_n\to f$ pointwise and $f_n\to f$ in $L^p$.
 \end{proof}
 
 \end{document}

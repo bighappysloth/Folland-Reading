@@ -16,7 +16,82 @@
     Show that $\ccinf\subseteq \szz$.
 \end{wts}
 \begin{proof}
-    First we show that for any $g\in \ccinf$, if $\alpha = (0,\ldots 0)=0$, and if $N\in\nat_0$ then $\norm{g}_{(N,\alpha)}<+\infty$. Then we show that for any multi-index $\alpha$, $\partial^\alpha$ has compact support. Since $g\in\ccinf$, and $\supp{\partial^\alpha g}\in \cpt$
+    The outline for the proof is as follows,
+    \begin{enumerate}
+        \item First, we show that for any $f\in\ccinf$, if $\alpha = (0,\ldots,0)=0$, and for any $N\in\nat_0$, then 
+        \[
+        \sup_{x\in\real^n}(1+|x|)^N|f(x)|<+\infty
+        \]
+        \item Now for any multi-index $\alpha$ where $|\alpha| = 1$, so that $\alpha = (0,\ldots,1,\ldots,0)=e_j$, then 
+        \[
+        \dfrac{\partial}{\partial x_j}f(x)=\partial_j f\in \ccinf
+        \]
+        $\partial_j f\in C^\infty$ is obvious, so we only have to show that $\partial_j f$ has compact support, we will show that $\supp{\partial_j f}\subseteq \supp{f}$. Using the first part of the outline, we can conclude that
+        \[
+        \sup_{x\in\real^n}(1+|x|)^N|\partial/\partial x_j\, g|<+\infty
+        \]
+        \item Since $f\in\ccinf$, and all partial derivatives of $f$ are continuous, we can apply Clairaut's theorem to interchange the order of differentiation, and it suffices to show that for any function $f\in \ccinf$. Then for any multi-index $\alpha$, $\partial^\alpha f\in\ccinf$, and by the first step,
+        \[
+        \norm{f}_{(N,\alpha)}<+\infty,\quad\forall N,\alpha
+        \]
+        and we conclude that $\ccinf\subseteq \szz$.
+    \end{enumerate}
+    Let $f\in\ccinf$ be arbitrary, and denote $\supp{f}=K\in\cpt$. Since $(1+|x|)$ is continuous, on $K$, $\norm{\chi_K(1+|x|)}_\infty<+\infty$, it follows that for any power of $N$, $\norm{\chi_K(1+|x|)}^N=\norm{\chi_K(1+|x|)^N}<+\infty$. Hence $\norm{f}_{(N,\alpha)}<+\infty$ for every $N\in\nat_0$, $\alpha=0$.\\
+    
+    Next, fix a $j\in[1,n]$, and if $x\notin \supp{f}$. Then there exists some neighbourhood of radius $r>0$ about $x$ that does not intersect $\supp{f}$. Therefore
+    \[
+    \partial_j f(x) = \lim_{h\to 0}\dfrac{f(x+he_j)-f(x)}{h}=0
+    \]
+    Which means $\supp{f}^c\subseteq\{x,\,\partial_j f=0\}$, and
+    \[
+    \{x,\,\partial_j f\neq 0\}\subseteq \supp{f}\implies \supp{\partial_j f}\subseteq\supp{f}
+    \]
+    and $\partial_j f\in\ccinf$.\\
+    
+    Finally, a simple induction will show that $\norm{f}_{(N,\alpha)}<+\infty$, and $\ccinf\subseteq\szz$.
+\end{proof}\newpage
+
+\begin{wts}
+    If $f\in\szz$, then for every $p\in[1,+\infty]$, $\partial^\alpha f\in L^p$.
+\end{wts}
+\begin{proof}
+    Let $\alpha$ be fixed, and let $p\in[1,+\infty)$. And find an $N$ so large using the Archimedean Property that $N>np^{-1}$, then there exists an $a<n$ with $ap^{-1}<np^{-1}$. Notice also that $(1+|x|)\geq 1$, and
+    \[
+    N>ap^{-1}\implies (1+|x|)^{-N}\leq |x|^{-N}\leq |x|^{-ap^{-1}}
+    \]
+    Taking the $p$-th power on both sides gives us
+    \[
+    (1+|x|)^{-Np}\leq |x|^{-a}
+    \]
+    But Corollary 2.5 reads that if $a<n$, and if both functions are supported on a bounded set (because compact), then $|x|^{-a}\in L^{1}(m)$ by polar integration. Therefore $(1+|x|)^-N\in L^p$. It immediately follows that for this $N\in\nat_0$, and for any multi-index $\alpha$, we have
+    \begin{align*}
+    |\partial^\alpha f(x)|&\leq \norm{f}_{(N,\alpha)}\:(1+|x|)^{-N}\\
+    |\partial^\alpha f(x)|^p&\leq \norm{f}_{(N,\alpha)}^p\:(1+|x|)^{-Np}\\
+    &\implies \partial^\alpha f\in L^p
+    \end{align*}
+    If $p=+\infty$, then $|\partial^\alpha f(x)|=|\partial^\alpha f(x)|(1+|x|)^{-N}(1+|x|)^{N}$, and
+    \[
+    \norm{\partial^\alpha f}_\infty \leq \norm{f}_{(N,\alpha)}\:\norm{(1+|x|)^{-N}}_{u}<+\infty
+    \]
+    therefore $\partial^\alpha f\in L^p$ for every $p\in[1,+\infty]$.
 \end{proof}
+\newpage
+\subsection{Notes on Frechet Space}
+A Frechet space is a complete, Hausdorff, topological vector space whose topology is defined by a countable family of semi-norms.
+\begin{itemize}
+    \item Completeness: every Cauchy net converges
+    \item Hausdorff, if $x\neq y\in X$, then there exists disjoint open sets $U_x, U_y\in\Tau$ with $x\in U_x$ and $y\in U_y$,
+    \item Topological vector space: vector space equipped with a topology such that
+    \begin{align*}
+        f_1:X\times X\to X,&\quad (x,y)\mapsto (x+y)\\
+        f_2:K\times X\to X,&\quad (\lambda, x)\mapsto \lambda x
+    \end{align*}
+    both maps $f_1$ and $f_2$ are continuous.
+    \item A family of semi-norms, generate the topology if and only if (from Theorem 5.14), the topology $\Tau_X$ is generated sets of the form, for every $x\in X$, $\alpha\in A$, $\varepsilon>0$
+    \[
+    U_{x\alpha\varepsilon}=\biggl\{y\in X,\,p_\alpha(y-x)<\varepsilon\biggr\}
+    \]
+\end{itemize}
+\newpage
 
 \end{document}

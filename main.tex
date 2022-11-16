@@ -10,9 +10,22 @@
 %\title{MATH 254: Assignment 2}
 %\title{ECSE 307: Assignment 1}
 
+%fancy footer line
+%\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+
+
 \author{Me}
 
 \begin{document}
+\pagestyle{fancy}
+
+% Clear all headers and footers (see also \fancyhf{})
+\fancyhead{}\fancyfoot{}
+
+% Set the Centre header location but do not specify O or E
+\fancyhead[C]{Folland Reading\quad Chapter \thesection\quad Page \thepage}
+\setlength{\headheight}{52pt}% ...at least 51.60004pt
+
 \maketitle
 \tableofcontents\newpage
 \subfile{subfiles/Chapter_1_Compiled}\newpage

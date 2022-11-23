@@ -1,5 +1,6 @@
 %Headers and Sections
 
+
     %Want to show we want it to be numbered with the section at a later date
     \newtheorem*{wts}{WTS}
     
@@ -10,7 +11,7 @@
     \newtheorem{lemma}[theorem]{Lemma} %Lemma
     
     \newtheorem*{remark}{Remark} %unnumbered remark
-    \newcommand{\problem}[1]{\subsection*{Theorem #1}\markright{Theorem #1}\addcontentsline{toc}{subsection}{Theorem #1}} %Problem Number for assignments
+    \newcommand{\problem}[1]{\phantomsection\subsection*{Theorem #1}\markright{Theorem #1}\addcontentsline{toc}{subsection}{Theorem #1}} %Problem Number for assignments
     
     % Definition
     \theoremstyle{definition}

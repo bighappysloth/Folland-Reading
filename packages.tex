@@ -1,7 +1,7 @@
 %Packages
 
     %Basics
-    \usepackage[utf8]{inputenc}
+    
     \usepackage{amsmath}
     \usepackage{amssymb}
     \usepackage{amsfonts}
@@ -23,6 +23,7 @@
     %Font adjustment
     %\usepackage{fourier} not that good
     \usepackage{mlmodern}
+    \usepackage[T1]{fontenc}
     
     %Forgot what these two do
     \usepackage{pifont}
@@ -36,7 +37,8 @@
     \usepackage{datetime2}
     
     %Music symbols
-    %\usepackage{musixtex}
+    \usepackage{fontspec} % Is necessary to access OpenType fonts 
+    \usepackage{lilyglyphs} 
     
     
     %Hyperlinks in PDFs and Table of Contents, eqref and ref URLs

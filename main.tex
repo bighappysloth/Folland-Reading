@@ -5,14 +5,7 @@
 \import{./}{imports}
 
 
-%Change the title
 \title{Folland Reading}
-%\title{MATH 254: Assignment 2}
-%\title{ECSE 307: Assignment 1}
-
-%fancy footer line
-%\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
-
 
 \author{Me}
 
@@ -21,18 +14,21 @@
 
 % Clear all headers and footers (see also \fancyhf{})
 \fancyhead{}\fancyfoot{}
-
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
 % Set the Centre header location but do not specify O or E
-\fancyhead[C]{Folland Reading\quad Chapter \thesection\quad Page \thepage}
+%\fancyhead[C]{Folland Reading\quad Chapter \thesection\quad Page \thepage}
+
+\fancyhead[C]{\textbf{Folland Reading \hfill \rightmark}}
+\fancyfoot[L]{\textbf{Updated \today\, at \,\currenttime\hfill Page \thepage}}
 \setlength{\headheight}{52pt}% ...at least 51.60004pt
 
-\maketitle
+\maketitle\newpage
 \tableofcontents\newpage
 \subfile{subfiles/Chapter_1_Compiled}\newpage
-%\subfile{subfiles/Chapter_2_Compiled}\newpage
-%\subfile{subfiles/Chapter_3_Compiled}\newpage
+\subfile{subfiles/Chapter_2_Compiled}\newpage
+\subfile{subfiles/Chapter_3_Compiled}\newpage
 \subfile{subfiles/Chapter_4_Compiled}\newpage
-%\subfile{subfiles/Chapter_5_Compiled}\newpage
+\subfile{subfiles/Chapter_5_Compiled}\newpage
 \subfile{subfiles/Chapter_6_Compiled}\newpage
 \subfile{subfiles/Chapter_7_Compiled}\newpage
 \subfile{subfiles/Chapter_8/Chapter_8_Compiled}\newpage

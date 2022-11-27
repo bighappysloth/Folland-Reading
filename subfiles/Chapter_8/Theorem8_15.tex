@@ -1,12 +1,181 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
+\providecommand{\wl}{\mathcal{L}}
 \problem{8.15}
 \begin{wts}
-
+    If $|\phi(x)|\leq C(1+|x|)^{-n-\varepsilon}$, where $\varepsilon>0$, and if $f\in L^p$, for $p\in[1,+\infty)$, then \[f\cnv \phi_t\to af\]
+    pointwise for every $x$ in the Lebesgue set of $f$, \[\mathcal{L}_f = \bigset{x\in\realn,\quad\lim_{r\to 0}\dfrac{1}{m(B(r,x))}\int_{y\in B(r,x)}|f(x)-f(y)|dy = 0}\]
+    We also claim that $m(\mathcal{L}_f^c)=0$, and $x\in \mathcal{L}_f$ at every continuous $f(x)$.
 \end{wts}
+The proof is long, and will be divided into several parts. Let us start with a couple of Lemmas about the Lebesgue Set of $f$, and several pointwise estimates that will be of use.
+\begin{lemma}
+    If $\phi:\realn\to\mathbb{C}$, and\begin{equation}\label{phi estimate}
+    |\phi(x)|\leq C(1+|x|)^{n-\varepsilon},\,\varepsilon>0\end{equation}
+    then $\phi\in L^1$. Furthermore, $\phi_t\in L^1$ for every $t>0$.
+\end{lemma}
 \begin{proof}
-
+    If $x\neq 0$, then
+    \[
+    |\phi|\leq C\cdot(1+|x|)^{-(n+\varepsilon)}\leq C\cdot|x|^{-(n+\varepsilon)}
+    \]
+    on some $B^c$ as defined in Theorem 2.52, so $\phi\in L^1(B^c)$. Next, \[n+\varepsilon>n>n/2=a\]
+    and by monotonicity,\[|\phi|\leq C\cdot(1+|x|)^{-(n+\varepsilon)}\leq C\cdot (1+|x|)^{-(n/2)}\]
+    so $\phi\in L^1(\realn)$. Next, if $\phi\in L^1$, then\[|\phi_t(x)|=t^{-n}|\phi(t^{-1}x)|\]
+    taking the integral in $L^+$, and applying Theorem 2.44, with $T:x\mapsto t^{-1}$, and $\det(T)=t^{-n}$, so that\[\int|\phi_t|(x)dx=|\det(T)|\int |\phi|\circ T(x)dx=\int |\phi|(x)dx<+\infty\]
+    This completes the Lemma.
 \end{proof}
+
+\begin{lemma}\label{lemma:lebesgue set continuity}
+    If $f:\realn\to\mathbb{C}$, and if $f\in C(\realn)$, then $\mathcal{L}_f=\realn$.
+\end{lemma}
+\begin{proof}
+    Let $x\notin\wl_f$, and there exists a sequence $r_k\to 0$ and $\varepsilon_0>0$ but \[\dfrac{1}{m(B(r_k,x))}\int_{y\in B(r_k,x)}|f(x)-f(y)|dy\geq \varepsilon_0\]
+    We claim that for every $k\geq 1$, we can find a $y_k\in B(r_k,x)\setminus\{x\}$ with\[|f(x)-f(y)|\geq\varepsilon_0\]
+    Indeed, suppose by contradiction that no such $y_k$ exists, and by monotonicity, \[\dfrac{1}{m(B(r_k,x))}\int\limits_{y\in B(r_k,x)}|f(x)-f(y)|dy<\dfrac{1}{m(B(r_k,x))}\int\limits_{y\in B(r_k,x)}\varepsilon_0dy=\varepsilon_0\]
+    So choose $y_k$ as above, and it is clear that $y_k\to x$ as $k\to\infty$, but $f(y_k)\not\to f(x)$. Therefore $f$ is not continuous at $x$.
+\end{proof}
+
+\begin{lemma}\label{lemma:lebesgue set estimate}
+    If $x\in\wl_f$, then for every $\delta>0$ there exists a $\eta>0$, with\[r\leq\eta\implies\int_{|y|<r}|f(x-y)-f(x)|dy\leq\delta\cdot r^n\]
+\end{lemma}
+\begin{proof}
+    We will start with something trivial.\begin{equation}\label{ball rn multiple}
+        m(B(r))=r^nm(B(1))
+    \end{equation}
+    where $B(r)=\{x\in\realn,\,|x|<r\}$. By Theorem 2.44,\begin{align*}
+        m(B(r))&=\int\chi_B(x/r)dx\\
+        &= |\det(T)|^{-1}\int \chi_B(x)dx\\
+        &=r^nm(B(1))
+    \end{align*}
+    where $T:x\mapsto x/r$ and $\det(T)=r^{-n}$. Fix $x\in\wl_f$, and take $\varepsilon=\delta/m(B(1))>0$, and by definition this induces some $\eta>0$, and for every $r\leq\eta$
+    \[\dfrac{1}{m(B(r,x))}\int\limits_{y\in B(r,x)}|f(x)-f(y)|dy\leq\varepsilon\] 
+    By translation invariance of $m$, \[m(B(r,x))=m(B(r))=r^n\cdot m(B(1))\]
+    and apply the map $y\mapsto x-y$, which is a composition a rotation by $|-1|$ and a translation by $x\in\realn$. By Theorems 2.44 and 2.42, \[\int\limits_{|y|\in B(r)}|f(x)-f(x-y)|dy=\int\limits_{y\in B(r,x)}|f(x)-f(y)|dy<\varepsilon m(B(1))\cdot r^n =\delta r^n\]
+    where we used the fact that\begin{align*}d(x-y,x)<r&\iff d(-y,0)<r\\
+    &\iff d(y,0)<r
+    \end{align*}
+    hence\[\chi_{B(r,x)}(x-y)=\chi_{B(r,0)}(y)\]
+\end{proof}
+\begin{lemma}\label{lemma:phi estimates}
+    Let $A_j = \bigset{|y|\in[2^{-j}\eta,\,2^{1-j}\eta)}$, and if Equation \eqref{phi estimate} holds for $\phi$ then $\phi_t$ satisfies 
+    \begin{equation}\label{phi estimate on Aj}
+        |\phi_t|\leq C\cdot t^{-n}(2^{-j}\alpha)^{-(n+\varepsilon)}
+    \end{equation}
+    on $A_j$ for every $t>0$, where $\alpha=t^{-1}\eta$ for some $\eta>0$. \\
+    
+    Moreover, if $A_0 = \bigset{|y|<2^{-K}\eta}$, where $K\geq 0$, then \begin{equation}\label{phi estimate on A0}|\phi_t(y)|\leq C\cdot t^{-n}\end{equation} on $A_0$
+\end{lemma}
+\begin{proof}
+    Notice that\[t^{-1}y\in[2^{-j}\cdot \eta/t,\,2^{1-j}\cdot \eta/t)=[2^{-j}\cdot \alpha,\,2^{1-j}\cdot \alpha)\]
+    And\[1+|t^{-1}y|\geq |t^{-1}y|\geq 2^{-j}\alpha\]
+    Therefore\[C\cdot t^{-n}(1+|t^{-1}y|)^{-(n+\varepsilon)}\leq C\cdot t^{-n}(2^{-j}\alpha)^{-(n+\varepsilon)}\]
+    and applying Equation \eqref{phi estimate} establishes the first claim.\\
+
+    The second claim follows from Equation \eqref{phi estimate}, \[|\phi_t(y)|\leq C\cdot t^{-n}(1+|t^{-1}y|)^{-(n+\varepsilon)}\leq C\cdot t^{-n}\]
+\end{proof}
+
+\begin{lemma}
+    
+\end{lemma}
+
+\begin{proof}
+\end{proof}
+
+
+\begin{proof}[Main Proof of Theorem 8.15]
+    The outline of the proof is as follows,
+    \begin{enumerate}
+        \item $|\phi|\leq C\cdot (1+|x|)^{-(n+\varepsilon)}$ for $\varepsilon>0$ and
+        
+        \item $f\in L^p$ for $p\in[1,+\infty)$,
+        
+        \item for any $x\in\wl_f$, we wish to show \[|f\cnv\phi_t - af|(x)\to 0,\quad\text{as }t \to 0\]
+        
+        \item To prove this, we fix some $\beta>0$ and show that\[|f\cnv\phi_t - af|(x)<\beta\]
+        since $\beta$ is arbitrary, the proof will be complete.
+
+        \item By Lemma \ref{lemma:lebesgue set estimate}, for every $\delta>0$ there exists a $\eta>0$ where $r\leq \eta$ implies
+        \[\int_{|y|<r}|f(x)-f(x-y)|dy\leq\delta\cdot r^n\] and using the $L^1$ inequality,
+        \begin{align*}|f\cnv\phi_t-af|(x)&=\left|\int [f(x-y)-f(x)]\cdot\phi_t(y)dy\right|\\
+        &\leq\int |f(x-y)-f(x)|\cdot|\phi_t(y)|dy\\
+        &=\int\limits_{|y|<\eta} |f(x-y)-f(y)|\cdot|\phi_t(y)|dy + \int\limits_{|y|\geq\eta} |f(x-y)-f(y)|\cdot|\phi_t(y)|dy\\
+        &=I_1 +I_2
+        \end{align*}
+        
+        \item Let $\delta = \beta(2A)^{-1}$, where 
+        \[A = 2^n\cdot C\left[\dfrac{2^\varepsilon}{2^\varepsilon-1}+1\right]\]
+        we make the claim that this choice of $\delta$ will give us $I_1<\beta/2$
+        
+        \item After choosing $\delta>0$, (which induces $\eta>0$), we will show that $I_2<\beta/2$ (for a fixed $\eta>0$) for $t$ sufficiently small, and applying the Triangle Inequality finishes the proof.
+    \end{enumerate}
+    Let $\eta$ be as above, and for $t>0$ and suppose we can find a $K\in\nat^+$ with
+
+    \begin{equation}\label{alpha estimate}
+    2^K\leq \eta/t\leq 2^{K+1}
+    \end{equation}
+
+    and define $\alpha = \eta/t$ for convenience.\\
+
+    Notice for any $K\geq 1$, the interval $[0,1)$ can be partitioned in the following manner\[[0,1)=[0,2^{-K})\cup\left(\bigcup\limits_{j=1}^K[2^{-j},2^{1-j})\right)\]
+    and let us define 
+    \[A_j = \bigset{|y|\in[2^{-j}\eta,\,2^{1-j}\eta)},\quad A_0 = \bigset{|y|\in[0,2^{-K}\eta)}\]
+    If no such $K$ exists, then let $A_j=\varnothing$ and set $A_0 = \{|y|\in[0,\eta)\}$. The disjoint union of all $A_{j\geq 0}$ is the open ball $\{|y|\in[0,\eta)\}$. By Lemma \ref{lemma:phi estimates} and Lemma \ref{lemma:lebesgue set estimate} each $j\geq 0$,
+    \begin{align*}
+        I_1&= \sum_{j=0}^K\int\limits_{y\in A_j}|f(x-y)-f(y)||\phi_t(y)|dy\\[2ex]
+        &\leq Ct^{-n}\delta(2^{-K}\eta)^n + \sum_{j=1}^K\int\limits_{y\in A_j}|f(x-y)-f(y)||\phi_t(y)|dy\\[2ex]
+        &\leq Ct^{-n}\delta(2^{-K}\eta)^n + \sum_{j=1}^K Ct^{-n}(2^{-j}\alpha)^{-(n+\varepsilon)}\delta(2^{1-j}\eta)^n
+    \end{align*}
+    The left member reads, 
+    \begin{align*}
+        Ct^{-n}\delta(2^{-K}\eta)^n&\leq C\delta\alpha^n2^{-Kn}\\
+        &\leq C\delta 2^{n(K+1)}2^{-Kn}\\
+        &=C\delta 2^n
+    \end{align*}
+    and termwise for the right,
+    \begin{align*}
+        Ct^{-n}(2^{-j}\alpha)^{-(n+\varepsilon)}\delta(2^{1-j}\eta)^n &= C\delta\cdot t^{\varepsilon}\cdot 2^{j\varepsilon+n}\eta^{-\varepsilon}\\
+        &= (C\delta 2^n\alpha^{-\varepsilon})\cdot 2^{j\varepsilon}
+    \end{align*}
+    Summing over the geometric series,
+    \begin{align*}
+        \sum_{j=1}^K2^{j\varepsilon}&=2^{\varepsilon}\sum^{K-1}_{j=0}2^{j\varepsilon}\\[2ex]
+        &=\dfrac{2^{\varepsilon(K+1)}-2^{\varepsilon}}{2^{\varepsilon}-1}
+    \end{align*}
+    using the estimate for $\alpha$ in Equation \eqref{alpha estimate} 
+    \[\alpha\in [2^K,2^K+1)\implies\alpha^{-\varepsilon}\in[2^{-\varepsilon(K+1)},2^{-\varepsilon K})\]
+    and combining the last few equations, the right member becomes
+    \begin{align*}
+        (C\delta 2^n)\cdot \alpha^{-\varepsilon}\dfrac{2^{\varepsilon(K+1)}-2^{\varepsilon}}{2^{\varepsilon}-1}&\leq (C\delta 2^n)\cdot \alpha^{-\varepsilon}\dfrac{2^{\varepsilon(K+1)}}{2^{\varepsilon}-1}\\[2ex]
+        &\leq (C\delta 2^n)\cdot \dfrac{2^{\varepsilon}}{2^{\varepsilon}-1}
+    \end{align*}
+    Finally, $I_1\leq (C\delta 2^n)\left[\dfrac{2^\varepsilon}{2^\varepsilon-1}+1\right]$, and by Step 6, $I_1\leq \beta/2$.\\
+
+    Obtaining an estimate for $I_2$ is another laborious entreprise. Let us define $W = \{|y|\geq \eta\}$, and
+    \begin{itemize}
+        \item By Holder's Inequality, \[I_2\leq \norm{f}_p\,\norm{\chi_W\cdot \phi_t}_q + |f(x)|\,\norm{\chi_W\cdot\phi_t}_1\] where $q$ is the conjugate exponent to $p$. Since $p\in[1,+\infty)$, it suffices to show $\norm{\chi_W\cdot \phi_t}_q\to 0$ as $t\to 0$ for $q\in[1,+\infty]$.
+        \item Suppose $q = +\infty$, 
+        \[y\in W\iff |y|\geq\eta\iff |t^{-1}y|\geq\alpha\]
+        then $\norm{\chi_W\cdot \phi_t}_\infty\leq Ct^{-n}(1+|t^{-1}y|)^{-(n+\varepsilon)}\leq Ct^{\varepsilon}\eta^{-(n+\varepsilon)}$
+        \item Now suppose $q\in[1,+\infty)$, by polar integration and Theorems 2.51, 2.52 (brace yourselves):
+        \begin{align*}
+            \norm{\chi_W\cdot\phi_t}_q^q&=t^{-nq}\cdot\int_{y\in W}C^q\cdot|t^{-1}y|^{-q\cdot(n+\varepsilon)}dy\\[2ex]
+            &= C^q\cdot t^{\varepsilon q}\int_{|y|\geq \eta}|y|^{-q\cdot(n+\varepsilon)}dy\\[2ex]
+            &= C^q\cdot t^{\varepsilon q}\sigma(S^{n-1})\int_{r\geq\eta}r^{n-1}\cdot r^{-q\cdot(n+\varepsilon)}dr\\[2ex]
+            &=\dfrac{C^qt^{\varepsilon q}}{n- q\cdot(n+\varepsilon)}r^{n-q\cdot(n+\varepsilon))}\biggr]^\infty_\eta\\[2ex]
+            &=\dfrac{C^qt^{\varepsilon q}}{q\cdot(n+\varepsilon)-n}\eta^{n-q\cdot(n+\varepsilon)}\\[2ex]
+            \norm{\chi_W\cdot\phi_t}_q&=\left[\dfrac{C}{(q\cdot(n+\varepsilon)-n)^{1/q}}\biggl(\eta^{n-q\cdot(n+\varepsilon)}\biggr)^{1/q}\right]t^{\varepsilon}\\
+            &=C_3(q)t^\varepsilon
+        \end{align*}
+        \item Find a $t$ sufficiently small so that
+        \[
+        t^\varepsilon< \min\biggl\{\beta(4C_3(1)|f(x)|)^{-1}
+        ,\: \beta(4C_3(q)\norm{f}_p)^{-1}\\[2ex]
+        ,\: \beta(4C\cdot \eta^{-(n+\varepsilon)})^{-1}\biggr\}
+        \]
+        
+        \item Therefore $I_2<\beta/2$, and the proof is complete upon sending $\beta\to 0$.
+    \end{itemize}
+\end{proof}\newpage
 
 \end{document}

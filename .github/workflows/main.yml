@@ -33,7 +33,7 @@ jobs:
           # extra_fonts: ./fonts/*.ttf
 
           # Arbitrary bash codes to be executed before compiling LaTeX documents
-          pre_compile: tlmgr update --self && tlmgr update --all # disabling updates
+          # pre_compile: tlmgr update --self && tlmgr update --all # disabling updates
 
           # Arbitrary bash codes to be executed after compiling LaTeX documents
           post_compile: latexmk -c

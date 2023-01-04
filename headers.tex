@@ -11,7 +11,8 @@
     \newtheorem{lemma}[theorem]{Lemma} %Lemma
     
     \newtheorem*{remark}{Remark} %unnumbered remark
-    \newcommand{\problem}[1]{\phantomsection\subsection*{Theorem #1}\markright{Theorem #1}\addcontentsline{toc}{subsection}{Theorem #1}} %Problem Number for assignments
+    \newcommand{\problem}[1]{\phantomsection\subsection*{Theorem #1}\markright{Theorem #1}\addcontentsline{toc}{subsection}{Theorem #1}\setcounter{secnumdepth}{0}
+} %Problem Number for assignments
     
     % Definition
     \theoremstyle{definition}
@@ -30,4 +31,6 @@
 
 
 %for putting chapter numbers after the title
-%\titleformat{\section}[hang]{\normalfont\Large\bfseries}{Chapter }{0em}{}{}
+\titleformat{\section}[hang]{\normalfont\Large\bfseries}{Chapter }{0em}{}{}
+
+    \newcommand{\fchapter}[1]{\phantomsection\chapter*{Chapter #1}\addcontentsline{toc}{chapter}{Chapter #1}\newpage} % Chapter Number

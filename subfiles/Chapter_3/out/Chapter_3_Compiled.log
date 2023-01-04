@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  3 JAN 2023 19:08
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  3 JAN 2023 21:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -859,68 +859,64 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/mlmtt/m/n --> TU/lmtt/bx/n on input line 3.
 Package hyperref Info: Link coloring ON on input line 3.
+ (out/Chapter_3_Compiled.out) (out/Chapter_3_Compiled.out)
 \@outlinefile=\write4
 \openout4 = `Chapter_3_Compiled.out'.
 
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
-(./Theorem3_1.tex
-LaTeX Font Info:    Trying to load font information for OML+mlmm on input line 10.
+ (./Chapter_3_Notes.tex
+LaTeX Font Info:    Trying to load font information for OML+mlmm on input line 8.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/omlmlmm.fd
 File: omlmlmm.fd 2021/01/11 v1.0 Font defs for mlmodern
 )
-LaTeX Font Info:    Trying to load font information for OMS+mlmsy on input line 10.
+LaTeX Font Info:    Trying to load font information for OMS+mlmsy on input line 8.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/omsmlmsy.fd
 File: omsmlmsy.fd 2021/01/11 v1.0 Font defs for mlmodern
 )
-LaTeX Font Info:    Trying to load font information for OMX+mlmex on input line 10.
+LaTeX Font Info:    Trying to load font information for OMX+mlmex on input line 8.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/omxmlmex.fd
 File: omxmlmex.fd 2021/01/11 v1.0 Font defs for mlmodern
 )
 LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <12> on input line 10.
+(Font)              <12> on input line 8.
 LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <8> on input line 10.
+(Font)              <8> on input line 8.
 LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <6> on input line 10.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
+(Font)              <6> on input line 8.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 8.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 8.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+)) [1
+
+] (./Theorem3_1.tex
 Overfull \hbox (0.95372pt too wide) in paragraph at lines 11--15
 \TU/lmr/m/n/12 By countable additivity, and the absolute convergence of the series $[][] \OML/mlmm/m/it/12 ^^W\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 F[]\OT1/cmr/m/n/12 )$ 
  []
 
-) [1
+) [2] (./Theorem3_2.tex) [3] (./Theorem3_3.tex) [4] (./Theorem3_4.tex) [5] (./Theorem3_5.tex) [6] (./Theorem3_6.tex) [7] (./Theorem3_7.tex) [8] (./Theorem3_8.tex) [9] (./Theorem3_9.tex) [10] (./Theorem3_10.tex) [11] (./Theorem3_11.tex) [12] (./Theorem3_12.tex) [13] (./Theorem3_13.tex) [14] (./Theorem3_14.tex) [15] (./Theorem3_15.tex) [16] (./Theorem3_16.tex) [17] (./Theorem3_17.tex
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
-] (./Theorem3_2.tex) [2] (./Theorem3_3.tex) [3] (./Theorem3_4.tex) [4] (./Theorem3_5.tex) [5] (./Theorem3_6.tex) [6] (./Theorem3_7.tex) [7] (./Theorem3_8.tex) [8] (./Theorem3_9.tex) [9] (./Theorem3_10.tex) [10] (./Theorem3_11.tex) [11] (./Theorem3_12.tex) [12] (./Theorem3_13.tex) [13]
+ []
 
-! LaTeX Error: File `Theorem3_14.tex' not found.
+[18] [19]) [20] (./Theorem3_18.tex) [21] (./Theorem3_19.tex) [22] (./Theorem3_20.tex) [23] (./Theorem3_21.tex
+Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
+ []
 
-Enter file name: 
-./Chapter_3_Compiled.tex:18: Emergency stop.
-<read *> 
-         
-l.18 \subfile{Theorem3_14}
-                          \newpage^^M
-*** (cannot \read from terminal in nonstop modes)
-
- 
+[24]) [25] (./Theorem3_22.tex) [26] (./Theorem3_23.tex) [27] (./Theorem3_24.tex) [28] (./Theorem3_25.tex) [29] (./Theorem3_26.tex) [30] (./Theorem3_27.tex) [31] (./Theorem3_28.tex) [32] (./Theorem3_29.tex) [33] (./Theorem3_30.tex) [34] (./Theorem3_31.tex) [35] (./Theorem3_32.tex) [36] (./Theorem3_33.tex) [37] (./Theorem3_34.tex) [38] (./Theorem3_35.tex) [39] (./Theorem3_36.tex) [40] (out/Chapter_3_Compiled.aux)
+Package rerunfilecheck Info: File `Chapter_3_Compiled.out' has not changed.
+(rerunfilecheck)             Checksum: 06E90BAF245BF7A5A9874C6F53BB277A;4290.
+ ) 
 Here is how much of TeX's memory you used:
- 26983 strings out of 476778
- 545877 string characters out of 5805974
- 1851979 words of memory out of 5000000
- 46559 multiletter control sequences out of 15000+600000
+ 27135 strings out of 476778
+ 548651 string characters out of 5805974
+ 1852979 words of memory out of 5000000
+ 46633 multiletter control sequences out of 15000+600000
  521637 words of font info for 64 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 116i,12n,126p,1097b,379s stack positions out of 10000i,1000n,20000p,200000b,200000s
-Output written on out/Chapter_3_Compiled.xdv (13 pages, 25944 bytes).
+ 116i,12n,126p,1097b,582s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on out/Chapter_3_Compiled.xdv (40 pages, 93644 bytes).

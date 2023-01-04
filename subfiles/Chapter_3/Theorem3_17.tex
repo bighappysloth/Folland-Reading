@@ -1,0 +1,80 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\providecommand{\local}{{L^{1}_{loc}}}
+\providecommand{\lf}{{\mathcal{L}_f}}
+
+\problem{3.17}
+\begin{wts}
+Let the maximal function of any measurable $f\in\borel_\realn$ be denoted by $Hf(x)$, more precisely,
+\[
+Hf(x) = \sup_{r>0}A_r|f|(x) = \sup_{r>0}\dfrac{1}{m(B(r,x))}\int_{B(r,x)}f(y)dy
+\]
+where $A_r|f|$ is the average of $|f|$ on a ball with radius $r>0$ centered at $x\in\realn$. In symbols,
+\[A_r|f| = \dfrac{1}{m(B(r,x))}\int_{B(r,x)}f(y)dy\]
+The maximal theorem makes two claims:
+\begin{enumerate}
+    \item $(Hf)^{-1}((\alpha,+\infty))=\bigcup\limits_{r>0}(A_r|f|)^{-1}((\alpha,+\infty))$, and $Hf$ is measurable for every $f\in\local$. 
+    \item There exists a $C>0$, for every $f\in L^1$ \[
+        m(\{Hf(x)>\alpha\})\leq \dfrac{C}{\alpha}\norm{f}_1
+    \]
+    for every $\alpha>0$.
+\end{enumerate}
+\end{wts}
+\begin{proof}
+    Let $\alpha>0$ and fix $z\in (Hf)^{-1}((\alpha,+\infty))$, so $Hf(z)>\alpha$ and 
+    \[\sup_{r>0}A_r|f|(z)>\alpha\]
+    and with $Hf(z)-\alpha>0$, we get some $r_0>0$ \[
+    Hf(z)-(Hf(z)-\alpha)=\alpha < A_{r_0}|f|(z)\implies z\in \bigcup\limits_{r>0}(A_r|f|)^{-1}((\alpha,+\infty))
+    \]
+    Next, let $z\in\bigcup\limits_{r>0}(A_r|f|)^{-1}((\alpha,+\infty))$, it is clear that
+    \[
+    Hf(z)\geq A_{r_0}|f|(z)>\alpha
+    \]
+    for some $r_0>0$. Since $A_r|f|$ (a function indexed by $r>0$) is continuous in $x\in\realn$, $(A_r|f|)^{-1}((\alpha,+\infty))$ is open, and $Hf$ is measurable.\\
+
+    The second claim is slightly more intricate than the first. Define 
+    \[
+    E_\alpha = \bigset{Hf>\alpha}=\bigcup\limits_{r>0}\{A_r|f|>\alpha\}
+    \]
+    Let $x\in E_\alpha$, this induces a $r_x>0$ where $x\in\bigset{A_{r_x}|f|>\alpha}$. Rearranging gives
+    \[
+    \biggl(\dfrac{1}{\alpha}\int\limits_{B(r,x)}|f|dz\biggr)<m(B(r,x))
+    \]
+    We wish to apply Theorem 3.15 to this family of open balls. Notice
+    \begin{itemize}
+        \item Each $x\in E_\alpha\induces r_x>0\induces A_{r_x}|f|$,
+        \item If $U = \bigcup\limits_{x\in E_\alpha} B(r_x,x)$, then $E_\alpha\subseteq U$,
+        \item Choose $c<m(E_\alpha)\leq m(U)$ (by monotonicity) arbitrarily, 
+        \item By Theorem 3.15, there exists a finite disjoint subcollection of points indexed by 
+        \[
+        x_1,\ldots,x_N \in E_\alpha
+        \]
+        so that $\bigsqcup_{j\leq N}B(r_{x_j},x_j)=U\supseteq E_\alpha$, and $c<3^n\sum_{j\leq k}m(B_j)$
+        \item Define $B_j= B(r_{x_j}, x_j)$ for all $j\leq k$, and 
+        \[
+        m(B_j)< \dfrac{1}{\alpha}\cdot\int_{B_j}|f|dz
+        \]
+        by finite additivity,
+        \[
+        c3^{-n}<\sum_{j\leq k}m(B_j)<\dfrac{1}{\alpha}\cdot\sum_{j\leq k}\int_{B_j}|f|dz
+        \]
+        and finally
+        \[
+        c<\dfrac{3^n}{\alpha}\sum_{j\leq k}\int_{B_j}|f|dz\leq \dfrac{3^n}{\alpha}\norm{f}_1
+        \]
+        \item By inner regularity, of $m$ on $\borel$, since 
+        \[
+        m(E_\alpha) = \sup\bigset{m(K),\: K\in\cpt_{\realn}, \: K\subseteq E_\alpha}
+        \]
+        for any $K\in\cpt_{\realn}$, $K\subseteq E_\alpha$, we have $m(K)<+\infty$, $m(K)\leq m(E_\alpha)$ and 
+        \[
+        m(K)=c<\dfrac{3^n}{\alpha}\norm{f}_1\implies m(E_\alpha)\leq \dfrac{3^n}{\alpha}\norm{f}_1
+        \]
+    \end{itemize}
+    \begin{remark}
+        We used the properties of a Radon Measure here, without relying on the phrase `sending $c\to E_\alpha$`, which would require us to deal with two cases $m(E_\alpha)<+\infty$ and $m(E_\alpha)=+\infty$.
+    \end{remark}
+\end{proof}
+
+\end{document}

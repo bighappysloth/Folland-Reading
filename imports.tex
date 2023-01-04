@@ -8,6 +8,9 @@
     \renewcommand{\Im}{\operatorname{Im}} % Imaginary Part
     \newcommand{\defined}{\coloneqq} % := sign
     
+    \providecommand{\induces}{{\:\looparrowright\:}}
+    \providecommand{\inducedby}{{\:\looparrowleft\:}}
+
     % Fonts
     \newcommand{\bb}[1]{\mathbb{#1}} %shortcut for mathbb
     \renewcommand{\cal}[1]{\mathcal{#1}} %shortcut for mathcal
@@ -18,11 +21,13 @@
     
     % Common Sets
     \newcommand{\real}{\mathbb{R}}
-    \newcommand{\realn}{\mathbb{R}^n}
+    \newcommand{\realn}{{\mathbb{R}^n}}
     \newcommand{\nat}{\mathbb{N}}
     \newcommand{\natplus}{\mathbb{N}}
     \newcommand{\integer}{\mathbb{Z}}
     \newcommand{\rat}{\mathbb{Q}}
+    \providecommand{\borel}{{\mathbb{B}}}
+    
     
     % Operators
     \newcommand{\range}{\operatorname{range}} %Range of a function
@@ -49,7 +54,7 @@
     \newcommand{\cl}[1]{\overline{#1}} % Closure of a set
     \newcommand{\clc}[1]{(\overline{#1})^c} %  Complement of the Closure
     \newcommand{\Epsilon}{\mathcal{E}} % Base, generating set for Topology and Sigma algebras
-    \newcommand{\cpt}{\quaver} %Compact set
+    \newcommand{\cpt}{\musEighth} % Compact set, see old command \quaver does not scale properly in Math Mode.
     
     % Fourier Analysis
     \newcommand{\szz}{\mathcal{S}} % Schwartz Space

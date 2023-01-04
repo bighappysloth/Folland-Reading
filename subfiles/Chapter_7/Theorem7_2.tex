@@ -1,7 +1,10 @@
+
 \documentclass[../../main.tex]{subfiles}
-\graphicspath{{\subfix{../images/}}}
+
+
 \begin{document}
-\subsection{Theorem 7.2}
+\graphicspath{{../../images/}{images/}}
+\problem{7.2}
 
 \begin{wts}
     The Riesz-Markov-Kakutani Representation Theorem. If (for every) $I$ is a positive linear functional on $\cc{X}$, then there exists a unique Radon measure $\mu$ on $X$, such that
@@ -16,8 +19,8 @@
         \mu(K)=\inf\left\{I(f),\:f\in\cc{X},\:f\geq\chi_K\right\}
     \end{equation}
 \end{wts}
-\newcommand{\borel}{\mathbb{B}_{\Tau}} %Borel generated from Tau
-\newcommand{\mustar}{\mu^*} %mu star for outer measure
+\providecommand{\borel}{\mathbb{B}_{\Tau}} %Borel generated from Tau
+\providecommand{\mustar}{\mu^*} %mu star for outer measure
 %
 For the sake of completeness, we place the definitions for a Radon measure. Let $X$ be a LCH space, and $\borel$ be its usual $\sigma$-algebra, a measure $\nu$ is a Radon measure iff
 \begin{enumroman}
@@ -413,7 +416,7 @@ Since $\supp{f}=K\subseteq U$, this proves inner-regularity of $\mu$ on open set
         
     \end{itemize}
     The illustration for when $N=5$ below should make things clearer.\\
-    \includegraphics[scale=0.50]{images/FollandTheorem7_2.png}
+    \includegraphics[scale=0.50]{FollandTheorem7_2.png}
     \\ It is also trivial to verify that
     \begin{itemize}
         \item For every $x\in K_j$, $f_j=N^{-1}$, and

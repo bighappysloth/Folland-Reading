@@ -9,7 +9,8 @@
 
 \author{Me}
 
-\begin{document}
+
+% Fancy Page Style Setup, putitng this before \begin{document} will load it for our subfiles as well.
 \pagestyle{fancy}
 
 % Clear all headers and footers (see also \fancyhf{})
@@ -17,10 +18,15 @@
 \renewcommand{\footrulewidth}{0.4pt}% default is 0pt
 % Set the Centre header location but do not specify O or E
 %\fancyhead[C]{Folland Reading\quad Chapter \thesection\quad Page \thepage}
+\setlength{\headheight}{52pt}% ...at least 51.60004pt
 
 \fancyhead[C]{\textbf{Folland Reading \hfill \rightmark}}
 \fancyfoot[L]{\textbf{Updated \today\, at \,\currenttime\hfill Page \thepage}}
-\setlength{\headheight}{52pt}% ...at least 51.60004pt
+
+\begin{document}
+
+
+
 
 \maketitle\newpage
 \tableofcontents\newpage

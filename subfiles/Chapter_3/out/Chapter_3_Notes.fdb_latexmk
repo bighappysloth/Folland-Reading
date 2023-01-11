@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1672801935 "out/Chapter_3_Notes.xdv" "out/Chapter_3_Notes.pdf" "out/Chapter_3_Notes" 1672801935 0
-  "out/Chapter_3_Notes.xdv" 1672801934 4912 782a24c8f40ba15a5d8d5775c601cd2c "xelatex"
+["xdvipdfmx"] 1672881757 "out/Chapter_3_Notes.xdv" "out/Chapter_3_Notes.pdf" "out/Chapter_3_Notes" 1672881757 0
+  "out/Chapter_3_Notes.xdv" 1672881757 7424 52fa23d1f4e038e3b125bc4c86a2be75 "xelatex"
   (generated)
   "out/Chapter_3_Notes.pdf"
   (rewritten before read)
-["xelatex"] 1672801934 "Chapter_3_Notes.tex" "out/Chapter_3_Notes.xdv" "Chapter_3_Notes" 1672801935 0
+["xelatex"] 1672881756 "Chapter_3_Notes.tex" "out/Chapter_3_Notes.xdv" "Chapter_3_Notes" 1672881757 0
   "../..//./headers.tex" 1672801645 1339 896b15715ae6939ee8668fd1217af842 ""
   "../..//./imports.tex" 1672790303 3815 bdfffd8f39f2fc8b6d2697a51eee00ff ""
   "../..//./packages.tex" 1672790278 1476 b90be7e2d45f11421e286c24f427631f ""
@@ -209,9 +209,9 @@
   "/usr/local/texlive/2022/texmf-dist/web2c/texmf.cnf" 1646502317 40171 cdab547de63d26590bebb3baff566530 ""
   "/usr/local/texlive/2022/texmf-var/web2c/xetex/xelatex.fmt" 1672348554 10496080 cfa80ba148d0e733fe72e3ea0a5cb82b ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "Chapter_3_Notes.tex" 1672801933 591 f499773377dd62c7eb8887cf6d03188d ""
-  "out/Chapter_3_Notes.aux" 1672801934 557 08d69c52f0bb4a284183f895073272f3 "xelatex"
-  "out/Chapter_3_Notes.out" 1672801934 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
+  "Chapter_3_Notes.tex" 1672881755 926 bdc75f5cba84a19e86c18f0cd7b4ccec ""
+  "out/Chapter_3_Notes.aux" 1672881757 557 3a5b80dfecb350ad9b68478e2f269b68 "xelatex"
+  "out/Chapter_3_Notes.out" 1672881757 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
   (generated)
   "out/Chapter_3_Notes.aux"
   "out/Chapter_3_Notes.log"

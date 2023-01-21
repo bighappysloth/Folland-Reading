@@ -1,14 +1,15 @@
 # Fdb version 4
 ["xdvipdfmx"] 0 "out/Chapter_9_Compiled.xdv" "out/Chapter_9_Compiled.pdf" "out/Chapter_9_Compiled" 0 -1
-  "out/Chapter_9_Compiled.xdv" 0 -1 0 "xelatex"
+  "out/Chapter_9_Compiled.xdv" 1674260660 1844 a2b72d2ba4b46950d60657d12d614db9 "xelatex"
   (generated)
   "out/Chapter_9_Compiled.pdf"
   (rewritten before read)
-["xelatex"] 1672799468 "Chapter_9_Compiled.tex" "out/Chapter_9_Compiled.xdv" "Chapter_9_Compiled" 1672799469 2
-  "../..//./headers.tex" 1672346709 1177 74c2328ea77ff5a1ca2fc722a9de58fe ""
-  "../..//./imports.tex" 1672790303 3815 bdfffd8f39f2fc8b6d2697a51eee00ff ""
-  "../..//./packages.tex" 1672790278 1476 b90be7e2d45f11421e286c24f427631f ""
-  "../../main.tex" 1672799385 1336 82b1208a71e169846b69d26c020c812c ""
+["xelatex"] 1674260659 "Chapter_9_Compiled.tex" "out/Chapter_9_Compiled.xdv" "Chapter_9_Compiled" 1674260660 2
+  "../..//./docinfo.tex" 1674260565 378 3a6254f7761428503709fd116deefd9b ""
+  "../..//./headers.tex" 1674260645 2118 547c7e260bc1894fcec3f7632110a8aa ""
+  "../..//./imports.tex" 1674260658 3840 ad5faf90776700838a6744cd32eea9fe ""
+  "../..//./packages.tex" 1674260565 1378 fbdac4e6b888ecd98b868917d627fd91 ""
+  "../../main.tex" 1674260565 815 42645f778c5e143354d996e6d915a00d ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -100,12 +101,12 @@
   "/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amstext.sty" 1654720880 2444 70065bddd85997dc1fd0bb7ae634e5fa ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/atveryend/atveryend.sty" 1576191570 19336 ce7ae9438967282886b3b036cfad1e4d ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/auxhook/auxhook.sty" 1576625391 3935 57aa3c3e203a5c2effb4d2bd2efbc323 ""
-  "/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls" 1667332637 20144 d5ecf0a5140c8d8d8b72cbe86e320eff ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/base/atbegshi-ltx.sty" 1667332637 3052 30236f0cc243a8651b82240dfd2e8b9d ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/base/atveryend-ltx.sty" 1667332637 2462 8ce5f9a9c63002f2c1af03c262cf29af ""
+  "/usr/local/texlive/2022/texmf-dist/tex/latex/base/bk12.clo" 1667332637 8285 1b093a7880310fd335493621f5803fd7 ""
+  "/usr/local/texlive/2022/texmf-dist/tex/latex/base/book.cls" 1667332637 23268 e47ccb36cfcf2953d1028f31ec508224 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/base/fontenc.sty" 1654720880 5119 4ce42f43368f652f9c9522d943cce8e4 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/base/ifthen.sty" 1654720880 5319 48d7f3cfa322abd2788e3c09d624b922 ""
-  "/usr/local/texlive/2022/texmf-dist/tex/latex/base/size12.clo" 1667332637 8449 c314623021fbddd0180c05345324933c ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd" 1667332637 2430 8418b3f1835e588625becbcac4dbce56 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/base/tuenc.def" 1654720880 26445 9ed4a9401f29cbb58ef6909cd5aec01f ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/collectbox/collectbox.sty" 1666037909 9124 59c3b56f1a073de66e3eea35f9c173c8 ""
@@ -191,9 +192,9 @@
   "/usr/local/texlive/2022/texmf-var/web2c/xetex/xelatex.fmt" 1672348554 10496080 cfa80ba148d0e733fe72e3ea0a5cb82b ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "Chapter_9/Theorem9_1.tex" 0 -1 0 ""
-  "Chapter_9_Compiled.tex" 1672799467 1176 34813d125f71917ee5663f81ba7c5419 ""
+  "Chapter_9_Compiled.tex" 1674260608 1169 ced775ae573276b5ba3df6c5fb4cee65 ""
   "out/./Chapter_9/Theorem9_1.tex" 0 -1 0 ""
-  "out/Chapter_9_Compiled.aux" 1672799469 473 eff1f19101d11e24a409215b95c2242e "xelatex"
+  "out/Chapter_9_Compiled.aux" 1674260660 625 f40c2a564e1a1ce775a7892790c8f7a4 "xelatex"
   (generated)
   "out/Chapter_9_Compiled.aux"
   "out/Chapter_9_Compiled.log"

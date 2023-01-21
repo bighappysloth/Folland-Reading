@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  6 JAN 2023 14:05
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  20 JAN 2023 19:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -763,13 +763,75 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip76
 )
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 59.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 59.
-Package hyperref Info: Option `colorlinks' set `true' on input line 59.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 55.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 55.
+Package hyperref Info: Option `colorlinks' set `true' on input line 55.
 ) (./../..//./headers.tex
+
+./../..//./headers.tex:6: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 <
+     <<<<<< HEAD
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 \c@theorem=\count348
 \c@corollary=\count349
-)) (/usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.sty
+)
+Runaway argument?
+{\phantom \section *{Chapter {##1}}\addcontentsline {toc}{section}{Ch\ETC.
+./../..//./imports.tex:3: File ended while scanning use of \@argdef.
+<inserted text> 
+                \par 
+l.3 \import{./}{headers.tex}
+                            
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+(./../..//./docinfo.tex)
+
+./../..//./imports.tex:11: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11 <
+      <<<<<< HEAD
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./../..//./imports.tex:14: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 =
+      ======
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./../..//./imports.tex:19: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 >
+      >>>>>> main
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
 ))) (out/Theorem3_21.aux)
 \openout1 = `Theorem3_21.aux'.
@@ -860,12 +922,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/mlmtt/m/n --> TU/lmtt/bx/n on input line 3.
 Package hyperref Info: Link coloring ON on input line 3.
- (out/Theorem3_21.out) (out/Theorem3_21.out)
 \@outlinefile=\write4
 \openout4 = `Theorem3_21.out'.
 
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 LaTeX Font Info:    Trying to load font information for OML+mlmm on input line 8.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/omlmlmm.fd
+(/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/omlmlmm.fd
 File: omlmlmm.fd 2021/01/11 v1.0 Font defs for mlmodern
 )
 LaTeX Font Info:    Trying to load font information for OMS+mlmsy on input line 8.
@@ -894,19 +959,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
  []
 
-[1
 
-] [2] (out/Theorem3_21.aux)
-Package rerunfilecheck Info: File `Theorem3_21.out' has not changed.
-(rerunfilecheck)             Checksum: 8128E57D0DAD2F7DCF47E2C75E5301E9;107.
+Overfull \vbox (108.72145pt too high) has occurred while \output is active []
+
+ [1
+
+] (out/Theorem3_21.aux)
+
+Package rerunfilecheck Warning: File `Theorem3_21.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Theorem3_21.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  8128E57D0DAD2F7DCF47E2C75E5301E9;107.
  ) 
 Here is how much of TeX's memory you used:
- 26920 strings out of 476778
- 544501 string characters out of 5805974
- 1856979 words of memory out of 5000000
- 46532 multiletter control sequences out of 15000+600000
+ 26914 strings out of 476778
+ 544487 string characters out of 5805974
+ 1860979 words of memory out of 5000000
+ 46527 multiletter control sequences out of 15000+600000
  521621 words of font info for 62 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 116i,12n,126p,1090b,403s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,11n,126p,1090b,328s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/Theorem3_21.xdv (2 pages, 12708 bytes).
+Output written on out/Theorem3_21.xdv (1 page, 11888 bytes).

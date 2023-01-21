@@ -1,14 +1,15 @@
 # Fdb version 4
-["xdvipdfmx"] 1673031917 "out/Theorem3_21.xdv" "out/Theorem3_21.pdf" "out/Theorem3_21" 1673031917 0
-  "out/Theorem3_21.xdv" 1673031917 12708 2de76195bdc9620fcac0e77788b9d19e "xelatex"
+["xdvipdfmx"] 0 "out/Theorem3_21.xdv" "out/Theorem3_21.pdf" "out/Theorem3_21" 0 -1
+  "out/Theorem3_21.xdv" 1674260569 11888 d457f2ceb10edd29ce5bee7ff2859bbf "xelatex"
   (generated)
   "out/Theorem3_21.pdf"
   (rewritten before read)
-["xelatex"] 1673031916 "Theorem3_21.tex" "out/Theorem3_21.xdv" "Theorem3_21" 1673031917 0
-  "../..//./headers.tex" 1672801645 1339 896b15715ae6939ee8668fd1217af842 ""
-  "../..//./imports.tex" 1672790303 3815 bdfffd8f39f2fc8b6d2697a51eee00ff ""
-  "../..//./packages.tex" 1672790278 1476 b90be7e2d45f11421e286c24f427631f ""
-  "../../main.tex" 1672801648 1333 81f802fb8496b57208aebbfa3976d50c ""
+["xelatex"] 1674260568 "Theorem3_21.tex" "out/Theorem3_21.xdv" "Theorem3_21" 1674260569 2
+  "../..//./docinfo.tex" 1674260565 378 3a6254f7761428503709fd116deefd9b ""
+  "../..//./headers.tex" 1674260565 2988 c18d3ea005fd4723f81f7f201625bc52 ""
+  "../..//./imports.tex" 1674260565 3939 6a54715582869d1c64542fcecf7697dc ""
+  "../..//./packages.tex" 1674260565 1378 fbdac4e6b888ecd98b868917d627fd91 ""
+  "../../main.tex" 1674260565 815 42645f778c5e143354d996e6d915a00d ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -209,9 +210,9 @@
   "/usr/local/texlive/2022/texmf-dist/web2c/texmf.cnf" 1646502317 40171 cdab547de63d26590bebb3baff566530 ""
   "/usr/local/texlive/2022/texmf-var/web2c/xetex/xelatex.fmt" 1672348554 10496080 cfa80ba148d0e733fe72e3ea0a5cb82b ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "Theorem3_21.tex" 1673031915 1930 efa7bf7c417e40d71deda8b592729180 ""
-  "out/Theorem3_21.aux" 1673031917 655 0001488cf1173a529d1d59a1e509f84d "xelatex"
-  "out/Theorem3_21.out" 1673031917 107 8128e57d0dad2f7dcf47e2c75e5301e9 "xelatex"
+  "Theorem3_21.tex" 1674260565 1930 efa7bf7c417e40d71deda8b592729180 ""
+  "out/Theorem3_21.aux" 1674260569 655 44703c41a028b7e3ac1ba0f7a1ed87f3 "xelatex"
+  "out/Theorem3_21.out" 1674260569 107 8128e57d0dad2f7dcf47e2c75e5301e9 "xelatex"
   (generated)
   "out/Theorem3_21.aux"
   "out/Theorem3_21.log"

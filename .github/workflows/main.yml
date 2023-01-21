@@ -24,7 +24,7 @@ jobs:
           # compiler: # optional, default is latexmk
 
           # Extra arguments to be passed to the LaTeX engine
-          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode -f
 
           # Install extra packages by apk
           # extra_system_packages: # optional

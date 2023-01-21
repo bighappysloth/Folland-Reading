@@ -1,12 +1,17 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  17 JAN 2023 14:51
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  13 JAN 2023 18:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**Theorem3_3.tex
+(./Theorem3_3.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2022-12-17> (/usr/local/texlive/2022/texmf-dist/tex/latex/base/book.cls
+L3 programming layer <2022-12-17> (/usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.cls
+Document Class: subfiles 2020/11/14 v2.2 Multi-file projects (class)
+Preamble taken from file `../../main.tex'
+(/usr/local/texlive/2022/texmf-dist/tex/latex/import/import.sty
+Package: import 2020/04/01  v 6.2
+) (../../main.tex (/usr/local/texlive/2022/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2022/07/02 v1.4n Standard LaTeX document class
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/bk12.clo
 File: bk12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
@@ -23,9 +28,7 @@ File: bk12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/import/import.sty
-Package: import 2020/04/01  v 6.2
-) (././imports.tex (././packages.tex (/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
+) (./../..//./imports.tex (./../..//./packages.tex (/usr/local/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
 \@mathmargin=\skip50
 
@@ -763,40 +766,38 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 55.
 Package hyperref Info: Option `bookmarksopen' set `true' on input line 55.
 Package hyperref Info: Option `colorlinks' set `true' on input line 55.
-) (././headers.tex
-\c@theproblem=\count348
-\c@lemma=\count349
-\c@corollary=\count350
-\c@remark=\count351
-) (././docinfo.tex)) (/usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.sty
+) (./../..//./headers.tex
+\c@theorem=\count348
+\c@corollary=\count349
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
-) (out/main.aux)
-\openout1 = `main.aux'.
+))) (out/Theorem3_3.aux)
+\openout1 = `Theorem3_3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 5.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/fmtcount/fc-english.def
 Invalid UTF-8 byte or sequence at line 10 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 22 replaced by U+FFFD.
@@ -808,569 +809,74 @@ Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 5.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 5.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 5.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 5.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 5.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 5.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 5.
-LaTeX Font Info:    Redeclaring math accent \check on input line 5.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 5.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 5.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 5.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 5.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 5.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 3.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 3.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 3.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 3.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 3.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 3.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 3.
+LaTeX Font Info:    Redeclaring math accent \check on input line 3.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 3.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 3.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 3.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 3.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 3.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 5.
+(Font)              `operators' in the math version `normal' on input line 3.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/mlmr/m/n --> TU/lmr/m/n on input line 5.
+(Font)                  OT1/mlmr/m/n --> TU/lmr/m/n on input line 3.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 5.
+(Font)              `operators' in the math version `bold' on input line 3.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/mlmr/bx/n --> TU/lmr/m/n on input line 5.
+(Font)                  OT1/mlmr/bx/n --> TU/lmr/m/n on input line 3.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 5.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 3.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/mlmr/m/it --> TU/lmr/m/it on input line 5.
+(Font)                  OT1/mlmr/m/it --> TU/lmr/m/it on input line 3.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/mlmr/bx/n --> TU/lmr/bx/n on input line 5.
+(Font)                  OT1/mlmr/bx/n --> TU/lmr/bx/n on input line 3.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/mlmss/m/n --> TU/lmss/m/n on input line 5.
+(Font)                  OT1/mlmss/m/n --> TU/lmss/m/n on input line 3.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/mlmtt/m/n --> TU/lmtt/m/n on input line 5.
+(Font)                  OT1/mlmtt/m/n --> TU/lmtt/m/n on input line 3.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/bx/n on input line 5.
+(Font)                  TU/lmr/m/n --> TU/lmr/bx/n on input line 3.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/mlmr/bx/it --> TU/lmr/bx/it on input line 5.
+(Font)                  OT1/mlmr/bx/it --> TU/lmr/bx/it on input line 3.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/mlmss/bx/n --> TU/lmss/bx/n on input line 5.
+(Font)                  OT1/mlmss/bx/n --> TU/lmss/bx/n on input line 3.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/mlmtt/m/n --> TU/lmtt/bx/n on input line 5.
-Package hyperref Info: Link coloring ON on input line 5.
- (out/main.out) (out/main.out)
+(Font)                  OT1/mlmtt/m/n --> TU/lmtt/bx/n on input line 3.
+Package hyperref Info: Link coloring ON on input line 3.
+ (out/Theorem3_3.out) (out/Theorem3_3.out)
 \@outlinefile=\write4
-\openout4 = `main.out'.
+\openout4 = `Theorem3_3.out'.
 
- (out/main.toc
-LaTeX Font Info:    Trying to load font information for OML+mlmm on input line 2.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/omlmlmm.fd
-File: omlmlmm.fd 2021/01/11 v1.0 Font defs for mlmodern
-)
-LaTeX Font Info:    Trying to load font information for OMS+mlmsy on input line 2.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/omsmlmsy.fd
-File: omsmlmsy.fd 2021/01/11 v1.0 Font defs for mlmodern
-)
-LaTeX Font Info:    Trying to load font information for OMX+mlmex on input line 2.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/omxmlmex.fd
-File: omxmlmex.fd 2021/01/11 v1.0 Font defs for mlmodern
-)
-LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <12> on input line 2.
-LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <8> on input line 2.
-LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <6> on input line 2.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+ [1
 
-
-] [2] [3] [4])
-\tf@toc=\write5
-\openout5 = `main.toc'.
-
- [5] (./subfiles/Chapter_1/Chapter_1_Compiled.tex [6
-
-] (./subfiles/Chapter_1/Theorem1_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 6.
-
-) [7] (./subfiles/Chapter_1/Theorem1_2.tex [8]
-Overfull \hbox (9.46042pt too wide) in paragraph at lines 48--50
-\TU/lmr/m/n/12 So that equation [] holds. By similar argumentation we have $\OMS/mlmsy/m/n/12 E[] ^^R M\OT1/cmr/m/n/12 (\OMS/mlmsy/m/n/12 E[]\OT1/cmr/m/n/12 )  [][]\OMS/mlmsy/m/n/12 )
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--50
-
- []
-
-) [9] (./subfiles/Chapter_1/Theorem1_3.tex) [10] (./subfiles/Chapter_1/Theorem1_4.tex) [11] (./subfiles/Chapter_1/Theorem1_5.tex) [12] (./subfiles/Chapter_1/Theorem1_6.tex) [13] (./subfiles/Chapter_1/Theorem1_7.tex) [14] (./subfiles/Chapter_1/Theorem1_8.tex) [15] (./subfiles/Chapter_1/Theorem1_9.tex) [16] (./subfiles/Chapter_1/Theorem1_10.tex) [17] (./subfiles/Chapter_1/Theorem1_11.tex) [18] (./subfiles/Chapter_1/Theorem1_12.tex) [19] (./subfiles/Chapter_1/Theorem1_13.tex) [20] (./subfiles/Chapter_1/Theorem1_14.tex) [21] (./subfiles/Chapter_1/Theorem1_15.tex) [22] (./subfiles/Chapter_1/Theorem1_16.tex) [23] (./subfiles/Chapter_1/Theorem1_17.tex) [24] (./subfiles/Chapter_1/Theorem1_18.tex) [25]) (./subfiles/Chapter_2/Chapter_2_Compiled.tex [26
-
-] (./subfiles/Chapter_2/Theorem2_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
-
-) [27]) (./subfiles/Chapter_3/Chapter_3_Compiled.tex [28
-
-] (./subfiles/Chapter_3/Chapter_3_Notes.tex [29] [30]) (./subfiles/Chapter_3/Theorem3_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 5.
-
-
-Overfull \hbox (0.95372pt too wide) in paragraph at lines 11--15
-\TU/lmr/m/n/12 By countable additivity, and the absolute convergence of the series $[][] \OML/mlmm/m/it/12 ^^W\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 F[]\OT1/cmr/m/n/12 )$ 
- []
-
-) [31] (./subfiles/Chapter_3/Theorem3_2.tex) [32] (./subfiles/Chapter_3/Theorem3_3.tex) [33] (./subfiles/Chapter_3/Theorem3_4.tex) [34] (./subfiles/Chapter_3/Theorem3_5.tex) [35] (./subfiles/Chapter_3/Theorem3_6.tex) [36] (./subfiles/Chapter_3/Theorem3_7.tex) [37] (./subfiles/Chapter_3/Theorem3_8.tex) [38] (./subfiles/Chapter_3/Theorem3_9.tex) [39] (./subfiles/Chapter_3/Theorem3_10.tex) [40] (./subfiles/Chapter_3/Theorem3_11.tex) [41] (./subfiles/Chapter_3/Theorem3_12.tex) [42] (./subfiles/Chapter_3/Theorem3_13.tex) [43] (./subfiles/Chapter_3/Theorem3_14.tex) [44] (./subfiles/Chapter_3/Theorem3_15.tex) [45] (./subfiles/Chapter_3/Theorem3_16.tex) [46] (./subfiles/Chapter_3/Theorem3_17.tex
-Underfull \hbox (badness 10000) in paragraph at lines 33--35
-
- []
-
-[47] [48]) [49] (./subfiles/Chapter_3/Theorem3_18.tex) [50] (./subfiles/Chapter_3/Theorem3_19.tex) [51] (./subfiles/Chapter_3/Theorem3_20.tex) [52] (./subfiles/Chapter_3/Theorem3_21.tex
-Underfull \hbox (badness 10000) in paragraph at lines 28--30
-
- []
-
-[53]) [54] (./subfiles/Chapter_3/Theorem3_22.tex) [55] (./subfiles/Chapter_3/Theorem3_23.tex) [56] (./subfiles/Chapter_3/Theorem3_24.tex) [57] (./subfiles/Chapter_3/Theorem3_25.tex) [58] (./subfiles/Chapter_3/Theorem3_26.tex) [59] (./subfiles/Chapter_3/Theorem3_27.tex) [60] (./subfiles/Chapter_3/Theorem3_28.tex) [61] (./subfiles/Chapter_3/Theorem3_29.tex) [62] (./subfiles/Chapter_3/Theorem3_30.tex) [63] (./subfiles/Chapter_3/Theorem3_31.tex) [64] (./subfiles/Chapter_3/Theorem3_32.tex) [65] (./subfiles/Chapter_3/Theorem3_33.tex) [66] (./subfiles/Chapter_3/Theorem3_34.tex) [67] (./subfiles/Chapter_3/Theorem3_35.tex) [68] (./subfiles/Chapter_3/Theorem3_36.tex) [69]) (./subfiles/Chapter_4/Chapter_4_Compiled.tex [70
-
-] (./subfiles/Chapter_4/Chapter_4_Notes.tex [71]) (./subfiles/Chapter_4/Theorem4_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
-
-) [72] (./subfiles/Chapter_4/Theorem4_2.tex
-Underfull \hbox (badness 10000) in paragraph at lines 16--18
-
- []
-
-) [73] (./subfiles/Chapter_4/Theorem4_3.tex
-Underfull \hbox (badness 10000) in paragraph at lines 20--22
-
- []
-
-[74]) [75] (./subfiles/Chapter_4/Theorem4_4.tex
-Underfull \hbox (badness 10000) in paragraph at lines 15--17
-
- []
-
-[76]) [77] (./subfiles/Chapter_4/Theorem4_5.tex) [78] (./subfiles/Chapter_4/Theorem4_6.tex
-Underfull \hbox (badness 10000) in paragraph at lines 16--18
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-) [79] (./subfiles/Chapter_4/Theorem4_7.tex
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-) [80] (./subfiles/Chapter_4/Theorem4_8.tex) [81] (./subfiles/Chapter_4/Theorem4_9.tex
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-) [82] (./subfiles/Chapter_4/Theorem4_10.tex) [83] (./subfiles/Chapter_4/Theorem4_11.tex
-Underfull \hbox (badness 10000) in paragraph at lines 12--14
-
- []
-
-) [84] (./subfiles/Chapter_4/Theorem4_12.tex
-Overfull \hbox (0.55383pt too wide) in paragraph at lines 25--27
-\TU/lmr/m/n/12 Then applying Theorem 4.2, the family of finite intersections of $\OML/mlmm/m/it/12 ^^Y[]\OT1/cmr/m/n/12 ([])$
- []
-
-[85]
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-
- []
-
-) [86] (./subfiles/Chapter_4/Theorem4_13.tex
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
-
- []
-
-[87]
-Underfull \hbox (badness 10000) in paragraph at lines 44--46
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
-) [88] (./subfiles/Chapter_4/Theorem4_14.tex
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-[89]
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--73
-
- []
-
-[90]) [91] (./subfiles/Chapter_4/Theorem4_15.tex
-Underfull \hbox (badness 10000) in paragraph at lines 16--18
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
- []
-
-[92]
-Underfull \hbox (badness 10000) in paragraph at lines 30--32
-
- []
-
-) [93] (./subfiles/Chapter_4/Theorem4_16.tex
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-[94]) [95] (./subfiles/Chapter_4/Theorem4_17.tex
-Underfull \hbox (badness 10000) in paragraph at lines 12--14
-
- []
-
-) [96] (./subfiles/Chapter_4/Theorem4_18.tex
-Underfull \hbox (badness 10000) in paragraph at lines 10--11
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--19
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
-
- []
-
-) [97] (./subfiles/Chapter_4/Theorem4_19.tex
-Underfull \hbox (badness 10000) in paragraph at lines 13--15
-
- []
-
-) [98] (./subfiles/Chapter_4/Theorem4_20.tex
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--31
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
-
- []
-
-[99]) [100] (./subfiles/Chapter_4/Theorem4_21.tex) [101] (./subfiles/Chapter_4/Theorem4_22.tex) [102] (./subfiles/Chapter_4/Theorem4_23.tex) [103] (./subfiles/Chapter_4/Theorem4_24.tex) [104] (./subfiles/Chapter_4/Theorem4_25.tex
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-) [105] (./subfiles/Chapter_4/Theorem4_26.tex) [106] (./subfiles/Chapter_4/Theorem4_27.tex) [107] (./subfiles/Chapter_4/Theorem4_28.tex
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-) [108] (./subfiles/Chapter_4/Theorem4_29.tex
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--25
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--35
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
-
- []
-
-[109]) [110] (./subfiles/Chapter_4/Theorem4_30.tex
-Underfull \hbox (badness 10000) in paragraph at lines 22--23
-
- []
-
-[111]) [112] (./subfiles/Chapter_4/Theorem4_31.tex
-Underfull \hbox (badness 10000) in paragraph at lines 27--29
-
- []
-
-[113]) [114] (./subfiles/Chapter_4/Theorem4_32.tex
-Underfull \hbox (badness 10000) in paragraph at lines 42--44
-
- []
-
-[115]) [116] (./subfiles/Chapter_4/Theorem4_33.tex
-Underfull \hbox (badness 10000) in paragraph at lines 12--14
-
- []
-
-) [117] (./subfiles/Chapter_4/Theorem4_34.tex) [118] (./subfiles/Chapter_4/Theorem4_35.tex
-Underfull \hbox (badness 10000) in paragraph at lines 19--21
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--27
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--33
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
-
- []
-
-[119]) [120] (./subfiles/Chapter_4/Theorem4_36.tex) [121] (./subfiles/Chapter_4/Theorem4_37.tex
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-) [122] (./subfiles/Chapter_4/Theorem4_38.tex) [123] (./subfiles/Chapter_4/Theorem4_39.tex) [124] (./subfiles/Chapter_4/Theorem4_40.tex) [125] (./subfiles/Chapter_4/Theorem4_41.tex) [126]) (./subfiles/Chapter_5/Chapter_5_Compiled.tex [127
-
-] (./subfiles/Chapter_5/Theorem5_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
-
-) [128] (./subfiles/Chapter_5/Theorem5_2.tex) [129] (./subfiles/Chapter_5/Theorem5_3.tex) [130] (./subfiles/Chapter_5/Theorem5_4.tex) [131] (./subfiles/Chapter_5/Theorem5_5.tex) [132] (./subfiles/Chapter_5/Theorem5_6.tex) [133] (./subfiles/Chapter_5/Theorem5_7.tex) [134] (./subfiles/Chapter_5/Theorem5_8.tex) [135]) (./subfiles/Chapter_6/Chapter_6_Compiled.tex [136
-
-] (./subfiles/Chapter_6/Theorem6_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
-
-) [137] (./subfiles/Chapter_6/Theorem6_2.tex) [138] (./subfiles/Chapter_6/Theorem6_3.tex) [139] (./subfiles/Chapter_6/Theorem6_4.tex) [140] (./subfiles/Chapter_6/Theorem6_5.tex) [141] (./subfiles/Chapter_6/Theorem6_6.tex) [142] (./subfiles/Chapter_6/Theorem6_7.tex) [143] (./subfiles/Chapter_6/Theorem6_8.tex) [144] (./subfiles/Chapter_6/Theorem6_9.tex) [145] (./subfiles/Chapter_6/Theorem6_10.tex) [146] (./subfiles/Chapter_6/Theorem6_11.tex) [147] (./subfiles/Chapter_6/Theorem6_12.tex) [148] (./subfiles/Chapter_6/Theorem6_13.tex) [149] (./subfiles/Chapter_6/Theorem6_14.tex) [150] (./subfiles/Chapter_6/Theorem6_15.tex
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--24
-
- []
-
-[151] [152]
-Overfull \hbox (13.58702pt too wide) detected at line 91
-\OML/mlmm/m/it/12 M[]\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 g\OT1/cmr/m/n/12 ) = [] [] \OML/mlmm/m/it/12 < \OMS/mlmsy/m/n/12 1
- []
-
-[153]
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
-
- []
-
-[154]
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--144
-
- []
-
-[155]
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
-
- []
-
-[156]) [157]) (./subfiles/Chapter_7/Chapter_7_Compiled.tex [158
-
-] (./subfiles/Chapter_7/Theorem7_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
-
-) [159] (./subfiles/Chapter_7/Theorem7_2.tex [160] [161]
-Overfull \hbox (32.26167pt too wide) detected at line 149
-[]
- []
-
-[162] [163]
-Underfull \hbox (badness 10000) in paragraph at lines 202--203
-
- []
-
-[164]
-Underfull \hbox (badness 10000) in paragraph at lines 254--256
-
- []
-
-[165] [166]
-Underfull \hbox (badness 10000) in paragraph at lines 299--301
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 302--303
-
- []
-
-[167]
-Underfull \hbox (badness 10000) in paragraph at lines 343--345
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 349--351
-
- []
-
-[168]
-Underfull \hbox (badness 10000) in paragraph at lines 369--371
-
- []
-
-[169]
-File: subfiles/Chapter_7/../../images//FollandTheorem7_2.png Graphic file (type bmp)
-<subfiles/Chapter_7/../../images//FollandTheorem7_2.png>
- [170] [171] [172]
-Underfull \hbox (badness 10000) in paragraph at lines 491--493
-
- []
-
-) [173] (./subfiles/Chapter_7/Theorem7_3.tex) (./subfiles/Chapter_7/Theorem7_4.tex) [174] (./subfiles/Chapter_7/Theorem7_5.tex) [175] (./subfiles/Chapter_7/Theorem7_6.tex) [176] (./subfiles/Chapter_7/Theorem7_7.tex) [177] (./subfiles/Chapter_7/Theorem7_8.tex) [178] (./subfiles/Chapter_7/Theorem7_9.tex) [179] (./subfiles/Chapter_7/Theorem7_10.tex) [180] (./subfiles/Chapter_7/Theorem7_11.tex) [181]) (./subfiles/Chapter_8/Chapter_8_Compiled.tex [182
-
-] (./subfiles/Chapter_8/Theorem8_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
-
-) [183] (./subfiles/Chapter_8/Theorem8_2.tex) [184] (./subfiles/Chapter_8/Theorem8_3.tex) [185] (./subfiles/Chapter_8/Theorem8_4.tex) [186] (./subfiles/Chapter_8/Theorem8_5.tex) [187] (./subfiles/Chapter_8/Theorem8_6.tex) [188] (./subfiles/Chapter_8/Theorem8_7.tex) [189] (./subfiles/Chapter_8/Theorem8_8.tex) [190] (./subfiles/Chapter_8/Theorem8_9.tex) [191] (./subfiles/Chapter_8/Theorem8_10.tex) [192] (./subfiles/Chapter_8/Theorem8_11.tex) [193] (./subfiles/Chapter_8/Theorem8_12.tex) [194] (./subfiles/Chapter_8/Theorem8_13.tex) [195] (./subfiles/Chapter_8/Theorem8_14.tex
-Overfull \hbox (48.82855pt too wide) detected at line 41
-\OMS/mlmsy/m/n/12 k[]k[] \OT1/cmr/m/n/12 = [][] \OMS/mlmsy/m/n/12 j\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 ^^\[]f\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 x\OT1/cmr/m/n/12 ) \OMS/mlmsy/m/n/12 ^^@ \OML/mlmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 x\OT1/cmr/m/n/12 ))\OML/mlmm/m/it/12 ^^^\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 z\OT1/cmr/m/n/12 )\OMS/mlmsy/m/n/12 j[]\OML/mlmm/m/it/12 dx[][] \OMS/mlmsy/m/n/12 ^^T j\OML/mlmm/m/it/12 ^^^\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 z\OT1/cmr/m/n/12 )\OMS/mlmsy/m/n/12 j[]\OT1/cmr/m/n/12 2\OMS/mlmsy/m/n/12 k\OML/mlmm/m/it/12 f\OMS/mlmsy/m/n/12 k[][] \OML/mlmm/m/it/12 < \OT1/cmr/m/n/12 +\OMS/mlmsy/m/n/12 1
- []
-
-[196] [197] [198] [199]) [200] [201] (./subfiles/Chapter_8/Theorem8_15.tex [202] [203]
-Underfull \hbox (badness 10000) in paragraph at lines 64--66
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
-
- []
-
-[204]
-Overfull \hbox (76.02568pt too wide) detected at line 104
-[]
- []
-
-[205]
-Underfull \hbox (badness 10000) in paragraph at lines 118--119
-
- []
-
-[206]
-Underfull \hbox (badness 10000) in paragraph at lines 151--153
-
- []
-
-[207] [208]) (./subfiles/Chapter_8/Theorem8_16.tex) [209] (./subfiles/Chapter_8/Theorem8_17.tex) [210] (./subfiles/Chapter_8/Theorem8_18.tex) [211] (./subfiles/Chapter_8/Theorem8_19.tex) [212] (./subfiles/Chapter_8/Theorem8_20.tex) [213]) (out/main.aux)
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: ABD6AC65195D071B6E0ECAB25E1CD08E;18764.
+] (out/Theorem3_3.aux)
+Package rerunfilecheck Info: File `Theorem3_3.out' has not changed.
+(rerunfilecheck)             Checksum: DC3BD03178BE3F04D4DE9D1E7374C264;102.
  ) 
 Here is how much of TeX's memory you used:
- 28029 strings out of 476778
- 579518 string characters out of 5805974
- 1857979 words of memory out of 5000000
- 47122 multiletter control sequences out of 15000+600000
- 522765 words of font info for 75 fonts, out of 8000000 for 9000
+ 26834 strings out of 476778
+ 542660 string characters out of 5805974
+ 1845979 words of memory out of 5000000
+ 46479 multiletter control sequences out of 15000+600000
+ 517272 words of font info for 44 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 96i,13n,109p,1059b,759s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 116i,11n,126p,1089b,328s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/main.xdv (213 pages, 1189888 bytes).
+Output written on out/Theorem3_3.xdv (1 page, 3044 bytes).

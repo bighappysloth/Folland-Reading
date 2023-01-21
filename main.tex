@@ -1,35 +1,14 @@
 \documentclass[12pt, oneside]{book}
-
-%Import our packages, see import.tex
-\usepackage{import}
+\usepackage{import}         % Import our packages, see import.tex
 \import{./}{imports}
-
-
-\title{Folland Reading}
-
-\author{Me}
-
-
-% Fancy Page Style Setup, putting this before \begin{document} will load it for our subfiles as well.
-\pagestyle{fancy}
-
-% Clear all headers and footers (see also \fancyhf{})
-\fancyhead{}\fancyfoot{}
-\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
-% Set the Centre header location but do not specify O or E
-%\fancyhead[C]{Folland Reading\quad Chapter \thesection\quad Page \thepage}
-\setlength{\headheight}{52pt}% ...at least 51.60004pt
-
-\fancyhead[C]{\textbf{Folland Reading \hfill \rightmark}}
-\fancyfoot[L]{\textbf{Updated \today\, at \,\currenttime\hfill Page \thepage}}
 
 \begin{document}
 
 
+% \maketitle\newpage          % Title Page, uncomment if necessary
+\tableofcontents\newpage    % Table of Contents, uncomment if necessary
 
 
-\maketitle\newpage
-\tableofcontents\newpage
 \subfile{subfiles/Chapter_1/Chapter_1_Compiled}\newpage
 \subfile{subfiles/Chapter_2/Chapter_2_Compiled}\newpage
 \subfile{subfiles/Chapter_3/Chapter_3_Compiled}\newpage

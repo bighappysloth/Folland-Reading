@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  6 JAN 2023 15:50
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  17 JAN 2023 14:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -763,13 +763,15 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip76
 )
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 59.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 59.
-Package hyperref Info: Option `colorlinks' set `true' on input line 59.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 55.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 55.
+Package hyperref Info: Option `colorlinks' set `true' on input line 55.
 ) (./../..//./headers.tex
-\c@theorem=\count348
-\c@corollary=\count349
-)) (/usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.sty
+\c@theproblem=\count348
+\c@lemma=\count349
+\c@corollary=\count350
+\c@remark=\count351
+) (./../..//./docinfo.tex)) (/usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
 ))) (out/Theorem7_2.aux)
 \openout1 = `Theorem7_2.aux'.
@@ -944,12 +946,12 @@ Package rerunfilecheck Info: File `Theorem7_2.out' has not changed.
 (rerunfilecheck)             Checksum: F19B7424ED55A672D88F76AC42918098;102.
  ) 
 Here is how much of TeX's memory you used:
- 26967 strings out of 476778
- 545491 string characters out of 5805974
+ 26985 strings out of 476778
+ 545752 string characters out of 5805974
  1857979 words of memory out of 5000000
- 46573 multiletter control sequences out of 15000+600000
+ 46588 multiletter control sequences out of 15000+600000
  521621 words of font info for 62 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  116i,12n,126p,1089b,494s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/Theorem7_2.xdv (14 pages, 148472 bytes).
+Output written on out/Theorem7_2.xdv (14 pages, 147888 bytes).

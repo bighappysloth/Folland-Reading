@@ -11,7 +11,11 @@
     \newtheorem{lemma}[theorem]{Lemma} %Lemma
     
     \newtheorem*{remark}{Remark} %unnumbered remark
+    
     \newcommand{\problem}[1]{\phantomsection\subsection*{Theorem #1}\markright{Theorem #1}\addcontentsline{toc}{subsection}{Theorem #1}} %Problem Number for assignments
+    
+    \newcommand{\fchapter}[1]{\phantom\section*{Chapter {#1}}\addcontentsline{toc}{section}{Chapter {#1}} % Chapter Number with corrected formatting.
+
     
     % Definition
     \theoremstyle{definition}

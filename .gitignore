@@ -1,0 +1,15 @@
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.dvi
+*.ps
+*.dv
+*.xdv
+*.gz
+**/out
+.github/
+.vscode/
+texput.log
+texput.fls

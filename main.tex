@@ -1,38 +1,23 @@
-\documentclass[12pt, oneside]{article}
-
-%Import our packages, see import.tex
-\usepackage{import}
+\documentclass[12pt, oneside]{book}
+\usepackage{import}         % Import our packages, see import.tex
 \import{./}{imports}
 
-
-\title{Folland Reading}
-
-\author{Me}
-
 \begin{document}
-\pagestyle{fancy}
 
-% Clear all headers and footers (see also \fancyhf{})
-\fancyhead{}\fancyfoot{}
-\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
-% Set the Centre header location but do not specify O or E
-%\fancyhead[C]{Folland Reading\quad Chapter \thesection\quad Page \thepage}
 
-\fancyhead[C]{\textbf{Folland Reading \hfill \rightmark}}
-\fancyfoot[L]{\textbf{Updated \today\, at \,\currenttime\hfill Page \thepage}}
-\setlength{\headheight}{52pt}% ...at least 51.60004pt
+% \maketitle\newpage          % Title Page, uncomment if necessary
+\tableofcontents\newpage    % Table of Contents, uncomment if necessary
 
-\maketitle\newpage
-\tableofcontents\newpage
-\subfile{subfiles/Chapter_1_Compiled}\newpage
-\subfile{subfiles/Chapter_2_Compiled}\newpage
-\subfile{subfiles/Chapter_3_Compiled}\newpage
-\subfile{subfiles/Chapter_4_Compiled}\newpage
-\subfile{subfiles/Chapter_5_Compiled}\newpage
-\subfile{subfiles/Chapter_6_Compiled}\newpage
-\subfile{subfiles/Chapter_7_Compiled}\newpage
+
+\subfile{subfiles/Chapter_1/Chapter_1_Compiled}\newpage
+\subfile{subfiles/Chapter_2/Chapter_2_Compiled}\newpage
+\subfile{subfiles/Chapter_3/Chapter_3_Compiled}\newpage
+\subfile{subfiles/Chapter_4/Chapter_4_Compiled}\newpage
+\subfile{subfiles/Chapter_5/Chapter_5_Compiled}\newpage
+\subfile{subfiles/Chapter_6/Chapter_6_Compiled}\newpage
+\subfile{subfiles/Chapter_7/Chapter_7_Compiled}\newpage
 \subfile{subfiles/Chapter_8/Chapter_8_Compiled}\newpage
-%\subfile{subfiles/Chapter_9_Compiled}\newpage
+% \subfile{subfiles/Chapter_9/Chapter_9_Compiled}\newpage
 \newpage
 
 \end{document}

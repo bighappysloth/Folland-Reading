@@ -1,37 +1,75 @@
 %Headers and Sections
 
+% Custom QED symbol
+\renewcommand\qedsymbol{$\blacksquare$}
 
-    %Want to show we want it to be numbered with the section at a later date
-    \newtheorem*{wts}{WTS}
-    
-    % \newtheorem*{answer}{Answer} removed
-    \newtheorem{theorem}{Theorem}[section]%Theorem
-    \newtheorem{corollary}{Corollary}[theorem]%Corollary, numbered by the theorem? resets the counter
-    
-    \newtheorem{lemma}[theorem]{Lemma} %Lemma
-    
-    \newtheorem*{remark}{Remark} %unnumbered remark
-    
-    \newcommand{\problem}[1]{\phantomsection\subsection*{Theorem #1}\markright{Theorem #1}\addcontentsline{toc}{subsection}{Theorem #1}} %Problem Number for assignments
-    
-    \newcommand{\fchapter}[1]{\phantom\section*{Chapter {#1}}\addcontentsline{toc}{section}{Chapter {#1}} % Chapter Number with corrected formatting.
+%Want to show we want it to be numbered with the section at a later date
+\newtheorem*{wts}{WTS}
 
-    
-    % Definition
-    \theoremstyle{definition}
-    \newtheorem*{definition}{Definition}
+% Problem Number for assignments
+\newcounter{theproblem}
 
-    %What to remember
-    \newtheorem*{wtr}{What to Remember}
-    
-    % Custom Enumerate Environments
+\newcommand{\problem}[1]{%
+    \phantomsection\subsection*{Theorem #1}%
+    \markright{Theorem #1}%
+    \addcontentsline{toc}{subsection}{Theorem #1}%
+    \setcounter{secnumdepth}{0}%
+    \stepcounter{theproblem}
+}
 
-        % Labelling by a, b, c
-        \newenvironment{enumalpha}{\begin{enumerate}[label=(\alph*)]}{\end{enumerate}}
-        
-        % Labelling by i, ii, iii
-        \newenvironment{enumroman}{\begin{enumerate}[label=(\roman*)]}{\end{enumerate}}
+\newtheoremstyle{subtheorem}    % name
+    {1.5\topsep}        % space above
+    {1.5\topsep}        % space below
+    {\itshape}          % name of font to use in the body of the theorem
+    {1em}               % measure of space to indent
+    {\bfseries}         % name of head font
+    { }              % punctuation between head and body
+    { }                 % space after theorem head; " " = normal interword space
+    {}
+
+\theoremstyle{subtheorem}                       % Lemma, Corollary follows Theorem 4.16.X
+
+\newtheorem{lemma}{Lemma}[theproblem]           % Lemma, follows 'Problem' counter
+\newtheorem{corollary}{Corollary}[theproblem]   % Corollary
+\newtheorem{remark}{Remark}[theproblem]         % Unnumbered remark
+
+
+\theoremstyle{subtheorem}
+%What to remember
+\newtheorem*{wtr}{What to Remember}
+
+% Two custom enumerate environments.
+% The labels for these are (a), (iv) respectively.
+
+
+% enumalpha environment for 
+% a), b), c)
+\newenvironment{enumalpha}%
+    {\begin{enumerate}[label=(\alph*)]}%
+    {\end{enumerate}}
+
+% enumroman environment for
+% i), ii), iii)
+\newenvironment{enumroman}%
+    {\begin{enumerate}[label=(\roman*)]}%
+    {\end{enumerate}}
 
 
 %for putting chapter numbers after the title
-%\titleformat{\section}[hang]{\normalfont\Large\bfseries}{Chapter }{0em}{}{}
+\titleformat{\section}[hang]%
+{\normalfont\Large\bfseries}%
+{Chapter }{0em}{}{}
+
+\newcommand{\fchapter}[1]%
+{\phantomsection\chapter*{Chapter #1}%
+\setcounter{theproblem}{0}%
+\addcontentsline{toc}{chapter}{Chapter #1}\newpage} % Chapter Number
+
+
+\theoremstyle{definition}
+\newtheorem{proofoutline}%
+[theproblem]{Outline of Problem}
+
+\newenvironment{outline}%
+    {\addtocounter{theproblem}{-1}\begin{proofoutline}}%
+    {\end{proofoutline}}

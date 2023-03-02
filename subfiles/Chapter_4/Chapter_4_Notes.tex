@@ -4,18 +4,23 @@
 \providecommand{\szz}{\mathcal{S}}
 \providecommand{\ccinf}{C_c^\infty}
 \section*{Notes on Chapter 4}
+\exercise{39}
 \begin{wts}
-    Show that every sequentially compact space is countably compact. \begin{itemize}
+    Show that every sequentially compact space is countably compact. With the following definitions:
+    \begin{itemize}
     \item Sequential compactness: every sequence has a convergent subsequence.
     \item Countably Compact: every countable open cover has a finite subcover.
     \end{itemize}
 \end{wts}
 \providecommand{\xx}{\mathbf{X}}
 \begin{proof}
-    We will proceed by proving the contrapositive. Suppose $\xx$ admits a countable open cover where no finite subcover exists. Denote this open cover by $\{U_n\}_{n\geq 1}$. Since $\{1,2,\ldots,n\}$ is finite, we can choose a sequence 
-    \[x_n\in \xx\setminus \left(\bigcup U_{j\leq n}\right)\neq\varnothing\]
-    And suppose by contradiction that $x_n$ admits a convergent subsequence in $x_k\to x\in \xx$. We claim that $x\in X\setminus\left(\bigcup U_{j\geq 1}\right)$. Indeed, if\[x\in \bigcup U_{j\geq 1}\implies x\in U_j\]
-    for some $j\in \nat^+$. So that $U_j$ is an open set that contains $x$ but only finitely many $x_k$. Therefore $x_k\not\to x$ for every subsequence $x_k$ of $x_n$, and the proof is complete.
+    We will proceed by proving the contrapositive. Suppose $\xx$ admits a countable open cover where no finite subcover exists. Intuitively, we want to produce a sequence that 'leads to nowhere'.\\
+    
+    Denote this 'bad' open cover by $\{U_n\}_{n\geq 1}$. Since $\{1,2,\ldots,n\}$ is finite, we can choose a sequence 
+    \[
+        x_n\in U_n \setminus \left(\bigcup U_{j\leq n-1}\right)\neq\varnothing
+    \]
+    where $U_0=\varnothing$ for convenience.  If $U_j$ is empty for any $j\geq 1$, we can discard this $U_j$ from our open cover, and if what remains is a finite
 \end{proof}\newpage
 
 \end{document}

@@ -9,12 +9,12 @@
     We also claim that $m(\mathcal{L}_f^c)=0$, and $x\in \mathcal{L}_f$ at every continuous $f(x)$.
 \end{wts}
 The proof is long, and will be divided into several parts. Let us start with a couple of Lemmas about the Lebesgue Set of $f$, and several pointwise estimates that will be of use.
-\begin{lemma}
+\begin{lemma}\label{lemma:815_l1}
     If $\phi:\realn\to\mathbb{C}$, and\begin{equation}\label{phi estimate}
     |\phi(x)|\leq C(1+|x|)^{n-\varepsilon},\,\varepsilon>0\end{equation}
     then $\phi\in L^1$. Furthermore, $\phi_t\in L^1$ for every $t>0$.
 \end{lemma}
-\begin{proof}
+\begin{proof}[Proof of \ref{lemma:815_l1}]
     If $x\neq 0$, then
     \[
     |\phi|\leq C\cdot(1+|x|)^{-(n+\varepsilon)}\leq C\cdot|x|^{-(n+\varepsilon)}
@@ -29,7 +29,7 @@ The proof is long, and will be divided into several parts. Let us start with a c
 \begin{lemma}\label{lemma:lebesgue set continuity}
     If $f:\realn\to\mathbb{C}$, and if $f\in C(\realn)$, then $\mathcal{L}_f=\realn$.
 \end{lemma}
-\begin{proof}
+\begin{proof}[Proof of \ref{lemma:lebesgue set continuity}]
     Let $x\notin\wl_f$, and there exists a sequence $r_k\to 0$ and $\varepsilon_0>0$ but \[\dfrac{1}{m(B(r_k,x))}\int_{y\in B(r_k,x)}|f(x)-f(y)|dy\geq \varepsilon_0\]
     We claim that for every $k\geq 1$, we can find a $y_k\in B(r_k,x)\setminus\{x\}$ with\[|f(x)-f(y)|\geq\varepsilon_0\]
     Indeed, suppose by contradiction that no such $y_k$ exists, and by monotonicity, \[\dfrac{1}{m(B(r_k,x))}\int\limits_{y\in B(r_k,x)}|f(x)-f(y)|dy<\dfrac{1}{m(B(r_k,x))}\int\limits_{y\in B(r_k,x)}\varepsilon_0dy=\varepsilon_0\]
@@ -39,7 +39,7 @@ The proof is long, and will be divided into several parts. Let us start with a c
 \begin{lemma}\label{lemma:lebesgue set estimate}
     If $x\in\wl_f$, then for every $\delta>0$ there exists a $\eta>0$, with\[r\leq\eta\implies\int_{|y|<r}|f(x-y)-f(x)|dy\leq\delta\cdot r^n\]
 \end{lemma}
-\begin{proof}
+\begin{proof}[Proof of \ref{lemma:lebesgue set estimate}]
     We will start with something trivial.\begin{equation}\label{ball rn multiple}
         m(B(r))=r^nm(B(1))
     \end{equation}
@@ -66,7 +66,7 @@ The proof is long, and will be divided into several parts. Let us start with a c
     
     Moreover, if $A_0 = \bigset{|y|<2^{-K}\eta}$, where $K\geq 0$, then \begin{equation}\label{phi estimate on A0}|\phi_t(y)|\leq C\cdot t^{-n}\end{equation} on $A_0$
 \end{lemma}
-\begin{proof}
+\begin{proof}[Proof of \ref{lemma:phi estimates}]
     Notice that\[t^{-1}y\in[2^{-j}\cdot \eta/t,\,2^{1-j}\cdot \eta/t)=[2^{-j}\cdot \alpha,\,2^{1-j}\cdot \alpha)\]
     And\[1+|t^{-1}y|\geq |t^{-1}y|\geq 2^{-j}\alpha\]
     Therefore\[C\cdot t^{-n}(1+|t^{-1}y|)^{-(n+\varepsilon)}\leq C\cdot t^{-n}(2^{-j}\alpha)^{-(n+\varepsilon)}\]

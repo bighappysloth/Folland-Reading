@@ -17,6 +17,15 @@
     \stepcounter{theproblem}
 }
 
+\newcommand{\exercise}[1]{%
+    \phantomsection\subsection*{Exercise #1}%
+    \markright{Theorem #1}%
+    \addcontentsline{toc}{subsection}{Exercise #1}%
+    \setcounter{secnumdepth}{0}%
+    \stepcounter{theproblem}
+}
+
+
 \newtheoremstyle{subtheorem}    % name
     {1.5\topsep}        % space above
     {1.5\topsep}        % space below

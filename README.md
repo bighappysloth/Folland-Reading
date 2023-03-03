@@ -13,6 +13,10 @@ Sections I have yet to read are:
 - and chapters 8 (8.1, 8.2 complete)
 - and 9
 
+Exercises:
+Almost all exercises for Chapter 1 are done 
+
+
 PDF Progress
 ### Chapter 1 Measures
 - [x] Section 1.1 Introduction

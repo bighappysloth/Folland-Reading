@@ -12,7 +12,7 @@
 \newcommand{\problem}[1]{%
     \phantomsection\subsection*{Theorem #1}%
     \markright{Theorem #1}%
-    \addcontentsline{toc}{subsection}{Theorem #1}%
+    \addcontentsline{toc}{section}{Theorem #1}%
     \setcounter{secnumdepth}{0}%
     \stepcounter{theproblem}
 }
@@ -32,7 +32,7 @@
     {\itshape}          % name of font to use in the body of the theorem
     {1em}               % measure of space to indent
     {\bfseries}         % name of head font
-    { }              % punctuation between head and body
+    { }                 % punctuation between head and body
     { }                 % space after theorem head; " " = normal interword space
     {}
 
@@ -66,13 +66,17 @@
 
 %for putting chapter numbers after the title
 \titleformat{\section}[hang]%
-{\normalfont\Large\bfseries}%
-{Chapter }{0em}{}{}
+{ %
+\normalfont\Large\bfseries%
+} %
+{}{0em}{}{}
 
 \newcommand{\fchapter}[1]%
-{\phantomsection\chapter*{Chapter #1}%
+{%
+\phantomsection\chapter*{Chapter #1}%
 \setcounter{theproblem}{0}%
-\addcontentsline{toc}{chapter}{Chapter #1}\newpage} % Chapter Number
+\addcontentsline{toc}{chapter}{Chapter #1}\newpage% Chapter Number
+} 
 
 
 \theoremstyle{definition}

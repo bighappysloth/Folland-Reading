@@ -9,5 +9,15 @@
 \renewcommand{\footrulewidth}{0.4pt}% default is 0pt so no footer line
 
 % Headers
-\fancyhead[C]{\textbf{Folland Reading \hfill \rightmark}}
-\fancyfoot[L]{\textbf{Updated \today\, at \,\currenttime\hfill Page \thepage}}
+%\fancyhead[C]{\textbf{Folland Reading \hfill \rightmark}}
+%\fancyfoot[L]{\textbf{Updated \today\, at \,\currenttime\hfill Page \thepage}}
+
+\fancyhead[C]{%
+\hyperlink{toc}{\textbf{Contents}}%
+\hfill %
+\textbf{Folland Reading} %
+\hfill % 
+\textbf{\rightmark}%
+}
+
+\fancyfoot[L]{\textbf{Updated \today\, at \,\currenttime\: \hfill Page \thepage}}

@@ -50,12 +50,16 @@
     % Topology
     \newcommand{\acc}{\operatorname{acc}} % Set of Accumulation Points
     \newcommand{\abrackets}[1]{\langle {#1} \rangle} % Angled Brackets for Nets
-    \newcommand{\nb}[1]{\mathcal{N}_B({#1})} %N_b(x) is a neighbourhood of x
+    \newcommand{\nb}[1]{\mathcal{N}_B({#1})} % N_b(x) is a neighbourhood of x
     \newcommand{\Tau}{\mathcal{T}} % Big Tau Denoting Topological Space
     \newcommand{\cl}[1]{\overline{#1}} % Closure of a set
     \newcommand{\clc}[1]{(\overline{#1})^c} %  Complement of the Closure
     \newcommand{\Epsilon}{\mathcal{E}} % Base, generating set for Topology and Sigma algebras
     \newcommand{\cpt}{\musEighth} % Compact set, see old command \quaver does not scale properly in Math Mode.
+
+    % Condensation Points and Cardinality
+    \providecommand{\cond}{{\operatorname{cond}}}
+    \providecommand{\card}{\operatorname{card}}
     
     % Fourier Analysis
     \newcommand{\szz}{\mathcal{S}} % Schwartz Space
@@ -74,8 +78,10 @@
     \newcommand{\supp}[1]{\operatorname{supp}{(#1)}} %Support of a function
 
     %Measure Theory
-    \providecommand{\mcal}{\mathcal{M}}
-    \providecommand{\ncal}{\mathcal{N}}
+    \providecommand{\mcal}{\mathcal{M}}         % Sigma Algebra M
+    \providecommand{\ncal}{\mathcal{N}}         % Sigma Algebra N
+    \providecommand{\mustar}{\mu^*}             % Outer Measure
+    \providecommand{\mubar}{\cl{mu}}            % Completion
 
     %Bigger Brackets    
     \providecommand{\bigset}[1]{\biggl\{{#1}\biggr\}}
@@ -83,12 +89,31 @@
     %Linear Algebra
     \providecommand{\diam}{\operatorname{diam}}
     \providecommand{\dim}{\operatorname{dim}}
+    \providecommand{\defect}{\operatorname{def}}
     \providecommand{\rank}{\operatorname{rank}}
     \providecommand{\col}{\operatorname{col}}
     \providecommand{\row}{\operatorname{row}}
     \providecommand{\lin}{\operatorname{lin}}
     \providecommand{\span}{\operatorname{span}}
 
+    
+
+    % Some Bold Face Fonts
+    \providecommand{\xx}{{\mathbf{X}}}
+    \providecommand{\yy}{{\mathbf{S}}}
+    \providecommand{\ww}{{\mathbf{W}}}
+    \providecommand{\uu}{{\mathbf{U}}}
+    \providecommand{\tt}{{\mathbf{T}}}
+
+    % Shortcut for sequences
+    \providecommand{\xn}{\{x_n\}_{n\geq 1}}
+    \providecommand{\yn}{\{y_n\}_{n\geq 1}}
+    
+
+    
+    
+    
+    
 % Settings
 \setlength{\parindent}{0pt} %default no indent
 

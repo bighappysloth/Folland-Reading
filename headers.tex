@@ -13,8 +13,15 @@
     \phantomsection\subsection*{Theorem #1}%
     \markright{Theorem #1}%
     \addcontentsline{toc}{section}{Theorem #1}%
-    \setcounter{secnumdepth}{0}%
+    \setcounter{secnumdepth}{1}%
     \stepcounter{theproblem}
+}
+
+\newcommand{\fexercisesHeader}[1]{%
+    \phantomsection\section*{Exercises}%
+    \markright{Exercises}%
+    \addcontentsline{toc}{section}{Exercises}%
+    \setcounter{secnumdepth}{1}%
 }
 
 \newcommand{\exercise}[1]{%

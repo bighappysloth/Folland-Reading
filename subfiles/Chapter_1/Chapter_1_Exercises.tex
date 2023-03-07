@@ -110,6 +110,7 @@ Similarly, $G_m$ is a decreasing sequence, and since $\mu(\bigcup E_{j\geq 1}) =
 \end{proof}
 \newpage
 
+%
 
 \exercise{1.12}
 \begin{wts}
@@ -153,8 +154,10 @@ Let $(X,\mcal,\mu)$ be a finite measure space,
     \]
     Combining the two inequalities, and applying additivity finishes the proof.
 \end{proof}
-
 \newpage
+
+
+%
 \exercise{1.13}
 \begin{wts}
 Every $\sigma$-finite measure is semi-finite
@@ -162,9 +165,11 @@ Every $\sigma$-finite measure is semi-finite
 \begin{proof}
     Suppose $\mu$ is $\sigma$-finite then there exists an increasing sequence of sets $E_j\nearrow X$ with $\mu(E_j)<+\infty$. Now for every $W\in\mathcal{M}$, if $\mu(W)=+\infty$ then $\mu(W)=\lim_{j\to\infty}\mu(E_j\cap W)=+\infty$. Since this real-valued limit converges to its supremum $+\infty$, there exists a non-null subset $E_j\cap W$ of positive and finite measure.
 \end{proof}
-
 \newpage
 
+
+
+%
 \exercise{1.14}
 \begin{wts}
 If $\mu$ is a semi-finite measure, and if $\mu(E)=+\infty$, for every $C>0$, there exists an $F\subseteq E$ with $0<\mu(F)<+\infty$.
@@ -189,9 +194,11 @@ If $\mu$ is a semi-finite measure, and if $\mu(E)=+\infty$, for every $C>0$, the
 And this finishes the proof.
 \end{proof}
 \newpage
+
+
+
+
 \exercise{1.15}
-\providecommand{\xx}{\mathbf{X}}
-\providecommand{\mcal}{\mathcal{M}}
 \begin{wts}
     Given a measure $\mu$ on $(\xx,\mcal)$, and define $\mu_0 = \sup\{\mu(F),\, F\subseteq E,\, \mu(F)<+\infty\}$. Show $\mu_0$ is semi-finite. Then, show that if $\mu$ is semi-finite, $\mu=\mu_0$. Lastly, there exists a measure $\nu$ on $(\xx,\mcal)$, with $\mu = \nu + \mu_0$, where $\nu$ only assumes the values $0$ or $+\infty$.
 \end{wts}
@@ -206,8 +213,24 @@ Next, suppose $\mu$ is semi-finite, and fix any measurable set $E$. If $E$ is if
 
 For the last part of the proof, let $\mu$ be an arbitrary measure. And let $E\in\mcal$. If $\mu(E)<+\infty$, then $\nu(E)=0$ would suffice (this proves the first property of the measure). If $\mu(E)=+\infty$, and if $\mu(E)$ is not semi-finite, then set $\nu(E)=+\infty$. So that $\mu_0(E)+\nu(E)=0 + \infty = \infty = \mu(E)$. The additivity of $\nu$ is immediate, since $\nu$ can only assume two values. This finishes the proof.
 \end{proof}
+\newpage
 
+\exercise{1.17}
+\begin{wts}
+    Let $\{A_j\}_{j\geq 1}$ be a countable disjoint sequence in $\mcal$, and denote $B_n = \bigcup A_{j\leq n}\in\mcal$. For every $E\subseteq \xx$, 
+    \[
+        \mustar(E\cap B_n) = \sum\mustar(E\cap A_{j\leq n})
+    \]
+\end{wts}
+\begin{proof}
+    Proven in Theorem 1.11 as a Lemma.
+\end{proof}
+\newpage
 
+\exercise{1.18}
+\begin{wts}
+    
+\end{wts}
 
 
 

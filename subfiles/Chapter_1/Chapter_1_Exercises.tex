@@ -337,18 +337,69 @@ For the last part of the proof, let $\mu$ be an arbitrary measure. And let $E\in
     \end{enumalpha}
 \end{wts}
 \begin{proof}[Proof of Part A]
-    
+    Let $E\subseteq \xx$ and $\varepsilon>0$, then by definition of $\mustar$, 
+    \[
+        \mustar(E) + \varepsilon\geq \sum \mu_0(A_j) = \sum \mustar(A_j)\geq A
+    \]
+    by subadditivity and $A = \bigcup A_j$.
+\end{proof}
+\begin{proof}[Proof of Part B]
+    Suppose $E$ is outer-measurable and of finite outermeasure, then by part A we have a sequence of $A_n\in\acal_{\sigma}$ with
+    \[
+        \mustar(E)+n^{-1}\geq \mustar(A_n)\implies \mustar(E) = \mustar(A)
+    \]
+    if we define $A = \bigcap A_n\supseteq E$. Using the $\mustar$-measurability of $E$, we get
+    \[
+        \mustar(A) = \mustar(A\cap E) + \mustar(A\setminus E) < +\infty \implies \mustar(A\setminus E) = 0
+    \]
+    Conversely, if $\mustar(A\setminus E) = 0$, for any $V\subseteq \xx$, with $\mustar(V)<+\infty$, we have
+    \begin{align*}
+        \mustar(V) &= \mustar(V\cap A) + \mustar(V\setminus A)\\
+        &\geq \mustar(V\cap E) + \mustar(V\setminus A) + \mustar(V\cap [A\setminus E])\\
+        &\geq \mustar(V\cap E) + \mustar(V\setminus E)
+    \end{align*}
 \end{proof}
 
+\begin{proof}[Proof of Part C]
+    Suppose $\munot$ is $\sigma$-finite, then $E\in\mcal^*$ induces a sequence $E_j\increasesto E$, where each $E_j$ is of finite measure. By part b) we obtain $\{A_j\}\subseteq\acal_{\sigma\delta}$ with 
+    \[
+        \mustar(A_j\setminus E_j) = 0
+    \]
+    Now define $B = \bigcup A_j$, so that $B\in \acal_{\sigma\delta}$. Observe $\bigcup(A_j\setminus E_j) = B\setminus E_1 \supseteq B\setminus E$ (verify these). And $\mustar(B\setminus E)=\leq \sum \mustar(A_j\setminus E_j)=0$ by subadditivity. Since $B\supseteq E$, and $B\in\acal_{\sigma\delta}$, this proves $\implies$.
+
+    Conversely, suppose $E\subseteq\xx$ and there exists a $B\in\acal_{\sigma\delta}$ with $E\subseteq B$, $\mustar(B\setminus E) = 0$. Let $\{\xx_j\}\increasesto\xx$ as a sequence of sets of finite measure. Then,
+    \[
+    (\xx_j\cap B)\setminus(\xx_j\cap E) = \xx_j\cap (B\setminus E)\subseteq B\setminus E
+    \]
+    $\xx_j\cap B\in\acal_{\sigma\delta}$, and $\xx_j\cap B\supseteq (\xx_j\cap E)$. Each $E_j = \xx_j\cap E$ is $\mustar$ measurable by monotonicity, so is their countable union.
+\end{proof}
 \newpage
 
 
 \exercise{1.19}
 \begin{wts}
-    
+    Let $\mustar$ be an outer measure on $\xx$ induced from a finite premeasure $\munot$. If $E\subseteq\xx$, define the inner measure of $E$ to be $\muStar(E) = \munot(\xx) - \mustar(E^c)$. Then $E$ is $\mustar$-measurable iff $\mustar(E)=\muStar(E)$.
 \end{wts}
 \begin{proof}
-    
+    Suppose $E\subseteq\xx$ is $\mustar$-measurable. Then
+    \[
+        \mustar(\xx) = \mustar(\xx\cap E) + \mustar(\xx\setminus E) = \munot(\xx)
+    \]
+    Rearranging gives the result, since all quantities are finite.\\
+
+    If $\mustar(E) = \muStar(E)$, then $\mustar(E^c) = \muStar(E^c)$, since the definition of $\muStar$ is symmetric. Let $B\in\acal_{\sigma\delta}$, with $\mustar(B) = \mustar(E)$, $E\subseteq B$. We can always find such a $B$ by taking the intersection over all $B_n\in\acal_{\sigma}$,
+    \[
+        \mustar(E) + n^{-1}\geq \sum_j \mustar(B(j,n))\geq \mustar\bigbrackets{\bigcup_j B(j,n) = B_n}
+    \]
+    Notice $E\subseteq B\iff E^c\supseteq B^c\iff E^c\cap B^c = B^c$.Since $B$ is $\mustar$-measurable, we have
+    \begin{align*}
+        \mustar(E^c\cap B) + \mustar(E^c\setminus B) &=\mustar(E^c)\\
+        &= \mustar(\xx) - \mustar(E)\\
+        \mustar(B\setminus E) + \mustar(B^c) &= \mustar(X) - \mustar(E)\\
+        &= \mustar(B) + \mustar(B^c) - \mustar(E)\\
+        \mustar(B\setminus E) &= \mustar(B) - \mustar(E)\\
+        &= 0
+    \end{align*}
 \end{proof}
 \newpage
 

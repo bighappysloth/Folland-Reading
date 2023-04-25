@@ -14,9 +14,9 @@ For every $f\in C(A,[0,1])$, there exists a $g\in C(X, [0, 1/3])$ such that
 \end{equation}
 \end{lemma}
 \begin{proof}
-Since $f$ is continuous, $B=f^{-1}([0,1/3])$, and $C=f^{-1}([2/3,1])$ are closed, disjoint subsets. Applying Urysohn's Lemma (Theorem 4.15) we get a continuous function $g\in C(X,[0,1])$ such that $g|_B = 0$ and $g|_C = 1$. Relabel $g=g/3$ then $g\in C(X,[0,1/3])$ (multiplication is continuous).\\
+Since $f$ is continuous, $B=f^{-1}([0,1/3])$, and $C=f^{-1}([2/3,1])$ are closed, disjoint subsets. Applying Urysohn's Lemma (Theorem 4.15) we get a continuous function $g\in C(X,[0,1])$ such that $g|_B = 0$ and $g|_C = 1$. Rescale $g$ by a factor of $1/3$, and $g\in C(X,[0,1/3])$.\\
 
-To show that \eqref{eq:1} holds, suppose $x\in B$, then $f(x)\in[0,1/3]$ and $g(x)=0\implies 0\leq f-g\leq 1/3\leq 2/3$. Now suppose that $x\in C$, then $f(x)\in[2/3,1]$ and $g(x)=1/3$ (recall that we relabelled $g$). So we have $0\leq 1/3\leq f-g\leq 2/3$. Lastly, for the case where $x\notin (B\cup C)$, then $f(x)\in (1/3, 2/3)$, and $g(x)\in[0, 1/3]$ implies that 
+To show that \Cref{eq:1} holds, suppose $x\in B$, then $f(x)\in[0,1/3]$ and $g(x)=0\implies 0\leq f-g\leq 1/3\leq 2/3$. Now suppose that $x\in C$, then $f(x)\in[2/3,1]$ and $g(x)=1/3$ (recall that we relabelled $g$). So we have $0\leq 1/3\leq f-g\leq 2/3$. Lastly, for the case where $x\notin (B\cup C)$, then $f(x)\in (1/3, 2/3)$, and $g(x)\in[0, 1/3]$ implies that 
 \begin{align*}
     1/3 &<    f(x) <    2/3 &\implies 1/3 \leq   f(x) \leq 2/3\\
     0   &\leq g(x) \leq 1/3 &\implies -1/3 \leq -g(x) \leq 0    
@@ -36,7 +36,7 @@ Here is where my proof deviates from that of Folland's, we multiply both sides b
 \[
 0\leq \left(f(x)-\sum_{j\leq n}g_j(x)\right)\left(\dfrac{3}{2}\right)^n\leq 1
 \]
-Applying the Lemma $\ref{lemma:1}$, we get a function $h\in C(X,[0,1/3])$ such that, for every $x\in A$
+Applying \Cref{lemma:1}, we get a function $h\in C(X,[0,1/3])$ that reduces the error between $f$ and the partial sums of $g_{j\leq n-1}$. For every $x\in A$
 \[
 0\leq \left(f(x)-\sum_{j\leq n}g_j(x)\right)\left(\dfrac{3}{2}\right)^n-h\leq 2/3
 \]
@@ -48,7 +48,7 @@ Set $g_{n+1} = h\left(\dfrac{2}{3}\right)^n$ and $g_{n+1}\in C(X, [0, 2^n/3^{n+1
 \[
 \sum_{j\geq 1} \norm{g_j}_u \leq \sum_{j\geq 1}\left(\dfrac{2}{3}\right)^j\cdot\dfrac{1}{2}<+\infty
 \]
-Denote the pointwise sum $F = \sum g_j$, then this $F\in BC(X)$ (by Theorem 4.9), since every $g_j\in BC(X)$. And
+Denote the pointwise sum $F = \sum g_j$, then this $F\in BC(X)$ (by Theorem 4.13 and 5.1). And
 \[
 \bignorm{f-\sum_{j\leq n}g_j}_u\leq \left(\dfrac{2}{3}\right)^n\longrightarrow 0
 \]

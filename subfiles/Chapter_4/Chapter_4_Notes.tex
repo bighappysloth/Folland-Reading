@@ -4,23 +4,52 @@
 \providecommand{\szz}{\mathcal{S}}
 \providecommand{\ccinf}{C_c^\infty}
 \section*{Notes on Chapter 4}
-\exercise{39}
-\begin{wts}
-    Show that every sequentially compact space is countably compact. With the following definitions:
-    \begin{itemize}
-    \item Sequential compactness: every sequence has a convergent subsequence.
-    \item Countably Compact: every countable open cover has a finite subcover.
-    \end{itemize}
-\end{wts}
 
-\begin{proof}
-    We will proceed by proving the contrapositive. Suppose $\xx$ admits a countable open cover where no finite subcover exists. Intuitively, we want to produce a sequence that 'leads to nowhere'.\\
-    
-    Denote this 'bad' open cover by $\{U_n\}_{n\geq 1}$. Since $\{1,2,\ldots,n\}$ is finite, we can choose a sequence 
-    \[
-        x_n\in U_n \setminus \left(\bigcup U_{j\leq n-1}\right)\neq\varnothing
-    \]
-    where $U_0=\varnothing$ for convenience.  If $U_j$ is empty for any $j\geq 1$, we can discard this $U_j$ from our open cover, and if what remains is a finite
-\end{proof}\newpage
+
+\subsection*{Urysohn's Lemma Notes}
+Notes on the construction of the countable 'onion' sequence within a normal space $\xx$.\\
+
+If $\xx$ is a normal space, and $A$ and $B$ are disjoint closed subsets, then we can easily find an open $U$ with
+\begin{equation}\label{eq:UrysohnLemma-Seashells}
+    A\subseteq U \subseteq \cl{U}\subseteq B^c
+\end{equation}
+We say that $U$ hides in $B^c$ if the closure of $U$ is contained in $B^c$. Define $\Delta_n = \bigset{k2^{-n},\: 1 < k < 2^{n}}$, so that $\Delta_n\subseteq(0,1)$ for all $n\geq 1$. Notice 
+\[
+    \Delta_1\supseteq \cdots\supseteq \Delta_n\supseteq \Delta_{n+1}
+\]
+and the even indices for $\Delta_{n+1}$ are contained in $\Delta_n$. Suppose $\Delta_n$ is well defined, it suffices to choose the odd indices for $\Delta_{n+1}$. If $r = j2^{-(n+1)}$, where $j$ is odd, then $r$ sits in between precisely two elements in $\Delta_n\cup\{0,1\}$. If $r$ sits between an endpoint, then define $\cl{U_0} = A$, and $B^c = U_1$. And denote the closest left and neighbours by $s$, $t$ respectively. If $s<r<t$, it is clear that $\cl{U_s}$ and $U_t^c$ are disjoint closed sets.\\
+
+Use the 'normal space' construction to obtain an superset of $\cl{U_s}$ that hides in $U_t$, denote this open set by $U_r$, and similar to \Cref{eq:UrysohnLemma-Seashells}
+\[
+    \cl{U_s}\subseteq U_r\subseteq \cl{U_r}\subseteq U_t
+\]
+Now that the construction of this sequence is complete, we wish to prove Urysohn's Lemma. Let $A$ and $B$ be disjoint closed sets. And define 
+\[
+    f(x) = \inf\bigset{r\in\Delta\cup\{1\},\: x\in U_r}
+\]
+where $U_1 = \xx$. So that $0\leq f(x)\leq 1$ is immediate. If $x\in A$, then $x$ is in all $U_r$, and by density of $\Delta\subseteq(0,1)$, we have $f(x)=0$. Conversely, if $x\in B$ then $x\notin U_r$ for all $r\in\Delta$, if $E$ denotes the indices in $\Delta$ where $x\in U_s$ when $s\in E$,
+\begin{equation}\label{inequality shortcut infimum intervals}
+    (-\infty,\: r)\subseteq E^c\iff E\subseteq [r,\: +\infty)\iff\inf(E)\geq r
+\end{equation}
+Send $r\to 1$ and $f(x) = 1$. Thus $f|_{A}=0$ and $f|_{B}=1$.\\
+
+To show continuity, it suffices to show that the inverse images of the open half $\bigset{(x > \alpha),\: (x < \alpha)}_{\alpha\in\real}$ lines are indeed open in $\xx$. Let $\alpha$ be fixed. And if $x\in \{f<\alpha\}$, we can 'wiggle' the infimum towards the right (towards $\alpha$), and using density of $\Delta$ within $(0,1)$, there exists a $r\in E$ that satisfies $f(x) < r < \alpha$. This is equivalent to 
+\[
+    x\in \bigcup_{r<\alpha} U_r
+\]
+If there exists an $r<\alpha$ st $x$ belongs to $U_r$ as an element, then $f(x)\leq r < \alpha$.\\
+
+If $f(x) > \alpha$, then $(-\infty,\: \alpha)\subseteq E^c$, by  \Cref{inequality shortcut infimum intervals}. Suppose $\alpha<1$, otherwise $\{f>\alpha\}=\varnothing$. Wiggle $f(x)$ to the left and obtain an $r\in\Delta$, $\alpha<r<f(x)$ with $x\notin U_r$. By density again, take any $s<r$ by a small amount (st $s>\alpha$, $s\in \Delta$), and
+\[
+    \cl{U}_s\subseteq U_r\iff U_r^c\subseteq\cl{U}_s
+\]
+so that $x\in \cl{U}_s^c$ for some $s>\alpha$. This is equivalent to 
+\[
+    x\in\bigcup_{s>\alpha}\cl{U}_s^c
+\]
+Conversely, if $x\notin \cl{U}_s^c$ for some $s>\alpha$,  since $\{U_r\}$ (thus $\{\cl{U}_r\}$) is increasing, and $x\notin U_r$ for every $r\leq s$. Hence,
+\[
+    (-\infty,\: s]\subseteq E^c\iff E\subseteq (s,\: +\infty)\iff f(x)\geq s>\alpha
+\]
 
 \end{document}

@@ -21,3 +21,12 @@
 }
 
 \fancyfoot[L]{\textbf{Updated \today\, at \,\currenttime\: \hfill Page \thepage}}
+
+% Alternate Date-Time, if the above does not work.
+%
+% Also see 'latexmkrc' to adjust timezone. That file has to be placed in the root directory. If we have /Lab7/main.tex, then it should be placed /latexmkrc, instead of /Lab7/latexmkrc
+%
+% Alternate latexmkrc: $ENV{'TZ'}='America/Toronto';
+%
+% See https://www.overleaf.com/learn/latex/Questions/How_do_I_make_%5Ctoday_display_the_date_according_to_my_time_zone%3F#.Vt4dR6grLow
+% \fancyfoot[L]{\textbf{Updated \today\, at \,\DTMcurrenttime\: \hfill Page \thepage}}

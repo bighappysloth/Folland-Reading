@@ -16,15 +16,15 @@
     \begin{equation}\label{log-convex expression}
         q^{-1} = \lambda p^{-1} + (1-\lambda)r^{-1}\implies \norm{f}_q\leq\norm{f}_p^\lambda\cdot\norm{f}_\infty^{1-\lambda}
     \end{equation}
-    So
+    Using $r = +\infty$, and if $\norm{f}_\infty\neq 0$, then So
     \begin{align*}
-        \norm{f}_q\leq\biggl[\norm{f}_p^p\cdot\norm{f}_\infty^p \biggr]^{1/q}\cdot\norm{f}_\infty
+        \norm{f}_q\leq\biggl[\norm{f}_p^p\cdot\norm{f}_\infty^{-p} \biggr]^{1/q}\cdot\norm{f}_\infty
     \end{align*}
     Let $\{q_n\}_{n\geq 1}$ be arbitrary with $q_n\to\infty$. And for sufficiently large $q_n$,
     \[
         \limsup_{n\to\infty}\norm{f}_{q_n}\leq\biggl[\norm{f}_p^p\cdot\norm{f}_\infty^p\biggr]^{1/(q_n)}\cdot\norm{f}_\infty
     \]
-    With $\norm{f}_p^p\cdot\norm{f}_\infty^p\in[0,+\infty)\implies \biggl[\norm{f}_p^p\cdot\norm{f}_\infty^p\biggr]^{1/(q_n)}\to 1$, and the proof is complete.\\
+    With $\norm{f}_p^p\cdot\norm{f}_\infty^{-p}\in(0,+\infty)\implies \biggl[\norm{f}_p^p\cdot\norm{f}_\infty^{-p}\biggr]^{1/(q_n)}\to 1$. If $\norm{f}_\infty = 0$, then we have equality. This proves the first estimate.\\
 
     Next, normalize $f$ so that $\norm{f}_\infty = 1$, if this is impossible, then $f = 0$ a.e. Now, define
     \[
@@ -32,9 +32,9 @@
     \]
     fix $q_n\to\infty$ as in the previous part of the proof. At every $n$ sufficiently large,
     \[
-        |f|^{q_n} > (\norm{f}_\infty - \varepsilon)^{q_n} \chi_{A_{\varepsilon}}\implies\norm{f}_{q_n}^{q_n}\geq (\norm{f}_\infty - \varepsilon)\cdot\mu(A_\varepsilon)^{1/{q_n}}
+        |f|^{q_n} > (\norm{f}_\infty - \varepsilon)^{q_n} \chi_{A_{\varepsilon}}\implies\norm{f}_{q_n}\geq (\norm{f}_\infty - \varepsilon)\cdot\mu(A_\varepsilon)^{1/{q_n}}
     \]
-    $A_\varepsilon$ is a non-null set of finite measure. The finiteness comes from the last equation, and if $A_\varepsilon$ were null then it contradicts the definition of $\norm{f}_\infty$. Sending $n\to\infty$, then $\varepsilon\to 0$ finishes the proof.
+    $A_\varepsilon$ is a non-null set of finite measure. The finiteness comes from the last equation, and if $A_\varepsilon$ were null then it contradicts the definition of $\norm{f}_\infty$. Sending $n\to\infty$ reads $\liminf_{q\to\infty} \norm{f}_q\geq \norm{f}_\infty - \varepsilon$, and the proof is complete.
 \end{proof}
 \begin{corollary}
     For the special case where $x\in\realn$, and $\lim_{p\to\infty}\norm{x}_p=\sup |x_i|$, take $\xx = \real^{\{1,\ldots, n\}}$, and $\mu$ be the counting measure on $\{1,\ldots, n\}$. Because the transpose of $x$ is a functional, etc. bla bla..

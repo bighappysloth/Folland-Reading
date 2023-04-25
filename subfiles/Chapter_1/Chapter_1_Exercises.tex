@@ -421,10 +421,19 @@ For the last part of the proof, let $\mu$ be an arbitrary measure. And let $E\in
 
 \exercise{1.21}
 \begin{wts}
-    
+    Let $\mustar$ be an outermeasure induced from a premeasure, and $\mubar = \mustar|_{\mcal^*}$, where $\mcal^*$ denotes the family of $\mustar$-measurable sets. Show that $\mubar$ is saturated. That is, $\wig{\mcal^*} = \mcal^*$
 \end{wts}
 \begin{proof}
-    
+    Suppose $E$ is locally measurable (with respect to $\mubar = \mustar|_{\mcal^*}$). Fix $V\subseteq\xx$, with $\mustar(V)<+\infty$. It suffices to show $\mustar(V) = \mustar(V\cap E) + \mustar(V\setminus E)$.\\
+
+    By 18a), find a $V'\in\acal_{\sigma\delta}$, with $V\subseteq V'$, and $\mustar(V') = \mustar(V) <  +\infty$. so that $E\cap V'$ is $\mustar$-measurable. 
+    \[
+        \mustar(V) = \mustar(V\cap E\cap V') + \mustar(V\setminus(V\cap(V'\cap E))
+    \]
+    therefore
+    \[
+        \mustar(V) = \mustar(V\cap E) + \mustar(V\setminus E)
+    \]
 \end{proof}
 \newpage
 
@@ -437,6 +446,12 @@ For the last part of the proof, let $\mu$ be an arbitrary measure. And let $E\in
     
 \end{wts}
 \begin{proof}
+    To show $\mubar$ is complete, Fix $U\subseteq F$, where $F\in\mcal^*$, with $\mubar(F) = 0$ Let $F'\in\acal_{\sigma\delta}$, with $F'\supseteq F$, and 
+    \[
+        \mustar(F') = \mustar(F)\geq \mustar(F'\setminus U)
+    \]
+    Since $F'\supseteq U$, applying Exercise 18b gives $\cl{\mcal^*}\subseteq\mcal^*$. For the other direction, 
+
     
 \end{proof}
 \newpage

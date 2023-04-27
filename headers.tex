@@ -3,8 +3,7 @@
 % Custom QED symbol
 \renewcommand\qedsymbol{$\blacksquare$}
 
-%Want to show we want it to be numbered with the section at a later date
-\newtheorem*{wts}{WTS}
+
 
 % Problem Number for assignments
 \newcounter{theproblem}
@@ -43,12 +42,17 @@
     { }                 % space after theorem head; " " = normal interword space
     {}
 
+% WTS, now numbered
+\newtheorem{wts}{WTS}[theproblem]
+
 \theoremstyle{subtheorem}                       % Lemma, Corollary follows Theorem 4.16.X
 
-\newtheorem{lemma}{Lemma}[theproblem]           % Lemma, follows 'Problem' counter
-\newtheorem{corollary}{Corollary}[theproblem]   % Corollary
-\newtheorem{remark}{Remark}[theproblem]         % Unnumbered remark
 
+
+\newtheorem{lemma}{Lemma}[theproblem]               % Lemma, follows 'Problem' counter
+\newtheorem{corollary}{Corollary}[theproblem]       % Corollary
+\newtheorem{remark}{Remark}[theproblem]             % Unnumbered remark
+\newtheorem{definition}{Definition}[theproblem]         % Definition
 
 \theoremstyle{subtheorem}
 %What to remember
@@ -100,11 +104,16 @@
 \Crefname{lemma}{Lemma}{Lemmas}
 
 \crefname{corollary}{corollary}{corollaries}
-\Crefname{corollary}{corollary}{Corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
 
-\crefname{problem}{Theorem}{Theorems}
+\crefname{problem}{theorem}{theorems}
 \Crefname{problem}{Theorem}{Theorems}
 
-\crefname{exercise}{Exercise}{Exercises}
+\crefname{exercise}{exercise}{exercises}
 \Crefname{exercise}{Exercise}{Exercises}
 
+\crefname{definition}{definition}{definitions}
+\Crefname{definition}{Definition}{Definitions}
+
+\crefname{wts}{WTS}{WTSs}
+\Crefname{wts}{WTS}{WTSs}

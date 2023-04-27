@@ -224,8 +224,147 @@
     \end{enumalpha}
 \end{wts}
 \begin{proof}
-    The proof is rather long, so we will 
+    The proof is rather long, so we will split it in several parts. A topological space is disconnected iff it can be written as a disjoint union of two non-empty open sets. Often it is easier to show that a space is disconnected rather than connected.\\
+
+    Part A: Suppose $\xx$ is disconnected, this induces a pair of non-empty open sets, $A$, and $B$ whose union is $\xx$, and 
+    \[
+        A\cap B = \varnothing\iff A \subseteq B^c
+    \]
+    their union is $\xx$, hence
+    \[
+        A\cup B = \xx\iff B^c\subseteq A
+    \]
+    combining the last two estimates, we see that $B = A^c$, so both $A$ and $A^c = B$ are closed. This proves ($\impliedby$).\\
+    Now suppose $\{A, A^c\}\neq \{\varnothing,\xx\}$ are both clopen. Clearly $A$ is disjoint from its complement, and their union is $\xx$.\\
+
+    Part B: We will attempt the contrapositive. Suppose $E = \bigcup E_{\alpha\in A}$ is disconnected. This induces $D$ and $D^c$ which are clopen in the relative topology of $E$, (by Part A). More precisely,
+    \begin{equation}\label{chp4:ex4.10-union-non-empty}
+        \bigcup E_\alpha = \underbrace{\bigcup (E_\alpha\cap D)}_{\neq\varnothing} + \underbrace{\bigcup (E_\alpha\setminus D)}_{\neq\varnothing}
+    \end{equation}
+    The intersection $\bigcap E_{\alpha\in A}$ is non-trivial, hence
+    \begin{equation}\label{chp4:ex4.10-intersection-non-empty}
+        \bigcap E_\alpha = \underbrace{\bigcap (E_\alpha\cap D)}_{\neq\varnothing} + \bigcap (E_\alpha\setminus D) \neq\varnothing
+    \end{equation}    
+    so at least one of the members on the right are non-empty. Assume without loss of generality that $\bigcap (E_\alpha\cap D)$ is not empty. This tells us $E_\alpha\cap D=\neq\varnothing$ for each $\alpha\in A$. But by \Cref{chp4:ex4.10-union-non-empty}, if we concentrate on the right member, 
+    \[
+        \bigcup (E_\alpha\setminus D)\neq\varnothing\implies\exists\beta\in A,\: E_\alpha\setminus D \neq\varnothing
+    \]
+    And for this particular $\beta\in A$, we see that both $D$ and $D^c$ are non-trivially open in $E_\beta$, and the proof is complete. A poetic way to summarize the proof would be:
+    \begin{quote}
+        If the whole is disconnected, and there exists common ground over which the family of sets covers, and because the common ground (intersection) is non-trivial, either $D$ or $D^c$ is non-trivially open in all $E_\alpha$. The intersection gives us "$\forall$", while the union gives us "$\exists$" for a non-trivially open $D$ or $D^c$.
+    \end{quote}
+
+    Part C: Suppose $\cl{A}$ is disconnected, this induces a non-trivial clopen set $D$ relative to $\cl{A}$. 
+    \begin{itemize}
+        \item Since $\cl{A}\cap D\neq\varnothing$, choose any $y\in\cl{A}\cap D\subseteq \cl{A}$, since $D$ is a neighbourhood of $y$, and $y$ is an adherent point of $A$. It is immediate that $A\cap D$ is non-empty.
+        \item Similarly for $A\setminus D\neq\varnothing$,
+    \end{itemize}
+    therefore $\{D,D^c\}$ is non-trivially clopen in $A$, and $A$ is disconnected.\\
+
+    Part D: The idea here is to use Part B. Let $x$ be fixed, and $\{E_\alpha\}_{\alpha\in A}$ be the family of all connected sets containing $x$, since their intersection is non-trivial, their union, $E$ is connected. The closure of their union is then the maximal connected component containing $x$. Indeed, if $G$ is a connected set containing $x$, then $G\subseteq \bigcup E_\alpha = E$, so $G\subseteq \cl{E}$.
 \end{proof}
+\newpage
+
+\exercise{4.11}
+\begin{wts}
+    If $E_1,\ldots E_n$ are subsets of a topological space, the closure of $\bigcup_1^n E_j$ is $\bigcup_1^n \cl{E_j}$
+\end{wts}
+\begin{proof}
+    The finite union of closed sets is again closed, so 
+    \[
+        \forall j\leq n,\: E_j\subseteq \cl{E_j}\implies \cl{\bigcup_1^n E_j}\subseteq \bigcup_1^n \cl{E_j}
+    \]
+    For the reverse estimate, $E_j\subseteq\bigcup_1^n E_j\subseteq \cl{\bigcup_1^n E_j}$ is a closed set that contains each $E_j$, therefore
+    \[
+        \forall j\leq n,\: \cl{E_j}\subseteq \cl{\bigcup_1^n E_j}\implies \bigcup_1^n \cl{E_j}\subseteq \cl{\bigcup_1^n E_j}
+    \]
+\end{proof}
+\begin{corollary}
+    The interior operator distributes over intersections. If $A$ and $B$ are subsets of $\xx$, then
+    \begin{align*}
+        \cl{(A^c\cup  B^c)} &= (\cl{A^c}\cup \cl{B^c})\\
+        \biggl(\cl{(A^c\cup  B^c)}\biggr)^c&= A^o\cap B^o\\
+        \biggl(A^c\cup B^c\biggr)^{co} &= A^o\cap B^o\\
+        (A\cap B)^o&=A^o\cap B^o
+    \end{align*}
+\end{corollary}
+\newpage
+
+% Kuratowski Closure Operaotrs
+\exercise{4.12}
+\begin{wts}
+    Let $\xx$ be a set. A Kuratowski closure operator on $\xx$ is a map $A\mapsto A^*$ from $\powerset{\xx}$ to itself satisfying
+    \begin{enumroman}
+        \item $\varnothing^* = \varnothing$ (does nothing to the empty set),
+        \item $A\subseteq A^*$ (monotonicity),
+        \item $(A^*)^* = A^*$ (idempotence)
+        \item $(A\cup B)^* = A^* \cup B^*$ (distributes over finite unions)
+    \end{enumroman}
+    Prove
+    \begin{enumalpha}
+        \item If $\xx$ is a topological space, the map $A\mapsto \cl{A}$ is a Kuratowski closure operator. (Use Exercise 11.)
+        \item Conversely, given a Kuratowski closure operator, let $\mathcal{F} = \{ A\subseteq \xx,\: A = A^*\}$ and $\Tau = \{U\subseteq \xx,\: U^c\in \mathcal{F}\}$, then $\Tau$ is a topology on $\xx$, and for any set $A\subseteq\xx$, $A^*$ will be its closure with respect to $\Tau$.
+    \end{enumalpha}
+\end{wts}
+\begin{proof}
+    Part A: The empty set is closed, so $\cl{\varnothing}=\varnothing$, and $\cl{A}$ is the smallest closed superset of $A$, so $A\subseteq\cl{A}$ for every $A\subseteq\xx$. $A\subseteq\xx$ is closed iff $\cl{A} = A$, so idempotence holds. Distributivity follows from Exercise 11 directly.\\
+
+    Part B: We first show that $\Tau$ is indeed a topology. Fix $U_1$ and $U_2$ in $\Tau$, so that $U_1^c\cup U_2^c = (U_1\cap U_2)^c$. The map $A\mapsto A^*$ distributes over finite unions, hence 
+    \[
+        (U_1^c \cup U_2^c)^* = (U_1^c)^* \cup (U_2^c)^* = U_1^c\cup U_2^c
+    \]
+    Therefore $U_1\cap U_2\in \Tau$. Now suppose $\{U_\alpha\}_{\alpha\in A}\subseteq\Tau$, then
+    \[
+        \biggl( \bigcup U_\alpha\biggr)^c = \bigcap U_\alpha^c
+    \]
+    by monotonicity (Property ii): $\bigcap U_\alpha^c\subseteq\biggl(\bigcap U_\alpha^c\biggr)^*$. To prove the reverse inclusion, notice if $\alpha$ is held fixed,
+    \[
+        \bigcap U_\alpha^c\subseteq U_\alpha^c\implies \biggl(\bigcap U_\alpha^c\biggr)^*\subseteq U_\alpha^{c*}
+    \]
+    this follows from 'monotonicity' of the closure operator: if $A$ is a subset of $B$, then we can write 
+    \[
+        B = A + (B\setminus A)\implies A^* \subseteq A^* + (B\setminus A)^* = B^*
+    \]
+    Take the intersection over all $\alpha\in A$ on the right member,
+    \[
+        \biggl(\bigcap U_\alpha^c\biggr)^*\subseteq \bigcap U_\alpha^{c*} = \bigcap U_\alpha^c
+    \]
+    Hence $\biggl(\bigcap U_\alpha^c \biggr)^* = \bigcap U_\alpha^c $. The empty set and $\xx$ are elements of $\mathcal{F}$. Since $\xx\subseteq \xx^*\subseteq \xx$, and $\{\varnothing,\xx\}\subseteq\Tau$. So $\Tau$ is a topology.\\
+
+    Finally, $A^*$ is a closed superset of $A$ and suppose $K$ is another closed superset,
+    \[
+        A \subseteq K\implies A^*\subseteq K^*
+    \]
+    So $A^*$ is the smallest closed superset of $A$ and this proves the last claim.
+\end{proof}
+\newpage
+
+
+
+
+\exercise{4.13}
+\begin{wts}
+    If $\xx$ is a topological space, $U$ is open in $\xx$ and $A$ is dense in $\xx$, then $\cl{U} = \cl{U\cap A}$.
+\end{wts}
+\begin{proof}
+    The takeaway here is that if $A$ is dense in $\xx$, every point $z\in U$ can be approximated by points in $U\cap A$. And and important technique of 'demoting' the neighbourhood to become the interior of the neighbourhood can yield some nice properties. Since the interior of a neighbourhood is again a neighbourhood. This allows intersection with open sets to inherit the 'neighbourhoodness' of the set.\\
+
+    Let $z\in \cl{U}$, and fix a neighbourhood $V\in \N{z}$, so that the interior of $V$ is also a neighbourhood. By the alternate definition of $\cl{U}$ in terms of adherent points (see \Cref{chp4:closure-adherent}) of $\cl{U}$, $V^o\cap U\neq\varnothing$. This is a non-empty open set, therefore it must intersect $A$ non-trivially.
+    \[
+        x\in (V^o\cap U)\cap A = V^o\cap (U\cap A)
+    \]
+    and $z\in \cl{U\cap A}$.\\
+\end{proof}
+\begin{remark}
+We simply used the fact 
+\[
+\cl{E} = \bigset{x\in\xx,\: \forall V\in\N{x},\: V\cap E\neq\varnothing}
+\]
+and the following equivalent characterization of density
+\[
+E \text{ is dense in }\xx \iff \text{ For every non-empty open set } U,\: U\cap E\neq\varnothing
+\]
+\end{remark}
 \newpage
 
 

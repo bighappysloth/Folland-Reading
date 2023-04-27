@@ -4,8 +4,91 @@
 \providecommand{\szz}{\mathcal{S}}
 \providecommand{\ccinf}{C_c^\infty}
 \section*{Notes on Chapter 4}
+\subsection*{General Topology Proofs}
+
+\begin{definition}\label{chp4:interior-definition}
+    $A^o$ is defined to be the largest open subset of $A$, 
+    \[
+        A^o = \bigcup_{\text{$U$ open, }U\subseteq A} U
+    \]
+\end{definition}
+\begin{corollary}\label{chp4:interior-subset}
+    The union of subsets of $A$ is again a subset of $A$, therefore \Cref{chp4:interior-subset} implies $A^o\subseteq A$ for any $A\subseteq \xx$. 
+\end{corollary}
+%%%%
+\begin{definition}\label{chp4:closure-definition}
+    and $\cl{A}$ is the smallest closed superset of $A$,
+    \[
+        \cl{A} = \bigcap_{\mathclap{\text{$K$ closed, } A\subseteq K}} K
+    \]
+\end{definition}
+%%%%
+\begin{wts}\label{chp4:flipping-interior-to-closure}
+    The complement of the closure is the interior of the complement, or equivalently: $(\cl{A})^c = A^{co}$
+\end{wts}
+\begin{proof}
+    Taking complements, and the substitution $U = K^c$ reads
+    \begin{align*}
+        (\cl{A})^c &= \left(\bigcap_{{\text{$K$ closed, } A\subseteq K}} K \right)^c\\[4ex]
+        &= \bigcup_{{\text{$K$ closed, } K^c\subseteq A^c}} K^c\\[4ex]
+        &= \bigcap_{{\text{$U$ open, } U\subseteq A^c}} U\\[4ex]
+        &= A^{co}
+    \end{align*}
+\end{proof}
+\begin{remark}
+    Personally, I remember this as pushing the complement inside and flipping the bar to a $c$!
+\end{remark}
+\newpage
 
 
+\begin{definition}\label{chp4:neighbourhood-definition}
+    A neighbourhood of $x\in\xx$ is a set $U\subseteq\xx$ where $x\in U^o$. The set of neighbourhoods for a point $x\in\xx$ will sometimes be denoted by $\N(x)$.
+\end{definition}
+\begin{wts}
+    If $W = \bigset{x\in\xx, \: \text{there exists a neighbourhood $U$ of $x$,}\: U\subseteq A}$, then $W = A^o$.
+\end{wts}
+\begin{proof}
+    If $x\in A^o$, then $A$ is a neighbourhood of $x$, and $A\subseteq A$, so $x\in W$. Conversely, if $x$ is a member of $W$, it has a neighbourhood $U\subseteq A$ (not necessarily open). By monotonicity of the interior,
+    \[
+        x\in U^o\subseteq A^o
+    \]
+    and $x\in A^o$.
+\end{proof}
+It is easy to see that $A$ is open $\iff A^o = A \iff A$ is a neighbourhood of itself. 
+\begin{itemize}
+    \item The first equivalence follows from:
+    \[
+        E\subseteq\xx\implies E^o\subseteq E
+    \]
+    and if $A$ is an open set, it is an open subset of itself, by \Cref{chp4:interior-subset} $A\subseteq A^o$. If $A^o = A$, then it suffices to show that $A^o$ is open. Which it is, since it is the arbitrary union of open sets.
+    \item To prove the second equivalence: suppose $A^o = A$, then each $x\in A$ has a neighbourhood contained (as a subset) in $A$, namely $A$ itself. (This statement is hard to parse, the reader is encouraged to really work through this and be honest).
+    \[
+        x\in A^o\subseteq A\implies A\subseteq A^o
+    \]
+    so $A$ is a neighbourhood of itself. Conversely, if $A\subseteq A^o$, then $A = A^o$, since the reverse inclusion follows immediately from \Cref{chp4:interior-subset}.
+\end{itemize}
+\newpage
+
+We will now discuss the closure of a set.
+\begin{wts}\label{chp4:closure-adherent}
+    Let $A\subseteq X$, if $W = \bigset{x\in\xx,\: \text{ every neighbourhood $U$ of $x$, }\: U\cap A\neq\varnothing}$, then $\cl{A}=W$
+\end{wts}
+\begin{proof}
+    Suppose $x\notin W$, then there exists a neighbourhood $U$ of $x$ where
+    \[
+        U\cap A=\varnothing\iff U\subseteq A^c
+    \]
+    this is exactly the definition of the interior of $A^c$, so $x\in A^{co}$ and recall (from \Cref{chp4:flipping-interior-to-closure}) that $(\cl{A})^c = A^{co}$, so $x\notin \cl{A}$. For the reverse inclusion, read the proof backwards, by flipping $\forall\to\exists$ within the set, and we see that
+    \[
+        W^c = A^{co} = (\cl{A})^c
+    \]
+\end{proof}
+
+
+
+
+
+\newpage
 \subsection*{Urysohn's Lemma Notes}
 Notes on the construction of the countable 'onion' sequence within a normal space $\xx$.\\
 

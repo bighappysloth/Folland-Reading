@@ -155,7 +155,7 @@
     \]
     Pick a point $x \in W^{co}$, which is an open set containing $x$. But the way we chose $W$ does not allow for any open set $U\in \Epsilon$ with $x\in\Epsilon \subseteq W^{co}$, since
     \begin{quote}
-        By picking one point from each of the base sets, and flipping the complement. We can ensure that no $U\in\Epsilon$ from the countable base is fully contained as a subset of $W^{co}$, as there is always one point from each $U\in\Epsilon$ that cannot be found in $W^{co}$
+        By picking one point from each of the base sets, grouping these points and call it $W$, and flipping to the complement. Each $U\in\Epsilon$ admits a point that escapes $W^{co}$. Therefore we can ensure  no $U\in\Epsilon$ can be a subset of $W^{co}$. 
     \end{quote}
 \end{proof}
 \newpage
@@ -180,7 +180,7 @@
     Define $n_k = \least\bigset{j\in \natplus,\: j>n_{k-1},\: x_j\in U_k}
     $ with $n_0=0$, so that for every $m\geq k$, $x_{n_m}\in U_k$ eventually. And $\{x_{n_j}\}_{j\geq 1}$ is a subsequence which converges to $z$. This proves ($\implies$).\\
     
-    Conversely (this part does not require that $\xx$ be first countable, if $\{x_{n_k}\}_{k\geq 1}$ is a subsequence that converges to $z\in\xx$. Every neighbourhood of $z$ must intersect all but infinitely many $x_{n_k}$, therefore $z$ is a cluster point of $\{x_n\}$.
+    Conversely (this part does not require that $\xx$ be first countable), if $\{x_{n_k}\}_{k\geq 1}$ is a subsequence that converges to $z\in\xx$. Every neighbourhood of $z$ must intersect all but infinitely many $x_{n_k}$, therefore $z$ is a cluster point of $\{x_n\}$.
 \end{proof}
 \newpage
 

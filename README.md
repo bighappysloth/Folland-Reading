@@ -5,16 +5,17 @@ You can read the PDF [here](./main.pdf).
 Sections I have yet to read are: 
 - 2.6-2.7 (both are done), 
 - 3.4-3.5 (3.4 is done), 
-- 4.5-4.8 (4.5-4.6 have been skimmed), 
-- 5.3-5.5 (5.4-5.5 have been skimmed), 
+- 4.8 
+- 5.3-5.4
 - some of 6.3 (mostly done), 
 - most parts of 6.5 (one last interpolation thm left), 
-- 7.2 - 7.4 (7.1, 7.2[till Thm 7.10] )
-- and chapters 8 (8.1, 8.2 complete)
-- and 9
+- 7.3 onwards
+- 8.3 onwards
+- and 9, 10 11
 
 Exercises:
 Almost all exercises for Chapter 1 are done 
+Most of the exercises for Chapter 4 are done for 4.1 to 4.5
 
 
 PDF Progress
@@ -46,9 +47,9 @@ PDF Progress
 - [x] Section 4.2 Continuous Maps
 - [x] Section 4.3 Nets
 - [x] Section 4.4 Compact Spaces
-- [ ] Section 4.5 Locally Compact Hausdorff Spaces
-- [ ] Section 4.6 Two Compactness Theorems
-- [ ] Section 4.7 The Stone-Weierstrauss Theorem
+- [x] Section 4.5 Locally Compact Hausdorff Spaces
+- [x] Section 4.6 Two Compactness Theorems
+- [] Section 4.7 The Stone-Weierstrauss Theorem
 - [ ] Section 4.8 Embedding in Cubes
 
 ### Chapter 5 Elements of Functional Analysis

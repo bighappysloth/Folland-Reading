@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  17 JAN 2023 14:51
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  1 MAY 2023 21:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -147,7 +147,204 @@ File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen156
 \Gin@req@width=\dimen157
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/mlmodern.sty
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks31
+\pgfutil@tempdima=\dimen158
+\pgfutil@tempdimb=\dimen159
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex)) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box55
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+))
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks32
+\pgfkeys@temptoks=\toks33
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks34
+))
+\pgf@x=\dimen160
+\pgf@y=\dimen161
+\pgf@xa=\dimen162
+\pgf@ya=\dimen163
+\pgf@xb=\dimen164
+\pgf@yb=\dimen165
+\pgf@xc=\dimen166
+\pgf@yc=\dimen167
+\pgf@xd=\dimen168
+\pgf@yd=\dimen169
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count270
+\c@pgf@countb=\count271
+\c@pgf@countc=\count272
+\c@pgf@countd=\count273
+\t@pgf@toka=\toks35
+\t@pgf@tokb=\toks36
+\t@pgf@tokc=\toks37
+\pgf@sys@id@count=\count274
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
+)
+Driver file for pgf: pgfsys-xetex.def
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.def
+File: pgfsys-xetex.def 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx.def
+File: pgfsys-dvipdfmx.def 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+)
+\pgfsys@objnum=\count275
+))) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfsyssoftpath@smallbuffer@items=\count276
+\pgfsyssoftpath@bigbuffer@items=\count277
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 227.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen170
+\pgfmath@count=\count278
+\pgfmath@box=\box56
+\pgfmath@toks=\toks38
+\pgfmath@stack@operand=\toks39
+\pgfmath@stack@operation=\toks40
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count279
+)) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@picminx=\dimen171
+\pgf@picmaxx=\dimen172
+\pgf@picminy=\dimen173
+\pgf@picmaxy=\dimen174
+\pgf@pathminx=\dimen175
+\pgf@pathmaxx=\dimen176
+\pgf@pathminy=\dimen177
+\pgf@pathmaxy=\dimen178
+\pgf@xx=\dimen179
+\pgf@xy=\dimen180
+\pgf@yx=\dimen181
+\pgf@yy=\dimen182
+\pgf@zx=\dimen183
+\pgf@zy=\dimen184
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@path@lastx=\dimen185
+\pgf@path@lasty=\dimen186
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@shorten@end@additional=\dimen187
+\pgf@shorten@start@additional=\dimen188
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfpic=\box57
+\pgf@hbox=\box58
+\pgf@layerbox@main=\box59
+\pgf@picture@serial@count=\count280
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgflinewidth=\dimen189
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@pt@x=\dimen190
+\pgf@pt@y=\dimen191
+\pgf@pt@temp=\dimen192
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowsep=\dimen193
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@max=\dimen194
+\pgf@sys@shading@range@num=\count281
+\pgf@shadingcount=\count282
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfexternal@startupbox=\box60
+)) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box61
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen195
+\pgf@nodesepend=\dimen196
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen197
+\pgffor@skip=\dimen198
+\pgffor@stack=\toks41
+\pgffor@toks=\toks42
+)) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@plot@mark@count=\count283
+\pgfplotmarksize=\dimen199
+)
+\tikz@lastx=\dimen256
+\tikz@lasty=\dimen257
+\tikz@lastxsaved=\dimen258
+\tikz@lastysaved=\dimen259
+\tikz@lastmovetox=\dimen260
+\tikz@lastmovetoy=\dimen261
+\tikzleveldistance=\dimen262
+\tikzsiblingdistance=\dimen263
+\tikz@figbox=\box62
+\tikz@figbox@bg=\box63
+\tikz@tempbox=\box64
+\tikz@tempbox@bg=\box65
+\tikztreelevel=\count284
+\tikznumberofchildren=\count285
+\tikznumberofcurrentchild=\count286
+\tikz@fig@count=\count287
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count288
+\pgfmatrixcurrentcolumn=\count289
+\pgf@matrix@numberofcolumns=\count290
+)
+\tikz@expandcount=\count291
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))) (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/mlmodern.sty
 Package: mlmodern 2021/01/12 v1.1 Modified Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/mlmr/m/n on input line 27.
@@ -199,30 +396,30 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
  (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count270
-\calc@Bcount=\count271
-\calc@Adimen=\dimen158
-\calc@Bdimen=\dimen159
+\calc@Acount=\count292
+\calc@Bcount=\count293
+\calc@Adimen=\dimen264
+\calc@Bdimen=\dimen265
 \calc@Askip=\skip59
 \calc@Bskip=\skip60
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count272
+\calc@Ccount=\count294
 \calc@Cskip=\skip61
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count273
-\l_MT_multwidth_dim=\dimen160
+\g_MT_multlinerow_int=\count295
+\l_MT_multwidth_dim=\dimen266
 \origjot=\skip62
-\l_MT_shortvdotswithinadjustabove_dim=\dimen161
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen162
-\l_MT_above_intertext_sep=\dimen163
-\l_MT_below_intertext_sep=\dimen164
-\l_MT_above_shortintertext_sep=\dimen165
-\l_MT_below_shortintertext_sep=\dimen166
-\xmathstrut@box=\box55
-\xmathstrut@dim=\dimen167
+\l_MT_shortvdotswithinadjustabove_dim=\dimen267
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen268
+\l_MT_above_intertext_sep=\dimen269
+\l_MT_below_intertext_sep=\dimen270
+\l_MT_above_shortintertext_sep=\dimen271
+\l_MT_below_shortintertext_sep=\dimen272
+\xmathstrut@box=\box66
+\xmathstrut@dim=\dimen273
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip63
@@ -238,7 +435,7 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 Package: datetime 2015/03/20 v2.60 Date Time Package
  (/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count274
+\etb@tempcnta=\count296
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/fmtcount/fmtcount.sty
 Invalid UTF-8 byte or sequence at line 10 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 22 replaced by U+FFFD.
@@ -248,10 +445,10 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
  (/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks31
-\XKV@tempa@toks=\toks32
+\XKV@toks=\toks43
+\XKV@tempa@toks=\toks44
 )
-\XKV@depth=\count275
+\XKV@depth=\count297
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/usr/local/texlive/2022/texmf-dist/tex/latex/fmtcount/fcprefix.sty
 Invalid UTF-8 byte or sequence at line 10 replaced by U+FFFD.
@@ -261,39 +458,39 @@ Package: fcprefix 2012/09/28
 Invalid UTF-8 byte or sequence at line 10 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 22 replaced by U+FFFD.
 Package: fcnumparser 2017/06/15
-\fc@digit@counter=\count276
+\fc@digit@counter=\count298
 ))
-\c@padzeroesN=\count277
-\fc@tmpcatcode=\count278
-\@DT@modctr=\count279
-\@ordinalctr=\count280
-\@orgargctr=\count281
-\@strctr=\count282
-\@tmpstrctr=\count283
-\@DT@loopN=\count284
-\@DT@X=\count285
+\c@padzeroesN=\count299
+\fc@tmpcatcode=\count300
+\@DT@modctr=\count301
+\@ordinalctr=\count302
+\@orgargctr=\count303
+\@strctr=\count304
+\@tmpstrctr=\count305
+\@DT@loopN=\count306
+\@DT@X=\count307
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/datetime/datetime-defaults.sty
 Package: datetime-defaults 2013/09/10
 )
-\@day=\count286
-\@month=\count287
-\@year=\count288
-\c@HOUR=\count289
-\c@HOURXII=\count290
-\c@MINUTE=\count291
-\c@TOHOUR=\count292
-\c@TOMINUTE=\count293
-\c@SECOND=\count294
-\currenthour=\count295
-\currentminute=\count296
-\currentsecond=\count297
+\@day=\count308
+\@month=\count309
+\@year=\count310
+\c@HOUR=\count311
+\c@HOURXII=\count312
+\c@MINUTE=\count313
+\c@TOHOUR=\count314
+\c@TOMINUTE=\count315
+\c@SECOND=\count316
+\currenthour=\count317
+\currentminute=\count318
+\currentsecond=\count319
 Package datetime Info: No datetime.cfg file found, using default settings on input line 308.
-\@dtctr=\count298
-\dayofyear=\count299
-\dayofweek=\count300
+\@dtctr=\count320
+\dayofyear=\count321
+\dayofweek=\count322
 LaTeX Info: Redefining \today on input line 736.
-\dt@a=\toks33
-\dt@b=\toks34
+\dt@a=\toks45
+\dt@b=\toks46
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/datetime2/datetime2.sty
 Package: datetime2 2021/03/21 v1.5.7 (NLCT) date and time formats
  (/usr/local/texlive/2022/texmf-dist/tex/latex/tracklang/tracklang.sty
@@ -302,194 +499,36 @@ Package: tracklang 2022/12/13 v1.6.1 (NLCT) Track Languages
 Package: expl3 2022-12-17 L3 programming layer (loader) 
  (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2022-10-26 L3 backend support: XeTeX
-\g__graphics_track_int=\count301
-\l__pdf_internal_box=\box56
-\g__pdf_backend_object_int=\count302
-\g__pdf_backend_annotation_int=\count303
-\g__pdf_backend_link_int=\count304
+\g__graphics_track_int=\count323
+\l__pdf_internal_box=\box67
+\g__pdf_backend_object_int=\count324
+\g__pdf_backend_annotation_int=\count325
+\g__pdf_backend_link_int=\count326
 ))
 Package: xparse 2022-12-17 L3 Experimental document command parser
 )
 Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
  (/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count305
-\l__fontspec_language_int=\count306
-\l__fontspec_strnum_int=\count307
-\l__fontspec_tmp_int=\count308
-\l__fontspec_tmpa_int=\count309
-\l__fontspec_tmpb_int=\count310
-\l__fontspec_tmpc_int=\count311
-\l__fontspec_em_int=\count312
-\l__fontspec_emdef_int=\count313
-\l__fontspec_strong_int=\count314
-\l__fontspec_strongdef_int=\count315
-\l__fontspec_tmpa_dim=\dimen168
-\l__fontspec_tmpb_dim=\dimen169
-\l__fontspec_tmpc_dim=\dimen170
+\l__fontspec_script_int=\count327
+\l__fontspec_language_int=\count328
+\l__fontspec_strnum_int=\count329
+\l__fontspec_tmp_int=\count330
+\l__fontspec_tmpa_int=\count331
+\l__fontspec_tmpb_int=\count332
+\l__fontspec_tmpc_int=\count333
+\l__fontspec_em_int=\count334
+\l__fontspec_emdef_int=\count335
+\l__fontspec_strong_int=\count336
+\l__fontspec_strongdef_int=\count337
+\l__fontspec_tmpa_dim=\dimen274
+\l__fontspec_tmpb_dim=\dimen275
+\l__fontspec_tmpc_dim=\dimen276
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/lilyglyphs.sty
 Package: lilyglyphs 
- (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks35
-\pgfutil@tempdima=\dimen171
-\pgfutil@tempdimb=\dimen172
- (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex)) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box57
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/pgf.revision.tex)
-Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
-))
-Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
- (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
- (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks36
-\pgfkeys@temptoks=\toks37
- (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks38
-))
-\pgf@x=\dimen173
-\pgf@y=\dimen174
-\pgf@xa=\dimen175
-\pgf@ya=\dimen176
-\pgf@xb=\dimen177
-\pgf@yb=\dimen178
-\pgf@xc=\dimen179
-\pgf@yc=\dimen180
-\pgf@xd=\dimen181
-\pgf@yd=\dimen182
-\w@pgf@writea=\write3
-\r@pgf@reada=\read2
-\c@pgf@counta=\count316
-\c@pgf@countb=\count317
-\c@pgf@countc=\count318
-\c@pgf@countd=\count319
-\t@pgf@toka=\toks39
-\t@pgf@tokb=\toks40
-\t@pgf@tokc=\toks41
-\pgf@sys@id@count=\count320
- (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
-)
-Driver file for pgf: pgfsys-xetex.def
- (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.def
-File: pgfsys-xetex.def 2021/05/15 v3.1.9a (3.1.9a)
- (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx.def
-File: pgfsys-dvipdfmx.def 2021/05/15 v3.1.9a (3.1.9a)
- (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
-)
-\pgfsys@objnum=\count321
-))) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
-File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count322
-\pgfsyssoftpath@bigbuffer@items=\count323
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
-File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)) (/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
- (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: xetex.def on input line 227.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
-Package xcolor Info: Model `RGB' extended on input line 1369.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
- (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen183
-\pgfmath@count=\count324
-\pgfmath@box=\box58
-\pgfmath@toks=\toks42
-\pgfmath@stack@operand=\toks43
-\pgfmath@stack@operation=\toks44
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count325
-)) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
-File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@picminx=\dimen184
-\pgf@picmaxx=\dimen185
-\pgf@picminy=\dimen186
-\pgf@picmaxy=\dimen187
-\pgf@pathminx=\dimen188
-\pgf@pathmaxx=\dimen189
-\pgf@pathminy=\dimen190
-\pgf@pathmaxy=\dimen191
-\pgf@xx=\dimen192
-\pgf@xy=\dimen193
-\pgf@yx=\dimen194
-\pgf@yy=\dimen195
-\pgf@zx=\dimen196
-\pgf@zy=\dimen197
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
-File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@path@lastx=\dimen198
-\pgf@path@lasty=\dimen199
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
-File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@shorten@end@additional=\dimen256
-\pgf@shorten@start@additional=\dimen257
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
-File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfpic=\box59
-\pgf@hbox=\box60
-\pgf@layerbox@main=\box61
-\pgf@picture@serial@count=\count326
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
-File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgflinewidth=\dimen258
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
-File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@pt@x=\dimen259
-\pgf@pt@y=\dimen260
-\pgf@pt@temp=\dimen261
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
-File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
-File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
-File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowsep=\dimen262
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@max=\dimen263
-\pgf@sys@shading@range@num=\count327
-\pgf@shadingcount=\count328
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
- (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
-File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfexternal@startupbox=\box62
-)) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
-File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
-File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
-File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
-File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfnodeparttextbox=\box63
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
-Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@nodesepstart=\dimen264
-\pgf@nodesepend=\dimen265
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
-Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
-)) (/usr/local/texlive/2022/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/adjustbox/adjustbox.sty
 Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
  (/usr/local/texlive/2022/texmf-dist/tex/latex/adjustbox/adjcalc.sty
 Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
@@ -497,41 +536,41 @@ Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-
 Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
  (/usr/local/texlive/2022/texmf-dist/tex/latex/collectbox/collectbox.sty
 Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
-\collectedbox=\box64
+\collectedbox=\box68
 )
-\tc@llx=\dimen266
-\tc@lly=\dimen267
-\tc@urx=\dimen268
-\tc@ury=\dimen269
+\tc@llx=\dimen277
+\tc@lly=\dimen278
+\tc@urx=\dimen279
+\tc@ury=\dimen280
 Package trimclip Info: Using driver 'tc-xetex.def'.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/adjustbox/tc-xetex.def
 File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
 ))
-\adjbox@Width=\dimen270
-\adjbox@Height=\dimen271
-\adjbox@Depth=\dimen272
-\adjbox@Totalheight=\dimen273
-\adjbox@pwidth=\dimen274
-\adjbox@pheight=\dimen275
-\adjbox@pdepth=\dimen276
-\adjbox@ptotalheight=\dimen277
+\adjbox@Width=\dimen281
+\adjbox@Height=\dimen282
+\adjbox@Depth=\dimen283
+\adjbox@Totalheight=\dimen284
+\adjbox@pwidth=\dimen285
+\adjbox@pheight=\dimen286
+\adjbox@pdepth=\dimen287
+\adjbox@ptotalheight=\dimen288
  (/usr/local/texlive/2022/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count329
+\c@checkoddpage=\count338
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box65
-\sift@deathcycles=\count330
-\@vwid@loff=\dimen278
-\@vwid@roff=\dimen279
+\@vwid@box=\box69
+\sift@deathcycles=\count339
+\@vwid@loff=\dimen289
+\@vwid@roff=\dimen290
 )) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/core/opticals.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/core/keyval.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/core/genericAccess.inp (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
  (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 )) (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-)) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/core/dotted.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/clefs.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/numbers.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/timesignatures.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/dynamics.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/accidentals.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/rests.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/scripts.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/accordion.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/singlenotes.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/beamednotes.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/fancyexamples.inp))
-(/usr/local/texlive/2022/texmf-dist/tex/latex/musicography/musicography.sty
+))
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/core/dotted.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/clefs.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/numbers.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/timesignatures.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/dynamics.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/accidentals.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/rests.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/scripts.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/accordion.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/singlenotes.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/beamednotes.inp) (/usr/local/texlive/2022/texmf-dist/tex/latex/lilyglyphs/commands/fancyexamples.inp)) (/usr/local/texlive/2022/texmf-dist/tex/latex/musicography/musicography.sty
 Package: musicography 2020/01/29 Symbols for music writing with pdflatex
  (/usr/local/texlive/2022/texmf-dist/tex/latex/stackengine/stackengine.sty
 Package: stackengine 2021/07/22 v4.11\ Stacking text and objects in convenient ways
@@ -545,7 +584,7 @@ Invalid UTF-8 byte or sequence at line 96 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 96 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 104 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 105 replaced by U+FFFD.
-\loi_cnt_foreach_nest=\count331
+\loi_cnt_foreach_nest=\count340
 Invalid UTF-8 byte or sequence at line 139 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 146 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 192 replaced by U+FFFD.
@@ -573,7 +612,7 @@ Invalid UTF-8 byte or sequence at line 350 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 350 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 350 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 354 replaced by U+FFFD.
-\loi_nestcnt=\count332
+\loi_nestcnt=\count341
 Invalid UTF-8 byte or sequence at line 367 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 367 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 367 replaced by U+FFFD.
@@ -639,18 +678,18 @@ Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
 )
 Package: listofitems 2019/08/21 v1.63 Grab items in lists using user-specified sep char (CT)
 )
-\c@@stackindex=\count333
+\c@@stackindex=\count342
 \@boxshift=\skip72
 \stack@tmplength=\skip73
 \temp@stkl=\skip74
 \@stackedboxwidth=\skip75
-\@addedbox=\box66
-\@anchorbox=\box67
-\@insetbox=\box68
-\se@backgroundbox=\box69
-\stackedbox=\box70
-\@centerbox=\box71
-\c@ROWcellindex@=\count334
+\@addedbox=\box70
+\@anchorbox=\box71
+\@insetbox=\box72
+\se@backgroundbox=\box73
+\stackedbox=\box74
+\@centerbox=\box75
+\c@ROWcellindex@=\count343
 )) (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
  (/usr/local/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
@@ -684,11 +723,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
  (/usr/local/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count335
+\c@section@level=\count344
 )
-\@linkdim=\dimen280
-\Hy@linkcounter=\count336
-\Hy@pagecounter=\count337
+\@linkdim=\dimen291
+\Hy@linkcounter=\count345
+\Hy@pagecounter=\count346
  (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -696,7 +735,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count338
+\Hy@SavedSpaceFactor=\count347
  (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
 )
@@ -707,21 +746,21 @@ Package hyperref Info: Plain pages OFF on input line 4177.
 Package hyperref Info: Backreferencing OFF on input line 4182.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4410.
-\c@Hy@tempcnt=\count339
+\c@Hy@tempcnt=\count348
  (/usr/local/texlive/2022/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4748.
-\XeTeXLinkMargin=\dimen281
+\XeTeXLinkMargin=\dimen292
  (/usr/local/texlive/2022/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count340
-\Field@Width=\dimen282
-\Fld@charsize=\dimen283
+\Fld@menulength=\count349
+\Field@Width=\dimen293
+\Fld@charsize=\dimen294
 Package hyperref Info: Hyper figures OFF on input line 6027.
 Package hyperref Info: Link nesting OFF on input line 6032.
 Package hyperref Info: Hyper index ON on input line 6035.
@@ -733,9 +772,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6057.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count341
-\c@Item=\count342
-\c@Hfootnote=\count343
+\Hy@abspage=\count350
+\c@Item=\count351
+\c@Hfootnote=\count352
 )
 Package hyperref Info: Driver (autodetected): hxetex.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hxetex.def
@@ -743,11 +782,11 @@ File: hxetex.def 2022-11-13 v7.00u Hyperref driver for XeTeX
  (/usr/local/texlive/2022/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\pdfm@box=\box72
-\c@Hy@AnnotLevel=\count344
-\HyField@AnnotCount=\count345
-\Fld@listcount=\count346
-\c@bookmark@seq@number=\count347
+\pdfm@box=\box76
+\c@Hy@AnnotLevel=\count353
+\HyField@AnnotCount=\count354
+\Fld@listcount=\count355
+\c@bookmark@seq@number=\count356
  (/usr/local/texlive/2022/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/atveryend-ltx.sty
@@ -760,14 +799,30 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip76
 )
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 55.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 55.
-Package hyperref Info: Option `colorlinks' set `true' on input line 55.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 58.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 58.
+Package hyperref Info: Option `colorlinks' set `true' on input line 58.
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/cleveref/cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2370.
+LaTeX Info: Redefining \cref on input line 2370.
+LaTeX Info: Redefining \Cref on input line 2370.
+LaTeX Info: Redefining \crefrange on input line 2370.
+LaTeX Info: Redefining \Crefrange on input line 2370.
+LaTeX Info: Redefining \cpageref on input line 2370.
+LaTeX Info: Redefining \Cpageref on input line 2370.
+LaTeX Info: Redefining \cpagerefrange on input line 2370.
+LaTeX Info: Redefining \Cpagerefrange on input line 2370.
+LaTeX Info: Redefining \labelcref on input line 2370.
+LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: `amsthm' support loaded on input line 3026.
 ) (././headers.tex
-\c@theproblem=\count348
-\c@lemma=\count349
-\c@corollary=\count350
-\c@remark=\count351
+\c@theproblem=\count357
+\c@wts=\count358
+\c@lemma=\count359
+\c@corollary=\count360
+\c@remark=\count361
+\c@definition=\count362
 ) (././docinfo.tex)) (/usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
 ) (out/main.aux)
@@ -864,47 +919,42 @@ Package hyperref Info: Link coloring ON on input line 5.
 \openout4 = `main.out'.
 
  (out/main.toc
-LaTeX Font Info:    Trying to load font information for OML+mlmm on input line 2.
+LaTeX Font Info:    Trying to load font information for OML+mlmm on input line 3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/omlmlmm.fd
 File: omlmlmm.fd 2021/01/11 v1.0 Font defs for mlmodern
 )
-LaTeX Font Info:    Trying to load font information for OMS+mlmsy on input line 2.
+LaTeX Font Info:    Trying to load font information for OMS+mlmsy on input line 3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/omsmlmsy.fd
 File: omsmlmsy.fd 2021/01/11 v1.0 Font defs for mlmodern
 )
-LaTeX Font Info:    Trying to load font information for OMX+mlmex on input line 2.
+LaTeX Font Info:    Trying to load font information for OMX+mlmex on input line 3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/mlmodern/omxmlmex.fd
 File: omxmlmex.fd 2021/01/11 v1.0 Font defs for mlmodern
 )
 LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <12> on input line 2.
+(Font)              <12> on input line 3.
 LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <8> on input line 2.
+(Font)              <8> on input line 3.
 LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <6> on input line 2.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+(Font)              <6> on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 
-] [2] [3] [4])
+] [2] [3] [4] [5])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [5] (./subfiles/Chapter_1/Chapter_1_Compiled.tex [6
+ [6] (./subfiles/Chapter_1/Chapter_1_Compiled.tex [7
 
-] (./subfiles/Chapter_1/Theorem1_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 6.
-
-) [7] (./subfiles/Chapter_1/Theorem1_2.tex [8]
-Overfull \hbox (9.46042pt too wide) in paragraph at lines 48--50
+] (./subfiles/Chapter_1/Theorem1_1.tex) [8] (./subfiles/Chapter_1/Theorem1_2.tex [9]
+Overfull \hbox (15.12717pt too wide) in paragraph at lines 48--50
 \TU/lmr/m/n/12 So that equation [] holds. By similar argumentation we have $\OMS/mlmsy/m/n/12 E[] ^^R M\OT1/cmr/m/n/12 (\OMS/mlmsy/m/n/12 E[]\OT1/cmr/m/n/12 )  [][]\OMS/mlmsy/m/n/12 )
  []
 
@@ -913,58 +963,248 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--50
 
  []
 
-) [9] (./subfiles/Chapter_1/Theorem1_3.tex) [10] (./subfiles/Chapter_1/Theorem1_4.tex) [11] (./subfiles/Chapter_1/Theorem1_5.tex) [12] (./subfiles/Chapter_1/Theorem1_6.tex) [13] (./subfiles/Chapter_1/Theorem1_7.tex) [14] (./subfiles/Chapter_1/Theorem1_8.tex) [15] (./subfiles/Chapter_1/Theorem1_9.tex) [16] (./subfiles/Chapter_1/Theorem1_10.tex) [17] (./subfiles/Chapter_1/Theorem1_11.tex) [18] (./subfiles/Chapter_1/Theorem1_12.tex) [19] (./subfiles/Chapter_1/Theorem1_13.tex) [20] (./subfiles/Chapter_1/Theorem1_14.tex) [21] (./subfiles/Chapter_1/Theorem1_15.tex) [22] (./subfiles/Chapter_1/Theorem1_16.tex) [23] (./subfiles/Chapter_1/Theorem1_17.tex) [24] (./subfiles/Chapter_1/Theorem1_18.tex) [25]) (./subfiles/Chapter_2/Chapter_2_Compiled.tex [26
+) [10] (./subfiles/Chapter_1/Theorem1_3.tex) [11] (./subfiles/Chapter_1/Theorem1_4.tex) [12] (./subfiles/Chapter_1/Theorem1_5.tex) [13] (./subfiles/Chapter_1/Theorem1_6.tex) [14] (./subfiles/Chapter_1/Theorem1_7.tex) [15] (./subfiles/Chapter_1/Theorem1_8.tex) [16] (./subfiles/Chapter_1/Theorem1_9.tex) [17] (./subfiles/Chapter_1/Theorem1_10.tex) [18] (./subfiles/Chapter_1/Theorem1_11.tex
+Overfull \hbox (2.85124pt too wide) detected at line 31
+\OML/mlmm/m/it/12 ^^V[]\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 E\OT1/cmr/m/n/12 ) = [] + []
+ []
 
-] (./subfiles/Chapter_2/Theorem2_1.tex
+[19] [20]) [21] (./subfiles/Chapter_1/Theorem1_12.tex) [22] (./subfiles/Chapter_1/Theorem1_13.tex) [23] (./subfiles/Chapter_1/Theorem1_14.tex) [24] (./subfiles/Chapter_1/Theorem1_15.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
-
-) [27]) (./subfiles/Chapter_3/Chapter_3_Compiled.tex [28
-
-] (./subfiles/Chapter_3/Chapter_3_Notes.tex [29] [30]) (./subfiles/Chapter_3/Theorem3_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 5.
+ []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+[25] [26]) [27] (./subfiles/Chapter_1/Theorem1_16.tex) [28] (./subfiles/Chapter_1/Theorem1_17.tex) [29] (./subfiles/Chapter_1/Theorem1_18.tex) [30] (./subfiles/Chapter_1/Chapter_1_Exercises.tex [31] [32] [33] [34]
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--79
+
+ []
+
+[35] [36] [37] [38] [39] [40] [41] [42] [43] [44]
+Overfull \hbox (19.1022pt too wide) in paragraph at lines 267--269
+\TU/lmr/m/n/12 and take $\OML/mlmm/m/it/12 A[] \OT1/cmr/m/n/12 = [][] \OML/mlmm/m/it/12 F[]$\TU/lmr/m/n/12 . A simple induction will show that $\OML/mlmm/m/it/12 ^^V\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 A[]\OT1/cmr/m/n/12 ) \OMS/mlmsy/m/n/12 ^^T [][] \OML/mlmm/m/it/12 ^^V\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 F[]\OT1/cmr/m/n/12 ) \OML/mlmm/m/it/12 <
+ []
+
+[45]
+Overfull \hbox (30.09453pt too wide) in paragraph at lines 289--290
+[]\TU/lmr/bx/n/12 Proposition 33.1. []\TU/lmr/m/it/12 Given a measure $\OML/mlmm/m/it/12 ^^V$ \TU/lmr/m/it/12 on $\OT1/cmr/m/n/12 ([]\OML/mlmm/m/it/12 ; \OMS/mlmsy/m/n/12 M\OT1/cmr/m/n/12 )$\TU/lmr/m/it/12 , and define $\OML/mlmm/m/it/12 ^^V[] \OT1/cmr/m/n/12 = []\OMS/mlmsy/m/n/12 f\OML/mlmm/m/it/12 ^^V\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 F\OT1/cmr/m/n/12 )\OML/mlmm/m/it/12 ;  F \OMS/mlmsy/m/n/12 ^^R
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--294
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 295--297
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--299
+
+ []
+
+[46] [47] [48] [49] [50]
+Underfull \hbox (badness 10000) in paragraph at lines 387--389
+
+ []
+
+[51] [52]
+Underfull \hbox (badness 10000) in paragraph at lines 427--428
+
+ []
+
+[53] [54] [55] [56]) [57] (./subfiles/Chapter_1/Chapter_1_Notes.tex)) (./subfiles/Chapter_2/Chapter_2_Compiled.tex [58
+
+] (./subfiles/Chapter_2/Theorem2_1.tex) [59]) (./subfiles/Chapter_3/Chapter_3_Compiled.tex [60
+
+] (./subfiles/Chapter_3/Chapter_3_Notes.tex [61] [62]) (./subfiles/Chapter_3/Theorem3_1.tex
 Overfull \hbox (0.95372pt too wide) in paragraph at lines 11--15
 \TU/lmr/m/n/12 By countable additivity, and the absolute convergence of the series $[][] \OML/mlmm/m/it/12 ^^W\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 F[]\OT1/cmr/m/n/12 )$ 
  []
 
-) [31] (./subfiles/Chapter_3/Theorem3_2.tex) [32] (./subfiles/Chapter_3/Theorem3_3.tex) [33] (./subfiles/Chapter_3/Theorem3_4.tex) [34] (./subfiles/Chapter_3/Theorem3_5.tex) [35] (./subfiles/Chapter_3/Theorem3_6.tex) [36] (./subfiles/Chapter_3/Theorem3_7.tex) [37] (./subfiles/Chapter_3/Theorem3_8.tex) [38] (./subfiles/Chapter_3/Theorem3_9.tex) [39] (./subfiles/Chapter_3/Theorem3_10.tex) [40] (./subfiles/Chapter_3/Theorem3_11.tex) [41] (./subfiles/Chapter_3/Theorem3_12.tex) [42] (./subfiles/Chapter_3/Theorem3_13.tex) [43] (./subfiles/Chapter_3/Theorem3_14.tex) [44] (./subfiles/Chapter_3/Theorem3_15.tex) [45] (./subfiles/Chapter_3/Theorem3_16.tex) [46] (./subfiles/Chapter_3/Theorem3_17.tex
+) [63] (./subfiles/Chapter_3/Theorem3_2.tex) [64] (./subfiles/Chapter_3/Theorem3_3.tex) [65] (./subfiles/Chapter_3/Theorem3_4.tex) [66] (./subfiles/Chapter_3/Theorem3_5.tex) [67] (./subfiles/Chapter_3/Theorem3_6.tex) [68] (./subfiles/Chapter_3/Theorem3_7.tex) [69] (./subfiles/Chapter_3/Theorem3_8.tex) [70] (./subfiles/Chapter_3/Theorem3_9.tex) [71] (./subfiles/Chapter_3/Theorem3_10.tex) [72] (./subfiles/Chapter_3/Theorem3_11.tex) [73] (./subfiles/Chapter_3/Theorem3_12.tex) [74] (./subfiles/Chapter_3/Theorem3_13.tex) [75] (./subfiles/Chapter_3/Theorem3_14.tex) [76] (./subfiles/Chapter_3/Theorem3_15.tex) [77] (./subfiles/Chapter_3/Theorem3_16.tex) [78] (./subfiles/Chapter_3/Theorem3_17.tex
 Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
  []
 
-[47] [48]) [49] (./subfiles/Chapter_3/Theorem3_18.tex) [50] (./subfiles/Chapter_3/Theorem3_19.tex) [51] (./subfiles/Chapter_3/Theorem3_20.tex) [52] (./subfiles/Chapter_3/Theorem3_21.tex
+[79] [80]) [81] (./subfiles/Chapter_3/Theorem3_18.tex) [82] (./subfiles/Chapter_3/Theorem3_19.tex) [83] (./subfiles/Chapter_3/Theorem3_20.tex) [84] (./subfiles/Chapter_3/Theorem3_21.tex
 Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
  []
 
-[53]) [54] (./subfiles/Chapter_3/Theorem3_22.tex) [55] (./subfiles/Chapter_3/Theorem3_23.tex) [56] (./subfiles/Chapter_3/Theorem3_24.tex) [57] (./subfiles/Chapter_3/Theorem3_25.tex) [58] (./subfiles/Chapter_3/Theorem3_26.tex) [59] (./subfiles/Chapter_3/Theorem3_27.tex) [60] (./subfiles/Chapter_3/Theorem3_28.tex) [61] (./subfiles/Chapter_3/Theorem3_29.tex) [62] (./subfiles/Chapter_3/Theorem3_30.tex) [63] (./subfiles/Chapter_3/Theorem3_31.tex) [64] (./subfiles/Chapter_3/Theorem3_32.tex) [65] (./subfiles/Chapter_3/Theorem3_33.tex) [66] (./subfiles/Chapter_3/Theorem3_34.tex) [67] (./subfiles/Chapter_3/Theorem3_35.tex) [68] (./subfiles/Chapter_3/Theorem3_36.tex) [69]) (./subfiles/Chapter_4/Chapter_4_Compiled.tex [70
+[85]) [86] (./subfiles/Chapter_3/Theorem3_22.tex) [87] (./subfiles/Chapter_3/Theorem3_23.tex) [88] (./subfiles/Chapter_3/Theorem3_24.tex) [89] (./subfiles/Chapter_3/Theorem3_25.tex) [90] (./subfiles/Chapter_3/Theorem3_26.tex) [91] (./subfiles/Chapter_3/Theorem3_27.tex) [92] (./subfiles/Chapter_3/Theorem3_28.tex) [93] (./subfiles/Chapter_3/Theorem3_29.tex) [94] (./subfiles/Chapter_3/Theorem3_30.tex) [95] (./subfiles/Chapter_3/Theorem3_31.tex) [96] (./subfiles/Chapter_3/Theorem3_32.tex) [97] (./subfiles/Chapter_3/Theorem3_33.tex) [98] (./subfiles/Chapter_3/Theorem3_34.tex) [99] (./subfiles/Chapter_3/Theorem3_35.tex) [100] (./subfiles/Chapter_3/Theorem3_36.tex) [101]) (./subfiles/Chapter_4/Chapter_4_Compiled.tex [102
 
-] (./subfiles/Chapter_4/Chapter_4_Notes.tex [71]) (./subfiles/Chapter_4/Theorem4_1.tex
+] (./subfiles/Chapter_4/Chapter_4_Notes.tex [103]
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
+ []
 
-) [72] (./subfiles/Chapter_4/Theorem4_2.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--73
+
+ []
+
+[104] [105] [106]
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--147
+
+ []
+
+
+Overfull \hbox (23.40422pt too wide) detected at line 154
+[]  [][]\OMS/mlmsy/m/n/12 )  \OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 p; q\OT1/cmr/m/n/12 ) \OMS/mlmsy/m/n/12 2 [] ^^B [] ^^R \OML/mlmm/m/it/12 U \OMS/mlmsy/m/n/12 ^^B \OML/mlmm/m/it/12 V
+ []
+
+[107] [108] [109] [110] [111]
+Overfull \hbox (26.97836pt too wide) in paragraph at lines 242--243
+[]\TU/lmr/bx/n/12 Proposition 0.9. []\TU/lmr/m/it/12 If $\OML/mlmm/m/it/12 W \OT1/cmr/m/n/12 = [][][]$\TU/lmr/m/it/12 ,
+ []
+
+[112]
+Overfull \hbox (84.22166pt too wide) in paragraph at lines 268--269
+[]\TU/lmr/bx/n/12 Proposition 0.10. []\TU/lmr/m/it/12 Let $\OML/mlmm/m/it/12 A \OMS/mlmsy/m/n/12 ^^R \OML/mlmm/m/it/12 X$\TU/lmr/m/it/12 , if $\OML/mlmm/m/it/12 W \OT1/cmr/m/n/12 = [][][]$\TU/lmr/m/it/12 ,
+ []
+
+[113]
+Underfull \hbox (badness 10000) in paragraph at lines 287--288
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 296--298
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 310--312
+
+ []
+
+[114]
+Underfull \hbox (badness 10000) in paragraph at lines 316--318
+
+ []
+
+[115]
+Underfull \hbox (badness 10000) in paragraph at lines 343--345
+
+ []
+
+[116]
+Underfull \hbox (badness 10000) in paragraph at lines 358--360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 364--366
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--372
+
+ []
+
+[117] [118]
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
+
+ []
+
+
+Overfull \hbox (18.18472pt too wide) in paragraph at lines 441--442
+ [][] 
+ []
+
+[119] [120]
+Underfull \hbox (badness 10000) in paragraph at lines 474--476
+
+ []
+
+[121] [122]
+Underfull \hbox (badness 10000) in paragraph at lines 508--511
+
+ []
+
+[123]
+Underfull \hbox (badness 10000) in paragraph at lines 524--525
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
+
+ []
+
+[124] [125]
+Underfull \hbox (badness 10000) in paragraph at lines 556--557
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 565--568
+
+ []
+
+[126]
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
+
+ []
+
+[127] [128]
+Underfull \hbox (badness 10000) in paragraph at lines 639--640
+
+ []
+
+[129]
+Underfull \hbox (badness 10000) in paragraph at lines 660--662
+
+ []
+
+[130]
+Underfull \hbox (badness 10000) in paragraph at lines 679--680
+
+ []
+
+[131]
+Underfull \hbox (badness 10000) in paragraph at lines 720--723
+
+ []
+
+[132] [133]) [134] (./subfiles/Chapter_4/Theorem4_1.tex) [135] (./subfiles/Chapter_4/Theorem4_2.tex
 Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-) [73] (./subfiles/Chapter_4/Theorem4_3.tex
+) [136] (./subfiles/Chapter_4/Theorem4_3.tex
 Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
 
-[74]) [75] (./subfiles/Chapter_4/Theorem4_4.tex
+[137]) [138] (./subfiles/Chapter_4/Theorem4_4.tex
 Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
-[76]) [77] (./subfiles/Chapter_4/Theorem4_5.tex) [78] (./subfiles/Chapter_4/Theorem4_6.tex
+[139]) [140] (./subfiles/Chapter_4/Theorem4_5.tex) [141] (./subfiles/Chapter_4/Theorem4_6.tex
 Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
@@ -974,37 +1214,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
-) [79] (./subfiles/Chapter_4/Theorem4_7.tex
+) [142] (./subfiles/Chapter_4/Theorem4_7.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [80] (./subfiles/Chapter_4/Theorem4_8.tex) [81] (./subfiles/Chapter_4/Theorem4_9.tex
+) [143] (./subfiles/Chapter_4/Theorem4_8.tex) [144] (./subfiles/Chapter_4/Theorem4_9.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [82] (./subfiles/Chapter_4/Theorem4_10.tex) [83] (./subfiles/Chapter_4/Theorem4_11.tex
+) [145] (./subfiles/Chapter_4/Theorem4_10.tex) [146] (./subfiles/Chapter_4/Theorem4_11.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [84] (./subfiles/Chapter_4/Theorem4_12.tex
+) [147] (./subfiles/Chapter_4/Theorem4_12.tex
 Overfull \hbox (0.55383pt too wide) in paragraph at lines 25--27
 \TU/lmr/m/n/12 Then applying Theorem 4.2, the family of finite intersections of $\OML/mlmm/m/it/12 ^^Y[]\OT1/cmr/m/n/12 ([])$
  []
 
-[85]
+[148]
 Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
-) [86] (./subfiles/Chapter_4/Theorem4_13.tex
+) [149] (./subfiles/Chapter_4/Theorem4_13.tex
 Underfull \hbox (badness 10000) in paragraph at lines 21--23
 
  []
 
-[87]
+[150]
 Underfull \hbox (badness 10000) in paragraph at lines 44--46
 
  []
@@ -1014,12 +1254,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
-) [88] (./subfiles/Chapter_4/Theorem4_14.tex
+) [151] (./subfiles/Chapter_4/Theorem4_14.tex
 Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
 
-[89]
+[152]
 Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
@@ -1034,7 +1274,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--73
 
  []
 
-[90]) [91] (./subfiles/Chapter_4/Theorem4_15.tex
+[153]) [154] (./subfiles/Chapter_4/Theorem4_15.tex
 Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
@@ -1054,22 +1294,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
-[92]
+[155]
 Underfull \hbox (badness 10000) in paragraph at lines 30--32
 
  []
 
-) [93] (./subfiles/Chapter_4/Theorem4_16.tex
+) [156] (./subfiles/Chapter_4/Theorem4_16.tex
 Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
 
-[94]) [95] (./subfiles/Chapter_4/Theorem4_17.tex
+
+Overfull \hbox (16.27438pt too wide) in paragraph at lines 44--45
+ [][] 
+ []
+
+[157]) [158] (./subfiles/Chapter_4/Theorem4_17.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [96] (./subfiles/Chapter_4/Theorem4_18.tex
+) [159] (./subfiles/Chapter_4/Theorem4_18.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
@@ -1089,12 +1334,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
  []
 
-) [97] (./subfiles/Chapter_4/Theorem4_19.tex
+) [160] (./subfiles/Chapter_4/Theorem4_19.tex
 Underfull \hbox (badness 10000) in paragraph at lines 13--15
 
  []
 
-) [98] (./subfiles/Chapter_4/Theorem4_20.tex
+) [161] (./subfiles/Chapter_4/Theorem4_20.tex
 Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
@@ -1119,17 +1364,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
-[99]) [100] (./subfiles/Chapter_4/Theorem4_21.tex) [101] (./subfiles/Chapter_4/Theorem4_22.tex) [102] (./subfiles/Chapter_4/Theorem4_23.tex) [103] (./subfiles/Chapter_4/Theorem4_24.tex) [104] (./subfiles/Chapter_4/Theorem4_25.tex
+[162]) [163] (./subfiles/Chapter_4/Theorem4_21.tex) [164] (./subfiles/Chapter_4/Theorem4_22.tex) [165] (./subfiles/Chapter_4/Theorem4_23.tex) [166] (./subfiles/Chapter_4/Theorem4_24.tex) [167] (./subfiles/Chapter_4/Theorem4_25.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [105] (./subfiles/Chapter_4/Theorem4_26.tex) [106] (./subfiles/Chapter_4/Theorem4_27.tex) [107] (./subfiles/Chapter_4/Theorem4_28.tex
+) [168] (./subfiles/Chapter_4/Theorem4_26.tex) [169] (./subfiles/Chapter_4/Theorem4_27.tex) [170] (./subfiles/Chapter_4/Theorem4_28.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [108] (./subfiles/Chapter_4/Theorem4_29.tex
+) [171] (./subfiles/Chapter_4/Theorem4_29.tex
 Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
  []
@@ -1154,27 +1399,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
-[109]) [110] (./subfiles/Chapter_4/Theorem4_30.tex
+[172]) [173] (./subfiles/Chapter_4/Theorem4_30.tex
 Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
-[111]) [112] (./subfiles/Chapter_4/Theorem4_31.tex
+[174]) [175] (./subfiles/Chapter_4/Theorem4_31.tex
 Underfull \hbox (badness 10000) in paragraph at lines 27--29
 
  []
 
-[113]) [114] (./subfiles/Chapter_4/Theorem4_32.tex
+[176]) [177] (./subfiles/Chapter_4/Theorem4_32.tex
 Underfull \hbox (badness 10000) in paragraph at lines 42--44
 
  []
 
-[115]) [116] (./subfiles/Chapter_4/Theorem4_33.tex
+[178]) [179] (./subfiles/Chapter_4/Theorem4_33.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [117] (./subfiles/Chapter_4/Theorem4_34.tex) [118] (./subfiles/Chapter_4/Theorem4_35.tex
+) [180] (./subfiles/Chapter_4/Theorem4_34.tex) [181] (./subfiles/Chapter_4/Theorem4_35.tex
 Underfull \hbox (badness 10000) in paragraph at lines 19--21
 
  []
@@ -1194,26 +1439,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
-[119]) [120] (./subfiles/Chapter_4/Theorem4_36.tex) [121] (./subfiles/Chapter_4/Theorem4_37.tex
+[182]) [183] (./subfiles/Chapter_4/Theorem4_36.tex) [184] (./subfiles/Chapter_4/Theorem4_37.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [122] (./subfiles/Chapter_4/Theorem4_38.tex) [123] (./subfiles/Chapter_4/Theorem4_39.tex) [124] (./subfiles/Chapter_4/Theorem4_40.tex) [125] (./subfiles/Chapter_4/Theorem4_41.tex) [126]) (./subfiles/Chapter_5/Chapter_5_Compiled.tex [127
+) [185] (./subfiles/Chapter_4/Theorem4_38.tex
+Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
-] (./subfiles/Chapter_5/Theorem5_1.tex
+ []
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
+) [186] (./subfiles/Chapter_4/Theorem4_39.tex) [187] (./subfiles/Chapter_4/Theorem4_40.tex) [188] (./subfiles/Chapter_4/Theorem4_41.tex) [189] (./subfiles/Chapter_4/Chapter_4_Exercises.tex)) (./subfiles/Chapter_5/Chapter_5_Compiled.tex [190
 
-) [128] (./subfiles/Chapter_5/Theorem5_2.tex) [129] (./subfiles/Chapter_5/Theorem5_3.tex) [130] (./subfiles/Chapter_5/Theorem5_4.tex) [131] (./subfiles/Chapter_5/Theorem5_5.tex) [132] (./subfiles/Chapter_5/Theorem5_6.tex) [133] (./subfiles/Chapter_5/Theorem5_7.tex) [134] (./subfiles/Chapter_5/Theorem5_8.tex) [135]) (./subfiles/Chapter_6/Chapter_6_Compiled.tex [136
+] (./subfiles/Chapter_5/Theorem5_1.tex) [191] (./subfiles/Chapter_5/Theorem5_2.tex) [192] (./subfiles/Chapter_5/Theorem5_3.tex) [193] (./subfiles/Chapter_5/Theorem5_4.tex) [194] (./subfiles/Chapter_5/Theorem5_5.tex) [195] (./subfiles/Chapter_5/Theorem5_6.tex) [196] (./subfiles/Chapter_5/Theorem5_7.tex) [197] (./subfiles/Chapter_5/Theorem5_8.tex) [198]) (./subfiles/Chapter_6/Chapter_6_Compiled.tex [199
 
-] (./subfiles/Chapter_6/Theorem6_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
-
-) [137] (./subfiles/Chapter_6/Theorem6_2.tex) [138] (./subfiles/Chapter_6/Theorem6_3.tex) [139] (./subfiles/Chapter_6/Theorem6_4.tex) [140] (./subfiles/Chapter_6/Theorem6_5.tex) [141] (./subfiles/Chapter_6/Theorem6_6.tex) [142] (./subfiles/Chapter_6/Theorem6_7.tex) [143] (./subfiles/Chapter_6/Theorem6_8.tex) [144] (./subfiles/Chapter_6/Theorem6_9.tex) [145] (./subfiles/Chapter_6/Theorem6_10.tex) [146] (./subfiles/Chapter_6/Theorem6_11.tex) [147] (./subfiles/Chapter_6/Theorem6_12.tex) [148] (./subfiles/Chapter_6/Theorem6_13.tex) [149] (./subfiles/Chapter_6/Theorem6_14.tex) [150] (./subfiles/Chapter_6/Theorem6_15.tex
+] (./subfiles/Chapter_6/Theorem6_1.tex) [200] (./subfiles/Chapter_6/Theorem6_2.tex) [201] (./subfiles/Chapter_6/Theorem6_3.tex) [202] (./subfiles/Chapter_6/Theorem6_4.tex) [203] (./subfiles/Chapter_6/Theorem6_5.tex) [204] (./subfiles/Chapter_6/Theorem6_6.tex) [205] (./subfiles/Chapter_6/Theorem6_7.tex) [206] (./subfiles/Chapter_6/Theorem6_8.tex) [207] (./subfiles/Chapter_6/Theorem6_9.tex) [208] (./subfiles/Chapter_6/Theorem6_10.tex) [209] (./subfiles/Chapter_6/Theorem6_11.tex) [210] (./subfiles/Chapter_6/Theorem6_12.tex) [211] (./subfiles/Chapter_6/Theorem6_13.tex) [212] (./subfiles/Chapter_6/Theorem6_14.tex) [213] (./subfiles/Chapter_6/Theorem6_15.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
@@ -1228,17 +1468,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--24
 
  []
 
-[151] [152]
+[214] [215]
 Overfull \hbox (13.58702pt too wide) detected at line 91
 \OML/mlmm/m/it/12 M[]\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 g\OT1/cmr/m/n/12 ) = [] [] \OML/mlmm/m/it/12 < \OMS/mlmsy/m/n/12 1
  []
 
-[153]
+[216]
 Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
-[154]
+[217]
 Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
@@ -1248,7 +1488,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--144
 
  []
 
-[155]
+[218]
 Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
@@ -1268,109 +1508,99 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--197
 
  []
 
-[156]) [157]) (./subfiles/Chapter_7/Chapter_7_Compiled.tex [158
+[219]) [220]) (./subfiles/Chapter_7/Chapter_7_Compiled.tex [221
 
-] (./subfiles/Chapter_7/Theorem7_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
-
-) [159] (./subfiles/Chapter_7/Theorem7_2.tex [160] [161]
-Overfull \hbox (32.26167pt too wide) detected at line 149
+] (./subfiles/Chapter_7/Theorem7_1.tex) [222] (./subfiles/Chapter_7/Theorem7_2.tex [223] [224]
+Overfull \hbox (32.26167pt too wide) detected at line 148
 []
  []
 
-[162] [163]
-Underfull \hbox (badness 10000) in paragraph at lines 202--203
+[225] [226]
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
 
-[164]
-Underfull \hbox (badness 10000) in paragraph at lines 254--256
+[227]
+Underfull \hbox (badness 10000) in paragraph at lines 253--255
 
  []
 
-[165] [166]
-Underfull \hbox (badness 10000) in paragraph at lines 299--301
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 302--303
-
- []
-
-[167]
-Underfull \hbox (badness 10000) in paragraph at lines 343--345
+[228] [229]
+Underfull \hbox (badness 10000) in paragraph at lines 298--300
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--351
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
 
  []
 
-[168]
-Underfull \hbox (badness 10000) in paragraph at lines 369--371
+[230]
+Underfull \hbox (badness 10000) in paragraph at lines 342--344
 
  []
 
-[169]
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--350
+
+ []
+
+[231]
+Underfull \hbox (badness 10000) in paragraph at lines 368--370
+
+ []
+
+[232]
 File: subfiles/Chapter_7/../../images//FollandTheorem7_2.png Graphic file (type bmp)
 <subfiles/Chapter_7/../../images//FollandTheorem7_2.png>
- [170] [171] [172]
-Underfull \hbox (badness 10000) in paragraph at lines 491--493
+ [233] [234] [235]
+Underfull \hbox (badness 10000) in paragraph at lines 490--492
 
  []
 
-) [173] (./subfiles/Chapter_7/Theorem7_3.tex) (./subfiles/Chapter_7/Theorem7_4.tex) [174] (./subfiles/Chapter_7/Theorem7_5.tex) [175] (./subfiles/Chapter_7/Theorem7_6.tex) [176] (./subfiles/Chapter_7/Theorem7_7.tex) [177] (./subfiles/Chapter_7/Theorem7_8.tex) [178] (./subfiles/Chapter_7/Theorem7_9.tex) [179] (./subfiles/Chapter_7/Theorem7_10.tex) [180] (./subfiles/Chapter_7/Theorem7_11.tex) [181]) (./subfiles/Chapter_8/Chapter_8_Compiled.tex [182
+) [236] (./subfiles/Chapter_7/Theorem7_3.tex) (./subfiles/Chapter_7/Theorem7_4.tex) [237] (./subfiles/Chapter_7/Theorem7_5.tex) [238] (./subfiles/Chapter_7/Theorem7_6.tex) [239] (./subfiles/Chapter_7/Theorem7_7.tex) [240] (./subfiles/Chapter_7/Theorem7_8.tex) [241] (./subfiles/Chapter_7/Theorem7_9.tex) [242] (./subfiles/Chapter_7/Theorem7_10.tex) [243] (./subfiles/Chapter_7/Theorem7_11.tex) [244]) (./subfiles/Chapter_8/Chapter_8_Compiled.tex [245
 
-] (./subfiles/Chapter_8/Theorem8_1.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 4.
-
-) [183] (./subfiles/Chapter_8/Theorem8_2.tex) [184] (./subfiles/Chapter_8/Theorem8_3.tex) [185] (./subfiles/Chapter_8/Theorem8_4.tex) [186] (./subfiles/Chapter_8/Theorem8_5.tex) [187] (./subfiles/Chapter_8/Theorem8_6.tex) [188] (./subfiles/Chapter_8/Theorem8_7.tex) [189] (./subfiles/Chapter_8/Theorem8_8.tex) [190] (./subfiles/Chapter_8/Theorem8_9.tex) [191] (./subfiles/Chapter_8/Theorem8_10.tex) [192] (./subfiles/Chapter_8/Theorem8_11.tex) [193] (./subfiles/Chapter_8/Theorem8_12.tex) [194] (./subfiles/Chapter_8/Theorem8_13.tex) [195] (./subfiles/Chapter_8/Theorem8_14.tex
+] (./subfiles/Chapter_8/Theorem8_1.tex) [246] (./subfiles/Chapter_8/Theorem8_2.tex) [247] (./subfiles/Chapter_8/Theorem8_3.tex) [248] (./subfiles/Chapter_8/Theorem8_4.tex) [249] (./subfiles/Chapter_8/Theorem8_5.tex) [250] (./subfiles/Chapter_8/Theorem8_6.tex) [251] (./subfiles/Chapter_8/Theorem8_7.tex) [252] (./subfiles/Chapter_8/Theorem8_8.tex) [253] (./subfiles/Chapter_8/Theorem8_9.tex) [254] (./subfiles/Chapter_8/Theorem8_10.tex) [255] (./subfiles/Chapter_8/Theorem8_11.tex) [256] (./subfiles/Chapter_8/Theorem8_12.tex) [257] (./subfiles/Chapter_8/Theorem8_13.tex) [258] (./subfiles/Chapter_8/Theorem8_14.tex
 Overfull \hbox (48.82855pt too wide) detected at line 41
 \OMS/mlmsy/m/n/12 k[]k[] \OT1/cmr/m/n/12 = [][] \OMS/mlmsy/m/n/12 j\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 ^^\[]f\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 x\OT1/cmr/m/n/12 ) \OMS/mlmsy/m/n/12 ^^@ \OML/mlmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 x\OT1/cmr/m/n/12 ))\OML/mlmm/m/it/12 ^^^\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 z\OT1/cmr/m/n/12 )\OMS/mlmsy/m/n/12 j[]\OML/mlmm/m/it/12 dx[][] \OMS/mlmsy/m/n/12 ^^T j\OML/mlmm/m/it/12 ^^^\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 z\OT1/cmr/m/n/12 )\OMS/mlmsy/m/n/12 j[]\OT1/cmr/m/n/12 2\OMS/mlmsy/m/n/12 k\OML/mlmm/m/it/12 f\OMS/mlmsy/m/n/12 k[][] \OML/mlmm/m/it/12 < \OT1/cmr/m/n/12 +\OMS/mlmsy/m/n/12 1
  []
 
-[196] [197] [198] [199]) [200] [201] (./subfiles/Chapter_8/Theorem8_15.tex [202] [203]
-Underfull \hbox (badness 10000) in paragraph at lines 64--66
+[259] [260] [261] [262]) [263] [264] (./subfiles/Chapter_8/Theorem8_15.tex [265] [266]
+Underfull \hbox (badness 10000) in paragraph at lines 65--67
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
 
  []
 
-[204]
-Overfull \hbox (76.02568pt too wide) detected at line 104
+[267]
+Overfull \hbox (76.02568pt too wide) detected at line 105
 []
  []
 
-[205]
-Underfull \hbox (badness 10000) in paragraph at lines 118--119
+[268]
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
-[206]
-Underfull \hbox (badness 10000) in paragraph at lines 151--153
+[269]
+Underfull \hbox (badness 10000) in paragraph at lines 152--154
 
  []
 
-[207] [208]) (./subfiles/Chapter_8/Theorem8_16.tex) [209] (./subfiles/Chapter_8/Theorem8_17.tex) [210] (./subfiles/Chapter_8/Theorem8_18.tex) [211] (./subfiles/Chapter_8/Theorem8_19.tex) [212] (./subfiles/Chapter_8/Theorem8_20.tex) [213]) (out/main.aux)
+[270] [271]) (./subfiles/Chapter_8/Theorem8_16.tex) [272] (./subfiles/Chapter_8/Theorem8_17.tex) [273] (./subfiles/Chapter_8/Theorem8_18.tex) [274] (./subfiles/Chapter_8/Theorem8_19.tex) [275] (./subfiles/Chapter_8/Theorem8_20.tex) [276]) (out/main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: ABD6AC65195D071B6E0ECAB25E1CD08E;18764.
+(rerunfilecheck)             Checksum: C9FD8932D7853894EBAB9D856AA1498E;23769.
  ) 
 Here is how much of TeX's memory you used:
- 28029 strings out of 476778
- 579518 string characters out of 5805974
+ 32467 strings out of 476778
+ 684892 string characters out of 5805974
  1857979 words of memory out of 5000000
- 47122 multiletter control sequences out of 15000+600000
- 522765 words of font info for 75 fonts, out of 8000000 for 9000
+ 51508 multiletter control sequences out of 15000+600000
+ 522773 words of font info for 76 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 96i,13n,109p,1059b,759s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 96i,16n,109p,1059b,968s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/main.xdv (213 pages, 1189888 bytes).
+Output written on out/main.xdv (276 pages, 1811820 bytes).

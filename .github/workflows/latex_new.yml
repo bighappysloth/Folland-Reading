@@ -1,0 +1,34 @@
+name: Compile LaTeX
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up LaTeX
+      uses: xu-cheng/latex-action@v2
+      with:
+        profile: minimal
+
+    - name: Compile main.tex
+      run: |
+        xelatex --shell-escape --interaction=nonstopmode --file-line-error main.tex
+
+    - name: Compile subfiles
+      run: |
+        xelatex --shell-escape --interaction=nonstopmode --file-line-error subfiles/Chapter_4/Chapter_4_Compiled.tex
+
+    - name: Upload PDFs
+      uses: actions/upload-artifact@v2
+      with:
+        name: PDFs
+        path: |
+          ./**/*.pdf

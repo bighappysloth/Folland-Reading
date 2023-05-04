@@ -13,7 +13,7 @@ jobs:
       with:
       
           # The root LaTeX file to be compiled
-          root_file: "*.tex"
+          root_file: "*Compiled.tex"
           glob_root_file: true
           working_directory: ./
 

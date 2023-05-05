@@ -1,12 +1,12 @@
 # Fdb version 4
-["xdvipdfmx"] 1682989874 "out/Chapter_4_Compiled.xdv" "out/Chapter_4_Compiled.pdf" "out/Chapter_4_Compiled" 1682989875 0
-  "out/Chapter_4_Compiled.xdv" 1682989874 787836 5a6e991293947187f5c4a6c91eed1ab7 "xelatex"
+["xdvipdfmx"] 1683077405 "out/Chapter_4_Compiled.xdv" "out/Chapter_4_Compiled.pdf" "out/Chapter_4_Compiled" 1683077405 0
+  "out/Chapter_4_Compiled.xdv" 1683077405 800240 f0b800c8a0b151ae605b5b0ee739eb87 "xelatex"
   (generated)
   "out/Chapter_4_Compiled.pdf"
   (rewritten before read)
-["xelatex"] 1682989873 "Chapter_4_Compiled.tex" "out/Chapter_4_Compiled.xdv" "Chapter_4_Compiled" 1682989875 0
+["xelatex"] 1683077403 "Chapter_4_Compiled.tex" "out/Chapter_4_Compiled.xdv" "Chapter_4_Compiled" 1683077405 0
   "../..//./docinfo.tex" 1682896569 1102 fa327e568b31dc2a6dd182d1e84b06d7 ""
-  "../..//./headers.tex" 1682989859 3074 d8131ca495eaf73aa65c909a683248df ""
+  "../..//./headers.tex" 1683077298 3309 3813bc76829265e549160123c7bde6c6 ""
   "../..//./imports.tex" 1682896569 5973 018aceb614ae319411435aabdcd10fe6 ""
   "../..//./packages.tex" 1682896569 1450 c2070bd1d973689d6b71b8ae2e932e02 ""
   "../../main.tex" 1677878853 864 a985c48e461f972e5ff3a7cb1308c63f ""
@@ -224,13 +224,13 @@
   "/usr/local/texlive/2022/texmf-dist/web2c/texmf.cnf" 1646502317 40171 cdab547de63d26590bebb3baff566530 ""
   "/usr/local/texlive/2022/texmf-var/web2c/xetex/xelatex.fmt" 1672348554 10496080 cfa80ba148d0e733fe72e3ea0a5cb82b ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "Chapter_4_Compiled.tex" 1682989871 1381 4a2c9ab7ed5ade98025438fa6ff98b70 ""
-  "Chapter_4_Notes.tex" 1682989873 39695 ef36271b5bd27928a0c513f6ad346c67 ""
-  "Theorem4_1.tex" 1672346709 1439 67a05371bc42720088654aed7c90236c ""
+  "Chapter_4_Compiled.tex" 1683077204 1408 f5586af871611957bd036fc86e341885 ""
+  "Chapter_4_Notes.tex" 1683077299 40549 dc6505ce41c584f31f4f34c03ab294b9 ""
+  "Theorem4_1.tex" 1683076850 1439 67a05371bc42720088654aed7c90236c ""
   "Theorem4_10.tex" 1672346709 1010 1bf51ae395d42f775f6885c63f35a749 ""
   "Theorem4_11.tex" 1672346709 1488 58c7e96a5566949183238457e7b209ac ""
   "Theorem4_12.tex" 1672346709 3049 48611246f121fb0f52423f66ca65150f ""
-  "Theorem4_13.tex" 1672346709 3905 8e698326ea3d910d53e06e1ffd9708a1 ""
+  "Theorem4_13.tex" 1683076833 4199 443b36ac25e324d4a4ca42d1d4afb6ca ""
   "Theorem4_14.tex" 1672346709 5294 f4b695ed9d0b117b093fd11a5c25bd9a ""
   "Theorem4_15.tex" 1672346709 3502 3fac82cabf6bfcd75e9bfcd189c6e8ca ""
   "Theorem4_16.tex" 1682896569 4200 3737772fe75c5f7036e5d6b6cd1e5dae ""
@@ -257,7 +257,7 @@
   "Theorem4_35.tex" 1672346709 3799 9a053f1840541608b983702b2293638d ""
   "Theorem4_36.tex" 1672346709 139 c67461f5fe80b3e63506219f769c0f23 ""
   "Theorem4_37.tex" 1672346709 1226 8487b9f99e6a0c71f49969df4eabeb6a ""
-  "Theorem4_38.tex" 1682896653 1512 dd2132a9fc1ed03be6ae0ae48405284f ""
+  "Theorem4_38.tex" 1683003958 1512 dd2132a9fc1ed03be6ae0ae48405284f ""
   "Theorem4_39.tex" 1672346709 139 07770e54bff4fdd490361670bb8d2ca9 ""
   "Theorem4_4.tex" 1672346709 2953 1b746b94b2588b4e1757e7b0f3d5b4bc ""
   "Theorem4_40.tex" 1672346709 139 bb009979437a1e40ac20bdaa06671d2e ""
@@ -267,8 +267,8 @@
   "Theorem4_7.tex" 1672346709 1060 f9eec294e98ba9b0bb171060ae55ef3a ""
   "Theorem4_8.tex" 1672346709 946 998ffa4def990d108f0761ccdeaef3b2 ""
   "Theorem4_9.tex" 1672346709 794 88ba48f9b3154bce6e58fe6443568e80 ""
-  "out/Chapter_4_Compiled.aux" 1682989874 10839 f29f1a926a7448886e6381b4a3c7cfb9 "xelatex"
-  "out/Chapter_4_Compiled.out" 1682989874 6950 af2bda7ea903ebf83b4c7cdfd1ad5189 "xelatex"
+  "out/Chapter_4_Compiled.aux" 1683077405 11253 59597b39943e8cb74deddbb24b48fe49 "xelatex"
+  "out/Chapter_4_Compiled.out" 1683077405 7565 156355e1cdad1dda7f56b6a6bb445b4c "xelatex"
   (generated)
   "out/Chapter_4_Compiled.aux"
   "out/Chapter_4_Compiled.log"

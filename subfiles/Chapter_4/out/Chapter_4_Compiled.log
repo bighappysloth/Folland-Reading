@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  1 MAY 2023 21:11
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  2 MAY 2023 21:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -951,166 +951,166 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2]
-Underfull \hbox (badness 10000) in paragraph at lines 63--65
+Underfull \hbox (badness 10000) in paragraph at lines 68--70
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--73
+Underfull \hbox (badness 10000) in paragraph at lines 76--78
 
  []
 
-[3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--147
+[3] [4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
 
 
-Overfull \hbox (23.40422pt too wide) detected at line 154
+Underfull \hbox (badness 10000) in paragraph at lines 151--153
+
+ []
+
+
+Overfull \hbox (23.40422pt too wide) detected at line 160
 []  [][]\OMS/mlmsy/m/n/12 )  \OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 p; q\OT1/cmr/m/n/12 ) \OMS/mlmsy/m/n/12 2 [] ^^B [] ^^R \OML/mlmm/m/it/12 U \OMS/mlmsy/m/n/12 ^^B \OML/mlmm/m/it/12 V
  []
 
-[6] [7] [8] [9] [10]
-Overfull \hbox (26.97836pt too wide) in paragraph at lines 242--243
-[]\TU/lmr/bx/n/12 Proposition 0.8. []\TU/lmr/m/it/12 If $\OML/mlmm/m/it/12 W \OT1/cmr/m/n/12 = [][][]$\TU/lmr/m/it/12 ,
- []
-
-[11]
-Overfull \hbox (77.46567pt too wide) in paragraph at lines 268--269
-[]\TU/lmr/bx/n/12 Proposition 0.9. []\TU/lmr/m/it/12 Let $\OML/mlmm/m/it/12 A \OMS/mlmsy/m/n/12 ^^R \OML/mlmm/m/it/12 X$\TU/lmr/m/it/12 , if $\OML/mlmm/m/it/12 W \OT1/cmr/m/n/12 = [][][]$\TU/lmr/m/it/12 ,
+[7] [8] [9] [10] [11]
+Overfull \hbox (26.97836pt too wide) in paragraph at lines 248--249
+[]\TU/lmr/bx/n/12 Proposition 3.5. []\TU/lmr/m/it/12 If $\OML/mlmm/m/it/12 W \OT1/cmr/m/n/12 = [][][]$\TU/lmr/m/it/12 ,
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 296--298
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 310--312
-
+Overfull \hbox (77.46567pt too wide) in paragraph at lines 274--275
+[]\TU/lmr/bx/n/12 Proposition 3.6. []\TU/lmr/m/it/12 Let $\OML/mlmm/m/it/12 A \OMS/mlmsy/m/n/12 ^^R \OML/mlmm/m/it/12 X$\TU/lmr/m/it/12 , if $\OML/mlmm/m/it/12 W \OT1/cmr/m/n/12 = [][][]$\TU/lmr/m/it/12 ,
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 316--318
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--306
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--320
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 343--345
+Underfull \hbox (badness 10000) in paragraph at lines 324--326
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 358--360
+Underfull \hbox (badness 10000) in paragraph at lines 351--353
+
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 366--368
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--366
+Underfull \hbox (badness 10000) in paragraph at lines 372--374
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 370--372
+Underfull \hbox (badness 10000) in paragraph at lines 378--380
 
  []
 
-[16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
+[17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
 
  []
 
 
-Overfull \hbox (18.18472pt too wide) in paragraph at lines 441--442
+Overfull \hbox (18.18472pt too wide) in paragraph at lines 449--450
  [][] 
  []
 
-[18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 474--476
+[19] [20]
+Underfull \hbox (badness 10000) in paragraph at lines 482--484
 
  []
 
-[20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 508--511
+[21] [22]
+Underfull \hbox (badness 10000) in paragraph at lines 516--519
 
  []
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 524--525
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 526--527
-
- []
-
-[23] [24]
-Underfull \hbox (badness 10000) in paragraph at lines 556--557
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 532--533
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--568
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
 
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 591--592
+[24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 564--565
 
  []
 
-[26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 639--640
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--576
 
  []
 
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 660--662
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 613--614
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 679--680
+[27] [28] [29]
+Underfull \hbox (badness 10000) in paragraph at lines 661--662
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 720--723
+Underfull \hbox (badness 10000) in paragraph at lines 682--684
 
  []
 
-[31] [32]) [33] (./Theorem4_1.tex) [34] (./Theorem4_2.tex
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
+
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 742--745
+
+ []
+
+[33] [34]) [35] (./Theorem4_1.tex) [36] (./Theorem4_2.tex
 Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-) [35] (./Theorem4_3.tex
+) [37] (./Theorem4_3.tex
 Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
 
-[36]) [37] (./Theorem4_4.tex
+[38]) [39] (./Theorem4_4.tex
 Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
-[38]) [39] (./Theorem4_5.tex) [40] (./Theorem4_6.tex
+[40]) [41] (./Theorem4_5.tex) [42] (./Theorem4_6.tex
 Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
@@ -1120,52 +1120,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
-) [41] (./Theorem4_7.tex
+) [43] (./Theorem4_7.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [42] (./Theorem4_8.tex) [43] (./Theorem4_9.tex
+) [44] (./Theorem4_8.tex) [45] (./Theorem4_9.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [44] (./Theorem4_10.tex) [45] (./Theorem4_11.tex
+) [46] (./Theorem4_10.tex) [47] (./Theorem4_11.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [46] (./Theorem4_12.tex
+) [48] (./Theorem4_12.tex
 Overfull \hbox (0.55383pt too wide) in paragraph at lines 25--27
 \TU/lmr/m/n/12 Then applying Theorem 4.2, the family of finite intersections of $\OML/mlmm/m/it/12 ^^Y[]\OT1/cmr/m/n/12 ([])$
  []
 
-[47]
+[49]
 Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
-) [48] (./Theorem4_13.tex
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
-
- []
-
-[49]
-Underfull \hbox (badness 10000) in paragraph at lines 44--46
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
-) [50] (./Theorem4_14.tex
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
+) [50] (./Theorem4_13.tex
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
 
  []
 
 [51]
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--81
+
+ []
+
+[52]) [53] (./Theorem4_14.tex
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+[54]
 Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
@@ -1180,7 +1185,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--73
 
  []
 
-[52]) [53] (./Theorem4_15.tex
+[55]) [56] (./Theorem4_15.tex
 Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
@@ -1200,12 +1205,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
-[54]
+[57]
 Underfull \hbox (badness 10000) in paragraph at lines 30--32
 
  []
 
-) [55] (./Theorem4_16.tex
+) [58] (./Theorem4_16.tex
 Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
@@ -1215,12 +1220,12 @@ Overfull \hbox (16.27438pt too wide) in paragraph at lines 44--45
  [][] 
  []
 
-[56]) [57] (./Theorem4_17.tex
+[59]) [60] (./Theorem4_17.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [58] (./Theorem4_18.tex
+) [61] (./Theorem4_18.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
@@ -1240,12 +1245,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
  []
 
-) [59] (./Theorem4_19.tex
+) [62] (./Theorem4_19.tex
 Underfull \hbox (badness 10000) in paragraph at lines 13--15
 
  []
 
-) [60] (./Theorem4_20.tex
+) [63] (./Theorem4_20.tex
 Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
@@ -1270,17 +1275,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
-[61]) [62] (./Theorem4_21.tex) [63] (./Theorem4_22.tex) [64] (./Theorem4_23.tex) [65] (./Theorem4_24.tex) [66] (./Theorem4_25.tex
+[64]) [65] (./Theorem4_21.tex) [66] (./Theorem4_22.tex) [67] (./Theorem4_23.tex) [68] (./Theorem4_24.tex) [69] (./Theorem4_25.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [67] (./Theorem4_26.tex) [68] (./Theorem4_27.tex) [69] (./Theorem4_28.tex
+) [70] (./Theorem4_26.tex) [71] (./Theorem4_27.tex) [72] (./Theorem4_28.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [70] (./Theorem4_29.tex
+) [73] (./Theorem4_29.tex
 Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
  []
@@ -1305,27 +1310,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
-[71]) [72] (./Theorem4_30.tex
+[74]) [75] (./Theorem4_30.tex
 Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
-[73]) [74] (./Theorem4_31.tex
+[76]) [77] (./Theorem4_31.tex
 Underfull \hbox (badness 10000) in paragraph at lines 27--29
 
  []
 
-[75]) [76] (./Theorem4_32.tex
+[78]) [79] (./Theorem4_32.tex
 Underfull \hbox (badness 10000) in paragraph at lines 42--44
 
  []
 
-[77]) [78] (./Theorem4_33.tex
+[80]) [81] (./Theorem4_33.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [79] (./Theorem4_34.tex) [80] (./Theorem4_35.tex
+) [82] (./Theorem4_34.tex) [83] (./Theorem4_35.tex
 Underfull \hbox (badness 10000) in paragraph at lines 19--21
 
  []
@@ -1345,27 +1350,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
-[81]) [82] (./Theorem4_36.tex) [83] (./Theorem4_37.tex
+[84]) [85] (./Theorem4_36.tex) [86] (./Theorem4_37.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [84] (./Theorem4_38.tex
+) [87] (./Theorem4_38.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [85] (./Theorem4_39.tex) [86] (./Theorem4_40.tex) [87] (./Theorem4_41.tex) [88] (out/Chapter_4_Compiled.aux)
+) [88] (./Theorem4_39.tex) [89] (./Theorem4_40.tex) [90] (./Theorem4_41.tex) [91] (out/Chapter_4_Compiled.aux)
 Package rerunfilecheck Info: File `Chapter_4_Compiled.out' has not changed.
-(rerunfilecheck)             Checksum: AF2BDA7EA903EBF83B4C7CDFD1AD5189;6950.
+(rerunfilecheck)             Checksum: 156355E1CDAD1DDA7F56B6A6BB445B4C;7565.
  ) 
 Here is how much of TeX's memory you used:
- 31609 strings out of 476778
- 653525 string characters out of 5805974
+ 31610 strings out of 476778
+ 653534 string characters out of 5805974
  1857979 words of memory out of 5000000
- 51030 multiletter control sequences out of 15000+600000
+ 51031 multiletter control sequences out of 15000+600000
  522773 words of font info for 76 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  116i,16n,126p,1097b,902s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/Chapter_4_Compiled.xdv (88 pages, 787836 bytes).
+Output written on out/Chapter_4_Compiled.xdv (91 pages, 800240 bytes).

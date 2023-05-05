@@ -20,6 +20,7 @@
     \phantomsection\section*{Exercises}%
     \markright{Exercises}%
     \addcontentsline{toc}{section}{Exercises}%
+    \setcounter{theproblem}{0}%
     \setcounter{secnumdepth}{1}%
 }
 
@@ -28,6 +29,14 @@
     \markright{Exercise #1}%
     \addcontentsline{toc}{subsection}{Exercise #1}%
     \setcounter{secnumdepth}{0}%
+    \stepcounter{theproblem}
+}
+
+\newcommand{\topheader}[1]{%
+    \phantomsection\subsection*{#1}%
+    \markright{#1}%
+    \addcontentsline{toc}{section}{#1}%
+    \setcounter{secnumdepth}{1}%
     \stepcounter{theproblem}
 }
 
@@ -84,19 +93,19 @@
 
 \newcommand{\fchapter}[1]%
 {%
-\phantomsection\chapter*{Chapter #1}%
-\setcounter{theproblem}{0}%
-\addcontentsline{toc}{chapter}{Chapter #1}\newpage% Chapter Number
+    \phantomsection\chapter*{Chapter #1}%
+    \setcounter{theproblem}{0}%
+    \addcontentsline{toc}{chapter}{Chapter #1}\newpage% Chapter Number
 } 
-
+\newenvironment{outline}%
+    {\addtocounter{theproblem}{-1}\begin{proofoutline}}%
+    {\end{proofoutline}}
 
 \theoremstyle{definition}
 \newtheorem{proofoutline}%
 [theproblem]{Outline of Problem}
 
-\newenvironment{outline}%
-    {\addtocounter{theproblem}{-1}\begin{proofoutline}}%
-    {\end{proofoutline}}
+
 
 
 % Here we manage Clever Headers

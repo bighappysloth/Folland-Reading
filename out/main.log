@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  1 MAY 2023 21:11
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.29)  2 MAY 2023 21:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -995,7 +995,7 @@ Overfull \hbox (19.1022pt too wide) in paragraph at lines 267--269
 
 [45]
 Overfull \hbox (30.09453pt too wide) in paragraph at lines 289--290
-[]\TU/lmr/bx/n/12 Proposition 33.1. []\TU/lmr/m/it/12 Given a measure $\OML/mlmm/m/it/12 ^^V$ \TU/lmr/m/it/12 on $\OT1/cmr/m/n/12 ([]\OML/mlmm/m/it/12 ; \OMS/mlmsy/m/n/12 M\OT1/cmr/m/n/12 )$\TU/lmr/m/it/12 , and define $\OML/mlmm/m/it/12 ^^V[] \OT1/cmr/m/n/12 = []\OMS/mlmsy/m/n/12 f\OML/mlmm/m/it/12 ^^V\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 F\OT1/cmr/m/n/12 )\OML/mlmm/m/it/12 ;  F \OMS/mlmsy/m/n/12 ^^R
+[]\TU/lmr/bx/n/12 Proposition 15.1. []\TU/lmr/m/it/12 Given a measure $\OML/mlmm/m/it/12 ^^V$ \TU/lmr/m/it/12 on $\OT1/cmr/m/n/12 ([]\OML/mlmm/m/it/12 ; \OMS/mlmsy/m/n/12 M\OT1/cmr/m/n/12 )$\TU/lmr/m/it/12 , and define $\OML/mlmm/m/it/12 ^^V[] \OT1/cmr/m/n/12 = []\OMS/mlmsy/m/n/12 f\OML/mlmm/m/it/12 ^^V\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 F\OT1/cmr/m/n/12 )\OML/mlmm/m/it/12 ;  F \OMS/mlmsy/m/n/12 ^^R
  []
 
 
@@ -1045,166 +1045,166 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--30
 [85]) [86] (./subfiles/Chapter_3/Theorem3_22.tex) [87] (./subfiles/Chapter_3/Theorem3_23.tex) [88] (./subfiles/Chapter_3/Theorem3_24.tex) [89] (./subfiles/Chapter_3/Theorem3_25.tex) [90] (./subfiles/Chapter_3/Theorem3_26.tex) [91] (./subfiles/Chapter_3/Theorem3_27.tex) [92] (./subfiles/Chapter_3/Theorem3_28.tex) [93] (./subfiles/Chapter_3/Theorem3_29.tex) [94] (./subfiles/Chapter_3/Theorem3_30.tex) [95] (./subfiles/Chapter_3/Theorem3_31.tex) [96] (./subfiles/Chapter_3/Theorem3_32.tex) [97] (./subfiles/Chapter_3/Theorem3_33.tex) [98] (./subfiles/Chapter_3/Theorem3_34.tex) [99] (./subfiles/Chapter_3/Theorem3_35.tex) [100] (./subfiles/Chapter_3/Theorem3_36.tex) [101]) (./subfiles/Chapter_4/Chapter_4_Compiled.tex [102
 
 ] (./subfiles/Chapter_4/Chapter_4_Notes.tex [103]
-Underfull \hbox (badness 10000) in paragraph at lines 63--65
+Underfull \hbox (badness 10000) in paragraph at lines 68--70
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--73
+Underfull \hbox (badness 10000) in paragraph at lines 76--78
 
  []
 
-[104] [105] [106]
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--147
+[104] [105] [106] [107]
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
 
 
-Overfull \hbox (23.40422pt too wide) detected at line 154
+Underfull \hbox (badness 10000) in paragraph at lines 151--153
+
+ []
+
+
+Overfull \hbox (23.40422pt too wide) detected at line 160
 []  [][]\OMS/mlmsy/m/n/12 )  \OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 p; q\OT1/cmr/m/n/12 ) \OMS/mlmsy/m/n/12 2 [] ^^B [] ^^R \OML/mlmm/m/it/12 U \OMS/mlmsy/m/n/12 ^^B \OML/mlmm/m/it/12 V
  []
 
-[107] [108] [109] [110] [111]
-Overfull \hbox (26.97836pt too wide) in paragraph at lines 242--243
-[]\TU/lmr/bx/n/12 Proposition 0.9. []\TU/lmr/m/it/12 If $\OML/mlmm/m/it/12 W \OT1/cmr/m/n/12 = [][][]$\TU/lmr/m/it/12 ,
- []
-
-[112]
-Overfull \hbox (84.22166pt too wide) in paragraph at lines 268--269
-[]\TU/lmr/bx/n/12 Proposition 0.10. []\TU/lmr/m/it/12 Let $\OML/mlmm/m/it/12 A \OMS/mlmsy/m/n/12 ^^R \OML/mlmm/m/it/12 X$\TU/lmr/m/it/12 , if $\OML/mlmm/m/it/12 W \OT1/cmr/m/n/12 = [][][]$\TU/lmr/m/it/12 ,
+[108] [109] [110] [111] [112]
+Overfull \hbox (26.97836pt too wide) in paragraph at lines 248--249
+[]\TU/lmr/bx/n/12 Proposition 3.5. []\TU/lmr/m/it/12 If $\OML/mlmm/m/it/12 W \OT1/cmr/m/n/12 = [][][]$\TU/lmr/m/it/12 ,
  []
 
 [113]
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 296--298
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 310--312
-
+Overfull \hbox (77.46567pt too wide) in paragraph at lines 274--275
+[]\TU/lmr/bx/n/12 Proposition 3.6. []\TU/lmr/m/it/12 Let $\OML/mlmm/m/it/12 A \OMS/mlmsy/m/n/12 ^^R \OML/mlmm/m/it/12 X$\TU/lmr/m/it/12 , if $\OML/mlmm/m/it/12 W \OT1/cmr/m/n/12 = [][][]$\TU/lmr/m/it/12 ,
  []
 
 [114]
-Underfull \hbox (badness 10000) in paragraph at lines 316--318
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--306
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--320
 
  []
 
 [115]
-Underfull \hbox (badness 10000) in paragraph at lines 343--345
+Underfull \hbox (badness 10000) in paragraph at lines 324--326
 
  []
 
 [116]
-Underfull \hbox (badness 10000) in paragraph at lines 358--360
+Underfull \hbox (badness 10000) in paragraph at lines 351--353
+
+ []
+
+[117]
+Underfull \hbox (badness 10000) in paragraph at lines 366--368
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--366
+Underfull \hbox (badness 10000) in paragraph at lines 372--374
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 370--372
+Underfull \hbox (badness 10000) in paragraph at lines 378--380
 
  []
 
-[117] [118]
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
+[118] [119]
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
 
  []
 
 
-Overfull \hbox (18.18472pt too wide) in paragraph at lines 441--442
+Overfull \hbox (18.18472pt too wide) in paragraph at lines 449--450
  [][] 
  []
 
-[119] [120]
-Underfull \hbox (badness 10000) in paragraph at lines 474--476
+[120] [121]
+Underfull \hbox (badness 10000) in paragraph at lines 482--484
 
  []
 
-[121] [122]
-Underfull \hbox (badness 10000) in paragraph at lines 508--511
+[122] [123]
+Underfull \hbox (badness 10000) in paragraph at lines 516--519
 
  []
 
-[123]
-Underfull \hbox (badness 10000) in paragraph at lines 524--525
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 526--527
-
- []
-
-[124] [125]
-Underfull \hbox (badness 10000) in paragraph at lines 556--557
+[124]
+Underfull \hbox (badness 10000) in paragraph at lines 532--533
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--568
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
 
  []
 
-[126]
-Underfull \hbox (badness 10000) in paragraph at lines 591--592
+[125] [126]
+Underfull \hbox (badness 10000) in paragraph at lines 564--565
 
  []
 
-[127] [128]
-Underfull \hbox (badness 10000) in paragraph at lines 639--640
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--576
 
  []
 
-[129]
-Underfull \hbox (badness 10000) in paragraph at lines 660--662
+[127]
+Underfull \hbox (badness 10000) in paragraph at lines 613--614
 
  []
 
-[130]
-Underfull \hbox (badness 10000) in paragraph at lines 679--680
+[128] [129] [130]
+Underfull \hbox (badness 10000) in paragraph at lines 661--662
 
  []
 
 [131]
-Underfull \hbox (badness 10000) in paragraph at lines 720--723
+Underfull \hbox (badness 10000) in paragraph at lines 682--684
 
  []
 
-[132] [133]) [134] (./subfiles/Chapter_4/Theorem4_1.tex) [135] (./subfiles/Chapter_4/Theorem4_2.tex
+[132]
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
+
+ []
+
+[133]
+Underfull \hbox (badness 10000) in paragraph at lines 742--745
+
+ []
+
+[134] [135]) [136] (./subfiles/Chapter_4/Theorem4_1.tex) [137] (./subfiles/Chapter_4/Theorem4_2.tex
 Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-) [136] (./subfiles/Chapter_4/Theorem4_3.tex
+) [138] (./subfiles/Chapter_4/Theorem4_3.tex
 Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
 
-[137]) [138] (./subfiles/Chapter_4/Theorem4_4.tex
+[139]) [140] (./subfiles/Chapter_4/Theorem4_4.tex
 Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
-[139]) [140] (./subfiles/Chapter_4/Theorem4_5.tex) [141] (./subfiles/Chapter_4/Theorem4_6.tex
+[141]) [142] (./subfiles/Chapter_4/Theorem4_5.tex) [143] (./subfiles/Chapter_4/Theorem4_6.tex
 Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
@@ -1214,52 +1214,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
-) [142] (./subfiles/Chapter_4/Theorem4_7.tex
+) [144] (./subfiles/Chapter_4/Theorem4_7.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [143] (./subfiles/Chapter_4/Theorem4_8.tex) [144] (./subfiles/Chapter_4/Theorem4_9.tex
+) [145] (./subfiles/Chapter_4/Theorem4_8.tex) [146] (./subfiles/Chapter_4/Theorem4_9.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [145] (./subfiles/Chapter_4/Theorem4_10.tex) [146] (./subfiles/Chapter_4/Theorem4_11.tex
+) [147] (./subfiles/Chapter_4/Theorem4_10.tex) [148] (./subfiles/Chapter_4/Theorem4_11.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [147] (./subfiles/Chapter_4/Theorem4_12.tex
+) [149] (./subfiles/Chapter_4/Theorem4_12.tex
 Overfull \hbox (0.55383pt too wide) in paragraph at lines 25--27
 \TU/lmr/m/n/12 Then applying Theorem 4.2, the family of finite intersections of $\OML/mlmm/m/it/12 ^^Y[]\OT1/cmr/m/n/12 ([])$
  []
 
-[148]
+[150]
 Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
-) [149] (./subfiles/Chapter_4/Theorem4_13.tex
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
-
- []
-
-[150]
-Underfull \hbox (badness 10000) in paragraph at lines 44--46
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
-) [151] (./subfiles/Chapter_4/Theorem4_14.tex
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
+) [151] (./subfiles/Chapter_4/Theorem4_13.tex
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
 
  []
 
 [152]
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--81
+
+ []
+
+[153]) [154] (./subfiles/Chapter_4/Theorem4_14.tex
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+[155]
 Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
@@ -1274,7 +1279,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--73
 
  []
 
-[153]) [154] (./subfiles/Chapter_4/Theorem4_15.tex
+[156]) [157] (./subfiles/Chapter_4/Theorem4_15.tex
 Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
@@ -1294,12 +1299,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
-[155]
+[158]
 Underfull \hbox (badness 10000) in paragraph at lines 30--32
 
  []
 
-) [156] (./subfiles/Chapter_4/Theorem4_16.tex
+) [159] (./subfiles/Chapter_4/Theorem4_16.tex
 Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
@@ -1309,12 +1314,12 @@ Overfull \hbox (16.27438pt too wide) in paragraph at lines 44--45
  [][] 
  []
 
-[157]) [158] (./subfiles/Chapter_4/Theorem4_17.tex
+[160]) [161] (./subfiles/Chapter_4/Theorem4_17.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [159] (./subfiles/Chapter_4/Theorem4_18.tex
+) [162] (./subfiles/Chapter_4/Theorem4_18.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
@@ -1334,12 +1339,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
  []
 
-) [160] (./subfiles/Chapter_4/Theorem4_19.tex
+) [163] (./subfiles/Chapter_4/Theorem4_19.tex
 Underfull \hbox (badness 10000) in paragraph at lines 13--15
 
  []
 
-) [161] (./subfiles/Chapter_4/Theorem4_20.tex
+) [164] (./subfiles/Chapter_4/Theorem4_20.tex
 Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
@@ -1364,17 +1369,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
-[162]) [163] (./subfiles/Chapter_4/Theorem4_21.tex) [164] (./subfiles/Chapter_4/Theorem4_22.tex) [165] (./subfiles/Chapter_4/Theorem4_23.tex) [166] (./subfiles/Chapter_4/Theorem4_24.tex) [167] (./subfiles/Chapter_4/Theorem4_25.tex
+[165]) [166] (./subfiles/Chapter_4/Theorem4_21.tex) [167] (./subfiles/Chapter_4/Theorem4_22.tex) [168] (./subfiles/Chapter_4/Theorem4_23.tex) [169] (./subfiles/Chapter_4/Theorem4_24.tex) [170] (./subfiles/Chapter_4/Theorem4_25.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [168] (./subfiles/Chapter_4/Theorem4_26.tex) [169] (./subfiles/Chapter_4/Theorem4_27.tex) [170] (./subfiles/Chapter_4/Theorem4_28.tex
+) [171] (./subfiles/Chapter_4/Theorem4_26.tex) [172] (./subfiles/Chapter_4/Theorem4_27.tex) [173] (./subfiles/Chapter_4/Theorem4_28.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [171] (./subfiles/Chapter_4/Theorem4_29.tex
+) [174] (./subfiles/Chapter_4/Theorem4_29.tex
 Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
  []
@@ -1399,27 +1404,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
-[172]) [173] (./subfiles/Chapter_4/Theorem4_30.tex
+[175]) [176] (./subfiles/Chapter_4/Theorem4_30.tex
 Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
-[174]) [175] (./subfiles/Chapter_4/Theorem4_31.tex
+[177]) [178] (./subfiles/Chapter_4/Theorem4_31.tex
 Underfull \hbox (badness 10000) in paragraph at lines 27--29
 
  []
 
-[176]) [177] (./subfiles/Chapter_4/Theorem4_32.tex
+[179]) [180] (./subfiles/Chapter_4/Theorem4_32.tex
 Underfull \hbox (badness 10000) in paragraph at lines 42--44
 
  []
 
-[178]) [179] (./subfiles/Chapter_4/Theorem4_33.tex
+[181]) [182] (./subfiles/Chapter_4/Theorem4_33.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [180] (./subfiles/Chapter_4/Theorem4_34.tex) [181] (./subfiles/Chapter_4/Theorem4_35.tex
+) [183] (./subfiles/Chapter_4/Theorem4_34.tex) [184] (./subfiles/Chapter_4/Theorem4_35.tex
 Underfull \hbox (badness 10000) in paragraph at lines 19--21
 
  []
@@ -1439,21 +1444,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
-[182]) [183] (./subfiles/Chapter_4/Theorem4_36.tex) [184] (./subfiles/Chapter_4/Theorem4_37.tex
+[185]) [186] (./subfiles/Chapter_4/Theorem4_36.tex) [187] (./subfiles/Chapter_4/Theorem4_37.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [185] (./subfiles/Chapter_4/Theorem4_38.tex
+) [188] (./subfiles/Chapter_4/Theorem4_38.tex
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
-) [186] (./subfiles/Chapter_4/Theorem4_39.tex) [187] (./subfiles/Chapter_4/Theorem4_40.tex) [188] (./subfiles/Chapter_4/Theorem4_41.tex) [189] (./subfiles/Chapter_4/Chapter_4_Exercises.tex)) (./subfiles/Chapter_5/Chapter_5_Compiled.tex [190
+) [189] (./subfiles/Chapter_4/Theorem4_39.tex) [190] (./subfiles/Chapter_4/Theorem4_40.tex) [191] (./subfiles/Chapter_4/Theorem4_41.tex) [192]) (./subfiles/Chapter_5/Chapter_5_Compiled.tex [193
 
-] (./subfiles/Chapter_5/Theorem5_1.tex) [191] (./subfiles/Chapter_5/Theorem5_2.tex) [192] (./subfiles/Chapter_5/Theorem5_3.tex) [193] (./subfiles/Chapter_5/Theorem5_4.tex) [194] (./subfiles/Chapter_5/Theorem5_5.tex) [195] (./subfiles/Chapter_5/Theorem5_6.tex) [196] (./subfiles/Chapter_5/Theorem5_7.tex) [197] (./subfiles/Chapter_5/Theorem5_8.tex) [198]) (./subfiles/Chapter_6/Chapter_6_Compiled.tex [199
+] (./subfiles/Chapter_5/Theorem5_1.tex) [194] (./subfiles/Chapter_5/Theorem5_2.tex) [195] (./subfiles/Chapter_5/Theorem5_3.tex) [196] (./subfiles/Chapter_5/Theorem5_4.tex) [197] (./subfiles/Chapter_5/Theorem5_5.tex) [198] (./subfiles/Chapter_5/Theorem5_6.tex) [199] (./subfiles/Chapter_5/Theorem5_7.tex) [200] (./subfiles/Chapter_5/Theorem5_8.tex) [201]) (./subfiles/Chapter_6/Chapter_6_Compiled.tex [202
 
-] (./subfiles/Chapter_6/Theorem6_1.tex) [200] (./subfiles/Chapter_6/Theorem6_2.tex) [201] (./subfiles/Chapter_6/Theorem6_3.tex) [202] (./subfiles/Chapter_6/Theorem6_4.tex) [203] (./subfiles/Chapter_6/Theorem6_5.tex) [204] (./subfiles/Chapter_6/Theorem6_6.tex) [205] (./subfiles/Chapter_6/Theorem6_7.tex) [206] (./subfiles/Chapter_6/Theorem6_8.tex) [207] (./subfiles/Chapter_6/Theorem6_9.tex) [208] (./subfiles/Chapter_6/Theorem6_10.tex) [209] (./subfiles/Chapter_6/Theorem6_11.tex) [210] (./subfiles/Chapter_6/Theorem6_12.tex) [211] (./subfiles/Chapter_6/Theorem6_13.tex) [212] (./subfiles/Chapter_6/Theorem6_14.tex) [213] (./subfiles/Chapter_6/Theorem6_15.tex
+] (./subfiles/Chapter_6/Theorem6_1.tex) [203] (./subfiles/Chapter_6/Theorem6_2.tex) [204] (./subfiles/Chapter_6/Theorem6_3.tex) [205] (./subfiles/Chapter_6/Theorem6_4.tex) [206] (./subfiles/Chapter_6/Theorem6_5.tex) [207] (./subfiles/Chapter_6/Theorem6_6.tex) [208] (./subfiles/Chapter_6/Theorem6_7.tex) [209] (./subfiles/Chapter_6/Theorem6_8.tex) [210] (./subfiles/Chapter_6/Theorem6_9.tex) [211] (./subfiles/Chapter_6/Theorem6_10.tex) [212] (./subfiles/Chapter_6/Theorem6_11.tex) [213] (./subfiles/Chapter_6/Theorem6_12.tex) [214] (./subfiles/Chapter_6/Theorem6_13.tex) [215] (./subfiles/Chapter_6/Theorem6_14.tex) [216] (./subfiles/Chapter_6/Theorem6_15.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
@@ -1468,17 +1473,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--24
 
  []
 
-[214] [215]
+[217] [218]
 Overfull \hbox (13.58702pt too wide) detected at line 91
 \OML/mlmm/m/it/12 M[]\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 g\OT1/cmr/m/n/12 ) = [] [] \OML/mlmm/m/it/12 < \OMS/mlmsy/m/n/12 1
  []
 
-[216]
+[219]
 Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
-[217]
+[220]
 Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
@@ -1488,7 +1493,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--144
 
  []
 
-[218]
+[221]
 Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
@@ -1508,24 +1513,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--197
 
  []
 
-[219]) [220]) (./subfiles/Chapter_7/Chapter_7_Compiled.tex [221
+[222]) [223]) (./subfiles/Chapter_7/Chapter_7_Compiled.tex [224
 
-] (./subfiles/Chapter_7/Theorem7_1.tex) [222] (./subfiles/Chapter_7/Theorem7_2.tex [223] [224]
+] (./subfiles/Chapter_7/Theorem7_1.tex) [225] (./subfiles/Chapter_7/Theorem7_2.tex [226] [227]
 Overfull \hbox (32.26167pt too wide) detected at line 148
 []
  []
 
-[225] [226]
+[228] [229]
 Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
 
-[227]
+[230]
 Underfull \hbox (badness 10000) in paragraph at lines 253--255
 
  []
 
-[228] [229]
+[231] [232]
 Underfull \hbox (badness 10000) in paragraph at lines 298--300
 
  []
@@ -1535,7 +1540,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 301--302
 
  []
 
-[230]
+[233]
 Underfull \hbox (badness 10000) in paragraph at lines 342--344
 
  []
@@ -1545,27 +1550,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 348--350
 
  []
 
-[231]
+[234]
 Underfull \hbox (badness 10000) in paragraph at lines 368--370
 
  []
 
-[232]
+[235]
 File: subfiles/Chapter_7/../../images//FollandTheorem7_2.png Graphic file (type bmp)
 <subfiles/Chapter_7/../../images//FollandTheorem7_2.png>
- [233] [234] [235]
+ [236] [237] [238]
 Underfull \hbox (badness 10000) in paragraph at lines 490--492
 
  []
 
-) [236] (./subfiles/Chapter_7/Theorem7_3.tex) (./subfiles/Chapter_7/Theorem7_4.tex) [237] (./subfiles/Chapter_7/Theorem7_5.tex) [238] (./subfiles/Chapter_7/Theorem7_6.tex) [239] (./subfiles/Chapter_7/Theorem7_7.tex) [240] (./subfiles/Chapter_7/Theorem7_8.tex) [241] (./subfiles/Chapter_7/Theorem7_9.tex) [242] (./subfiles/Chapter_7/Theorem7_10.tex) [243] (./subfiles/Chapter_7/Theorem7_11.tex) [244]) (./subfiles/Chapter_8/Chapter_8_Compiled.tex [245
+) [239] (./subfiles/Chapter_7/Theorem7_3.tex) (./subfiles/Chapter_7/Theorem7_4.tex) [240] (./subfiles/Chapter_7/Theorem7_5.tex) [241] (./subfiles/Chapter_7/Theorem7_6.tex) [242] (./subfiles/Chapter_7/Theorem7_7.tex) [243] (./subfiles/Chapter_7/Theorem7_8.tex) [244] (./subfiles/Chapter_7/Theorem7_9.tex) [245] (./subfiles/Chapter_7/Theorem7_10.tex) [246] (./subfiles/Chapter_7/Theorem7_11.tex) [247]) (./subfiles/Chapter_8/Chapter_8_Compiled.tex [248
 
-] (./subfiles/Chapter_8/Theorem8_1.tex) [246] (./subfiles/Chapter_8/Theorem8_2.tex) [247] (./subfiles/Chapter_8/Theorem8_3.tex) [248] (./subfiles/Chapter_8/Theorem8_4.tex) [249] (./subfiles/Chapter_8/Theorem8_5.tex) [250] (./subfiles/Chapter_8/Theorem8_6.tex) [251] (./subfiles/Chapter_8/Theorem8_7.tex) [252] (./subfiles/Chapter_8/Theorem8_8.tex) [253] (./subfiles/Chapter_8/Theorem8_9.tex) [254] (./subfiles/Chapter_8/Theorem8_10.tex) [255] (./subfiles/Chapter_8/Theorem8_11.tex) [256] (./subfiles/Chapter_8/Theorem8_12.tex) [257] (./subfiles/Chapter_8/Theorem8_13.tex) [258] (./subfiles/Chapter_8/Theorem8_14.tex
+] (./subfiles/Chapter_8/Theorem8_1.tex) [249] (./subfiles/Chapter_8/Theorem8_2.tex) [250] (./subfiles/Chapter_8/Theorem8_3.tex) [251] (./subfiles/Chapter_8/Theorem8_4.tex) [252] (./subfiles/Chapter_8/Theorem8_5.tex) [253] (./subfiles/Chapter_8/Theorem8_6.tex) [254] (./subfiles/Chapter_8/Theorem8_7.tex) [255] (./subfiles/Chapter_8/Theorem8_8.tex) [256] (./subfiles/Chapter_8/Theorem8_9.tex) [257] (./subfiles/Chapter_8/Theorem8_10.tex) [258] (./subfiles/Chapter_8/Theorem8_11.tex) [259] (./subfiles/Chapter_8/Theorem8_12.tex) [260] (./subfiles/Chapter_8/Theorem8_13.tex) [261] (./subfiles/Chapter_8/Theorem8_14.tex
 Overfull \hbox (48.82855pt too wide) detected at line 41
 \OMS/mlmsy/m/n/12 k[]k[] \OT1/cmr/m/n/12 = [][] \OMS/mlmsy/m/n/12 j\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 ^^\[]f\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 x\OT1/cmr/m/n/12 ) \OMS/mlmsy/m/n/12 ^^@ \OML/mlmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 x\OT1/cmr/m/n/12 ))\OML/mlmm/m/it/12 ^^^\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 z\OT1/cmr/m/n/12 )\OMS/mlmsy/m/n/12 j[]\OML/mlmm/m/it/12 dx[][] \OMS/mlmsy/m/n/12 ^^T j\OML/mlmm/m/it/12 ^^^\OT1/cmr/m/n/12 (\OML/mlmm/m/it/12 z\OT1/cmr/m/n/12 )\OMS/mlmsy/m/n/12 j[]\OT1/cmr/m/n/12 2\OMS/mlmsy/m/n/12 k\OML/mlmm/m/it/12 f\OMS/mlmsy/m/n/12 k[][] \OML/mlmm/m/it/12 < \OT1/cmr/m/n/12 +\OMS/mlmsy/m/n/12 1
  []
 
-[259] [260] [261] [262]) [263] [264] (./subfiles/Chapter_8/Theorem8_15.tex [265] [266]
+[262] [263] [264] [265]) [266] [267] (./subfiles/Chapter_8/Theorem8_15.tex [268] [269]
 Underfull \hbox (badness 10000) in paragraph at lines 65--67
 
  []
@@ -1575,32 +1580,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--75
 
  []
 
-[267]
+[270]
 Overfull \hbox (76.02568pt too wide) detected at line 105
 []
  []
 
-[268]
+[271]
 Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
-[269]
+[272]
 Underfull \hbox (badness 10000) in paragraph at lines 152--154
 
  []
 
-[270] [271]) (./subfiles/Chapter_8/Theorem8_16.tex) [272] (./subfiles/Chapter_8/Theorem8_17.tex) [273] (./subfiles/Chapter_8/Theorem8_18.tex) [274] (./subfiles/Chapter_8/Theorem8_19.tex) [275] (./subfiles/Chapter_8/Theorem8_20.tex) [276]) (out/main.aux)
+[273] [274]) (./subfiles/Chapter_8/Theorem8_16.tex) [275] (./subfiles/Chapter_8/Theorem8_17.tex) [276] (./subfiles/Chapter_8/Theorem8_18.tex) [277] (./subfiles/Chapter_8/Theorem8_19.tex) [278] (./subfiles/Chapter_8/Theorem8_20.tex) [279]) (out/main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C9FD8932D7853894EBAB9D856AA1498E;23769.
+(rerunfilecheck)             Checksum: BD7DB6DD0EBCBE3C3A6B19A2647AC075;24396.
  ) 
 Here is how much of TeX's memory you used:
- 32467 strings out of 476778
- 684892 string characters out of 5805974
+ 32462 strings out of 476778
+ 684650 string characters out of 5805974
  1857979 words of memory out of 5000000
- 51508 multiletter control sequences out of 15000+600000
+ 51506 multiletter control sequences out of 15000+600000
  522773 words of font info for 76 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  96i,16n,109p,1059b,968s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/main.xdv (276 pages, 1811820 bytes).
+Output written on out/main.xdv (279 pages, 1826880 bytes).

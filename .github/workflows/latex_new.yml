@@ -1,41 +1,56 @@
----
-"on":
-  push:
-  pull_request:
-  workflow_dispatch:
-
-# https://github.com/softprops/action-gh-release/issues/236
-permissions:
-  contents: write
-
-env:
-  files: "*.pdf"
-
+name: Github Actions CI to build pdf from tex source.
+on: push
 jobs:
   build:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: xu-cheng/latex-action@v2
-        with:
+    - name: Set up Git repository
+      uses: actions/checkout@v2
+
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v2
+      with:
+          # The root LaTeX file to be compiled
+          working_directory: "./"
           root_file: |
-            *Compiled.tex
+            "main.tex"
+          work_in_root_file_dir: false
           glob_root_file: true
-          latexmk_use_xelatex: true
-      - uses: actions/upload-artifact@v3
-        if: $\{\{ ! startsWith(github.ref, 'refs/tags/') \}\}
-        with:
-          path: |
-            $\{\{ env.files \}\}
-      - name: Get changelog
-        if: startsWith(github.ref, 'refs/tags/')
-        run: >
-          mkdir -p build;
-          perl -0777 -ne'/## .*?\n\n(.*?)\n\n\n/s; print $1' CHANGELOG.md >
-          build/CHANGELOG.md
-      - uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          body_path: build/CHANGELOG.md
-          files: |
-            $\{\{ env.files \}\}
+
+          # The working directory for this action
+          
+          
+
+          # The LaTeX engine to be invoked
+          # Extra arguments to be passed to the LaTeX engine
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+          # Install extra packages by apk
+          # extra_system_packages: # optional
+
+          # Install extra .ttf/.otf fonts.
+          # extra_fonts: ./fonts/*.ttf
+
+          # Arbitrary bash codes to be executed before compiling LaTeX documents
+          pre_compile: tlmgr update --self && tlmgr update --all # disabling updates
+
+          # Arbitrary bash codes to be executed after compiling LaTeX documents
+          # Cleanup
+          post_compile: latexmk -c
+
+          # Instruct latexmk to use XeLaTeX
+          latexmk_use_xelatex: true 
+
+    - name: Check pdf file
+      run: |
+        file main.pdf | grep -q ' PDF '
+
+    - name: Upload file to repository
+      run: |
+        git config --global user.name "bighappysloth"
+        git config --global user.email "ting.h.li@mail.mcgill.ca"
+        git add -f "*.pdf"
+        git commit -m "Generated PDF Files."
+        git push
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'

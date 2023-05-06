@@ -12,11 +12,8 @@ jobs:
       uses: xu-cheng/latex-action@v2
       with:
           # The root LaTeX file to be compiled
-          glob_root_file: true
-          root_file: |
-            main.tex
-            Chapter_1_Compiled.tex
-            Chapter_4_Compiled.tex
+
+          root_file: "Chapter_4_Compiled.tex"
           
 
           # The working directory for this action

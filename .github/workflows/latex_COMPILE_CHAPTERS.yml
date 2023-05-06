@@ -13,7 +13,7 @@ jobs:
       with:
           # The root LaTeX file to be compiled
 
-          root_file: "Chapter_4_Compiled.tex"
+          root_file: "/subfiles/Chapter_4/Chapter_4_Compiled.tex"
           
 
           # The working directory for this action

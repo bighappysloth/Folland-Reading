@@ -45,6 +45,7 @@ jobs:
       run: |
         git config --global user.name "bighappysloth"
         git config --global user.email "ting.h.li@mail.mcgill.ca"
+        git checkout gh-pages
         git add -f "*.pdf"
         git commit -m "Generated PDF Files."
         git push

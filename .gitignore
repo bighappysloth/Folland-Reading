@@ -9,7 +9,6 @@
 *.xdv
 *.gz
 **/out
-.github/
 .vscode/
 texput.log
 texput.fls

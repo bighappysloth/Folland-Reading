@@ -1,4 +1,4 @@
-name: Github Actions CI to build pdf from tex source.
+name: compile-chapters Github Actions CI to build pdf from tex source.
 on: push
 jobs:
   build:
@@ -16,9 +16,9 @@ jobs:
           glob_root_file: true
           work_in_root_file_dir: true
           root_file: |
-            "main.tex"
-            "Chapter_1_Compiled.tex"
-            "Chapter_4_Compiled.tex"
+            main.tex
+            Chapter_1_Compiled.tex
+            Chapter_4_Compiled.tex
           
 
           # The working directory for this action

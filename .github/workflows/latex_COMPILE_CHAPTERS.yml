@@ -14,8 +14,8 @@ jobs:
           # The root LaTeX file to be compiled
           working_directory: "./"
           glob_root_file: true
-          work_in_root_file_dir: true
-          root_file: "*Compiled.tex"
+          work_in_root_file_dir: false
+          root_file: "Chapter_4*.tex"
           
 
           # The working directory for this action
@@ -41,10 +41,6 @@ jobs:
 
           # Instruct latexmk to use XeLaTeX
           latexmk_use_xelatex: true 
-
-    - name: Check pdf file
-      run: |
-        file main.pdf | grep -q ' PDF '
 
     - name: Upload file to repository
       run: |

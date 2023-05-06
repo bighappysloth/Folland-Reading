@@ -13,9 +13,12 @@ jobs:
       with:
           # The root LaTeX file to be compiled
           working_directory: "./"
-          glob_root_file: true
+          glob_root_file: false
           work_in_root_file_dir: false
-          root_file: "Chapter_4*.tex"
+          root_file: |
+            "main.tex"
+            "Chapter_1_Compiled.tex"
+            "Chapter_4_Compiled.tex"
           
 
           # The working directory for this action

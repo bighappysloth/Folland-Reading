@@ -48,5 +48,5 @@ jobs:
         git checkout gh-pages
         git add -f "*.pdf"
         git commit -m "Generated PDF Files."
-        git push
+        git push origin gh-pages
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'

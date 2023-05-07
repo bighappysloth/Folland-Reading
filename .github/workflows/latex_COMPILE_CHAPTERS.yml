@@ -38,6 +38,11 @@ jobs:
       run: |
         mkdir out
         cp "**/*.pdf" "./out/"
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: pdfs
+        path: ./out/*.pdf
 
     - name: Deploy to gh-pages
       uses: JamesIves/github-pages-deploy-action@3.6.2

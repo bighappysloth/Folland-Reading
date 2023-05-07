@@ -18,7 +18,6 @@ jobs:
           glob_root_file: true
           root_file: |
             "**/*Compiled.tex"
-            "main.tex"
           
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
 
@@ -30,6 +29,7 @@ jobs:
 
           # Instruct latexmk to use XeLaTeX
           latexmk_use_xelatex: true 
+          
     - name: Checkout gh-pages branch
       uses: actions/checkout@v2
       with:

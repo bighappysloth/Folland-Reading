@@ -13,26 +13,25 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2
 
-    - name: Set up TeX Live
-      uses: dante-ev/texlive-action@1.0.0
+    - name: Build Document
+      uses: xu-cheng/latex-action@v2
       with:
-        tlmgr_update: false
-        texlive_profile: |
-          selected_scheme scheme-basic
-          TEXDIR /usr/local/texlive
-          TEXMFLOCAL /usr/local/texlive/texmf-local
-          TEXMFSYSVAR /usr/local/texlive/texmf-var
-          TEXMFSYSCONFIG /usr/local/texlive/texmf-config
-          TEXMFVAR ~/.texlive/texmf-var
-          TEXMFCONFIG ~/.texlive/texmf-config
-          TEXMFHOME ~/texmf
-          option_doc 0
-          option_src 0
+          # The root LaTeX file to be compiled
+          working_directory: "./"
+          glob_root_file: true
+          root_file: "**/*Compiled.tex"
+          
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
 
-    - name: Compile .tex files to PDFs
-      run: |
-        find . -type f -name "*Compiled.tex" -exec sh -c 'latexmk -pdfxe -interaction=nonstopmode -halt-on-error -output-directory=$(dirname {}) -jobname=$(basename {} .tex) -pdflatex="xelatex %%O %%S" {} && latexmk -c {}' \;
+          # Arbitrary bash codes to be executed before compiling LaTeX documents
+          # pre_compile: tlmgr update --self && tlmgr update --all # disabling updates
 
+          # Cleanup
+          post_compile: latexmk -c
+
+          # Instruct latexmk to use XeLaTeX
+          latexmk_use_xelatex: true 
+          
     - name: Move PDFs to ./out
       run: |
         mkdir -p out

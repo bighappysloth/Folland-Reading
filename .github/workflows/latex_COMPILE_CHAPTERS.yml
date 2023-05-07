@@ -36,7 +36,7 @@ jobs:
           
     - name: Copy PDFs to Temp Directory
       run: |
-        mkdir out
+        mkdir -p out
         cp "**/*.pdf" "./out/"
     - name: Upload Artifact
       uses: actions/upload-artifact@v2

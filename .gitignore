@@ -8,7 +8,7 @@
 *.dv
 *.xdv
 *.gz
-**/out
+**/out/
 .vscode/
 texput.log
 texput.fls

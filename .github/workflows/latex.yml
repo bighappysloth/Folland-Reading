@@ -54,13 +54,14 @@ jobs:
         ref: gh-pages
 
     - name: Download PDFs artifact
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_pdfs
+        path: ~/download/
 
     - name: Move PDFs to the repository
       run: |
-        mv compiled_pdfs/* .
+        mv ~/download/* .
 
     - name: Set up Git user
       run: |

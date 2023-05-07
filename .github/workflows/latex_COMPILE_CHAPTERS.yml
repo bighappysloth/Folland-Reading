@@ -36,9 +36,9 @@ jobs:
         
     - name: Add and Commit Files
       run: |
-        mkdir ./pdfs
-        cp **/*.pdf ./pdfs
-        git add -f ./pdfs/*.pdf
+        mkdir -p './pdfs'
+        cp '**/*.pdf' ./pdfs
+        git add -f './pdfs/*.pdf'
         git commit -m "Generating PDF files."
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       

@@ -7,6 +7,8 @@ jobs:
     steps:
     - name: Set up Git repository
       uses: actions/checkout@v2
+      with:
+        ref: main
 
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v2
@@ -14,39 +16,37 @@ jobs:
           # The root LaTeX file to be compiled
           working_directory: "./"
           glob_root_file: true
-          root_file: "**/*Compiled.tex"
+          root_file: |
+            "**/*Compiled.tex"
+            "main.tex"
           
-
-          # The working directory for this action
-          
-          
-
-          # The LaTeX engine to be invoked
-          # Extra arguments to be passed to the LaTeX engine
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
-
-          # Install extra packages by apk
-          # extra_system_packages: # optional
-
-          # Install extra .ttf/.otf fonts.
-          # extra_fonts: ./fonts/*.ttf
 
           # Arbitrary bash codes to be executed before compiling LaTeX documents
           pre_compile: tlmgr update --self && tlmgr update --all # disabling updates
 
-          # Arbitrary bash codes to be executed after compiling LaTeX documents
           # Cleanup
           post_compile: latexmk -c
 
           # Instruct latexmk to use XeLaTeX
           latexmk_use_xelatex: true 
+    - name: Checkout gh-pages branch
+      uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+        
+    - name: Push PDFs to gh-pages branch
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
 
-    - name: Upload file to repository
-      run: |
-        git config --global user.name "bighappysloth"
-        git config --global user.email "ting.h.li@mail.mcgill.ca"
-        git checkout gh-pages
-        git add -f "*.pdf"
-        git commit -m "Generated PDF Files."
-        git push origin gh-pages
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+#     - name: Upload file to repository
+#       run: |
+#         git config --global user.name "bighappysloth"
+#         git config --global user.email "ting.h.li@mail.mcgill.ca"
+#         git checkout gh-pages
+#         git add -f "*.pdf"
+#         git commit -m "Generated PDF Files."
+#         git push origin gh-pages
+#       if: github.event_name == 'push' && github.ref == 'refs/heads/main'

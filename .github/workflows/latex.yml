@@ -12,16 +12,18 @@ jobs:
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
-
-    - name: Build Document
+          
+          
+          
+    - name: Build main.pdf
       uses: xu-cheng/latex-action@v2
       with:
           # The root LaTeX file to be compiled
           working_directory: "./"
           glob_root_file: true
-          root_file: "**/*Compiled.tex"
+          root_file: "main.tex"
           
-          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+          args: -pdf -file-line-error -halt-on-error -interaction = nonstopmode
 
           # Arbitrary bash codes to be executed before compiling LaTeX documents
           # pre_compile: tlmgr update --self && tlmgr update --all # disabling updates
@@ -31,6 +33,27 @@ jobs:
 
           # Instruct latexmk to use XeLaTeX
           latexmk_use_xelatex: true 
+          
+    - name: Build sub-chapters
+      uses: xu-cheng/latex-action@v2
+      with:
+          # The root LaTeX file to be compiled
+          working_directory: "./"
+          glob_root_file: true
+          root_file: "**/*Compiled.tex"
+          
+          args: -pdf -file-line-error -halt-on-error -interaction = nonstopmode
+
+          # Arbitrary bash codes to be executed before compiling LaTeX documents
+          # pre_compile: tlmgr update --self && tlmgr update --all # disabling updates
+
+          # Cleanup
+          post_compile: latexmk -c
+
+          # Instruct latexmk to use XeLaTeX
+          latexmk_use_xelatex: true 
+          
+          
           
     - name: Move PDFs to ./out
       run: |
@@ -61,7 +84,8 @@ jobs:
 
     - name: Move PDFs to the repository
       run: |
-        mv ~/download/* .
+        mkdir -p ./download
+        mv ~/download/* ./download/
 
     - name: Set up Git user
       run: |
@@ -70,6 +94,6 @@ jobs:
 
     - name: Commit and push changes
       run: |
-        git add *.pdf
+        git add .
         git commit -m "Update PDFs" || true
         git push

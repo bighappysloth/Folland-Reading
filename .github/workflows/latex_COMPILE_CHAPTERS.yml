@@ -1,4 +1,4 @@
-name: compile-chapters Github Actions CI to build pdf from tex source.
+name: Compile Section PDFs and push to gh-pages.
 on: push
 jobs:
   build:
@@ -16,13 +16,12 @@ jobs:
           # The root LaTeX file to be compiled
           working_directory: "./"
           glob_root_file: true
-          root_file: |
-            "**/*Compiled.tex"
+          root_file: "**/*Compiled.tex"
           
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
 
           # Arbitrary bash codes to be executed before compiling LaTeX documents
-          pre_compile: tlmgr update --self && tlmgr update --all # disabling updates
+          # pre_compile: tlmgr update --self && tlmgr update --all # disabling updates
 
           # Cleanup
           post_compile: latexmk -c

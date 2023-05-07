@@ -12,3 +12,5 @@
 .vscode/
 texput.log
 texput.fls
+.DS_Store
+**/.DS_Store

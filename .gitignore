@@ -9,6 +9,7 @@
 *.xdv
 *.gz
 **/out/
+**/.DS_STORE
 .vscode/
 texput.log
 texput.fls

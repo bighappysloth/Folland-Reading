@@ -1,0 +1,75 @@
+name: Build PDFs from .tex files and update gh-pages branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_pdfs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Set up TeX Live
+      uses: dante-ev/texlive-action@1.0.0
+      with:
+        tlmgr_update: false
+        texlive_profile: |
+          selected_scheme scheme-basic
+          TEXDIR /usr/local/texlive
+          TEXMFLOCAL /usr/local/texlive/texmf-local
+          TEXMFSYSVAR /usr/local/texlive/texmf-var
+          TEXMFSYSCONFIG /usr/local/texlive/texmf-config
+          TEXMFVAR ~/.texlive/texmf-var
+          TEXMFCONFIG ~/.texlive/texmf-config
+          TEXMFHOME ~/texmf
+          option_doc 0
+          option_src 0
+
+    - name: Compile .tex files to PDFs
+      run: |
+        find . -type f -name "*Compiled.tex" -exec sh -c 'latexmk -pdfxe -interaction=nonstopmode -halt-on-error -output-directory=$(dirname {}) -jobname=$(basename {} .tex) -pdflatex="xelatex %%O %%S" {} && latexmk -c {}' \;
+
+    - name: Move PDFs to ./out
+      run: |
+        mkdir -p out
+        find . -type f -name "*Compiled.pdf" -exec mv {} out/ \;
+
+    - name: Upload PDFs as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled_pdfs
+        path: out
+
+  update_gh_pages:
+    runs-on: ubuntu-latest
+    needs: build_pdfs
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+
+    - name: Download PDFs artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_pdfs
+
+    - name: Move PDFs to the repository
+      run: |
+        mv compiled_pdfs/* .
+
+    - name: Set up Git user
+      run: |
+        git config --local user.email "github-actions@github.com"
+        git config --local user.name "GitHub Actions"
+
+    - name: Commit and push changes
+      run: |
+        git add *.pdf
+        git commit -m "Update PDFs" || true
+        git push

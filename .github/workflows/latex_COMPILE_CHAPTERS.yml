@@ -35,7 +35,7 @@ jobs:
         ref: gh-pages
     - name: Add and Commit Files
       run: |
-        git add -f "*.pdf"
+        git add -f "**/*.pdf"
         git commit -m "Generating PDF files."
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       

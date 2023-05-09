@@ -23,12 +23,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your title here
+title: this button doesnt work idk why
 email: ting.h.li@mail.mcgill.ca
 description: >- # this means to ignore newlines until "baseurl:"
   Analysis Notes
+
 baseurl: "/Folland-Reading" # the subpath of your site, e.g. /blog
 url: "https://bighappysloth.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
 github_username:  bighappysloth
 
 timezone: America/Toronto

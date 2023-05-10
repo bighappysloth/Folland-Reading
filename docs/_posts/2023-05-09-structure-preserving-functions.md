@@ -95,6 +95,9 @@ $$
 
 lands 'on target', that is: $A(\borel_\yy)\subseteq\Tau_\xx$. This is because (similar to before) $A(\borel_\yy)$ is a topology on $\xx$. Similar statements hold for product topologies. We take only the finite intersections of inverse images of the projection maps $\pnv{\alpha}{\cdot}$
 
+The name 'structure preserving map' is a misnomer, as it all of the aforementioned maps are not bijections. It just means the inverse images of every element in the range structure is defined in the 'domain structure'.
+
+Furthermore, if $\xx = \yy$ is endowed with the same 'structure', the set of  functions which respect this structure form a semigroup. 
 
 ### Relative topology
 If $E\subseteq\xx$, we define the subspace topology of $E$ (inherited from $\xx$), as the family of subsets
@@ -119,7 +122,7 @@ Here are some examples (and ways to generate) continuous functions, (Munkres Pro
 ## Linear maps
 Is the following even true?
 
-> Let $T\in L(\xx,\yy)$ be a linear map between vector spaces $\xx,\yy$, not necessarily finite-dimensional. The the inverse image of a subspace of $\yy$ is again a subspace of $\xx$.
+> $T\in L(\xx,\yy)$ between vector spaces $\xx,\yy$, not necessarily finite-dimensional iff $T$ is a vector space homomorphism.
 
 Linear independence is something that is worth mentioning. The definition for linear independence reads a lot like the one for a conencted topological space.
 
@@ -133,4 +136,11 @@ Finite dimensional vector spaces 'feel' compact. (elaborate later)
 ---
 
 ## word on compactness
-Compactness is an intrinsic notion of a subset, and one of the few topological properties that are preserved under direct-images.
+Compactness is an intrinsic notion of a subset, and one of the few topological properties that are preserved under direct-images. If a subset is compact, its topological information can be derived from a finite number of points within the set; and this roughly means that some local properties (neighbourhood properties) can be extended to global properties valid across the entire set.
+
+Some proof techniques involving compact sets include:
+- 'Globalizing' local properties, since a compact set admits 'finitely many' anchor points. This is used in the proof for Arzela Ascoli (see Folland Chapter 4.6)
+
+Examples:
+- Continuity on a compact set implies uniform continuity
+- 

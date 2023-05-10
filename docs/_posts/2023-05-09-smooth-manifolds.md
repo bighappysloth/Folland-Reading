@@ -45,6 +45,8 @@ In english, if we have a smooth manifold (big smooth atlas on a top. space), we 
 
 and no chart outside this atlas (which is a subcollection of the family of charts on $M$), is smoothly compatible with ALL of the existing smooth charts.
 
+--- 
+
 ## smooth functions
 Let $M$ be a smooth $n$-manifold. A vector-valued function $f: M\to\real^k$ is a smooth function. If every point $p\in M$, induces a 
 - smooth chart
@@ -52,5 +54,39 @@ Let $M$ be a smooth $n$-manifold. A vector-valued function $f: M\to\real^k$ is a
 
 $$f\circ x_\alpha^{-1}\in C^{\infty}(\realn,\real^k)$$
 
-for each $f$ that is smooth. we define the **coordinate rep. of $f$** 
-- combine ch
+for each $f$ that is smooth. we define the **coordinate rep. of $f=\hat{f}$** 
+- basically the same function but with domain an open subset of $\realn$.
+- since $f:M\to\real^k$. Fix a chart $(U,\psi)$. For any point in the range of the chart (which is an open subset of $\realn$), 
+- send it through the inverse chart $\psi^{-1}$ (to get the corresponding point in $M$) and send it into $f$.
+
+$$
+\hat{f}:\psi(U)\to\real^k,\quad \hat{f} = f\circ\psi^{-1}
+$$
+
+---
+
+## smooth maps between manifolds
+If $M$ and $N$ are smooth manifolds, a map $F:M\to N$ is called smooth, if at every point in its domain, $p\in M$, we can find smooth charts in $M$ and $N$, whose domain contains the $p$ and the range of $F(p)$ respectively. 
+
+The two corresponding smooth charts are 'neighbourhoods' about the **point** $p$, and the set $F(U)$.
+
+Concretely:
+- $p\in M$ and there exists charts $(U, x)\in \mathcal{A}_M$, $(V, y)\in\mathcal{A}_N$ st
+
+$$
+F(p)\in U,\: F(U)\subseteq V
+$$
+
+and the '**coordinate rep. of $F\in C^{\infty}$**' (recall we have to fix a chart in the domain first, just like the **coordinate rep. of $f:M\to\real$**).
+
+$$
+\hat{F}= y \circ F\circ x^{-1}\quad \hat{F}\in C^{\infty}(\realn,\real^k)
+$$
+
+where $M$: dimension $n$, and $N$: dimension $k$.
+
+### Continuity
+in reality we have said nothing new, since $M$ and $N$ are locally homeomoprhic to some open subset of the $n,k$-plane. we simply passed the problem from a topological problem to a problem on $\real^n\to\real^k$ because of homeomorphisms.
+
+Continuity of the map $F\in C(M,N)$, is nothing special. The inverse of a homeomorphism is again a homeomorphism. So we can drop the open sets through the pipeline...
+

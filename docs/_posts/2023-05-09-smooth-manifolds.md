@@ -2,7 +2,7 @@
 layout: post
 title: smooth manifolds
 date: 2023-05-09 20:16
-category: manifolds
+tags: ['manifolds','smooth charts']
 ---
 ## smooth charts, structures, manifolds
 Two charts are **smoothly compatible** if their domains are disjoint or 
@@ -63,6 +63,14 @@ $$
 \hat{f}:\psi(U)\to\real^k,\quad \hat{f} = f\circ\psi^{-1}
 $$
 
+It is a fact that smooth functions are smooth with respect to every smooth chart. This is because for every point $p\in (U_\alpha,x_\alpha)$, either 
+
+$$F\circ  x^{-1}_{\alpha} $$ is smooth, or $U_\alpha$ intersects some other chart $(U_\beta, x_\beta)$. So $Fx^{-1}_{\beta}$ is smooth, so is
+
+$$
+Fx^{-1}_{\beta}x_\beta x^{-1}_\alpha = Fx^{-1}_\alpha
+$$
+
 ---
 
 ## smooth maps between manifolds
@@ -88,5 +96,15 @@ where $M$: dimension $n$, and $N$: dimension $k$.
 ### Continuity
 in reality we have said nothing new, since $M$ and $N$ are locally homeomoprhic to some open subset of the $n,k$-plane. we simply passed the problem from a topological problem to a problem on $\real^n\to\real^k$ because of homeomorphisms.
 
-Continuity of the map $F\in C(M,N)$, is nothing special. The inverse of a homeomorphism is again a homeomorphism. So we can drop the open sets through the pipeline...
+Continuity of the map $F\in C(M,N)$, is nothing special. The inverse of a homeomorphism is again a homeomorphism. So we can drop the open sets through the pipeline. More precisely, if $p\in M$, then $F(p)$ induces a neighbourhood (or a smooth chart) about $F(p)\in (V,y)$, and because $F$ is smooth, $p\in (U,x)$ for some smooth chart wrt $M$ as well.
 
+Fix an open set $W\subseteq N$ containing $F(p)$, 
+- $F(p)\in W\implies F(p)\in W\cap V$ which is open Rel $V$. Send this open set (Rel $V$) into $\real^k$, since $y$ is a homeomorphism $y: V\to y(V)\subseteq\real^k$, or we can use the previous formula:
+
+$$
+F = y^{-1}\circ \hat{F}\circ x
+$$
+
+Similar to the 'change of basis' muscle in linear algebra (except $F$ may not be a homeomorphism, not even locally). The restriction of a continuous map is again continuous, and inverse images of `F|_U` are open (Rel $U$) iff they are open Rel $M$.
+
+This is the 'translation' mechanism, between the coordinate charts $M$ and $N$, and the restriction of $F$ onto the domain of the chart in $M$.

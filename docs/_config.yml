@@ -40,9 +40,6 @@ markdown: kramdown
 
 # Build settings
 theme: minima
-
-minima:
-  skin: solarized-light
   
 
 plugins:

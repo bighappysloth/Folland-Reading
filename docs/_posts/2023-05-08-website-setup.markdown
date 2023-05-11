@@ -146,3 +146,8 @@ copy base, default, home, page and post.html from the minima repo. copy head.htm
 ## interesting plugins
 [pdf embedding](https://mihajlonesic.gitlab.io/projects/jekyll-pdf-embed/#result)
 [algolia search](https://github.com/algolia/jekyll-algolia)(abandoned)
+
+## how i implemented cross repo syncing
+
+honestly i am not a computer expert i spent 3-4 hours googling how to make this wokr. my main mistake was using gpt 3.5 rather than gpt 4. gpt 4 was able to code somethign that works while i wasted hours using gpt 3.5.
+[link to github workflow](https://github.com/bighappysloth/Folland-Reading/blob/main/.github/workflows/latex.yml)

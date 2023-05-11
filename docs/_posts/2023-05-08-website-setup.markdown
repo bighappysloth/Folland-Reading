@@ -142,3 +142,7 @@ head.html
 base.html	default.html	home.html	page.html	post.html
 {% endraw %}
 copy base, default, home, page and post.html from the minima repo. copy head.html into ./_includes, then modify it. 
+
+## interesting plugins
+[pdf embedding](https://mihajlonesic.gitlab.io/projects/jekyll-pdf-embed/#result)
+[algolia search](https://github.com/algolia/jekyll-algolia)(abandoned)

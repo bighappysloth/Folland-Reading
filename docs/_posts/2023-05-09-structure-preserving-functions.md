@@ -2,6 +2,7 @@
 layout: post
 title: sources of structure functions
 date: 2023-05-09 23:26
+category: math
 tags: ['folland','munkres','topology','urysohns lemma']
 ---
 # Commentary

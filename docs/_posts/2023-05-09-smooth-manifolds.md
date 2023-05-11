@@ -2,6 +2,7 @@
 layout: post
 title: smooth manifolds
 date: 2023-05-09 20:16
+category: math
 tags: ['manifolds','smooth charts']
 ---
 ## smooth charts, structures, manifolds

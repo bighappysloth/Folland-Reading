@@ -4,27 +4,6 @@
 
 layout: home
 title: homepage
-permalink: /home
 ---
 ## Folland PDFs
-[Full](/download/main.pdf)
-
-[Chapter 1](/download/Chapter_1_Compiled.pdf)
-
-[Chapter 2](/download/Chapter_2_Compiled.pdf)
-
-[Chapter 3](/download/Chapter_3_Compiled.pdf)
-
-[Chapter 4](/download/Chapter_4_Compiled.pdf)
-
-[Chapter 5](/download/Chapter_5_Compiled.pdf)
-
-[Chapter 6](/download/Chapter_6_Compiled.pdf)
-
-[Chapter 7](/download/Chapter_7_Compiled.pdf)
-
-[Chapter 8](/download/Chapter_8_Compiled.pdf)
-
-[Chapter 9](/download/Chapter_9_Compiled.pdf)
-
-
+Chapters: [1](/download/Chapter_1_Compiled.pdf) [2](/download/Chapter_2_Compiled.pdf) [3](/download/Chapter_3_Compiled.pdf) [4](/download/Chapter_4_Compiled.pdf) [5](/download/Chapter_5_Compiled.pdf) [6](/download/Chapter_6_Compiled.pdf) [7](/download/Chapter_7_Compiled.pdf) [8](/download/Chapter_8_Compiled.pdf) [9](/download/Chapter_9_Compiled.pdf) [All](/download/main.pdf)

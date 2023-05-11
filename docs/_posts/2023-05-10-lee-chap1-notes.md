@@ -2,6 +2,7 @@
 layout: post
 title: Notes on Smooth Manifolds
 date: 2023-05-10 18:23
+category: math
 tags: ['manifolds','john lee', 'smooth manifolds']
 ---
 Rough draft, do not expect anything or everything below to be correct.

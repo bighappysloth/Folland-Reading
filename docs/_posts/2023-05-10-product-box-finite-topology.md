@@ -2,6 +2,7 @@
 layout: post
 date: 2023-05-10 17:46
 title: product vs box topology in finite products
+category: math
 tag: ['topology', 'munkres']
 ---
 We show that the product and box topology are the same for finite products. Let $\{\xx_j,\: \Tau_j\}$ be a finite collection of topological spaces. The outline for the proof goes as follows

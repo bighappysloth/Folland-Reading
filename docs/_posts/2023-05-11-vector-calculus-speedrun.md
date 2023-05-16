@@ -100,3 +100,13 @@ Let $f$ $g$ be differentiable in an open set containing everything everything be
 $$
 Dh(a) = Df(g(a))Dg(a)
 $$
+
+
+# Implicit function theorem
+[Wiki page](https://en.wikipedia.org/wiki/Implicit_function_theorem)
+
+
+# Some vector calculus identities
+[First Derivative Identities](https://en.wikipedia.org/wiki/Vector_calculus_identities#First_derivative_identities)
+
+[Differential Algebra](https://en.wikipedia.org/wiki/Derivation_(differential_algebra))

@@ -1,0 +1,24 @@
+---
+layout: post
+title: roman ex 14.2
+date: 2023-05-15 15:41
+category: math
+tags: ['tensors','multilinear maps', 'linear maps']
+---
+The only linear and multilinear map is the zero map for $n\geq 2$.
+
+Suppose $n = 2$, let $f:U\times V\to W$ be both linear and multi-linear. We will show $f(x,0) = f(y,0) = 0$ if $f$ is both linear and multi-linear, and by multi-linearity (or linearity), this extends to every point in $U_1\times \cdots\times U_n$.
+
+Using linearity and multi-linearity, $f(x,y)(-1) = f(-x,-y) = f(x,-y)$, subtracting over (and using lienarity) gives
+
+$$
+f(2x,0)=0\implies f(x,0)=0
+$$
+
+$f(x,y)(-1)=f(-x,-y)=f(-x,y)$ reads
+
+$$
+f(0,2y)=0\implies f(0,y)=0
+$$
+
+This holds for every $x$ and $y$. So $f$ is the zero map.

@@ -5,4 +5,5 @@ You can read the PDF on my site [here](https://bighappysloth.github.io/Folland-R
 Progress tracker, and helpful resources are available [in the wiki](https://github.com/bighappysloth/Folland-Reading/wiki).
 
 ~April 24: Right now I am occupied with attacking Munkres' Topology to learn manifolds.~
+
 May 05: Learning from Lee's Smooth Manifolds.

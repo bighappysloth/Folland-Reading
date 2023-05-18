@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>smooth manifolds | this button doesnt work idk why</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="smooth manifolds" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="smooth charts, structures, manifolds Two charts are smoothly compatible if their domains are disjoint or" />
+<meta property="og:description" content="smooth charts, structures, manifolds Two charts are smoothly compatible if their domains are disjoint or" />
+<link rel="canonical" href="http://localhost:4000/Folland-Reading/math/2023/05/09/smooth-manifolds.html" />
+<meta property="og:url" content="http://localhost:4000/Folland-Reading/math/2023/05/09/smooth-manifolds.html" />
+<meta property="og:site_name" content="this button doesnt work idk why" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-05-09T20:16:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="smooth manifolds" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-09T20:16:00-04:00","datePublished":"2023-05-09T20:16:00-04:00","description":"smooth charts, structures, manifolds Two charts are smoothly compatible if their domains are disjoint or","headline":"smooth manifolds","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Folland-Reading/math/2023/05/09/smooth-manifolds.html"},"url":"http://localhost:4000/Folland-Reading/math/2023/05/09/smooth-manifolds.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/Folland-Reading/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Folland-Reading/feed.xml" title="this button doesnt work idk why" /><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    MathJax = {
+      loader: {
+        load: ["input/tex", "output/chtml"]
+      },
+      tex: {
+        inlineMath: [              // start/end delimiter pairs for in-line math
+          ['\\(', '\\)'],
+          ['$', '$'],
+        ],
+        displayMath: [             // start/end delimiter pairs for display math
+          ['$$', '$$'],
+          ['\\[', '\\]']
+        ],
+        
+        processEscapes: true,
+        macros: {
+          induces:  "{\\: \\looparrowright \\:}",
+          inducedby: "{\\: \\looparrowleft \\:}",
+          lsim: "{ \\precsim }",
+          gsim: "{ \\succsim }",
+          real: "\\mathbb{R}",
+          realn: "\\mathbb{R}^n",
+          realm: "\\mathbb{R}^m",
+          nat: "\\mathbb{N}",
+          natplus: "\\mathbb{N}^+",
+          integer: "\\mathbb{Z}",
+          rat: "\\mathbb{Q}",
+          borel: "\\mathbb{B}",
+          complex: "\\mathbb{C}",
+          range: "\\operatorname{range}",
+          dom: "\\operatorname{dom}",
+          codom: "\\operatorname{codom}",
+          image: "\\operatorname{im}",
+          id: ["\\operatorname{id}_{#1}", 1],
+          sgn: "\\operatorname{sgn}",
+          exp: "\\operatorname{exp}",
+          wt: "\\operatorname{wt}",
+          least: "\\operatorname{least}",
+          norm: ["\\lVert {#1} \\rVert", 1],
+          bignorm: ["\\left\\lVert {#1} \\right\\rVert", 1],
+          bigset: ["\\biggl \\{ {#1} \\biggr \\}", 1],
+          bigbrackets: ["\\biggl ( {#1} \\biggr )", 1],
+          acc: "\\operatorname{acc}",
+          nb: ["\\mathcal{N}_B({#1})", 1],
+          N: ["\\mathcal{N}(#1)", 1],
+          Tau: "\\mathcal{T}",
+          cl: ["\\overline{#1}", 1],
+          clc: ["\\overline{#1}^c", 1],
+          Epsilon: "\\mathcal{E}",
+          diam: "\\operatorname{diam}",
+          increasesto: "\\nearrow",
+          decreasesto: "\\searrow",
+          cond: "\\operatorname{cond}",
+          card: "\\operatorname{card}",
+          szz: "\\mathcal{S}",
+          cinf: "C^{\\infty}",
+          ccinf: "C_c^{\\infty}",
+          cnv: "\\ast",
+          pmap: ["\\pi_{#1}({#2})", 2],
+          pnv: ["\\pi_{#1}^{-1}({#2})", 2],
+          bc: ["\\operatorname{BC}({#1})", 1],
+          cc: ["\\operatorname{C}_c({#1})", 1],
+          cnot: ["\\operatorname{C}_0({#1})", 1],
+          supp: ["\\operatorname{supp}({#1})", 1],
+          acal: "\\mathcal{A}",
+          mcal: "\\mathcal{M}",
+          ncal: "\\mathcal{N}",
+          mustar: "\\mu^*",
+          mubar: "\\cl{\\mu}",
+          munot: "\\mu_0",
+          muStar: "\\mu_*",
+          diag: "\\operatorname{diag}",
+          dim: "\\operatorname{dim}",
+          defect: "\\operatorname{def}",
+          rank: "\\operatorname{rank}",
+          col: "\\operatorname{col}",
+          row: "\\operatorname{row}",
+          lin: "\\operatorname{lin}",
+          spn: "\\operatorname{span}",
+          tr: "\\operatorname{tr}",
+          poly: "\\mathbb{P}",
+          ff: "\\mathbb{F}",
+          xx: "\\mathbf{X}",
+          yy: "\\mathbf{Y}",
+          ss: "\\mathbf{S}",
+          ww: "\\mathbf{W}",
+          uu: "\\mathbf{U}",
+          tt: "\\mathbf{T}",
+          xn: "\\{x_n\\}_{n\\geq 1}",
+          yn: "\\{y_n\\}_{n\\geq 1}"
+        }
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/Folland-Reading/">this button doesnt work idk why</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Folland-Reading/about.html">About</a><a class="page-link" href="/Folland-Reading/">homepage</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">smooth manifolds</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-05-09T20:16:00-04:00" itemprop="datePublished">May 9, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="smooth-charts-structures-manifolds">smooth charts, structures, manifolds</h2>
+<p>Two charts are <strong>smoothly compatible</strong> if their domains are disjoint or</p>
+
+\[x_\beta\circ x_\alpha^{-1}\in C^{\infty}(\realn,\realn)\]
+
+<p>where  $(U_\alpha, x_\alpha)$, $(U_\beta, x_\beta)$, $U_\alpha, U_\beta$ open in $\xx$, and $x_\alpha$ and $x_\beta$ are functions from $M\to \realn$ which are homeomorphisms between their domains and their ranges.</p>
+
+<p><strong>Sufficient condition</strong> for two charts to be smoothly compatible: $x_beta\circ x_\alpha^{-1}$ is smooth and injective, and non-singular Jacobian at each point.</p>
+
+<p>An <strong>atlas</strong> $\mathcal{A}$ is a collection of charts, whose domain form an open cover for $M$.</p>
+
+<p><strong>Smooth atlas</strong>: charts are pairwise smoothly compatible.</p>
+
+<h3 id="motivation-for-smooth-structure">motivation for smooth structure</h3>
+<p>Fix a topological manifold $M$, and with its charts.</p>
+
+<ul>
+  <li>A smooth atlas is called <strong>maximal</strong> if it is maximal by set inclusion, and is a smooth atlas. (lattice muscle).</li>
+  <li>a <strong>smooth structure</strong> on $M$ is a maximal smooth atlas (not necessarily unique)</li>
+  <li>a <strong>smooth manifold</strong> is a manifold + the smooth structure.</li>
+</ul>
+
+<p>The choice of smooth atlases may not be unique. But we can assert some partial ordering business and see it is a lattice. (Lee Prop 1.17)</p>
+<ul>
+  <li>every smooth atlas of a topological manifold $M$ is contained in a unique maximal smooth atlas. with ‘maximal’ referring to set inclusion. Recall an atlas is a collection of charts $(U_\alpha, x_\alpha)\in \mathcal{A}$.</li>
+  <li>we can construct this maximal smooth atlas, called the <strong>smooth structure determined by $\mathcal{A}$</strong>, creating an equivalence class and sending each smooth atlas there.</li>
+  <li>more precisely: two smooth atlases get sent to the same class if their union is again a smooth atlas that contains both of them. thus ‘maximal’</li>
+  <li>the second property: two smooth atlases over $M$ determine the same smooth structure iff their union is a smooth atlas (this is easy to see, use equivalence class muscle).</li>
+</ul>
+
+<h3 id="smooth-manifold-chart-lemma">smooth manifold chart lemma</h3>
+<p>Follows (Lee Lemma 1.35) closely. Gives a sufficient condition for a set $M$, together with sets $U_\alpha$, and functions $x_\alpha:U_\alpha\to\realn$ to be a</p>
+<ul>
+  <li>topological manifold</li>
+  <li>which has a unique smooth manifold structure that makes each ‘chart’ a smooth chart.</li>
+</ul>
+
+<p>The last definition we will need is the <strong>smooth chart</strong>: a chart that belongs to a maximal smooth atlas.</p>
+
+<p>In english, if we have a smooth manifold (big smooth atlas on a top. space), we can choose smooth charts, which belong to this manifold. and any pair of (smooth) charts from this big atlas, is again smoothly compatible.</p>
+
+<p>and no chart outside this atlas (which is a subcollection of the family of charts on $M$), is smoothly compatible with ALL of the existing smooth charts.</p>
+
+<hr />
+
+<h2 id="smooth-functions">smooth functions</h2>
+<p>Let $M$ be a smooth $n$-manifold. A vector-valued function $f: M\to\real^k$ is a smooth function. If every point $p\in M$, induces a</p>
+<ul>
+  <li>smooth chart</li>
+  <li>such that the euclidean space the chart is homeomorphic to, makes $f$ a smooth function</li>
+</ul>
+
+\[f\circ x_\alpha^{-1}\in C^{\infty}(\realn,\real^k)\]
+
+<p>for each $f$ that is smooth. we define the <strong>coordinate rep. of $f=\hat{f}$</strong></p>
+<ul>
+  <li>basically the same function but with domain an open subset of $\realn$.</li>
+  <li>since $f:M\to\real^k$. Fix a chart $(U,\psi)$. For any point in the range of the chart (which is an open subset of $\realn$),</li>
+  <li>send it through the inverse chart $\psi^{-1}$ (to get the corresponding point in $M$) and send it into $f$.</li>
+</ul>
+
+\[\hat{f}:\psi(U)\to\real^k,\quad \hat{f} = f\circ\psi^{-1}\]
+
+<p>It is a fact that smooth functions are smooth with respect to every smooth chart. This is because for every point $p\in (U_\alpha,x_\alpha)$, either</p>
+
+<p>\(F\circ  x^{-1}_{\alpha}\) is smooth, or $U_\alpha$ intersects some other chart $(U_\beta, x_\beta)$. So $Fx^{-1}_{\beta}$ is smooth, so is</p>
+
+\[Fx^{-1}_{\beta}x_\beta x^{-1}_\alpha = Fx^{-1}_\alpha\]
+
+<hr />
+
+<h2 id="smooth-maps-between-manifolds">smooth maps between manifolds</h2>
+<p>If $M$ and $N$ are smooth manifolds, a map $F:M\to N$ is called smooth, if at every point in its domain, $p\in M$, we can find smooth charts in $M$ and $N$, whose domain contains the $p$ and the range of $F(p)$ respectively.</p>
+
+<p>The two corresponding smooth charts are ‘neighbourhoods’ about the <strong>point</strong> $p$, and the set $F(U)$.</p>
+
+<p>Concretely:</p>
+<ul>
+  <li>$p\in M$ and there exists charts $(U, x)\in \mathcal{A}_M$, $(V, y)\in\mathcal{A}_N$ st</li>
+</ul>
+
+\[F(p)\in U,\: F(U)\subseteq V\]
+
+<p>and the ‘<strong>coordinate rep. of $F\in C^{\infty}$</strong>’ (recall we have to fix a chart in the domain first, just like the <strong>coordinate rep. of $f:M\to\real$</strong>).</p>
+
+\[\hat{F}= y \circ F\circ x^{-1}\quad \hat{F}\in C^{\infty}(\realn,\real^k)\]
+
+<p>where $M$: dimension $n$, and $N$: dimension $k$.</p>
+
+<h3 id="continuity">Continuity</h3>
+<p>in reality we have said nothing new, since $M$ and $N$ are locally homeomoprhic to some open subset of the $n,k$-plane. we simply passed the problem from a topological problem to a problem on $\real^n\to\real^k$ because of homeomorphisms.</p>
+
+<p>Continuity of the map $F\in C(M,N)$, is nothing special. The inverse of a homeomorphism is again a homeomorphism. So we can drop the open sets through the pipeline. More precisely, if $p\in M$, then $F(p)$ induces a neighbourhood (or a smooth chart) about $F(p)\in (V,y)$, and because $F$ is smooth, $p\in (U,x)$ for some smooth chart wrt $M$ as well.</p>
+
+<p>Fix an open set $W\subseteq N$ containing $F(p)$,</p>
+<ul>
+  <li>$F(p)\in W\implies F(p)\in W\cap V$ which is open Rel $V$. Send this open set (Rel $V$) into $\real^k$, since $y$ is a homeomorphism $y: V\to y(V)\subseteq\real^k$, or we can use the previous formula:</li>
+</ul>
+
+\[F = y^{-1}\circ \hat{F}\circ x\]
+
+<p>Similar to the ‘change of basis’ muscle in linear algebra (except $F$ may not be a homeomorphism, not even locally). The restriction of a continuous map is again continuous, and inverse images of <code class="language-plaintext highlighter-rouge">F|_U</code> are open (Rel $U$) iff they are open Rel $M$.</p>
+
+<p>This is the ‘translation’ mechanism, between the coordinate charts $M$ and $N$, and the restriction of $F$ onto the domain of the chart in $M$.</p>
+
+  </div><a class="u-url" href="/Folland-Reading/math/2023/05/09/smooth-manifolds.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/Folland-Reading/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">this button doesnt work idk why</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">this button doesnt work idk why</li><li><a class="u-email" href="mailto:ting.h.li@mail.mcgill.ca">ting.h.li@mail.mcgill.ca</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bighappysloth"><svg class="svg-icon"><use xlink:href="/Folland-Reading/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bighappysloth</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Analysis Notes</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

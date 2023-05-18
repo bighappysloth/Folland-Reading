@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>folland th 2.40 remarks | this button doesnt work idk why</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="folland th 2.40 remarks" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="is is possible to generalize 2.40 to other measures?" />
+<meta property="og:description" content="is is possible to generalize 2.40 to other measures?" />
+<link rel="canonical" href="http://localhost:4000/Folland-Reading/2023/05/09/folland-th-2-40.html" />
+<meta property="og:url" content="http://localhost:4000/Folland-Reading/2023/05/09/folland-th-2-40.html" />
+<meta property="og:site_name" content="this button doesnt work idk why" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-05-09T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="folland th 2.40 remarks" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-09T00:00:00-04:00","datePublished":"2023-05-09T00:00:00-04:00","description":"is is possible to generalize 2.40 to other measures?","headline":"folland th 2.40 remarks","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Folland-Reading/2023/05/09/folland-th-2-40.html"},"url":"http://localhost:4000/Folland-Reading/2023/05/09/folland-th-2-40.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/Folland-Reading/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Folland-Reading/feed.xml" title="this button doesnt work idk why" /><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    MathJax = {
+      loader: {
+        load: ["input/tex", "output/chtml"]
+      },
+      tex: {
+        inlineMath: [              // start/end delimiter pairs for in-line math
+          ['\\(', '\\)'],
+          ['$', '$'],
+        ],
+        displayMath: [             // start/end delimiter pairs for display math
+          ['$$', '$$'],
+          ['\\[', '\\]']
+        ],
+        
+        processEscapes: true,
+        macros: {
+          induces:  "{\\: \\looparrowright \\:}",
+          inducedby: "{\\: \\looparrowleft \\:}",
+          lsim: "{ \\precsim }",
+          gsim: "{ \\succsim }",
+          real: "\\mathbb{R}",
+          realn: "\\mathbb{R}^n",
+          realm: "\\mathbb{R}^m",
+          nat: "\\mathbb{N}",
+          natplus: "\\mathbb{N}^+",
+          integer: "\\mathbb{Z}",
+          rat: "\\mathbb{Q}",
+          borel: "\\mathbb{B}",
+          complex: "\\mathbb{C}",
+          range: "\\operatorname{range}",
+          dom: "\\operatorname{dom}",
+          codom: "\\operatorname{codom}",
+          image: "\\operatorname{im}",
+          id: ["\\operatorname{id}_{#1}", 1],
+          sgn: "\\operatorname{sgn}",
+          exp: "\\operatorname{exp}",
+          wt: "\\operatorname{wt}",
+          least: "\\operatorname{least}",
+          norm: ["\\lVert {#1} \\rVert", 1],
+          bignorm: ["\\left\\lVert {#1} \\right\\rVert", 1],
+          bigset: ["\\biggl \\{ {#1} \\biggr \\}", 1],
+          bigbrackets: ["\\biggl ( {#1} \\biggr )", 1],
+          acc: "\\operatorname{acc}",
+          nb: ["\\mathcal{N}_B({#1})", 1],
+          N: ["\\mathcal{N}(#1)", 1],
+          Tau: "\\mathcal{T}",
+          cl: ["\\overline{#1}", 1],
+          clc: ["\\overline{#1}^c", 1],
+          Epsilon: "\\mathcal{E}",
+          diam: "\\operatorname{diam}",
+          increasesto: "\\nearrow",
+          decreasesto: "\\searrow",
+          cond: "\\operatorname{cond}",
+          card: "\\operatorname{card}",
+          szz: "\\mathcal{S}",
+          cinf: "C^{\\infty}",
+          ccinf: "C_c^{\\infty}",
+          cnv: "\\ast",
+          pmap: ["\\pi_{#1}({#2})", 2],
+          pnv: ["\\pi_{#1}^{-1}({#2})", 2],
+          bc: ["\\operatorname{BC}({#1})", 1],
+          cc: ["\\operatorname{C}_c({#1})", 1],
+          cnot: ["\\operatorname{C}_0({#1})", 1],
+          supp: ["\\operatorname{supp}({#1})", 1],
+          acal: "\\mathcal{A}",
+          mcal: "\\mathcal{M}",
+          ncal: "\\mathcal{N}",
+          mustar: "\\mu^*",
+          mubar: "\\cl{\\mu}",
+          munot: "\\mu_0",
+          muStar: "\\mu_*",
+          diag: "\\operatorname{diag}",
+          dim: "\\operatorname{dim}",
+          defect: "\\operatorname{def}",
+          rank: "\\operatorname{rank}",
+          col: "\\operatorname{col}",
+          row: "\\operatorname{row}",
+          lin: "\\operatorname{lin}",
+          spn: "\\operatorname{span}",
+          tr: "\\operatorname{tr}",
+          poly: "\\mathbb{P}",
+          ff: "\\mathbb{F}",
+          xx: "\\mathbf{X}",
+          yy: "\\mathbf{Y}",
+          ss: "\\mathbf{S}",
+          ww: "\\mathbf{W}",
+          uu: "\\mathbf{U}",
+          tt: "\\mathbf{T}",
+          xn: "\\{x_n\\}_{n\\geq 1}",
+          yn: "\\{y_n\\}_{n\\geq 1}"
+        }
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/Folland-Reading/">this button doesnt work idk why</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Folland-Reading/about.html">About</a><a class="page-link" href="/Folland-Reading/">homepage</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">folland th 2.40 remarks</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-05-09T00:00:00-04:00" itemprop="datePublished">May 9, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="is-is-possible-to-generalize-240-to-other-measures">is is possible to generalize 2.40 to other measures?</h2>
+
+<p>if the indexing set for $\prod_{\alpha\in A}\xx_\alpha$ is uncountable, then the so called measurable rectangles are not guaranteed to be measurable
+\(\prod_{\alpha\in A}E_\alpha\quad E_\alpha\in\mcal_{\alpha},\:\forall\alpha\in A\)
+since the sigma-algebra only guarantees countable intersections of inverse images of ‘measurable strips’ like $\pnv{\alpha}{E_\alpha}$</p>
+
+<p>Extra: if $A$ is infinite (not necessarily uncountable), then the countable product of open sets might not necessarily be open again (in fact, almost always not open, except when the topologies are very special)</p>
+
+<p>And if $A$ is uncountable, from Prop 0.20, the sum of uncountably many, strictly positive numbers has to blow up, no matter how small they are. So no $\varepsilon$ proof works to get the estimate for the infimum and supremum.</p>
+
+<p>Note: 2.40b requires completion of the measure.
+For points a, and c: can be generalized to any non-negative ‘Borel’ measure.</p>
+
+<p>Similar to the construction in 1.15.
+If you have a pointwise strictly positive, strictly positive jacobian, continuous functin on R^n, then it defines a measure through integration with it. (Subject to other technical conditions).</p>
+
+<p>To add to this: 
+It is possible to define a pre-measure on n-cells (products of closed intervals) through this, which is finite on all compact sets. And the completion of this measure will satisfy properties a, b, c.</p>
+
+  </div><a class="u-url" href="/Folland-Reading/2023/05/09/folland-th-2-40.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/Folland-Reading/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">this button doesnt work idk why</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">this button doesnt work idk why</li><li><a class="u-email" href="mailto:ting.h.li@mail.mcgill.ca">ting.h.li@mail.mcgill.ca</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bighappysloth"><svg class="svg-icon"><use xlink:href="/Folland-Reading/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bighappysloth</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Analysis Notes</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

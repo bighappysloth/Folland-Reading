@@ -83,8 +83,8 @@ jobs:
 
     - name: Move PDFs to the repository
       run: |
-        mkdir -p ./download
-        mv ~/download/* ./download/
+        mkdir -p ./docs/download
+        mv ~/download/* ./docs/download/
 
     - name: Set up Git user
       run: |

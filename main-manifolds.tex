@@ -1,0 +1,27 @@
+\documentclass[12pt, oneside]{book}
+\usepackage{import}         % Import our packages, see import.tex
+\import{./}{imports}
+\import{./}{manifolds-docinfo.tex}
+\usepackage{subfiles}
+\begin{document}
+
+\addtocontents{toc}{\protect\hypertarget{toc}{}}
+
+% \maketitle\newpage          % Title Page, uncomment if necessary
+\tableofcontents\newpage    % Table of Contents, uncomment if necessary
+
+\subfile{Manifolds/Lee-Chapter-4_Compiled.tex}\newpage
+\subfile{Manifolds/Lee-Appendix_A_Compiled.tex}\newpage
+
+% \subfile{subfiles/Chapter_1/Chapter_1_Compiled}\newpage
+% \subfile{subfiles/Chapter_2/Chapter_2_Compiled}\newpage
+% \subfile{subfiles/Chapter_3/Chapter_3_Compiled}\newpage
+% \subfile{subfiles/Chapter_4/Chapter_4_Compiled}\newpage
+% \subfile{subfiles/Chapter_5/Chapter_5_Compiled}\newpage
+% \subfile{subfiles/Chapter_6/Chapter_6_Compiled}\newpage
+% \subfile{subfiles/Chapter_7/Chapter_7_Compiled}\newpage
+% \subfile{subfiles/Chapter_8/Chapter_8_Compiled}\newpage
+% % \subfile{subfiles/Chapter_9/Chapter_9_Compiled}\newpage
+\newpage
+
+\end{document}

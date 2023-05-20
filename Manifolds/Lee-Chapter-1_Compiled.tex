@@ -1,0 +1,80 @@
+\documentclass[../main-manifolds.tex]{subfiles}
+
+\begin{document}
+\providecommand{\szz}{\mathcal{S}}
+\providecommand{\ccinf}{C_c^\infty}
+
+% Topologies
+\providecommand{\Taux}{\Tau_\xx}
+\providecommand{\Tauy}{\Tau_\yy}
+\providecommand{\Tauxy}{\Tau_{\xx\times\yy}}
+
+% Basis
+\providecommand{\Bx}{\borel_\xx}
+\providecommand{\By}{\borel_\yy}
+\providecommand{\Bxy}{\borel_{\xx\times\yy}}
+
+
+\fchapter{1: Topological Manifolds}
+\newpage
+
+The $n$-sphere as a topological manifold. Define 
+\[
+    S^n = \bigset{x\in\real^{n+1},\: |x|=1}
+\]
+We claim that $\{U_i^{\pm}\}_{i=1}^{n+1}$ form an open cover, where
+\[
+    U_i^+ = \bigset{x\in S^n, x^i>0}\quad U_i^- = \bigset{x\in S^n, x^i<0}
+\]
+Each $U_i^{\pm}$ is the inverse image of $\pnv{i}{(0,+\infty)}\cap S^n$ or $\pnv{i}{(0,-\infty)}\cap S^n$, hence open. For every $x\in S^n$, there exists at least some $1\leq j\leq n+1$ that makes the $j$-th coordinate of $x$, $x^j\neq 0$. So 
+\[
+    S^n = \bigcup_{i}U_i^\pm
+\]
+Denote the unit ball $\bigset{x\in\realn,\: |x|<1}$ in $\realn$ by $\borel^n$. 
+
+\newpage
+
+\fchapter{3: Tangent Spaces}
+\begin{wts}
+    Let $M$ be a smooth manifold, and fix $p\in M$. If $\nu\in T_pM$ is given with respect to the bases
+    \[
+        \bigset{\eval{\pdv{x^1}}_{p},\ldots,\eval{\pdv{x^m}}_{p}}\qq{and}\bigset{\eval{\pdv{y^1}}_p,\ldots,\eval{\pdv{y^m}}_{p}}
+    \]
+    Defined by 
+    \[\eval{\pdv{x^j}}_{p}\defined d\qty(\eval{\phi^{-1}}_{\phi(p)})\qty(\eval{\pdv{x^j}}_{\phi(p)})
+    \qq{and}
+    \eval{\pdv{y^j}}_{p}\defined d\qty(\eval{\psi^{-1}}_{\psi(p)})\qty(\eval{\pdv{y^j}}_{\psi(p)})\]
+    and we write $\nu$ in terms of the first basis
+    \[
+        \nu = \nu^j\eval{\pdv{x^j}}_{p} = \sum_{j=1}^m \nu^j\eval{\pdv{x^j}}_{p}
+    \]
+    and the second basis
+    \[
+        \nu = \nu^j\eval{\pdv{y^k}{x^j}}_{\phi(p)}\eval{\pdv{y^k}}_{p} = \sum_{k=1}^m\sum_{j=1}^m \nu^j\eval{\pdv{y^k}{x^j}}_{\phi(p)}\eval{\pdv{y^k}}_p
+    \]
+    If $f\in \cinf[M]$, then 
+    \[
+        \nu(f) = \nu^j\eval{\pdv{x^j}}_{p} f =\nu^j\eval{\pdv{y^k}{x^j}}_{\phi(p)}\eval{\pdv{y^k}}_{p} f
+    \]
+\end{wts}
+\begin{proof}
+    Recall $\eval{\pdv{x^j}}_{p}f \defined \eval{\pdv{x^j}}_{\phi(p)} f\circ\phi^{-1}$, similarly for $\eval{\pdv{y^j}}_{p}f$. Deriving $f$ and $p$ and by vector space operations on $T_pM$, the first basis expansion gives
+    \begin{equation}\label{lee-chap-1-basis-expansion-1}
+        \nu^j\eval{\pdv{x^j}}_{p}f = \nu^j\eval{\pdv{x^j}}_{\phi(p)}f\circ\phi^{-1}
+    \end{equation}
+    and the second expression reads
+    \begin{equation}\label{lee-chap-1-basis-expansion-2}
+        \nu^j\eval{\pdv{y^k}{x^j}}_{\phi(p)}\eval{\pdv{y^k}}_p f = \nu^j\eval{\pdv{y^k}{x^j}}_{\phi(p)}\eval{\pdv{y^k}}_{\psi(p)}f\circ\psi^{-1}
+    \end{equation}
+    
+    Since $f\circ\phi^{-1}\in \cinf[\realm,\real]$, we see the expressions are indeed equal. By the chain rule, if
+    \[
+        \psi\circ\phi^{-1}(x^1,\ldots x^m) = (y^1,\ldots y^m)
+    \]
+    then
+    \[
+        D(\psi\circ\phi^{-1})(\phi(p)) = \begin{bmatrix}\eval{\pdv{y^1}{x^1}}_{\phi(p)} & \eval{\pdv{y^1}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{y^1}{x^m}}_{\phi(p)} \\[1em] \eval{\pdv{y^2}{x^1}}_{\phi(p)} & \eval{\pdv{y^2}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{y^2}{x^m}}_{\phi(p)} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{y^m}{x^1}}_{\phi(p)} & \eval{\pdv{y^m}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{y^m}{x^m}}_{\phi(p)}\end{bmatrix}
+    \]
+\end{proof}
+
+\end{document}

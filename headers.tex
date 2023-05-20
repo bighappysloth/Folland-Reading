@@ -61,7 +61,23 @@
 \newtheorem{lemma}{Lemma}[theproblem]               % Lemma, follows 'Problem' counter
 \newtheorem{corollary}{Corollary}[theproblem]       % Corollary
 \newtheorem{remark}{Remark}[theproblem]             % Unnumbered remark
-\newtheorem{definition}{Definition}[theproblem]         % Definition
+\mdfdefinestyle{theoremstyle}{%
+  %backgroundcolor=,
+  linewidth=1pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=6pt, % Adjusted value
+  innerbottommargin=6pt,
+  skipabove=10pt,
+  skipbelow=10pt,
+  topline=true, % Added option
+  bottomline=true,
+  backgroundcolor=yellow!20
+}
+\mdtheorem[style=theoremstyle]{definition}{Definition}[theproblem]
+
+% Other header definitions or configurations
+%\newtheorem{definition}{Definition}[theproblem]         % Definition
 
 \theoremstyle{subtheorem}
 %What to remember

@@ -55,7 +55,7 @@ If $\borel$ is a basis, it 'generates' a topology $\Tau$ through
     \Tau = \bigset{U\subseteq\xx,\: \forall x\in U,\: x \in B\subseteq U \text{ for some } B \in \borel}
 \end{equation}
 
-Notice this is equivlaent to $\Tau$ is the collection of all unions of basis elements in $\borel$.
+Notice this is equivalent to $\Tau$ is the collection of all unions of basis elements in $\borel$.
 
 \begin{wts}
     Let $\borel$ be a basis as defined in \Cref{chp4:basis-definition}, then $\Tau$ as defined in \Cref{chp4:basis-generates-topology} is a valid topology on $\xx$. And every member of $\Tau$ is and is precisely the union of elements in $\borel$.
@@ -285,6 +285,7 @@ It is easy to see that $A$ is open $\iff A^o = A \iff A$ is a neighbourhood of i
     \]
     so $A$ is a neighbourhood of itself. Conversely, if $A\subseteq A^o$, then $A = A^o$, since the reverse inclusion follows immediately from \Cref{chp4:interior-subset}.
 \end{itemize}
+
 \newpage
 
 We will now discuss the closure of a set.
@@ -302,8 +303,52 @@ We will now discuss the closure of a set.
     \]
 \end{proof}
 
+\newpage
 
+\topheader{Dense and nowhere dense subsets}
+\begin{definition}\label{chp4:dense-definition}
+    A subset of a topological space $E\subseteq\xx$ is dense if $\cl{E} = \xx$.
+\end{definition}
 
+\begin{definition}\label{chp4:nowhere-dense-definition}
+    A subset of a topological space $E\subseteq\xx$ is nowhere dense if $\cl{E}^o = \varnothing$.
+    
+    This means $E$ is dense in none of the (non-trivial) open subspaces of $\xx$.
+\end{definition}
+
+\begin{wts}\label{chp4:dense-equivalences}
+    $E$ is dense in $\xx$ iff for every non-empty, open set $U\subseteq\xx$, $U\cap E\neq\varnothing$.
+\end{wts}
+\begin{proof}[Proof of \Cref{chp4:dense-equivalences}]
+    Suppose $E$ is dense, then $\cl{E}=\xx$. Every point of $\xx$ is an adherent point of $E$. Let $U\subseteq \xx$ be a non-empty open set. If $x\in U$ then $U$ is a neighbourhood of $x$, thus $U$ intersects $E$. Conversely, suppose every non-empty open set $U$ intersects $E$. Fix any point $x\in\xx$, and any neighbourhood $U$ of $x$. $U$ has a non-empty interior (because it must contain $x$). But $U^o$ is a non-empty open set, therefore $\varnothing\neq U^o\cap E\subseteq U\cap E$
+\end{proof}
+
+\begin{wts}\label{chp4:nowhere-dense-homeomorphisms}
+    Let $f:\xx\to\xx$ be a homeomorphism. $E$ is nowhere dense iff $f(E)$ is nowhere dense.
+\end{wts}
+\begin{proof}
+    Since $f^{-1}$ is a homeomorphism, suppose $\cl{f^{-1}(E)}^o\neq\varnothing$, there exists a non-empty, open subset $U\subseteq\xx$ with
+    \[
+        \cl{f^{-1}(E)}\cap U = U
+    \]
+    The direct image yields 
+    \[
+        f\biggl((\cl{f^{-1}(E)})\cap U\biggr) = f(U)
+    \]
+    since $f$ is a bijection (injectivity is necessary here), it commutes with intersections.
+    \begin{equation}\label{chp4:nowhere-dense-direct-image}
+        f(\cl{f^{-1}(E)})\cap f(U) = f\biggl((\cl{f^{-1}(E)})\cap U\biggr) = f(U)
+    \end{equation}
+    and $f$ is continuous, so $f(\cl{A})\subseteq\cl{f(A)}$ for any $A\subseteq\xx$. For the reverse inclusion, $f$ is a closed map, so $f(\cl{A})$ is a closed superset of $f(A)$ so 
+    \[
+        f(\cl{A}) = \cl{f(A)}
+    \]
+    Take $A = f^{-1}(E)$, and $f(\cl{f^{-1}(E)}) = \cl{f(f^{-1}(E))} = \cl{E}$. From \cref{chp4:nowhere-dense-direct-image}, we see that
+    \[
+        \cl{E}\cap f(U) = f(U)
+    \]
+    $f(U)$ is a non-empty open subset of $\xx$, since $f$ is an open map, so $E$ is not no-where dense. The reverse implication can be proven by replacing $f$ with $f^{-1}$.
+\end{proof}
 
 
 \newpage

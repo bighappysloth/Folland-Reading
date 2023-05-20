@@ -110,3 +110,6 @@ $$
 [First Derivative Identities](https://en.wikipedia.org/wiki/Vector_calculus_identities#First_derivative_identities)
 
 [Differential Algebra](https://en.wikipedia.org/wiki/Derivation_(differential_algebra))
+
+
+Continued in Chapter 9 of Rudin, the majority of which can be found [here]({{ site.baseurl }}{% link /download/Lee-Chapter-4_Compiled.pdf %})

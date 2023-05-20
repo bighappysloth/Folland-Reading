@@ -3,7 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
-title: homepage
+    title: homepage
 ---
 ## Folland PDFs
 Chapters: [1](/download/Chapter_1_Compiled.pdf) [2](/download/Chapter_2_Compiled.pdf) [3](/download/Chapter_3_Compiled.pdf) [4](/download/Chapter_4_Compiled.pdf) [5](/download/Chapter_5_Compiled.pdf) [6](/download/Chapter_6_Compiled.pdf) [7](/download/Chapter_7_Compiled.pdf) [8](/download/Chapter_8_Compiled.pdf) [9](/download/Chapter_9_Compiled.pdf) [All](/download/main.pdf)
@@ -11,7 +11,7 @@ Chapters: [1](/download/Chapter_1_Compiled.pdf) [2](/download/Chapter_2_Compiled
 
 
 ## Manifold Notes
-Chapters: [4](/download/Lee-Chapter-4_Compiled.pdf)
+Chapters: [1-3](/download/Lee-Chapter-1_Compiled.pdf), [4-6](/download/Lee-Chapter-4_Compiled.pdf)
 
 Appendix: [A: Topology](/download/Lee-Appendix_A_Compiled.pdf)
 

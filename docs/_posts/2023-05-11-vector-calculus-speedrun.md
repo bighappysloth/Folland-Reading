@@ -1,6 +1,6 @@
 ---
 layout: post
-title: vector calculus
+title: Vector Calculus Pre-requisites for Manifolds
 date: 2023-05-11 19:20
 category: math
 tags: ['vector calculus']

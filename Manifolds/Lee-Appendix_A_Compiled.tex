@@ -17,14 +17,7 @@
 
 \fchapter{A: Review of Topology}
 \problem{Properties of Compact Spaces}
-\begin{wts}\label{lee-appendix-A.45}
-Let $\xx$ and $\yy$ be topological spaces.
-\begin{enumalpha}
-    \item If $F\in C(\xx,\yy)$, and $\xx$ is compact, then $F(\xx)$ is compact.
-    \item If $\xx$ is compact and $F\in C(\xx,\real)$, then $F(\xx)$ is bounded, and $F$ attains its supremum and infimum on $\xx$.
-    \item A finite union of compact subspaces of $\xx$ is again compact.
-    \item If $\xx$ is Hausdorff, and $A$, $B$ are disjoint, compact subspaces of $\xx$, there exists open $U$ and $V$ st
-    \begin{figure}[htbp]
+\begin{figure}[htbp]
         \centering
         \begin{tikzpicture}
             % Define colors
@@ -49,7 +42,16 @@ Let $\xx$ and $\yy$ be topological spaces.
         \end{tikzpicture}
         \caption{Closed sets $A$ and $B$ within open sets $U$ and $V$, respectively.}
         \label{lee-appendix-A.45-graphic}
-    \end{figure}
+\end{figure}
+
+\begin{wts}\label{lee-appendix-A.45}
+Let $\xx$ and $\yy$ be topological spaces.
+\begin{enumalpha}
+    \item If $F\in C(\xx,\yy)$, and $\xx$ is compact, then $F(\xx)$ is compact.
+    \item If $\xx$ is compact and $F\in C(\xx,\real)$, then $F(\xx)$ is bounded, and $F$ attains its supremum and infimum on $\xx$.
+    \item A finite union of compact subspaces of $\xx$ is again compact.
+    \item If $\xx$ is Hausdorff, and $A$, $B$ are disjoint, compact subspaces of $\xx$, there exists open $U$ and $V$, (see \cref{lee-appendix-A.45-graphic}).
+    
     \item Every closed subset of a compact space is compact.
     \item Every compact subset of a Hausdorff space is closed.
     \item Every compact subset of a metric space is bounded.
@@ -90,16 +92,7 @@ Let $\xx$ and $\yy$ be topological spaces.
         K = \bigcup_{j=1}^n K_j\subseteq \bigcup_{j=1}^n \bigcup_{\alpha\in I_j}(U_\alpha\cap K)=\bigcup_{\alpha\in I}U_\alpha\cap I
     \]
 \end{proof}
-
-\begin{proof}[Proof of \Cref{lee-appendix-A.45} Part D]
-    Let $\xx$ be Hausdorff. We first prove that compact subspaces of $\xx$ are closed. Indeed, if $K$ is compact in $\xx$, fix any $x\in K^c$. Let $y$ range through the elements of $K$, then $x\neq y$ induces a pair of disjoint open sets $U_y$ and $V_y$, such that
-    
-\begin{itemize}
-    \item $x\in U_y$
-    \item $y\in V_y$
-    \item $U_y\cap V_y=\varnothing$
-    \item Picture below
-    \begin{figure}[htbp]
+\begin{figure}[htbp]
         \centering
         \begin{tikzpicture}
             % Draw the points x and y
@@ -113,6 +106,14 @@ Let $\xx$ and $\yy$ be topological spaces.
         \caption{In a Hausdorff space, any two distinct points $x$ and $y$ can be separated by disjoint open neighbourhoods $U$ and $V$.}
         \label{lee-appendix-A.45D Hausdorff}
     \end{figure}
+\begin{proof}[Proof of \Cref{lee-appendix-A.45} Part D]
+    Let $\xx$ be Hausdorff. We first prove that compact subspaces of $\xx$ are closed. Indeed, if $K$ is compact in $\xx$, fix any $x\in K^c$. Let $y$ range through the elements of $K$, then $x\neq y$ induces a pair of disjoint open sets $U_y$ and $V_y$, such that
+    
+\begin{itemize}
+    \item $x\in U_y$
+    \item $y\in V_y$
+    \item $U_y\cap V_y=\varnothing$
+    \item See \cref{lee-appendix-A.45D Hausdorff}
 \end{itemize}
 
 
@@ -200,7 +201,9 @@ are disjoint open sets that contain $A$ and $B$ respectively.
 
 
 \end{proof}
-\clearpage
+
+\newpage
+%\clearpage
 
 \begin{proof}[Proof of \Cref{lee-appendix-A.45} Part E]
     Let $K\subseteq \xx$ be a closed set of a compact space. Let $\{U_\alpha\cap K\}$ be an open cover for $K$, where each $U_\alpha$ is open in $\xx$. We can append an extra set $K^c$ which is open in $\xx$. The collection

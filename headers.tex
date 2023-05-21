@@ -1,5 +1,19 @@
 %Headers and Sections
 
+% Colors
+
+\definecolor{tab-blue}{rgb}{0.341,0.471,0.643}
+\definecolor{tab-orange}{rgb}{0.894,0.580,0.267}
+\definecolor{tab-red}{rgb}{0.820,0.380,0.365}
+\definecolor{tab-teal}{rgb}{0.522,0.714,0.698}
+\definecolor{tab-green}{rgb}{0.416,0.624,0.345}
+\definecolor{tab-yellow}{rgb}{0.906,0.792,0.376}
+\definecolor{tab-purple}{rgb}{0.659,0.486,0.624}
+\definecolor{tab-pink}{rgb}{0.945,0.635,0.663}
+\definecolor{tab-brown}{rgb}{0.588,0.463,0.384}
+\definecolor{tab-grey}{rgb}{0.722,0.690,0.675}
+
+
 % Custom QED symbol
 \renewcommand\qedsymbol{$\blacksquare$}
 
@@ -52,15 +66,29 @@
     {}
 
 % WTS, now numbered
-\newtheorem{wts}{Proposition}[theproblem]
+% \newtheorem{wts}{Proposition}[theproblem]
 
 \theoremstyle{subtheorem}                       % Lemma, Corollary follows Theorem 4.16.X
 
 
 
-\newtheorem{lemma}{Lemma}[theproblem]               % Lemma, follows 'Problem' counter
-\newtheorem{corollary}{Corollary}[theproblem]       % Corollary
-\newtheorem{remark}{Remark}[theproblem]             % Unnumbered remark
+% \newtheorem{lemma}{Lemma}[theproblem]               % Lemma, follows 'Problem' counter
+% \newtheorem{corollary}{Corollary}[theproblem]       % Corollary
+% \newtheorem{remark}{Remark}[theproblem]             % Unnumbered remark
+\mdfdefinestyle{definitionstyle}{%
+  %backgroundcolor=,
+  linewidth=1pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=6pt, % Adjusted value
+  innerbottommargin=6pt,
+  skipabove=10pt,
+  skipbelow=10pt,
+  topline=true, % Added option
+  bottomline=true,
+  backgroundcolor=tab-yellow!20
+}
+
 \mdfdefinestyle{theoremstyle}{%
   %backgroundcolor=,
   linewidth=1pt,
@@ -72,9 +100,14 @@
   skipbelow=10pt,
   topline=true, % Added option
   bottomline=true,
-  backgroundcolor=yellow!20
+  backgroundcolor=tab-blue!20
 }
-\mdtheorem[style=theoremstyle]{definition}{Definition}[theproblem]
+\mdtheorem[style=definitionstyle]{definition}{Definition}[theproblem]
+\mdtheorem[style=theoremstyle]{wts}{Proposition}[theproblem]
+\mdtheorem[style=theoremstyle]{lemma}{Lemma}[theproblem]
+\mdtheorem[style=theoremstyle]{corollary}{Corollary}[theproblem]
+\mdtheorem[style=theoremstyle]{remark}{Remark}[theproblem]
+
 
 % Other header definitions or configurations
 %\newtheorem{definition}{Definition}[theproblem]         % Definition

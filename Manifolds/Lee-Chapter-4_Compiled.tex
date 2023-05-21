@@ -18,24 +18,54 @@
 \fchapter{4: Submersions, Immersions and Embeddings}
 \newpage
 
+\topheader{List of Definitions}
 Let $F$ be a smooth map between two smooth manifolds $M$ and $N$, with dimensions $m$ and $n$ respectively.
 
-The rank of $F$ at $p\in M$ is the rank of the linear map:
+% Rank, constant rank, smooth submersion,, smooth immersion
 
+\begin{definition}
+    The rank of $F$ at $p\in M$ is the rank of the linear map:
 \[
     dF_p: T_pM\to T_{F(p)}N
-\]
+\]\end{definition}
+
+\begin{definition}
+A smooth map $F\in \cinf{M}{N}$ has constant rank if its differential $dF_p: T_pM\to T_{F(p)}N$ has the same rank at every point $p\in M$.\end{definition}
+
+There are three types of constant rank maps that are of interest.
+\begin{definition}
+    $F$ is a smooth submersion if $dF_p$ is a surjection onto $T_{F(p)}N$ at $p$-everywhere. That is, $\rank dF_p = \dim T_{F(p)}N = \dim N$\end{definition}
+
+\begin{definition}
+    $F$ is a smooth immersion if $dF_p$ is an injection onto $T_{F(p)}N$ at $p$-everywhere. That is, $\rank dF_p = \dim T_{p}M = \dim M$\end{definition}
+
+\begin{definition}
+    $F$ is a smooth embedding if it is a smooth immersion, and it s a homeomorphism onto its range $F(M)\subseteq N$. 
+\end{definition}
+
+\begin{definition}
+    $F$ is a local diffeomorphism if every $p\in M$ in its domain induces a neighbourhood $U\subseteq M$ with $F|U:U\to F(U)$ is a diffeomorphism (in the sense of two open sub-manifolds).
+\end{definition}
+
+
+
+
+
+
+
+
+
 
 \newpage
-
+\topheader{Pre-requisites for Chapter 4}
 Example 1.28 (Matrices of Full Rank)
 
 Let $A\in\mcal({m\times n,\real})$ be the set of $m\times n$ matrices with real entries. $A$ has rank $m$ iff there exists some $m\times m$ sub-matrix of $A$, denoted by $S$ st $S$ is invertible. We wish to show the set of rank-$m$ matrices is invertible. Indeed, let 
 
 \[
-F:\mcal({m\times n,\real})\to \real,\: F(A) = \sum_{S\text{ is a } m\times m \text{ sub-matrix of }A}|\det{S}|
+F:\mcal({m\times n,\real})\to \real,\: \Delta_{m\times m}(A) = \sum_{\mathclap{\substack{S\text{ is a } m\times m \\ \text{ sub-matrix of } A}}}|\det{S}|
 \]
-Since $S\mapsto \det{S}$ is continuous in the entries of $S$, hence continuous in the entries of $A$, $F$ is continuous.
+Since $S\mapsto \det{S}$ is continuous in the entries of $S$, hence continuous in the entries of $A$, $\Delta_{m\times m}$ is continuous.
 
 So the set $\bigset{A\in\mcal{(m\times n,\: \real)},\: \rank{A}=m}=F^{-1}(\real\setminus\{0\})$ is open.
 
@@ -210,7 +240,7 @@ Rudin Inverse Function Theorem 9.24
     \end{align*}
     therefore $\phi$ contracts to a fixed point $x^*\in \cl{B}$, and $f(x^*)=y$. So $y\in f(\cl{B})\subseteq f(U)$ as desired.
 \end{proof}
-\begin{proof}[Proof of Part b]
+\begin{proof}[Proof of Part B]
     The proof is quite long, and we will only focus on the important bits. Rudin uses the technique of approximating smooth functions using first-order terms. He writes
     \[
         \begin{cases}
@@ -250,6 +280,14 @@ Rudin Inverse Function Theorem 9.24
 \end{align*}
 
 Finally, $Df|U: U\to GL(n,\real)$ is a continuous mapping. By Theorem 9.8, $(Df|U)^{-1}: U\to GL(n,\real)$ is continuous as well. Therefore $g\in C^1(U,U)$, and $f|U$ is a $C^1$-diffeomorphism.
-    
 \end{proof}
+
+\newpage
+
+\topheader{Commentary}
+
+Proposition 4.1 roughly states that, if the differential of $F$ at some point $p$ is injective or surjective, then there exists a neighbourhood $U$ about $p$ such that $dF|U(p)$ is an injection or surjection. The continuity of the map $dF|U(p) \mapsto \Delta_{m\times m}(dF|U(p))$, induces a neighbourhood in the vector space of matrices about the differential $dF|U(p)$. This vector space is endowed with any of the equivalent norms on $\mcal(m\times n,\real)$, which is equivalent to the entrywise $2$-norm. Since all partials of the form $\eval{\pdv{\hat{F}^{k}}{x^j}}_{\hat{p}}$ are continuous, we take the intersection over all $n\times m$ partials such that $dF|U(p)$ is an injection or surjection. Finally, send this neighbourhood about $\hat{p}$ through to $p$ by using the continuity of $\phi$.
+
+
+
 \end{document}

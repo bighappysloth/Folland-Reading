@@ -35,6 +35,7 @@ Denote the unit ball $\bigset{x\in\realn,\: |x|<1}$ in $\realn$ by $\borel^n$.
 \newpage
 
 \fchapter{3: Tangent Spaces}
+We will go through the section on the Change of Coordinates, and how different coordinate charts change the representation of a derivation at $p\in M$, where $M$ is some smooth  manifold.
 \begin{wts}
     Let $M$ be a smooth manifold, and fix $p\in M$. If $\nu\in T_pM$ is given with respect to the bases
     \[
@@ -75,6 +76,46 @@ Denote the unit ball $\bigset{x\in\realn,\: |x|<1}$ in $\realn$ by $\borel^n$.
     \[
         D(\psi\circ\phi^{-1})(\phi(p)) = \begin{bmatrix}\eval{\pdv{y^1}{x^1}}_{\phi(p)} & \eval{\pdv{y^1}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{y^1}{x^m}}_{\phi(p)} \\[1em] \eval{\pdv{y^2}{x^1}}_{\phi(p)} & \eval{\pdv{y^2}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{y^2}{x^m}}_{\phi(p)} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{y^m}{x^1}}_{\phi(p)} & \eval{\pdv{y^m}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{y^m}{x^m}}_{\phi(p)}\end{bmatrix}
     \]
+    It follows from Proposition 3.6d) that the matrix $\eval{D(\psi\circ\phi^{-1})}_{\phi(p)}$ is invertible, as $\psi\circ\phi^{-1}$ is a diffeomorphism.
 \end{proof}
+
+An important application of this is the following. We begin with the $\realm\to\realn$ case. We will see that if $p$ and $F(p)$ are represented by another pair of coordinate charts (smoothly compatible with the previous pair), then the rank of $dF_p$ does not change. So the rank of the differential is an invariant of the choice of coordinate chart.
+
+\begin{definition}
+Let $F\in \cinf[\realm,\realn]$, and $p\in\realm$ induces two charts $p\in (U,\id{\realm})$ and $F(p)\in(V\,\id{\realn})$., where $U\subseteq\realm$ and $V\subseteq\realn$. The matrix representation of the differential at $p$, $dF_p: T_p\realm\to T_{F(p)}\realn$ is nothing but the Jacobian matrix of $F$ at $p$.
+
+\begin{equation}\label{lee-chap3:euclidean-differential-jacobian}
+    \mcal\{dF_p\} = DF(p) = \begin{bmatrix}
+        \eval{\pdv{F^1}{x^1}}_{p} & \eval{\pdv{F^1}{x^2}}_{p} & \cdots & \cdots & \eval{\pdv{F^1}{x^m}}_{p} \\[1em] \eval{\pdv{F^2}{x^1}}_{p} & \eval{\pdv{F^2}{x^2}}_{p} & \cdots & \cdots & \eval{\pdv{F^2}{x^m}}_{p} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{F^n}{x^1}}_{p} & \eval{\pdv{F^n}{x^2}}_{p} & \cdots & \cdots & \eval{\pdv{F^n}{x^m}}_{p}
+    \end{bmatrix}
+\end{equation}
+
+\end{definition}
+
+
+\begin{definition}
+Let $F\in \cinf[M,N]$, and $p\in M$ induces two charts $p\in (U,\phi)$ and $F(p)\in(V\,\psi)$. The matrix representation of the differential at $p$, $dF_p: T_p N\to T_{F(p)}N$ is nothing but the Jacobian matrix of the coordinate representation at $p$.
+\begin{equation}\label{lee-chap3:jacobian-matrix-representation}
+        \mcal\{dF_p\} = \begin{bmatrix}\eval{\pdv{\hat{F}^1}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^1}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^1}{x^m}}_{\phi(p)} \\[1em] \eval{\pdv{\hat{F}^2}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^2}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^2}{x^m}}_{\phi(p)} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{\hat{F}^n}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^n}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^n}{x^m}}_{\phi(p)}\end{bmatrix}
+\end{equation}
+
+Alternately, if we write $\hat{p} = \phi(p)$ as the $\realm$ coordinates at $p$, then
+
+\begin{equation}\label{lee-chap3:jacobian-matrix-representation-alternate}
+        \mcal\{dF_p\} = \begin{bmatrix}\eval{\pdv{\hat{F}^1}{x^1}}_{\hat{p}} & \eval{\pdv{\hat{F}^1}{x^2}}_{\hat{p}} & \cdots & \cdots & \eval{\pdv{\hat{F}^1}{x^m}}_{\hat{p}} \\[1em] \eval{\pdv{\hat{F}^2}{x^1}}_{\hat{p}} & \eval{\pdv{\hat{F}^2}{x^2}}_{\hat{p}} & \cdots & \cdots & \eval{\pdv{\hat{F}^2}{x^m}}_{\hat{p}} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{\hat{F}^n}{x^1}}_{\hat{p}} & \eval{\pdv{\hat{F}^n}{x^2}}_{\hat{p}} & \cdots & \cdots & \eval{\pdv{\hat{F}^n}{x^m}}_{\hat{p}}\end{bmatrix}
+\end{equation}
+\end{definition}
+
+\begin{wts}\label{lee-chap3:rank-of-differential-invariant-under-coordinate-change}
+    Let $F$ be a smooth map between $M$ and $N$, at every $p\in M$, $\rank dF_p$ is an invariant over (smoothly compatible) pairs of charts in $M$ and $N$.
+\end{wts}
+\begin{proof}
+    Let $p\in (U_1,\phi_1)\cap (U_2,\phi_2)$, and $F(p)\in (V_1,\psi_1)\cap (V_2,\psi_2)$. Where all charts are smoothly compatible if it makes sense to talk about it. Both $\phi_2\circ\phi_1^{-1}$ and $\psi_2\circ\psi_1^{-1}$ are diffeomorphisms, and the change of basis matrices $\eval{D(\phi_2\circ\phi_1^{-1})}_{\phi_1(p)}$ and $\eval{D(\psi_2\circ\psi_1^{-1})}_{\psi_1(F(p))}$ are invertible by Proposition 3.6d) again, so the ranks $dF_p$ with respect to any of the two charts are equal.
+    \[
+        \underbracket{\eval{D(\psi_2\circ\psi_1^{-1})}_{\psi_1(F(p))}}_{\text{invertible}}\biggl(\mcal\{dF_p\}\biggr)\underbracket{\eval{D(\phi_2\circ\phi_1^{-1})}_{\phi_1(p)}}_{\text{invertible}}
+    \]
+\end{proof}
+
+
 
 \end{document}

@@ -17,6 +17,91 @@
 
 \fchapter{1: Topological Manifolds}
 \newpage
+\topheader{Topological Manifolds}
+The study of differential geometry begins with tens of pages of definitions.
+\begin{definition}[Topological Manifold]\label{lee-chp1:topological-manifold-definition}
+    Let $M$ be a topological space. $M$ is a topological manifold of dimension $m$ if it is Hausdorff, second-countable, and locally homeomorphic to $\realn$.
+\end{definition}
+
+\begin{definition}[Local homeomorphism]\label{lee-chp1:locally-homeomorphic-definition}
+    $M$ locally homeomorphic to $\realn$ if every point $x\in M$ an open set $U$, equipped with a homeomorphism which sends points in $U$ into an open subset of $\realn$. 
+    \[
+        \phi: U\to \phi(U)
+    \] 
+    The tuple $(U,\phi)$ is called a coordinate chart.
+\end{definition}
+
+\begin{definition}[More on coordinate charts]\label{lee-chp1:coordinate-chart-definition}
+    \begin{itemize}
+        \item A coordinate chart $(U,\phi)$ is centered at $p\in M$ if $p\in U$ and $\phi(p)=0\in\realn$.
+        \item We call $U$ the coordinate domain, and
+        \item we call $\phi$ the coordinate map.
+        \item If the choice of $(U,\phi)$ is unambiguous, then the local coordinates of $p$ are simply the coordinates of $\phi(p)$ in $\realn$, and
+        \item we sometimes also denote $\phi(U)$ by $\hat{U}$ if it is unambiguous to do so.
+        \item If $\hat{U}$ is an open ball/cube, then $U$ is called a coordinate ball/cube.
+    \end{itemize}
+\end{definition}
+
+The central theme of point-set topology (or even metric topology) is that of passing a topological argument to the basis or to a neighbourhood. Manifolds in particular have a nice basis.
+\begin{wts}[Basis of precompact coordinate balls]
+    Every topological manifold has a countable basis of precompact coordinate balls.
+\end{wts}
+\begin{wts}[Additional facts about topological manifolds]
+If $M$ is a topological manifold, 
+\begin{itemize}
+    \item $M$ is locally compact. (Lee, Proposition 1.12)
+    \item $M$ is paracompact, and every open cover has a refinement 
+    that is another countably locally finite open cover whose elements are chosen from an arbitrary (but fixed) basis of $M$. (Lee, Theorem 1.15)
+    \item $M$ is locally-path connected.
+    \item $M$ is connected iff it is path-connected.
+    \item $M$ is metrizable. (Munkres Chapter 6)
+\end{itemize}
+\end{wts}
+
+\topheader{Smooth Manifolds}
+We wish to perform calculus on manifolds.
+\begin{definition}[Smooth function $F:\realn\to\realm$]\label{lee-chp1:real-smooth-function}
+    Let $F:\realn\to\realm$, replacing $\realn$ and $\realm$ with open subsets if necessary. $F$ is smooth its component functions has continuous partial derivatives of all orders. The set of smooth functions from $\realn$ to $\realm$ is sometimes denoted by $\cinf[\realn,\realm]$. If $m=1$, we sometimes write $\cinf[\realn]$, similar to a test function on the Swartz space.
+\end{definition}
+
+\begin{definition}[Transition map from $\phi$ to $\psi$]\label{lee-chp1:transition-maps}
+    Let $(U,\phi)$ and $(V,\psi)$ be coordinate charts on $M$. The composite function (whenever $U\cap V\neq\varnothing$) 
+    \[
+    \psi\circ\phi^{-1}:\phi(U\cap V)\to\psi(U\cap V)
+    \] 
+    is called the transition map. Notice $\psi\circ\phi^{-1}$ is by definition a homeomorphism.
+\end{definition}
+
+\begin{definition}[Smoothly compatiable]\label{lee-chp1:smoothly-compatible}
+    Two coordinate charts on $M$, $(U,\phi)$ and $(V,\psi)$ are called smoothly compatible if either their domains are disjoint, or their transition map is a diffeomorphism on $\realm$.
+\end{definition}
+
+\begin{definition}[Smooth atlas]\label{lee-chp1:smooth-atlas}
+    An atlas $\acal$ of $M$ is a collection of charts $\{(U_\alpha, \phi_\alpha)\}$ whose collection of coordinate domains $\{U_\alpha\}$ for an open cover of $M$.\\ It is called a smooth atlas if any two charts in the atlas are pairwise smoothly compatible.
+\end{definition}
+
+\begin{definition}[Smooth manifold]\label{lee-chp1:smooth-manifold}
+    A smooth atlas $\acal$ on $M$ is maximal if it is not contained (properly) in any other smooth atlas as a subset. In other words, if $(U',\phi')$ is a chart on $M$ that is smoothly compatible with all elements in $\acal$, then $(U',\phi')\in\acal$ already.\\
+    
+    This smooth atlas is often very large, it includes all translations of charts, dilations, and composition with diffeomorphisms in $\realm$, restrictions onto open subsets, etc. A maximal smooth atlas is sometimes called a complete atlas, or a smooth manifold structure.\\
+
+    A smooth manifold is the tuple $(M,\acal)$, where $\acal$ is some smooth atlas. It can happen if $M$ is originally a topological manifold with a huge number of charts, some of which are smoothly compatible with others, that $\acal$ is a strict subset, and both $\acal_1$ and $\acal_2$ are maximal smooth atlases on $M$, but $\acal_1\neq\acal_2$. We often omit $\acal$ and write $M$ if the smooth atlas is understood or not of importance.
+\end{definition}
+
+\begin{definition}[Smooth coordinate terminologies]\label{lee-chp1:smooth-coordinate-definitions}
+    Let $(M,\acal)$ be a smooth manifold. 
+    \begin{itemize}
+        \item Any coordinate chart $(U,\phi)\in\acal$ is called a smooth chart, similar to \cref{lee-chp1:coordinate-chart-definition}
+        \item We call $U$ the \emph{smooth coordinate domain} or \emph{smooth coordinate neighbourhood} of any $p\in U$, and
+        \item we call $\phi$ the \emph{smooth coordinate map}.
+        \item The terms \emph{smooth coordinate ball} and \emph{smooth coordinate cube} are used similarly.
+        \item A set $B\subseteq M$ is a \emph{regular coordinate ball} if its image is a smooth coordinate ball centered at the origin; and the closure of this ball in $\realm$ is a subset of the image of another smooth coordinate ball, centered at the origin.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Standard smooth structure on $\realn$]\label{lee-chp1:standard-smooth-structure-realn}
+    The maximal smooth atlas containing $(\realn,\id{\realn})$ is called the \emph{standard smooth structure on $\realn$}.
+\end{definition}
 
 The $n$-sphere as a topological manifold. Define 
 \[
@@ -31,6 +116,10 @@ Each $U_i^{\pm}$ is the inverse image of $\pnv{i}{(0,+\infty)}\cap S^n$ or $\pnv
     S^n = \bigcup_{i}U_i^\pm
 \]
 Denote the unit ball $\bigset{x\in\realn,\: |x|<1}$ in $\realn$ by $\borel^n$. 
+
+\newpage
+
+\fchapter{2: Smooth Maps}
 
 \newpage
 
@@ -81,8 +170,8 @@ We will go through the section on the Change of Coordinates, and how different c
 
 An important application of this is the following. We begin with the $\realm\to\realn$ case. We will see that if $p$ and $F(p)$ are represented by another pair of coordinate charts (smoothly compatible with the previous pair), then the rank of $dF_p$ does not change. So the rank of the differential is an invariant of the choice of coordinate chart.
 
-\begin{definition}
-Let $F\in \cinf[\realm,\realn]$, and $p\in\realm$ induces two charts $p\in (U,\id{\realm})$ and $F(p)\in(V\,\id{\realn})$., where $U\subseteq\realm$ and $V\subseteq\realn$. The matrix representation of the differential at $p$, $dF_p: T_p\realm\to T_{F(p)}\realn$ is nothing but the Jacobian matrix of $F$ at $p$.
+\begin{definition}[Matrix representation of the differential of $F:\realm\to\realn$]
+Let $F\in \cinf[\realm,\realn]$, and $p\in\realm$ induces two charts $p\in (U,\id{\realm})$ and $F(p)\in(V\,\id{\realn})$, where $U\subseteq\realm$ and $V\subseteq\realn$. The matrix representation of the differential at $p$, $dF_p: T_p\realm\to T_{F(p)}\realn$ is nothing but the Jacobian matrix of $F$ at $p$.
 
 \begin{equation}\label{lee-chap3:euclidean-differential-jacobian}
     \mcal\{dF_p\} = DF(p) = \begin{bmatrix}
@@ -93,7 +182,7 @@ Let $F\in \cinf[\realm,\realn]$, and $p\in\realm$ induces two charts $p\in (U,\i
 \end{definition}
 
 
-\begin{definition}
+\begin{definition}[Matrix representation of the differential of $F: M\to N$]
 Let $F\in \cinf[M,N]$, and $p\in M$ induces two charts $p\in (U,\phi)$ and $F(p)\in(V\,\psi)$. The matrix representation of the differential at $p$, $dF_p: T_p N\to T_{F(p)}N$ is nothing but the Jacobian matrix of the coordinate representation at $p$.
 \begin{equation}\label{lee-chap3:jacobian-matrix-representation}
         \mcal\{dF_p\} = \begin{bmatrix}\eval{\pdv{\hat{F}^1}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^1}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^1}{x^m}}_{\phi(p)} \\[1em] \eval{\pdv{\hat{F}^2}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^2}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^2}{x^m}}_{\phi(p)} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{\hat{F}^n}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^n}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^n}{x^m}}_{\phi(p)}\end{bmatrix}

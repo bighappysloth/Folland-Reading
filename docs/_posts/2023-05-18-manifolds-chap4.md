@@ -25,3 +25,7 @@ If all partials of the form $\dfrac{\partial \wig{R}^k}{\partial y^j}$ for $k,j>
 ![Rank Theorem 1]({{ site.baseurl }}{% link /images/rank-theorem-1.png %})
 
 ![Rank Theorem 2]({{ site.baseurl }}{% link /images/rank-theorem-2.png %})
+
+# Tu Tangent Spaces
+Example 8.19
+View matrices as $n\times n$ manifolds not as linear maps themselves. Find the basis vectors in $$T_{gI}GL(n,\real)$$ then apply the derivation to the basis vectors, leaving the coefficients unchanged. But the coeffients are exactly the ones get 'carried through' from matrix multiplication. So we pack the coefficients together, and the nice result follows. [Details here](https://math.stackexchange.com/questions/3246481/an-introduction-to-manifolds-loring-w-tu-example-8-19)

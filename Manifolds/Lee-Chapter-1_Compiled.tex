@@ -104,7 +104,7 @@ We wish to perform calculus on manifolds.
 \end{definition}
 
 Manifolds with boundary are not that important as regular manifolds, but they are worth mentioning.
-\begin{definition}[Closed n-dimensional upper half-space $\halfn\subseteq\realn$]\label{lee-chp1:upper-half-plane-definitions}
+\begin{definition}[Closed n-dimensional upper half-plane $\halfn\subseteq\realn$]\label{lee-chp1:upper-half-plane-definitions}
     We define the following symbols for the upper half plane.
     \begin{itemize}
         \item $\halfn = \bigset{x\in\realn,\: x^n\geq 0}$,
@@ -115,7 +115,11 @@ Manifolds with boundary are not that important as regular manifolds, but they ar
 \begin{definition}[Manifolds with boundary]\label{lee-chp1:manifolds-with-boundary-definition}
     A topological space $M$ is called a manifold with boundary if it is Hausdorff, second-countable, and locally homeomorphic to an open subset of $\halfn$ (endowed with the subspace topology from $\realn$).\\
 
-    A chart $(U,\phi)$ is an \emph{interior chart} if its coordinate image is disjoint from the 'boundary' of the upper-half plane. This means $\phi(U)\cap \partial\halfn=\varnothing$.
+    A chart $(U,\phi)$ is an \emph{interior chart} if its coordinate image is disjoint from the 'boundary' of the upper-half plane. This means $\phi(U)\cap \partial\halfn=\varnothing$. Similarly, $(V,\psi)$ is a \emph{boundary chart} if its range contains a point in $\partial\halfn$; so $\psi(V)\cap\partial\halfn\neq\varnothing$.\\
+
+    Similar to \cref{lee-chp1:coordinate-chart-definition} and \cref{lee-chp1:smooth-coordinate-definitions}, we use the terms \emph{coordinate half-ball}, \emph{coordinate half-cube}, \emph{regular coordinate half-ball}.\\
+
+    Let $p\in M$, it is called an \emph{interior point of $M$} (not to be confused with the topological interior) if it is in the domain of some interior chart, and $p$ is called a \emph{boundary point of $M$} if there exists a boundary chart that sends $p$ into $\partial\halfn$. The set of interior points and boundary points of $M$ will be denoted by $\Int M$ and $\partial M$.
 \end{definition}
 The $n$-sphere as a topological manifold. Define 
 \[

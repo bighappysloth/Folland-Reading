@@ -61,7 +61,7 @@ If $M$ is a topological manifold,
 \topheader{Smooth Manifolds}
 We wish to perform calculus on manifolds.
 \begin{definition}[Smooth function $F:\realn\to\realm$]\label{lee-chp1:real-smooth-function}
-    Let $F:\realn\to\realm$, replacing $\realn$ and $\realm$ with open subsets if necessary. $F$ is smooth its component functions has continuous partial derivatives of all orders. The set of smooth functions from $\realn$ to $\realm$ is sometimes denoted by $\cinf[\realn,\realm]$. If $m=1$, we sometimes write $\cinf[\realn]$, similar to a test function on the Swartz space.
+    Let $F:\realn\to\realm$, replacing $\realn$ and $\realm$ with open subsets if necessary. $F$ is smooth if its (scalar-valued) component functions has continuous partial derivatives of all orders. The set of smooth functions from $\realn$ to $\realm$ is sometimes denoted by $\cinf[\realn,\realm]$. If $m=1$, we sometimes write $\cinf[\realn]$, similar to a test function on the Schwartz Space.
 \end{definition}
 
 \begin{definition}[Transition map from $\phi$ to $\psi$]\label{lee-chp1:transition-maps}
@@ -121,7 +121,11 @@ Manifolds with boundary are not that important as regular manifolds, but they ar
 
     Let $p\in M$, it is called an \emph{interior point of $M$} (not to be confused with the topological interior) if it is in the domain of some interior chart, and $p$ is called a \emph{boundary point of $M$} if there exists a boundary chart that sends $p$ into $\partial\halfn$. The set of interior points and boundary points of $M$ will be denoted by $\Int M$ and $\partial M$.
 \end{definition}
-The $n$-sphere as a topological manifold. Define 
+
+\newpage
+
+\begin{example}[Sphere as a topological manifold]
+    The $n$-sphere as a topological manifold. Define 
 \[
     S^n = \bigset{x\in\real^{n+1},\: |x|=1}
 \]
@@ -135,13 +139,154 @@ Each $U_i^{\pm}$ is the inverse image of $\pnv{i}{(0,+\infty)}\cap S^n$ or $\pnv
 \]
 Denote the unit ball $\bigset{x\in\realn,\: |x|<1}$ in $\realn$ by $\borel^n$. 
 
-\newpage
-
-\fchapter{2: Smooth Maps}
+\end{example}
 
 \newpage
 
-\fchapter{3: Tangent Spaces}
+\fchapter{2: Smooth Maps}\newpage
+
+\topheader{Smooth Maps}
+
+\begin{definition}[Smooth functions {$\cinf[M,\real^k]$}]\label{lee-chp2:test-functions-on-manifolds}
+    Let $F: M\to\real^k$ be a vector-valued function on a smooth manifold $M$. We say $F$ is a smooth function if for every $p\in M$, there exists a smooth chart $p\in (U,\phi)$ such that the \emph{coordinate representation of $F$ at $p$, with respect to $(U,\phi)$} is a smooth function from $\realm$ to $\real^k$, denoted by $\hat{F}$ (in the sense of \Cref{lee-chp1:real-smooth-function}).
+    \[
+        \hat{F}=F\circ \phi^{-1}:\phi(U)\to\real^k\in \cinf[\phi(U),\realk]
+    \]
+    if $k=1$, then we denote the space of \emph{test functions} on $M$ by $\cinf[M]=\cinf[M,\real]$
+\end{definition}
+
+\begin{definition}[Smooth maps between manifolds {$\cinf[N,M]$}]\label{lee-chp2:smooth-maps-between-manifolds-definition}
+    Let $F:N\to M$ be a map between smooth manifolds $N$ and $M$ (note we switched the order). $F$ is a smooth map if at every $p\in M$, there exists 
+    \begin{itemize}
+        \item a chart in the smooth atlas of $N$ (the domain), $p\in (U,\phi)$,
+        \item another chart in the smooth atlas of $M$ (the range), $F(U)\subseteq(V,\psi)$,
+        \item such that, the \emph{coordinate representation of $F$ at $p$ with respect to $(U,\phi)$, and $(V,\psi)$} is a smooth function from $\realn$ to $\realm$, also denoted by $\hat{F}$.
+        \begin{equation}\label{lee-chp2:eq-smooth-map-coordinate-representation}
+            \hat{F} = \psi\circ F\circ \phi^{-1}:\phi(U)\to \psi(V)\in \cinf[\realn,\realm]
+        \end{equation}
+    \end{itemize}
+\end{definition}
+
+The following propositions summarizes common operations on smooth maps, a few sources of them.
+\begin{wts}[Smooth maps are continuous]\label{lee-chp2:smooth-maps-are-continuous}
+    If $F:N\to M$ is a smooth map, then $F$ is continuous with respect to the topologies on $N$ and $M$.
+\end{wts}
+\begin{proof}
+    Let $p\in N$ be fixed, because $F$ is smooth this induces two smooth charts, one in the domain and another in the range; as in \cref{lee-chp2:smooth-maps-between-manifolds-definition}. $F(p)$ is a point in $M$. From \cref{lee-chp2:eq-smooth-map-coordinate-representation}, $\hat{F}|\phi(U)$ is a smooth hence continuous function. Since $\phi: U\mapsto \phi(U)$ and $\psi: V\mapsto \psi(V)$ are homeomorphisms, 
+    \[
+        F|U = \underbracket{\psi^{-1}}_{\text{continuous}}\circ \underbracket{\hat{F}|\phi(U)}_{\text{smooth}}\circ \underbracket{\phi}_{\text{continuous}}\qq{is continuous on }U
+    \]
+    Let the point $p$ range through all the points in $N$, so $F$ is continuous at every $p$, hence on $N$.
+\end{proof}
+\begin{wts}[Characterizations of Smooth Maps]{$\cinf[N,M]$}]\label{lee-chp2:characterizations-of-smooth-maps}
+    Let $N$ and $M$ be smooth manifolds, and $F:N\to M$. $F$ is a smooth map iff
+    \begin{itemize}
+        \item For every $p\in N$, there exists smooth charts $p\in (U,\phi)$ and $F(p)\in (V,\psi)$ such that $U\cap F^{-1}(V)$ is an open set in $N$, and the composite map (the coordinate representation)
+        \[
+            \psi\circ F\circ \phi^{-1}|(U\cap F^{-1}(V)):\phi(U\cap F^{-1}(V))\to \psi(V)\qq{is smooth}
+        \]
+        \item $F$ is continuous and there exist smooth atlases $\{(U_\alpha,\phi_\alpha)\}\subseteq\acal_N$, and $\{(V_\beta,\psi_\beta)\}\subseteq\acal_M$ such that the coordinate representation 
+        \[
+            \psi_\beta\circ F\circ \phi_\alpha^{-1}:\phi(U_\alpha\cap F^{-1}(V_\beta))\to \psi(V_\beta)\qq{is smooth}
+        \]
+        whenever it makes sense.
+        \item the restriction of $F$ onto any arbitrary open set $U$, $F|U: U\mapsto M$ is smooth (in the sense of open submanifold).
+    \end{itemize}
+\end{wts}
+\begin{proof}
+    By \Cref{lee-chp2:smooth-maps-are-continuous}, and the fact that complete atlases are closed under restrictions onto open sets, it is clear that the original definition implies the two. The first definition also clearly implies the original definition, as we can restrict 
+    \[(U,\phi)\mapsto \biggl(U\cap F^{-1}(V),\phi|(U\cap F^{-1}(V))\biggr)\]
+    since $U\cap F^{-1}(V)$ is open in the domain manifold.\\
+
+    The second definition implies the original one as well, since the smooth atlases are taken from the maximal atlas, we can pass the argument to any smoothly-compatible chart. Atlases must cover both the domain and the range, and coordinate transitions between smoothly compatible charts are diffeomorphisms. If $F$ is smooth on a subcollection of those charts, meaning
+    \[
+        \psi_\beta\circ F\circ\phi_\alpha^{-1}\in \cinf[\phi_\alpha(U_\alpha)\cap F^{-1}(V_\beta),\psi_\beta(V_\beta)]
+    \]
+    it is smooth with respect to every pair of (smooth) charts in the two atlases $\acal_{N}$, $\acal_{M}$, as a composition of smooth maps:
+    \[
+        \psi\circ \underbracket{\psi^{-1}\circ \psi_\beta}_{\text{smooth}}\circ F\circ\underbracket{\phi_\alpha^{-1}\circ \phi}_{\text{smooth}}\circ\phi^{-1}
+    \]
+    where we can restrict $\phi_\alpha\mapsto \phi_\alpha|(U_\alpha\cap F^{-1}(V_\beta))$ by continuity of $F$.
+
+    I will prove the third and last equivalence later.
+\end{proof}
+\begin{wts}[Sources of smooth maps]\label{lee-chp2:sources-of-smooth-maps}
+    Let $N$, $M$, $P$ be smooth manifolds, then
+    \begin{itemize}
+        \item Every constant map is smooth,
+        \item The identity map $\id{M}:M\to M$ is smooth,
+        \item The inclusion map $\iota: W\to M$ is smooth, where $W$ is an open submanifold of $M$.
+        \item The composition of smooth maps is again a smooth map: if $F\in \cinf[N,M]$ and $G\in \cinf[M,P]$, then $(G\circ F)\in\cinf[N,P]$
+    \end{itemize}
+\end{wts}
+
+\topheader{Diffeomorphisms}
+\begin{definition}[Diffeomorphism between Manifolds $\mathcal{D}(N,M)$]\label{lee-chp2:diffeomorphism-definition}
+    Let $N$ and $M$ be smooth manifolds, $F:N\to M$ is a diffeomorphism if it is a smooth bijective map with a smooth inverse. We denote the space of diffeomorphisms from $N$ to $M$ by $\diffeo[N,M]$.
+\end{definition}
+\begin{wts}[Properties of Manifold Diffeomorphisms]\label{lee-chp2-diffeomorphism-properties}
+    Let $N$, $M$ and $P$ be smooth manifolds, then
+    \begin{itemize}
+        \item The composition of diffeomorphisms is again a diffeomorphism, that is, if $F\in \diffeo[N,M]$ and $G\in \diffeo[M,P]$, then $(G\circ F)\in \diffeo[N,P]$.
+        \item The open-manifold restriction of a diffeomorphism onto its image is again a diffeomorphism,
+        \item Every diffeomorphism is a homeomorphism and an oepn map.
+    \end{itemize}
+\end{wts}
+\begin{proof}
+    Trivial.
+\end{proof}
+
+\topheader{Partitions of Unity}
+See Folland Chapters 4 and 8. Including Urysohn's Lemma, Tietze extension, the usual construction of $\ccinf$ bump functions.
+\newpage
+
+\fchapter{3: Tangent Spaces}\newpage
+\topheader{Algebra of Germs on $\cinf[N]$}
+The tangent space is a powerful concept that acts almost like the dual in distribution theory.
+\begin{definition}[Algebra of Germs at $p$: $C_p^\infty(N)$]\label{lee-chp3:algebra-of-germs-at-p}
+    Let $N$ be a smooth manifold and $p\in N$. We define an equivalence relation on the space of test functions on $N$, $\cinf[N]$. If $f,g\in\cinf[N]$, we write $f\sim g$ if $f=g$ for some open neighbourhood about $p$. We denote this equivalence class by $C_p^\infty(N)$, and it is clear $\cinf[N]$ is closed under pointwise multiplication by the product rule, and form an algebra; so $C_p^\infty(N)$ is an algebra too.
+\end{definition}
+
+\topheader{Tangent space at $p$: $T_p N$}
+\begin{definition}[Vector space of derivations at $p$: $T_p N$]\label{lee-chp3:vector-space-of-derivations-at-p}
+    Let $\nu: C_p^\infty(N)\to\real$ be a linear functional on the vector space of germs at $p$. It is called a derivation at $p$ if it satisfies the product rule, if $f,g\in C_p^\infty(N)$, 
+    \[
+        \nu(fg)=g(p)\nu(f)+f(p)\nu(g)
+    \]
+    then we say 
+    \begin{itemize}
+        \item $\nu$ is a tangent vector at $p$, 
+        \item $\nu\in T_p N$,
+        \item $\nu$ is an element of the \emph{tangent space at $p$}.
+        \item $\nu$ is a derivation on $N$ at $p$.
+    \end{itemize}
+\end{definition}
+\begin{wts}[Properties of derivations at $p$]
+    Let $N$ be a smooth manifold and $p\in N$.
+    \begin{itemize}
+        \item If $f\in C^\infty_p$ is constant in some neighbourhood of $p$, then $\nu(f)=0$ for every $\nu\in T_pN$,
+        \item If $f(p)=g(p)=0$, then $\nu(fg)=0$ for tangent vector $\nu$ at $p$.
+    \end{itemize}
+\end{wts}
+
+\topheader{Tangent space in $\realn$}
+
+\begin{wts}[Basis of $T_p\realn$]
+    Let $\realn$ be equipped with the standard smooth structure as in \Cref{lee-chp1:standard-smooth-structure-realn}. The vector space of derivations at $p\in\realn$ are spanned by the $n$ partial derivatives at $p$
+    \[
+        \eval{\pdv{x^j}}_{p}:f\mapsto \eval{\pdv{x^j}f(x)}_{p},\quad 1\leq j\leq n,\: f\in \cinf[\realn]
+    \]
+    Moreover, the $n$ vectors form a basis, and $\dim T_p\realn= n$.
+\end{wts}
+\begin{definition}[Standard Basis of $T_p\realn$]
+    The standard basis for the tangent space at $p\in\realn$ is the $n$ partial derivatives at $p$.
+    \begin{equation}\label{lee-chp3:standard-basis-for-tangent-space-realn}
+        T_p\realn = \bigset{\eval{\pdv{x^1}}_{p},\ldots,\eval{\pdv{x^n}}_{p}}
+    \end{equation}
+\end{definition}
+\topheader{Differential of a smooth map $F\in \cinf[N,M]$}
+
+
 We will go through the section on the Change of Coordinates, and how different coordinate charts change the representation of a derivation at $p\in M$, where $M$ is some smooth  manifold.
 \begin{wts}
     Let $M$ be a smooth manifold, and fix $p\in M$. If $\nu\in T_pM$ is given with respect to the bases

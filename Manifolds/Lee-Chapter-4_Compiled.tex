@@ -1,5 +1,5 @@
 \documentclass[../main-manifolds.tex]{subfiles}
-
+\externaldocument[ext:]{subfiles/Lee-Chapter-1_Compiled.tex}
 \begin{document}
 \providecommand{\szz}{\mathcal{S}}
 \providecommand{\ccinf}{C_c^\infty}
@@ -17,49 +17,10 @@
 
 \fchapter{4: Submersions, Immersions and Embeddings}
 \newpage
-
-\topheader{List of Definitions}
-Let $F$ be a smooth map between two smooth manifolds $M$ and $N$, with dimensions $m$ and $n$ respectively.
-
-% Rank, constant rank, smooth submersion,, smooth immersion
-
-\begin{definition}
-    The rank of $F$ at $p\in M$ is the rank of the linear map:
-\[
-    dF_p: T_pM\to T_{F(p)}N
-\]\end{definition}
-
-\begin{definition}
-A smooth map $F\in \cinf{M}{N}$ has constant rank if its differential $dF_p: T_pM\to T_{F(p)}N$ has the same rank at every point $p\in M$.\end{definition}
-
-There are three types of constant rank maps that are of interest.
-\begin{definition}\label{lee-chp4:smooth-submersion-definition}
-    $F$ is a smooth submersion if $dF_p$ is a surjection onto $T_{F(p)}N$ at $p$-everywhere. That is, $\rank dF_p = \dim T_{F(p)}N = \dim N$\end{definition}
-
-\begin{definition}\label{lee-chp4:smooth-immersion-definition}
-    $F$ is a smooth immersion if $dF_p$ is an injection onto $T_{F(p)}N$ at $p$-everywhere. That is, $\rank dF_p = \dim T_{p}M = \dim M$\end{definition}
-
-\begin{definition}\label{lee-chp4:smooth-embedding-definition}
-    $F$ is a smooth embedding if it is a smooth immersion, and it s a homeomorphism onto its range $F(M)\subseteq N$. 
-\end{definition}
-
-\begin{definition}\label{lee-chp4:local-diffeomorphism-definition}
-    $F$ is a local diffeomorphism if every $p\in M$ in its domain induces a neighbourhood $U\subseteq M$ with $F|U:U\to F(U)$ is a diffeomorphism (in the sense of two open sub-manifolds).
-\end{definition}
-
-
-
-
-
-
-
-
-
-
-\newpage
 \topheader{Pre-requisites for Chapter 4}
-Example 1.28 (Matrices of Full Rank)
 
+
+\begin{example}[Example 1.28 (Matrices of Full Rank)]\label{lee-chp4:example-1.28-matrices-of-full-rank}
 Let $A\in\mcal({m\times n,\real})$ be the set of $m\times n$ matrices with real entries. $A$ has rank $m$ iff there exists some $m\times m$ sub-matrix of $A$, denoted by $S$ st $S$ is invertible. We wish to show the set of rank-$m$ matrices is invertible. Indeed, let 
 
 \[
@@ -69,11 +30,11 @@ Since $S\mapsto \det{S}$ is continuous in the entries of $S$, hence continuous i
 
 So the set $\bigset{A\in\mcal{(m\times n,\: \real)},\: \rank{A}=m}=F^{-1}(\real\setminus\{0\})$ is open.
 
-\newpage
+\end{example}
 
 Before proving the inverse function theorem, we will need several Lemmas
 
-\begin{wts}\label{rudin-chp9-theorem-9.7}
+\begin{wts}[Rudin Theorem 9.7]\label{rudin-chp9-theorem-9.7}
     If $A$ and $B$ are in $L(\xx,\yy)$, then 
     \[
         \norm{BA}\leq\norm{B}\norm{A}
@@ -89,7 +50,7 @@ Before proving the inverse function theorem, we will need several Lemmas
         \norm{BA}\leq\norm{B}\norm{A}
     \]
 \end{proof}
-\begin{wts}\label{rudin-chp9-theorem-9.19}
+\begin{wts}[Rudin Theorem 9.19]\label{rudin-chp9-theorem-9.19}
     Let $f$ map a convex open set $U\subseteq\realn$ into $\realm$, if $f$ is differentiable (pointwise) in $U$, and there exists some $M$ st its derivative its founded (in the operator norm)
     \[
         \norm{Df(x)}\leq M\quad x\in U
@@ -110,7 +71,7 @@ Before proving the inverse function theorem, we will need several Lemmas
     \]
     
     Recall: Theorem 5.19
-    \begin{wts}
+    \begin{wts}[Rudin Theorem 5.19]
         Let $g: [0,1]\to\realm$, and $g$ be differentiable on $(0,1)$, then there exists some $x\in (0,1)$ with
         \[
             |f(b)-f(a)|\leq (b-a)|f'(x)|
@@ -133,11 +94,10 @@ Before proving the inverse function theorem, we will need several Lemmas
         \norm{f(x_1) - f(x_2)}\leq M \norm{x_1 - x_2}
     \]
 \end{proof}
-\newpage
 
-Rudin Inverse Function Theorem 9.24
+\topheader{Inverse Function Theorem (Rudin)}
 
-\begin{wts}\label{rudin-chp4-theorem-9.24}
+\begin{wts}[Rudin Theorem 9.24]\label{rudin-chp4-theorem-9.24}
     Suppose $f\in C^1(\realn,\realn)$, and $Df(a)$ is invertible for some $a\in\realn$, and define $b=f(a)$. Then,
 \begin{enumalpha}
     \item there exist open sets $U$ and $V$ in $\realn$ such that $a\in U$, $b\in V$, and $f$ is one-to-one on $U$, and $f(U)=V$.
@@ -281,6 +241,126 @@ Rudin Inverse Function Theorem 9.24
 
 Finally, $Df|U: U\to GL(n,\real)$ is a continuous mapping. By Theorem 9.8, $(Df|U)^{-1}: U\to GL(n,\real)$ is continuous as well. Therefore $g\in C^1(U,U)$, and $f|U$ is a $C^1$-diffeomorphism.
 \end{proof}
+
+\topheader{Inverse Theorem}
+Let $F$ be a smooth map between two smooth manifolds $M$ and $N$, with dimensions $m$ and $n$ respectively.
+
+% Rank, constant rank, smooth submersion,, smooth immersion
+
+\begin{definition}[Rank of a map]
+    The rank of $F$ at $p\in M$ is the rank of the linear map:
+\[
+    dF_p: T_pM\to T_{F(p)}N
+\]\end{definition}
+
+\begin{definition}[Constant rank maps]
+A smooth map $F\in \cinf[M,N]$ has constant rank if its differential $dF_p: T_pM\to T_{F(p)}N$ has the same rank at every point $p\in M$.\end{definition}
+
+There are three types of constant rank maps that are of interest. 
+\begin{definition}[Smooth submersion]\label{lee-chp4:smooth-submersion-definition}
+    $F$ is a smooth submersion if $dF_p$ is a surjection onto $T_{F(p)}N$ at $p$-everywhere. That is, $\rank dF_p = \dim T_{F(p)}N = \dim N$\end{definition}
+
+\begin{definition}[Smooth immersion]\label{lee-chp4:smooth-immersion-definition}
+    $F$ is a smooth immersion if $dF_p$ is an injection onto $T_{F(p)}N$ at $p$-everywhere. That is, $\rank dF_p = \dim T_{p}M = \dim M$\end{definition}
+
+
+\begin{definition}[Smooth embedding]\label{lee-chp4:smooth-embedding-definition}
+    $F$ is a smooth embedding if it is a smooth immersion, and it is a homeomorphism onto its range $F(M)\subseteq N$. 
+\end{definition}
+
+\begin{definition}[Local diffeomorphism]\label{lee-chp4:local-diffeomorphism-definition}
+    $F$ is a local diffeomorphism if every $p\in M$ in its domain induces a neighbourhood $U\subseteq M$ with $F|U:U\to F(U)$ is a diffeomorphism (in the sense of two open sub-manifolds).
+\end{definition}
+
+\begin{wts}[Rank as an open condition]\label{lee-chp4:rank-open-condition-prop-4.1}
+    Suppose $F: M\to N$ is a smooth map, and $p\in M$. If $dF_p$ is a surjection (resp. injection), pointwise at $p$, there exists a neighbourhood $U$ of $p$ where $F|U$ is a smooth submersion (resp. immersion)
+\end{wts}
+\begin{proof}
+    Trivial. See \Cref{lee-chp4:example-1.28-matrices-of-full-rank}.
+\end{proof}
+\begin{wts}[Inverse Function Theorem on Manifolds]\label{lee-chp4:inverse-theorem-on-manifolds}
+    Let $M$ and $N$ be smooth manifolds, and $F:M\to N$ be a smooth map. Suppose the differential of $F$ is invertible at some point $p\in M$, then there exists connected neighbourhoods $U_0$ of $p$, and $V_0$ of $F(p)$ such that $F|U_0:U_0\to V_0$ is a diffeomorphism.
+\end{wts}
+\begin{proof}
+    Trivial. See the regular inverse function theorem \Cref{rudin-chp4-theorem-9.24} on Euclidean space, and pass the argument back to the manifolds using coordinate charts.
+\end{proof}
+\begin{wts}[Rank Theorem for Manifolds]\label{lee-chp4:rank-theorem-for-manifolds}
+    Let $F:M\to N$ be a smooth map with constant rank $r$, then at every $p\in M$, there exists smooth charts $p\in (U,\phi)$ and $F(U)\subseteq(V,\psi)$, where the coordinate representation of $F$ takes the form
+    \begin{align}\label{lee-chp4:rank-theorem-regular-case-coordinate-representation}
+        \hat{F}(x) &= \begin{bmatrix}
+            \id{r\times r} & 0_{r\times m-r}\\
+            0_{n-r\times r} & 0_{n-r\times m-r}
+        \end{bmatrix}x, && \qq{or equivalently}\\[2ex]
+        \hat{F}(x^1,\ldots,x^r,x^{r+1},\ldots,x^m)&=(x^1,\ldots,x^r)
+    \end{align}
+\end{wts}
+\begin{proof}
+    Tedious. However, some techinques are worth remembering:
+    \begin{itemize}
+        \item Passing the argument to the Euclidean case as usual,
+        \item Shrink the sizes of coordinate balls and cubes respectively,
+        \item Suppose we are given a matrix of size $m\times n$, which has rank $r$, then we can attach a sub-matrix to make it square and invertible, then rehearse the usual arguments with the Inverse Function Theorems \Cref{rudin-chp4-theorem-9.24,lee-chp4:inverse-theorem-on-manifolds} to obtain a neighbourhood small enough that preserves the rank of the square matrix. Then pass the argument back to the smaller sub-matrix.
+    \end{itemize}
+\end{proof}
+\begin{corollary}[Rank Theorem for Manifolds - Special Cases]
+    Let $F: M\to N$ be a smooth map with constant rank. If $F$ is a smooth immersion, then \Cref{lee-chp4:rank-theorem-regular-case-coordinate-representation} takes the form:
+    \begin{align}\label{lee-chp4:rank-theorem-smooth-immersion-case-coordinate-representation}
+        \hat{F}(x) &= \begin{bmatrix}
+            \id{m\times m} \\
+            0_{n-m\times m} 
+        \end{bmatrix}x, && \qq{or equivalently}\\[2ex]
+        \hat{F}(x^1,\ldots,x^m)&=(x^1,\ldots,x^m,0\ldots,0)
+    \end{align}
+    If $F$ is a smooth submersion,
+    \begin{align}\label{lee-chp4:rank-theorem-smooth-submersion-case-coordinate-representation}
+        \hat{F}(x) &= \begin{bmatrix}
+            \id{n\times n} & 0_{n\times m-n}
+        \end{bmatrix}x, && \qq{or equivalently}\\[2ex]
+        \hat{F}(x^1,\ldots,x^n,x^{n+1},\ldots,x^m)&=(x^1,\ldots,x^n)
+    \end{align}
+    
+\end{corollary}
+\topheader{More on immersions and embeddings}
+\begin{wts}[Characterization of smooth immersions]\label{lee-chp4:characterization-smooth-immersion}
+    $F$ is a smooth immersion iff every point $p\in M$ has a neighbourhood $U\subseteq M$ where $F|U:U\to N$ is a smooth embedding.
+\end{wts}
+\begin{proof}
+    We will prove it for when $M$ and $N$ are smooth manifolds, see Lee for the full proof with boundary. It involves extending the argument by composing $F$ with an inclusion map. From Lemma 3.11 (Lee), if $a\in \partial\halfn$, then the differential of the inclusion map $\iota:\halfn\to\realn$ is a linear isomorphism between tangent spaces.
+    \[
+        d\iota_a:T_a\halfn\to T_a\realn,\quad \underbracket{T_a\halfn\cong T_a\realn}_{\text{isomorphic}}
+    \]
+    If for every $p\in M$, there exists a neighbourhood $U$ of $p$ with $F|U: U\to N$ a smooth embedding, then $dF|U_p$ has rank $m$, so $dF_p$ has rank $m$, and the differential is injective pointwise everywhere. Conversely, if $dF_p$ is a smooth immersion, the Rank Theorem (\Cref{lee-chp4:rank-theorem-for-manifolds}) tells us there exists connected neighbourhoods of $p$ and $F(p)$, where $F$ has coordinate representation in \Cref{lee-chp4:rank-theorem-smooth-immersion-case-coordinate-representation} with respect to an appropriate choice of coordinate charts centered at $p$, so $\hat{F}(\hat{p})=0\in\realn$. Let $\hat{p}\in \hat{U}$ and $\hat{F}(\hat{p})\in \hat{V}$, the proof then devolves into a linear-map problem. $\hat{F}$ given by the expression in \Cref{lee-chp4:rank-theorem-smooth-immersion-case-coordinate-representation} is clearly injective. Therefore it is bijective onto its range, its inverse is nothing but the map that removes the extra zeroes at the end. Therefore $F|U$ is a smooth embedding.
+\end{proof}
+\begin{definition}[Section of $\pi: M\to N$]\label{lee-chp4:section-of-continuous-map}
+   If $\pi: M\to N$ is a continuous map, a \emph{section of $\pi$} is a continuous right inverse for $\pi$, i.e $\sigma:N\to M$, $\sigma\in C(N,M)$, $\pi\circ\sigma=\id{N}$.\\
+
+   A \emph{local section for $\pi$} is a continuous function $\sigma$ from an open set $U\subseteq V$ into $M$ with $\pi\circ\sigma=\id{U}$. 
+\end{definition}
+
+\begin{wts}[Characterization of smooth submersion]\label{lee-chp4:characterization-of-smooth-submersion}
+    Let $\pi:M\to N$ be smooth, then $\pi$ is a smooth submersion iff every point of $M$ is in the image of a smooth local section of $\pi$.
+\end{wts}
+\begin{proof}
+    Suppose $\pi$ is a smooth submersion, and fix $p\in M$, by the Rank Theorem \Cref{lee-chp4:rank-theorem-for-manifolds}, and \Cref{lee-chp4:rank-theorem-smooth-submersion-case-coordinate-representation}, $\pi$ has the coordinate representation
+    \[
+        \hat{\pi}(x^1,\ldots,x^n,x^{n+1},x^m)=(x^1,x^n)
+    \]
+    between two open sets $U\subseteq M$ and $V\subseteq N$, (it really does not matter). Now, define
+    \[
+        \sigma: V\to M, (x^1,\ldots,x^n)\mapsto \underbracket{(x^1,x^n,0,\ldots,0)}_{\realm}\in U
+    \]
+    the charts by assumption are centered, and $\pi\circ\sigma$ is clearly smooth (check coordinatewise), so $\sigma$ reaches $p$. Conversely, recall if the composition of maps $(g\circ f)$ is a surjection, then $g$ is a surjection. Now, fix $p\in M$, this induces an open set $V$ containing $\pi(p)$, and a smooth local section $\sigma_V: V\to M$. By \Cref{ext:lee-chp3:properties-of-differential}
+\end{proof}\
+
+
+
+
+
+
+
+
+\newpage
+
 
 \newpage
 

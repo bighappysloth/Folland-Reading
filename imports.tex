@@ -32,6 +32,7 @@
     \renewcommand{\real}{\mathbb{R}}
     \providecommand{\realn}{{\mathbb{R}^n}}
     \providecommand{\realm}{{\mathbb{R}^m}}
+    \providecommand{\realk}{{\mathbb{R}^k}}
     \providecommand{\nat}{\mathbb{N}}
     \providecommand{\natplus}{\mathbb{N}^+}
     \newcommand{\integer}{\mathbb{Z}}
@@ -99,6 +100,9 @@
     \newcommand{\szz}{\mathcal{S}} % Schwartz Space
     \NewDocumentCommand{\cinf}{oo}{
   C^{\infty}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+}
+\NewDocumentCommand{\diffeo}{oo}{
+  {\mathcal{D}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
 }
     %\newcommand{\ccinf}{C_c^{\infty}} % We do not specify the domain
     \newcommand{\cnv}{\ast} % convolutions

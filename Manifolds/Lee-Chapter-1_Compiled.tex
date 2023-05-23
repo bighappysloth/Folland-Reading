@@ -103,7 +103,7 @@ We wish to perform calculus on manifolds.
     The maximal smooth atlas containing $(\realn,\id{\realn})$ is called the \emph{standard smooth structure on $\realn$}.
 \end{definition}
 
-Manifolds with boundary are not that important as regular manifolds, but they are worth mentioning.
+Manifolds with boundary are not as important as regular manifolds for now, but they are worth mentioning.
 \begin{definition}[Closed n-dimensional upper half-plane $\halfn\subseteq\realn$]\label{lee-chp1:upper-half-plane-definitions}
     We define the following symbols for the upper half plane.
     \begin{itemize}
@@ -237,7 +237,7 @@ The following propositions summarizes common operations on smooth maps, a few so
 \end{proof}
 
 \topheader{Partitions of Unity}
-See Folland Chapters 4 and 8. Including Urysohn's Lemma, Tietze extension, the usual construction of $\ccinf$ bump functions.
+See Folland Chapters 4 and 8. Including Urysohn's Lemma, Tietze's Extension Theorem, the usual construction of $\ccinf$ bump functions.
 \newpage
 
 \fchapter{3: Tangent Spaces}\newpage
@@ -284,11 +284,85 @@ The tangent space is a powerful concept that acts almost like the dual in distri
         T_p\realn = \bigset{\eval{\pdv{x^1}}_{p},\ldots,\eval{\pdv{x^n}}_{p}}
     \end{equation}
 \end{definition}
+
+\begin{definition}[Coordinate functions $x^j$ on $\realn$]
+    Let $x^1,\ldots x^n$ be the standard coordinates on $\realn$. If $1\leq j\leq n$, $x^j$ is a function (also represented by the same symbol as the standard coordinate) from $\realn$ to $\real$, which maps each $p = (p^1,\ldots,p^j,\ldots, p^n)$ to its $j$-th coordinate $p\mapsto p^j$.\\
+
+    This map is linear, hence smooth, has the matrix representation of $\mcal\{x^j\}=(\delta_{jk})_{1,k}\in \real^{1\times n}$ where $\delta_{jk}$ denotes the discrete mass at $j$.\\
+
+    Furthermore, the coordinate functions behave like the dual basis for the derivations $\eval{\partial/\partial x^j}_p$ at $p$
+    \[
+        \eval{\pdv{x^j}}_{p}(x^k) = \delta_{jk}
+    \]
+    If $\nu\in T_p\realn$, and has the basis representation
+    \[
+        \nu = \sum_{j}\nu^j\eval{\pdv{x^j}}_{p} = \nu^j\eval{\pdv{x^j}}_{p}
+    \]
+    then 
+    \begin{equation}\label{lee-chp3:derivation-in-realn-projection-using-coordinate-functions}
+        \nu = \sum_j \nu(x^j)\eval{\pdv{x^j}}_{p} = \nu(x^j)\eval{\pdv{x^j}}_{p}
+    \end{equation}
+\end{definition}
+
 \topheader{Differential of a smooth map $F\in \cinf[N,M]$}
+\begin{definition}[Differential of a smooth map $dF_p: T_pN\to T_{F(p)}M$]
+    Let $F\in\cinf[N,M]$, $p\in N$ and $\nu\in T_pN$ be a tangent vector at $p$. The differential of a smooth map is a linear map that sends tangent vectors in $T_pN$ to tangent vectors in $T_{F(p)}M$. If $f\in \cinf[M]$ is a test function on $M$, then $f\circ F$ is a test function on $N$, and
+    \[
+        dF_p(\nu)(f) = \nu\biggl(\underbracket{f\circ F}_{\cinf[N]}\biggr)
+    \]
+\end{definition}
+We state the following without proof, as the proof is tedious. It simply involves unboxing the definition of the differential $dF_p: T_pN\to T_p M$, and projecting onto the coordinates.
+\begin{wts}[Properties of the differential]\label{lee-chp3:properties-of-differential}
+    Let $N$, $M$ and $P$ be smooth manifolds, if $F\in\cinf[N,M]$, $G\in \cinf[M,P]$ then
+    \begin{itemize}
+        \item $dF_p$ is a linear map between $T_p$ and $T_{F(p)}N$,
+        \item $d(G\circ F)_p = dG_{F(p)}\circ dF_p$
+        \item $d({\id{N}})_p=\id{T_pN}$,
+        \item if $F\in\diffeo[N,M]$, then $dF_p$ is a linear isomorphism between $T_pN$ and $T_{F(p)}M$, and
+        \[
+            (dF_p)^{-1}=d(F^{-1})_{F(p)}
+        \]
+    \end{itemize}
+\end{wts}
 
+\begin{wts}[Matrix representation of the differential of $F: N\to M$]
+Let $F\in \cinf[N,M]$, and $p\in N$ induces two charts $p\in (U,\phi)$ and $F(p)\in(V\,\psi)$. The matrix representation of the differential at $p$, $dF_p: T_p N\to T_{F(p)}M$ is nothing but the Jacobian matrix of size $m\times n$ of the coordinate representation at $p$.
+\begin{equation}\label{lee-chap3:jacobian-matrix-representation}
+        \mcal\{dF_p\} = \begin{bmatrix}\eval{\pdv{\hat{F}^1}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^1}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^1}{x^n}}_{\phi(p)} \\[1em] \eval{\pdv{\hat{F}^2}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^2}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^2}{x^n}}_{\phi(p)} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{\hat{F}^m}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^m}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^m}{x^n}}_{\phi(p)}\end{bmatrix}
+\end{equation}
 
+Alternately, if we write $\hat{p} = \phi(p)$ as the $\realm$ coordinates at $p$, then
+
+\begin{equation}\label{lee-chap3:jacobian-matrix-representation-alternate}
+        \mcal\{dF_p\} = \begin{bmatrix}\eval{\pdv{\hat{F}^1}{x^1}}_{\hat{p}} & \eval{\pdv{\hat{F}^1}{x^2}}_{\hat{p}} & \cdots & \cdots & \eval{\pdv{\hat{F}^1}{x^n}}_{\hat{p}} \\[1em] \eval{\pdv{\hat{F}^2}{x^1}}_{\hat{p}} & \eval{\pdv{\hat{F}^2}{x^2}}_{\hat{p}} & \cdots & \cdots & \eval{\pdv{\hat{F}^2}{x^n}}_{\hat{p}} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{\hat{F}^m}{x^1}}_{\hat{p}} & \eval{\pdv{\hat{F}^m}{x^2}}_{\hat{p}} & \cdots & \cdots & \eval{\pdv{\hat{F}^m}{x^n}}_{\hat{p}}\end{bmatrix}
+\end{equation}
+\end{wts}
+
+\topheader{Differential of a smooth map $F\in\cinf[\realn,\realm]$}
+
+An important application of this is the following. We begin with the $\realm\to\realn$ case. We will see that if $p$ and $F(p)$ are represented by another pair of coordinate charts (smoothly compatible with the previous pair), then the rank of $dF_p$ does not change. So the rank of the differential is an invariant of the choice of coordinate chart.
+
+\begin{definition}[Matrix representation of the differential of $F:\realm\to\realn$]
+Let $F\in \cinf[\realm,\realn]$, and $p\in\realm$ induces two charts $p\in (U,\id{\realm})$ and $F(p)\in(V\,\id{\realn})$, where $U\subseteq\realm$ and $V\subseteq\realn$. The matrix representation of the differential at $p$, $dF_p: T_p\realm\to T_{F(p)}\realn$ is nothing but the Jacobian matrix of $F$ at $p$.
+
+\begin{equation}\label{lee-chap3:euclidean-differential-jacobian}
+    \mcal\{dF_p\} = DF(p) = \begin{bmatrix}
+        \eval{\pdv{F^1}{x^1}}_{p} & \eval{\pdv{F^1}{x^2}}_{p} & \cdots & \cdots & \eval{\pdv{F^1}{x^m}}_{p} \\[1em] \eval{\pdv{F^2}{x^1}}_{p} & \eval{\pdv{F^2}{x^2}}_{p} & \cdots & \cdots & \eval{\pdv{F^2}{x^m}}_{p} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{F^n}{x^1}}_{p} & \eval{\pdv{F^n}{x^2}}_{p} & \cdots & \cdots & \eval{\pdv{F^n}{x^m}}_{p}
+    \end{bmatrix}
+\end{equation}
+
+\end{definition}
+
+\topheader{Change of Coordinates Matrix}
 We will go through the section on the Change of Coordinates, and how different coordinate charts change the representation of a derivation at $p\in M$, where $M$ is some smooth  manifold.
-\begin{wts}
+\begin{definition}[Standard basis of $T_p N$]
+    From \cref{lee-chp2-diffeomorphism-properties}, since $\phi^{-1}$ is a diffeomorphism, $d\qty(\eval{\phi^{-1}}_{\phi(p)}): T_{\phi(p)}\realn\to T_p N$ is a linear isomorphism. Hence $T_p N$ is a $n$-dimensional vector space, and the standard basis vectors of $T_p\realn$ are denoted by
+    \begin{equation}
+        \bigset{\eval{\pdv{x^1}}_p,\ldots,\eval{\pdv{x^n}}_p}
+    \end{equation}
+    where each basis vector $\eval{\pdv{x^1}}_p\defined d\qty(\eval{\phi^{-1}}_{\phi(p)})$ is the push-forward derivation (through $\phi^{-1}$) of the $j$-th standard basis vector in $T_{\phi(p)}N$.
+\end{definition}
+\begin{wts}[Differential of $\psi\circ\phi^{-1}:M\to\ M$]
     Let $M$ be a smooth manifold, and fix $p\in M$. If $\nu\in T_pM$ is given with respect to the bases
     \[
         \bigset{\eval{\pdv{x^1}}_{p},\ldots,\eval{\pdv{x^m}}_{p}}\qq{and}\bigset{\eval{\pdv{y^1}}_p,\ldots,\eval{\pdv{y^m}}_{p}}
@@ -331,34 +405,13 @@ We will go through the section on the Change of Coordinates, and how different c
     It follows from Proposition 3.6d) that the matrix $\eval{D(\psi\circ\phi^{-1})}_{\phi(p)}$ is invertible, as $\psi\circ\phi^{-1}$ is a diffeomorphism.
 \end{proof}
 
-An important application of this is the following. We begin with the $\realm\to\realn$ case. We will see that if $p$ and $F(p)$ are represented by another pair of coordinate charts (smoothly compatible with the previous pair), then the rank of $dF_p$ does not change. So the rank of the differential is an invariant of the choice of coordinate chart.
-
-\begin{definition}[Matrix representation of the differential of $F:\realm\to\realn$]
-Let $F\in \cinf[\realm,\realn]$, and $p\in\realm$ induces two charts $p\in (U,\id{\realm})$ and $F(p)\in(V\,\id{\realn})$, where $U\subseteq\realm$ and $V\subseteq\realn$. The matrix representation of the differential at $p$, $dF_p: T_p\realm\to T_{F(p)}\realn$ is nothing but the Jacobian matrix of $F$ at $p$.
-
-\begin{equation}\label{lee-chap3:euclidean-differential-jacobian}
-    \mcal\{dF_p\} = DF(p) = \begin{bmatrix}
-        \eval{\pdv{F^1}{x^1}}_{p} & \eval{\pdv{F^1}{x^2}}_{p} & \cdots & \cdots & \eval{\pdv{F^1}{x^m}}_{p} \\[1em] \eval{\pdv{F^2}{x^1}}_{p} & \eval{\pdv{F^2}{x^2}}_{p} & \cdots & \cdots & \eval{\pdv{F^2}{x^m}}_{p} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{F^n}{x^1}}_{p} & \eval{\pdv{F^n}{x^2}}_{p} & \cdots & \cdots & \eval{\pdv{F^n}{x^m}}_{p}
-    \end{bmatrix}
-\end{equation}
-
-\end{definition}
 
 
-\begin{definition}[Matrix representation of the differential of $F: M\to N$]
-Let $F\in \cinf[M,N]$, and $p\in M$ induces two charts $p\in (U,\phi)$ and $F(p)\in(V\,\psi)$. The matrix representation of the differential at $p$, $dF_p: T_p N\to T_{F(p)}N$ is nothing but the Jacobian matrix of the coordinate representation at $p$.
-\begin{equation}\label{lee-chap3:jacobian-matrix-representation}
-        \mcal\{dF_p\} = \begin{bmatrix}\eval{\pdv{\hat{F}^1}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^1}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^1}{x^m}}_{\phi(p)} \\[1em] \eval{\pdv{\hat{F}^2}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^2}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^2}{x^m}}_{\phi(p)} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{\hat{F}^n}{x^1}}_{\phi(p)} & \eval{\pdv{\hat{F}^n}{x^2}}_{\phi(p)} & \cdots & \cdots & \eval{\pdv{\hat{F}^n}{x^m}}_{\phi(p)}\end{bmatrix}
-\end{equation}
 
-Alternately, if we write $\hat{p} = \phi(p)$ as the $\realm$ coordinates at $p$, then
 
-\begin{equation}\label{lee-chap3:jacobian-matrix-representation-alternate}
-        \mcal\{dF_p\} = \begin{bmatrix}\eval{\pdv{\hat{F}^1}{x^1}}_{\hat{p}} & \eval{\pdv{\hat{F}^1}{x^2}}_{\hat{p}} & \cdots & \cdots & \eval{\pdv{\hat{F}^1}{x^m}}_{\hat{p}} \\[1em] \eval{\pdv{\hat{F}^2}{x^1}}_{\hat{p}} & \eval{\pdv{\hat{F}^2}{x^2}}_{\hat{p}} & \cdots & \cdots & \eval{\pdv{\hat{F}^2}{x^m}}_{\hat{p}} \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \vdots & \vdots & \vdots & \vdots & \vdots \\[1em] \eval{\pdv{\hat{F}^n}{x^1}}_{\hat{p}} & \eval{\pdv{\hat{F}^n}{x^2}}_{\hat{p}} & \cdots & \cdots & \eval{\pdv{\hat{F}^n}{x^m}}_{\hat{p}}\end{bmatrix}
-\end{equation}
-\end{definition}
 
-\begin{wts}\label{lee-chap3:rank-of-differential-invariant-under-coordinate-change}
+
+\begin{wts}[Rank of a $dF_p$ is invariant under coordinate change]\label{lee-chap3:rank-of-differential-invariant-under-coordinate-change}
     Let $F$ be a smooth map between $M$ and $N$, at every $p\in M$, $\rank dF_p$ is an invariant over (smoothly compatible) pairs of charts in $M$ and $N$.
 \end{wts}
 \begin{proof}

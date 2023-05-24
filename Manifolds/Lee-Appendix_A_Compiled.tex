@@ -15,7 +15,357 @@
 \providecommand{\Bxy}{\borel_{\xx\times\yy}}
 
 
-\fchapter{A: Review of Topology}
+\fchapter{A: Review of Topology}\newpage
+
+\topheader{Topological Spaces}
+
+This section will roughly follow Munkres text on Geeneral Topology, in particular we hope to cover Chapters 2, 3, 4 and 9. The rest of the Chapters should be covered proper by the subsequent section.
+
+
+\begin{definition}[Topology]\label{chp4:topology-definition}
+    Let $\xx$ be a non-empty set. A topology $\Tau$ on $\xx$, sometimes denoted by $\Tau_\xx$ is a family of subsets of $\xx$, 
+\begin{itemize}
+    \item $\{\varnothing,\xx\}\subseteq \Tau$,
+    \item If $U_1$ and $U_2$ are elements of $\Tau$, so is their intersection.
+    \item If $\{U_\alpha\}$ is an arbitrary family of sets in $\Tau$, their union is also contained in $\Tau$ as an element.
+\end{itemize}
+We call the elements of $\Tau$ open sets. The complements of elements in $\Tau$ are closed sets.
+\end{definition}
+
+\newpage
+
+
+\topheader{Basis of a Topology}
+
+\begin{definition}[Basis of a topology]\label{chp4:basis-definition}
+    A basis $\borel$ is a family of subsets of $\xx$, that satisfies:
+    \begin{itemize}
+        \item Every $x\in\xx$ belongs (as an element) in some $V\in\borel$.
+        \item If $B_1$ and $B_2$ are basis elements, such that their intersection is non-empty. Then every $x\in B_1\cap B_2$ induces a $B_3\in\borel$ with 
+        \[
+            x\in B_3\subseteq B_1\cap B_2
+        \]
+    \end{itemize}
+    This roughly means a basis is 'finitely' fine at every point in $x$.
+\end{definition}
+
+If $\borel$ is a basis, it 'generates' a topology $\Tau$ through
+
+\begin{equation}\label{chp4:basis-generates-topology}
+    \Tau = \bigset{U\subseteq\xx,\: \forall x\in U,\: x \in B\subseteq U \text{ for some } B \in \borel}
+\end{equation}
+
+Notice this is equivalent to $\Tau$ is the collection of all unions of basis elements in $\borel$.
+
+\begin{wts}
+    Let $\borel$ be a basis as defined in \Cref{chp4:basis-definition}, then $\Tau$ as defined in \Cref{chp4:basis-generates-topology} is a valid topology on $\xx$. And every member of $\Tau$ is and is precisely the union of elements in $\borel$.
+\end{wts}
+\begin{proof}
+    Every point in $\xx$ belongs in some basis element, so $\xx\in\Tau$, so does $\varnothing$. Next, if $U_1$ and $U_2$ are in $\Tau$, then 
+    \[
+        \begin{cases}
+            x\in U_1\induces x\in B_1\subseteq U_1\\
+            x\in U_2\induces x\in B_2\subseteq U_2\\
+        \end{cases}\implies x\in B_3\subseteq B_1\cap B_2\subseteq U_1\cap U_2
+    \]
+    for some $B_3\in\borel$, so $\Tau$ is closed under finite intersections (perhaps after a standard induction argument).\\
+
+    If $\{U_\alpha\}\subseteq \Tau$, and $x$ belongs in the union of all $U_\alpha$, then $x\in B_\alpha\subseteq U_\alpha$, which is a subset of the entire union. So the union over $U_\alpha$ is again contained in $\Tau$, and $\Tau$ is a topology on $\xx$.\\
+
+    It is worth noting that $\borel\subseteq\Tau$. Finally, if $U\in\Tau$, 
+    \[
+        U = \bigcup_{x\in U}B_x
+    \]
+    where $B_x$ is the basis element taken to satisfy $x\in B_x\subseteq U$. Every point in $U$ is included in some $B_x$, and hence is included in the union. For the reverse inclusion, notice the union of subsets of $U$ is again a subset of $U$. \\
+    
+    Now, if $E\subseteq\xx$ is the union of basis elements in $\borel$, if $E$ is non-empty, then every point $x\in E$ belongs in some $B_x$. Recycling the previous argument, and we see that $E$ is open in $\Tau$. If $E$ is empty, we define the 'union' of no sets as the empty set. So $\Tau$ is precisely the collection of all unions of basis elements $\borel$.
+\end{proof}
+\newpage
+
+We are now in a position to compare the relative 'fineness' of topologies.
+
+\begin{definition}[Fineness of topologies]\label{chp4:finer-toplogies}
+    If $\Tau'$ and $\Tau$ are both topologies on some non-empty set $\xx$. We say $\Tau'$ is finer than $\Tau$, or $\Tau$ is coarser than $\Tau'$ if 
+    \[
+        \Tau'\supseteq \Tau
+    \]
+\end{definition}
+
+\begin{wts}\label{chp4:basis-finer-topology-finer}
+    If $\borel$ and $\borel'$ are bases for $\Tau'$ and $\Tau$, the following are equivalent:
+    \begin{itemize}
+        \item $\Tau'$ is finer than $\Tau$,
+        \item If $B$ is an arbitrary basis element in $\borel$, then every point $x\in B$ induces a basis element in $\borel'$ with
+        \[
+            x\in\borel'\subseteq\borel
+        \]
+    \end{itemize}
+\end{wts}
+\begin{proof}
+    Suppose $\Tau'$ is finer than $\Tau$. Notice $\borel\subseteq\Tau'$ as well. By \Cref{chp4:basis-generates-topology}, each $x\in B$ induces a $B'\in\borel'$
+    \[
+        x\in B'\subseteq B
+    \]
+    Conversely, fix any open set $U\in\Tau$, and for each $x\in U$, 
+    \[
+        x\in B'\subseteq B\subseteq U
+    \]
+    Applying \Cref{chp4:basis-definition} tells us $U$ is open in $\Tau'$.
+\end{proof}
+\newpage
+
+The last of the big three 'generating' definitions for topologies will be the sub-basis. It simply means the first condition (but not necessarily) the second, is satisfied in \Cref{chp4:basis-definition}
+\begin{definition}[Sub-basis of a topology]\label{chp4:sub-basis-definition}
+    A sub-basis $S\in\powerset{\xx}$ is a family of subsets of $\xx$ that satisfies one property. Any point $x$ in $\xx$ belongs to at least one member of $S$.
+\end{definition}
+A sub-basis can be upgraded to a basis by collecting all of its finite intersections.
+\begin{wts}
+    Let $S$ be a sub-basis of $\xx$, then the collection of all finite intersections of $S$ forms a basis $\borel$ of $\xx$.
+\end{wts}
+\begin{proof}
+    Every point in $\xx$ lies in some element of $S$, hence in some element of $\borel$. The second basis property is immediate, since $\borel$ is closed under finite intersections.
+\end{proof}
+\newpage
+
+\topheader{Product Topology}
+We will start with products of a finite collection of topological spaces.
+\begin{definition}[Finite Product of Topological Spaces]\label{chp4:finite-product-topology}
+    Let $(\xx,\Tau_\xx)$ and $(\yy,\Tau_\yy)$ be topological spaces. The product topology (denoted by $\Tauxy$) on $X\times Y$ is defined as the topology generated by the basis
+
+    \begin{equation}\label{chp4:finite-product-basis}
+        \borel_{\xx\times \yy} = \bigset{U\times V,\: (U, V)\in \Tau_\xx\times \Tau_\yy}
+    \end{equation}
+\end{definition}
+Since bases are easier to describe than topologies, we have the following statement concerning the basis of the product topology.
+\begin{wts}
+    If $\Bx$ and $\By$ are bases for $\Taux$ and $\Tauy$, then the product topology (as described in \Cref{chp4:finite-product-topology}) is also generated by
+    \begin{equation}\label{chp4:finite-product-basis2}
+        \mcal = \bigset{U\times V,\: (U,V)\in\Bx\times \By}
+    \end{equation}
+\end{wts}
+\begin{proof}
+    We will introduce (and use) the technique of 'double inclusion' by proving that the topologies generated are both finer than the other. Let us denote the topology generated by $\mcal$ in \Cref{chp4:finite-product-basis2} by $\Tau_\mcal$.\\
+    
+    Since $\Bx\times\By\subseteq\Taux\times\Tauy$, if $U\times V\in \mcal$ as in \Cref{chp4:finite-product-basis2}, then we can pick the same 'open rectangle' again. We trivially have
+    \[
+        x\in \underbrace{U\times V}_{\text{member of } \Taux\times\Tauy}\subseteq U\times V
+    \]
+    and by \Cref{chp4:basis-finer-topology-finer}, $\Tauxy$ is finer than $\Tau_\mcal$.\\
+
+    Fix any set $U\times V\in\Bxy$, and if $(p,q)\in U\times V$, each coordinate induces basis elements from $\Bx$ and $By$, more precisely:
+    \[
+        \begin{cases}
+            p\in U\implies p\in \text{Basis element of } \Bx\subseteq U\\
+            q\in V\implies q\in \text{Basis element of } \By\subseteq V\\
+        \end{cases}\implies (p,q)\in \underbrace{\:}_{\text{ in }\Bx}\times \underbrace{\:}_{\text{ in }\By}\subseteq U\times V
+    \]
+    by \Cref{chp4:basis-finer-topology-finer}, $\Tau_\mcal$ is finer than $\Tauxy$ and $\Tauxy = \Tau_\mcal$.
+\end{proof}
+
+
+
+
+
+\newpage
+
+\topheader{Quotient Topology}
+
+
+
+
+\newpage
+
+\topheader{Product Topology}
+
+The Cartesian Product of an arbitrary family of topological spaces, if equipped with the product topology, preserves a lot of the structure. If $\{X_\alpha\}_{\alpha\in A}$ is a family of topological spaces which are $\rule{1cm}{0.15mm}$, then $\prod X_\alpha$ is $\rule{1cm}{0.15mm}$. Replace $\rule{1cm}{0.15mm}$ with: 
+
+\begin{enumerate}
+    \item Hausdorff, (Folland)
+    \item Regular,
+    \item Connected, (Munkres chp23, exercise 10)
+    \item First countable, if $A$ is countable,
+    \item Second countable, if $A$ is countable,
+    \item Compact (Tynchonoff's Theorem, Folland)
+\end{enumerate}
+
+\newpage
+
+\topheader{Connectedness}
+
+\begin{definition}[Connectedness]\label{chp4:connectedness-definition}
+    A topological space $\xx$ is connected if $U$ and $V$ are disjoint open subsets whose union is $\xx$, then at least one of $U$ or $V$ is empty.
+\end{definition}
+See Folland Exercise 4.10 for more properties.
+
+\begin{definition}[Path-connectedness]\label{chp4:path-connectedness-definition}
+    A topological space $\xx$ is path-connected if for any two pair of points $x$, $y\in\xx$. There exists a continuous function $f:[a,b]\to \xx$, with $f(a)=x$ and $f(b)=y$.
+\end{definition}
+
+\begin{definition}[Connected component]\label{chp4:connected-component-definition}
+    The connected components of $\xx$ is the family of equivalence classes on $\xx$, where $x\sim y$ if there is a connected subspace of $\xx$ that contains both of them.
+\end{definition}
+
+
+\begin{wts}
+    Continuous functions map connected spaces to connected spaces (in the subspace topology).
+\end{wts}
+\begin{proof}
+    Let $\xx$ and $\yy$ be topological spaces and $f: \xx\to\yy$ be continuous. If $f(\xx)$ is disconnected, then we can find $U$ and $V$, open and disjoint in $\Tau_{f(\xx)}$ such that
+    \[
+        U\cup V = f(\xx)\implies f^{-1}(U)\cup f^{-1}(V) = \xx
+    \]
+    where $f^{-1}(f(\xx)) = \xx$. Both $f^{-1}(U)$ and $f^{-1}(V)$ are open, non-empty, and are pairwise disjoint. So $\xx$ is separated.
+\end{proof}
+
+\begin{wts}
+    Let $(\xx_\alpha,\: \Tau_{\alpha})$ be a family of connected topological spaces indexed by $\alpha\in A$. Then $\prod_{\alpha\in A}\xx_\alpha$ is disconnected in the product topology.
+\end{wts}
+\begin{proof}
+    We will attempt the contrapositive. Suppose $\prod_{\alpha\in A}\xx_\alpha$ is disconnected, then
+\end{proof}
+
+
+
+\topheader{Interiors and closures}
+\begin{definition}[Interior of a set]\label{chp4:interior-definition}
+    $A^o$ is defined to be the largest open subset of $A$, 
+    \[
+        A^o = \bigcup_{\mathclap{\substack{\text{$U$ open, }\\ U\subseteq A}}} U
+    \]
+\end{definition}
+\begin{corollary}\label{chp4:interior-subset}
+    The union of subsets of $A$ is again a subset of $A$, therefore \Cref{chp4:interior-subset} implies $A^o\subseteq A$ for any $A\subseteq \xx$. 
+\end{corollary}
+
+%%%%
+
+\begin{definition}[Closure of a set]\label{chp4:closure-definition}
+    and $\cl{A}$ is the smallest closed superset of $A$,
+    \[
+        \cl{A} = \bigcap_{\mathclap{\substack{\text{$K$ closed, }\\ A\subseteq K}}} K
+    \]
+\end{definition}
+
+
+%%%%
+\begin{wts}\label{chp4:flipping-interior-to-closure}
+    The complement of the closure is the interior of the complement, or equivalently: $(\cl{A})^c = A^{co}$
+\end{wts}
+\begin{proof}
+    Taking complements, and the substitution $U = K^c$ reads
+    \begin{align*}
+        (\cl{A})^c &= \biggl[\bigcap_{{\substack{\text{$K$ closed, }\\ A\subseteq K}}} K \biggr]^c\\[2ex]
+        &= \bigcup_{\mathclap{\substack{\text{$K$ closed, }\\ K^c\subseteq A^c}}} K^c\\[2ex]
+        &= \bigcap_{\mathclap{\substack{\text{$U$ open, }\\ U\subseteq A^c}}} U\\[2ex]
+        &= A^{co}
+    \end{align*}
+\end{proof}
+\begin{remark}
+    Personally, I remember this as pushing the complement inside and flipping the bar to a $c$!
+\end{remark}
+
+\newpage
+\topheader{Neighbourhoods}
+The concept of a neighbourhood allows us to characterize the interior of a set 'locally'.
+% Neighbourhoods, use Folland Definition
+\begin{definition}[Neighbourhood (not necessarily open)]\label{chp4:neighbourhood-definition}
+    A neighbourhood of $x\in\xx$ is a set $U\subseteq\xx$ where $x\in U^o$. The set of neighbourhoods for a point $x\in\xx$ will sometimes be denoted by $\N(x)$.
+\end{definition}
+\begin{wts}[Characterization of the interior]
+    If $W = \bigset{x\in\xx, \: \text{there exists a neighbourhood $U$ of $x$,}\: U\subseteq A}$, then $W = A^o$.
+\end{wts}
+\begin{proof}
+    If $x\in A^o$, then $A$ is a neighbourhood of $x$, and $A\subseteq A$, so $x\in W$. Conversely, if $x$ is a member of $W$, it has a neighbourhood $U\subseteq A$ (not necessarily open). By monotonicity of the interior,
+    \[
+        x\in U^o\subseteq A^o
+    \]
+    and $x\in A^o$.
+\end{proof}
+It is easy to see that $A$ is open $\iff A^o = A \iff A$ is a neighbourhood of itself. 
+\begin{itemize}
+    \item The first equivalence follows from:
+    \[
+        E\subseteq\xx\implies E^o\subseteq E
+    \]
+    and if $A$ is an open set, it is an open subset of itself, by \Cref{chp4:interior-subset} $A\subseteq A^o$. If $A^o = A$, then it suffices to show that $A^o$ is open. Which it is, since it is the arbitrary union of open sets.
+    \item To prove the second equivalence: suppose $A^o = A$, then each $x\in A$ has a neighbourhood contained (as a subset) in $A$, namely $A$ itself. (This statement is hard to parse, the reader is encouraged to really work through this and be honest).
+    \[
+        x\in A^o\subseteq A\implies A\subseteq A^o
+    \]
+    so $A$ is a neighbourhood of itself. Conversely, if $A\subseteq A^o$, then $A = A^o$, since the reverse inclusion follows immediately from \Cref{chp4:interior-subset}.
+\end{itemize}
+
+\newpage
+\topheader{Adherent points}
+Similar to the neighbourhood, the concept of an adherent point of a set allows us to speak of the closure in more concrete terms. The following definition is key in understanding the relationship between the closure, interior, and the boundary.
+\begin{definition}[Adherent point of a set]\label{chp4:adherent-point-definition}
+    Let $A\subseteq\xx$, $x\in\xx$ is an adherent point of $A$ if every neighbourhood $U$ of $x$ intersects $A$. In symbols,
+    \[
+        U\cap A\neq\varnothing,\quad\forall U\in\N{x}
+    \]
+\end{definition}
+\begin{wts}[Characterization of the closure]\label{chp4:closure-adherent}
+    Let $A\subseteq X$, and let $W$ be the set of adherent points of $A$, then $\cl{A}=W$
+\end{wts}
+\begin{proof}
+    Suppose $x\notin W$, then there exists a neighbourhood $U$ of $x$ where
+    \[
+        U\cap A=\varnothing\iff U\subseteq A^c
+    \]
+    this is exactly the definition of the interior of $A^c$, so $x\in A^{co}$ and recall (from \Cref{chp4:flipping-interior-to-closure}) that $(\cl{A})^c = A^{co}$, so $x\notin \cl{A}$. For the reverse inclusion, read the proof backwards, by flipping $\forall\to\exists$ within the set, and we see that
+    \[
+        W^c = A^{co} = (\cl{A})^c
+    \]
+\end{proof}
+
+\newpage
+
+\topheader{Dense and nowhere dense subsets}
+\begin{definition}[Dense subset]\label{chp4:dense-definition}
+    A subset of a topological space $E\subseteq\xx$ is dense if $\cl{E} = \xx$.
+\end{definition}
+
+\begin{definition}[Nowhere dense subset]\label{chp4:nowhere-dense-definition}
+    A subset of a topological space $E\subseteq\xx$ is nowhere dense if $\cl{E}^o = \varnothing$.
+    
+    This means $E$ is dense in none of the (non-trivial) open subspaces of $\xx$.
+\end{definition}
+
+\begin{wts}\label{chp4:dense-equivalences}
+    $E$ is dense in $\xx$ iff for every non-empty, open set $U\subseteq\xx$, $U\cap E\neq\varnothing$.
+\end{wts}
+\begin{proof}[Proof of \Cref{chp4:dense-equivalences}]
+    Suppose $E$ is dense, then $\cl{E}=\xx$. Every point of $\xx$ is an adherent point of $E$. Let $U\subseteq \xx$ be a non-empty open set. If $x\in U$ then $U$ is a neighbourhood of $x$, thus $U$ intersects $E$. Conversely, suppose every non-empty open set $U$ intersects $E$. Fix any point $x\in\xx$, and any neighbourhood $U$ of $x$. $U$ has a non-empty interior (because it must contain $x$). But $U^o$ is a non-empty open set, therefore $\varnothing\neq U^o\cap E\subseteq U\cap E$
+\end{proof}
+
+\begin{wts}\label{chp4:nowhere-dense-homeomorphisms}
+    Let $f:\xx\to\xx$ be a homeomorphism. $E$ is nowhere dense iff $f(E)$ is nowhere dense.
+\end{wts}
+\begin{proof}
+    Since $f^{-1}$ is a homeomorphism, suppose $\cl{f^{-1}(E)}^o\neq\varnothing$, there exists a non-empty, open subset $U\subseteq\xx$ with
+    \[
+        \cl{f^{-1}(E)}\cap U = U
+    \]
+    The direct image yields 
+    \[
+        f\biggl((\cl{f^{-1}(E)})\cap U\biggr) = f(U)
+    \]
+    since $f$ is a bijection (injectivity is necessary here), it commutes with intersections.
+    \begin{equation}\label{chp4:nowhere-dense-direct-image}
+        f(\cl{f^{-1}(E)})\cap f(U) = f\biggl((\cl{f^{-1}(E)})\cap U\biggr) = f(U)
+    \end{equation}
+    and $f$ is continuous, so $f(\cl{A})\subseteq\cl{f(A)}$ for any $A\subseteq\xx$. For the reverse inclusion, $f$ is a closed map, so $f(\cl{A})$ is a closed superset of $f(A)$ so 
+    \[
+        f(\cl{A}) = \cl{f(A)}
+    \]
+    Take $A = f^{-1}(E)$, and $f(\cl{f^{-1}(E)}) = \cl{f(f^{-1}(E))} = \cl{E}$. From \cref{chp4:nowhere-dense-direct-image}, we see that
+    \[
+        \cl{E}\cap f(U) = f(U)
+    \]
+    $f(U)$ is a non-empty open subset of $\xx$, since $f$ is an open map, so $E$ is not no-where dense. The reverse implication can be proven by replacing $f$ with $f^{-1}$.
+\end{proof}
+
+\topheader{Urysohn's Lemma}
 \begin{wts}[Folland Theorem 4.14]
     Suppose that $A$ and $B$ are disjoint closed subsets of the normal space $X$, and let $\Delta = \{k2^{-n}: n\geq 1 \text{ and } 0<k<2^n\}$ be the set of dyadic rationals in $(0,1)$. There is a family $\{U_r:r\in\Delta\}$ of open sets such that
     \begin{enumerate}
@@ -233,34 +583,6 @@ Compactness is one of the most important concepts in topology and analysis.
     Compact Hausdorff spaces are normal, compact subsets of Hausdorff spaces are closed, and closed subsets of compact sets are again compact. 
 \end{wts}
 
-\newpage
-
-\topheader{Locally Compact Hausdorff Spaces}
-Compactness is an intrinsic topological property (in the subspace topology). We see from Proposition 4.25 that compact Hausdorff spaces are normal, which gives a sufficient condition for us to approximate and extend any continuous function; and allows us to extend certain 'local' properties to 'global' properties. \\
-
-If given a Hausdorff space, not necessarily compact, the natural question is to ask 1) whether a topological space has 'enough' compact subsets to work with, and 2) whether we can embed a given topological space in a larger one to force it to be compact.
-
-\begin{definition}[LCH space]\label{chp4:LCH-definition}
-    Let $\xx$ be a Hausdorff space. We call $\xx$ a LCH space if every point $p\in\xx$ admits a compact neighbourhood. That is, a compact set $K$ whose interior contains $p$.
-\end{definition} 
-
-We note in passing that the above definition differs slightly from the usual 'local' definitions.
-
-\begin{definition}[Locally connected]\label{chp4:locally-connected-definition}
-    Let $\xx$ be a topological space, it is locally connected if for every $x\in\xx$, and open neighbourhood $U$ containing $x$, there exists a connected, open neighbourhood $V$ of $x$ such that $x\in V\subseteq U$.
-\end{definition}
-
-\begin{definition}[Locally path-connected]\label{chp4:locally-path-connected-definition}
-    Let $\xx$ be a topological space, it is locally connected if for every $x\in\xx$, and open neighbourhood $U$ containing $x$, there exists a path-connected, open neighbourhood $V$ of $x$ such that $x\in V\subseteq U$.
-\end{definition}
-
-\begin{definition}[Local homeomorphism]\label{chp4:locally-homeomorphic-definition}
-    $\xx$ locally homeomorphic to $\realn$ if every point $x\in\xx$ belongs to a coordinate chart $(U,\phi)$, where $U$ is an open neighbourhood of $x$ and $\phi$ is a homeomorphism from $U\to\phi(U)\subseteq\realn$.
-\end{definition}
-
-\begin{definition}[Local diffeomorphism]\label{lee-chp4:local-diffeomorphism-definition}
-    Let $M$ be a smooth manifold and $F\in \cinf[M,N]$. $F$ is a local diffeomorphism if every $p\in M$ in its domain induces a neighbourhood $U\subseteq M$ with $F|U:U\to F(U)$ is a diffeomorphism (in the sense of two open sub-manifolds).
-\end{definition}
 
 
 
@@ -445,9 +767,6 @@ Finally, if $A$ and $B$ are disjoint compact sets, then each $x\in A\subseteq B^
 are disjoint open sets that contain $A$ and $B$ respectively.
 
 
-
-
-
 \end{proof}
 
 \newpage
@@ -482,6 +801,36 @@ are disjoint open sets that contain $A$ and $B$ respectively.
 \begin{proof}[Proof of \Cref{lee-appendix-A.45} Part I]
     Let $\xx$ and $\yy$ be topological spaces and $\pi: \xx\to\yy$ be a quotient map. So that $\yy$ is endowed with the quotient topology. So that $\pi$ is a surjective continuous map. and $\pi(\xx)=\yy$. Apply Part A, and we see that $\yy$ is compact.
 \end{proof}
+
+\newpage
+
+\topheader{Locally Compact Hausdorff Spaces}
+Compactness is an intrinsic topological property (in the subspace topology). We see from Proposition 4.25 that compact Hausdorff spaces are normal, which gives a sufficient condition for us to approximate and extend any continuous function; and allows us to extend certain 'local' properties to 'global' properties. \\
+
+If given a Hausdorff space, not necessarily compact, the natural question is to ask 1) whether a topological space has 'enough' compact subsets to work with, and 2) whether we can embed a given topological space in a larger one to force it to be compact.
+
+\begin{definition}[LCH space]\label{chp4:LCH-definition}
+    Let $\xx$ be a Hausdorff space. We call $\xx$ a LCH space if every point $p\in\xx$ admits a compact neighbourhood. That is, a compact set $K$ whose interior contains $p$.
+\end{definition} 
+
+We note in passing that the above definition differs slightly from the usual 'local' definitions.
+
+\begin{definition}[Locally connected]\label{chp4:locally-connected-definition}
+    Let $\xx$ be a topological space, it is locally connected if for every $x\in\xx$, and open neighbourhood $U$ containing $x$, there exists a connected, open neighbourhood $V$ of $x$ such that $x\in V\subseteq U$.
+\end{definition}
+
+\begin{definition}[Locally path-connected]\label{chp4:locally-path-connected-definition}
+    Let $\xx$ be a topological space, it is locally connected if for every $x\in\xx$, and open neighbourhood $U$ containing $x$, there exists a path-connected, open neighbourhood $V$ of $x$ such that $x\in V\subseteq U$.
+\end{definition}
+
+\begin{definition}[Local homeomorphism]\label{chp4:locally-homeomorphic-definition}
+    $\xx$ locally homeomorphic to $\realn$ if every point $x\in\xx$ belongs to a coordinate chart $(U,\phi)$, where $U$ is an open neighbourhood of $x$ and $\phi$ is a homeomorphism from $U\to\phi(U)\subseteq\realn$.
+\end{definition}
+
+\begin{definition}[Local diffeomorphism]\label{lee-chp4:local-diffeomorphism-definition}
+    Let $M$ be a smooth manifold and $F\in \cinf[M,N]$. $F$ is a local diffeomorphism if every $p\in M$ in its domain induces a neighbourhood $U\subseteq M$ with $F|U:U\to F(U)$ is a diffeomorphism (in the sense of two open sub-manifolds).
+\end{definition}
+
 
 \end{document}
 

@@ -229,7 +229,7 @@ The following propositions summarizes common operations on smooth maps, a few so
     \begin{itemize}
         \item The composition of diffeomorphisms is again a diffeomorphism, that is, if $F\in \diffeo[N,M]$ and $G\in \diffeo[M,P]$, then $(G\circ F)\in \diffeo[N,P]$.
         \item The open-manifold restriction of a diffeomorphism onto its image is again a diffeomorphism,
-        \item Every diffeomorphism is a homeomorphism and an oepn map.
+        \item Every diffeomorphism is a homeomorphism and an open map.
     \end{itemize}
 \end{wts}
 \begin{proof}
@@ -247,7 +247,7 @@ The tangent space is a powerful concept that acts almost like the dual in distri
     Let $N$ be a smooth manifold and $p\in N$. We define an equivalence relation on the space of test functions on $N$, $\cinf[N]$. If $f,g\in\cinf[N]$, we write $f\sim g$ if $f=g$ for some open neighbourhood about $p$. We denote this equivalence class by $C_p^\infty(N)$, and it is clear $\cinf[N]$ is closed under pointwise multiplication by the product rule, and form an algebra; so $C_p^\infty(N)$ is an algebra too.
 \end{definition}
 
-\topheader{Tangent space at $p$: $T_p N$}
+\topheader{Tangent spaces of manifolds}
 \begin{definition}[Vector space of derivations at $p$: $T_p N$]\label{lee-chp3:vector-space-of-derivations-at-p}
     Let $\nu: C_p^\infty(N)\to\real$ be a linear functional on the vector space of germs at $p$. It is called a derivation at $p$ if it satisfies the product rule, if $f,g\in C_p^\infty(N)$, 
     \[
@@ -269,7 +269,7 @@ The tangent space is a powerful concept that acts almost like the dual in distri
     \end{itemize}
 \end{wts}
 
-\topheader{Tangent space in $\realn$}
+\topheader{Tangent spaces of $\realn$}
 
 \begin{wts}[Basis of $T_p\realn$]
     Let $\realn$ be equipped with the standard smooth structure as in \Cref{lee-chp1:standard-smooth-structure-realn}. The vector space of derivations at $p\in\realn$ are spanned by the $n$ partial derivatives at $p$
@@ -458,7 +458,7 @@ Before proving the inverse function theorem, we will need several Lemmas
     \]
 \end{proof}
 \begin{wts}[Rudin Theorem 9.19]\label{rudin-chp9-theorem-9.19}
-    Let $f$ map a convex open set $U\subseteq\realn$ into $\realm$, if $f$ is differentiable (pointwise) in $U$, and there exists some $M$ st its derivative its founded (in the operator norm)
+    Let $f$ map a convex open set $U\subseteq\realn$ into $\realm$, if $f$ is differentiable (pointwise) in $U$, and there exists some $M$ st its derivative its bounded (in the operator norm)
     \[
         \norm{Df(x)}\leq M\quad x\in U
     \]
@@ -649,7 +649,7 @@ Before proving the inverse function theorem, we will need several Lemmas
 Finally, $Df|U: U\to GL(n,\real)$ is a continuous mapping. By Theorem 9.8, $(Df|U)^{-1}: U\to GL(n,\real)$ is continuous as well. Therefore $g\in C^1(U,U)$, and $f|U$ is a $C^1$-diffeomorphism.
 \end{proof}
 
-\topheader{Inverse Theorem}
+\topheader{Inverse Function Theorem on Manifolds}
 Let $F$ be a smooth map between two smooth manifolds $M$ and $N$, with dimensions $m$ and $n$ respectively.
 
 % Rank, constant rank, smooth submersion,, smooth immersion
@@ -705,7 +705,7 @@ There are three types of constant rank maps that are of interest.
     Tedious. However, some techinques are worth remembering:
     \begin{itemize}
         \item Passing the argument to the Euclidean case as usual,
-        \item Shrink the sizes of coordinate balls and cubes respectively,
+        \item We are free to shrink the sizes of open cubes and balls, and exploit local compactness,
         \item Suppose we are given a matrix of size $m\times n$, which has rank $r$, then we can attach a sub-matrix to make it square and invertible, then rehearse the usual arguments with the Inverse Function Theorems \Cref{rudin-chp4-theorem-9.24,lee-chp4:inverse-theorem-on-manifolds} to obtain a neighbourhood small enough that preserves the rank of the square matrix. Then pass the argument back to the smaller sub-matrix.
     \end{itemize}
 \end{proof}
@@ -750,16 +750,46 @@ There are three types of constant rank maps that are of interest.
 \begin{proof}
     Suppose $\pi$ is a smooth submersion, and fix $p\in M$, by the Rank Theorem \Cref{lee-chp4:rank-theorem-for-manifolds}, and \Cref{lee-chp4:rank-theorem-smooth-submersion-case-coordinate-representation}, $\pi$ has the coordinate representation
     \[
-        \hat{\pi}(x^1,\ldots,x^n,x^{n+1},x^m)=(x^1,x^n)
+        \hat{\pi}(x^1,\ldots,x^n,x^{n+1},x^m)=(x^1,\ldots,x^n)
     \]
     between two open sets $U\subseteq M$ and $V\subseteq N$, (it really does not matter). Now, define
     \[
-        \sigma: V\to M, (x^1,\ldots,x^n)\mapsto \underbracket{(x^1,x^n,0,\ldots,0)}_{\realm}\in U
+        \sigma: V\to M, (x^1,\ldots,x^n)\mapsto \underbracket{(x^1,\ldots,x^n,0,\ldots,0)}_{\realm}\in U
     \]
-    the charts by assumption are centered, and $\pi\circ\sigma$ is clearly smooth (check coordinatewise), so $\sigma$ reaches $p$. Conversely, recall if the composition of maps $(g\circ f)$ is a surjection, then $g$ is a surjection. Now, fix $p\in M$, this induces an open set $V$ containing $\pi(p)$, and a smooth local section $\sigma_V: V\to M$. By \Cref{lee-chp3:properties-of-differential}
+    the charts by assumption are centered, and $\pi\circ\sigma$ is clearly smooth (check coordinatewise), so $\sigma$ reaches $p$. Conversely, recall if the composition of maps $(g\circ f)$ is a surjection, then $g$ is a surjection. Now, fix $p\in M$, this induces an open set $V$ containing $\pi(p)$, and a smooth local section $\sigma_V: V\to M$. By \Cref{lee-chp3:properties-of-differential}, \emph{the differential of a composition is equal to the composition of the differentials}
+    \[
+        \id{T_{q}N}=d(\id{U})=d(\pi)_{\sigma(q)}\circ d(\sigma)_{q}
+    \]
+    so $d(\pi)_{\sigma{q}} = d(\pi)_{p}$ is a surjection and the proof is complete.
 \end{proof}
 
+\topheader{Regular values and level sets}
+If $F:\xx\to\yy$, and $c\in \yy$, we call the $F^{-1}(\{y\})$ a \emph{level set at $c$}, and $c$ the \emph{level value}. We often write $F^{-1}(y)$ in place of $F^{-1}(\{y\})$. If $\yy=\realk$, then $F^{-1}(0)$ is the \emph{zero set of $F$}.
 
+\begin{definition}[Critical point of {$F\in\cinf[N,M]$}]
+    $p\in M$ is a \emph{critical point} of $F$ if the differential $dF_p:T_pN\to T_{F(p)}M$ fails to be surjective at $p$, otherwise $p$ is a \emph{regular point} of $F$.
+\end{definition}
+\begin{definition}[Critical value of {$f\in\cinf[N,\real]$}]
+    Let $f$ be a test function on $N$, $c\in\real$ is a critical value if there exists a $p\in f^{-1}(c)$ where $df_p$ is not surjective.\\
+
+    Otherwise $c$ is called a regular value. Caveat: if $c$ is not in the image of $f$, we call $c$ a regular value as well. It is clear $c$ is a regular value iff $c\notin f(M)$ or for every $p\in f^{-1}(c)$, $df_p$ is a surjection.\\
+
+    Notice $df_p: T_pN\to T_{f(p)}\real$ is not surjective $\iff$ all partials of the coordinate representation of $f$ vanish. Since the matrix representation of $df_p$ has the form
+    \[
+        \mcal\{df_p\}=\mqty[\eval{\pdv{f}{x^1}}_{p} & \ldots & \eval{\pdv{f}{x^m}}_{p}]
+    \]
+    $\rank\mcal\{df_p\}\neq 1 \iff \eval{\pdv{f}{x^j}}_{p}=0$ for $1\leq j\leq m$.
+\end{definition}
+\begin{definition}[Regular level set of ${f\in\cinf[N,\real]}$]
+    If $c$ is a regular value of $f$, then $f^{-1}(c)$ is called a regular level set.\\
+
+    Define $g = f-c$, the partials at $p\in N$ for both $f$ and $g$ agree, so the matrix representations of $df_p$ and $dg_p$ are identical (whereas their ranges might not be),
+    \begin{align*}
+        \mcal\{dg_p\}&=\mqty[\eval{\pdv{g}{x^1}}_{p} & \ldots & \eval{\pdv{g}{x^m}}_{p}]\\[2ex]
+        &=\mqty[\eval{\pdv{f-c}{x^1}}_{p} & \ldots & \eval{\pdv{f-c}{x^m}}_{p}]\\[2ex]
+        &=\mqty[\eval{\pdv{f}{x^1}}_{p} & \ldots & \eval{\pdv{f}{x^m}}_{p}]
+    \end{align*}
+\end{definition}
 
 
 

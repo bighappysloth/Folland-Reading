@@ -12,5 +12,9 @@
 .vscode/
 texput.log
 texput.fls
+subfiles/*
+Manifolds/*
+subfiles/
+Manifolds/
 .DS_Store
 **/.DS_Store

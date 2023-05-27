@@ -1,0 +1,224 @@
+\documentclass[../main-manifolds.tex]{subfiles}
+
+\begin{document}
+
+
+\fchapter{B: Abstract Algebra}\newpage
+
+\topheader{Groups}
+
+\begin{definition}[Semigroups, Monoids]\label{hungerford-chp1:semigroups-monoids-definition}
+    A non-empty set $G$ equipped with an associative binary operation $G\times G\to G$ is called a semigroup. For every $a,b,c\in G$, we have
+    \begin{equation}\label{hungerford-chp1:associativity-semigroup}
+        a(bc) = (ab)c 
+    \end{equation}
+    A \emph{monoid} is a semigroup $G$ which contains a \emph{two-sided identity} element $e\in G$ such that $ae = ea$ for all $a\in G$. (not necessarily unique)
+\end{definition}
+
+Monoids admit unique two-sided identities.
+\begin{lemma}[Monoids: unique identity]\label{hungerford-chp1:monoid-unique-identity}
+    Let $e$ and $i$ be two-sided identities for a monoid $G$, then
+    \begin{proof}
+    \[
+        e = ei = i
+    \]    
+    \end{proof}
+\end{lemma}
+    
+
+
+
+\begin{definition}[Group]\label{hungerford-chp1:group-definition}
+    A semigroup $G$ is a group if every element $a\in G$ admits a two-sided inverse $a^{-1}$. (not necessarily unique)
+    \[
+        aa^{-1} = a^{-1}a = e
+    \]
+\end{definition}
+
+\begin{wts}[Properties of Groups (Hungerford: Theorem 1.2)]\label{hungerford-chp1:theorem-1.2}
+    Let $G$ be a group with identity $e$, which is unique by \cref{hungerford-chp1:monoid-unique-identity}. Then
+    \begin{enumroman}
+        \item $c\in G$ and $cc=c$ implies $c=e$. 
+        
+        \item Left/Right cancellation: 
+        \[
+            \begin{cases}
+                ab=ac\implies b=c\\
+                ba=ca\implies b=c
+            \end{cases}
+        \]
+        
+        \item If $a\in G$, its two-sided inverse is unique. 
+        
+        \item Let $a\in G$, then the inverse of its two-sided inverse (uniqueness guaranteed by iii), is $a$ itself; or $(a^{-1})^{-1}=a$.
+        
+        \item If $a,b\in G$, then the following equations in $x,y$ admit unique solutions
+        \[
+            \begin{cases}
+                ax=b\\
+                ya=b
+            \end{cases}
+        \]
+    \end{enumroman}
+\end{wts}
+\begin{proof}[Proof of \Cref{hungerford-chp1:theorem-1.2}]
+    \begin{enumerate}[label={{Proof of Part} (\roman*): },leftmargin=*]
+        \item[]
+        \item \[cc=c\implies (cc)c^{-1}=cc^{-1}\implies c(cc^{-1})=e\implies ce=c=e\]
+        \item First claim:
+            \begin{multline*}
+                ab=ac\implies a^{-1}(ab)=a^{-1}(ac)\\
+                \implies (a^{-1}a)b=(a^{-1}a)c\implies eb=ec\implies b=c
+            \end{multline*}
+            Second claim is the same, just cancel from the right using $aa^{-1}=e$ and associativity.
+        \item Suppose $b$ and $c$ are two-sided inverse for $a$, it follows from Part ii that 
+        \[
+            ab=ac\implies b=c=a^{-1}
+        \]
+        \item From Part iii, the two-sided inverses of group elements exist and are unique, and $a^{-1}a=aa^{-1}$ so $a$ is an inverse for $a^{-1}$, and it is the only inverse.
+        \item First equation: write $ax=b=a(a^{-1}b)$, left-cancelling reads $x=a^{-1}b$, uniqueness follows from Part ii. Second equation is similar.
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}[Group: equality lemma]\label{hungerford-chp1:equality-lemma}
+     For any pair of elements $a,b\in G$, $a=b\iff ab^{-1}=e$.
+    \begin{proof}
+    ($\implies$): $a=b\implies ab^{-1}=bb^{-1}=e$. ($\impliedby$): $ab^{-1}=e\implies a(b^{-1}b)=eb\implies a=eb=b$.
+    \end{proof}
+\end{lemma}
+
+
+\begin{wts}[Semigroup: upgrade to group (Hungerford Proposition 1.3)]\label{hungerord-chp1:theorem1.3}
+    Let $G$ be a semigroup, $G$ is also a group iff both of the conditions below hold
+    \begin{itemize}
+        \item Existence of a left-identity: there exists $e\in G$ for every $a\in G$, $ea=a$.
+        \item Existence of left-inverses: for every $a\in G$, there exists a $a^{-1}\in G$ with $a^{-1}a=e$, where $e$ is any left-identity element.
+    \end{itemize}
+\end{wts}
+\begin{proof}
+    ($\impliedby$) is trivial. Suppose both conditions hold, notice the proof for \Cref{hungerford-chp1:theorem-1.2} Part (i) we only used left-cancellation. $cc=c\implies e$. To prove $a^{-1}$ is also a right-inverse for $a$, we can force it as follows:
+    \[
+        (aa^{-1})(aa^{-1})=a(a^{-1}a)a^{-1}=aea^{-1}=e\implies aa^{-1}=e
+    \]
+    and $a^{-1}$ is also a right-inverse, so every element $a\in G$ admits a two-sided inverse denoted by $a^{-1}$. To show $e$ is also a right-identity for any arbitrary element $a\in G$, 
+    \begin{align*}
+        ae&=a(a^{-1}a) && \text{left inverse}\\
+        &=(aa^{-1})a && \text{associativity}\\
+        &=ea && \text{right inverse}\\
+        &=a && \text{left identity}
+    \end{align*}
+\end{proof}
+
+\begin{wts}[Semigroup: upgrade to group (Hungerford Proposition 1.4)]\label{hungerford-chp1:prop1.4}
+    Let $G$ be a semigroup, $G$ is a group iff for every pair of elements $a,b\in G$, the equations in $x$ and $y$
+    \begin{equation}\label{hungerford-chp1:prop1.4-equations}
+        \begin{cases}
+            ax=b\\
+            ya=b
+        \end{cases}
+    \end{equation}
+    have solutions (not necessarily unique).
+\end{wts}
+\begin{proof}
+    If $G$ is a group, the existence of the solutions to \cref{hungerford-chp1:prop1.4-equations} follow from \Cref{hungerford-chp1:theorem-1.2}. We will attempt the contrapositive. Suppose $G$ has no left identity, for every $e\in G$ we can always find an element $a\in G$ such that $ea\neq a$, but this is precisely the (first) equation for $a=a$ and $b=a$. \\
+
+    Now suppose $G$ has a left identity element (not necessarily unique). Fix $e\in G$ as any left-identity, and suppose there is an element $a\in G$ with no left inverse, so for every $b\in G$, $ba\neq e$. But $b$ is precisely the solution to the (second) equation with parameters $a=a$ and $b=e$. The negation of \Cref{hungerord-chp1:theorem1.3} is precisely the negation of \Cref{hungerford-chp1:prop1.4}, and the proof is complete.
+\end{proof}
+
+\begin{wts}[Hungerford Theorem 1.5]\label{hungerford-chp1:theorem1.5}
+    Let $R/\sim$ be an equivalence relation on a group $G$, such that it 'preserves' the group multiplication. More precisely, 
+    \[
+        \begin{cases}
+            a_1\sim a_2\\
+            b_1\sim b_2
+        \end{cases}\implies a_1b_1\sim a_2b_2
+    \]
+    Then the set $G/R$ of all equivalence classes of $G$ under $R$ is a monoid under the binary operation defined by 
+    \begin{equation}\label{hungerford-chp1:theorem1.5-binary-operation}
+        (\cl{a})(\cl{b})=\cl{ab}\quad\quad\substack{\text{reads: the product of two classes is the class}\\  \text{containing the product of any pair}\\ \text{ of elements from the two classes}}
+    \end{equation}
+    where $\cl{a}$ denotes the equivalence class containing $a$. If $G$ is a group, so is $G/R$, if $G$ is an abelian group, so is $G/R$.
+\end{wts}
+\begin{proof}
+    First, notice the binary operation in \Cref{hungerford-chp1:theorem1.5-binary-operation} is well defined. It is independent of the equivalence class representatives chosen, as we have restriction on $R$ that 'forces' the operation on $G/R$ to be well defined. Indeed, let $\cl{a}$ and $\cl{b}$ be elements of $G/R$, if $a_1, a_2\in \cl{a}$, and $b_1,b-2\in\cl{b}$, by definition of $R$:
+    \[
+        a_1\sim a_2\qqtext{and}b_1\sim b_2
+    \]
+    by \Cref{hungerford-chp1:theorem1.5-binary-operation}, $a_1b_1\sim a_1b_2\implies \cl{a_1b_1}=\cl{a_2b_2}$.\\
+
+    Associativity is proven similarly, fix $\cl{a},\cl{b},\cl{c}\in G/R$, we pass the argument to any of the representatives of the three classes, so
+    \[
+        (\cl{a}\cl{b})\cl{c}\defined \cl{ab}\cl{c} =  \cl{(ab)c}=\cl{a(bc)}\defined\cl{a}\cl{bc}=\cl{a}(\cl{b}\cl{c})
+    \]
+    Pass the argument to the representatives, let $e$ denote the identity element in $G$, it is easily shown that $\cl{e}$ is the identity element in $G/R$, similarly for two-sided inverses and commutativity of the binary operation.
+\end{proof}
+
+\topheader{Homomorphisms and Subgroups}
+
+\begin{definition}[Homomorphism]
+    Let $G$ and $H$ be semigroups, $f:G\to H$ is a semi-group \emph{homomorphism} if for all $a,b\in G$, 
+    \begin{equation}\label{hungerford-chp1:homomorphism-equation}
+        f(ab)=f(a)f(b)
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Monomorphism]
+    Injective homomorphism.
+\end{definition}
+
+\begin{definition}[Epimorhpism]
+    Surjective homomorphism.
+\end{definition}
+
+\begin{definition}[Isomorphism]
+    Bijective homomorphism.
+\end{definition}
+
+\begin{definition}[Endomorphism]
+    Homomorphism for which the domain and codmain (not the range) are equal; i.e $H = G$.
+\end{definition}
+
+\begin{definition}[Automorphism]
+    Bijective endomorphism.
+\end{definition}
+
+\begin{definition}[Kernel of a homomorphism]\label{hungerford-chp1:homomorphism-kernel}
+    The kernel of $f\in\Hom[G,H]$ is defined
+    \begin{equation}\label{hungerford-chp1:homomorphism-kernel-equation}
+        \Ker{f} = \bigset{a\in G,\: f(a)=e\in H}
+    \end{equation}
+    as the set of elements in $G$ that get sent to the identity of $H$.
+\end{definition}
+
+\begin{wts}[Hungerford Theorem 2.3]\label{hungerford-chp1:theorem2.3}
+    Let $G$ and $H$ be groups and let $f\in \Hom[G,H]$. Denote the identity elements of $G$ and $H$ by $e_G$ and $e_H$
+    \begin{enumroman}
+        \item $f(e_G)=e_H$,
+        \item $f(a^{-1})=\qty(f(a))^{-1}$ for every $a\in G$.
+        \item $f$ is a monomorphism iff $\ker f = \{e_G\}$,
+        \item $f$ is an isomorphism iff there exists a homomorphism $f^{-1}: H\to G$ that is also a two-sided inverse for $f$. In symbols:
+        \begin{equation}\label{hungerford-chp1:theorem2.3-isomorphism-equation}
+            f\circ f^{-1}=\id{H}\qqtext{and}f^{-1}\circ f=\id{G}
+        \end{equation}
+    \end{enumroman}
+\end{wts}
+\begin{proof}[Proof of \Cref{hungerford-chp1:theorem2.3}]
+    \begin{enumerate}[label={Proof of Part (\roman*): },leftmargin=*]
+        \item[]
+        \item We will use \Cref{hungerford-chp1:theorem-1.2} (i). Since $f(e_G)=f(e_Ge_G)=f(e_G)f(e_G)$ in $H$, we see that $f(e_G)=H$ and $e_G\in \Ker{f}$
+        \item Let $a\in G$ be arbitrary, using Part (i), we can 'pass the multiplication' between $f(a)$ and $f(a^{-1})$ into $G$, 
+        \[
+            f(a)f(a^{-1})=f(e_G)=e_H\implies f(a^{-1})=\qty(f(a))^{-1}
+        \]
+        \item Suppose $\ker{f}={\idg}$. Let $a,b\in G$ such that $f(a)=f(b)$. The equality lemma \Cref{hungerford-chp1:equality-lemma} tells us $\qty(f(a))^{-1}=f(b)$ and $b=a^{-1}$, so $a=b$ by the Lemma again; $f$ is injective.\\
+
+        Conversely, suppose $f$ is injective, Part (i) tell us $\{\idg\}\subseteq \ker{f}$. Suppose $a\in \ker{f}\subseteq G$, but $\idg\in\ker{f}$, so $f(a)=f(\idg)=\idh$ forces $a\idg$, and $\ker{f}=\{\idg\}$.
+        \item ($\impliedby$) is trivial since the existence of a (functional) two-sided inverse is equivalent to bijectivity. Suppose $f$ is an isomorphism, and define $f^{-1}$ as its two-sided (functional) inverse, it suffices to show that $f^{-1}\in\Hom[H,G]$. Fix $f(a)$ and $f(b)$ as arbitrary elements in $H$. We can do this because $f$ is a bijection, so every element in $H$ has a unique 'representative' in $G$. 
+        \[
+            f^{-1}\qty(f(a))\,f^{-1}\qty(f(b))=ab=f^{-1}\qty(f(ab))=f^{-1}\qty(f(a)f(b))
+        \]
+    \end{enumerate}
+\end{proof}
+    
+\end{document}
+

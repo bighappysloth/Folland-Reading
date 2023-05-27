@@ -17,8 +17,6 @@
 % Custom QED symbol
 \renewcommand\qedsymbol{$\blacksquare$}
 
-
-
 % Problem Number for assignments
 \newcounter{theproblem}
 
@@ -71,42 +69,42 @@
 \theoremstyle{subtheorem}                       % Lemma, Corollary follows Theorem 4.16.X
 
 
-
-% \newtheorem{lemma}{Lemma}[theproblem]               % Lemma, follows 'Problem' counter
-% \newtheorem{corollary}{Corollary}[theproblem]       % Corollary
-% \newtheorem{remark}{Remark}[theproblem]             % Unnumbered remark
+% Yellow Boxes for definitions
 \mdfdefinestyle{definitionstyle}{%
-  %backgroundcolor=,
-  linewidth=1pt,
-  innerleftmargin=10pt,
-  innerrightmargin=10pt,
-  innertopmargin=6pt, % Adjusted value
-  innerbottommargin=6pt,
-  skipabove=10pt,
-  skipbelow=10pt,
-  topline=true, % Added option
-  bottomline=true,
-  backgroundcolor=tab-yellow!20
+    %backgroundcolor=,
+    linewidth=1pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt,
+    innertopmargin=6pt, % Adjusted value
+    innerbottommargin=6pt,
+    skipabove=10pt,
+    skipbelow=10pt,
+    topline=true, % Added option
+    bottomline=true,
+    backgroundcolor=tab-yellow!20
 }
 
+% Copy the same style but modify the colour only
 \mdfdefinestyle{theoremstyle}{%
-  %backgroundcolor=,
-  linewidth=1pt,
-  innerleftmargin=10pt,
-  innerrightmargin=10pt,
-  innertopmargin=6pt, % Adjusted value
-  innerbottommargin=6pt,
-  skipabove=10pt,
-  skipbelow=10pt,
-  topline=true, % Added option
-  bottomline=true,
-  backgroundcolor=tab-blue!20
+    style=definitionstyle,
+    backgroundcolor=tab-blue!20
 }
+
+
+\mdfdefinestyle{remarkstyle}{%
+    style=definitionstyle,
+    backgroundcolor=tab-blue!10,
+    leftline=true,
+    rightline=true,
+    topline=true,
+    bottomline=true,
+}
+
 \mdtheorem[style=definitionstyle]{definition}{Definition}[theproblem]
 \mdtheorem[style=theoremstyle]{wts}{Proposition}[theproblem]
 \mdtheorem[style=theoremstyle]{lemma}{Lemma}[theproblem]
 \mdtheorem[style=theoremstyle]{corollary}{Corollary}[theproblem]
-\mdtheorem[style=theoremstyle]{remark}{Remark}[theproblem]
+\mdtheorem[style=remarkstyle]{remark}{Remark}[theproblem]
 \mdtheorem[style=theoremstyle]{example}{Example}[theproblem]
 
 
@@ -124,29 +122,31 @@
 % enumalpha environment for 
 % a), b), c)
 \newenvironment{enumalpha}%
-    {\begin{enumerate}[label=(\alph*)]}%
+    {\begin{enumerate}[label=(\alph*), leftmargin=*]}%
     {\end{enumerate}}
 
 % enumroman environment for
 % i), ii), iii)
 \newenvironment{enumroman}%
-    {\begin{enumerate}[label=(\roman*)]}%
+    {\begin{enumerate}[label=(\roman*), leftmargin=*]}%
     {\end{enumerate}}
 
 
 %for putting chapter numbers after the title
-\titleformat{\section}[hang]%
-{ %
-\normalfont\Large\bfseries%
-} %
+\titleformat{\section}[hang]{%
+    \normalfont\Large\bfseries% 
+}%
 {}{0em}{}{}
 
+% Chapters
 \newcommand{\fchapter}[1]%
 {%
     \phantomsection\chapter*{Chapter #1}%
     \setcounter{theproblem}{0}%
     \addcontentsline{toc}{chapter}{Chapter #1}\newpage% Chapter Number
 } 
+
+% Proof Outline, remove soon
 \newenvironment{outline}%
     {\addtocounter{theproblem}{-1}\begin{proofoutline}}%
     {\end{proofoutline}}

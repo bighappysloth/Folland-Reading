@@ -178,7 +178,7 @@ The following propositions summarizes common operations on smooth maps, a few so
     \]
     Let the point $p$ range through all the points in $N$, so $F$ is continuous at every $p$, hence on $N$.
 \end{proof}
-\begin{wts}[Characterizations of Smooth Maps]{$\cinf[N,M]$}]\label{lee-chp2:characterizations-of-smooth-maps}
+\begin{wts}[Characterizations of Smooth Maps in {$\cinf[N,M]$}]\label{lee-chp2:characterizations-of-smooth-maps}
     Let $N$ and $M$ be smooth manifolds, and $F:N\to M$. $F$ is a smooth map iff
     \begin{itemize}
         \item For every $p\in N$, there exists smooth charts $p\in (U,\phi)$ and $F(p)\in (V,\psi)$ such that $U\cap F^{-1}(V)$ is an open set in $N$, and the composite map (the coordinate representation)
@@ -421,13 +421,12 @@ We will go through the section on the Change of Coordinates, and how different c
     \]
 \end{proof}
 
-
 \fchapter{4: Submersions, Immersions and Embeddings}
 \newpage
-\topheader{Pre-requisites for Chapter 4}
 
-
-\begin{example}[Example 1.28 (Matrices of Full Rank)]\label{lee-chp4:example-1.28-matrices-of-full-rank}
+\topheader{Matrices}
+The following is of utmost importance. It states that that rank of a matrix, square or otherwise, is an 'open condition'.
+\begin{example}[Lee Example 1.28 (Matrices of Full Rank)]\label{lee-chp4:example-1.28-matrices-of-full-rank}
 Let $A\in\mcal({m\times n,\real})$ be the set of $m\times n$ matrices with real entries. $A$ has rank $m$ iff there exists some $m\times m$ sub-matrix of $A$, denoted by $S$ st $S$ is invertible. We wish to show the set of rank-$m$ matrices is invertible. Indeed, let 
 
 \[
@@ -436,9 +435,9 @@ F:\mcal({m\times n,\real})\to \real,\: \Delta_{m\times m}(A) = \sum_{\mathclap{\
 Since $S\mapsto \det{S}$ is continuous in the entries of $S$, hence continuous in the entries of $A$, $\Delta_{m\times m}$ is continuous.
 
 So the set $\bigset{A\in\mcal{(m\times n,\: \real)},\: \rank{A}=m}=F^{-1}(\real\setminus\{0\})$ is open.
-
 \end{example}
 
+\topheader{Estimates in vector calculus}
 Before proving the inverse function theorem, we will need several Lemmas
 
 \begin{wts}[Rudin Theorem 9.7]\label{rudin-chp9-theorem-9.7}
@@ -477,7 +476,7 @@ Before proving the inverse function theorem, we will need several Lemmas
         g(t) = f(c(t))\text{ is a curve } g:\real\to\realm
     \]
     
-    Recall: Theorem 5.19
+    Using Theorem 5.19, of which we will state below
     \begin{wts}[Rudin Theorem 5.19]
         Let $g: [0,1]\to\realm$, and $g$ be differentiable on $(0,1)$, then there exists some $x\in (0,1)$ with
         \[
@@ -648,6 +647,14 @@ Before proving the inverse function theorem, we will need several Lemmas
 
 Finally, $Df|U: U\to GL(n,\real)$ is a continuous mapping. By Theorem 9.8, $(Df|U)^{-1}: U\to GL(n,\real)$ is continuous as well. Therefore $g\in C^1(U,U)$, and $f|U$ is a $C^1$-diffeomorphism.
 \end{proof}
+\begin{remark}
+    The inverse function theorem is extremely powerful. If a $f$ is a $C^1$ map from and into $\realn$, and the total differential of $f$ is full rank (hence invertible, as it is square) at some point $a\in\realn$, the theorem states three things:
+    \begin{itemize}
+        \item For points $x$ within a small enough neighbourhood $a$, the total differential $Df(x)$ is invertible,
+        \item On this same neighbourhood (denoted by $U$), $f(U)$ is a bijection,
+        \item the inverse of $f$ is a $C^1$ map. This makes $f|U$ a $C^1$-diffeomorphism
+    \end{itemize}
+\end{remark}
 
 \topheader{Inverse Function Theorem on Manifolds}
 Let $F$ be a smooth map between two smooth manifolds $M$ and $N$, with dimensions $m$ and $n$ respectively.
@@ -708,6 +715,21 @@ There are three types of constant rank maps that are of interest.
         \item We are free to shrink the sizes of open cubes and balls, and exploit local compactness,
         \item Suppose we are given a matrix of size $m\times n$, which has rank $r$, then we can attach a sub-matrix to make it square and invertible, then rehearse the usual arguments with the Inverse Function Theorems \Cref{rudin-chp4-theorem-9.24,lee-chp4:inverse-theorem-on-manifolds} to obtain a neighbourhood small enough that preserves the rank of the square matrix. Then pass the argument back to the smaller sub-matrix.
     \end{itemize}
+    The last bullet point is worth elaborating, suppose we are given a rectangular matrix, where $A$ is square and invertible. Take $z = (x,y)^T$ with dimensions that make the formulas below make sense.
+    \[
+        Mz = \begin{bmatrix}
+            A & B
+        \end{bmatrix}\begin{bmatrix}
+            x\\ y
+        \end{bmatrix}\implies \begin{bmatrix}
+            M\\ I
+        \end{bmatrix}(z,y)^T = \begin{bmatrix}
+            A & B\\ 0 & I
+        \end{bmatrix}\begin{bmatrix}
+            z\\ y
+        \end{bmatrix}\qqtext{is square and invertible}
+    \]
+    by \Cref{lee-chp4:rank-open-condition-prop-4.1}, we see that there exists a neighbourhood about the square matrix $\begin{bmatrix} M\\ I\end{bmatrix}$ such that it remains invertible, hence a neighbourhood about $M$ that makes $A$ invertible (as a sub-matrix), so the rank of $M$ is preserved.
 \end{proof}
 \begin{corollary}[Rank Theorem for Manifolds - Special Cases]
     Let $F: M\to N$ be a smooth map with constant rank. If $F$ is a smooth immersion, then \Cref{lee-chp4:rank-theorem-regular-case-coordinate-representation} takes the form:
@@ -787,7 +809,8 @@ If $F:\xx\to\yy$, and $c\in \yy$, we call the $F^{-1}(\{y\})$ a \emph{level set 
     \begin{align*}
         \mcal\{dg_p\}&=\mqty[\eval{\pdv{g}{x^1}}_{p} & \ldots & \eval{\pdv{g}{x^m}}_{p}]\\[2ex]
         &=\mqty[\eval{\pdv{f-c}{x^1}}_{p} & \ldots & \eval{\pdv{f-c}{x^m}}_{p}]\\[2ex]
-        &=\mqty[\eval{\pdv{f}{x^1}}_{p} & \ldots & \eval{\pdv{f}{x^m}}_{p}]
+        &=\mqty[\eval{\pdv{f}{x^1}}_{p} & \ldots & \eval{\pdv{f}{x^m}}_{p}]\\[2ex]
+        &= \mcal\{df_p\}
     \end{align*}
 \end{definition}
 

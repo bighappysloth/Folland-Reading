@@ -7,3 +7,5 @@ Progress tracker, and helpful resources are available [in the wiki](https://gith
 ~April 24: Right now I am occupied with attacking Munkres' Topology to learn manifolds.~
 
 May 05: Learning from Lee's Smooth Manifolds.
+May 25: Retreating to Munkres Algebraic Topology
+May 26: Retreating to Hungerford Algebra

@@ -12,16 +12,15 @@ jobs:
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
+      
           
-          
-          
-    - name: Build main.pdf
+    - name: Build sub-chapters
       uses: xu-cheng/latex-action@v2
       with:
           # The root LaTeX file to be compiled
           working_directory: "./"
           glob_root_file: true
-          root_file: "main.tex"
+          root_file: "**/*Compiled.tex"
           
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
 
@@ -34,13 +33,13 @@ jobs:
           # Instruct latexmk to use XeLaTeX
           latexmk_use_xelatex: true 
           
-    - name: Build sub-chapters
+    - name: Build main-documents
       uses: xu-cheng/latex-action@v2
       with:
           # The root LaTeX file to be compiled
           working_directory: "./"
           glob_root_file: true
-          root_file: "**/*Compiled.tex"
+          root_file: "main*.tex"
           
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
 

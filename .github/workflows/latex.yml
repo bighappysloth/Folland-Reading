@@ -56,7 +56,7 @@ jobs:
       run: |
         mkdir -p out
         find . -type f -name "*Compiled.pdf" -exec mv {} out/ \;
-        find . -type f -name "main.pdf" -exec mv {} out/ \;
+        find . -type f -name "main*.pdf" -exec mv {} out/ \;
 
     - name: Upload PDFs as artifact
       uses: actions/upload-artifact@v2

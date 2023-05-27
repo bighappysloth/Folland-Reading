@@ -99,11 +99,11 @@
     % Fourier Analysis
     \newcommand{\szz}{\mathcal{S}} % Schwartz Space
     \NewDocumentCommand{\cinf}{oo}{
-  C^{\infty}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
-}
-\NewDocumentCommand{\diffeo}{oo}{
-  {\mathcal{D}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
-}
+      C^{\infty}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+    }
+    \NewDocumentCommand{\diffeo}{oo}{
+      {\mathcal{D}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+    }
     %\newcommand{\ccinf}{C_c^{\infty}} % We do not specify the domain
     \newcommand{\cnv}{\ast} % convolutions
     
@@ -142,6 +142,7 @@
     \providecommand{\lin}{\operatorname{lin}} % Lin
     \providecommand{\spn}{\operatorname{span}} % Span
     \providecommand{\tr}{\operatorname{tr}} % Trace
+    \providecommand{\Ker}{\operatorname{Ker}} % Kernel
 
     \providecommand{\poly}{\mathbb{P}} % Space of Polynomials
     \providecommand{\ff}{\mathbb{F}} % Field
@@ -161,17 +162,19 @@
     \providecommand{\xn}{\{x_n\}_{n\geq 1}}
     \providecommand{\yn}{\{y_n\}_{n\geq 1}}
 
-    % Manifolds
-    
-    % Evaluted at
+    % Abstract Algebra
+    \providecommand{\idg}{e_G}
+    \providecommand{\idh}{e_H}
 
 
 
-    
-
-
-    
-    
+    % Category Theory
+    \NewDocumentCommand{\Hom}{oo}{
+      {\operatorname{Hom}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+    }
+    \NewDocumentCommand{\End}{oo}{
+      {\operatorname{Hom}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+    }
     
 % Settings
 \setlength{\parindent}{0pt} %default no indent

@@ -35,7 +35,7 @@
     \providecommand{\realk}{{\mathbb{R}^k}}
     \providecommand{\nat}{\mathbb{N}}
     \providecommand{\natplus}{\mathbb{N}^+}
-    \newcommand{\integer}{\mathbb{Z}}
+    \providecommand{\ints}{\mathbb{Z}}
     \providecommand{\rat}{\mathbb{Q}}
     \providecommand{\borel}{{\mathbb{B}}}
     \providecommand{\complex}{{\mathbb{C}}}
@@ -68,7 +68,16 @@
     
     % Topology
     \providecommand{\acc}{\operatorname{acc}} % Set of Accumulation Points
-    \providecommand{\abrackets}[1]{\langle {#1} \rangle} % Angled Brackets for Nets
+    \newcommand{\abrackets}[2][\big]{%
+  \ensuremath{%
+    \mathopen{#1\langle} #2 \mathclose{#1\rangle}%
+  }%
+}
+
+
+    \providecommand{\ab}[1]{\langle {#1} \rangle} % Angled Brackets for Nets
+
+    
     \providecommand{\nb}[1]{\mathcal{N}_B({#1})} % N_b(x) is a neighbourhood of x
     \providecommand{\N}[1]{\mathcal{N}(#1)} % A set is a neighbourhood of x
     \providecommand{\Tau}{\mathcal{T}} % Big Tau Denoting Topological Space
@@ -148,6 +157,7 @@
     \providecommand{\ff}{\mathbb{F}} % Field
     \providecommand{\entry}[2]{{{#1,\, #2}}} % Matrix Entries
 
+
     % Some Bold Face Fonts
     \providecommand{\xx}{{\mathbf{X}}}
     \providecommand{\yy}{{\mathbf{Y}}}
@@ -175,6 +185,10 @@
     \NewDocumentCommand{\End}{oo}{
       {\operatorname{Hom}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
     }
+
+    % Lattice
+    \providecommand{\lub}{\operatorname{lub}}
+    \providecommand{\glb}{\operatorname{glb}}
     
 % Settings
 \setlength{\parindent}{0pt} %default no indent

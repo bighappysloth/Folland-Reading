@@ -2,7 +2,6 @@
 
 \begin{document}
 
-
 \fchapter{B: Abstract Algebra}\newpage
 
 \topheader{Groups}
@@ -35,7 +34,7 @@ Monoids admit unique two-sided identities.
     \]
 \end{definition}
 
-\begin{wts}[Properties of Groups (Hungerford: Theorem 1.2)]\label{hungerford-chp1:theorem-1.2}
+\begin{wts}[Properties of Groups (Hungerford: Theorem 1.2)]\label{hungerford-chp1:theorem1.2}
     Let $G$ be a group with identity $e$, which is unique by \cref{hungerford-chp1:monoid-unique-identity}. Then
     \begin{enumroman}
         \item $c\in G$ and $cc=c$ implies $c=e$. 
@@ -61,7 +60,7 @@ Monoids admit unique two-sided identities.
         \]
     \end{enumroman}
 \end{wts}
-\begin{proof}[Proof of \Cref{hungerford-chp1:theorem-1.2}]
+\begin{proof}[Proof of \Cref{hungerford-chp1:theorem1.2}]
     \begin{enumerate}[label={{Proof of Part} (\roman*): },leftmargin=*]
         \item[]
         \item \[cc=c\implies (cc)c^{-1}=cc^{-1}\implies c(cc^{-1})=e\implies ce=c=e\]
@@ -88,7 +87,7 @@ Monoids admit unique two-sided identities.
 \end{lemma}
 
 
-\begin{wts}[Semigroup: upgrade to group (Hungerford Proposition 1.3)]\label{hungerord-chp1:theorem1.3}
+\begin{wts}[Semigroup: upgrade to group I (Hungerford Proposition 1.3)]\label{hungerford-chp1:theorem1.3}
     Let $G$ be a semigroup, $G$ is also a group iff both of the conditions below hold
     \begin{itemize}
         \item Existence of a left-identity: there exists $e\in G$ for every $a\in G$, $ea=a$.
@@ -96,7 +95,7 @@ Monoids admit unique two-sided identities.
     \end{itemize}
 \end{wts}
 \begin{proof}
-    ($\impliedby$) is trivial. Suppose both conditions hold, notice the proof for \Cref{hungerford-chp1:theorem-1.2} Part (i) we only used left-cancellation. $cc=c\implies e$. To prove $a^{-1}$ is also a right-inverse for $a$, we can force it as follows:
+    ($\impliedby$) is trivial. Suppose both conditions hold, notice the proof for \Cref{hungerford-chp1:theorem1.2} Part (i) we only used left-cancellation. $cc=c\implies e$. To prove $a^{-1}$ is also a right-inverse for $a$, we can force it as follows:
     \[
         (aa^{-1})(aa^{-1})=a(a^{-1}a)a^{-1}=aea^{-1}=e\implies aa^{-1}=e
     \]
@@ -109,7 +108,7 @@ Monoids admit unique two-sided identities.
     \end{align*}
 \end{proof}
 
-\begin{wts}[Semigroup: upgrade to group (Hungerford Proposition 1.4)]\label{hungerford-chp1:prop1.4}
+\begin{wts}[Semigroup: upgrade to group II (Hungerford Proposition 1.4)]\label{hungerford-chp1:prop1.4}
     Let $G$ be a semigroup, $G$ is a group iff for every pair of elements $a,b\in G$, the equations in $x$ and $y$
     \begin{equation}\label{hungerford-chp1:prop1.4-equations}
         \begin{cases}
@@ -120,9 +119,9 @@ Monoids admit unique two-sided identities.
     have solutions (not necessarily unique).
 \end{wts}
 \begin{proof}
-    If $G$ is a group, the existence of the solutions to \cref{hungerford-chp1:prop1.4-equations} follow from \Cref{hungerford-chp1:theorem-1.2}. We will attempt the contrapositive. Suppose $G$ has no left identity, for every $e\in G$ we can always find an element $a\in G$ such that $ea\neq a$, but this is precisely the (first) equation for $a=a$ and $b=a$. \\
+    If $G$ is a group, the existence of the solutions to \cref{hungerford-chp1:prop1.4-equations} follow from \Cref{hungerford-chp1:theorem1.2}. We will attempt the contrapositive. Suppose $G$ has no left identity, for every $e\in G$ we can always find an element $a\in G$ such that $ea\neq a$, but this is precisely the (first) equation for $a=a$ and $b=a$. \\
 
-    Now suppose $G$ has a left identity element (not necessarily unique). Fix $e\in G$ as any left-identity, and suppose there is an element $a\in G$ with no left inverse, so for every $b\in G$, $ba\neq e$. But $b$ is precisely the solution to the (second) equation with parameters $a=a$ and $b=e$. The negation of \Cref{hungerord-chp1:theorem1.3} is precisely the negation of \Cref{hungerford-chp1:prop1.4}, and the proof is complete.
+    Now suppose $G$ has a left identity element (not necessarily unique). Fix $e\in G$ as any left-identity, and suppose there is an element $a\in G$ with no left inverse, so for every $b\in G$, $ba\neq e$. But $b$ is precisely the solution to the (second) equation with parameters $a=a$ and $b=e$. The negation of \Cref{hungerford-chp1:theorem1.3} is precisely the negation of \Cref{hungerford-chp1:prop1.4}, and the proof is complete.
 \end{proof}
 
 \begin{wts}[Hungerford Theorem 1.5]\label{hungerford-chp1:theorem1.5}
@@ -153,32 +152,32 @@ Monoids admit unique two-sided identities.
     Pass the argument to the representatives, let $e$ denote the identity element in $G$, it is easily shown that $\cl{e}$ is the identity element in $G/R$, similarly for two-sided inverses and commutativity of the binary operation.
 \end{proof}
 
-\topheader{Homomorphisms and Subgroups}
+\topheader{Homomorphisms}
 
-\begin{definition}[Homomorphism]
+\begin{definition}[Homomorphism]\label{hungerford-chp1:homomorphism-definition}
     Let $G$ and $H$ be semigroups, $f:G\to H$ is a semi-group \emph{homomorphism} if for all $a,b\in G$, 
     \begin{equation}\label{hungerford-chp1:homomorphism-equation}
         f(ab)=f(a)f(b)
     \end{equation}
 \end{definition}
 
-\begin{definition}[Monomorphism]
+\begin{definition}[Monomorphism]\label{hungerford-chp1:monomorphism-definition}
     Injective homomorphism.
 \end{definition}
 
-\begin{definition}[Epimorhpism]
+\begin{definition}[Epimorhpism]\label{hungerford-chp1:epimorphism-definition}
     Surjective homomorphism.
 \end{definition}
 
-\begin{definition}[Isomorphism]
+\begin{definition}[Isomorphism]\label{hungerford-chp1:isomorphism-definition}
     Bijective homomorphism.
 \end{definition}
 
-\begin{definition}[Endomorphism]
+\begin{definition}[Endomorphism]\label{hungerford-chp1:endomorphism-definition}
     Homomorphism for which the domain and codmain (not the range) are equal; i.e $H = G$.
 \end{definition}
 
-\begin{definition}[Automorphism]
+\begin{definition}[Automorphism]\label{hungerford-chp1:automorphism-definition}
     Bijective endomorphism.
 \end{definition}
 
@@ -205,20 +204,143 @@ Monoids admit unique two-sided identities.
 \begin{proof}[Proof of \Cref{hungerford-chp1:theorem2.3}]
     \begin{enumerate}[label={Proof of Part (\roman*): },leftmargin=*]
         \item[]
-        \item We will use \Cref{hungerford-chp1:theorem-1.2} (i). Since $f(e_G)=f(e_Ge_G)=f(e_G)f(e_G)$ in $H$, we see that $f(e_G)=H$ and $e_G\in \Ker{f}$
+        \item We will use \Cref{hungerford-chp1:theorem1.2} (i). Since $f(e_G)=f(e_Ge_G)=f(e_G)f(e_G)$ in $H$, we see that $f(e_G)=H$ and $e_G\in \Ker{f}$
         \item Let $a\in G$ be arbitrary, using Part (i), we can 'pass the multiplication' between $f(a)$ and $f(a^{-1})$ into $G$, 
         \[
             f(a)f(a^{-1})=f(e_G)=e_H\implies f(a^{-1})=\qty(f(a))^{-1}
         \]
         \item Suppose $\ker{f}={\idg}$. Let $a,b\in G$ such that $f(a)=f(b)$. The equality lemma \Cref{hungerford-chp1:equality-lemma} tells us $\qty(f(a))^{-1}=f(b)$ and $b=a^{-1}$, so $a=b$ by the Lemma again; $f$ is injective.\\
 
-        Conversely, suppose $f$ is injective, Part (i) tell us $\{\idg\}\subseteq \ker{f}$. Suppose $a\in \ker{f}\subseteq G$, but $\idg\in\ker{f}$, so $f(a)=f(\idg)=\idh$ forces $a\idg$, and $\ker{f}=\{\idg\}$.
+        Conversely, suppose $f$ is injective, Part (i) tell us $\{\idg\}\subseteq \ker{f}$. Suppose $a\in \ker{f}\subseteq G$, but $\idg\in\ker{f}$, so $f(a)=f(\idg)=\idh$ forces $a=\idg$, and $\ker{f}=\{\idg\}$.
         \item ($\impliedby$) is trivial since the existence of a (functional) two-sided inverse is equivalent to bijectivity. Suppose $f$ is an isomorphism, and define $f^{-1}$ as its two-sided (functional) inverse, it suffices to show that $f^{-1}\in\Hom[H,G]$. Fix $f(a)$ and $f(b)$ as arbitrary elements in $H$. We can do this because $f$ is a bijection, so every element in $H$ has a unique 'representative' in $G$. 
         \[
             f^{-1}\qty(f(a))\,f^{-1}\qty(f(b))=ab=f^{-1}\qty(f(ab))=f^{-1}\qty(f(a)f(b))
         \]
     \end{enumerate}
 \end{proof}
+
+\begin{definition}[Subgroup {$H< G$}]\label{hungerford-chp1:subgroup-definition}
+    Let $G$ be a group. If $H$ is a non-empty subset of $G$ that is closed under group operations, then it is a \emph{subgroup of $G$}. We write $H<G$.\\
+
+    The \emph{trivial subgroup} of $G$ is $\{e\}$ and consists of one element. $H$ is called a \emph{proper subgroup} if $H\neq G$ and $H\neq \{e\}$.
+\end{definition}
+
+\begin{wts}[Hungerford Exercise 9]\label{hungerford-chp1:exercise9}
+    Let $f\in\Hom[G,H]$, $A<G$ and $B<H$,
+    \begin{enumroman}
+        \item $\Ker{f}$ is a subgroup of $G$,
+        \item $f(A)$ is a subgroup of $H$,
+        \item $f^{-1}(B)$ is a subgroup of $G$.
+    \end{enumroman}
+\end{wts}
+
+\topheader{Subgroups}
+
+\begin{wts}[Subgroup criteria (Hungerford Theorem 2.5)]\label{hungerford-chp1:theorem2.5}
+    A non-subset $H\subseteq G$ is a subgroup iff for any $a$, $b$ in $H$, $ab^{-1}\in H$.
+\end{wts}
+\begin{proof}
+    ($\impliedby$): Choose $a=b$, then $aa^{-1}=e\in H$ acts as the two-sided identity in $H$, and $ea^{-1}=a^{-1}\in H$ for every $a\in H$. So $H$ is a subgroup by \Cref{hungerford-chp1:theorem1.3}. ($\implies$): If $H$ is a subgroup, then \Cref{hungerford-chp1:theorem1.3} tells us $b^{-1}\in H$ for every $b\in H$, hence $ab^{-1}\in H$ for elements $a,b\in H$.
+\end{proof}
+\begin{corollary}[Hungerford Corollary 2.6]\label{hungerford-chp1:corollary2.6}
+    If $G$ is a group and $\{H_i,\: i\in I\}$ is a nonempty family of subgroups, then their intersection $H\defined \cap_{i\in I}H_i$ is again a subgroup in $G$.
+\end{corollary}
+\begin{proof}
+    Let $a,b\in H$, then $ab^{-1}\in H_i$ for every $i\in I$, hence $ab^{-1}\in \cap_{i\in I}H_i=H$, and $H$ is a subgroup by \Cref{hungerford-chp1:theorem2.5}.
+\end{proof}
+
+\begin{definition}[Subgroup generated by $A\subseteq G$]\label{hungerford-chp1:subgroup-generated-definition}
+    Let $A$ be a subset of $G$, the \emph{subgroup generated by $A$} is the smallest subgroup $H<G$ that contains $A$ as a subset, denoted by $\abrackets{A}$.\\
+
+    \Cref{hungerford-chp1:theorem2.5} gives us an explicit formula for $H$,
+    \[
+        H = \bigcap_{\mathclap{\substack{H_i<G\\ A\subseteq H_i}}}H_i
+    \]
+
+    If $A$ is finite, and $H=\abrackets{A}$ is said to be \emph{finitely generated}. We also write 
+    \[
+        H = \abrackets{a_1,\ldots,a_n}=\abrackets[\bigg]{\{a_1,\ldots,a_n\}}
+    \]
     
+    If $A$ consists of one element, $\{a\}=A$, then $\abrackets{a}=\abrackets{\{a\}}$ is called the \emph{cyclic group generated by $a$}.
+\end{definition}
+\begin{wts}[Hungerford Theorem 2.8]\label{hungerford-chp1:theorem2.8}
+    If $G$ is a group and $A\subseteq G$ is a non-empty subset, the subgroup generated by $A$ is precisely the collection of all finite products (powers included), or
+    \[
+        \abrackets{A}=\bigset{a_1^{n_1}a_2^{n_2}\cdots a_t^{n_t},\: a_{i}\in A,\: n_i\in\mathbb{Z}}
+    \]
+    If $A=\{a\}$, then $\abrackets{A}=\bigset{a^k,\: k\in \mathbb{Z}}$.
+\end{wts}
+\begin{proof}
+    Let $W=\bigset{a_1^{n_1}a_2^{n_2}\cdots a_t^{n_t},\: a_{i}\in A,\: n_i\in\mathbb{Z}}$. We first show $W$ is a subgroup of $G$. Indeed, if $n_1=n_2=\cdots=n_t=0$, then $a_1^{n_1}a_2^{n_2}\cdots a_t^{n_t}=e$. And for any $b\in W$, 
+    \[
+        b = a_1^{n_1}a_2^{n_2}\cdots a_t^{n_t}\implies b^{-1}=a_t^{-n_t}\cdots a_2^{-n_2}a_1^{-n_1}
+    \]
+    where each $-n_i\in \mathbb{Z}$, so $b^{-1}\in H$ as well. $\abrackets{A}$ is the smallest subgroup containing $A$, so $\abrackets{A}\subseteq W$. Conversely, fix an element $b\in W$, so $b$ has the form
+    \[
+        b = a_1^{n_1}a_2^{n_2}\cdots a_t^{n_t},\: a_i\in A,\: n_i\in \mathbb{Z}
+    \]
+    and a simple induction will show each $a_i^{n_i}\in \abrackets{A}$ for $1\leq i\leq t$, so $b\in \abrackets{A}$ and $\abrackets{A}=W$.
+\end{proof}
+
+\begin{definition}[Lattice of subgroups]\label{hungerford-chp1:subgroup-lattice}
+    Let $\{H_i\}_{i\in I}$ be a collection of subgroups of $G$, then 
+    \[
+        \glb\{H_i\}=\bigcap_{i\in I}H_i,\quad \lub=\abrackets[\bigg]{\bigcup_{i\in H}H_i}
+    \]
+    The collection of subgroups of $G$ is a \emph{complete lattice}.
+\end{definition}
+\topheader{Cyclic groups}
+The proof for the following is straight-forward, the book separates the case into $H=\abrackets{0}$ and $H\neq\abrackets{0}$, then $H$ contains a non-zero element $h\neq 0$, then $|h|\in \nat^+$ is an element in $H$ as well, so $H$ contains a least positive element by invoking the Well Ordering Property. For the second half of the proof, we force $r=0$ by the Division Algorithm.
+
+\begin{definition}[Order of a subgroup $H<G$]\label{hungerford-chp1:order-subgroup-definition}
+    The order of a subgroup $H$ is its cardinality $|H|$.
+\end{definition}
+
+\begin{definition}[Order of an element $a\in G$]\label{hungerford-chp1:order-element-definition}
+    The order of an element $a\in G$ is the order of $|\abrackets{a}|$.
+\end{definition}
+
+\begin{wts}[Hungerford Theorem 3.1]\label{hungerford-chp1:theorem3.1}
+    Let $\ints$ be equipped with its usual addition operation. Then every subgroup $H<\ints$ is cyclic, either $H=\abrackets{0}$ or $H=\abrackets{m}$. With $m$ being the least positive integer in $H$. If $H\neq\abrackets{0}$, then $H$ is infinite.
+\end{wts}
+\begin{wts}[Hungerford Theorem 3.2]\label{hungerford-chp1:theorem3.2}
+    Every infinite cyclic group $G=\abrackets{a}$ is isomorphic to the additive group $\ints$, and every finite cyclic group of order $0<m<+\infty$ is isomorphic to the additive group $\ints_m$.
+\end{wts}
+\begin{proof}[Proof of \Cref{hungerford-chp1:theorem3.2}]
+    Let $f:\ints\to G$ and $f(k)=a^k$. By \Cref{hungerford-chp1:theorem2.8}, 
+    \[G = \bigset{a^k,\: k\in\ints}\]
+    $f$ is clearly surjective and $f\in\Hom[\ints,G]$ is an easy exercise to verify. The proof splits into two parts
+    
+    \begin{enumerate}[wide,leftmargin=0pt]
+        \item[(i) $\Ker{f}$ is trivial: ] By \Cref{hungerford-chp1:theorem2.3}, $f$ is an isomorphism from $\ints$ to $G$, and $G\cong\ints\implies |G|=|\ints|$.
+        \item[(ii) $\Ker{f}$ is not trivial: ] Arguing as in \Cref{hungerford-chp1:theorem3.2}, $\Ker{f}$ is a non-trivial subgroup of $\ints$, so it contains a least positive element $m$, and $\Ker{f}=\abrackets{m}$. $m$ is an element of $\ker{f}$, so 
+        \begin{equation}\label{hungerford-chp1:theorem3.2-equation}
+            f(m)=a^m=e\implies f(jm)=a^{jm}=\prod_{l=1}^j a^m=e,\: j\in \ints
+        \end{equation}
+            
+        
+        Now suppose $r$ and $s$ are integers with $f(r)=f(s)$,
+        \begin{align*}
+            a^r=a^s&\iff a^{r-s}=e\\
+            &\iff r-s\in\Ker{f}\\
+            &\iff r-s\in\abrackets{m}\\
+            &\iff r\equiv s\mod{m}\\
+            &\iff \cl{r}=\cl{s}
+        \end{align*}
+        where $\cl{r}$ denotes the $\ints_m$ equivalence class of $r$. Let $\beta$ be a map from $\ints_m\to G$, such that
+        \[
+            \beta(\cl{k})=f(k)=a^k
+        \]
+        This is well defined, since $\beta$ is an invariant on each equivalence class, if $r-s$ differ by a multiple of $m$, then \Cref{hungerford-chp1:theorem3.2-equation} states that $\beta(\cl{r})=\beta({\cl{s}})$.  $G$ is finite, as
+        \[
+            G =\abrackets{a}=\bigset{a^k,\: k\in\ints,\: m<k<m}
+        \]
+        and the kernel of $\beta$ is trivial, it is an isomorphism and $\ints_m\cong G$.
+    \end{enumerate}
+\end{proof}
+
+\topheader{Cosets}
+
 \end{document}
 

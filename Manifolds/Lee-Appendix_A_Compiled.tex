@@ -16,10 +16,74 @@
 
 
 \fchapter{A: Review of Topology}\newpage
+\topheader{Set Operations}
+This section is meant for reference.
+\begin{wts}[Direct and Inverse Images of Maps]
+    Let $f:\xx\to\yy$, where $\xx$ and $\yy$ are sets. If $A\subseteq\xx$, $B\subseteq\yy$, and $\{E_\alpha\}$ is an indexed collection of subsets of $\xx$, $\{G_\beta\}$ is an indexed collection of subsets of $\yy$, then\\
 
+    Direct images
+    \begin{equation}
+        f\qty(\bigcap E_\alpha)\subseteq\bigcap f(E_\alpha)\qqtext{equality if injective}
+    \end{equation}
+    \begin{equation}
+        f\qty(\bigcup E_\alpha)=\bigcup f(E_\alpha)
+    \end{equation}
+    
+    Estimates
+    \begin{equation}
+        f\qty(f^{-1}(B))\subseteq B\qqtext{equality if surjective}
+    \end{equation}
+    \begin{equation}
+        A\subseteq f^{-1}(f(A))\qqtext{equality if injective}
+    \end{equation}
+    
+    Inverse images
+    \begin{equation}
+        f^{-1}\qty(\bigcup G_\beta)=\bigcup f^{-1}(G_\beta)
+    \end{equation}
+    \begin{equation}
+        f^{-1}\qty(\bigcap G_\beta)=\bigcap f^{-1}(G_\beta)
+    \end{equation}
+    \begin{equation}
+        f^{-1}\qty(B^c)= \qty(f^{-1}(B))^c
+    \end{equation}
+\end{wts}
+
+\begin{wts}[Composition of Maps]
+    Let $h = g\circ f$, we assume this composition is well defined. 
+    \begin{itemize}
+        \item If $h$ is a surjection, then $g$ is a surjection,
+        \item If $h$ is an injection, then $f$ is an injection.
+    \end{itemize}
+\end{wts}
+\begin{proof}
+    Take the contrapositive.
+\end{proof}
+
+\begin{wts}[Left and Right inverses]
+    Let $F: \xx\to\yy$,
+    \begin{itemize}
+        \item $F$ is surjective if and only if there exists right inverse $G:\yy\to \xx$, 
+        \[
+            F\circ G = \id{\yy}
+        \]
+        if $A\subseteq\xx$, 
+        \[
+            G^{-1}(A)\subseteq F(A)
+        \]
+        \item $F$ is injective if and only if there exists a left inverse $H:F(\xx)\to \xx$
+        \[
+            H \circ F = \id{\xx}
+        \]
+        and if $B\subseteq\yy$, 
+        \[
+            F^{-1}(B)\subseteq H(B)
+        \]
+    \end{itemize}
+\end{wts}
 \topheader{Topological Spaces}
 
-This section will roughly follow Munkres text on Geeneral Topology, in particular we hope to cover Chapters 2, 3, 4 and 9. The rest of the Chapters should be covered proper by the subsequent section.
+This section will roughly follow Munkres text on General Topology, in particular we hope to cover Chapters 2, 3, 4 and 9. The rest of the Chapters should be covered proper by the subsequent section.
 
 
 \begin{definition}[Topology]\label{chp4:topology-definition}
@@ -31,8 +95,6 @@ This section will roughly follow Munkres text on Geeneral Topology, in particula
 \end{itemize}
 We call the elements of $\Tau$ open sets. The complements of elements in $\Tau$ are closed sets.
 \end{definition}
-
-\newpage
 
 
 \topheader{Basis of a Topology}
@@ -80,7 +142,7 @@ Notice this is equivalent to $\Tau$ is the collection of all unions of basis ele
     
     Now, if $E\subseteq\xx$ is the union of basis elements in $\borel$, if $E$ is non-empty, then every point $x\in E$ belongs in some $B_x$. Recycling the previous argument, and we see that $E$ is open in $\Tau$. If $E$ is empty, we define the 'union' of no sets as the empty set. So $\Tau$ is precisely the collection of all unions of basis elements $\borel$.
 \end{proof}
-\newpage
+
 
 We are now in a position to compare the relative 'fineness' of topologies.
 
@@ -112,7 +174,7 @@ We are now in a position to compare the relative 'fineness' of topologies.
     \]
     Applying \Cref{chp4:basis-definition} tells us $U$ is open in $\Tau'$.
 \end{proof}
-\newpage
+
 
 The last of the big three 'generating' definitions for topologies will be the sub-basis. It simply means the first condition (but not necessarily) the second, is satisfied in \Cref{chp4:basis-definition}
 \begin{definition}[Sub-basis of a topology]\label{chp4:sub-basis-definition}
@@ -125,7 +187,7 @@ A sub-basis can be upgraded to a basis by collecting all of its finite intersect
 \begin{proof}
     Every point in $\xx$ lies in some element of $S$, hence in some element of $\borel$. The second basis property is immediate, since $\borel$ is closed under finite intersections.
 \end{proof}
-\newpage
+
 
 \topheader{Product Topology}
 We will start with products of a finite collection of topological spaces.
@@ -166,14 +228,14 @@ Since bases are easier to describe than topologies, we have the following statem
 
 
 
-\newpage
+
 
 \topheader{Quotient Topology}
 
 
 
 
-\newpage
+
 
 \topheader{Product Topology}
 
@@ -188,7 +250,7 @@ The Cartesian Product of an arbitrary family of topological spaces, if equipped 
     \item Compact (Tynchonoff's Theorem, Folland)
 \end{enumerate}
 
-\newpage
+
 
 \topheader{Connectedness}
 
@@ -264,7 +326,7 @@ See Folland Exercise 4.10 for more properties.
     Personally, I remember this as pushing the complement inside and flipping the bar to a $c$!
 \end{remark}
 
-\newpage
+
 \topheader{Neighbourhoods}
 The concept of a neighbourhood allows us to characterize the interior of a set 'locally'.
 % Neighbourhoods, use Folland Definition
@@ -295,7 +357,7 @@ It is easy to see that $A$ is open $\iff A^o = A \iff A$ is a neighbourhood of i
     so $A$ is a neighbourhood of itself. Conversely, if $A\subseteq A^o$, then $A = A^o$, since the reverse inclusion follows immediately from \Cref{chp4:interior-subset}.
 \end{itemize}
 
-\newpage
+
 \topheader{Adherent points}
 Similar to the neighbourhood, the concept of an adherent point of a set allows us to speak of the closure in more concrete terms. The following definition is key in understanding the relationship between the closure, interior, and the boundary.
 \begin{definition}[Adherent point of a set]\label{chp4:adherent-point-definition}
@@ -318,7 +380,7 @@ Similar to the neighbourhood, the concept of an adherent point of a set allows u
     \]
 \end{proof}
 
-\newpage
+
 
 \topheader{Dense and nowhere dense subsets}
 \begin{definition}[Dense subset]\label{chp4:dense-definition}
@@ -532,7 +594,7 @@ Conversely, if $x\notin \cl{U}_s^c$ for some $s>\alpha$,  since $\{U_r\}$ (thus 
 \]
 
 
-\newpage
+
 \topheader{Compactness}
 Compactness is one of the most important concepts in topology and analysis.
 
@@ -629,7 +691,7 @@ Let $\xx$ and $\yy$ be topological spaces.
     \item Every quotient of a compact space is compact.
 \end{enumalpha}
 \end{wts}
-\newpage
+
 \begin{proof}[Proof of \Cref{lee-appendix-A.45} Part A]
     Let $f\in C(\xx,\yy)$ with $\xx$ compact. Fix an open cover of $f(\xx)$ in the relative topology, 
     \[
@@ -769,7 +831,7 @@ are disjoint open sets that contain $A$ and $B$ respectively.
 
 \end{proof}
 
-\newpage
+
 %\clearpage
 
 \begin{proof}[Proof of \Cref{lee-appendix-A.45} Part E]
@@ -802,7 +864,7 @@ are disjoint open sets that contain $A$ and $B$ respectively.
     Let $\xx$ and $\yy$ be topological spaces and $\pi: \xx\to\yy$ be a quotient map. So that $\yy$ is endowed with the quotient topology. So that $\pi$ is a surjective continuous map. and $\pi(\xx)=\yy$. Apply Part A, and we see that $\yy$ is compact.
 \end{proof}
 
-\newpage
+
 
 \topheader{Locally Compact Hausdorff Spaces}
 Compactness is an intrinsic topological property (in the subspace topology). We see from Proposition 4.25 that compact Hausdorff spaces are normal, which gives a sufficient condition for us to approximate and extend any continuous function; and allows us to extend certain 'local' properties to 'global' properties. \\

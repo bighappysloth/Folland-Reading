@@ -12,6 +12,15 @@ I used Chapter 9 of Rudin's Principle of Mathematical Analysis for vector calcul
 Why the open cube is necessarily for the rank theorem. (It is not, but it simplifies the proof a lot, because it is an open and convex set, and we can take the  $x$-sections across and explicitly write down an open set that contains $F(\wig{U_0})$). [Discussion here](https://math.stackexchange.com/questions/3029464/question-about-proof-of-the-rank-theorem-from-lees-smooth-manifolds)
 
 
+[More on the Rank Theorem](https://math.stackexchange.com/questions/1016191/rank-theorem-proof)
+
+Shrinking process:
+
+- first we center charts at the origin for the domain and the range.
+- complete the square for the matrix, and apply inverse function theorem, this gives another open connected subset in $\real^m$.
+- we can send this subset back and take the intersection with the original chart.
+- 
+
 # Definitions
 
 

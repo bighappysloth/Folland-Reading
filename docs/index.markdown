@@ -16,7 +16,7 @@ title: Homepage
 
 - Chapters: [1-4](/download/Lee-Chapter-1_Compiled.pdf), 
 
-- Appendix: [A: Topology](/download/Lee-Appendix_A_Compiled.pdf),  [B: Abstract Algebra](/download/Hungerford-Chapter-1_Compiled.pdf)
+- Appendix: [A: Topology](/download/Lee-Appendix_A_Compiled.pdf),  [B: Abstract Algebra](/download/Hungerford-Chapter-1_Compiled.pdf), [C: Algebraic Topology](/download/Munkres-Compiled.pdf)
 
 - Errata: [Lee - Introduction to Smooth Manifolds](https://sites.math.washington.edu/~lee/Books/ISM/errata.pdf)
 

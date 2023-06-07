@@ -36,3 +36,24 @@
 \providecommand{\halfm}{{\mathbb{H}^m}}
 % \providecommand{\df}{\mathcal{D}}
 
+
+% Shortcuts
+
+% Relations
+\providecommand{\htp}{\simeq}    % Homotopy
+\providecommand{\phtp}{\simeq_p} % Path Homotopy
+
+
+% Path and PathClass
+\NewDocumentCommand{\Path}{oo}{
+      {\operatorname{Path}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+    }
+\NewDocumentCommand{\Loop}{o}{
+  {\operatorname{Loop}}\IfNoValueF{#1}{({#1})}
+}
+\NewDocumentCommand{\PathClass}{oo}{
+      {\operatorname{PathClass}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+    }
+    
+\providecommand{\fgroup}[2]{\pi_{1}({#1},{#2})}
+

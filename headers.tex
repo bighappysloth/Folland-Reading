@@ -90,11 +90,30 @@
     backgroundcolor=tab-blue!20
 }
 
-\mdfdefinestyle{subtheoremstyle}{%
-    style=definitionstyle,
-    backgroundcolor=tab-orange!20
-}
 
+\mdfdefinestyle{stepstyle}{%
+    style=definitionstyle,
+    backgroundcolor=tab-teal!20
+}
+\newcounter{thestep}
+\mdtheorem[style=stepstyle]{mysteps}{}[thestep]
+\renewcommand{\themysteps}{Step \arabic{thestep}}
+
+
+\NewDocumentEnvironment{step}{o}
+{
+    \stepcounter{thestep}
+    \IfNoValueTF{#1}
+    {
+        \begin{mysteps}
+    }
+    {
+        \begin{mysteps}[{#1}]
+    }
+}
+{
+    \end{mysteps}
+}
 
 \mdfdefinestyle{remarkstyle}{%
     style=definitionstyle,
@@ -111,7 +130,7 @@
 \mdtheorem[style=theoremstyle]{lemma}{Lemma}[theproblem]
 \mdtheorem[style=theoremstyle]{corollary}{Corollary}[theproblem]
 
-\mdtheorem[style=subtheoremstyle]{step}{Step}[theproblem]
+
 
 \mdtheorem[style=remarkstyle]{remark}{Remark}[theproblem]
 \mdtheorem[style=theoremstyle]{example}{Example}[theproblem]

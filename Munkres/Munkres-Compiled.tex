@@ -1,0 +1,297 @@
+\documentclass[../main-manifolds.tex]{subfiles}
+
+% Shortcuts
+
+% Relations
+\providecommand{\htp}{\simeq}    % Homotopy
+\providecommand{\phtp}{\simeq_p} % Path Homotopy
+
+
+% Path and PathClass
+\NewDocumentCommand{\Path}{oo}{
+      {\operatorname{Path}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+    }
+\NewDocumentCommand{\Loop}{o}{
+  {\operatorname{Loop}}\IfNoValueF{#1}{({#1})}
+}
+\NewDocumentCommand{\PathClass}{oo}{
+      {\operatorname{PathClass}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+    }
+    
+\providecommand{\fgroup}[2]{\pi_{1}({#1},{#2})}
+
+
+
+
+\begin{document}
+
+\fchapter{C: Algebraic Topology}\newpage
+
+\topheader{Homotopy}
+
+This section will follow Munkres Chapters 9 and 13 closely. Possibly other chapters as well.
+
+\begin{definition}[Path]\label{munkres:path}
+    A \emph{path} is a continuous function from the unit interval $f:[0,1]\to \xx$. We say $f$ is a \emph{path form $x_0$ to $x_1$} if $f(0)=x_0$ and $f(1)=x_1$.\\
+
+    We denote the set of paths from $x_0$ to $x_1$ by $\Path[x_0, x_1]$. If $f\in\Path[x_0,x_1]$, we sometimes denote the \emph{reversal of $f$} by $\cl{f}\in\Path[x_1,x_0]$, where $\cl{f}(s)\defined f(1-s)$.
+\end{definition}
+
+\begin{definition}[Loop]\label{munkres:loop}
+    A \emph{loop} at $x_0\in\xx$ is a path that begins and ends at $x_0$, and $\Loop[x_0]\defined\Path[x_0,x_0]$. The constant path (or loop) at $x_0$ is denoted by $e_{x_0}: [0,1]\to \xx$. 
+    \[
+        e_{x_0}(s)=x_0,\quad \forall s\in[0,1]
+    \]
+\end{definition}
+\begin{definition}[Homotopy of $C(\xx,\:\yy)$]\label{munkres:homotopy-of-functions}
+    Let $f$, and $g$ continuous functions from $\xx$ to $\yy$. $f$ and $g$ are homotopic, denoted by $f\eqsim g$ if there exists a continuous function $F\in C(\xx\times I,\: \yy)$ where
+    \begin{equation}\label{munkres:homotopy-functions-equation}
+        F(x,0)=f(x)\qqtext{and} F(x,1) = g(x)
+    \end{equation}
+    where $I = [0,1]$.\\
+
+    The function $F$ is called the \emph{homotopy between $f$ and $g$}.\\
+
+    If $f\htp h$, where $h$ is the constant function, we say $f$ is \emph{nulhomotopic}.
+\end{definition}
+
+
+\begin{definition}[Path Homotopy of {$\Path[x_0,x_1]$}]\label{munkres:path-homotopy}
+    Two paths $f_0,\: f_1\in\Path[x_0,x_1]$ are said to be \emph{path homotopic}, if there exists a continuous function $F\in C(I\times I,\: \xx)$, with
+    \begin{itemize}
+        \item $F$ is a \emph{homotopy between $f_0$ and $f_1$} (in the sense of \Cref{munkres:homotopy-of-functions}). For every $s\in [0,1]$,
+        \begin{equation}\label{munkres:path-homotopy-deformation}
+            F(s,0)=f_0(s)\qqtext{and}F(s,1)=f_1(s)
+        \end{equation}
+        \item $F$ leaves the endpoints fixed. For every $t\in[0,1]$, then
+        \begin{equation}\label{munkres:path-homotopy-endpoints}
+            F(0,t)=x_0\qqtext{and}F(1,t)=x_1
+        \end{equation}
+    \end{itemize}
+    If $f_0$ and $f_1$ are path-homotopic, we write $f_0\phtp f_1$.\\
+
+    \begin{itemize}
+        \item The function $F\in C(I\times I,\: \xx)$ is called the \emph{path homotopy between $f_0$ and $f_1$}. 
+        \item If $f\in\Loop[x_0]$ is path homotopic to the constant path $e_{x_0}$, then $f$ is \emph{nulhomotopic}.
+        \item The relation $\phtp$ is defined for paths that have the same initial and final points. So it is a relation \emph{on} $\Path[x_0,x_1]$.
+    \end{itemize}
+\end{definition}
+
+\begin{wts}[Munkres Lemma 51.1]\label{munkres:lemma-51.1}
+    The relations $\htp$ and $\phtp$ are equivalence relations on $C(\xx,\yy)$ and $\Path[x_0,x_1]$ respectively.
+\end{wts}
+\begin{proof}
+    ($f\htp f$): Let $f\in C(\xx, \yy)$. Define 
+    \[
+        F:\xx\times I\to \yy\quad \text{For every } t\in [0,1], F(x,t)=f(x)
+    \]
+    $F$ is continuous, since $F = \pi_{\xx}\circ (f\times \id{[0,1]})$, where $f\times \id{[0,1]}$ is the product of two continuous functions, which is again continuous by Chapter A. Moreover, $F(x,0)=f(x)=F(x,1)$, so $F$ is a homotopy between $f$ and itself.\\
+
+    ($f\htp g\implies g\htp f$): Let $F$ be the homotopy between $f$ and $g$. Let $G$ be the 'reversal' in the second coordinate of $F$, meaning
+    \[
+        G(x,t)= F(x,1-t)\:\text{ is continuous, since } G = F\circ (\id{\xx}\times c)
+    \]
+    where $c:I\to I$ that maps $t\mapsto 1-t$ is continuous, so $\id{\xx}\times c$ is continuous; hence $G$ is continuous. Notice for every $x\in\xx$,
+    \[
+        G(x,0)=F(x,1)=g(x)\qqtext{and}G(x,1)=F(x,0)=f(x)
+    \]
+    therefore $G$ is a homotopy between $g$ and $f$. \\
+
+    ($f\htp g,\: g\htp h\implies f\htp h$): Let $F$ be the homotopy between $f$ and $g$, and $G$ be the homotopy between $g$ and $h$. Define a function $H: \xx\times I\to \yy$ that morphs $f$ into $g$ on $[0,2^{-1}]$, then $g$ into $h$ on $[2^{-1},1]$
+    \begin{equation}\label{munkres:lemma-51.1-product}
+        H(x,t) = \begin{cases}
+            F(x,2t-\floor{2t}) & \text{for } 0\leq t\leq 2^{-1}\\
+            G(x,2t-\floor{2t}) & \text{for } 2^{-1}\leq t\leq 1\\
+        \end{cases}
+    \end{equation}
+    where $\floor{\cdot}$ denotes the \emph{floor function}. 
+    \begin{itemize}
+        \item $H$ is well defined on the overlap $\xx\times 2^{-1}$, since $F(x,1)=G(x,0)=g(x)$ at every $x\in\xx$. 
+        \item If $t=0$, then $H(x,1)=F(x,0)=f(x)$, and $t=1$ gives $H(x,1)=G(x,1)=h(x)$.
+        \item Since $H|_{\xx\times [0,2^{-1}]}$ and $H|_{\xx\times[2^{-1},1]}$ are continuous functions, and they agree on the overlap, $H$ is continuous by the pasting Lemma, and defines a homotopy between $f$ and $h$.
+    \end{itemize}
+
+
+    Now consider paths $f$, $g$, $h$ in $\Path[x_0,x_1]$, ($f\phtp f$) is trivial. So is symmetry of $\phtp$, as the reversal in the second coordinate (see above) of the path homotopy between $f$ and $g$ is path homotopy between $g$ and $f$.\\
+
+    Suppose $f\phtp g$, and $g\phtp g$. Let $F$, and $G$ be the path homotopies between $f,g$ and $g,h$. Write $H$ as in \Cref{munkres:lemma-51.1-product}, it is a continuous function on $I\times I\to \xx$, that satisfies
+    \[
+        H(s,0) = F(s,0) = f(s)\qqtext{and} H(s,1)=G(s,1)=h(s)\: \text{for every }s\in[0,1]
+    \]
+    If $s=0$, it is easy to see from \Cref{munkres:lemma-51.1-product} that for every $t\in[0,1]$, 
+    \begin{align*}
+        H(0,t)&=\begin{cases}
+            F(0,2t-\floor{2t})=x_0 & \text{for } 0\leq t\leq 2^{-1}\\
+            G(0,2t-\floor{2t})=x_0 & \text{for } 2^{-1}\leq t\leq 1\\
+        \end{cases}=x_0\quad \text{and}\\
+        H(1,t)&=\begin{cases}
+            F(1,2t-\floor{2t})=x_1 & \text{for } 0\leq t\leq 2^{-1}\\
+            G(1,2t-\floor{2t})=x_1 & \text{for } 2^{-1}\leq t\leq 1\\
+        \end{cases}=x_1
+    \end{align*}
+
+    So the endpoints remain fixed throughout the deformation in $t$, and $H$ is a path homotopy between $f$ and $h$. This proves transitivity.
+\end{proof}
+
+\topheader{Path and PathClass Products}
+
+\begin{definition}[Product of Paths $f\cnv g$]\label{munkres:product-of-paths}
+    Let $f\in\Path[x_0,x_1]$ and $g\in\Path[x_1,x_2]$, the product of $f$ and $g$, denoted by $f\cnv g$ is another path from $x_0$ to $x_2$. For $s\in[0,1]$, 
+    \begin{equation}\label{munkres:product-of-paths-equation}
+        (f\cnv g)(s) \defined\begin{cases}
+            f(2s-\floor{2s}) & \text{for } 0\leq s\leq 2^{-1}\\
+            g(2s-\floor{2s}) & \text{for } 2^{-1}\leq s\leq 1\\
+        \end{cases}
+    \end{equation}
+    Notice the similarities between \Cref{munkres:product-of-paths-equation,munkres:lemma-51.1-product}, 
+\end{definition}
+\begin{wts}[Properties of the Path Product]
+    Let $f\in\Path[x_0,x_1]$ and $g\in\Path[x_0,x_1]$, let $k\in C(\xx,\: \yy)$, then
+    \begin{enumroman}
+        \item Invariant under left-multiplication: $f\phtp g\implies k\circ f\phtp k\circ g$, where $k\circ f$ and $k\circ g$ are elements Paths from $k(x_0)$ to $k(x_1)$, and if $F$ be a path homotopy between $f$ and $g$, then $k\circ F$ is a path homotopy between $k\circ f$ and $k\circ g$.
+        \item If we redefine $f\in\Path[x_0,x_1]$, $g\in\Path[x_1,x_2]$, and $k$ be as above, then 
+        \[
+            k\circ(f\cnv g)=(k\circ f)\cnv(k\circ g)
+        \]
+    \end{enumroman}
+\end{wts}
+\begin{proof}
+        \begin{enumerate}[label={Proof of Part (\roman*): },leftmargin=*]
+        \item[]
+        \item It is clear that $k\circ f$ and $k\circ g$ are elements of $\Path[k(x_0),k(x_1)]$, and see Part (ii) for the proof of $k\circ f\phtp k\circ g$.
+        \item Let $F$ be the path homotopy between $f$ and $g$. The composition $(k\circ F)$ is in $C(\xx\times I,\: \yy)$. \Cref{munkres:path-homotopy-deformation} reads
+        \begin{align*}
+            (k\circ F)(s,0)&=k(F(s,0))=(k\circ f)(s)\: \text{and}\\ 
+            (k\circ F)(s,1)&=k(F(s,1))=(k\circ g)(s)\: \text{for every }s\in[0,1]
+        \end{align*}    
+        and \Cref{munkres:path-homotopy-endpoints} gives
+        \begin{align*}
+            (k\circ F)(0,t)&=k(F(0,t))=k(x_0)\: \text{and}\\
+            (k\circ F)(1,t)&=k(F(1,t))=k(x_1)\: \text{for every }t\in[0,1]
+        \end{align*}    
+        therefore $k\circ F$ is a path homotopy between the paths $k\circ f$ and $k\circ g$.
+    \end{enumerate}
+\end{proof}
+\begin{definition}[Path Homotopy class {$[f]$}]
+    Let $ f\in\Path[x_0,x_1]$, we define the \emph{path homotopy class of $f$} as 
+    \[
+        [f]\defined\bigset{g\in\Path[x_0,x_1],\: g\phtp f}
+    \]
+\end{definition}
+\begin{definition}[Product of PathClasses ${[f]}\cnv{[g]}$]\label{munkres:product-of-pathclasses}
+    Let $\cnv: \PathClass[x_0,x_1]\times\PathClass[x_1,x_2]\to \PathClass[x_0,x_2]$ be a binary operation, where 
+    \[
+        [f]\cnv[g]\defined [f\cnv g]\: {\text{is well defined.}}
+    \]
+    for arbitrary $[f]\in \PathClass[x_0,x_1]$ and $[g]\in \PathClass[x_1,x_2]$. This means it is independent of the representative chosen. More formally, if $f\phtp f'\in\Path[x_0,x_1]$, and $g\phtp g'\in\Path[x_1,x_2]$, then $f\cnv g\phtp f'\cnv g'$.
+\end{definition}
+
+\begin{wts}[Properties of the PathClass product]\label{munkres:theorem51.2}
+    Let $[f]$, $[g]$ and $[h]$ be PathClasses from and to the points $x_0$, $x_1$, $x_2$. Then
+    \begin{enumerate}
+        \item Associativity: $([f]\cnv [g])\cnv[h]=[f]\cnv ([g]\cnv[h])$,
+        \item Left and Right identities: if $[f]\in\PathClass[x_0,x_1]$, $e_{x_0}$, $e_{x_1}$ denote the constant paths on $x_0$ and $x_1$ (the initial and final points of any $f\in [f]$), then
+        \[
+            [e_{x_0}]\cnv[f]=[f]\qqtext{and}[f]\cnv[e_{x_1}]=[f]
+        \]
+        \item Left and Right inverses: let $[\cl{f}]$ be the PathClass containing the reversal of $f$ (see \Cref{munkres:path}) for the definition, then 
+        \[
+            [\cl{f}]\cnv[f]=[e_{x_1}]\qqtext{and}[f]\cnv[\cl{f}]=[e_{x_0}]
+        \]
+        \item Generalized Associativity: if $\{[f_j]\}_{j\leq n}$ is a sequence of PathClasses, such that $[f_j]\in\PathClass[x_{j-1},x_j]$, then 
+        \[
+            \prod [f_j]\defined[f_1]\cnv[f_2]\cnv\cdots\cnv[f_n]\text{ is a well-defined object}
+        \]
+        meaning we can place the brackets wherever we want.
+    \end{enumerate}
+\end{wts}
+\begin{proof}
+    We will give an outline for the proof of Generalized Associativity, the rest are trivial. Let $\{[f_j]\}$ be defined as above. If $\{a_j\}_{j=0}^n$, and $\{b_j\}_{j=0}^n$ are 'cell partitions' of the unit interval (in the sense of the Riemann integral), meaning
+    \[
+    0=a_0<a_1<\cdots<a_n=1,\qqtext{and}0=b_0<b_1<\cdots<b_n=1
+    \]
+    We agree to define the following
+    \begin{itemize}
+        \item the lengths of each cell $l_{a_j}\defined a_j-a_{j-1}$ and $l_{b_j}\defined b_j-b_{j-1}$, and
+        \item the cells themselves are denoted by $\operatorname{cell}(a_j)=[a_{j-1},\: a_j]$, $\operatorname{cell}(b_j)=[b_{j-1},\: b_j]$,
+        \item $p\in\Path[0,1]$, where $p$ is given explicitly by
+        \[
+            p(s) = \sum_{j=1}^n\chi_{\operatorname{cell}(a_j)\setminus\{a_{j-1}\}}\qty(\frac{l_{b_j}}{l_{a_j}}(s-a_j) + b_j)
+        \]
+    \end{itemize}
+    It is clear $p$ is continuous, and for $j=1,\ldots,n$, 
+    \[
+        p|_{\operatorname{cell}(a_j)}\:\text{is the positive linear map from }\operatorname{cell}(a_j)\text{ to }\operatorname{cell}(b_j)
+    \]
+    Using the same line of argumentation as in the proof for associativity, we see that any two 'ways' of bracketing the expression has no impact on the path-homotopy class.
+\end{proof}
+
+\topheader{Fundamental Group}
+
+\begin{definition}[Fundamental group {$\fgroup{\xx}{x_0}$}]\label{munkres:fundamental-group}
+    Let $x_0\in \xx$, the \emph{fundamental group of $\xx$ relative to (base point) $x_0$} is denoted by $\fgroup{\xx}{x_0}=\PathClass[x_0,x_0]$.
+\end{definition}
+\begin{definition}[Isomorphism induced by {$\Path[x_0,x_1]$}]\label{munkres:path-isomorphism}
+    Suppose $\alpha\in\Path[x_0,x_1]$, we define a map $\hat{\alpha}:\fgroup{\xx}{x_0}\to\fgroup{\xx}{x_1}$, with
+    \[
+        \hat{\alpha}([f]) = [\cl{\alpha}]\cnv[f]\cnv[\alpha]
+    \]
+    where $\cl{\alpha}$ is the reversal of $\alpha$. We call $\hat{\alpha}$ the \emph{isomorphism induced by $\alpha$} (Munkres Theorem 52.1).
+\end{definition}
+
+\begin{proof}[Isomorphism proof]\label{munkres:theorem52.1}
+    Let $[f]$ and $[g]$ be elements of $\fgroup{\xx}{x_0}$, then 
+    \begin{align*}
+        \hat{\alpha}([f]\cnv[g]) &= ([\cl{\alpha}]\cnv[f]\cnv[\alpha])\cnv([\cl{\alpha}]\cnv[g]\cnv[\alpha])\\
+        &= [\cl{\alpha}]\cnv([f]\cnv[g])\cnv[\alpha]\\
+        &= \hat{\alpha}([f])\cnv\hat{\alpha}([g])
+    \end{align*}
+    and $\hat{\alpha}$ is a homomorphism. We claim inverse of $\hat{\alpha}$ is $\hat{\cl{\alpha}}$. Fix $[f]\in\fgroup{\xx}{x_0}$, $[g]\in\fgroup{\xx}{x_1}$, then
+    \[
+        (\hat{\cl{\alpha}}\circ\hat{\alpha})([f]) = [\alpha]\cnv\qty([\cl{\alpha}]\cnv[f]\cnv[\alpha])\cnv[\cl{\alpha}] = [f]
+    \]
+    so $\hat{\cl{\alpha}}$ is the left-inverse for $\hat{\alpha}$. A similar argument shows it is the right inverse as well with $(\hat{\alpha}\circ{\hat{\cl{\alpha}}})([g])=[g]$. Therefore $\fgroup{\xx}{x_0}$ is group isomorphic to $\fgroup{\xx}{x_1}$.
+\end{proof}
+
+\topheader{Homomorphisms}
+
+\begin{definition}[Homomorphism induced by a continuous map]\label{munkres:homomorphism-induced-by-continuous-map}
+    Let $h\in C(\xx,\: \yy)$, and $y_0 = h(x_0)$, it induces a map between loops at $x_0$ and $y_0$. 
+    \[
+        h_*:\Loop[x_0]\to\Loop[y_0], f\mapsto h\circ f
+    \]
+    It is a also a group homomorphism between fundamental groups. We use the same symbol for the two maps, relying on context to distinguish between the two.
+    \[
+        h_*:\fgroup{\xx}{x_0}\to\fgroup{\yy}{y_0},[f]\mapsto [h\circ f]
+    \]
+    is well defined because of \Cref{munkres:theorem51.2}, it is a homomorphism (again by \Cref{munkres:theorem51.2}) because $h$ 'distributes' over $\cnv$
+    \[
+        h\circ (f\cnv g)=(h\circ f)\cnv (h\circ g)
+    \]
+\end{definition}
+\begin{remark}[Functorial properties of the $h_*$]
+    If $x_0\in\xx$, the tuple $(x_0, \xx)$ is an object in the category of \emph{pointed topological spaces}, and the map $h_*$ is a \emph{covariant functor} from the category of pointed topological spaces to the category of groups.\\
+
+    Follows from Munkres Theorem 52.4, if the expressions below make sense,
+    \[
+        (g\circ f)_* = g_*\circ f_*\qqtext{and}  h_*\circ (g\circ f)_* = (h\circ g)_*\circ f_*
+    \]
+    And the identity map $i:\xx\to\xx$ gets 'sent' to the identity homomorphism in $\Hom[\fgroup{\xx}{x_0},\fgroup{\xx}{x_0}]$. And if $h$ is a homeomorphism between $\xx$ and $\yy$, then $h_*$ is an isomorphism at every point.
+\end{remark}
+
+\topheader{Simply connected space}
+
+\begin{definition}[Simply connected space]\label{munkres:simply-connected}
+    A topological space $\xx$ is \emph{simply connected} if it is path-connected, and $\fgroup{\xx}{x_0}=\{[e_{x_0}]\}$ for some $x_0\in \xx$. Notice this implies every fundamental group of $\xx$ is trivial.
+\end{definition}
+\begin{wts}[Properties of simply connected spaces]
+    If $\xx$ is a simply connected space, then $\PathClass[x_0,x_1]$ consists of one element. That is to say, if $f$ and $g$ are Paths from $x_0$ to $x_1$, then $f\phtp g$.
+\end{wts}
+
+\topheader{Covering maps}
+\begin{definition}[Covering maps and spaces]\label{munkres:covering-maps-spaces}
+    
+\end{definition}
+
+\end{document}
+

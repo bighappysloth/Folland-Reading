@@ -73,12 +73,12 @@
 \mdfdefinestyle{definitionstyle}{%
     %backgroundcolor=,
     linewidth=1pt,
-    innerleftmargin=10pt,
-    innerrightmargin=10pt,
+    innerleftmargin=6pt,
+    innerrightmargin=6pt,
     innertopmargin=6pt, % Adjusted value
     innerbottommargin=6pt,
-    skipabove=10pt,
-    skipbelow=10pt,
+    skipabove=5pt,
+    skipbelow=5pt,
     topline=true, % Added option
     bottomline=true,
     backgroundcolor=tab-yellow!20
@@ -88,6 +88,11 @@
 \mdfdefinestyle{theoremstyle}{%
     style=definitionstyle,
     backgroundcolor=tab-blue!20
+}
+
+\mdfdefinestyle{subtheoremstyle}{%
+    style=definitionstyle,
+    backgroundcolor=tab-orange!20
 }
 
 
@@ -102,8 +107,12 @@
 
 \mdtheorem[style=definitionstyle]{definition}{Definition}[theproblem]
 \mdtheorem[style=theoremstyle]{wts}{Proposition}[theproblem]
+
 \mdtheorem[style=theoremstyle]{lemma}{Lemma}[theproblem]
 \mdtheorem[style=theoremstyle]{corollary}{Corollary}[theproblem]
+
+\mdtheorem[style=subtheoremstyle]{step}{Step}[theproblem]
+
 \mdtheorem[style=remarkstyle]{remark}{Remark}[theproblem]
 \mdtheorem[style=theoremstyle]{example}{Example}[theproblem]
 

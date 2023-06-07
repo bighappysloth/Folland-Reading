@@ -223,11 +223,38 @@ Since bases are easier to describe than topologies, we have the following statem
     \]
     by \Cref{chp4:basis-finer-topology-finer}, $\Tau_\mcal$ is finer than $\Tauxy$ and $\Tauxy = \Tau_\mcal$.
 \end{proof}
+\topheader{Continuity}
+\begin{definition}[Continuous maps {$C(\xx,\: \yy)$}]\label{chp2:continuity-definition}
+    Let $f$ be a map from $\xx$ to $\yy$. It is called \emph{continuous} if $f^{-1}(U)$ is open in $\xx$ for every open set $U$ in $\yy$. We denote the set of continuous functions from $\xx$ to $\yy$ by $C(\xx,\: \yy)$.
+\end{definition}
 
+\begin{wts}[Continuity preserving operations]
+    The composition of continuous functions is again continuous, and the product of continuous functions is again continuous.
+\end{wts}
+\begin{proof}
+    Suppose $f\in C(\xx,\: \yy)$ and $g\in C(\yy,\: \zz)$. Fix an open set $U\subseteq\zz$. Then $g^{-1}(U)$ is open in $\yy$, hence 
+    \[
+        f^{-1}(g^{-1}(U))=(g\circ f)^{-1}(U)\quad\text{ is open in }\xx
+    \]
+    Next, let $\{f_\alpha\}_{\alpha\in A}$ be a collection of continuous functions, where each $f_\alpha\in C(\xx_\alpha,\: \yy_\alpha)$. Let us write
+    \[
+        \xx\defined\prod\xx_\alpha\qqtext{and}\yy\defined\prod\yy_\alpha
+    \]
+    and the projection maps:
+    \[
+        \pi_\alpha^\xx: \xx\to\xx_\alpha,\quad\text{For every }x\in\xx,\: \pi_\alpha^\xx(x)=x(\alpha)\in \xx_\alpha
+    \]
+    similarly for $\pi_\alpha^\yy:\yy\to\yy_\alpha$. The product function $F = \prod f_\alpha$, is defined through its behaviour 'on each coordinate'
+    \begin{equation}\label{chp2:continuity-product-equation}
+        \pi_\alpha^\yy\circ F = f_\alpha\circ \pi_\alpha^\xx
+    \end{equation}
+    A function $F: \xx\to \prod \yy_\alpha$ is continuous iff $\pi_\alpha^\yy\circ F$ is continuous for each $\alpha\in A$. By \Cref{chp2:continuity-product-equation}, it is clear that each $\pi_\alpha^\yy\circ F$ is continuous, since the right member is the composition of two continuous functions, which is again continuous by the first part of this proof, therefore $F$ is continuous.
+\end{proof}
+\begin{definition}[Open/Closed Maps]\label{chp2:open-closed-maps}
+    Let $f: \xx\to\yy$ be a map (not necessarily continuous), it is called \emph{open} (resp. \emph{closed}) if for every open (resp. closed) set $E\subseteq\xx$, $f(E)$ is open (resp. closed).\\
 
-
-
-
+    Clearly, the composition of open (resp. closed) maps is again open (resp. closed).
+\end{definition}
 
 
 \topheader{Quotient Topology}
@@ -250,6 +277,12 @@ The Cartesian Product of an arbitrary family of topological spaces, if equipped 
     \item Compact (Tynchonoff's Theorem, Folland)
 \end{enumerate}
 
+\begin{wts}[Product of Closed sets again Closed]
+    The product of closed sets is again closed. More concretely, if $\{E_\alpha\}_{\alpha\in A}$ is a family of sets such that $E_\alpha\subseteq\xx_\alpha$, then 
+    \[
+        \prod \cl{E_\alpha}=\cl{\prod E_\alpha}
+    \]
+\end{wts}
 
 
 \topheader{Connectedness}

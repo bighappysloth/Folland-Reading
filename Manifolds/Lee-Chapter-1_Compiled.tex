@@ -704,6 +704,8 @@ There are three types of constant rank maps that are of interest.
 \begin{proof}
     Trivial. See \Cref{lee-chp4:example-1.28-matrices-of-full-rank}.
 \end{proof}
+Proposition 4.1 roughly states that, if the differential of $F$ at some point $p$ is injective or surjective, then there exists a neighbourhood $U$ about $p$ such that $dF|U(p)$ is an injection or surjection. The continuity of the map $dF|U(p) \mapsto \Delta_{m\times m}(dF|U(p))$, induces a neighbourhood in the vector space of matrices about the differential $dF|U(p)$. This vector space is endowed with any of the equivalent norms on $\mcal(m\times n,\real)$, which is equivalent to the entrywise $2$-norm. Since all partials of the form $\eval{\pdv{\hat{F}^{k}}{x^j}}_{\hat{p}}$ are continuous, we take the intersection over all $n\times m$ partials such that $dF|U(p)$ is an injection or surjection. Finally, send this neighbourhood about $\hat{p}$ through to $p$ by using the continuity of $\phi$.
+
 \begin{wts}[Inverse Function Theorem on Manifolds]\label{lee-chp4:inverse-theorem-on-manifolds}
     Let $M$ and $N$ be smooth manifolds, and $F:M\to N$ be a smooth map. Suppose the differential of $F$ is invertible at some point $p\in M$, then there exists connected neighbourhoods $U_0$ of $p$, and $V_0$ of $F(p)$ such that $F|U_0:U_0\to V_0$ is a diffeomorphism.
 \end{wts}
@@ -826,19 +828,313 @@ If $F:\xx\to\yy$, and $c\in \yy$, we call the $F^{-1}(\{y\})$ a \emph{level set 
     \end{align*}
 \end{definition}
 
+\topheader{Embedded submanifolds}
+\begin{definition}[Embedded submanifold of $M$]\label{lee-chp5:embedded-submanifold}
+    A subset $S$ of $M$ is called an \emph{embedded submanifold of $M$}, when:
+    \begin{itemize}
+        \item equipped with the subspace topology from $M$,
+        \item it has a smooth structure that makes it a smooth manifold, and
+        \item the inclusion map $\iota: S\hookrightarrow M$ is a smooth embedding.
+    \end{itemize}
+\end{definition}
 
 
+\topheader{Measure zero}
+\begin{definition}[Measure zero]\label{lee-measure-zero}
+    A subset $E\subseteq\realn$ has \emph{measure zero} if $\mu(E)=0$
+    \[
+        \mu(E) = \inf\bigset{\sum_{j\geq 1} m(U_j),\: E\subseteq \bigcup U_j,\: U_j\in\mcal}
+    \]
+    where $\mcal$ denotes the Borel $\sigma$-algebra on $\realn$. Each $U_j$ can be taken to be open/closed balls or cubes, as they are measurable.\\
+
+    We sometimes refer to a measure zero set as \emph{null}. If $M$ is a smooth manifold of dimension $m$, then $E\subseteq M$ has \emph{measure zero} if for every chart $(U,\varphi)\in\mathcal{A}_M$, 
+    \[
+        \varphi(U\cap E)\subseteq\realm\quad\text{has measure zero in }\realm
+    \]
+\end{definition}
+\begin{wts}[Subadditivity and Monotonicity of null sets]\label{lee-sards-subadditivity}
+    The countable union of null sets is again null. Any measurable subset of a null set is again null. This holds for $\realn$ and the smooth manifold case.
+\end{wts}
+\begin{proof}
+    See any textbook on the theory of integration.
+\end{proof}
+\begin{wts}[Slice criterion for measure zero]\label{lee-theorem6.2}
+    Suppose $A\subseteq\realn$ is compact (not necessary), and for every $c\in \real$, define the $c$-section of $A$
+    \[
+        A_c = \bigset{x\in\real^{n-1},\: (c,x)\in A}
+    \]
+    If $A_c$ has measure zero in $\real^{n-1}$ for every $c\in\real$, then $A$ has measure zero
+\end{wts}
+\begin{proof}
+    By Tonelli's Theorem, since the Lebesgue measure on $\borel_\realn$ is a Radon measure, it is finite on compact sets. Hence
+    \[
+        \mu(A)=\int fd\mu_n = \int \chi_{A}d\mu_1\times\cdots\times\mu_n
+    \]
+    where $f(c) = \int \chi_{A_c}d\mu_1\times\cdots\times\mu_{n-1}$ is $0$ for all $c$, hence $\int fd\mu_n$ integrates to zero.
+\end{proof}
+\begin{wts}[Equivalent condition for manifold measure zero]\label{lee-theorem6.6}
+    Let $E\subseteq M$, if $\{(U_\alpha,\: \varphi_\alpha)\}$ is a collection of charts that cover $A$, and $\varphi_\alpha(E\cap U_\alpha)$ has measure zero for every $\alpha$, then $E$ has measure zero.
+\end{wts}
+
+\begin{wts}[Smooth maps send null sets to null sets]\label{lee-theorem6.9}
+    If $F\in\cinf[M,N]$, and $A\subseteq M$ has measure zero, so does $F(A)$. In particular, this holds for $F\in\cinf[\realm,\realn]$ with the standard smooth structures.
+\end{wts}
+
+\topheader{Lemmas for Sard's Theorem}
+
+\begin{lemma}[Lemmas on regular/critical points]\label{lee-regular-critical-points}
+    Let $M$ and $N$ be smooth manifolds, and $F\in\cinf[M,N]$. Then,
+    \begin{enumerate}
+        \item The set of regular points of $F$ are open in $M$.
+        \item The set of critical points of $F$ are closed in $M$.
+        \item The set of critical values of $F$ are precisely the direct image of its critical points. In symbols:
+        \begin{equation}\label{lee-critical-values-image-of-critia-points}
+            \text{Critical Values} = F(\text{critical points})
+        \end{equation}
+    \end{enumerate}
+\end{lemma}
+\begin{lemma}[Local characterization of critical points]\label{lee-critical-points-local}
+    Let $p\in M$, and if $p\in (U,\varphi)$, $F(U)\subseteq(V,\psi)$. Then the rank of $dF_p$ is independent of the choice of coordinate charts used, and it is equal to the rank of $d\hat{F}_{\hat{p}}$. Where $\hat{F}$ is the coordinate representation of $F$ with respect to the charts $(U,\: \varphi)$ and $(V,\psi)$.
+        \[
+            \hat{F}:\varphi(U)\to\psi(V)\quad \hat{F}\defined \psi\circ F\circ \varphi^{-1}
+        \]
+    Moreover, if $p$ a critical point of $F$, it is also a critical point of $F|_{U'}:U'\to V'$. Where $U'$ is an open subset of $U$, and $V'$ is an open subset of $V$ that contains $F(U')$ entirely.
+\end{lemma}
+\begin{lemma}[LCH Lemma for Sard's Theorem]\label{lee-sards-LCH}
+    Let $\xx$ be a LCH space. Suppose $x\in \xx$, and $U$ is an open set containing $x$. There exists an open precompact neighbourhood about $x$ that \emph{hides in $U$}. If $V$ denotes this neighbourhood, then
+    \[
+        x\in V\subseteq\cl{V}\subseteq U
+    \]
+\end{lemma}
+
+\begin{lemma}[Covering Lemmas for Sard's Theorem]\label{lee-covering-lemmas}
+    The following holds for an arbitrary $m$.
+    \begin{enumerate}
+        \item If $U\subseteq\realm$ is an open set, it can be covered by
+        \begin{itemize}
+            \item countably many open balls, 
+            \item countably many open cubes,
+            \item countably many closed balls,
+            \item countably many closed cubes,
+        \end{itemize}
+        all of the above are subsets of $U$.
+        \item If $E\subseteq\realm$ is a closed cube with side length $R$, then it can be covered by $K^m$ many closed cubes with equal side lengths $R'=RK^{-1}$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{lemma}[Diffeomorphism invariances for Sard's Theorem]\label{lee-diffeomorphisms-invariance}
+    Let $M$, $N$, $P$, $Q$ be smooth manifolds. Let $F\in\cinf[M,N]$, and $G\in\diffeo[M,M]$,
+    \begin{enumerate}
+        \item If $p\in M$, define $H = F\circ G$, then
+        \begin{itemize}
+            \item $\rank dF_p = \rank dH_p$,
+            \item $p$ is a critical point of $F$ iff it is a critical point of $H$,
+            \item $E\subseteq M$ has measure zero iff $G(E)$ has measure zero,
+            \item topological properties are preserved (applies for homeomorphisms $G$). $E$ is compact, open, closed, connected or path-connected iff $G(E)$ is.
+        \end{itemize}
+        \item Let $H\in\diffeo[Q,M]$, if $U$ is an open subset of $Q$, then $H|_{U}:U\to H(U)$ is again a diffeomorphism, where $U$ and $H(U)$ are interpreted as open-submanifolds of $Q$ and $M$.
+    \end{enumerate}
+\end{lemma}
+
+\topheader{Sard's Theorem}
+
+\begin{wts}[Sard's Theorem]
+    Let $M$ and $N$ be smooth manifolds with dimensions $m$ and $n$, then the set of critical values of $F$ has measure-zero in $N$.
+\end{wts}
+The proof for Sard's Theorem is extremely long. We will use induction on the dimension of $M$. The base case will be divided into two sub-cases, one where $n=0$ and $n\geq 1$.\\
 
 
+\begin{step}[Base case: $m = 0$]
+    Let $G\in\cinf[P,N]$ where $P$ and $N$ are smooth manifolds with dimensions $p = 0$ and $n\geq 1$. The set of critical values of $G$ have measure zero in $N$.
+\end{step}
 
-\newpage
+
+As we will soon see, the induction hypothesis allows us to use several dimension reduction techniques to prove the induction step. These techniques will depend on the rank theorem.
+\begin{step}[Induction hypothesis]
+    Let $G\in\cinf[P,N]$ where $P$ and $N$ are smooth manifolds with dimensions $0\leq p\leq m-1$ and $n\geq 1$. The set of critical values of $G$ have measure zero in $N$.
+\end{step}
+
+The induction step is extremely fussy. First, we dissect the domain and range of $M$ and $N$ into countably many charts $\{((U_{jk}, \varphi_{jk}),(V_{jk},\psi_{jk})\}_{j,k\geq 1}$ where
+
+\begin{equation}\label{lee-sards-Ujk-Vjk-spec}
+    F(U_{jk})\subseteq V_{jk}    
+\end{equation}
+that also cover $M$ and $N$. \\
+
+By \Cref{lee-critical-points-local}, if $p$ is a critical point of $F$ and $p\in U_{jk}$, then $p$ is a critical point of 
+\begin{equation}\label{lee-sards-Fjk-spec}
+    F_{jk}: U_{jk}\to V_{jk}
+\end{equation}
+
+\begin{step}[Construction of charts]\label{lee-sards-construction-charts}
+    We construct a countable sequence of $\{((U_{jk}, \varphi_{jk}),(V_{jk},\psi_{jk})\}_{j,k\geq 1}$ charts that satisfy \Cref{lee-sards-Ujk-Vjk-spec,lee-sards-Fjk-spec}.
+\end{step}
+\begin{proof}
+    Let $\{(U_\alpha, \varphi_\alpha)\}$ be the maximal smooth atlas on $M$. Each $U_\alpha$ is open in $M$, and $M$ is second-countable. It follows that there exists a countable open cover (indexed by $j\geq 1$) that covers $M$, and a countable smooth atlas $\{(U_j, \varphi_j)\}$. Similarly for $\{(V_k,\psi_k)\}$.\\
+
+    Let us write $U_{jk}\defined U_j\cap F^{-1}(V_k)$. Note $U_{jk}$ is open, since smoothness implies continuity (Proposition 2.4). And
+    \[
+        (V_{jk}, \psi_{jk})\defined (V_k, \psi_k)\quad F_{jk}=F|_{U_{jk}}
+    \]
+    so $F_{jk}(U_{jk})\subseteq V_{jk}$. Finally, define $\varphi_{jk}=\varphi_j|_{U_{jk}}$.
+\end{proof}
+
+Using \Cref{lee-theorem6.9}, smooth maps preserve measure-zero sets. If the critical values of some $F_{jk}$ have measure zero in $N_{jk}$, then so does $\iota(\text{critical points of } F_{jk})$, where is the smooth $\iota: N_{jk}\hookrightarrow N$ is the inclusion map (which is a smooth embedding by \Cref{lee-chp5:embedded-submanifold}). Thus,
+
+\begin{step}[Pass the measure-zero condition to each chart]
+    Prove the following
+    \begin{align*}
+    &F(\text{critical points of } F)\: \text{has measure zero}
+    \\ &\iff
+    \text{For } j,k\geq 1,\quad F_{jk}(\text{critical points of }F_{jk})\:\text{ null in } V_{jk}\subseteq N
+    \\&\iff 
+    \text{For } j,k\geq 1,\quad \hat{F}_{jk}(\text{critical points of }\hat{F}_{jk})\:\text{ null in } \psi_{jk}(V_{jk})\subseteq \realn
+\end{align*}
+
+where $\hat{F}_{jk}$ denotes the coordinate representation of $F$ with respect to the charts $(U_{jk}, \varphi_{jk})$ and $(V_{jk},\psi_{jk})$.
+\begin{equation}
+    \hat{F}_{jk}:\varphi_{jk}(U_{jk})\to \psi_{jk}(V_{jk}),\quad \hat{F}_{jk}\defined \psi_{jk}\circ F_{jk}\circ \varphi_{jk}
+\end{equation}
+\end{step}
+\begin{proof}
+    The first equivalence follows from \Cref{lee-critical-points-local}, and the observation that the image of $F$ commutes with unions. The second follows from \Cref{lee-theorem6.9,lee-diffeomorphisms-invariance}.
+\end{proof}
 
 
-\newpage
+To simplify the problem even further, we assume $U_{jk}$ and $V_{jk}$ are open subsets of $\realm$ and $\realn$, as the core of the 'measure-zero' argument is invariant under diffeomorphisms of the coordinate charts (see \Cref{lee-diffeomorphisms-invariance}). Let $j,k$ be fixed, and relabel
+\[
+    ((U_{jk},\varphi_{jk}),\: (V_{jk},\psi_{jk}))\mapsto ((U,\varphi),\: (V,\psi))\qqtext{and} F_{jk}\mapsto F
+\]
+similarly for $\hat{F}_{jk}\mapsto \hat{F}$.
 
-\topheader{Commentary}
+\begin{step}[Pass measure-zero condition to {$\realm$} and {$\realn$}]
+    Let $U$ and $V$ be open sub-manifolds of $M$ and $N$, and $\varphi$ and $\psi$ be global (smooth) charts.
+    \[
+        F(\text{critical points of } F) = (\psi^{-1}\circ \hat{F}\circ \varphi)(\text{critical points of }F)
+    \]
+    and
+    \[
+        \text{critical points of }F = \varphi^{-1}(\text{critical points of } \hat{F})
+    \]
+\end{step}
+\begin{proof}
+    The first equation follows from the definition of $\hat{F}$, after unboxing the domains and ranges.
+\end{proof}
+We again relabel:
+\[
+    U\mapsto \varphi(U),\quad V\mapsto \psi(V),\quad F\mapsto \hat{F}
+\]
 
-Proposition 4.1 roughly states that, if the differential of $F$ at some point $p$ is injective or surjective, then there exists a neighbourhood $U$ about $p$ such that $dF|U(p)$ is an injection or surjection. The continuity of the map $dF|U(p) \mapsto \Delta_{m\times m}(dF|U(p))$, induces a neighbourhood in the vector space of matrices about the differential $dF|U(p)$. This vector space is endowed with any of the equivalent norms on $\mcal(m\times n,\real)$, which is equivalent to the entrywise $2$-norm. Since all partials of the form $\eval{\pdv{\hat{F}^{k}}{x^j}}_{\hat{p}}$ are continuous, we take the intersection over all $n\times m$ partials such that $dF|U(p)$ is an injection or surjection. Finally, send this neighbourhood about $\hat{p}$ through to $p$ by using the continuity of $\phi$.
+and $M\mapsto \realm$, $N\mapsto \realn$, and critical points of $F$. Now $F: U\to V$ is a smooth map between open subsets of $\realm$ and $\realn$. Let us state the goal of the induction.
+\begin{step}[Simplified induction goal]\label{lee-sards-simplified-induction-hypothesis}
+    Let $U\subseteq\realm$ and $V\subseteq\realn$ be open subsets. $F\in\cinf[U,\realn]$ is a smooth map. Where $\realm$ and $\realn$ are considered to be smooth manifolds with the standard smooth structure. Prove that the set of critical values of $F$ have measure zero.
+\end{step}
+
+We define some standard notation for partials.
+\begin{itemize}
+    \item $\nat_0\defined\{0,1,\ldots\}$,
+    \item $\alpha$ is a \emph{$m$-multi-index} or a \emph{multi-index of order $m$} if $\alpha = (\alpha_1,\ldots,\alpha_m)$ is a $m$-tuple with entries in $\nat_0$. The set of $m$-multi-indices are denoted by $\nat_0^m$.
+    \item The order of a multi-index $\alpha$, denoted by $|\alpha|$ is its $l^1$ norm. In symbols:
+    \[
+        |\alpha|=\sum |\alpha_j|
+    \]
+    \item If $g\in\cinf[\realm,\real]$, and $\alpha\in\nat_0^m$, we define 
+    \[
+        \partial^\alpha g\defined \qty(\pdv{x^1})^{\alpha_1}\cdot\:\cdots\:\cdot\qty(\pdv{x^m})^{\alpha_m}
+    \]
+    so that $\partial^\alpha \defined \prod_{1}^m\qty(\pdv{x^j})^{\alpha_j} = \prod_{j=1}^m\partial_j^{\alpha_j}$.
+\end{itemize}
+
+Let $C\subseteq U$ denote the set of critical points of $F$, we decompose $F(C)$ into the following
+\begin{equation}\label{lee-sards-decompose-C}
+    F(C) = F(C\setminus C_1) + \bigcup_{j=1}^{k-1} F(C_j\setminus C_{j+1}) + F(C_k)
+\end{equation}
+    
+and show each of the three sets in the union have measure zero. (the direct image commutes with unions). Where
+\[
+    C_k \defined\bigset{x\in C,\: \forall i\leq n,\:\alpha\in\nat_0^m,\:|\alpha|\leq k,\: \partial^\alpha F^i(x)=0}
+\]
+and $F^i$ are the \emph{component functions} of $F$, or $F(x) = (F^{1}(x),\ldots,\: F^{n}(x))$.
+
+
+\begin{step}[Properties of $C$, $C_k$]
+    $C$, $C_k$ is closed for every $k\geq 1$, and 
+    $
+    U\supseteq C\supseteq C_1\supseteq C_2\supseteq \cdots
+    $.
+\end{step}
+\begin{proof}
+    $C$ is closed by \Cref{lee-regular-critical-points}. The function 
+    \[
+        h(x)\defined \sum_{{\substack{\alpha\in\nat_0^m\\ |\alpha|\leq k\\ i=1,\ldots,n}}}|\partial^\alpha F^i(x)|
+    \]
+    is a continuous map from $U\to\real$. and $h^{-1}(0)\cap C$ is closed by continuity. $C\supseteq C_1$ follows by definition of $C_1$, and $C_k\supseteq C_{k+1}$ follows from comparing $h$ for the two values of $k$.
+\end{proof}
+
+We will now prove $F(C\setminus C_1)$ has measure zero. Let $a\in C\setminus C_1$, noting that $U\setminus C_1$ is an open set containing $a$. Since $a\notin C_1$, there exists a first order non-vanishing partial for a component function of $F$. Suppose 
+\[
+    \pdv{x^j}F^{i}(a)\neq 0\qqtext{with respect to the standard charts}
+\]
+We wish to swap the columns and rows of the coordinate charts so that $\pdv{x^1}F^{-1}(a)\neq 0$. More concretely, the transposition of the $i$th and the $1$st row is a permutation; so is the transposition of the $j$th and the $1$st column. By invariance, we are free to relabel
+\[
+    F\mapsto P_{i,1}\circ F\circ P_{j,1}
+\]
+Next, we use a convenient change of coordinates, to arrive at the form described below.
+\begin{step}[Change of Coordinates]
+    Perform a change of coordinates, such that if $(u,v^2,\ldots,v^m) = (u,v)$, where $v\in\real^{n-1}$, then
+    \begin{equation}\label{lee-sards-eq-6.2a}
+        F(u,v) = (u,F^2(u,v), \ldots, F^n(u,v))
+    \end{equation}
+    and the differential is given by
+    \begin{equation}\label{lee-sards-eq-6.2b}
+        dF_{(u,v)} = \begin{bmatrix}
+            1&0\\ \eval{\pdv{F^i}{u}}_{(u,v)} & \eval{\pdv{F^i}{v^j}}_{(u,v)}
+        \end{bmatrix}\quad \substack{i=2,\ldots,n\\ j=2,\ldots,m}
+    \end{equation}
+    where $dF_{(u,v)}$ is not surjective for each $(u,v)\in C\setminus C_1\subseteq C$. This change of coordinates is valid on some open, precompact set containing $a$, denoted by $V_a$. More precisely
+    \begin{equation}\label{lee-sards-precompact}
+    a\in V_a\subseteq\cl{V}_a\subseteq B\subseteq U
+    \end{equation}
+\end{step}
+\begin{proof}
+If $(x^1,\ldots,x^m)$ are the standard coordinates of $\realm$, the map 
+    \[
+        T: (x^1,\ldots,x^m)\mapsto (F^1(a),x^2,\ldots,x^m)\quad\text{is a diffeomorphism}
+    \]
+    on some open, precompact neighbourhood $V_a$ of $a$.
+    \[
+        a\in V_a\subseteq \cl{V_a}\subseteq U
+    \]
+    
+    The Jacobian of $T$ is given by
+    \[
+        \operatorname{Jacobian}(T)(x)=\begin{bmatrix}
+            \pdv{F^1}{x^1}(x) & \cdots \\ 0 & Id_{m-1}
+        \end{bmatrix}
+    \]
+    and it is invertible at $a$. The continuity of $\pdv{F^1}{x^1}$ at $a$ gives us an open ball $B$ containing $a$, on which $\pdv{F^1}{x^1}\neq 0$. Let $V_a$ be an open, precompact neighbourhood that hides in this ball as in \Cref{lee-sards-LCH}. \\
+
+    Next, we absorb the change of coordinates into $F$, so
+    \[
+        F\mapsto F\circ T^{-1}
+    \]
+    Verification of the \Cref{lee-sards-eq-6.2a} is straightforward, as
+    \[
+    T^{-1}(u,v) = ((F^1)^{-1}(u,v), v^2,\ldots,v^m)
+    \]
+    \begin{align*}
+        (F\circ T^{-1})(u,v) 
+        &= \biggl(F^1[(F^1)^{-1}(u,v))], \ldots,\ldots\biggr)\\
+        &= (u, F^2(u,v),\ldots, F^n(u,v))
+    \end{align*}
+    Computing the Jacobian matrix gives \Cref{lee-sards-eq-6.2b}, and $V_a$ clearly satisfies \Cref{lee-sards-precompact}.
+\end{proof}
+Let $a$ range through all points in $C\setminus C_1$, then $\{C\setminus C_1\cap V_a\}_{a\in C\setminus C_1}$ is an open cover Rel $C\setminus C_1$, so there exists a countable subcover. We will prove something slightly stronger, we prove that $F(C\setminus C_1\cap \cl{V_a})$ has measure zero for each $a$ in this countable collection. \Cref{lee-sards-subadditivity} will then prove $F(C\setminus C_1)$ is null.\\
+
+Notice $C\setminus C_1\cap \cl{V_a}$ is a closed subset of $\cl{V_a}$, hence compact. Continuous functions send compact sets to compact sets, so $F(C\setminus C_1\cap \cl{V_a})$ is compact in $\realn$. We wish to use the induction hypothesis and 'lower the dimension' of $F$, or at the very least — pass the argument to a lower dimension.
+\begin{step}[Prove {$F(C\setminus C_1)$} has measure zero]\label{lee-sards-case1}
+        
+\end{step}
 
 
 

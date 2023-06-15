@@ -224,6 +224,7 @@ The following propositions summarizes common operations on smooth maps, a few so
 \begin{definition}[Diffeomorphism between Manifolds $\mathcal{D}(N,M)$]\label{lee-chp2:diffeomorphism-definition}
     Let $N$ and $M$ be smooth manifolds, $F:N\to M$ is a diffeomorphism if it is a smooth bijective map with a smooth inverse. We denote the space of diffeomorphisms from $N$ to $M$ by $\diffeo[N,M]$.
 \end{definition}
+
 \begin{wts}[Properties of Manifold Diffeomorphisms]\label{lee-chp2-diffeomorphism-properties}
     Let $N$, $M$ and $P$ be smooth manifolds, then
     \begin{itemize}
@@ -993,7 +994,7 @@ Using \Cref{lee-theorem6.9}, smooth maps preserve measure-zero sets. If the crit
 
 where $\hat{F}_{jk}$ denotes the coordinate representation of $F$ with respect to the charts $(U_{jk}, \varphi_{jk})$ and $(V_{jk},\psi_{jk})$.
 \begin{equation}
-    \hat{F}_{jk}:\varphi_{jk}(U_{jk})\to \psi_{jk}(V_{jk}),\quad \hat{F}_{jk}\defined \psi_{jk}\circ F_{jk}\circ \varphi_{jk}
+    F_{jk}:\varphi_{jk}(U_{jk})\to \psi_{jk}(V_{jk}),\quad \hat{F}_{jk}\defined \psi_{jk}\circ F_{jk}\circ \varphi_{jk}
 \end{equation}
 \end{step}
 \begin{proof}
@@ -1093,7 +1094,7 @@ Next, we use a convenient change of coordinates, to arrive at the form described
     \end{equation}
     where $dF_{(u,v)}$ is not surjective for each $(u,v)\in C\setminus C_1\subseteq C$. This change of coordinates is valid on some open, precompact set containing $a$, denoted by $V_a$. More precisely
     \begin{equation}\label{lee-sards-precompact}
-    a\in V_a\subseteq\cl{V}_a\subseteq B\subseteq U
+    a\in V_a\subseteq\cl{V}_a\subseteq B\subseteq U\setminus C_1
     \end{equation}
 \end{step}
 \begin{proof}
@@ -1109,14 +1110,14 @@ If $(x^1,\ldots,x^m)$ are the standard coordinates of $\realm$, the map
     The Jacobian of $T$ is given by
     \[
         \operatorname{Jacobian}(T)(x)=\begin{bmatrix}
-            \pdv{F^1}{x^1}(x) & \cdots \\ 0 & Id_{m-1}
+            \pdv{F^1}{x^1}(x) & \cdots \\ * & Id_{m-1}
         \end{bmatrix}
     \]
-    and it is invertible at $a$. The continuity of $\pdv{F^1}{x^1}$ at $a$ gives us an open ball $B$ containing $a$, on which $\pdv{F^1}{x^1}\neq 0$. Let $V_a$ be an open, precompact neighbourhood that hides in this ball as in \Cref{lee-sards-LCH}. \\
+    and it is invertible at $a$. The continuity of $\pdv{F^1}{x^1}$ at $a$ gives us an open ball $B\subseteq U\setminus C_1$ containing $a$, on which $\pdv{F^1}{x^1}\neq 0$. Let $V_a\subseteq\cl{V}_a\subseteq B$ be an open, precompact neighbourhood that hides in this ball as in \Cref{lee-sards-LCH}. \\
 
     Next, we absorb the change of coordinates into $F$, so
     \[
-        F\mapsto F\circ T^{-1}
+        F\mapsto (F\circ T^{-1})|_{B}
     \]
     Verification of the \Cref{lee-sards-eq-6.2a} is straightforward, as
     \[
@@ -1129,13 +1130,36 @@ If $(x^1,\ldots,x^m)$ are the standard coordinates of $\realm$, the map
     \end{align*}
     Computing the Jacobian matrix gives \Cref{lee-sards-eq-6.2b}, and $V_a$ clearly satisfies \Cref{lee-sards-precompact}.
 \end{proof}
+
 Let $a$ range through all points in $C\setminus C_1$, then $\{C\setminus C_1\cap V_a\}_{a\in C\setminus C_1}$ is an open cover Rel $C\setminus C_1$, so there exists a countable subcover. We will prove something slightly stronger, we prove that $F(C\setminus C_1\cap \cl{V_a})$ has measure zero for each $a$ in this countable collection. \Cref{lee-sards-subadditivity} will then prove $F(C\setminus C_1)$ is null.\\
 
 Notice $C\setminus C_1\cap \cl{V_a}$ is a closed subset of $\cl{V_a}$, hence compact. Continuous functions send compact sets to compact sets, so $F(C\setminus C_1\cap \cl{V_a})$ is compact in $\realn$. We wish to use the induction hypothesis and 'lower the dimension' of $F$, or at the very least — pass the argument to a lower dimension.
-\begin{step}[Prove {$F(C\setminus C_1)$} has measure zero]\label{lee-sards-case1}
-        
+\begin{step}[{$F(C\setminus C_1\cap \cl{V_a})$} has measure zero.]\label{lee-sards-case1}
 \end{step}
-
+\begin{proof}
+    Let $a$ an element in the countable subcollection described above. Let $c\in\real^{1}$ be arbitrary, if
+    \[
+        \{c\}\times\real^{n-1}\cap F(C\setminus C_1\cap \cl{V}_a)=\varnothing
+    \]
+    then the $c$-section $E_c$ of $F(C\setminus C_1\cap \cl{V}_a)$, 
+    
+    \[
+    E_c \defined \{q\in \real^{n-1},\: (c,q)\in F(C\setminus C_1\cap \cl{V}_a)\}
+    \]
+    is empty, so $E_c$ is null. Next, if $E_c$ is not empty, we will pass the argument to some $F_c: \underbracket{B_c}_{\subseteq \real^{m-1}}\to \real^{n-1}$ and show $E_c$ is \emph{exactly} (double inclusion) the set of critical points of $F_c$. Indeed, define
+    \[
+        B_c = \bigset{v,\: (c,v)\in\cl{V}_a}\qqtext{and}F(c,v)=(c,F_c(v))
+    \]
+    so $F_c(v) = (F^2(c,v),\ldots,F^{n}(c,v))$ for $v\in B_c$. The Jacobian (differential) of $F_c$ resembles that of $F$. With $c$ fixed,
+    \[
+        (dF_c)_v = \begin{bmatrix}
+            {v^j}_{(u,v)}
+        \end{bmatrix}\quad \substack{i=2,\ldots,n\\ j=2,\ldots,m}
+    \]
+    Compare the previous equation with \Cref{lee-sards-eq-6.2b}, what we have done essentially is \emph{removing the first column and row} of $dF_{(c,v)}$. By elementary linear algebraic arguments about canonical forms, $\rank dF_{(c,v)}\neq n\iff \rank (dF_c)_v\neq n-1$. So $(c,v)\in C\setminus C_1\cap \cl{V}_a$ if and only if $v$ is a critical point of $F_c$. 
+    
+    
+\end{proof}
 
 
 \end{document}

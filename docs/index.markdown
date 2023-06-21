@@ -11,6 +11,8 @@ title: Homepage
 
 - Chapters: [1](/download/Chapter_1_Compiled.pdf) [2](/download/Chapter_2_Compiled.pdf) [3](/download/Chapter_3_Compiled.pdf) [4](/download/Chapter_4_Compiled.pdf) [5](/download/Chapter_5_Compiled.pdf) [6](/download/Chapter_6_Compiled.pdf) [7](/download/Chapter_7_Compiled.pdf) [8](/download/Chapter_8_Compiled.pdf) [9](/download/Chapter_9_Compiled.pdf) 
 
+- Errata: [New](https://sites.math.washington.edu//~folland/Homepage/reals.pdf), [Old](https://sites.math.washington.edu//~folland/Homepage/oldreals.pdf)
+
 ### Manifold Notes
 - Full: [Link](/download/main-manifolds.pdf)
 

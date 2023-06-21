@@ -1,6 +1,6 @@
 ---
 layout: post
-title: mathjax v3 on minima
+title: mathjax v3 on minima, jekyll site management
 date:   2023-05-09 12:02:12 -0400
 categories: website
 ---
@@ -12,7 +12,10 @@ The following doesnt work for some reason.
 while this does
 $$\dfrac{1}{2} =x$$
 
-## resources:
+## fixing 404
+- [guide on URLs](https://mademistakes.com/mastering-jekyll/site-url-baseurl/#absolute_url-filter)
+
+## resources for mathjax:
 - [mathjax v3 configuration](https://docs.mathjax.org/en/latest/options/input/tex.html#tex-options)
 - [mathjax v2 syntax for delimiters](https://scaomath.github.io/blog/welcome-to-jekyll/)
 
@@ -25,7 +28,7 @@ $$\dfrac{1}{2} =x$$
 - custom-header.html does not work for some reason.
 - minima 3.0 is actually called minima 2.5.1
 
-## current head.html file
+# current head.html file
 {% highlight html %}
 <head>
   <meta charset="utf-8">

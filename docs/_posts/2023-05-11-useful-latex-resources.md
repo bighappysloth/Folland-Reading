@@ -9,9 +9,10 @@ tags: ['latex','workflow']
 
 [This page](https://pbelmans.ncag.info/blog/2010/12/06/the-power-of-mathclap-and-substack/) explains how to use `\mathclap` and `\substack` properly to sequeeze the indices of operators.
 
-# Packages
+## Packages
 - [physics](https://ctan.org/pkg/physics): Automatic delimter sizing, 'evaluated at bar' for derivatives, spacing for differentials 
 - [physics2](https://ctan.org/pkg/physics2)
+- [amsmath documentation](https://mirror.quantum5.ca/CTAN/macros/latex/required/amsmath/amsldoc.pdf)
 
 
 # Matrices

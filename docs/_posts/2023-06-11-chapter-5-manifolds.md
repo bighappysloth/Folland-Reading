@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Submanifolds
+title: Chapter 5 - Submanifolds
 date: 2023-06-11 23:03
 category: math
 tags: ['math','manifold']

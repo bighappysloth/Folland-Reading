@@ -1,7 +1,5 @@
 title: this button doesnt work idk why
 
-email: ting.h.li@mail.mcgill.ca
-
 description: >- # this means to ignore newlines until "baseurl:"
   Analysis Notes
 baseurl: "/Folland-Reading" # the subpath of your site, e.g. /blog
@@ -13,6 +11,8 @@ timezone: America/Toronto
 livereload: true
 
 markdown: kramdown
+kramdown:
+  math_engine: katex
 
 # Build settings
 theme: minima

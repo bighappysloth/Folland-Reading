@@ -1,6 +1,6 @@
 ---
 layout: post
-title: useful links
+title: Resources for Analysis
 date: 2023-05-18 21:02
 category: math
 tags: ['resources']

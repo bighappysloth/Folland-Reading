@@ -6,7 +6,7 @@ category: math
 ---
 Compactness by itself kinda means nothing, it has to be tied to some additional structure.
 
-In most cases you'l see compactness in Hausdorff spaces, which means a couple things:
+In most cases you'll see compactness in Hausdorff spaces, which means a couple things:
 
 Ordinarily, if you have a continuous function $f:\xx\to\yy$, where $\xx$ and $\yy$ are any topological spaces, one cannot deduce any topological information from $\xx$ into $\yy$.
 

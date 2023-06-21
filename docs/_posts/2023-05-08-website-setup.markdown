@@ -12,6 +12,9 @@ The following doesnt work for some reason.
 while this does
 $$\dfrac{1}{2} =x$$
 
+## todo
+- [improve workflow](https://www.xuningyang.com/blog/2021-01-11-katex-with-jekyll/) by using katex, and pandoc to convert latex into md.
+
 ## fixing 404
 - [guide on URLs](https://mademistakes.com/mastering-jekyll/site-url-baseurl/#absolute_url-filter)
 

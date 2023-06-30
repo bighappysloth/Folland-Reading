@@ -16,4 +16,6 @@ Progress tracker, and helpful resources are available [in the wiki](https://gith
 
 ~June 02: Lee Chapter 4-6~
 
-June 15: Lee Chapter 6-9
+~June 15: Lee Chapter 6-9~
+
+~June 25: Lee Chapter 10-12~

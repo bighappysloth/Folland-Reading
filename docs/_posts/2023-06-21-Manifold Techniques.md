@@ -60,6 +60,20 @@ It pulls $f\in C^\infty(N)$ into $f\circ F\in C^\infty(M)$,
 # Pushforward of curves
 The composition $F\circ\gamma$ is a curve starting at $F(p)$ with velocity $dF_p(\gamma'(0))$.
 
+# Computations of pushforward derivation on test functions
+The pushforward derivation $dF_p(\nu)$ of a test function $f\in C^\infty(N)$ is the derivation $\nu$ applied to the pullback $f\circ F$.
+
+$$
+dF_p(\nu)f = \nu(f\circ F)
+$$
+
+# Computations involving shifting curves
+Let $\tau_b: t\mapsto t+b$, then
+
+$$
+(d\tau_b)\biggr|_{t_0}\biggl(\dfrac{d}{dt}\biggr|_{t=t_0}\biggr) = \dfrac{d}{dt}\biggr|_{t=\tau_b(t_0)} = \dfrac{d}{dt}\biggr|_{t=t_0+b}
+$$
+
 # Local Coordinate Representation
 Depending on the rank of $dF_p$, the Rank Theorem tells us there exists coordinate charts in the domain and codomain such that it behaves like a linear map. It either removes coordinates ($dF_p$ not injective), adds zeros ($dF_p$ not surjective), or is the identity ($dF_p$ is full rank). 
 
@@ -123,6 +137,47 @@ b) Require properly embedded, then we can take $U = M$.
 ### Gluing Lemmas
 - Lemma A.20: Gluing Lemma for Continuous Maps
 - Corollary 2.8: Gluing Lemma for Smooth Maps $M\to N$.
+
+
+### Extensions of Frames and Fields
+
+- Lemma 8.6: Extension Lemma for Vector Fields from closed sets
+
+- Lemma 10.12: Extension Lemma for Vector Bundles
+
+### Completions of Frames and Fields
+
+- Prop 8.11: Completion of Local Frames for Tangent Bundles
+
+- Prop 10.15: Completion of Local Frames for Vector Bundles
+
+
+### Smoothness Criterion 
+
+- Prop 8.1: Upgrade rough vector field using component functions of charts
+
+- Prop 10.22: Upgrade rough sections using local frames
+
+
+### Construction of Charts Lemmas
+
+- Lemma 1.35: Smooth Manifold Chart Lemma
+
+- Lemma 3.18: TM is a smooth $2n$-manifold
+
+- Theorem 5.31: Uniqueness of the smooth structure on embedded submanifolds
+
+- Lemma 10.6: Vector Bundle Chart Lemma
+
+### Something acts locally
+
+- Fix $\sigma_1$ and $\sigma_2$ and suppose $\sigma_1\vert_{U} = \sigma_2\vert_{U}$, subtract over, and extension by zero by a bump function $\theta\in C^\infty(M)$ where $\theta(p)=1$ and $\supp \theta\subseteq U$ . Define $\tau = \sigma_1-\sigma_2$. The resulting section
+
+$$
+(\theta\tau)(q)=\begin{cases}\theta(q)\tau(q)=0 & q\in U\\ \theta(q)\tau(q)=0 & q\notin U\end{cases}
+$$
+
+since $\tau\vert_{U}=0$ and $\theta\vert_{U^c}=0$, and $(\theta\tau)(p)=\theta(p)\tau(p)=\tau(p) = 0$. 
 
 ---
 
@@ -205,7 +260,7 @@ d\varphi|_p = \begin{bmatrix}
 $$
 
 
-# Immersed Manifolds
+# Immersed Manifolds Technique
 The following is a technique to obtain slice charts for immersed manifolds. 
 
 Let $S$ be an immersed manifold, by Proposition 5.22 (Immersed Submanifolds are Locallly Embedded), every point $p\in S$, has a neighbourhood $U$ Rel $S$, that is an embedded submanifold of $M$. 
@@ -214,4 +269,10 @@ This means $U$, endowed with the subspace topology, is an embedded manifold.
 
 Using the local k-slice criterion on $U$, there exists a slice chart $(V,\varphi)$ in the smooth structure of $M$, such that $U$ is exactly a $k$-slice of $V$. 
 
+This technique is used in Theorem 5.29 (Restricting Codomain)
+
 ---
+
+
+# Proof Techniques
+

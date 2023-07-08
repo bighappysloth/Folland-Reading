@@ -680,7 +680,7 @@ There are three types of constant rank maps that are of interest.
 
 
 \begin{definition}[Smooth embedding]\label{lee-chp4:smooth-embedding-definition}
-    $F$ is a smooth embedding if it is a smooth immersion, and it is a homeomorphism onto its range $F(M)\subseteq N$. 
+    $F$ is a smooth embedding if it is a smooth immersion, and it is a topological homeomorphism onto its range $F(M)\subseteq N$. 
 \end{definition}
 
 \begin{definition}[Topological embedding]\label{lee-chp4:topological-embedding}
@@ -829,7 +829,7 @@ If $F:\xx\to\yy$, and $c\in \yy$, we call the $F^{-1}(\{y\})$ a \emph{level set 
     \end{align*}
 \end{definition}
 
-\topheader{Embedded submanifolds}
+\topheader{Submanifolds}
 \begin{definition}[Embedded submanifold of $M$]\label{lee-chp5:embedded-submanifold}
     A subset $S$ of $M$ is called an \emph{embedded submanifold of $M$}, when:
     \begin{itemize}
@@ -837,6 +837,25 @@ If $F:\xx\to\yy$, and $c\in \yy$, we call the $F^{-1}(\{y\})$ a \emph{level set 
         \item it has a smooth structure that makes it a smooth manifold, and
         \item the inclusion map $\iota: S\hookrightarrow M$ is a smooth embedding.
     \end{itemize}
+\end{definition}
+
+
+\begin{definition}[Immersed submanifold of $M$]\label{lee-chp5:immersed-submanifold}
+    A subset $S$ of $M$ is called an \emph{immersed submanifold of $M$}, when:
+    \begin{itemize}
+        \item equipped with an \emph{arbitrary topology},
+        \item it has a smooth structure that makes it a smooth manifold (with or without boundary), and
+        \item the inclusion map $\iota: S\hookrightarrow M$ is a smooth immersion.
+    \end{itemize}
+\end{definition}
+
+
+\begin{definition}[Properly embedded submanifold]\label{lee-chp5:properly-embedded-submanifold}
+    is an embedded submanifold, and the inclusion map $\iota:S \to M$ is a \emph{proper} map. 
+\end{definition}
+
+\begin{definition}[Weakly embedded submanifold]\label{lee-chp5:weakly-embedded-submanifold}
+    is an immersed submanifold of $M$, whenever $F:N\to M$ is a smooth map and the range of $F$ lies in $S$, then $F:N\to S$ as a map between two manifolds.
 \end{definition}
 
 
@@ -1072,7 +1091,10 @@ and $F^i$ are the \emph{component functions} of $F$, or $F(x) = (F^{1}(x),\ldots
     is a continuous map from $U\to\real$. and $h^{-1}(0)\cap C$ is closed by continuity. $C\supseteq C_1$ follows by definition of $C_1$, and $C_k\supseteq C_{k+1}$ follows from comparing $h$ for the two values of $k$.
 \end{proof}
 
-We will now prove $F(C\setminus C_1)$ has measure zero. Let $a\in C\setminus C_1$, noting that $U\setminus C_1$ is an open set containing $a$. Since $a\notin C_1$, there exists a first order non-vanishing partial for a component function of $F$. Suppose 
+\begin{step}[Case I: {$C\setminus C_1$} has measure zero.]\label{lee-sards-case1}
+    
+\end{step}
+Let $a\in C\setminus C_1$, noting that $U\setminus C_1$ is an open set containing $a$. Since $a\notin C_1$, there exists a first order non-vanishing partial for a component function of $F$. Suppose 
 \[
     \pdv{x^j}F^{i}(a)\neq 0\qqtext{with respect to the standard charts}
 \]
@@ -1134,7 +1156,14 @@ If $(x^1,\ldots,x^m)$ are the standard coordinates of $\realm$, the map
 Let $a$ range through all points in $C\setminus C_1$, then $\{C\setminus C_1\cap V_a\}_{a\in C\setminus C_1}$ is an open cover Rel $C\setminus C_1$, so there exists a countable subcover. We will prove something slightly stronger, we prove that $F(C\setminus C_1\cap \cl{V_a})$ has measure zero for each $a$ in this countable collection. \Cref{lee-sards-subadditivity} will then prove $F(C\setminus C_1)$ is null.\\
 
 Notice $C\setminus C_1\cap \cl{V_a}$ is a closed subset of $\cl{V_a}$, hence compact. Continuous functions send compact sets to compact sets, so $F(C\setminus C_1\cap \cl{V_a})$ is compact in $\realn$. We wish to use the induction hypothesis and 'lower the dimension' of $F$, or at the very least — pass the argument to a lower dimension.
-\begin{step}[{$F(C\setminus C_1\cap \cl{V_a})$} has measure zero.]\label{lee-sards-case1}
+
+
+\begin{step}[{$F(C\setminus C_1\cap \cl{V_a})$} has measure zero.]\label{lee-sards-case1-neighbourhoods}
+    In this step, we show every point in $C\setminus C_1$, admits a neighbourhood which is null. So
+    \[
+        F(C\setminus C_1 \cap V_a)\subseteq F(C\setminus C_1\cap \cl{V}_a)
+    \]
+    $V_a$ is open Rel $C\setminus C_1$, and $a$ ranges through all the points in $C\setminus C_1$. $C\setminus C_1$ is second countable in the subspace topology, so $\{V_a\}$ admits a countable subcover, and we can apply subadditivity.
 \end{step}
 \begin{proof}
     Let $a$ an element in the countable subcollection described above. Let $c\in\real^{1}$ be arbitrary, if
@@ -1156,10 +1185,37 @@ Notice $C\setminus C_1\cap \cl{V_a}$ is a closed subset of $\cl{V_a}$, hence com
             {v^j}_{(u,v)}
         \end{bmatrix}\quad \substack{i=2,\ldots,n\\ j=2,\ldots,m}
     \]
-    Compare the previous equation with \Cref{lee-sards-eq-6.2b}, what we have done essentially is \emph{removing the first column and row} of $dF_{(c,v)}$. By elementary linear algebraic arguments about canonical forms, $\rank dF_{(c,v)}\neq n\iff \rank (dF_c)_v\neq n-1$. So $(c,v)\in C\setminus C_1\cap \cl{V}_a$ if and only if $v$ is a critical point of $F_c$. 
-    
+    Compare the previous equation with \Cref{lee-sards-eq-6.2b}, what we have done essentially is \emph{removing the first column and row} of $dF_{(c,v)}$. By elementary linear algebraic arguments about canonical forms, $\rank dF_{(c,v)}\neq n\iff \rank (dF_c)_v\neq n-1$. So $(c,v)\in C\setminus C_1\cap \cl{V}_a$ if and only if $v$ is a critical point of $F_c$.  If $(c,x)$ is a critical value in $C\cap \cl{V_a}$, then $DF$ cannot have full rank so 
+    \[
+        \qty[\pdv{F^i}{v^j}](x)\:\text{ as a function of }x\in\real^{n-1}\text{ cannot have full rank.}
+    \]
+    Now we wish to use the $c$-section Lemma in \Cref{lee-theorem6.2} in conjuction with our induction hypothesis. $C\setminus C_1\cap \cl{V}_a$ is a closed subset of compact $\cl{V}_a$, hence $F(C\setminus C_1\cap \cl{V}_a)$ is again compact. The $c$-section
+    \[
+        \qty[F(C\cap \cl{V}_a]_c = \bigset{x\in\real^{n-1},\: (c,x)\in F(C\cap\cl{V}_a)}
+    \]
+    so $(c,x)$ is a critical value of $F|_{\cl{V}_a}$. Another key idea is the following:
+    \begin{itemize}
+        \item Define $F_c(v) = (F^2(c,v),\ldots, F^n(c,v))$, 
+        \item so $\eval{(DF_c)}_{v} = \qty[\pdv{F^i}{v^j}]$ from slicing the bottom right corner of the matrix in \Cref{lee-sards-eq-6.2b}.
+        \item $\qty[F(C\cap \cl{V}_a)]_c = \bigset{x\in\real^{n-1},\: (c,x)\in F(C\cap \cl{V}_a)}$ 
+    \end{itemize}
     
 \end{proof}
+This completes Case I. 
+
+% Complete Case II and Case II for the proof of Sard's Theorem Later.
+
+\topheader{Whitney Embedding Theorem}
+
+
+\topheader{Whitney Approximation Theorems}
+
+\topheader{Tubular Neighbourhood Theorem}
+
+\topheader{Transversality}
+
+
+
 
 
 \end{document}

@@ -1,0 +1,468 @@
+\documentclass[../main-manifolds.tex]{subfiles}
+
+\begin{document}
+\providecommand{\szz}{\mathcal{S}}
+\providecommand{\ccinf}{C_c^\infty}
+
+% Topologies
+\providecommand{\Taux}{\Tau_\xx}
+\providecommand{\Tauy}{\Tau_\yy}
+\providecommand{\Tauxy}{\Tau_{\xx\times\yy}}
+
+% Basis
+\providecommand{\Bx}{\borel_\xx}
+\providecommand{\By}{\borel_\yy}
+\providecommand{\Bxy}{\borel_{\xx\times\yy}}
+
+
+\fchapter{9: Integral Curves and Flows}
+\topheader{Flowouts from Boundary}
+This will be a draft of Problem 9.11. We wish to modify the proof for Theorem 9.20 (Flowout Theorem). We need to modify the following aspects
+\begin{itemize}
+    \item $M$ is now a smooth manifold with boundary,
+    \item The original embedded submanifold of the flow $\mathcal{D}$, is $\mathcal{O} = (\real\times S)\cap \mathcal{D}$. We need to change it to
+
+    \[
+        \mathcal{O} = ([0,+\infty)\times \partial M)\cap \mathcal{D}
+    \]
+    where $\mathcal{D}$ is the flow of the smooth vector field $N$, which is everywhere inward pointing on the boundary of $M$.
+    \item The induced smooth embedding $\Phi: P_\delta\to M$ (and thus diffeomorphism, since $\partial M$ has codimension $1$), is defined on 
+    \[
+        P_\delta = \bigset{(t,p),\: p\in\partial M,\: 0\leq t< \delta(p)}
+    \]
+    where $\delta:\partial M\to \real^+$ is a smooth, strictly positive function.
+    \item For each $p\in \partial M$, the map $t\mapsto \Phi(t,p)$ is an integral curve of $N$ starting at $p$. 
+\end{itemize}
+
+\fchapter{12: Tensors}
+\topheader{Tensor Products}
+\begin{definition}[Covariant Tensor]
+    Let $V$ be a finite-dimensional vector space. Covariant tensors are multi-linear maps $\alpha: V\times \cdots \times V\to \real$. If $\alpha$ sends $k$-copies of $V$ into $\real$, it is called a \emph{$k$-tensor}, or a \emph{covariant tensor of rank $k$}. It is clear that $k$-tensors form a vector space over $\real$ for any $k\geq 0$. The convention is that $0$-tensors are real numbers as they have $0$ arguments in $V$. 
+    \[
+        T^{k}(V^*) = \bigset{\alpha: \underbrace{V\times\cdots\times V}_{k\text{ copies}}\to\real,\: \alpha\text{ is multi-linear.}}
+    \]
+\end{definition}
+
+\begin{definition}[Contravariant Tensor]
+    Contravariant tensors are multi-linear maps $\alpha: V^*\times \cdots\times V^*\to \real$, similar to covariant tensors. Denoted by
+    \[
+        T^{k}(V) = \bigset{\alpha: \underbrace{V^*\times\cdots\times V^*}_{k\text{ copies}}\to\real,\: \alpha\text{ is multi-linear.}}
+    \]
+\end{definition}
+
+\begin{definition}[Mixed Tensors]
+    A $(k,l)$-mixed tensor, or just $(k,l)$-tensor is a multi-linear map that takes $k$ copies of $V^*$, and $l$ copies of $V$ into $\real$. In symbols, 
+    \[
+        T^{(k,l)}(V) = \bigset{\alpha: \underbrace{V^*\times\cdots\times V^*}_{k\text{ copies}}\times \underbrace{V\times\cdots\times V}_{l\text{ copies}}\to\real,\: \alpha\text{ is multi-linear.}}
+    \]
+\end{definition}
+
+The space of $k$-covariant, $k$-contravariant, and $(k,l)$-tensors form a vector space over $\real$. We will rarely use contra-variant tensors, so we will use the word \emph{tensor} to refer to covariant tensors only.
+
+\begin{definition}[Tensor Product]
+    Let $F$ and $G$ be $k$ and $l$-tensors on $V$ respectively, we define a bi-linear map,
+    \[
+        F\otimes G: \underbrace{V\times \cdots \times V}_{k+l\text{ copies}}\to\real
+    \]
+    by
+    \[
+        (F\otimes G)(\Ul{v}[k],\Ul{w}[l]) = \underbrace{F(\Ul{v}[k])G(\Ul{w}[l])}_{\substack{\text{scalar}\\ \text{multiplication}\\ \text{ in }\real}}
+    \]
+    Tensor product is clearly associative, and commutative (although we will not use this fact).
+\end{definition}
+
+\begin{wts}[Basis of {$T^k(V^*)$}]
+    Let $V$ be a $n$-dimensional vector space with basis $(E_i)$, and dual basis $(\varepsilon^i)$. $T^K(V^*)$ has basis
+    \[
+        \borel = \bigset{\bigotimes \varepsilon^{\Ul{i}[k]},\: \Ul{i}[k]\in \{\underline{n}\}} = \bigset{\varepsilon^{i_1}\otimes\cdots\otimes \varepsilon^{i_k},\: 1\leq i_j\leq n,\:  1\leq j\leq k}
+    \]
+    This means, if $F$ is a $k$-tensor, and for every multi-index $I = (\Ul{i}[k])$, define
+    \[
+        F_I = F_{i_1,\ldots i_k} = F_{\Ul{i}[k]} = F(E_{\Ul{i}[k]}) = F(E_{i_1},\cdots, E_{i_k}) = F(E_I)
+    \]
+    are precisely the \emph{basis coefficients} of $F$ with respect the basis $\borel$, 
+    \begin{equation}
+        F = F_{i_1,\ldots, i_k}\varepsilon^{i_1}\otimes\cdots\otimes\varepsilon^{i_k}
+    \end{equation}
+\end{wts}
+\topheader{Tensor Fields on Manifolds}
+Similar to the tangent bundle $TM = \coprod_{p\in M}T_p M = \bigcup_{p\in M}\{p\}\times T_p M$, is endowed with a unique smooth structure that makes the canonical projection $\pi: TM\to M$, $\pi(p,v)=p$ a smooth embedding. We can use the algebraic machinery we have built up from Chapter 10 to construct abstract tensor bundles on $M$. For completeness, we will state the definitions for covariant and mixed bundles as well.
+\begin{definition}[Tensor Bundles]\label{lee-chp12:tensor-bundles}
+    Let $M$ be a smooth manifold with or without boundary, define
+    \begin{itemize}
+        \item Covariant $k$-bundle over $M$ by
+        \[
+            T^kT^*M = \coprod_{p\in M} T^k(T_p^*M)
+        \]
+        \item Contravariant $k$-bundle over $M$ by
+        \[
+            T^kTM = \coprod_{p\in M} T^k(T_pM)
+        \]
+        \item $(k,l)$-mixed bundle over $M$ by
+        \[
+            T^{(k,l)}TM = \coprod_{p\in M}T^{(k,l)}(T_pM)
+        \]
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Tensor Field on $M$]
+    A \emph{$k$-covariant tensor field}, or just a \emph{$k$-tensor field} over a smooth manifold (with or without boundary) $M$, is a smooth section of the vector bundle as defined in \Cref{lee-chp12:tensor-bundles}. As with vector fields $\vField(M)$, they form a $R$-module over $C^\infty(M)$ by pointwise multiplication.\\
+
+    We denote the space of $k$-tensor fields over $M$ by $\Tau^k(M)$. Moreover, if $A\in \Tau^k(M)$, we can write $A$ in local coordinates $(x^i)$ by
+    \[
+        A = A_{i_1,\ldots,i_k}dx^{i_1}\otimes\cdots\otimes dx^{i_k}
+    \]
+    with summation convention in effect, since $(dx^{1},\ldots,dx^{n})$, when evaluated pointwise in local coordinates, form a dual basis of $T_pM$. Where each $dx^i$ is the Chapter 11 differential of the $i$-th coordinate function.
+\end{definition}
+\topheader{Technicalities for Tensor Fields}
+We will skip the technicalities for now. Recall $k$-tensors on a vector space act on a $k$-tuple of vectors, the same is true for $k$-tensor fields over a manifold $M$. If $A\in \Tau^k(M)$, and $(X_1,\ldots, X_k)\subseteq\vField(M)$, then
+\[
+    A(\Ul{X}[k]) = A(X_1,\ldots,X_k)\quad\text{such that}\quad A(\Ul{X}[k])(p) = A_p(\Ul{X}[k]\vert_{p}) = A_p(X_1\vert_{p},\ldots,X_k\vert_{p})\in\real
+\]
+We should expect, that if $A$ is a rough $k$-tensor field over $M$, it is smooth if and only if for every $k$-tuple of smooth vector fields, the resulting function (as defined pointwise above), is $C^\infty(M)$. See Lee Proposition 12.19 for more details.
+
+
+\topheader{Pullbacks of Tensor Fields}
+\begin{definition}[Pointwise pullback {$dF_p^*: T^k(T_{F(p)}N)\to T^k(T_pM)$}]
+    Let $M$ and $N$ be smooth manifolds with or without boundary. Let $F:M\to N$ be a smooth map. For every $p\in M$, if $\alpha$ is a $k$-tensor on $T_{F(p)}N$, (so that $\alpha\in T^k(T_{F(p)}^*N)$), the \emph{pointwise pullback} of $\alpha$ through $dF_p$ is a $k$-tensor on $T_p M$. Denoted by $dF^*_p(\alpha)$, if $(\Ul{v}[k])$ are tangent vectors in $T_pM$, then
+\[
+    dF^*_p(\alpha)(\Ul{v}[k]) = \alpha\biggl(dF_p(\Ul{v}[k])\biggr)
+\]
+\end{definition}
+
+\begin{definition}[Tensor Pullback {$F^*: T^kN\to T^kM$}]
+    Let $F: M\to N$ be a smooth map, between smooth manifolds with or without boundary, if $A$ is a $k$-tensor field on $N$, we define 
+    \[
+        (F^*A)_p(\Ul{v}[k]) = dF^*_p(A_{F(p)}) = A_{F(p)}(dF_p(\Ul{v}[k]))
+    \]
+    the result is a $k$-tensor field (which is smooth, by the next Proposition).
+\end{definition}
+
+\begin{wts}[Proposition 12.25, Properties of Tensor Pullbacks]
+    Let $F: M\to N$ and $G:N\to P$ be smooth maps between smooth manifold with or without boundary, and $A$ and $B$ are $k$-tensor fields on $N$, then
+    \begin{enumroman}
+        \item For every $f\in C^\infty(N)$,
+        \[
+            F^*(fB) = \underbrace{(f\circ F)}_{C^\infty(M)}F^*B
+        \]
+        \item $F^*$ commutes with tensor products,
+        \[
+            F^*(A\otimes B) = F^*(A)\otimes F^*(B)
+        \]
+        \item $F^*$ is linear over $\real$, 
+        \[
+            F^*(aA + bB) = aF^*(A) + bF^*(B)
+        \]
+        \item $F^*(B)$ is smooth,
+        \item The tensor pullback satisfies the following co-functoral properties
+        \begin{itemize}
+            \item The (tensor) pullback of the composition is the (tensor) pullback of the \emph{pre}-composition,
+            \[
+                (G\circ F)^* = F^*\circ G^*
+            \]
+            \item The tensor pullback of the identity map on $M$ is the identity map on tensor fields over $M$,
+            \[
+                \id{M}^* =\id{\Tau^k(M)}
+            \]
+        \end{itemize}
+    \end{enumroman}
+\end{wts}
+\fchapter{14: Differential Forms}
+\topheader{Multi-linear algebra}
+\begin{definition}[Wedge Product]
+    Let $\omega\in \Lambda^k(V^*)$, $\eta\in\Lambda^l(V^*)$ the wedge product of $\omega$ and $\eta$ is defined 
+
+\begin{equation}\label{lee-chp14:wedge-product}
+    \omega\wedge \eta \defined \dfrac{(k+l)!}{k!l!}\Alt{\omega\otimes \eta} 
+\end{equation}
+
+with $\Alt{\omega\otimes\eta} = \dfrac{1}{(k+l)!}\sum_{\sigma\in S_{k+l}}(\sgn\sigma)^\sigma{(\omega\otimes\eta)}$, and if $(v_1\ldots v_k, v_{k+1},\ldots v_{k+l})$ are vectors in $V$, then
+
+\begin{equation}\label{lee-chp14:wedge-product-evaluated}
+\Alt{\omega\otimes\eta}(v_1\ldots v_k, v_{k+1},\ldots v_{k+l})\defined\dfrac{1}{(k+l)!}\sum_{\sigma\in S_{k+l}}(\sgn\sigma)\omega(v_{\sigma(1)},\ldots, v_{\sigma(k)})\eta(v_{\sigma(k+1)},\ldots, v_{\sigma(k+l)})
+\end{equation}
+
+To simplify the expressions, we will use the following shorthand, 
+
+\begin{align}
+    (v_1,\ldots v_k) &= (\Ul{v}[k]) \\
+    (v_{k+1},\ldots v_{k+l}) &= (\Ul{v}[k+1][k+l])
+\end{align}
+
+and \Cref{lee-chp14:wedge-product-evaluated} becomes
+
+\begin{equation}
+    \Alt{\omega\otimes\eta}(\Ul{v}[k+l]) = \dfrac{1}{(k+l)!}\sum_{\sigma\in S_{k+l}}(\sgn\sigma)\omega(\Ul{v}[\sigma({k})])\eta(\Ul{v}[\sigma({k+1})][\sigma({k+l})])
+\end{equation}
+
+\end{definition}
+
+\begin{definition}[Elementary $k$-covectors]
+    Let $V$ be a finite dimensional vector space with basis $(E_i)$, and if $(\varepsilon^i)$ is a dual basis for $V^*$, and if $I$ is a $k$-index, where $I = (\Ul{i}[k])$, then
+    \[
+        \varepsilon^I(\Ul{v}[k]) = \det\left(\begin{bmatrix}
+            \varepsilon^{i_1}(v_1) & \cdots & \varepsilon^{i_1}(v_k)\\
+            \vdots & \ddots & \ldots \\
+            \varepsilon^{i_k}(v_1) & \cdots & \varepsilon^{i_k}(v_k)
+        \end{bmatrix}\right) = \det\left(\begin{bmatrix}
+            v_1^{i_1}  & \cdots & v_k^{i_1} \\
+            \vdots     & \ddots & \ldots    \\
+            v_1^{i_k}  & \cdots & v_k^{i_k}
+        \end{bmatrix}\right) = \det((\varepsilon^{i_j})v_l)_{jl}
+    \]
+    where $\varepsilon^{i_j}(v_l)$ is the projection of $v_l$ onto the $i_j$ basis vector $E_{i_j}$. The space of all $\varepsilon^I$ where $I$ is a $k$-index are called \emph{elementary $k$-covectors}. It is clear that $\varepsilon^I$ are alternating $k$-covectors.
+\end{definition}
+
+\begin{definition}[Concatenating multi-indices]
+    Let $I$ and $J$ be multi-indices, $I = (\Ul{i}[k])$ and $J = (\Ul{j}[l])$, then
+    \[
+    IJ = (\Ul{i}[k],\Ul{j}[l])
+    \]
+    is a $k+l$ multi-index obtained by concatenating $I$ and $J$.
+\end{definition}
+
+\begin{wts}[Proposition 14.8]\label{lee-chp14:prop-14.8}
+    Let $V$ be a $n$-dimensional vector space with basis $(E_i)$, and if $(\varepsilon^i)$ is a dual basis for $V^*$, then $\Lambda^k(V^*)$ has the basis:
+    \[
+        \overline{\Epsilon}=\bigset{\varepsilon^I,\: I\text{ is an increasing }k\text{-index}}
+    \]
+    In particular, this means the vector space (algebra) of alternating $k$-covectors have dimension $\binom{n}{k}$. If $k=n$, then it is spanned by 
+    \[
+        \varepsilon^{(1,\ldots,n)}=\varepsilon^{(\underline{n})}
+    \]
+    and all alternating $n$-covectors are of the form $A\varepsilon^{(\underline{n})}$, where $A\in\real$. This roughly means there is, up to a scalar multiple of $\varepsilon^{\underline{n}}$, only one (oriented) way of measuring volume in a basis-independent, and dimension-independent manner.
+\end{wts}
+
+\begin{wts}[Lemma 14.10]
+    Let $I$ and $J$ be multi-indices, $I = (\Ul{i}[k])$ and $J = (\Ul{j}[l])$, then
+    \begin{equation}
+        \varepsilon^I\wedge\varepsilon^J = \varepsilon^{IJ}
+    \end{equation}
+\end{wts}
+
+\begin{wts}[Lemma 14.11, Properties of the Wedge Product]\label{lee-chp14:lemma14.11}
+    The wedge product satisfies the following properties
+    \begin{itemize}
+        \item It is bi-linear over $\real$,
+        \item It is associative,
+        \item It is anti-commutative, for $\omega\in\Lambda^k(V^*)$ and $\eta\in\Lambda^l(V^*)$, then
+        \[
+            \omega\wedge\eta = (-1)^{kl}\eta\wedge\omega
+        \]
+        \item Formula for elementary covectors, let $\varepsilon^{\Ul{i}[k]}$ be covectors (covectors are assumed to have rank one), then
+        \[
+        \varepsilon^I\defined \varepsilon^{i_1}\wedge\cdots\wedge \varepsilon^{i_k}
+        \]
+        is an alternating $k$-covector.
+        \item Determinant Law
+        \[
+            \omega^1\wedge\cdots\wedge \omega^k(\Ul{v}[k]) = \det(\omega^j(v_i))_{ji}
+        \]
+        where $(A^j_i)_{ji}$ denotes the matrix with entries $A^j_i$ in the $j$th row and $i$th column.
+    \end{itemize}
+\end{wts}
+
+\begin{definition}[Interior multiplication]
+    Let $V$ be a finite dimensional vector space.  If $x\in V$ is a vector, it induces a linear map $i_x: \Lambda^k(V^*)\to \Lambda^{k-1}(V^*)$ such that for every $\omega\in \Lambda^k(V^*)$, and $\Ul{v}[2][k]\in V$, 
+    \[
+        i_x(\omega)(\Ul{v}[2][k]) \defined \omega(x,\Ul{v}[2][k])
+    \]
+    by fixing $x$ in the first argument of $\omega$. The result is an alternating $k-1$ covector, and it is clearly linear in $\omega$ over $\real$. We also write
+    \[
+        i_x(\omega) = x\hook \omega
+    \]
+\end{definition}
+
+
+\begin{definition}[Graded algebra]
+    An algebra $A$ is said to be \emph{graded} if it has a direct sum decomposition $A = \bigoplus_{k\in \mathbb{Z}}A^k$ such that the algebra-product $(\cdot,\cdot): A\times A\to A$ satisfies 
+    \[
+        (a,b)\in A^{k+l}\quad\text{for every }a\in A^k,\: b\in A^l
+    \]
+    A graded algebra is said to be \emph{anti-commutative}, if the algebra product satisfies
+    \[
+        (a,b) = (-1)^{kl}(b,a)
+    \]
+    We see that $\bigoplus_{k\in \mathbb{Z}}\Lambda^k(V^*)$ is a graded algebra, if we define $\Lambda^k(V^*)=\{0\}$ for $k\leq -1$, or $k\geq n+1$. 
+
+\end{definition}
+
+\begin{wts}[Lemma 14.13, Properties of interior multiplication]
+    Let $V$ be a finite dimensional vector space and fix $x\in V$,
+    \begin{enumroman}
+        \item $i_x\circ i_x\equiv 0$, where we interpret $i_v$ as a linear map on the entire graded algebra.
+        \item $i_x$ satisfies some kind of product rule. For every $\omega\in \Lambda^k(V^*)$ and $\eta\in\Lambda^l(V^*)$,
+        \[
+            i_x(\omega\wedge\eta) = (i_x\omega)\wedge\eta + (-1)^{k}\omega\wedge(i_x\eta)
+        \]
+    \end{enumroman}
+\end{wts}
+
+\topheader{Differential Forms on Manifolds}
+    \begin{definition}[Differential $k$-form on $M$]
+        Let $M$ be a smooth manifold with or without boundary, and $p\in M$ be fixed, $\lambda^k(T_p^*M)$ is a linear subspace of $T^k(T_p^*M)$ of dimension $\binom{n}{k}$, and
+        \[
+            \Lambda^kT^*M \defined \coprod_{p\in M}\Lambda ^k(T^*_p M)
+        \]
+        is a smooth vector bundle of rank $\binom{n}{k}$ over $M$. \\
+
+        A differential $k$-form on $M$ is a $k$-tensor field (or a smooth global section of the $k$-tensor bundle $T^kT^*M$) that is \emph{pointwise alternating}, or equivalently: it is a smooth global section of the vector bundle $\Lambda^kT^*M$. The space of differential $k$-forms on $M$ is denoted by 
+        \[
+            \Omega^k(M) = \Gamma(\Lambda^kT^*M)
+        \]
+    \end{definition}
+    \begin{definition}[Graded algebra of all $k$-forms]
+        $\Omega^k(M)$ is a vector space over $\real$, and a left $C^\infty(M)$ module. If we stick with scalars over $\real$, and define the wedge product of two tensor fields $\omega$, $\eta\in \Omega^k(M)$ (recall these are smooth global sections of some vector bundle),
+        \[
+            (\omega\wedge\eta)_p\defined \omega_p\wedge\eta_p
+        \]
+        We can inherit all the properties of the pointwise wedge product (see \Cref{lee-chp14:lemma14.11}), namely \begin{itemize}
+            \item Bi-linearity over $\real$,
+            \item Associativity,
+            \item Anti-commutativity
+        \end{itemize}
+        With this, the direct sum of all $\Omega^k(M)$ forms an associative, anticommutative graded algebra over $\real$, with the tensor wedge product as the algebra product.
+        \[
+            \Omega^*(M) = \bigoplus_{k\geq 0}\Omega^k(M)
+        \]
+    \end{definition}
+    
+    \begin{definition}[{$\Omega^k(M)$} in local coordinates]
+        Let $\omega\in\Omega^k(M)$, and $(x^i)$ be the local coordinates on some open subset $U$ of $M$. If 
+        \begin{equation}\label{differential-form-lcoal-coordinate frame}
+            \biggl(\pdv{x^1},\ldots,\pdv{x^n}\biggr)\quad\text{is a coordinate frame on }TU \defined \pi^{-1}(U)
+        \end{equation}
+            
+        where $\pi: TM\to M$ is the canonical projection of the tangent bundle. Then,
+        \[
+            \biggl(dx^1,\ldots, dx^n\biggr)\quad\text{is the dual co-frame to the frame in  \Cref{differential-form-lcoal-coordinate frame}.}
+        \]
+        by \Cref{lee-chp14:prop-14.8}, we can write $\omega$ uniquely as a linear combination (over $C^\infty(M)$) of $k$-tensors which are \emph{increasing elementary $k$-covectors} pointwise.
+        \[
+            \omega = \isum_I \omega_I dx^{i_1}\wedge\cdots\wedge dx^{i_k} = \isum_I \omega_Idx^{I}
+        \]
+        where $\isum_I$ a sum over all increasing $k$-indices, and $dx^{I}$ is the shorthand for the wedge product above, and $\omega_I$ is a number obtained by evaluating $\omega$ at the following
+        \[
+            \omega_I \defined \omega\qty(\pdv{x^{i_1}},\ldots, \pdv{x^{i_k}}),\qqtext{where} I = (i_1,\ldots i_k)
+        \]
+    \end{definition}
+    Since differential $k$-forms are (smooth) $k$-tensor fields, the pullback $F^*: \Omega^k(N)\to \Omega^k(M)$ is well defined, in particular,
+    \begin{wts}[Lemma 14.16, Properties of $k$-form pullback]
+           Let $F:M\to N$ be a smooth map, then
+           \begin{itemize}
+               \item The $k$-form pullback is linear over $\real$, 
+               \item The $k$-form pullback commutes with wedge products, or 
+               \[
+                F^*(\omega\wedge\eta) = F^*\omega\wedge F^*\eta
+               \]
+               \item In any smooth chart, if $(y^i)$ are the local coordinates of $N$. For any $k$-form on $N$ $\omega = \isum_I \omega_Idy^{i_1}\wedge\cdots\wedge dy^{i_k} = \isum_I \omega_Idy^I$,
+               \[
+                    F^*\qty(\isum \omega_I dy^{i_1}\wedge\cdots\wedge dy^{i_k}) = \isum_I(\omega_I\circ F)d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)
+               \]
+           \end{itemize}
+    \end{wts}
+    \begin{proof}
+        Linearity of the $k$-form pullback over $\real$ is an immediate consequence of the linearity of the tensor field pullback. To prove the second claim, notice 
+        \[
+            F^*(A\otimes B) = F^*(A)\otimes F^*(B)
+        \]
+        and
+        \begin{align*}
+            F^*(\Alt{A\otimes B}) &= F^*\qty(\dfrac{1}{(k+l)!}\sum_{\sigma\in S_{k+l}}(\sgn\sigma)\sigma(A\otimes B))\\
+            &= \dfrac{1}{(k+l)!}\sum_{\sigma\in S_{k+l}}(\sgn\sigma)F^*(\sigma(A\otimes B))
+        \end{align*}
+        The tensor pullback commutes with permutations, let $C$ be a $k$-tensor field on $N$, and $\sigma\in S_k$, then
+        \[
+            (\sigma F^*(C))_p(\Ul{v}[k]) = (\sigma C) (dF_p(\Ul{v}[k])) = C(dF_p(\Ul{v}[\sigma(k)])) = F^*(\sigma C)_p(\Ul{v}[k])
+        \]
+        Hence,
+        \begin{align*}
+            F^*(\Alt{A\otimes B}) &= \dfrac{1}{(k+l)!}\sum_{\sigma\in S_{k+l}}(\sgn\sigma)\sigma\qty[ F^*(A\otimes B)]\\
+            &= \dfrac{1}{(k+l)!}\sum_{\sigma\in S_{k+l}}(\sgn\sigma)\sigma\qty[ F^*(A)\otimes F^*(B)]\\
+            &= \Alt{F^*(A)\otimes F^*(B)}
+        \end{align*}
+        Since the wedge product differs by the alternating product by a constant, $F^*$ commutes with the wedge product. The general case follows upon induction, and associativity of the wedge product.\\
+
+        For the third claim, use linearity, and the pullback of the wedge product is the wedge product of the pullback, noting that each $y^{i_j}$ is a smooth function on $N$, so $F^*(dy^{i_j}) = d(y^{i_j}\circ F)$ by Proposition 11.25b in Lee, we state this Proposition for completeness:
+
+        \begin{quote}
+            Let $F:M\to N$ be a smooth map, and $u$ is a smooth function on $N$, then
+            \[
+                F^*du = d(u\circ F)
+            \]
+        \end{quote}
+        
+    \end{proof}
+
+    
+    \begin{wts}[Corollary 14.21, Tensor Pullback of Top-Degree Forms]\label{lee-chp14:corollary-14.21}
+        Let $F: M\to N$ be a smooth map between manifolds with or without boundary \emph{of the same rank $n$}. If $(x^i)$ and $(y^j)$ are local coordinates on open subsets $U$ and $V$ of $M$ and $N$ respectively, for every $u\in C(V,\real)$, 
+        \[
+            F^*(udy^1\wedge \cdots\wedge dy^n)= (u\circ F)(\det DF)dx^1\wedge\cdots\wedge dx^n
+        \]
+        on an open set $U\cap F^{-1}(V)$, where $DF$ is the Jacobian matrix of the coordinate representation of $F$. 
+    \end{wts}
+    \begin{proof}
+        The proof uses the fact that both manifolds are of dimension $n$, and any $n$-form on $U$ is necessarily of the form
+        \begin{equation}\label{lee-chp14:corollary-14.21-LHS-unevaluated}
+            gdx^1\wedge\cdots\wedge dx^n
+        \end{equation}
+        where $g$ is some continuous, real valued function on $U$. Solving for $g$ pointwise yields the result. Suppose $p\in U\cap F^{-1(V)}$, and evaluating \cref{lee-chp14:corollary-14.21-LHS-unevaluated} with the coordinate derivations $\qty(\eval{\pdv{x^{\underline{n}}}}_p)$ reads
+        \begin{align*}
+            \qty(gdx^1\wedge\cdots\wedge dx^n)_p\qty(\eval{\pdv{x^{\underline{n}}}}_p) &= g(p)(dx^1\wedge\cdots\wedge dx^n)_p\qty(\eval{\pdv{x^{\underline{n}}}}_p) &&\text{(pw. eval. of tensor field)}\\
+            &= g(p)dx^1_p\wedge\cdots\wedge dx^n_p\qty(\eval{\pdv{x^{\underline{n}}}}_p) && \text{(wedge pw. is pw. wedge)}\\
+            &= g(p)\det(dx^i_p\qty(\pdv{x^j}))_{ij}&& \text{(det. law from \Cref{lee-chp14:lemma14.11})}\\
+            &= g(p) \det(\delta^{i}_j)_{ij}\\
+            &= g(p)
+        \end{align*}
+        
+        Let $F^i = y^i\circ F$ be the $i$th coordinate component of $F$ (which is a smooth function on $M$). So that $dF^i$ and $\pdv{x^j}$ form a covector-vector pair if evaluated pointwise. Apply the determinant law from \Cref{lee-chp14:lemma14.11} for every $p\in U$ reads
+        \begin{equation}\label{lee-chp14:corollary14.21-determinant}
+            (dF^1_p\wedge\cdots\wedge dF^n_p)\qty(\eval{\pdv{x^1}}_{p},\ldots,\eval{\pdv{x^n}}_{p}) = \det(\qty[dF^i_p\qty(\eval{\pdv{x^j}}_p)]_{ij})
+        \end{equation}
+        and
+        \[
+            dF^1\wedge\cdots\wedge dF^n\qty(\pdv{x^1},\ldots,\pdv{x^n}) = \det(dF^i\qty(\pdv{x^j}))
+        \]
+        Using the tensor pullback formula from Chapter 12, and by Lemma 14.16, 
+        \begin{align*}
+            F^*(udy^1\wedge\cdots\wedge dy^n) &= (u\circ F)d(y^1\circ F)\wedge\cdots\wedge d(y^n\circ F)\\
+            &= (u\circ F)dF^1\wedge\cdots\wedge dF^n
+        \end{align*}
+        Evaluating the last expression using the coordinate frame on   $\qty(\pdv{x^1},\ldots,\pdv{x^n})$ at some $p\in U\cap F^{-1}(V)\subseteq U$,
+        \begin{align*}
+            F^*(udy^1\wedge\cdots\wedge dy^n)_p\qty(\eval{\pdv{x^{\underline{n}}}}_p) &= \underbrace{(u\circ F)(p)}_{\text{scalar}}(dF^1\wedge\cdots\wedge dF^n)_p\qty(\eval{\pdv{x^{\underline{n}}}}_{p}) && \text{(pw. eval. of tensor field)}\\
+            &= (u\circ F)(p)(dF^1_p\wedge\cdots\wedge dF^n_p)\qty(\eval{\pdv{x^{\underline{n}}}}p) && \text{(wedge pw. is pw. wedge)}\\
+            &= (u\circ F)(p)\det(dF^{i}\qty(\pdv{x^j}))_p && \text{(\Cref{lee-chp14:corollary14.21-determinant})}
+        \end{align*}
+        Equating the two expressions we see that
+        \[
+            g(p) = (u\circ F)(p)\det(dF^{i}\qty(\pdv{x^j}))_p = (u\circ F)(p)\det(DF)_p
+        \]
+    \end{proof}
+\topheader{Exterior Derivatives}
+\begin{definition}[Exterior Derivative on Euclidean Space]
+    Let $U$ be an open subset of $\realn$ or $\halfn$, and $(x^i)$ be the local coordinates in $U$. If $\omega\in\Omega^k(U)$, 
+    \[
+        \omega = \isum_J\omega_Jdx^J
+    \]
+    and we define the \emph{exterior derivative of $\omega$} by
+    \[
+        d\omega = d\qty(\isum_J\omega_J dx^J) = \isum_J d\omega_J\wedge dx^J
+    \]
+    where $d\omega_J$ is the Chapter 11 differential of the smooth function $\omega_J$, and $d\omega_J$ is a covector field on $U$. If $p\in u$ and $v\in T_p U$, 
+    \[
+        d(\omega_J)_p(v) \defined v(\omega_J)
+    \]
+    Since $\Omega^1(U) = \cvField(U)$, the wedge product $d\omega_J\wedge dx^J = d\omega_J\wedge dx^{j_1}\wedge\cdots\wedge dx^{j_k}$ is alternating. \\
+
+    With this, $d: \Omega^{k}(\realn)\to \Omega^{k+1}(\realn)$ (resp. $\halfn$) is a linear map over $\real$. We can rewrite $d\omega_J$ in terms of the coframe on $U$, suppose
+    \[
+        d\omega_J = \pdv{\omega_J}{x^i}dx^i\implies d\omega_J\wedge dx^J = \pdv{\omega_J}{x^i}dx^i\wedge dx^J = \sum_{i=1}^n\pdv{\omega_J}{x^i}dx^i\wedge dx^J
+    \]
+    Summing over all increasing $k$-indices $J$, we get
+    \[
+        d\omega = d\qty(\isum_J \omega_j dx^J) = \isum_J\sum_{i=1}^n\pdv{\omega_J}{x^i}dx^i\wedge dx^{j_1}\wedge\cdots\wedge dx^{j_k}
+    \]
+\end{definition}
+\end{document}

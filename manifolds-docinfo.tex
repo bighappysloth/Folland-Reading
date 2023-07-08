@@ -56,4 +56,19 @@
     }
     
 \providecommand{\fgroup}[2]{\pi_{1}({#1},{#2})}
+\providecommand{\inbhd}{\overset{\mathring}{\in}} % in neighbourhood
+\providecommand{\opensubset}{\overset{\mathring}{\subseteq}} % open subset
+\providecommand{\opensupset}{\overset{\mathring}{\supseteq}} % open superset
 
+\providecommand{\Alt}[1]{\operatorname{Alt}(#1)}
+
+\NewDocumentCommand{\Ul}{moo}{
+  \IfNoValueTF{#3}
+    {{#1}_{\underline{#2}}}
+    {{#1}_{#2,\underline{#3}}}
+}
+
+\providecommand{\hook}{\mathop{\lrcorner}} % x into omega, holding the first coordinate at x
+\providecommand{\vField}{\mathfrak{X}} % vector field 
+\providecommand{\cvField}{\mathfrak{X}} % covector field
+\def\isum{\mathop{\sum\nolimits{'}}} % increasing sum

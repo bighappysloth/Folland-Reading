@@ -16,7 +16,8 @@ title: Homepage
 ### Manifold Notes
 - Full: [Link](/download/main-manifolds.pdf)
 
-- Chapters: [1-4](/download/Lee-Chapter-1_Compiled.pdf), 
+- Chapters: [1-6](/download/Lee-Chapter-1_Compiled.pdf),  [9-16](/download/Lee-Chapter-9_Compiled.pdf), 
+- [Symplectic Geometry and Hamiltonian Systems](/download/Lee-Chapter-22_Compiled.pdf),
 
 - Appendix: [A: Topology](/download/Lee-Appendix_A_Compiled.pdf),  [B: Abstract Algebra](/download/Hungerford-Chapter-1_Compiled.pdf), [C: Algebraic Topology](/download/Munkres-Compiled.pdf)
 

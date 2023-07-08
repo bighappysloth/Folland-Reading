@@ -1,0 +1,176 @@
+\documentclass[../main-manifolds.tex]{subfiles}
+
+\begin{document}
+\fchapter{22: Symplectic Manifold}
+\topheader{Symplectic Tensors}
+    \begin{definition}[Billinear forms]
+        Let $V$ be a vector space, a \emph{billinear form} $\omega: V\times V\to \real$ is a $2$-tensor on $V$.
+    \end{definition}
+    
+    \begin{definition}[Characterization of billinear forms]
+        Let $\omega$ be a billinear form on $V$, it is 
+        \begin{itemize}
+            \item \emph{symmetric} if 
+            \[
+                \omega(x,y) = \omega(y,x)
+            \]
+            \item \emph{skew-symmetric} or \emph{anti-symmetric} if 
+            \[
+                \omega(x,y) = (-1)\omega(y,x)
+            \]
+            \item \emph{alternating} if
+            \[
+                \omega(x,x)=0
+            \]
+        \end{itemize}
+        If $V$ is a vector space over the field $F$ and $\operatorname{char}(F)\neq 2$, then the last two conditions are equivalent. Moreover, 
+        \begin{itemize}
+            \item $V$ is called an \emph{orthogonal geometry} if $\omega$ is symmetric.
+            \item $V$ is called a \emph{symplectic geometry} if $\omega$ is alternating.
+        \end{itemize}
+    \end{definition}
+
+    \begin{definition}[Metric vector space]
+        A vector space (not necessarily finite dimensional) is called a \emph{metric vector space} if it is a orthogonal or symplectic geometry.
+    \end{definition}
+
+
+    \topheader{Matrices and billinear forms}
+
+    \begin{definition}[Matrix of billinear form]
+        If $B=(b_1,\ldots,b_n)$ is an ordered basis for $V$, we define the \emph{matrix representation of $\omega$} by
+        \[
+            \mcal(\omega) = (a_{ij}) = (\omega(b_i, b_j))
+        \]
+    \end{definition}
+    \begin{wts}[Matrix induces a billinear form]
+        Let $A = (a_{ij})$ be a matrix on $V$ with respect to some basis $B = (\Ul{b}[n])$ it is clear that $A$ induces a billinear form, on $V$ through $A(x,y) = [x]_B^TA[y]_B$, where $[\cdot]_B$ denotes the canonical isomorphism $V\cong \realn$ with respect to the basis $B$.
+
+        \[
+            [x]_B^T A [y]_B = \begin{bmatrix}
+                x^1 &\ldots & x^n
+            \end{bmatrix}A \begin{bmatrix}
+                y^1\\
+                \vdots\\
+                y^n
+            \end{bmatrix}
+        \]
+        for $x = x^ib_i$ and $y = y^jb_j$. 
+    \end{wts}
+    Moreover,
+        \[
+            A[x]_B = \begin{bmatrix}
+                A(b_1,x)\\
+                \vdots\\
+                A(b_n,x)
+            \end{bmatrix}\quad \parbox{4cm}{is a \emph{column} vector whose entries are given by applying $x$ on the second coordinate}
+        \]
+        and 
+        \[
+            [x]_B^T A = \begin{bmatrix}
+                A(x,b_1) & \cdots & A(x, b_n)
+            \end{bmatrix}\quad\parbox{4cm}{is a \emph{row} vector whose entries are given by applying $x$ on the first coordinate}
+        \]
+    Let $A_B$ be the matrix representation of $\omega$ with respect to the $B$, if $C$ is another basis on $V$, then how do we compute $A_C$? The answer is simple, recall for any vector $x\in V$, $x = x^i_Bb_i$ and $x = x^j_C c_j$, then
+    \[
+        [x]_B = M_{C,B}[x]_C\quad\text{for some matrix of an automorphism }M_{C,B}
+    \]
+    $\omega(x,y) = [x]_B^TA_B[y]_B = ([x]_C^TM_{C,B}^T)A_B(M_{C,B}[y]_C) = [x]_C^T A_C [y]_C$, then
+    \begin{equation}\label{lee-chp22:congruent-matrices}
+        M^T_{C,B}A_BM_{C,B} = A_C
+    \end{equation}
+    We can describe this relation between the two matrices $A_B$ and $A_C$ by the following
+    \begin{definition}[Congruent matrices]
+        Two matrices $M$ and $N$ are said to be \emph{congruent}, if there exists an invertible matrix $P$ for which
+        \[
+            P^TMP = N
+        \]
+        Congruence is an equivalence relation on the space of matrices, and the equivalence classes over congruence are called \emph{congruence classes}.
+    \end{definition}
+    
+    \begin{wts}[Characterization of matrices using congruence]
+        Let $A_1$ and $A_2$ be matrix representations of two billinear forms with respect to the basis $B$.
+        
+        \[
+            A_1 = (A_1(b_i,b_j))_{ij}\quad A_2 = (A_2(b_i,b_j))_{ij}
+        \]
+        They induce the same billinear form if and only if they are congruent. 
+    \end{wts}
+
+    \begin{definition}[Alternate matrices]
+        Let $M$ be a matrix with real coefficients, it is \emph{alternate} if it is skew symmetric and is \emph{hollow}; meaning it has $0$s on the main diagonal.
+    \end{definition}
+
+    \topheader{Orthogonality}
+    For this section, $(V,\omega)$ will denote a metric vector space, not necessarily finite-dimensional unless we are using matrix representations.
+    
+    \begin{definition}[Orthogonal complements]
+        A vector $x\in V$ is orthogonal to another vector $y\in V$, written $x\perp y$, if $\omega(x,y)=0$. \\
+
+        If $V$ is an orthogonal or symplectic geometry then $\perp$ is a symmetric relation. If $E$ is a subset of $V$, we denote the \emph{orthogonal complement of $E$} by 
+        \[
+            E^\perp \defined \bigset{v\in V,\: v\perp E}
+        \]
+    \end{definition}
+
+    \begin{definition}[Characterization of metric vector spaces]
+        \begin{itemize}
+            \item A nonzero vector $x\in V$ is \emph{isotropic}, or \emph{null} if $\omega(x,x)=0$
+            \item $V$ is \emph{isotropic} if it contains at least one isotropic vector.
+            \item $V$ is \emph{anisotropic} or \emph{nonisotropic} if for every $x\in V$, $\omega(x,x)=0\implies x=0$,
+            \item $V$ is \emph{totally isotropic} (that is, symplectic if $\operatorname{char}(F)\neq 2$) if $\omega(x,x)=0$ for every vector $x\in V$. 
+        \end{itemize}
+        
+            The first bullet point above is about vectors in $V$, while the others are properties of $V$.
+        \begin{itemize}
+            \item A vector $x\in V$ is called \emph{degenerate} if $x\perp V$, that is, 
+            \[
+                \forall y\in V,\: \omega(x,y)=0
+            \]
+            \item The \emph{radical} of $V$, denoted by $\rad{V}$ is the set of all degenerate vectors in $V$,
+            \[
+                \rad{V}\defined V^\perp  
+            \]
+            \item $V$ is \emph{singular} or \emph{degenerate} if $\rad{V}\neq \{0\}$,
+            \item $V$ is \emph{non-singular} or \emph{non-degenerate} if $\rad{V} = \{0\}$,
+            \item $V$ is \emph{totally singular}, if $\rad{V} = V$. 
+        \end{itemize}
+        To summarize,
+        \begin{itemize}
+            \item $V$ is isotropic if there exists a non-zero isotropic vector, meaning $\omega(x,x)=0$, for some $x\neq 0$,
+            \item $V$ is degenerate if there exists a degenerate vector, $x\perp V$.
+        \end{itemize}
+    \end{definition}
+    \begin{wts}[Characterization of non-degeneracy]
+        $V$ is non-degenerate if and only if every matrix representation $A$ of $\omega$ is non-singular. 
+    \end{wts}
+    \begin{proof}
+        Suppose $V$ is non-degenerate, then let $B = (\Ul{b}[n])$ be a basis for $V$, if $A$ is the matrix representation of $\omega$ with respect to $B$, let $x$ be a non-zero vector in $V$, so $x\notin \rad{V}$
+        \[
+            b_i^T A [x]_B = \omega(b_i, x)\neq 0\implies A[x]_B\neq 0
+        \]
+        so $A$ is non-singular. If $A'$ is another matrix representation with respect to another basis $C$, by \Cref{lee-chp22:congruent-matrices} $A'$ is non-singular as well.\\
+
+        Conversely, if every matrix representation of $\omega$ is non-singular, let $x$ be a non-zero vector in $V$, then $A[x]_B\neq 0$ is a non-zero vector so there exists some basis component  $(A[x]_B)^j$ that is non zero, and
+        \[
+            [b_j]_B^TA[x]_B = \omega(b_j,x)\neq 0
+        \]
+        therefore $V$ is non-degenerate.
+    \end{proof}
+    
+\topheader{Riesz Representation Theorems}
+
+\topheader{Isometries}
+\begin{definition}[Isometry between MVS]
+    Let $(V,\omega)$ and $(W, \eta)$ be metric vector spaces. An \emph{isometry} $\tau\in L(V,W)$ is a linear isomorphism that preserves the billinear form.
+    \[
+        \omega(u,v) = \eta(\tau u, \tau v)
+    \]
+\end{definition}
+\begin{definition}[Orthogonal, symplectic groups]
+    Let $V$ be a nonsingular metric vector space. If $V$ is an orthogonal (resp. symplectic) geometry, the set of all isometries on $V$ is called the \emph{orthogonal (resp. symplectic) group on $V$}. It is a group under composition, and is denoted by $\mathcal{O}(V)$ (resp. $\operatorname{Sp}(V)$).
+\end{definition}
+\topheader{Hyperbolic spaces, nonsingular completions}
+
+\topheader{Symplectic transvections}
+\end{document}

@@ -1,6 +1,6 @@
 ---
 # Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults 
 
 layout: home
 title: Homepage
@@ -17,7 +17,7 @@ title: Homepage
 - Full: [Link](/download/main-manifolds.pdf)
 
 - Chapters: [1-6](/download/Lee-Chapter-1_Compiled.pdf),  [9-16](/download/Lee-Chapter-9_Compiled.pdf), 
-- [Symplectic Geometry and Hamiltonian Systems](/download/Lee-Chapter-22_Compiled.pdf),
+- [Symplectic Geometry and Hamiltonian Systems](/download/Lee-Chapter-22_Compiled.pdsf),
 
 - Appendix: [A: Topology](/download/Lee-Appendix_A_Compiled.pdf),  [B: Abstract Algebra](/download/Hungerford-Chapter-1_Compiled.pdf), [C: Algebraic Topology](/download/Munkres-Compiled.pdf)
 

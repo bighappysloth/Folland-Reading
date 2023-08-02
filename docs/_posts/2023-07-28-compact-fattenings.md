@@ -44,8 +44,8 @@ $$
 
 This holds for every $w$, so $B_{\varepsilon 2^{-1}}(z-y)\subseteq B_{\varepsilon}(x-y)\subseteq U$, and since $y$ was arbitrary, $B_{\varepsilon 2^{-1}}(z-K)\subseteq U$. 
 
-# Translation Lemma 2
-Let $V = \bigset{x,\: x-y\in U,\: \forall y\in K}$ where $K$ is compact and $U$ is open. Then $V$ is open.
+# Main Result
+Let $$V = \bigset{x,\: x-y\in U,\: \forall y\in K}$$ where $K$ is compact and $U$ is open. Then $V$ is open.
 
 *Proof:* Let $x\in V$, then $x-K$ is again a compact set, since addition and scalar multiplication is continuous. So $x-K$ admits a $2\varepsilon$-fattening by the fattening lemma. And for every $z\in B_\varepsilon(x)$, Translation Lemma 1 reads 
 
@@ -54,3 +54,10 @@ B_\varepsilon(z-K)\subseteq U\implies z-K\subseteq U
 $$
 
 and $B_{\varepsilon}(x)\subseteq V$. Therefore $V$ is open.
+
+# Support calculations
+Let $g$ be a homeomorphism on $\realn$. If $f\in C_c^\infty(\realn)$, then $\supp(f\circ g) = g^{-1}(\supp f)$.
+
+*Proof:* Let $x\in\realn$, $$x\in \bigset{(f\circ g)\neq 0}$$, iff $$g(x)\in \bigset{f\neq 0}$$ iff $$x\in g^{-1}\Biggl(\bigset{f\neq 0}\Biggr)$$. Taking closures on both sides finishes the proof, since the inverse of a homeomorphism is again a homeomorphism, and 'closure inside is equal to closure outside'. Of which we will prove now.
+
+Let $g$ be a homeomorphism, if $A\subseteq X$, then $\cl{g(A)} = g(\cl{A})$. Continuity gives us ($\supseteq$), see Folland 4.14 exercise. Every homeomorphism is a closed map, therefore $g(\cl{A})$ is a closed superset of $g(A)$, and the result follows.

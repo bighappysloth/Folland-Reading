@@ -2,7 +2,7 @@
 layout: article
 title: compact fattenings and translations
 date: 2023-07-28 19:16
-tags: ['math']
+tags: ['math','folland','sobolev spaces']
 summary: 
 ---
 The following is a sequence of results obtained by reading Folland's Real Analysis, Proposition 9.3. We wish to show if $\phi\in C_c^\infty$ is a test function, and $U$ is an open set, then the set 

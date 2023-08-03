@@ -1,100 +1,144 @@
 ---
 layout: article
-title: hamiltonian flows
+title: Notes on Symplectic Geometry
 date: 2023-08-01 14:37
 category: 
 author: 
-tags: []
+tags: ['symplectic']
 summary: 
+mathjax_autoNumber: true
 ---
+See the document 'Symplectic Geometry and Hamiltonian Systems' for a dicussion on Metric Vector Spaces, algebraic construcitons, etc. 
 
+TODO: add almost complex structures on linear spaces, and almost complex structures on manifolds.
 
-# Computations
-Let $$J = J_2 = \begin{bmatrix}0 & 1\\ -1 & 0\end{bmatrix}$$, let $(x_1, y_1)$ be the basis of $\real^2$. If $z = ax_1 + by_1$, then $Jz = bx_1 - ay_1$. More generally, let $$J = \begin{bmatrix} 0 & I_n\\ -I_n & 0\end{bmatrix}$$, and $(x_1,\ldots, x_n, y_1,\ldots, y_n)$ be a basis for $\real^{2n}$. 
+# Symplectic Manifolds
+A symplectic manifold is a smooth manifold of dimension $2n$, where $n$ is a positive integer, equipped with a smooth $2$-form that is non-singular when restricted to the fiber of each tangent space $T_pM$.
 
-$$
-z = \sum_{j=1}^n a_jx_j + b_jy_j\quad\text{then}\quad Jz = \sum_{j=1}^n b_jx_j - a_jy_j
-$$
+# Standard Symplectic Manifold $(\real^{2n},\omega_0)$
+Let $n$ be a positive integer, and $\omega_0$ be the standard symplectic form on the real vector space $\real^{2n}$. Define $$J = \begin{bmatrix} 0 & I_n \\ -I_n & 0\end{bmatrix}$$, notice $J$ resembles multiplication by $-i$ if we identify $\real^{2n}\cong\mathbb{C}$ (more on this later).
 
-Let $q(z)$ be a quadratic form in normal coordinates, so $0<r_1(q)\leq r_2(q)\leq\cdots\leq r_n(q)$, where
+## Properties of $\omega_0$
+We will list and prove most of the properties that we will need of $\omega$.
 
-$$
-q(z) = \sum_{j=1}^n \dfrac{x_j^2 + y_j^2}{r_j^2}
-$$
+- We can write the $\omega_0$ in terms of the standard inner product on $\real^{2n}$ as a vector space (or the standard Euclidean metric on $(\real^{2n}, \langle\cdot,\cdot\rangle)$ as a Riemannian Manifold).
 
-for standard coordinates described above. We will calculate the induced Hamiltonian Vector Field of $q(z)$,
+    $$
+    \omega_0(u,v) = \langle Ju,v\rangle,\quad\text{and}\quad \omega(u,Jv) = \langle u,v\rangle\quad\forall u,v\in\real^{2n}
+    $$
 
-$$
-\nabla\biggl(\dfrac{x_1^2 + y_1^2}{r_1^2}\biggr) = \biggl(\dfrac{2x_1}{r_1^2},\dfrac{2y_1}{r_1^2},\ldots,\biggr)^{\#}
-$$
+- $\omega_0$ is an exact $2$-form
 
-where # denotes the musical isomorphism. By linearity,
+    $$
+    \omega_0 = \sum_{j=1}^n dy_j\wedge dx_j = d\lambda
+    $$
 
-$$
-\nabla q(z) = \sum_{j=1}^{n} \dfrac{2x_j}{r_j^2}\dfrac{\partial}{\partial x_j} + \dfrac{2y_j}{r_j^2}\dfrac{\partial}{\partial y_j}\implies J\nabla q(z) = \sum_{j=1}^{n} \dfrac{2y_j}{r_j^2}\dfrac{\partial}{\partial x_j} - \dfrac{2x_j}{r_j^2}\dfrac{\partial}{\partial y_j}
-$$
+    where $$\lambda = \sum_{j=1}^n y_j dx_j$$. Computing the exterior derivative $$d\lambda = \sum_{j=1}^n d(y_j dx_j) = \sum_{j=1}^N dy_j\wedge dx_j=\omega_0$$ as required.
 
-## Ellipsoid equations
-Alternatively, we write
-
-$$
-q(z) = 2^{-1}\sum_{j=1}^n\lambda_j(x_j^2 + y_j^2)\implies \dfrac{1}{r_j^2} = \dfrac{\lambda}{2}
-$$
-
-with $0<\lambda_n\leq\lambda_{n-1}\leq\cdots\leq\lambda_1$, it is true that $\pm i\lambda_j$ are precisely the eigenvalues of the linear Hamiltonian vector field induced by $q$.
-
-
-When computing the orbit on the boundary of the ellipse, we need the following identifications. Let $A = \lambda J$, where $$J = J_2 =\begin{bmatrix}0&1\\-1&0\end{bmatrix}$$, and $z = (x,y)\in\real^2$. $z(0) = (x(0), y(0))$, and to the Hamiltonian vector field $X_q = J\nabla q$, $z\in \partial E(q)=\bigset{z\in\real^2,\quad q(z)=1}$ has the flow
+## Symplectic Diffeomorphisms on $(\real^{2n},\omega_0)$
+A diffeomorphism $\varphi\in\mathcal{D}(\real^{2n})$ is *symplectic* if it preserves the symplectic form $\omega_0$, that is
 
 $$
-z(t) = e^{t\lambda J}z(0)
+\varphi^* \omega_0 = \omega_0,\quad (\varphi^* \omega_0)_p (a,b) = (\omega_0)_{\varphi(p)}(d\varphi_p(a),\: d\varphi_p(b)) = \omega_p(a,b),\: \forall p\in\real^{2n},\: a,b\in T_p\real^{2n}
 $$
 
-$$
-\langle -JA e^{At}z(0),e^{At}z(0)\rangle
-$$
-
-# Determinant Formula Action
-Let $x,y\in L^2(S^1)$, where $S^1$ denotes the $1$-torus. Define
+since $d\varphi_p$ corresponds precisely to the Jacobian matrix of $\varphi$ at $p$, which we will denote by $\varphi'$, and recall $\varphi^*$ is just the precomposition of $\omega_0$ with $d\varphi$. Writing everything in matrices,
 
 $$
-a(x,y) = 2^{-1}\int_0^1\langle-J\dot{x},y\rangle dt
+\biggl\langle J\varphi'(x)a,\varphi'(x)b\biggr\rangle =(\omega_0)_{\varphi(x)}(d\varphi_x(a), d\varphi_x(b)) = (\omega_0)_x(a,b) = \biggl\langle Ja,b\biggr\rangle
 $$
 
-if $x = (x_1,\ldots x_{2n})$, and $y = (y_1,\ldots,y_{2n})$, the integrand becomes
+Which implies $$\biggl\langle \varphi'(x)^T J \varphi'(x)a,b\biggr\rangle = \biggl\langle Ja,b\biggr\rangle$$, this holds for every $a,b\in T_x\real^{2n}\Isomor{L}\real^{2n}$, therefore
 
 $$
-\langle -J\dot{x},y\rangle = \sum_{j=1}^n\operatorname{det}\biggl(\begin{bmatrix}\dot{x}_j & y_j\\ \dot{x}_{n+j} & y_{n+j}\end{bmatrix}\biggr)
+    \varphi'(x)^TJ\varphi(x) = J,\quad\forall x\in\real^{2n}
 $$
 
-This is proven using the formula above. Now, the whole integral becomes
+Since $\varphi'(x)$ is a symplectic matrix, it has determinant $1$.
+
+
+
+## Symplectic Invariance of the action
+Let $\gamma$ be a closed curve in $\real^{2n}$, we sometimes refer to closed curves as *closed characteristics*, we define the *symplectic action*, or *action* on $\gamma$ 
 
 $$
-a(x,y) = 2^{-1}\sum_{j=1}^n\int_0^1 \operatorname{det}\biggl(\begin{bmatrix}\dot{x}_j & y_j\\ \dot{x}_{n+j} & y_{n+j}\end{bmatrix}\biggr) dt
+    A(\gamma) =\int_{\gamma}\lambda\in\real
 $$
 
+We claim, if $\varphi\in \operatorname{Sp}(n)$, then $A(\varphi\circ \gamma) = A(\gamma)$. First we need a lemma.
 
----
+
+### Lemma
+The $1$-form $\lambda -\varphi^*\lambda$ is exact iff $\varphi$ is a symplectic diffeomorphism on $\real^{2n}$. Indeed, 
+
+$$
+d(\lambda-\varphi^* \lambda)=d\lambda - \varphi^* (d\lambda) = \omega_0-\omega_0=0
+$$
+
+since the exterior product commutes with tensor pullbacks (Lee 14.23d). So $\lambda-\varphi^* \lambda$ is a closed form. Poincare's Lemma, which states the $k$-th de Rham cohomology group of a contractible domain is trivial for $k\geq 1$, therefore $\lambda-\varphi^* \lambda$ is exact.
 
 
-# Symplectic Diffeomorphisms
+### Proof of Invariance
+If $M$ is a smooth manifold, and $\gamma$ is any curve (not necessarily closed) on $M$. The line integral of a $1$-form $\lambda\in\mathfrak{X}^* (M)$ over the curve $\gamma$ is defined
+
+$$
+\int_\gamma \lambda = \int_{[a,b]}\gamma^* \lambda\quad \gamma^* (\lambda)\in\mathfrak{X}^*(\real)
+$$
+
+since $\mathfrak{X}^* (\real)$ is one-dimensional, we can write $\gamma^* (\lambda)$ in terms of the global frame $dt$. There exists a unique $f(t)\in C^\infty(\real)$ where
+
+$$
+f(t)dt = \gamma^* (\lambda)
+$$
+
+The closed line integral over exact forms is $0$, so
+
+$$
+A(\gamma) = \int_\gamma \lambda = \int_\gamma \varphi^* \lambda = \int_{\varphi\circ \gamma}\lambda = A(\varphi\circ\gamma)
+$$
+
+### Action computations
+By Lee Prop 11.37, the line integral is invariant under *forward reparametrizations*. If $\gamma$ is a (not necessarily closed) curve on $M$, and $f$ is a diffeomorphism on $\real$ which is strictly increasing, then 
+
+$$
+\int_{\gamma}\lambda = \int_{\gamma\circ f}\lambda,\quad\forall\lambda\in\mathfrak{X}^*(M)
+$$
+
+With this, let $\gamma$ be reparametrized so that it has period $1$. We will prove the following formula
+
+$$
+A(\gamma) = 2^{-1}\int_0^1\biggl\langle -J\dot{\gamma},\:\gamma\biggr\rangle dt
+$$
+
+Let $(x_1,\ldots,x_n,x_{n+1},\ldots x_{2n})$ be the standard coordinates on $\real^{2n}$, and $\gamma = (\gamma_1\,\ldots,\gamma_{2n})$. 
+
+
+Examining the integrand using the [determinant formula]({{ site.baseurl }}/{% post_url 2023-08-03-determinant-formula %})
+
+$$
+\biggl\langle -J\dot{\gamma},\: \gamma\biggr\rangle
+$$
+
+# Symplectic Diffeomorphisms on $(M,\omega)$
 Let $(M,\omega)$ and $(N,\eta)$ be symplectic manifolds of dimension $2n$. Suppose $u: M\to N$ is a symplectic diffeomorphism, meaning it is a diffeomorphism between smooth manifolds; and for every $p\in M$, $v_1, v_2\in T_pM$, 
 
-## Pullback of symplectic form
+## Pullback through $u$
+
+### Pullback of symplectic form
 $$
 (u^*\eta)_p(v_1,v_2) = \eta_{u(p)}\biggl(du_p(v_1),\: du_p(v_2)\biggr) = \omega_p(v_1,v_2)
 $$
 
 where $u^*$ denotes the tensor field pullback through $u$, by precomposing $\eta$ with $u$ and $du$ in its arguments.
 
-# Pullback of smooth functions
+### Pullback of smooth functions
 We define the pullback of a $0$-form (which is also a tensor),
 
 $$
 u^*: C^\infty(N)\to C^\infty(M),\quad (u^*f)(p) = (f\circ u)(p),\:\forall f\in C^\infty(N)
 $$
 
-## Pullback of vector fields
+### Pullback of vector fields
 Let $Y$ be a vector field on $N$. $u^* Y$ is a vector field on $M$, such that for every $p\in M$, we define $$u^*Y (p) = ((du^{-1})_{u(p)}) ( Y_{u(p)} )$$, or
 
 $$
@@ -104,8 +148,8 @@ $$
 <!-- https://q.uiver.app/#q=WzAsNyxbMCwwLCIoTSxcXG9tZWdhKSJdLFsyLDAsIihOLFxcZXRhKSJdLFswLDIsIlRNIl0sWzIsMiwiVE4iXSxbMCw0LCJDXlxcaW5mdHkoTikiXSxbMCw2LCJcXG1hdGhmcmFre1h9XiooTikiXSxbMiw2LCJcXG1hdGhmcmFre1h9KE4pIl0sWzAsMSwidSJdLFswLDIsInVeKlhfSCIsMl0sWzEsMywiWF9IIl0sWzMsMiwiZHVeey0xfSJdLFs0LDUsImQiLDJdLFs1LDYsIi1cXGhhdHtcXGV0YX0iLDJdLFs0LDYsIi1cXGhhdHtcXGV0YX1eey0xfVxcY2lyYyBkIl0sWzksOCwidV4qIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d -->
 <iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNyxbMCwwLCIoTSxcXG9tZWdhKSJdLFsyLDAsIihOLFxcZXRhKSJdLFswLDIsIlRNIl0sWzIsMiwiVE4iXSxbMCw0LCJDXlxcaW5mdHkoTikiXSxbMCw2LCJcXG1hdGhmcmFre1h9XiooTikiXSxbMiw2LCJcXG1hdGhmcmFre1h9KE4pIl0sWzAsMSwidSJdLFswLDIsInVeKlhfSCIsMl0sWzEsMywiWF9IIl0sWzMsMiwiZHVeey0xfSJdLFs0LDUsImQiLDJdLFs1LDYsIi1cXGhhdHtcXGV0YX0iLDJdLFs0LDYsIi1cXGhhdHtcXGV0YX1eey0xfVxcY2lyYyBkIl0sWzksOCwidV4qIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d&embed" width="487" height="944" style="border-radius: 8px; border: none;"></iframe>
 
-## Hamiltonian Vector Field
-Let $K\in C^\infty(N)$ be a smooth function, it defines a *unique* vector field $X_K\in\mathfrak{X}(N)$ through
+## Hamiltonian Vector Fields
+Let $K\in C^\infty(N)$ be a smooth function, it defines a *unique* vector field, called the *Hamiltonian Vector Field* associated with $K$, denoted by $X_K\in\mathfrak{X}(N)$ through
 
 $$
 \eta(X_K(x), a) = -dK(x)(a),\quad\forall x\in N,\: a\in T_x N
@@ -162,10 +206,8 @@ Let $(M,\omega)$ and $(N,\eta)$ be symplectic manifolds of dimension $2n$, and $
 
     for every $t\in\real$ where any side is defined.
 
----
-
-
-*Proof of the diagram*: It suffices to show $-\hat{\omega}^{-1}\circ u^* = u^*\circ (-\hat{\eta}^{-1})$, and by linearity we can remove the negative signs.
+### Proof of Diagram
+It suffices to show $-\hat{\omega}^{-1}\circ u^* = u^*\circ (-\hat{\eta}^{-1})$, and by linearity we can remove the negative signs.
 
 $$
 \hat{\omega}^{-1}\circ u^* = u^* \circ \hat{\eta}^{-1}
@@ -202,7 +244,8 @@ Since $p$ and $A$ are arbitrary, the proof is complete.
 
 ---
 
-*Proof for integral flows*: Since $X_k = u^* X_H$, we unbox the definitions, and see that
+#### Proof for integral flows 
+Since $X_k = u^* X_H$, we unbox the definitions, and see that
 
 $$
 X_K = (du)^{-1}\circ X_H\circ u\iff du\circ X_K = X_H\circ u
@@ -220,76 +263,4 @@ Therefore $X_K$ and $X_H$ are related by $u$, $u^{-1}$ Lee Prop 9.6 tells us the
 ![Prop 9.6]({{ site.baseurl }}{% link /images/lee-prop-9-6.png %})
 
 
----
-
-
-# Special symplectic capacity $c_0$
-First we define a class of Hamiltonians, a smooth function $H\in C^\infty(M,\real)$ is in $\mathcal{H}(M,\omega)$ if
-
-- There exists a compact subset $K\subseteq M\setminus \partial M$, where $H(M\setminus K)=m(H)$
-
-- There exists an open subset $U\subseteq M$ where $H(U)=0$,
-
-- $0\leq H(x)\leq m(H)$, for every $x\in M$, where $m(H) = \max H - \min H$
-
-A function $H\in\mathcal{H}(M,\omega)$ is *admissable*, if all periodic solutions of $H$ are either constant, or have period $T>1$. We denote the class of admissable functions in $\mathcal{H}(M,\omega)$ by $\mathcal{H}_a(M,\omega)$.
-
-We wish to show $c_0$ satisfies the definition of a symplectic capacity.
-
-## Monotonicity of $c_0$.
-
-Let $(M,\omega)$ and $(N,\eta)$ be symplectic manifolds, and suppose $\varphi: M\to N$ is a symplectic embedding. Assume further $M$ and $N$ are both of dimension $2n$. Fix $H\in \mathcal{H}(M,\omega)$, define $\varphi^* H: N\to\real$ as
-
-$$
-(\varphi^*H)(x) = \begin{cases} H\circ \varphi^{-1}(x) &x\in \varphi(M)\\ m(H)&x\notin\varphi(M)\end{cases}
-$$
-
-we wish to show $\varphi^*H$ is
-- smooth,
-- is in $\mathcal{H}(N,\eta)$, and
-- is in $\mathcal{H}_a(N,\eta)$ iff $H$ is in $\mathcal{H}(M,\omega)$.
-
-### Proof of $\varphi^* H\in C^{\infty} (N,\real)$
-We need to investigate the topological properties of $M$.
-
-The inclusion map is smooth, so it maps compact sets onto compact sets. Suppose $x\notin\varphi(K)$, there are two possibilities:
-
-- If $x\in \varphi(M)$, then $x\in\varphi(M)\setminus\varphi(K)$ if and only if $\varphi^{-1}(x)\notin K$. So $\varphi^*H(x) = H\circ\varphi^{-1}(x) = H(\varphi^{-1}(x))=m(H)$, since $\varphi^{-1}(x)\notin K$.
-
-- If $x\notin \varphi(M)$, by definition $\varphi^*H(x)=m(H)$. 
-
-    In both cases, $\varphi^* H(x) = m(H)$. Since $\varphi(K)$ is compact, it is closed. Its complement is an open set containig $x$ where $\varphi^*H$ is constant.
-
-The restriction of $\varphi^* H $ onto the $\varphi(K)$ is just $H\circ \varphi^{-1}$, it is a composition of smooth maps, which is again smooth. Therefore $\varphi^* H$ is a smooth function.
-
-### Proof $\varphi^*H \in \mathcal{H}(N,\eta)$
-The first property of $\mathcal{H}(N,\eta)$ is trivially satisfied. 
-
-### Problem with the second property
-
-To prove the second, we need to find an open set $W\subseteq N$ where $\varphi^*H (U)\equiv 0$. Ideas so far
-
-- Our original Hamiltonian $H\subseteq M\setminus \partial M$. By Lee 1.x, the manifold interior is an open submanifold of codimension $0$, so $U$ is an open subset of $\operatorname{Int}(M)$.
-
-- Use the local $0$-slice criterion. For every $p\in U\subseteq M\setminus \partial M$, it is in the image of a local defining function. $F:W\to\real^n$? This does not ensure the set is open.
-
-- Final answer: Use a triple inclusion setup, let $U$ be an open submanifold of $\operatorname{Int}(M)$ which is again an open submanifold of $M$, so
-
-    $$
-    U\hookrightarrow \operatorname{Int}(M)\hookrightarrow M\hookrightarrow N
-    $$
-
-    The image of $U$ is then an embedded submanifold of codimension $0$. It has an empty boundary.
-
-    ![manifolds-with-boundary]({{ site.baseurl }}{% link /images/manifolds-with-boundary.png %})
-
-    hence $\varphi(U)$ is open in $N$.
-
-### Third property
-The third property is easily satisfied since $0\leq \varphi^* H(x)\leq m(\varphi^* H) = m(H)$. Therefore $\varphi^* H\in \mathcal{H}(N,\eta)$.
-
-#### Proof $\varphi^*H \in\mathcal{H}_a(N,\eta)$ iff $H\in\mathcal{H}(M,\omega)$
-
-Let $\gamma: J\to M$ be an integral curve for the vector field $X_H$, since $X_H$ and $X_{\varphi^* H}$ are related $\varphi^{-1}$. If $\gamma$ is a non-constant periodic orbit iff $\varphi\circ \gamma$ is a non-constant periodic orbit for $X_{\varphi^* H}$. Conversely, if $\theta$ is a non-constant periodic orbit of $X_{\varphi^* H}$, this forces the range of $\theta$ to lie in the support of $X_{\varphi^* H}$, which is contained in the image of $\varphi(M)$. So $\varphi^{-1}\circ\theta$ is a non-constant periodic orbit of $X_H$.
-
-In a word: the non-constant periodic orbits of $X_H$ and $X_{\varphi^* H}$ differ up to a reparametrization. This proves the claim.
+# Darboux's Theorem

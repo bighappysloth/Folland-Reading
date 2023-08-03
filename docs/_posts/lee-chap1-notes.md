@@ -93,7 +93,7 @@ and these $E_k$ are precisely the ones in the subcollection of indices, hence we
 
 # Proposition 1.11
 
-The book introduces the notion of local finiteness. We will instead substitute this section with the relevant Chapters from Munkres [here]({% post_url 2023-05-10-munkres-chap-39-42 %}).
+The book introduces the notion of local finiteness. We will instead substitute this section with the relevant Chapters from Munkres [here]({{ site.baseurl }}/{% post_url 2023-05-10-munkres-chap-39-42 %}).
 
 --- 
 

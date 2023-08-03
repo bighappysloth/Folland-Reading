@@ -5,7 +5,7 @@ date: 2023-06-21 02:36
 category: math
 tags: ['math','manifold']
 ---
-Part A of this problem can be found here: [Product Manifolds]({{ site.baseurl }}{% post_url /math/2023-06-21-product-manifolds %}). We wish to show, if $\omega: G\to G$ is the inversion map, $g\mapsto g^{-1}$, then 
+Part A of this problem can be found here: [Product Manifolds]({{ site.baseurl }}{{ site.baseurl }}/{% post_url 2023-06-21-product-manifolds %}). We wish to show, if $\omega: G\to G$ is the inversion map, $g\mapsto g^{-1}$, then 
 
 $$
 d\omega\biggr|_{e}(X) = -X\quad\forall e\in G,\: X\in T_e G

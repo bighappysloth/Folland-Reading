@@ -176,4 +176,4 @@ $$
 \end{align*}
 $$
 
-The rest of the problem can be found here: [Lee Problem 7.2b]({{ site.baseurl }}{% post_url /math/2023-06-21-lee-problem-7-2b %}).
+The rest of the problem can be found here: [Lee Problem 7.2b]({{ site.baseurl }}/{% post_url 2023-06-21-lee-problem-7-2b %}).

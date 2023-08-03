@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: Notes on Algebraic Topology
 date: 2023-06-04 19:12
 category: math

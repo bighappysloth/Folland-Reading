@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: Biweekly Report
 date: 2023-05-22 13:51
 category: report

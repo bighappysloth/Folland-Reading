@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: separation mechanisms in topology
 date: 2023-05-11 14:10
 category: math

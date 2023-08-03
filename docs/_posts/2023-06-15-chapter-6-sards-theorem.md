@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: Chapter 6 - Sard's Theorem
 date: 2023-06-15 16:24
 category: math

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: mathjax v3 on minima, jekyll site management
 date:   2023-05-09 12:02:12 -0400
 categories: website

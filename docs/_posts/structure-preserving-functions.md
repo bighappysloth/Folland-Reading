@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: ramblings homomorphisms
 date: 2023-05-09 23:26
 category: math

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: manifolds chap 4 resources
 date: 2023-05-18 19:50
 category: math

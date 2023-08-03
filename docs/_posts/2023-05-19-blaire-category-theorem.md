@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: blaire category theorem
 date: 2023-05-19 22:59
 category: math

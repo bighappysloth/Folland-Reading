@@ -1,0 +1,105 @@
+header:
+  - titles:
+      # @start locale config
+      en      : &EN       Archive
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : &ZH_HANS  归档
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      zh-Hant : &ZH_HANT  歸檔
+      zh-TW   : *ZH_HANT
+      zh-HK   : *ZH_HANT
+      ko      : &KO       아카이브
+      ko-KR   : *KO
+      fr      : &FR       Archives
+      fr-BE   : *FR
+      fr-CA   : *FR
+      fr-CH   : *FR
+      fr-FR   : *FR
+      fr-LU   : *FR
+      tr      : &TR       Arşivdekiler
+      # @end locale config
+    url: /archive.html
+
+  - titles:
+      # @start locale config
+      en      : &EN       About
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : &ZH_HANS  关于
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      zh-Hant : &ZH_HANT  關於
+      zh-TW   : *ZH_HANT
+      zh-HK   : *ZH_HANT
+      ko      : &KO       소개
+      ko-KR   : *KO
+      fr      : &FR       À propos
+      fr-BE   : *FR
+      fr-CA   : *FR
+      fr-CH   : *FR
+      fr-FR   : *FR
+      fr-LU   : *FR
+      tr      : &TR       Hakkında
+      # @end locale config
+    url: /about.html
+
+docs-en:
+  - title: Quick Links
+    children:
+      - title: Website Setup
+        url: /2023/05/08/website-setup
+      - title: Latex Setup
+        url: /2023/05/11/useful-latex-resources
+      - title: Analysis Links
+        url: /2023/05/18/useful-links
+
+  - title: Folland
+    children:
+      - title: New Errata
+        url: "https://sites.math.washington.edu//~folland/Homepage/reals.pdf"
+      - title: Old Errata
+        url: "https://sites.math.washington.edu//~folland/Homepage/oldreals.pdf"
+      - title:  Chapter 1
+        url: /download/Chapter_1_Compiled.pdf
+      - title:  Chapter 2
+        url: /download/Chapter_2_Compiled.pdf
+      - title:  Chapter 3
+        url: /download/Chapter_3_Compiled.pdf
+      - title:  Chapter 4
+        url: /download/Chapter_4_Compiled.pdf
+      - title:  Chapter 5
+        url: /download/Chapter_5_Compiled.pdf
+      - title:  Chapter 6
+        url: /download/Chapter_6_Compiled.pdf
+      - title:  Chapter 7
+        url: /download/Chapter_7_Compiled.pdf
+      - title:  Chapter 8
+        url: /download/Chapter_8_Compiled.pdf
+      - title:  Chapter 9
+        url: /download/Chapter_9_Compiled.pdf
+  - title: Manifolds
+    children:
+      - title: Errata
+        url: "https://sites.math.washington.edu/~lee/Books/ISM/errata.pdf"
+      - title: Chapters 1-6
+        url: /download/Lee-Chapter-1_Compiled.pdf
+      - title: Chapters 9-16
+        url: /download/Lee-Chapter-9_Compiled.pdf
+      - title: Symplectic Geometry and Hamiltonian Systems
+        url: /download/Lee-Chapter-22_Compiled.pdf
+  - title: Appendix
+    children:
+      - title: Topology
+        url: /download/Lee-Appendix_A_Compiled.pdf
+      - title: Abstract Algebra
+        url: /download/Hungerford-Chapter-1_Compiled.pdf
+      - title: Algebraic Topology
+        url: /download/Munkres-Compiled.pdf

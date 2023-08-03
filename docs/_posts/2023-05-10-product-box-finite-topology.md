@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2023-05-10 17:46
 title: product vs box topology in finite products
 category: math

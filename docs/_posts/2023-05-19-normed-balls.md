@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: normed balls
 date: 2023-05-19 17:44
 category: math

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: Notes on Smooth Manifolds
 date: 2023-05-10 18:23
 category: math

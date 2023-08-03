@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: loop hilbert space notes
 date: 2023-08-01 02:51
 category: 

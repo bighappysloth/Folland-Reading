@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: Lee Problem 7.2b
 date: 2023-06-21 02:36
 category: math

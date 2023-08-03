@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: Manifold Summary
 toc: true
 date: 2023-06-21 13:12

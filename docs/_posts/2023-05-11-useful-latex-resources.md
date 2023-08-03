@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: useful latex resources
 date: 2023-05-11 02:50
 category: latex

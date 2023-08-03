@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: Product Manifolds
 date: 2023-06-21 01:11
 category: math

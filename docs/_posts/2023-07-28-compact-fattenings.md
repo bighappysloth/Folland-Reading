@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: compact fattenings and translations
 date: 2023-07-28 19:16
 tags: ['math']

@@ -4,6 +4,25 @@ title: Notes on Symplectic Capacity
 date: 2023-08-02 23:52
 tags: ['symplectic']
 ---
+# Smooth Transition Function
+On page 74, we require a function $f:\real\to\real$ that satisfies
+
+- $f(s) = m(H)$ for $s\leq 1$,
+- $f(s) \geq (\pi + \varepsilon)s$ for all $s\in\real$,
+- $f(s) = (\pi+\varepsilon)s$ for $s$ large 
+
+The following is a smooth transition function that transistions from a constant to a linear function, computing its derivative,
+
+<iframe src="https://www.desmos.com/calculator/qonnskwhti?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+
+[Desmos](https://www.desmos.com/calculator/qonnskwhti)
+
+Computation of the derivatives is an easy task, verification later
+
+The upper bound on the derivative controls $T$ of any periodic orbit of $X_{\cl{H}}$.
+
+- Include the argument of separating the integral curves in and outside the ellipsoid $E$.
+
 # Computations
 Let $$J = J_2 = \begin{bmatrix}0 & 1\\ -1 & 0\end{bmatrix}$$, let $(x_1, y_1)$ be the basis of $\real^2$. If $z = ax_1 + by_1$, then $Jz = bx_1 - ay_1$. More generally, let $$J = \begin{bmatrix} 0 & I_n\\ -I_n & 0\end{bmatrix}$$, and $(x_1,\ldots, x_n, y_1,\ldots, y_n)$ be a basis for $\real^{2n}$. 
 
@@ -135,7 +154,7 @@ To prove the second, we need to find an open set $W\subseteq N$ where $\varphi^*
 ### Third property
 The third property is easily satisfied since $0\leq \varphi^* H(x)\leq m(\varphi^* H) = m(H)$. Therefore $\varphi^* H\in \mathcal{H}(N,\eta)$.
 
-#### Proof $\varphi^*H \in\mathcal{H}_a(N,\eta)$ iff $H\in\mathcal{H}(M,\omega)$
+#### Proof $\varphi^*H \in\mathcal{H}_a(N,\eta)$ iff $H\in\mathcal{H}_a(M,\omega)$
 
 Let $\gamma: J\to M$ be an integral curve for the vector field $X_H$, since $X_H$ and $X_{\varphi^* H}$ are related $\varphi^{-1}$. If $\gamma$ is a non-constant periodic orbit iff $\varphi\circ \gamma$ is a non-constant periodic orbit for $X_{\varphi^* H}$. Conversely, if $\theta$ is a non-constant periodic orbit of $X_{\varphi^* H}$, this forces the range of $\theta$ to lie in the support of $X_{\varphi^* H}$, which is contained in the image of $\varphi(M)$. So $\varphi^{-1}\circ\theta$ is a non-constant periodic orbit of $X_H$.
 

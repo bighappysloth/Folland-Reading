@@ -3,11 +3,9 @@ layout: article
 title: Notes on Symplectic Geometry
 date: 2023-08-01 14:37
 category: 
-author: 
 tags: ['symplectic']
-summary: 
-mathjax_autoNumber: true
 ---
+
 See the document 'Symplectic Geometry and Hamiltonian Systems' for a dicussion on Metric Vector Spaces, algebraic construcitons, etc. 
 
 TODO: add almost complex structures on linear spaces, and almost complex structures on manifolds.
@@ -75,7 +73,7 @@ $$
 d(\lambda-\varphi^* \lambda)=d\lambda - \varphi^* (d\lambda) = \omega_0-\omega_0=0
 $$
 
-since the exterior product commutes with tensor pullbacks (Lee 14.23d). So $\lambda-\varphi^* \lambda$ is a closed form. Poincare's Lemma, which states the $k$-th de Rham cohomology group of a contractible domain is trivial for $k\geq 1$, therefore $\lambda-\varphi^* \lambda$ is exact.
+since the exterior product commutes with tensor pullbacks (Lee 14.23d). So $\lambda-\varphi^* \lambda$ is a closed form. Poincare's Lemma, which states the $k$-th [de Rham cohomology group]({{ site.baseurl }}/{% post_url 2023-08-03-derham-cohomology %}), of a contractible domain is trivial for $k\geq 1$, therefore $\lambda-\varphi^* \lambda$ is exact.
 
 
 ### Proof of Invariance
@@ -105,19 +103,124 @@ $$
 $$
 
 With this, let $\gamma$ be reparametrized so that it has period $1$. We will prove the following formula
+{:.info}
 
 $$
-A(\gamma) = 2^{-1}\int_0^1\biggl\langle -J\dot{\gamma},\:\gamma\biggr\rangle dt
+A(\gamma) = \int_\gamma \lambda = 2^{-1}\int_0^1\biggl\langle -J\dot{\gamma},\:\gamma\biggr\rangle dt
 $$
 
-Let $(x_1,\ldots,x_n,x_{n+1},\ldots x_{2n})$ be the standard coordinates on $\real^{2n}$, and $\gamma = (\gamma_1\,\ldots,\gamma_{2n})$. 
 
+- Let $(x_1,\ldots,x_n,x_{n+1},\ldots x_{2n})$ be the standard coordinates on $\real^{2n}$, and $\gamma = (\gamma_1\,\ldots,\gamma_{2n})$. The left hand side becomes 
 
-Examining the integrand using the [determinant formula]({{ site.baseurl }}/{% post_url 2023-08-03-determinant-formula %})
+    $$
+    A(\gamma) = \int_0^1\sum_{j=1}^n \gamma_{n+j}\dot{\gamma}_{j}dt
+    $$
+
+- Right hand side: examining the integrand using the [Lemma 1 (determinant formula)]({{ site.baseurl }}/{% post_url 2023-08-03-determinant-formula %}), 
+
+    $$
+    2^{-1}\biggl\langle -J\dot{\gamma},\: \gamma\biggr\rangle = 2^{-1}\sum_{j=1}^n \det\biggl(\begin{bmatrix} \dot{\gamma}_j & \gamma_j \\ \dot{\gamma}_{n+j} & \gamma{n+j} \end{bmatrix}\biggr) = 2^{-1}\sum_{j=1}^n \dot{\gamma}_{j}\gamma_{n+j} - \dot{\gamma}_{n+j}\gamma_{j} dt
+    $$
+
+- Integrating the right hand side, we obtain
+
+    $$
+    \int_0^1 2^{-1}\biggl\langle -J\dot{\gamma},\gamma\biggr\rangle dt = \int_0^1 2^{-1}\sum_{j=1}\dot{\gamma}_{j}\gamma_{n+j} - \dot{\gamma}_{n+j}\gamma_j dt
+    $$
+
+- Using [Lemma 2]({{ site.baseurl }}/{% post_url 2023-08-03-determinant-formula %}), 
+
+    $$
+    \int_0^1 2^{-1}\biggl\langle -J\dot{\gamma},\gamma\biggr\rangle dt = 2^{-1}\int_\gamma\lambda + (-1)2^{-1}\int_\gamma\lambda = \int_\gamma\lambda = A(\gamma)
+    $$
+
+## Hamiltonian Vector Fields on $\real^{2n}$
+Let $(\real^{2n},\omega_0)$ be the standard symplectic structure. If $H\in C^\infty(\real^{2n})$, the *Hamiltonian Vector Field associated to $H$* is defined
 
 $$
-\biggl\langle -J\dot{\gamma},\: \gamma\biggr\rangle
+X_H = (-1)\hat{\omega}_0^{-1}(dH)
 $$
+
+Identifying $\mathfrak{X}(\real^{2n})\Isomor{L}C^\infty(\real^{2n},\real^{2n})$ (because $\real^{2n}$ is parallelizable). For every $x\in\real^{2n}$, and $a\in T_x\real^{2n}\Isomor{L}\real^{2n}$,
+
+$$
+\begin{align}
+\omega_0(X_H(x), a) &= (-1)dH(x)(a)\\
+\langle JX_H(x),a\rangle_{\real^{2n}} &= \langle -dH(x), a\rangle_{((\real^{2n})^*, \real^{2n})}\\
+&= \langle (-dH(x))^T,a\rangle_{\real^{2n}}\\
+&=\langle -\nabla H(x), a\rangle_{\real^{2n}}
+\end{align}
+$$
+
+This holds for an arbitrary $a\in\real^{2n}$, so $JX_H(x) = -\nabla H(x)\implies X_H(x) = J\nabla H(x)$.
+{:.warning}
+
+## Independence of Hamiltonian defining hypersurfaces
+Let $S$ is a (compact) regular hypersurface on $\real^{2n}$ defined by $F,H\in C^\infty(\real^{2n},\real)$,
+
+$$
+S = \{F=c\} = \{H=c'\},\quad\text{and}\quad dF\vert_S,\: dH\vert_S\neq 0
+$$
+
+We claim there exists a smooth, nowhere vanishing function $\rho: S\to\real$ (take) such that
+
+- $dF(x) = \rho(x)dH(x)$ for all $x\in S$,
+- If $\varphi^s(x)$ and $\theta^t(x)$ are flows of the HVFs $X_F$ and $X_H$ on $S$. The following IVP provides a unique solution that relates the two flows by reparametrization. $\dfrac{dt}{ds}=\rho(\varphi^s(x)),\: t(0)=0$ So that $\varphi^s(x) = \theta^{\alpha(s,x)}(x)$ for some smooth, nowhere vashing function $\alpha(\cdot,x)$
+- $X_F$ and $X_H$ define the same periodic orbits on $S$, if any.
+
+### Proof
+
+Both $F$ and $H$ are global definining functions for the embedded submanifold $S$, if $p\in S$ is arbitrary, the *exterior tangent space* of $p$ coincides precisely with the $\ker{dF_p} = \ker{dH_p}$ (Lee 5.38, 5.40).
+
+$$
+\ker{dH_p} = T^{ext}_p S = \ker{dF_p}
+$$
+
+Using the canonical identifications 
+
+- $T_{F(p)}\real \cong\real\cong T_{H(p)}$,
+- $T^{ext}_p S\cong\real^{2n}$,
+- $T_p \real^{2n}\cong\real^{2n}$,
+
+By the First Isomorphism Theorem, then by Riesz Isomorphism, there exists unique vectors $f_p,h_p\in\real^{2n}$ such that for every $v\in T_p \real^{2n}$,
+
+$$
+dF_p(v) = f_p^Tv \quad\text{and}\quad dH_p(v) = h_p^Tv
+$$
+
+Since $T_p^{ext}S$ has codimension $1$, it is clear there exist a nowhere vanishing $\rho(p)\in\real$ with
+
+$$
+f_p = \rho(p)h_p
+$$
+
+To show $\rho: S\to\real$ is smooth, we normalize $dF$ and $dH$ along $S$. Let $(X_1,\ldots, X_{2n})$ be the global coordinate frame on $\real^{2n}$, 
+
+$$
+L_F(p) = \sqrt{\sum_{j=1}^{2n}\vert (X_jF)(p) \vert^2},\quad\text{and}\quad L_H(p) = \sqrt{\sum_{j=1}^{2n}\vert (X_jH)(p) \vert^2}
+$$
+
+Both $L_F$ and $L_H$ are smooth functions on $S$ (with respect to the structure on $S$), and $\rho = L_H/L_F$ means $\rho$ is smooth is as well. Next, $dF = \rho dH$ means $(dF)^T = (\rho dH)^T$, 
+    
+$$
+X_F = J\nabla F = \rho J\nabla H = \rho X_H
+$$
+
+#### Searching for parametrization
+In search for a function $t(s,x)$ such that the integral curves agree,
+
+$$
+\psi^s(x) = \varphi^t(x),\quad \forall x\in S,\: t(0,x)=0
+$$
+
+We differentiate both sides and use the chain rule, 
+
+$$
+X_F(\psi^s(x)) = X_H(\varphi^t(x))\dfrac{dt}{ds}\biggr\vert_s\implies X_F = \rho X_H = X_H\dfrac{dt}{ds}\biggr\vert_s
+$$
+
+We come to $$\dfrac{dt}{ds} = \rho(\varphi^t(x)) =\rho(\psi^s(x))$$, or $$t(s,x) = \int_0^s \rho(\varphi_x(u))du$$. The latter is strictly monotonic, and the constant (resp. non-constant) periodic solutions of $X_F$ correspond precisely to those of $X_H$.
+
 
 # Symplectic Diffeomorphisms on $(M,\omega)$
 Let $(M,\omega)$ and $(N,\eta)$ be symplectic manifolds of dimension $2n$. Suppose $u: M\to N$ is a symplectic diffeomorphism, meaning it is a diffeomorphism between smooth manifolds; and for every $p\in M$, $v_1, v_2\in T_pM$, 

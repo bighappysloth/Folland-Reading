@@ -49,6 +49,7 @@ Note this implies $\lim o(t)=0$ as well.
 
 
 ### Tangent to $0$
+<div class="definition-box" markdown=1>
 Let $E$ and $F$ be TVS, a map $\varphi: U\to F$ where $U$ is an open neighbourhood of in $E$ into $F$, is *tangent to $0$* if
 
 $$
@@ -62,6 +63,9 @@ $$
 $$
 
 where $tV = \bigset{tx,\: x\in V }$, and similarly for $o(t)W$. For $t>0$.
+</div>
+
+
 ### Differentiability
 <div class="definition-box" markdown=1>
 Let $E$ and $F$ be TVS, and $f: U\to F$ be continuous on an open set $U\subseteq E$, we say $f$ is *differentiable* at $x_0\in U$ if there exists a continuous linear map $\lambda: E \to F$ such that
@@ -90,7 +94,7 @@ Using the same notation $E = H^{1/2}$, is a Hilbert space, that is also a Hilber
 ![Lang 6-1]({{ site.baseurl }}{% link /images/lang-6-1.png %})
 
 
-# Minimax Argument
+# Minimax Lemma?
 Want to use the minimax lemma on the gradient flow of $\Psi: E\to\real$, 
 
 $$

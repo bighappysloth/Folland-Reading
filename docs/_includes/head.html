@@ -11,8 +11,14 @@
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script>
     MathJax = {
+        startup: {
+        ready: () => {
+          MathJax.startup.defaultReady();
+          // Your custom code after MathJax is ready
+        }
+      },
       loader: {
-        load: ["input/tex-base", "[tex]/physics", "output/chtml"]
+        load: ["input/tex-base", "output/chtml"]
       },
       tex: {
         inlineMath: [              // start/end delimiter pairs for in-line math
@@ -23,7 +29,7 @@
           ['$$', '$$'],
           ['\\[', '\\]']
         ],
-        packages: { '[+]': ['physics'] },
+        // packages: { '[+]': ['physics'] },
         processEscapes: true,
         macros: {
           induces: "{\\: \\looparrowright \\:}",
@@ -111,6 +117,7 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
   </script>
+  
 </head>
 
 {%- include snippets/get-article-title.html article=page -%}

@@ -1,34 +1,33 @@
 ---
 layout: article
-title: Sobolev Spaces for Closed Characteristics
+title: Functional Analytic setting for Closed Characteristics
 date: 2023-08-01 02:51
 category: 
 author: 
 tags: ['symplectic']
 summary: 
 ---
-# Misc Notes
+# Functional Analysis
 
 
-## $L^2(S^{1},\real^{2n})$ and its operations
+## Vector-valued $L^p$ spaces
 We begin with the scalar-valued output case. 
-<div class="definition-box" markdown=1>
-If $f,g\in L^2(S^{1},\real)$, we define
+<div class="definition-box" markdown=1 name="$L^2$ inner product">
+If $f,g\in L^2(A,\real)$, we define
 
 $$
-\langle f,\: g\rangle_{L^2(S^1,\real)} = \int \langle f(t),\: g(t)\rangle_{\real}dt
+\langle f,\: g\rangle_{L^2(A,\real)} = \int \langle f(t),\: g(t)\rangle_{\real}dt
 $$
-
 
 </div>
 
 
-The case $f,g\in L^2(S^1,\real^{k})$ is similar. But first, we state the definition of $L^2$ for vector-valued functions for completeness.
+The case $f,g\in L^2(A,\real^{k})$ is similar. But first, we state the definition of $L^2$ for vector-valued functions for completeness.
 <div class="definition-box" markdown=1>
 Let $n$ be a positive integer, we define
 
 $$
-L^2(S^1,\real^{k}) = \bigset{f = (f_1,\ldots,f_{k}),\: f_i\in L^2(S^1,\real)\quad \forall i\leq k}
+L^2(A,\real^{k}) = \bigset{f = (f_1,\ldots,f_{k}),\: f_i\in L^2(A,\real)\quad \forall i\leq k}
 $$
 
 More generally, if $p\in\real$, we define
@@ -42,7 +41,7 @@ where $A$ is any measurable subset of $\real$.
 </div>
 
 
-<div class="definition-box" markdown=1>
+<div class="definition-box" markdown=1 name="$\real^{k}$ inner product">
 the *inner product* on $\real^{k}$ between two vectors $v$ and $w$ is defined as the sum of the component scalar products,
 
 $$
@@ -55,11 +54,10 @@ $$
 \vert\langle v,w\rangle_{\real^{k}}\vert\leq \sum \vert \langle v^i, w^i\rangle_{\real}\vert\leq \sum \vert v^i\vert\cdot\vert w^i\vert
 $$
 
-
 </div>
 
-<div class="definition-box" markdown=1>
-We define the inner product on $L^2(S^1,\real^{k})$ as the integral over the pointwise inner product. 
+<div class="definition-box" markdown=1 name="$L^2(A,\real^{k})$ inner product">
+We define the inner product on $L^2(A,\real^{k})$ as the integral over the pointwise inner product. 
 
 $$
 \langle f,\: g\rangle_{L^2} = \sum_i \int \langle f^i(t), g^i(t)\rangle_\real dt
@@ -70,8 +68,8 @@ The integrals in the sum above converges absolutely. For $i\leq k$, we have
 $$
 \begin{align}
 \int \vert\langle f^i(t),\: g^i(t)\rangle\vert dt &\leq \int \vert f^i\vert\cdot\vert g^i\vert dt\\
-&\leq \norm{f^ig^i}_{L^1(S^1,\real)}\\
-&\leq \norm{f^i}_{L^2(S^1,\real)}\cdot \norm{g^i}_{L^2(S^1, \real)}
+&\leq \norm{f^ig^i}_{L^1(A,\real)}\\
+&\leq \norm{f^i}_{L^2(A,\real)}\cdot \norm{g^i}_{L^2(A, \real)}
 \end{align}
 $$
 
@@ -80,26 +78,25 @@ $$
 
 
 <div class="lemma-box" markdown=1>
-Let $f,g\in L^2(S^{1},\real^{k})$, the integral over the *pointwise inner product* of $x$ and $y$,
+Let $f,g\in L^2(A,\real^{k})$, the integral over the *pointwise inner product* of $x$ and $y$,
 
 
 $$
 \begin{align}
 \int \langle f(t),\: g(t)\rangle_{\real^{k}} \: dt &= \int \sum_i \langle f^i(t), g^i(t)\rangle_\real dt\\
 &= \sum_i \int \langle f^i(t), g^i(t)\rangle_\real dt\\
-&= \langle f,\: g\rangle_{L^2(S^1, \real^{k})}
+&= \langle f,\: g\rangle_{L^2(A, \real^{k})}
 \end{align}
 $$
 
 converges absolutely. Furthermore, 
 
 $$
-\langle f,\: g\rangle_{L^2(S^1,\real^{k})} = \int \langle f(t),\: g(t)\rangle_{\real^{k}}dt
+\langle f,\: g\rangle_{L^2(A,\real^{k})} = \int \langle f(t),\: g(t)\rangle_{\real^{k}}dt
 $$
 
-
 </div>
-<div class="definition-box" markdown=1>
+<div class="definition-box" markdown=1 name="$L^p$ norm for vector-valued functions">
 Let $f\in L^p(A,\real^k)$, where $A$ is a Borel subset of $\real$, we define the $p$-norm of $f$ by
 
 $$
@@ -140,7 +137,7 @@ The $p$-norm above indeed defines a norm on $L^p(A,\real^k)$.
 It is clear that $L^p$ is a vector space (over $\real$). Absolute homogeneity and the triangle inequality follows immediately from the definition, and considering the properties of $\norm{\cdot}_{L^p(A,\real)}$. Definiteness comes from checking one each component function.
 </div>
 <div class="theorem-box" markdown=1>
-Holder's Inequality for vector-valued $L^p$ functions. Let $A$ be a Borel subset of $\real$, and $p\in [1,+\infty]$. If $f,g\in L^p(A,\real^k)$, the $L^{(p,q)(A,\real^k)}$ product converges absolutely, and
+Holder's Inequality for vector-valued $L^p$ functions. Let $A$ be a Borel subset of $\real$, and $p\in [1,+\infty]$. If $f,g\in L^p, L^q$ respectively, then the $L^{(p,q)}(A,\real^k)$ product converges absolutely. And
 
 $$
 \vert \langle f,\: g\rangle_{(p,q)}\vert \leq \norm{f}_p\cdot\norm{g}_q
@@ -171,12 +168,11 @@ $$
 \end{align}
 $$
 
-
 </div>
 
 ## Proposition 5
-We define the $L^2$ Sobolev spaces on $S^1$ in the notation of Hofer, 
-- $$H^s = \bigset{f\in L^2(S^1,\real^{2n}),\: \sum_{k\in\mathbb{Z}} \vert k\vert^{2s}\vert\hat{f}(k)\vert^2<+\infty}$$
+We define the $L^2$ Sobolev spaces on $A$ in the notation of Hofer, 
+- $$H^s = \bigset{f\in L^2(A,\real^{2n}),\: \sum_{k\in\mathbb{Z}} \vert k\vert^{2s}\vert\hat{f}(k)\vert^2<+\infty}$$
 - $H^s$ is equipped with inner product
 $$
 \langle x,y\rangle_{(s)} = \langle x_0, y_0\rangle + 2\pi \sum_{k\in\mathbb{Z}}\vert k\vert^{2s}\langle x_k, y_k\rangle

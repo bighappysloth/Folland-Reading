@@ -242,7 +242,7 @@ $$
 
 </div>
 <div class="proof-box" markdown=1 proof-name="">
-Building upon the result of the previous lemma. Let $x$ and $h$ be in $L^2(S^1,\real^{2n})$, the following holds pointwise for $y>0$ and $t\in [0,1]$.
+Building upon the result of the previous lemma. Let $x$ and $h$ be in $L^2(S^1,\real^{2n})$, the following holds pointwise for each $t\in [0,1]$
 
 $$
 \begin{multline}
@@ -268,7 +268,7 @@ Furthermore, the size of last term is controlled by $\vert h(t)\vert^2$,
 $$
 \begin{align}
 \biggl\vert \int_0^1 \biggl\langle \nabla H(x(t) + yh(t)) - \nabla H(x(t)),h(t)\biggr\rangle dy \biggr\vert &\leq \int_0^1 \vert yh(t)\vert_{\real^{2n}}\cdot\vert h(t)\vert_{\real^{2n}}dy\\ 
-&= \vert h(t)\vert^2\int_0^1 y dt\\[1ex]
+&= \vert h(t)\vert^2\int_0^1 y dy\\[1ex]
 &\Lsim \vert h(t)\vert^2
 \end{align}
 $$
@@ -295,5 +295,10 @@ see [little-o notation reference]({{ site.baseurl }}/{% post_url 2023-08-07-link
 $$
 \hat{b}(x+h) = \hat{b}(x) + \langle \nabla H(x),\: h\rangle_{L^2} + o(\norm{h}_{L^2})
 $$
+
+since $h\mapsto \langle \nabla H(x),\: h\rangle_{L^2}$ is in $\mathcal{L}(L^2, \real)$. Therefore $\hat{b}$ is differentiable at every $x\in L^2$. 
+
+- If $$d\hat{b}: L^2\to \mathcal{L}(L^2, \real)=(L^2)^*$$ represents the Gateaux derivative, the *gradient* of $\hat{b}$ is the unique map 
+
 
 </div>

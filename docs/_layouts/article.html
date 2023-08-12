@@ -24,6 +24,30 @@ type: article
 
 </div>
 
-<script>
+<!-- <script>
   {%- include scripts/article.js -%}
+</script> -->
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // List of classes to process
+      const classes = ['definition-box', 'theorem-box', 'remark-box', 'lemma-box', 'corollary-box'];
+
+      classes.forEach(className => {
+        // Grab elements of the current class
+        const elements = document.querySelectorAll('.' + className);
+
+        elements.forEach(element => {
+          const nameValue = element.getAttribute('name');
+          if (nameValue) {  // Check if "name" attribute exists and is not empty
+            element.innerHTML = `<strong>${nameValue}</strong>` + element.innerHTML;
+
+            // Update MathJax to typeset the changed content
+            MathJax.typesetPromise([element]).catch((err) => console.error(err.message));
+          }
+        });
+      });
+    });
 </script>

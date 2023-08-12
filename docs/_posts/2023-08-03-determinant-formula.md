@@ -33,10 +33,10 @@ $$
 \int_0^1 \sum_{j=1}^n \gamma_j\dot{\gamma}_{n+j} dt = (-1)\int_0^1\sum_{j=1}^n \gamma_{n+j}\dot{\gamma}_{j}dt
 $$
 
-Where $\gamma = (\gamma_1,\ldots,\gamma_{2n})$ is periodic. Indeed, by integration by parts, 
+Where $\gamma = (\gamma_1,\ldots,\gamma_{2n})$ is periodic. Indeed, by integration by parts. Recall $\int_X a\dot{b} = ab\vert_{\partial X} - \int_X \dot{a}b$,
 
 $$
-\text{LHS} = \underbrace{\sum_{j=1}^n\gamma_j \dot{\gamma}_{n+j}\biggr\vert^1_0 }_{=0} - \int_0^1\sum_{j=1}^n\gamma_{n+j}\dot{\gamma}_{j}dt = \text{RHS}
+\text{LHS} = \underbrace{\sum_{j=1}^n\gamma_j \gamma_{n+j}\biggr\vert^1_0 }_{=0} - \int_0^1\sum_{j=1}^n\gamma_{n+j}\dot{\gamma}_{j}dt = \text{RHS}
 $$
 
 ### Tangent-cotangent isomorphisms

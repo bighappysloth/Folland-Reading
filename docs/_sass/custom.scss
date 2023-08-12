@@ -1,3 +1,167 @@
-/* start custom scss snippet */
+/* Custom SCSS for definition box */
+// .definition-box {
+//     position: relative;
+//     margin: 1rem 0;
+//     padding: 0.5rem 1rem;
+//     background-color: rgba(231, 202, 96, 0.2);
+//     border: 1px solid #000;
+//     border-radius: 0.4rem;
+//     /* Use flex display to arrange content */
+//     align-items: center;
+//     /* Align content vertically in the center */
 
-/* end custom scss snippet */
+//     &::before {
+//         margin-top: 0;
+//         margin-bottom: 0;
+//         content: 'Definition';
+//         padding: 0.0rem 0.0rem;
+//         font-weight: bold;
+        
+//         /* Add underline text decoration */
+//         text-decoration: underline;
+//         // font-size: 1.2rem;
+//         /* Increase the font size */
+//         color: #000;
+//     }
+//     p {
+//         margin: 0;
+//         /* Reset margin for the paragraph */
+//     }
+// }
+
+// \definecolor{tab-blue}{rgb}{0.341,0.471,0.643}
+// \definecolor{tab-orange}{rgb}{0.894,0.580,0.267}
+// \definecolor{tab-red}{rgb}{0.820,0.380,0.365}
+// \definecolor{tab-teal}{rgb}{0.522,0.714,0.698}
+// \definecolor{tab-green}{rgb}{0.416,0.624,0.345}
+// \definecolor{tab-yellow}{rgb}{0.906,0.792,0.376}
+// \definecolor{tab-purple}{rgb}{0.659,0.486,0.624}
+// \definecolor{tab-pink}{rgb}{0.945,0.635,0.663}
+// \definecolor{tab-brown}{rgb}{0.588,0.463,0.384}
+// \definecolor{tab-grey}{rgb}{0.722,0.690,0.675}
+
+// tab-blue (86, 120, 163)
+// tab-orange (227, 147, 68)
+// tab-red (209, 96, 93)
+// tab-teal (133, 182, 177)
+// tab-green (106, 159, 87)
+// tab-yellow (231, 201, 95)
+// tab-purple (168, 123, 159)
+// tab-pink (240, 161, 169)
+// tab-brown (149, 118, 97)
+// tab-grey (184, 175, 172)
+
+@mixin box-style {
+    position: relative;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    border: 2px solid #000;
+    border-radius: 0.2rem;
+    /* Use flex display to arrange content */
+    align-items: center;
+    /* Align content vertically in the center */
+
+    &::before {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0.0rem 0.0rem;
+        font-weight: bold;
+
+        /* Add underline text decoration */
+        text-decoration: underline;
+        color: #000;
+    }
+
+    p {
+        margin: 0;
+        /* Reset margin for the paragraph */
+    }
+}
+
+@mixin proof-style {
+    position: relative;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 0.2rem;
+    /* Use flex display to arrange content */
+    align-items: center;
+    /* Align content vertically in the center */
+
+    &::before {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0.0rem 0.0rem;
+        font-style: italic;
+        content: 'Proof: ';
+        /* Add underline text decoration */
+        color: #000;
+    }
+
+    p {
+        margin: 0;
+        /* Reset margin for the paragraph */
+    }
+}
+
+.proof-box {
+    @include proof-style;
+    background-color: rgba(184, 175, 172,0.05);
+    &::before {
+        content: 'Proof: '; // Default content
+    }
+    
+    &[proof-name]:not([proof-name=""])::before {
+        content: attr(proof-name); // Content from data attribute if it's provided and not empty
+    }
+}
+
+/* Custom SCSS for definition box */
+.definition-box {
+    @include box-style;
+    background-color: rgba(231, 201, 95, 0.2);
+
+    &::before {
+        content: 'Definition';
+    }
+}
+
+
+.theorem-box {
+    @include box-style;
+    background-color: rgba(86, 120, 163, 0.2);
+
+    &::before {
+        content: 'Theorem: ';
+    }
+}
+
+.lemma-box {
+    @include box-style;
+    background-color: rgba(133, 182, 177, 0.2);
+
+    &::before {
+        content: 'Lemma';
+    }
+}
+
+
+/* Custom SCSS for corollary box */
+.corollary-box {
+    @include box-style;
+    background-color: rgba(86, 120, 163, 0.2);
+
+    &::before {
+        content: 'Corollary';
+    }
+}
+
+.remark-box {
+    @include box-style;
+    background-color: rgba(86, 120, 163, 0.1);
+
+    &::before {
+        content: 'Remark';
+    }
+}
+

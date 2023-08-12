@@ -5,13 +5,30 @@ date: 2023-08-01 14:37
 category: 
 tags: ['symplectic']
 ---
+# Symplectic Vector Spaces
+
+
+
 
 See the document 'Symplectic Geometry and Hamiltonian Systems' for a dicussion on Metric Vector Spaces, algebraic construcitons, etc. 
 
 TODO: add almost complex structures on linear spaces, and almost complex structures on manifolds.
 
+# todo list
+- symplectic Diffeomorphism
+- symplectic maps
+- symplectic embedding, the phrase 'embeds symplectically',
+- definition for the cylinder and the ball,
+- more on ellipsoid orbits, precise derivation of equations
+- When is an embedded submanifold a symplectic one?
+    - Proof for the open unit ball, and the open cylinder, being symplectic manifolds with the pullback, along with the ellipsoids.
+
 # Symplectic Manifolds
+We begin with the definition.
+
+<div class="definition-box" markdown=1>
 A symplectic manifold is a smooth manifold of dimension $2n$, where $n$ is a positive integer, equipped with a smooth $2$-form that is non-singular when restricted to the fiber of each tangent space $T_pM$.
+</div>
 
 # Standard Symplectic Manifold $(\real^{2n},\omega_0)$
 Let $n$ be a positive integer, and $\omega_0$ be the standard symplectic form on the real vector space $\real^{2n}$. Define $$J = \begin{bmatrix} 0 & I_n \\ -I_n & 0\end{bmatrix}$$, notice $J$ resembles multiplication by $-i$ if we identify $\real^{2n}\cong\mathbb{C}$ (more on this later).
@@ -67,13 +84,19 @@ We claim, if $\varphi\in \operatorname{Sp}(n)$, then $A(\varphi\circ \gamma) = A
 
 
 ### Lemma
-The $1$-form $\lambda -\varphi^*\lambda$ is exact iff $\varphi$ is a symplectic diffeomorphism on $\real^{2n}$. Indeed, 
+<div class="lemma-box" markdown=1>
+The $1$-form $\lambda -\varphi^*\lambda$ is exact iff $\varphi$ is a symplectic diffeomorphism on $\real^{2n}$. 
+</div>
+<div class="proof-box" markdown=1>
+Indeed, 
 
 $$
 d(\lambda-\varphi^* \lambda)=d\lambda - \varphi^* (d\lambda) = \omega_0-\omega_0=0
 $$
 
 since the exterior product commutes with tensor pullbacks (Lee 14.23d). So $\lambda-\varphi^* \lambda$ is a closed form. Poincare's Lemma, which states the $k$-th [de Rham cohomology group]({{ site.baseurl }}/{% post_url 2023-08-03-derham-cohomology %}), of a contractible domain is trivial for $k\geq 1$, therefore $\lambda-\varphi^* \lambda$ is exact.
+</div>
+
 
 
 ### Proof of Invariance

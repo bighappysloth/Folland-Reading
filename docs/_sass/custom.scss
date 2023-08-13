@@ -133,7 +133,7 @@ h2 {
     }
 
     &::after {
-        content: "\A";
+        // content: "\A";
         white-space: pre; // This is important to make the newline work
     }
 

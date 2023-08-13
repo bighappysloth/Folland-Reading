@@ -298,7 +298,11 @@ $$
 
 since $h\mapsto \langle \nabla H(x),\: h\rangle_{L^2}$ is in $\mathcal{L}(L^2, \real)$. Therefore $\hat{b}$ is differentiable at every $x\in L^2$. 
 
-- If $$d\hat{b}: L^2\to \mathcal{L}(L^2, \real)=(L^2)^*$$ represents the Gateaux derivative, the *gradient* of $\hat{b}$ is the unique map 
+If $$d\hat{b}: L^2\to \mathcal{L}(L^2, \real)=(L^2)^*$$ represents the Gateaux derivative, the *gradient* of $\hat{b}$ is the unique map that realizes $d\hat{b}$ through the $L^2$ product.
+
+$$
+\langle\nabla \hat{b}(x), h\rangle_{L^2} = d\hat{b}(x)(h) = \langle \nabla H(x), h\rangle_{L^2}\implies\nabla \hat{b}(x) = \nabla H(x)
+$$
 
 
 </div>

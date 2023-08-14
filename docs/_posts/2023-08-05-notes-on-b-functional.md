@@ -114,7 +114,7 @@ $$
 \sup_{i}\vert f_i(z+a) - f_i(z)\vert\Lsim \vert a\vert 
 $$
 
-To wit, use Stokes' Theorem for $1$-forms. Let $i=1,\ldots,2n$, and $\gamma:[0,1]\to \real^{2n}$ be any smooth curve such that $\gamma(0)=z$ and $\gamma(1) = z+1$. For concreteness, set $\gamma(t) = z+ta$, and by the Fundamental Theorem
+To wit, use Stokes' Theorem for $1$-forms. Let $i=1,\ldots,2n$, and $\gamma:[0,1]\to \real^{2n}$ be any smooth curve such that $\gamma(0)=z$ and $\gamma(1) = z+a$. For concreteness, set $\gamma(t) = z+ta$, and by the Fundamental Theorem
 
 $$
 f_i(z+a) - f_i(z) = \int_\gamma df_i = \int_0^1 df_i(\gamma(t))(\dot{\gamma}(t))dt

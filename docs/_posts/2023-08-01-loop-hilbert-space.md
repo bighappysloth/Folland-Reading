@@ -354,7 +354,9 @@ $$
 $$
 
 
-## Sobolev Spaces over $\mathbb{C}$
+# Sobolev spaces
+
+## Introduction to Sobolev spaces over $\mathbb{C}$
 In this section, we will introduce a special subset of tempered distributions on $\realn$ called the **Sobolev spaces**, denoted by $H_s$ or $H^s$ depending on the text for $s\in\real$. What is nice about $H^s$ is that the are Hilbert spaces, and the **periodic Sobolev spaces** over $\real$ are used in the proof of the **non-triviality of the special symplectic capacity $c_0$**. We first discuss $H^s$ over $\mathbb{C}$, and we will modify the argument in Hofer's text in order to *fold $\real^{2n}$ into $\realn$* and using an **almost complex structure** on the real symplectic manifold $(\real^{2n},\omega_0)$.
 
 Some terminology: the *morphisms* of $\szz'$ are continuous linear maps, so an *endomorphism* on $\szz'$ would be a continuous map $T: \szz'\to\szz'$ that is continuous with respect to the weak-$\ast$ topology.
@@ -496,7 +498,7 @@ and the proof is complete.
 Question: Is the map $f\mapsto \Lambda_s f$ injective? Attempt: not necessarily injective, because $L^2$ may mod out a.e differences, but do these differences matter if we precompose Schwartz functions by the inclusion map? Because the weak-$\ast$ topology is Hasudorff, this would prove injectivity?
 </div>
 
-We summarize all of the important results in one Theorem.
+## Key results of $H_s$ over $\mathbb{C}$
 <div class="theorem-box" markdown=1 name="">
 Let $s\in \real$, the preceding discussion shows that $H_s$ is a pre-Hilbert space (an inner product space vector space that is not necessarily complete)
 
@@ -512,15 +514,112 @@ $$
 - $H_0 = L^2$, and $$\norm{\cdot}_{(0)} = \norm{\cdot}_{L^2}$$
 - The distributional derivative operator, which is defined on the whole of $\szz'$, hence defined on each $H_s$ is a bounded linear map from $H_s$ to $H_{s-\vert\alpha\vert}$, for all $s\in\real$, and multi-index $\alpha$.
 </div>
-<div class="proof-box" markdown=1 proof-name="">
-To prove the first claim, we have to show surjectivity. Fix $\phi\in L^2(\realn,\mu_s)$, since $(1+\vert\zeta\vert^2)^{s}$ is slowly increasing (although we have not proven this yet), $\mathcal{F}^{-1}$ maps $(1+\vert\zeta\vert^2)^{s}\phi$ into $\szz$ which is identified as a subset of $\szz'$, and
+<div class="proof-box" markdown=1 proof-name="Proof of first claim">
+Suppose $\xx$ is a vector space and $\yy$ is an inner product space over $\mathbb{C}$. If $\tau:\xx\to\yy$ is an **linear injection**, the pullback of the inner product on $\yy$ through $\tau$ is again an inner product on $\xx$; in other words, $\tau$ equips $\xx$ with an inner product that is $\tau$-related to $\yy$.
+
+If $\tau$ is a **linear bijection**, $\tau$ is an IPS isomorphism. So it suffices to prove surjectivity. 
+
+First, we prove the inclusion map $\szz\to L^P$ for usual $p$ and $p = +\infty$ is continuous. If $p = +\infty$, then 
 
 $$
-\mathcal{F}^{-1}\biggl((1+\vert\zeta\vert^2)^{s}\phi)
+\norm{f}_{\infty}=\norm{f}_{(0,0)}
 $$
 
-The first claim follows immediately from the previous discussion. The Schwartz Functions are dense in $L^2(\realn,\mu_s)$ for any $s\in\real$. .
+If $p$ is usual, we use the following trick. Let $N = n+1$ where $n$ is the dimension of the domain. 
+
+$$
+\begin{align}
+\norm{f}_{p}^{p} &= \int_{\realn}\vert f\vert^{p} \cdot(1+\vert x\vert)^{Np}\cdot(1+\vert x\vert)^{-Np}\\
+&\leq \int_{\realn} \biggl(\vert f\vert (1+\vert x\vert )^N\biggr)^p\cdot (1+\vert x\vert )^{-Np}dx\\
+&\leq \int_{\realn} \biggl(\vert f\vert (1+\vert x\vert )^N\biggr)^p\cdot (1+\vert x\vert )^{-N}dx\\
+&\leq \norm{f}_{(N,0)}^{p}\int_{\realn}(1+\vert x\vert)^{-N}dx\\
+&\leq \norm{f}_{(N,0)}^{p}\norm{(1+\vert x\vert)^{-N}}_{1}
+\end{align}
+$$
+
+For the third inequality we used the fact 
+
+$$
+p\geq 1\implies Np\geq N\implies (1+\vert x\vert)^{-Np}\leq (1+\vert x \vert)^{N}
+$$
+
+Taking the $p$-th root, $$\norm{f}_{p}\leq\norm{f}_{(N,0)}\norm{(1+\vert x\vert)^{-N}}_{1}^{1/p} $$. Hence the inclusion map is a toplinear embedding (a linear topological embedding). We now show the dual of $\szz$ is toplinearly embedded in the dual of $L^{p}$ for usual $p$ and $p = +\infty$ with respect to the weak-$\ast$ topologies $\sigma(\szz', \szz)$, and $\sigma((L^p)^*, L^p)$. 
+
+Let $\iota: \szz\to L^p$ be the toplinear embedding, and $$\iota^*$$ be the pullback of $$(L^p)^*$$ by precomposing any $$f\in (L^p)^*$$ by $\iota$. Such that for every $\phi\in\szz$,
+
+$$
+(\iota^*f)(\phi) = f(\iota\phi)\quad\forall f\in (L^p)^*
+$$
+
+The composition of continuous maps is again continuous, so $$\iota^*$$ maps into the tempered distributions. To show continuity, fix a convergent sequence $f_n\to f$ in $$\sigma((L^p)^*, L^p)$$. Now fix $\phi\in \szz$, almost by definition,
+
+$$
+\vert \iota^*f_n(\phi) - \iota^*f(\phi)\vert = \vert f_n(\iota\phi) - f(\iota\phi)\vert\to 0
+$$
+
+therefore $$\iota^*f_n\to \iota^*f$$ in $\sigma(\szz', \szz)$. So $\iota^*$ is a toplinear embedding. 
+
+Next, we show the Fourier Transform is a surjection from $H_s$ onto $L^2(\realn,\mu_s)$. Indeed, fix $$\varphi\in L^2(\realn,\mu_s)$$,
+
+$$
+\begin{align}
+\varphi\in L^2(\realn,\mu_s)&\iff \varphi(1+\vert\zeta\vert^2)^{s/2}\in L^2(\realn, d\zeta)\\
+&\iff \mathcal{F}^{-1}(\varphi(1+\vert\zeta\vert^2)^{s/2} )\in (L^2)^*(\realn,d\zeta)\\
+&\implies \iota^*\mathcal{F}^{-1}(\varphi(1+\vert\zeta\vert^2)^{s/2} )\in \szz' 
+\end{align}
+$$
+
+The second equivalence comes from $\mathcal{F}$ being unitary, and $L^2$ being reflexive, the third is because $(L^2)^*$ is toplinearly embedded into $\szz'$. Now, let $\theta\in\szz'$ realize the duality pairing implied in the last equation. For every $a\in \szz$, 
+
+$$
+\begin{align}
+\langle \iota^*\mathcal{F}^{-1}(\varphi(1+\vert\zeta\vert^2)^{s/2}), a\rangle_{(\szz','szz)} &=\langle \mathcal{F}^{-1}(\varphi(1+\vert\zeta\vert^2)^{s/2}),\iota a\rangle_{((L^2)^*, L^2)}\\
+&=\langle \varphi(1+\vert\zeta\vert^2)^{s/2},\mathcal{F}(\iota a)\rangle_{((L^2)^*, L^2)}
+\end{align}
+$$
+
+The inclusion map commutes with the Fourier Transform, because $\mathcal{F}(\szz) = \szz$, so does the pullback, since $$\mathcal{F}(L^2) = L^2 = (L^2)^*$$.
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Vector-valued $L^p$ spaces
 We begin with the scalar-valued output case. 

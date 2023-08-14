@@ -258,9 +258,42 @@ The continuous dual space of $C^\infty(\realn)$ is *precisely* the space of comp
 </div>
 
 ## Operations on Distributions
-See [this post]({{ site.baseurl }}/{% post_url 2023-08-12-folland-distribution-excerpts %}) for a summary. Let us recall the following properties of $\mathcal{F}$ on $L^1(\realn)$. 
+See [this post]({{ site.baseurl }}/{% post_url 2023-08-12-folland-distribution-excerpts %}#chapter-9---distribution-and-its-operations) for a summary. 
+
+
+## Elements of Abstract Harmonic Analysis
+
+<div class="definition-box" markdown=1 name="">
+A **topological group** is a group $G$ endowed with the topology, in which the **group action** $A: G\times G\to G$ that takes $(g,h)\mapsto gh^{-1}$ is **continuous**. An *equivalent characterization* of $G$ is to require the multiplication map $m(x,y)= xy$, and the inversion map $x\mapsto x^{-1}$ be continuous. 
+
+</div>
+
+Like in Group Theory, we use the following notation for cosets. Let $H$ be any subset (not necessarily a subgroup) of a topological group $G$.
+
+- $aH = \\{ab,\: b\in H \\}$,
+- $Ha = \\{ba,\: b\in H \\}$,
+- $H^{-1} = \\{b^{-1},\: b\in H \\}$,
+- $HK = \\{ab,\: a\in H, b\in K\\}$
+- We say $H\subseteq G$ is **symmetric** if $H = H^{-1}$. 
 
 Throughout this section, $G$ will denote a **topological group**.
+
+A **left-invariant measure** on $G$, is a Borel measure $\mu_L:\borel_{G}\to [0,+\infty]$ such that for any Borel set $E\in\borel_{G}$, $\mu_L(E) = \mu_L(xE)$ for any $x\in G$. Similarly for **right-invariant measures**.
+
+A **left (resp. right) Haar measure** on $G$ is a left (resp. right) invariant Radon measure.
+
+<div class="remark-box" markdown=1 name="">
+Recall a **Radon measure** on a LCH space $\xx$ is a Borel measure that is finite on all compact sets, and outer regular on Borel sets, and inner regular on open sets. 
+
+This means we can approximate Borel sets using open supersets, and we can approximate open sets using compact subsets (which have finite measure).
+</div>
+
+![Folland 11.1]({{ site.baseurl }}{% link /images/folland-11-1.png %})
+
+Let $\xx$ be a topological space, a **continuous group action** of $G$ on $\xx$ is a map $G\times \xx\to \xx$. For any $g,h,e\in G$, $x\in \xx$, where $e\in G$ denotes the identity element of $G$ we have
+
+$$h(gx) = (hg)x\quad\text{and}\quad ex = x$$
+
 
 <div class="definition-box" markdown=1 name="">
 Let $y\in \realn$ and $f: \realn\to\mathbb{C}$ be measurable. We denote the **right translate** and the **left translate** of $f$ by $y$ by
@@ -271,15 +304,223 @@ $$
 
 </div>
 
-A **left-invariant measure** on $G$, is a Borel measure $\mu_L:\borel_{G}\to [0,+\infty]$$ such that for any Borel set $E\in\Borel_{G}$, $\mu_L(E) = \mu_L(xE)$ for any $x\in G$.
+For Lemma 3.74, we can replace $\mu$ with a G-invariant Radon measure, and $\xx$ by a $\sigma$-compact LCH space. The assumption that $G$ is metrizable can be dropped as well, see Folland Chapter 11.
 
+![Einsiedler]({{ site.baseurl }}{% link /images/unitary-representation-group-action.png %})
 
-We will be working with locally compact metric abelian groups. 
+### Group Actions and Fourier transforms
+From Folland 8.22a) the translation of $f\in L^1(\realn)$,
 
+$$
+(\tau_y f)(x) = f(x-y)\quad\text{and}\quad \mathcal{F}(\tau_y f)(\zeta) = E_{-y}(\zeta)\hat{f}(\zeta)
+$$
+
+The translation of distributions
+
+$$
+\langle \tau_y F,\phi\rangle = \langle F, \tau_{-y}\phi\rangle
+$$
+
+The Fourier Transform of a Tempered Distribution is defined by the Tempered Distribution that precomposes $\phi\in \szz$ by its Fourier Transform.
+
+$$
+\langle \hat{F},\phi\rangle = \langle F,\hat{\phi}\rangle
+$$
+
+Combining the shift and the transform, we get
+
+$$
+\begin{align}
+\langle (\tau_y F)\hat{\:}, \phi\rangle &= \langle \tau_y F, \hat{\phi}\rangle \\
+&= \langle F, \hat{\phi}(\zeta + y)\rangle \\
+&= \langle F, \tau_{-y}\hat{\phi}\rangle 
+\end{align}
+$$
+
+Alternatively, we can write $$\langle F, \hat{(E_{-y}\phi)}\rangle =\langle\hat{F}, E_{-y}\phi\rangle = \langle E_{-y}\hat{F},\phi\rangle$$
+
+Whether or not the arguments within the duality pairing is in $x$ or $\zeta$ does not matter, because $F$ is not a function and it does not make sense to compare arguments that way. $x$ and $\zeta$ represents general points in $\realn$.
+
+We now turn our attention to the symmetries
+
+$$
+(\tau_y f)^\hat{\:} = (E_{-y})\hat{f}\quad\text{and}\quad\biggl[ \tau_y\hat{f} = (E_yf)^\hat{\:}\quad\text{or}\quad (\tau_y f)^\breve{\:} = E_y\breve{f}\biggr]
+$$
+
+Moreover, the differentiation of Tempered Distributions, note $E_{\zeta}(x)$ is $C_s^\infty$ for $\zeta\in\realn$.
+
+$$
+(\partial^\alpha f)^\hat{\:} = (2\pi i \zeta)^{\alpha}\hat{F}\quad\text{and}\quad \biggl[(\partial^\alpha \hat{F})^{\breve{\:}} = ((-2\pi ix)^{\alpha}F)^{\hat{\:}}\quad\text{or}\quad (\partial^\alpha F)^{\breve{\:}} = (-2\pi i x)^\alpha\breve{F} \biggr]
+$$
 
 
 ## Sobolev Spaces over $\mathbb{C}$
-In this section, we will introduce a special subset of tempered distributions on $\realn$ called the **Sobolev spaces**, denoted by $H_s$ or $H^s$ depending on the text for $s\in\real$. What is nice about $H^s$ is that the are Hilbert spaces, and the **periodic Sobolev spaces** over $\real$ are used in the proof of the **non-triviality of the special symplectic capacity $c_0$**. We first discuss $H^s$ over $\mathbb{C}$, and we will modify the argument in Hofer's text in order to *fold $\real^{2n}$ into $\realn$* and using an **almost complex structure** on the real symplectic manifold $(\real^{2n},\omega_0)$
+In this section, we will introduce a special subset of tempered distributions on $\realn$ called the **Sobolev spaces**, denoted by $H_s$ or $H^s$ depending on the text for $s\in\real$. What is nice about $H^s$ is that the are Hilbert spaces, and the **periodic Sobolev spaces** over $\real$ are used in the proof of the **non-triviality of the special symplectic capacity $c_0$**. We first discuss $H^s$ over $\mathbb{C}$, and we will modify the argument in Hofer's text in order to *fold $\real^{2n}$ into $\realn$* and using an **almost complex structure** on the real symplectic manifold $(\real^{2n},\omega_0)$.
+
+Some terminology: the *morphisms* of $\szz'$ are continuous linear maps, so an *endomorphism* on $\szz'$ would be a continuous map $T: \szz'\to\szz'$ that is continuous with respect to the weak-$\ast$ topology.
+
+We will define the Sobolev spaces in terms of the Fourier Transform on $\szz'$. 
+
+
+<div class="lemma-box" markdown=1 name="">
+Let $g\in C_s^\infty$. The pointwise multiplication map $m_g: \szz\to\szz$, $m_g(\phi) = g\phi$ is an endomorphism on $\szz$.
+</div>
+<div class="proof-box" markdown=1 proof-name="">
+First, we show $m_g$ maps into $\szz$. Indeed, fix $\phi\in\szz$ and a multi-index $\alpha$, and $N\in\nat^+$. we can obtain $M_\alpha\in\nat^+$, such that
+
+$$
+\vert \partial^\beta g(x)\vert\Lsim_{g,\alpha} (1+\vert x\vert)^{M_\alpha}\quad\forall\vert\beta\vert\leq\vert\alpha\vert
+$$
+
+By the [product rule]({{ site.baseurl }}/{% post_url 2023-08-12-folland-distribution-excerpts %}#chapter-8---multivariate-calculus), and denoting finite sums by $\sum^\wedge$, 
+
+$$
+\partial^\alpha (g\phi) = \sum_{\beta+\gamma = \alpha}\dfrac{\alpha!}{\beta!\gamma!}(\partial^\beta g)(\partial^\gamma \phi)\implies\vert\partial^\alpha(g\phi)\vert\Lsim_{\alpha,g}\sum^{\wedge}\vert\partial^\gamma\phi\vert(1+\vert x\vert)^{M_{\alpha}}
+$$
+
+Multiplying by $(1+\vert x\vert)^{N}$ on both sides of the estimate yields
+
+$$
+(1+\vert x\vert)^N\vert\partial^\alpha(g\phi)\vert\Lsim_{\alpha,g}\sum^{\wedge}\vert\partial^\gamma\phi\vert(1+\vert x\vert)^{M_\alpha + N}\Lsim_{\alpha,g}\sum^{\wedge}\norm{\phi}_{(N+M_\alpha,\gamma)}<+\infty
+$$
+
+Continuity follows immediately from the equation above, see [definition of continuity between TVS]({{ site.baseurl }}/{% post_url 2023-08-12-folland-distribution-excerpts %}#chapter-5---frechet-space-convergence).
+
+
+</div>
+<div class="lemma-box" markdown=1 name="">
+For $s\in\real$, let $$\Lambda_s: f\mapsto [(1+\vert\zeta\vert^2)^{s/2}\hat{f}]^{\breve{\:}}$$ is an automorphism on $\szz'$, with inverse $\Lambda_s^{-1} = \Lambda_{-s}$.
+</div>
+<div class="proof-box" markdown=1 proof-name="">
+The Fourier Transform on $\szz'$ and its inversion are isomorphisms on $\szz'$, hence the first and last step are continuous. 
+
+$$
+f\mapsto \hat{f}\mapsto (1+\vert\zeta\vert^2)^{s/2}\cdot \hat{f} \mapsto \Lambda_s f
+$$
+
+
+For $s\in\real$, $g(\zeta) = (1+\vert\zeta\vert^2)^{s/2}$ is clearly slowly increasing. It suffices to show multiplication by a slowly increasing function with a tempered distribution $F\in \szz'$ is continuous. Since $\szz'$ is equipped with the topology of pointwise convergence, the previous Lemma implies 
+
+$$
+\langle g F_n,\phi\rangle = \langle F_n, g\phi\rangle\longrightarrow \langle F,g\phi\rangle = \langle g F,\phi\rangle
+$$
+
+$\Lambda_s$ is continuous. Moreover, the mutliplication by slowly increasing functions on $\szz'$, the Fourier Transform and its inverse is defined by precomposing the duality pairing with the respective map, so 
+
+$$
+\langle \Lambda_s F,\phi\rangle = \langle F,\Lambda_s\phi\rangle\quad\forall F\in\szz',\: \phi\in\szz
+$$
+
+
+To show $\Lambda_s^{-1} = \Lambda_{-s}$, it suffices to show $\Lambda_{-s}\Lambda_{s}\phi = \phi$ for $\phi\in \szz$, if we identify $\szz\subseteq\szz'$ this is because
+
+$$
+\langle\Lambda_{-s}\Lambda_{s}F,\phi\rangle = \langle F,\Lambda_{-s}\Lambda_{s}\phi\rangle
+$$
+
+And
+
+$$
+\begin{align}
+\Lambda_{-s}\Lambda_s\phi &= \Lambda_{-s}\biggl(((1+\vert\zeta\vert^2)^{s/2}\hat{\phi})^{\breve{\:}}\biggr)\\
+&= \biggl[(1+\vert\zeta\vert^2)^{-s/2}\biggl((1+\vert\zeta\vert^2)^{s/2}\hat{\phi}\biggr)\biggr]^{\breve{\:}}\\
+&= \hat{\phi}^{\breve{\:}}\\
+&= \phi
+\end{align}
+$$
+
+The last equality is due to $\mathcal{F}$ being an isomorphism on $\szz$, and the proof is complete upon replacing the roles of $s$ and $-s$.
+</div>
+
+<div class="definition-box" markdown=1 name="">
+If $s\in\real$, the **Sobolev space $H_s$** is the space
+
+$$
+H_s = \bigset{f\in \szz',\: \Lambda_sf\in L^2}
+$$
+
+The claim $\Lambda_sf\in L^2$ should be interpreted with respect to the ambient topology of $\szz'$. **There exists $g\in L^2$ that realizes the duality pairing $\langle \Lambda_s f, \cdot\rangle$**, if $\phi\in\szz$ is arbitrary, 
+
+$$
+\langle \Lambda_s f,\phi\rangle_{(\szz,\szz')} = \langle f, \Lambda_s \phi\rangle_{(\szz,\szz')} = \langle g, \Lambda_s (\iota\phi)\rangle_{(L^2,L^2)} 
+$$
+
+where $\iota: \szz\to L^2$ is the inclusion map.
+
+</div>
+
+We call $\Lambda_s f$ the **$L^2$ representative of $f$**. Clearly, the $L^2$ representative of $f$ is unique a.e. Suppose the $L^2$ representative is linear in $H_s$ for the moment, we can borrow the algebraic and topological structure from $L^2$ by pulling back the inner product. As in
+
+$$
+\langle f,g\rangle_{(s)} =  \langle \Lambda_s f,\Lambda_s g\rangle_{(L^2, L^2)} = \langle (\Lambda_s f)^\hat{\:} ,(\Lambda_s g)^\hat{\:} \rangle_{(L^2, L^2)} = \int_{\realn}\hat{f}(\zeta)\cl{\hat{g}(\zeta)}(1+\vert\zeta\vert^2)^s d\zeta
+$$
+
+The second equality is due to the Fourier Transform being unitary on $L^2$. The next lemma will allow us to justify the claim that $\langle\cdot,\cdot\rangle_{(s)}$ as is defined above is indeed an inner product; because the linear pullback of an inner product is again an inner product.
+
+
+<div class="lemma-box" markdown=1 name="">
+The $L^2$ representative of $H_s$ is linear, that is: 
+
+$$\Lambda_s \sum^{\wedge} = \sum^{\wedge}\Lambda_s$$
+
+Moreover, $\Lambda_s f = 0$ in $L^2$ means $f = 0$ in $\szz'$.
+</div>
+<div class="proof-box" markdown=1 proof-name="">
+First, it is clear the zero distribution is represented by the zero function in $L^2$. so $\Lambda_s 0 = 0$. Next, let $f,g\in H_s$, and $\Lambda_s f$ and $\Lambda_s g$ be their $L^2$ representatives. Fix $\phi\in \szz$, 
+
+$$
+\begin{align}
+\langle\Lambda_s (f+g), \phi\rangle_{(L^2,L^2)} &= \langle f+g,\Lambda_s \phi\rangle_{(\szz',\szz)}\\
+&= \langle f,\Lambda_s \phi\rangle_{(\szz',\szz)} + \langle g,\Lambda_s \phi\rangle_{(\szz',\szz)}\\
+&= \langle \Lambda_s f,\phi\rangle_{(L^2,L^2)} + \langle \Lambda_s g,\phi\rangle_{(L^2,L^2)}\\
+&= \langle \Lambda_s f + \Lambda_s g,\phi\rangle_{(L^2,L^2)}
+\end{align}
+$$
+
+Homogeneity is proven in a similar manner. Suppose $f\in H_s$ and $\Lambda_s f=0$ in $L^2\cong (L^2)^*$. Let $\phi$ be any Schwartz function, precomposing the $L^2$ pairing with the inclusion map $\iota: \szz\to L^2$ yields
+
+$$
+\langle \Lambda_s f, \phi\rangle_{(\szz',\szz)} = \langle \Lambda_s f, \iota\phi\rangle_{(L^2, L^2)} = 0
+$$
+
+Therefore $\Lambda_s f = 0$ in $\szz'$ as well. But $\Lambda_s$ is an automorphism on the space of Tempered Distributions, so that
+
+$$
+\Lambda_s f = 0 \iff f\in \operatorname{Ker}(\Lambda_s) \iff f = 0
+$$
+
+and the proof is complete.
+</div>
+
+<div class="remark-box" markdown=1 name="">
+Question: Is the map $f\mapsto \Lambda_s f$ injective? Attempt: not necessarily injective, because $L^2$ may mod out a.e differences, but do these differences matter if we precompose Schwartz functions by the inclusion map? Because the weak-$\ast$ topology is Hasudorff, this would prove injectivity?
+</div>
+
+We summarize all of the important results in one Theorem.
+<div class="theorem-box" markdown=1 name="">
+Let $s\in \real$, the preceding discussion shows that $H_s$ is a pre-Hilbert space (an inner product space vector space that is not necessarily complete)
+
+- The Fourier transform is a unitary isomorphism from $H_s$ into $L^2(\realn,\mu_s)$, where $d\mu_s(\zeta) = (1+\vert\zeta\vert^2)^sd\zeta$ is an absolutely continuous measure wirth respect to the standard Lebesgue measure. And $H_s$ is a Hilbert space,
+- The space of Schwartz functions $\szz$ is dense in $H_s$
+- If $t < s$, $H_s$ can be embedded as a dense linear subspace of $H_t$ in the topology of $H_t$. In particular, **the spaces decrease, and the norms increase**. That is,
+
+$$
+t<s\implies H_s\subseteq H_t\quad\text{and}\quad \norm{\cdot}_{(t)}\leq\norm{\cdot}_{(s)}
+$$
+
+- $\Lambda_t$ is a unitary isomorphism from $H_s$ to $H_{s-t}$, here we view $\Lambda_t$ as a map between Sobolev spaces; whose topology differs that from the weak-$\ast$ topology of $\szz'$,
+- $H_0 = L^2$, and $$\norm{\cdot}_{(0)} = \norm{\cdot}_{L^2}$$
+- The distributional derivative operator, which is defined on the whole of $\szz'$, hence defined on each $H_s$ is a bounded linear map from $H_s$ to $H_{s-\vert\alpha\vert}$, for all $s\in\real$, and multi-index $\alpha$.
+</div>
+<div class="proof-box" markdown=1 proof-name="">
+To prove the first claim, we have to show surjectivity. Fix $\phi\in L^2(\realn,\mu_s)$, since $(1+\vert\zeta\vert^2)^{s}$ is slowly increasing (although we have not proven this yet), $\mathcal{F}^{-1}$ maps $(1+\vert\zeta\vert^2)^{s}\phi$ into $\szz$ which is identified as a subset of $\szz'$, and
+
+$$
+\mathcal{F}^{-1}\biggl((1+\vert\zeta\vert^2)^{s}\phi)
+$$
+
+The first claim follows immediately from the previous discussion. The Schwartz Functions are dense in $L^2(\realn,\mu_s)$ for any $s\in\real$. .
+</div>
 
 ## Vector-valued $L^p$ spaces
 We begin with the scalar-valued output case. 
@@ -292,8 +533,8 @@ $$
 
 </div>
 
-
 The case $f,g\in L^2(A,\real^{k})$ is similar. But first, we state the definition of $L^2$ for vector-valued functions for completeness.
+
 <div class="definition-box" markdown=1>
 Let $n$ be a positive integer, we define
 
@@ -440,6 +681,8 @@ $$
 $$
 
 </div>
+
+
 
 
 

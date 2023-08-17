@@ -355,9 +355,9 @@ $$
 
 
 # Sobolev spaces
-
-## Introduction to Sobolev spaces over $\mathbb{C}$
 In this section, we will introduce a special subset of tempered distributions on $\realn$ called the **Sobolev spaces**, denoted by $H_s$ or $H^s$ depending on the text for $s\in\real$. What is nice about $H^s$ is that the are Hilbert spaces, and the **periodic Sobolev spaces** over $\real$ are used in the proof of the **non-triviality of the special symplectic capacity $c_0$**. We first discuss $H^s$ over $\mathbb{C}$, and we will modify the argument in Hofer's text in order to *fold $\real^{2n}$ into $\realn$* and using an **almost complex structure** on the real symplectic manifold $(\real^{2n},\omega_0)$.
+
+## Sobolev spaces over $\mathbb{C}$
 
 Some terminology: the *morphisms* of $\szz'$ are continuous linear maps, so an *endomorphism* on $\szz'$ would be a continuous map $T: \szz'\to\szz'$ that is continuous with respect to the weak-$\ast$ topology.
 
@@ -582,19 +582,311 @@ The inclusion map commutes with the Fourier Transform, because $\mathcal{F}(\szz
 
 </div>
 
+<div class="proof-box" markdown=1 proof-name="Proof of the rest">
+$H_s$ is Hilbert isomorphic to $L^2(\realn,d\mu_s)$, $\szz$ is dense in $L^2(\realn,d\zeta)$. It therefore suffices to show $\szz$ is dense in $L^2(\realn, d\mu_s)$. Let $f\in L^2(\realn,d\mu_s)$, then
+
+$$
+\int_{\realn}\vert f\vert^2 (1+\vert\zeta\vert^2)^{s}d\zeta = \norm{f}^2_{L^2(d\mu_s)} = \norm{(1+\vert\zeta\vert^2)^{s/2} f}_{L^2(d\zeta)}<+\infty
+$$
+
+Furthermore, if $g\in \szz$, so is $h = (1+\vert\zeta\vert^2)^{-s/2}g$, since $(1+\vert\zeta\vert^2)^{t}$ is slowly increasing for every $t\in\real$. Using the density of $\szz$ in $L^2(\realn, d\zeta)$, if $\varepsilon>0$ we obtain a $g\in\szz$ with $\int \vert (1+\vert\zeta\vert^2)^{s/2}f - g\vert^2d\zeta < \varepsilon^2$
+
+$$
+\begin{align}
+\int \vert (1+\vert\zeta\vert^2)^{s/2}f - g\vert^2d\zeta &= \int (1+\vert\zeta\vert^2)^{s}\cdot \vert f-h\vert^2d\zeta\\
+&=\norm{f-h}_{L^2(d\mu_s)}^2\\
+&< \varepsilon^2
+\end{align}
+$$
+
+This proves the second claim. The third claim follows the fact that given $t<s$ then $A_t\leq A_s$ pointwise, where $A_t = (1+\vert\zeta\vert^2)^{t/2}$, and 
+
+$$
+\norm{f}_{(t)} = \norm{A_t f}_{2}\leq \norm{A_s f}_{2} = \norm{f}_{(s)}
+$$
+
+Therefore $H_s\subseteq H_t$ as a subspace, and the inclusion map $j: H_s\to H_t$ is linear and continuous; as
+
+$$
+\norm{jf}_{(t)}= \norm{f}_{(t)}\leq \norm{f}_{(s)}
+$$
+
+so that $j$ is a **toplinear embedding**, meaning it is linear, continuous and is a topological embedding. Next, we show the multiplication map on the space of tempered distributions, $\Lambda_t: \szz'\to \szz'$, with $f\mapsto A_t\cdot f\in \szz'$ is a unitary isomorphism from $H_s\to H_{s-t}$, and $\Lambda_t^{-1} = \Lambda_{-t}$.
+
+Fix $f,g$ in $H_s$, noting that $\Lambda_{s-t}\Lambda_{t} f = \Lambda_s f$ (verify), using the Hilbert space structure on $H_s$ and $H_t$ instead of the weak-$\ast$ topology inherited from $\szz'$, we compute the following
+
+$$
+\begin{align}
+\langle f,g\rangle_{(s)}&= \langle \Lambda_s f,\Lambda_s g \rangle_{(L^2, L^2)}\\
+&= \langle \Lambda_t f,\Lambda_t g \rangle_{(s-t)} \\
+&= \langle\Lambda_{s-t}\Lambda_{t} f, \Lambda_{s-t}\Lambda_{t} g  \rangle_{(L^2, L^2)}\\
+&= \langle \Lambda_{s}f, \Lambda_{s} g \rangle_{(L^2,L^2)}\\
+&= \langle f,g\rangle_{(s)}
+\end{align}
+$$
+
+This establishes the fourth and fifth claims. 
+
+Finally, to show $\partial^\alpha: H_s\to H_{s-\vert\alpha\vert}$ is a continuous linear map, we use the properties of the Fourier Transform for tempered distributions.
+
+- $$(\partial^\alpha F)^{\hat{\:}} = (2\pi i \zeta)^{\alpha}\hat{F}$$, where $\hat{F}$ denotes the distributional Fourier Transform, and the factor of $(2\pi  i \zeta)^{\alpha}$ is a slowly increasing (smooth) function.
+- Computing $$(\Lambda_{s-\vert\alpha\vert}\partial^\alpha f)^{\hat{\:}}$$,
+
+$$
+\begin{align}
+(\Lambda_{s-\vert\alpha\vert}\partial^\alpha f)^{\hat{\:}} &= (1+\vert\zeta\vert^2)^{s/2 - \vert\alpha\vert/2}\cdot(\partial^\alpha f)^{\hat{\:}}\\
+&= (1+\vert\zeta\vert^2)^{s/2 - \vert\alpha\vert/2}\cdot(2\pi i \zeta)^{\alpha}
+\cdot \hat{f}\\
+&= (2\pi i)^{\vert\alpha\vert}(1+\vert\zeta\vert^2)^{(s-\vert\alpha\vert)/2}\cdot \zeta^\alpha\cdot\hat{f}\\
+\end{align}
+$$
+
+So $$({\Lambda_{s-\vert\alpha\vert}\partial^\alpha f}^{\hat{\:}}) = C_{\alpha} (1+\vert\zeta\vert^2)^{(s-\vert\alpha\vert)/2}\cdot \zeta^\alpha \cdot\hat{f}$$, where $C_\alpha = (2\pi i)^{\vert\alpha\vert}$. We know that 
+
+$$
+\Lambda_s f\in L^2\iff (\Lambda_s f)^{\hat{\:}} = (1+\vert\zeta\vert^2)^{s/2}\hat{f}\in L^2
+$$
+
+So the expression that *defines* $$(\Lambda_{s-\vert\alpha\vert}\partial^\alpha f)^{\hat{\:}}$$ pointwise function. We can compute its $L^2$ norm, 
+
+$$
+\begin{align}
+\norm{\partial^{\alpha}f}_{(s-\vert\alpha\vert)} &=\norm{(\Lambda_{s-\vert\alpha\vert}\partial^\alpha f)^{\hat{\:}}}_{L^2}\\
+&= \norm{(1+\vert\zeta\vert^2)^{s/2 - \vert\alpha\vert/2}\cdot\mathcal{F}(\partial^\alpha f)}_{L^2}\\
+&= \norm{(1+\vert\zeta\vert^2)^{(s-\vert\alpha\vert)/2}C_{\alpha}\zeta^{\alpha}\hat{f}}_{L^2}\\
+&\Lsim_{\alpha}\norm{(1+\vert\zeta\vert^2)^{s/2}\hat{f}}_{L^2}\\
+&\Lsim_{\alpha}\norm{f}_{(s)}
+\end{align}
+$$
+
+the first equality is because of plancherel, and the second last estimate is justified by Lemma 2 [here]({{ site.baseurl }}/{% post_url 2023-08-12-folland-distribution-excerpts %}#chapter-8). The inverse trasnfrom of an $L^2$ function is again $L^2$, therefore $\Lambda_{s-\vert\alpha\vert}\partial^\alpha f$ is in $L^2$, and $\partial^\alpha$ is continuous.
+
+</div>
+
+
+<div class="definition-box" markdown=1 name="">
+If $C_0$ denotes the space of continuous functions that **vanish at infinity**, we define
+
+$$
+C_{0}^{k} = \bigset{f\in C_0(\realn),\: \partial^{\alpha}f \in C_0\:\text{for }\vert\alpha\vert\leq k}
+$$
+
+If $k$ is finite, $C_0^k$ is a Banach space with the norm $f\mapsto \sum^{\wedge}\norm{\partial^\alpha f}_u$.
+
+</div>
+
+
+Before stating the Sobolev Embedding Theorem, we note that if $s>0$, then $H_s$ embeds continuously into $H_0 = L^2$. Identifying $f\in H_s$ with its $L^2$ representative, it makes sense to evaluate $f(x)\in\mathbb{C}$ up to a null set.
+
+If the $L^2$ representative of $f$ coincides a.e with a continuous function $g$ we can *identify* $f$ again with this continuous function. If $g$ is a member of any of the **continuous function spaces** we have discussed (e.g: $C_0^k$, $\szz$) then we *say* $f\in C^{k}_0$ or $f\in \szz$.
+
+If every member of $H_s$ belongs some continuous function space, for example $C_0^k$, then we write $H_s\subseteq C_0^k$. The obvious question becomes, given $H_s$ for $s>0$, 
+
+- When can we identify each $H_s$ as a subset of $C_0^k$?
+- When is the inclusion map $j: H_s\to C_0^k$ continuous? 
+- When is the inclusion map compact?
+
+Clearly the first question can be answered using regularity properties of the Fourier Transform, and the second depends on finding an estimate for the norm $f\in H_s$
+
+$$
+\sum_{\vert\alpha\vert\leq k} \norm{\partial^{\alpha} f}_u= \norm{f}_{C_0^k}\: \Lsim_{k}\: \norm{f}_{(s)}
+$$
+
+<div class="theorem-box" markdown=1 name="Sobolev Embedding Theorem">
+Let $s > k + n2^{-1}$, where $k = 0, 1,\ldots$.
+
+- For every $f\in H_s$ and multi-index $\alpha$ with $\vert\alpha\vert\leq k$: the Fourier Transform of the $\alpha$-distributional derivative of $f$ is in $L^1$ 
+
+    $$
+    (\partial^\alpha f)^{\hat{ }}\in L^1\quad\text{and}\quad \norm{\mathcal{F}(\partial^\alpha f)}_{L^1}\leq C\norm{f}_{(s)}
+    $$
+
+    where $C=(2\pi)^k\sqrt{\int (1+\vert\zeta\vert^2)^{k-s}d\zeta}$ is independent of $f$ and depends only on $k-s$. (We can obtain a sharper estimate by replacing the factor $(2\pi)^k$ with $(2\pi)^{k-s}$).
+
+- $H_s$ can be identified as a subspace of $C_0^k$, and the inclusion map $j: H_s\to C_0^k$ is continuous.
+</div>
+<div class="proof-box" markdown=1 proof-name="">
+We start with some semantics. Since $s>k+n2^{-1}>0$, $H_s\subseteq L^2$. The Fourier Transform of $f\in H_s$ is a pointwise function in $L^2$. The first bullet point is a *statement* about the integrability of the pointwise function $\mathcal{F}(\partial^\alpha f)$, where $\mathcal{F}$ and $\partial^\alpha$ should be interperted in the distributional sense, but it so happens that it produces a pointwise function, which we will *identify* with its tempered distribution.
+
+$$
+\mathcal{F}(\partial^\alpha f)\in L^1\subseteq\szz'
+$$
+
+
+Computing the Fourier Transform of $\partial^\alpha f$, where $\partial^\alpha: \szz'\to\szz'$ is the distributional derivative on the space of tempered distributions, the previous Theorem tells us 
+
+$$
+\partial^\alpha: H_s\to H_{s-\vert\alpha\vert}\quad\text{is continuous}
+$$
+
+But $\vert\alpha\vert\leq k\implies s-\vert\alpha\vert \geq s-k > n2^{-1}>0$. So the $\partial^\alpha f$ is also $L^2$, and 
+
+$$
+\mathcal{F}(\partial^\alpha f) = (2\pi i)^{\vert\alpha\vert}\zeta^{\alpha}\hat{f}(\zeta)
+$$
+
+Computing a pointwise estimate, using Lemma 2 [here]({{ site.baseurl }}/{% post_url 2023-08-12-folland-distribution-excerpts %}#chapter-8)
+
+$$
+\begin{align}
+\vert\mathcal{F}(\partial^\alpha f)(\zeta)\vert&\leq(2\pi)^{k}\cdot\vert \zeta^\alpha\vert\cdot \vert\hat{f}\vert\\
+&\Lsim_k (1+\vert\zeta\vert^2)^{\vert\alpha\vert/2}\vert\hat{f}\vert\\
+&\Lsim_k (1+\vert\zeta\vert^2)^{k/2}\vert\hat{f}\vert\\
+\end{align}
+$$
+
+We integrate over $\realn$, still denoting $(1+\vert\zeta\vert^2)^{t/2}$ by $A_t$, and using Cauchy Schwartz on the second line:
+
+$$
+\begin{align}
+\norm{\mathcal{F}(\partial^\alpha f)(\zeta)}_{L^1}&\Lsim_k \norm{A_k \hat{f}}_{L^1}\\
+&\Lsim_k \norm{A_{k-s}}_{L^2}\norm{A_{s}\hat{f}}_{L^2}\\
+&\Lsim_k \norm{A^2_{k_s}}_{L^1}^{1/2}\norm{f}_{(s)}\\
+&= C\norm{f}_{(s)}
+\end{align}
+$$
+
+It suffices to show the integral defining $$C= (2\pi)^k\norm{A^2_{k-s}}_{L^1}^{1/2}$$ converges. Notice $1+\vert\zeta\vert^2\geq \vert\zeta\vert^2$ implies $(1+\vert\zeta\vert^2)^{k-s}\leq\vert\zeta\vert^{2(k-s)}$, and the exponent on $\zeta$ is $2(k-s) = -(2)(k-s)$. Since $2(s-k)>n$, the integral converges absolutely in $B^c$, where $B\subseteq\realn$ is some open ball containing the origin by Folland Corollary 2.52. Further, $A_{k-s}^{2} = (1+\vert\zeta\vert^2)^{2(k-s)}\leq 1$ pointwise for all $\zeta\in B$. So $A_{k-s}^2\in L^1(B)\cup L^1(B^c) = L^1(\realn)$. This proves the first bullet point.
+
+The Fourier inversion integral converges for $\mathcal{F}(\partial^\alpha f)\in L^1$, and by Riemann-Lebesgue we see that 
+
+$$
+\partial^\alpha f=\mathcal{F}^{-1}\mathcal{F}(\partial^\alpha f)\in C_0
+$$
+
+where $\mathcal{F}^{-1}\mathcal{F} = \mathcal{F}\mathcal{F}^{-1} = \id{\szz'}$, and the inversion formula $\mathcal{F}^{-1}(g(\zeta)) = \mathcal{F}(g(-\zeta))$ for $g\in L^1$ implies
+
+$$
+\norm{\mathcal{F}^{-1}(g)}_u = \norm{\mathcal{F}(g(-\zeta))}_u\leq \norm{g(-\zeta)}_{L^1}=\norm{g}_{L^1}
+$$
+
+let $g = \mathcal{F}(\partial^\alpha f)$ and we see that
+
+$$
+\norm{\partial^\alpha f}_u\leq \norm{\mathcal{F}(\partial^\alpha f)}_{L^1}\Lsim_k \norm{f}_{(s)}\quad\forall \vert\alpha\vert\leq k
+$$
+
+Summing over all such $\alpha$, we obtain an estiamte for the $C_0^k$ norm of $f$.
+
+$$
+\norm{f}_{C_0^k} =\sum_{\vert\alpha\vert\leq k}\norm{\partial^\alpha f}_u \:\Lsim_{k,n}\: \norm{f}_{(s)}
+$$
+
+and this proves the second bullet point.
+</div>
+<div class="corollary-box" markdown=1 name="">
+If $f\in H_s$ for all $s>0$ as a tempered distribution, then it can be identified pointwisely as a function in $C^\infty\cap C_0$.
+</div>
 
 
 
+## Distributions on $\Torusn$
+Let $\mathbb{T}^n = (S^1)^n = (\real/\mathbb{Z})^n$ is a compact Hausdorff space. A function $f: \realn\to\mathbb{C}$ is **periodic** (or $1$-periodic) if $f(x+k) = f(x)$ for every $k\in\mathbb{Z}^n$. 
 
 
+<div class="definition-box" markdown=1 name="">
+A function $f: \realn\to\mathbb{C}$ is **periodic** (or $1$-periodic) if $f(x+k) = f(x)$ for every $k\in\mathbb{Z}^n$. $f$ can be uniquely identified within the space of $1$-periodic functions by its values in $Q=[0,1)^n$. The space of smooth periodic functions on $\realn$ is denoted by $C^\infty(\mathbb{T}^n)$.
+
+$$
+C^\infty(\Torusn) = \bigset{f\in C^\infty(\realn),\: f\text{ is periodic.}}
+$$
 
 
+</div>
+
+Because the $n$-torus is compact, we can endow $C^\infty(\Torusn)$ with the Frechet topology of uniform convergence, and if $f\in C^\infty(\Torusn)$, its **restriction** onto the $Q$ is smooth. Since $Q$ represents $\Torusn$ as a quotient space, there exists an injection from smooth functions $C^\infty(Q)\to C^\infty(\Torusn)$. If $g\in C^\infty(Q)$, meaning its support is contained within $Q$ as a subset, we define the **extension map** $W$ to be
+
+$$
+Wg(t) = W_g(t) = g(x)\quad t-x\in\mathbb{Z}^n
+$$
+
+This coincides with the definition of $C^\infty(\Torusn)$, where each $f\in C^\infty(\Torusn)$ is uniquely determined by its values in $Q$, meaning
+
+$$
+W_{f\vert_{Q}} = f
+$$
+
+Few more things, if $\phi\in C_c^\infty(\realn)$, the **periodization map $P$** defined by
+
+$$
+P_\phi = \sum_{k\in\mathbb{Z}^n}\tau_k\phi
+$$
+
+converges to a smooth function in $C^\infty(\realn)$ and can be shown to be continuous (hence toplinear) from $C_c^\infty(\realn)$ into $C^\infty(\Torusn)$. We define the **distributional periodization map $P'$** to be a map
+
+$$
+P: \mathbf{D}'(\Torusn)\to \mathbf{D}'(\realn)
+$$
+
+that precomposes $F\in \mathbb{D}'(\Torusn)$ with $P$. That means
+
+$$
+\langle P'F,\phi \rangle_{(\mathbf{D}'(\realn), \mathbf{D}(\realn))} = \langle F, P\phi\rangle_{(\mathbf{D}'(\Torusn), \mathbf{D}(\Torusn))}
+$$
+
+It can be shown that the periodization map is continuous, and it maps $\dzz'(\Torusn)$ into $\dzz'_{per}(\realn)$, the space of *shift-invariant distributions*
+
+$$
+\dzz'_{per}(\realn) = \bigset{F\in\dzz'(\realn),\: \tau_kF = F\: \forall k\in\mathbb{Z}^n}
+$$
+
+- It can also be shown that $\dzz'_{per}(\realn)\subseteq\szz'$, which states: *every* shift-invariant distribution is tempered.
+- $P$ maps $\dzz'(\Torusn)$ into $\dzz'_{per}(\realn)$. This is a bijection.
+
+We are now in the position to dicuss the Fourier Transform of distributions on $\Torusn$. Since $C^\infty(\Torusn) = C_c^\infty(\Torusn)$, $\Epsilon'(\Torusn) = \dzz'(\Torusn) = \szz'(\Torusn)$. Moreover, the Fourier Transform of a $F\in\szz'(\realn)$ is *defined* by precomposing $F$ with the Fourier Transform on $\szz$, which is an isomorphism.
+
+<div class="definition-box" markdown=1 name="">
+Since $C^\infty(\Torusn)\subseteq L^2(\Torusn)$, we have a natural $L^2$ isomorphism. Motivated by the $\Epsilon'(\realn)$ case, we define the **Fourier Transform on $\dzz'(\Torusn)$** to be a map
+
+$$
+\mathcal{F}: \dzz'(\Torusn)\to C_s(\mathbb{Z}^n)
+$$
+
+where $C_s(\mathbb{Z}^n)$ is the space of 'slowly increasing' functions with domain $\mathbb{Z}^n$,
+
+$$
+C_s(\mathbb{Z}^n) = \bigset{g: \mathbb{Z}^n\to\mathbb{C},\: \vert g(k)\vert\Lsim_{g}(1+\vert k\vert)^{N},\:N\in\mathbb{N}^+}
+$$
+
+so that $\hat{F}(k) = \langle F, E_{-k}\rangle$, with $E_{-k}\in C^\infty(\Torusn)$
+</div>
+<div class="remark-box" markdown=1 name="">
+The codomain $C_s(\mathbb{Z}^n)$ is not part of the definition, the definition of $\mathcal{F}$ on $\dzz'(\Torusn)$ is just a map that takes $\mathbb{Z}^n$ into the complex plane. The 'slowly increasing' part follows from the TVS continuity of $F: C^\infty(\Torusn)\to\mathbb{C}$. Because there exists a constant $C$ and $N$, such that 
+
+$$
+\vert \langle F,\phi\rangle \leq C\sum_{\vert\alpha\vert\leq N}\norm{\partial^\alpha \phi}_u\quad\forall \phi\in C^\infty(\Torusn)
+$$
+
+Applying this to $\hat{F}(k) = \langle F,E_{-k}\rangle$, 
+
+$$
+\begin{align}
+\vert\hat{F}(k)\vert&\Lsim_F \sum_{\vert\alpha\vert\leq N}\norm{\partial^\alpha E_{-k}}_u\\
+&\Lsim_F \sum_{\vert\alpha\vert\leq N}(2\pi k)^{\alpha}\cdot\norm{E_{-k}}_u\\
+&\Lsim_F (1+\vert k\vert)^N
+\end{align}
+$$
+
+for some $N$ that is dependent on $F$.
+
+</div>
 
 
+### Facts about $\mathcal{F}$ on $\dzz'(\Torusn)$
+- The Fourier Transform is actually a linear isomorphism from $\dzz'(\Torusn)$ to $C_s(\mathbb{Z}^n)$. 
+
+- Furthermore, the *Fourier Series* defined by taking linear combinations of $\hat{F}(k)E_k(x)\in C^\infty(\Torusn)$ **converges in $\dzz'(\Torusn)$** (in weak-$\ast$) to $F$ itself. 
+
+- A surprising but non-trivial result is that if we view linear combinations of $\hat{F}(k)E_k(x)$ as elements in $\szz'(\realn)$, then $\sum \hat{F}(k)E_k$ **converges in $\szz'(\realn)$** (in weak-$\ast$) to $P'F$.
+
+- Finally, the continuity of $\mathcal{F}$ on $\szz'$ gives us the following result: the Fourier Transform of $\sum \hat{F}(k)E_k$ for $F\in \dzz'(\Torusn)$ must **converge to the Fourier Transform of $P'F$**. 
+
+$$
+(P'F)^{\hat{\:}} = \mathcal{F}(\sum_{k\in\mathbb{Z}^n} \hat{F}(k)E_k) = \sum \hat{F}(k)\tau_k\delta
+$$
 
 
-
-
+## Periodic Sobolev Spaces $H_s$ over $\mathbb{C}$
 
 
 

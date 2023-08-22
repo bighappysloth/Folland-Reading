@@ -741,7 +741,7 @@ $$
 \begin{align}
 \norm{\mathcal{F}(\partial^\alpha f)(\zeta)}_{L^1}&\Lsim_k \norm{A_k \hat{f}}_{L^1}\\
 &\Lsim_k \norm{A_{k-s}}_{L^2}\norm{A_{s}\hat{f}}_{L^2}\\
-&\Lsim_k \norm{A^2_{k_s}}_{L^1}^{1/2}\norm{f}_{(s)}\\
+&\Lsim_k \norm{A^2_{k-s}}_{L^1}^{1/2}\norm{f}_{(s)}\\
 &= C\norm{f}_{(s)}
 \end{align}
 $$

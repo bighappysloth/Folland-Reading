@@ -2,7 +2,7 @@
 
 // Initialize the definition counter
 body {
-    counter-reset: h1counter h2counter definition lemma theorem example remark corollary; 
+    counter-reset: h1counter h2counter definition lemma theorem example remark note corollary; 
 }
 
 h1 {
@@ -12,7 +12,7 @@ h1 {
 // Reset the definition counter every time a new <h2> starts
 h2 {
     counter-increment: h2counter;
-    counter-reset: definition lemma theorem example remark corollary; 
+    counter-reset: definition lemma theorem example remark corollary note; 
 }
 
 
@@ -104,9 +104,15 @@ h2 {
     @include content-with-name(corollary, rgba(86, 120, 163, 0.2));
 }
 
+.note-box {
+    @include content-with-name(note, rgba(227, 147, 68, 0.1));
+}
+
 .remark-box {
     @include content-with-name(remark, rgba(86, 120, 163, 0.1));
 }
+
+
 
 
 

@@ -4,13 +4,14 @@ title: Notes on Symplectic Capacity
 date: 2023-08-02 23:52
 tags: ['symplectic']
 ---
-# Symplectic Capacity
+# Symplectic Capacities
 
-## Definition
+## Introduction
+
 We define a map from the space of symplectic manifolds to $[0,+\infty]$. We only compare the symplectic capacities of symplectic manifolds of the same dimension. Let $(M,\omega)$ be a symplectic manifold of dimension $2n$. 
 
-<div class="definition-box" markdown=1>
-A *symplectic capacity* $c$ is a map on the set of symplectic manifolds,
+<div class="definition-box" markdown=1 name="Symplectic capacity">
+A **symplectic capacity** $c$ is a map on the set of symplectic manifolds,
 $$c: (M,\omega)\mapsto c(M,\omega)\in [0,+\infty]$$ 
 
 satisfying the following properties
@@ -38,134 +39,90 @@ satisfying the following properties
     Remark: we view $(B(r),\omega_0)$ as an open submanifold of codimension $0$, with the standard symplectic form inherited from $\real^{2n}$.
 </div>
 
-# Smooth Transition Function
-<div class="theorem-box" markdown=1>
-On page 74, we require a function $f:\real\to\real$ that satisfies
-
-- $f(s) = m(H)$ for $s\leq 1$,
-- $f(s) \geq (\pi + \varepsilon)s$ for all $s\in\real$,
-- $f(s) = (\pi+\varepsilon)s$ for $s$ large 
+If $M$ and $N$ are symplectic manifolds of dimension $2n$, and are symplectically diffeomorphic, applying monotonicity twice gives $c(M,\omega) = c(N,\eta)$ for every capacity $c$. From the definitions, we can deduce additional properties (of which we will not prove) that apply to any capacity $c$
+<div class="theorem-box" markdown=1 name="Properties of symplectic capacities">
+- Homogeneity: $c(\lambda U)=\lambda^2 c(U)$
+- Non-triviality on ellipsoids: If $E$ is an ellipsoid in $(\real^{2n},\omega_0)$, $c(E) = \pi [r_1(E)]^2$, where  $r_1$ is the 'largest' side of the ellipsoid.
+- If $D\subseteq \real^{2}$ is a compact, connected domain that is the boundary of a smooth submanifold, then $c(D,\omega_0)=\operatorname{area}(D)$.
 </div>
-<div class="proof-box" markdown=1 proof-name="Proof of Smooth Transition Function:">
+Roughly speaking, a symplectic capacity gives an upper bound on the area 'swept' by the quadratic forms.
 
-The following is a smooth transition function that transistions from a constant to a linear function, computing its derivative,
+<div class="definition-box" markdown=1 name="Inner regularity">
+A symplectic capacity $c$ is **inner regular** if it can be approximated from below by capcaities of open submanifolds $c(U,\omega)$ that hide in the manifold boundary of $M$. In symbols,
 
-<iframe src="https://www.desmos.com/calculator/rcxvs2bzvd?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+$$
+c(M,\omega) = \sup\bigset{c(U,\omega),\: U\subseteq M\text{ is open, and }\cl{U}\subseteq M\setminus\partial M}
+$$
 
-[Desmos](https://www.desmos.com/calculator/rcxvs2bzvd)
 
-Computation of the derivatives is an easy task, verification later
-
-The upper bound on the derivative controls $T$ of any periodic orbit of $X_{\cl{H}}$.
-
-- Include the argument of separating the integral curves in and outside the ellipsoid $E$.
 </div>
 
+## Gromov width $D(M,\omega)$
+One example of a symplectic capacity is the Gromov width,
 
-
-# Computations
-Let $$J = J_2 = \begin{bmatrix}0 & 1\\ -1 & 0\end{bmatrix}$$, let $(x_1, y_1)$ be the basis of $\real^2$. If $z = ax_1 + by_1$, then $Jz = bx_1 - ay_1$. More generally, let $$J = \begin{bmatrix} 0 & I_n\\ -I_n & 0\end{bmatrix}$$, and $(x_1,\ldots, x_n, y_1,\ldots, y_n)$ be a basis for $\real^{2n}$. 
-
-$$
-z = \sum_{j=1}^n a_jx_j + b_jy_j\quad\text{then}\quad Jz = \sum_{j=1}^n b_jx_j - a_jy_j
-$$
-
-Let $q(z)$ be a quadratic form in normal coordinates, so $0<r_1(q)\leq r_2(q)\leq\cdots\leq r_n(q)$, where
+<div class="definition-box" markdown=1 name="Gromov width">
+Let $(M,\omega)$ be any symplectic manifold, we define its **Gromov width** by the following
 
 $$
-q(z) = \sum_{j=1}^n \dfrac{x_j^2 + y_j^2}{r_j^2}
+D(M,\omega) = \sup\bigset{\pi r^2,\: \varphi: B(r)\induces (M,\omega)}
 $$
 
-for standard coordinates described above. We will calculate the induced Hamiltonian Vector Field of $q(z)$,
+where $\varphi$ is a symplectic embedding of the open ball $$B(r) =\bigset{x\in\real^{2n},\: \vert x\vert < r}$$
 
-$$
-\nabla\biggl(\dfrac{x_1^2 + y_1^2}{r_1^2}\biggr) = \biggl(\dfrac{2x_1}{r_1^2},\dfrac{2y_1}{r_1^2},\ldots,\biggr)^{\#}
-$$
-
-where # denotes the musical isomorphism. By linearity,
-
-$$
-\nabla q(z) = \sum_{j=1}^{n} \dfrac{2x_j}{r_j^2}\dfrac{\partial}{\partial x_j} + \dfrac{2y_j}{r_j^2}\dfrac{\partial}{\partial y_j}\implies J\nabla q(z) = \sum_{j=1}^{n} \dfrac{2y_j}{r_j^2}\dfrac{\partial}{\partial x_j} - \dfrac{2x_j}{r_j^2}\dfrac{\partial}{\partial y_j}
-$$
-
-## Ellipsoid equations
-Alternatively, we write
-
-$$
-q(z) = 2^{-1}\sum_{j=1}^n\lambda_j(x_j^2 + y_j^2)\implies \dfrac{1}{r_j^2} = \dfrac{\lambda_j}{2}\:\forall j=1,\ldots,k
-$$
-
-with $0<\lambda_n\leq\lambda_{n-1}\leq\cdots\leq\lambda_1$, it is true that $\pm i\lambda_j$ are precisely the eigenvalues of the linear Hamiltonian vector field induced by $q$.
-
-
-When computing the orbit on the boundary of the ellipse, we need the following identifications. Let $A = \lambda J$, where $$J = J_2 =\begin{bmatrix}0&1\\-1&0\end{bmatrix}$$, and $z = (x,y)\in\real^2$. $z(0) = (x(0), y(0))$, and to the Hamiltonian vector field $X_q = J\nabla q$, $z\in \partial E(q)=\bigset{z\in\real^2,\quad q(z)=1}$ has the flow
-
-$$
-z(t) = e^{t\lambda J}z(0)
-$$
-
-$$
-\langle -JA e^{At}z(0),e^{At}z(0)\rangle
-$$
-
-## Determinant Formula Action
-Let $x,y\in L^2(S^1)$, where $S^1$ denotes the $1$-torus. Define
-
-$$
-a(x,y) = 2^{-1}\int_0^1\langle-J\dot{x},y\rangle dt
-$$
-
-if $x = (x_1,\ldots x_{2n})$, and $y = (y_1,\ldots,y_{2n})$, the integrand becomes
-
-$$
-\langle -J\dot{x},y\rangle = \sum_{j=1}^n\operatorname{det}\biggl(\begin{bmatrix}\dot{x}_j & y_j\\ \dot{x}_{n+j} & y_{n+j}\end{bmatrix}\biggr)
-$$
-
-This is proven using the formula above. Now, the whole integral becomes
-
-$$
-a(x,y) = 2^{-1}\sum_{j=1}^n\int_0^1 \operatorname{det}\biggl(\begin{bmatrix}\dot{x}_j & y_j\\ \dot{x}_{n+j} & y_{n+j}\end{bmatrix}\biggr) dt
-$$
-
----
-
-# Special symplectic capacity $c_0$
-First we define a class of Hamiltonians.
-
-<div class = "definition-box" markdown=1>
-a smooth function $H\in C^\infty(M,\real)$ is in $\mathcal{H}(M,\omega)$ if
-
-- There exists a compact subset $K\subseteq M\setminus \partial M$, where $H(M\setminus K)=m(H)$
-
-- There exists an open subset $U\subseteq M$ where $H(U)=0$,
-
-- $0\leq H(x)\leq m(H)$, for every $x\in M$, where $m(H) = \max H - \min H$
 </div>
 
+<div class="theorem-box" markdown=1 name="">
+The Gromov width is a symplectic capacity. It is also minimal, meaning if $c$ is any capacity, then $D\leq c$.
+</div>
+<div class="proof-box" markdown=1 proof-name="">
+See Flexcil Notes Page 7
+</div>
 
+# The Symplectic capacity $c_0$
 
-A function $H\in\mathcal{H}(M,\omega)$ is *admissable*, if all periodic solutions of $H$ are either constant, or have period $T>1$. We denote the class of admissable functions in $\mathcal{H}(M,\omega)$ by $\mathcal{H}_a(M,\omega)$.
+## Introduction
+<div class = "definition-box" markdown=1 name="Regular Hamiltonians $\mathcal{H}(M,\omega)$">
+A smooth function $H$ is called a **regular Hamiltonian**, or  $H\in\mathcal{H}(M,\omega)$ if all of the following hold
 
-We wish to show $c_0$ satisfies the definition of a symplectic capacity.
+- There exists a **compact subset** $K\subseteq M\setminus \partial M$, where $H(M\setminus K)=m(H)$
+
+- There exists an **open subset** $U\subseteq M$ where $H(U)=0$,
+
+- $0\leq H(x)\leq m(H)$, for every $x\in M$, where $m(H) = \max H - \min H$. The quantity $m(H)$ is commonly referred to as the $c_0$ oscillation of $H$.
+</div>
+The following will be the most important definition for our purposes.
+<div class="definition-box" markdown=1 name="Admissable Hamiltonians $\mathcal{H}_a(M,\omega)$">
+A regular Hamiltonian $H$ is **admissable**, if **all periodic solutions of $H$ are either constant, or have period $T>1$**. We denote the class of admissable functions in $\mathcal{H}(M,\omega)$ by $\mathcal{H}_a(M,\omega)$.
+</div>
+
+We wish to show $c_0$ satisfies the definition of a symplectic capacity. This will be done in 3 parts.
 
 ## Monotonicity of $c_0$.
+To show monotonicity, we fix a regular Hamiltonian $H$on $(M,\omega)$. We will construct an extension of $H$ using the symplectic embedding, so that this extension is regular on $(N,\eta)$. Denoting the extension by $\varphi^* H$, we show that $H$ is admissable on $(M,\omega)$ iff $\varphi^* H$ is admissable on $(N,\eta)$, and this extension preserves '$c_0$' oscillation of $H$ is equal to that of $\varphi^* H$, more precisely
 
+$$
+\max H(x) - \min H(x) = m(H) = m(\varphi^* H) - \max \varphi^* H(x) - \min \varphi^* H(x)
+$$
+
+Since $\varphi^*: \mathcal{H}_a(M,\omega)\to \mathcal{H}_a(N,\eta)$,  this proves
+
+$$
+\sup\bigset{m(H),\: H\in\mathcal{H}_a(M,\omega)}\leq \sup\bigset{m(H),\: H\in\mathcal{H}_a(N,\eta)}
+$$
+
+and monotonicity follows immediately.
+
+<div class="theorem-box" markdown=1 name="Naturality of Hamiltonian Extensions">
 Let $(M,\omega)$ and $(N,\eta)$ be symplectic manifolds, and suppose $\varphi: M\to N$ is a symplectic embedding. Assume further $M$ and $N$ are both of dimension $2n$. Fix $H\in \mathcal{H}(M,\omega)$, define $\varphi^* H: N\to\real$ as
 
 $$
 (\varphi^*H)(x) = \begin{cases} H\circ \varphi^{-1}(x) &x\in \varphi(M)\\ m(H)&x\notin\varphi(M)\end{cases}
 $$
 
-we wish to show $\varphi^*H$ is
-- smooth,
-- is in $\mathcal{H}(N,\eta)$, and
-- is in $\mathcal{H}_a(N,\eta)$ iff $H$ is in $\mathcal{H}(M,\omega)$.
-
-
-
-### Proof of $\varphi^* H\in C^{\infty} (N,\real)$
-<div class="proof-box" markdown=1 proof-name="">
-We need to investigate the topological properties of $M$.
+To this, we claim $\varphi^* H$ satisfies the three properties in Definition 2.1. That is, 1) $\varphi^* H$ is a smooth function, 2) is in $\mathcal{H}(N,\eta)$, and 3) is in $\mathcal{H}_a(N,\eta)$ iff $H$ is in $\mathcal{H}_a(M,\omega)$.
+</div>
+<div class="proof-box" markdown=1 proof-name="Proof of Naturality of Hamiltonian Extensions">
+We first show smoothness, recalling the properties of $M$ being a *embedded submanifold of $N$*, 
 
 The inclusion map is smooth, so it maps compact sets onto compact sets. Suppose $x\notin\varphi(K)$, there are two possibilities:
 
@@ -176,17 +133,9 @@ The inclusion map is smooth, so it maps compact sets onto compact sets. Suppose 
     In both cases, $\varphi^* H(x) = m(H)$. Since $\varphi(K)$ is compact, it is closed. Its complement is an open set containig $x$ where $\varphi^*H$ is constant.
 
 The restriction of $\varphi^* H $ onto the $\varphi(K)$ is just $H\circ \varphi^{-1}$, it is a composition of smooth maps, which is again smooth. Therefore $\varphi^* H$ is a smooth function.
-</div>
 
+We now show the regularity of $\varphi^* H$. The first property (the compactness of the "support" of the induced HVF) of $\mathcal{H}(N,\eta)$ is trivially satisfied. 
 
-### Proof $\varphi^*H \in \mathcal{H}(N,\eta)$
-<div class="proof-box" markdown=1 proof-name="">
-The first property of $\mathcal{H}(N,\eta)$ is trivially satisfied. 
-</div>
-
-
-### Problem with the second property
-<div class="proof-box" markdown=1 proof-name="">
 To prove the second, we need to find an open set $W\subseteq N$ where $\varphi^*H (U)\equiv 0$. Ideas so far
 
 - Our original Hamiltonian $H\subseteq M\setminus \partial M$. By Lee 1.x, the manifold interior is an open submanifold of codimension $0$, so $U$ is an open subset of $\operatorname{Int}(M)$.
@@ -203,20 +152,16 @@ To prove the second, we need to find an open set $W\subseteq N$ where $\varphi^*
 
     ![manifolds-with-boundary]({{ site.baseurl }}{% link /images/manifolds-with-boundary.png %})
 
-    hence $\varphi(U)$ is open in $N$.
-</div>
+    hence $\varphi(U)$ is open in $N$, and this proves the 'second property'; $\varphi^* H$ admits an open set on which it vanishes.
 
+The proof of the third property is simple. We see that for every $x\in N$, 
 
-### Third property
-<div class="proof-box" markdown=1 proof-name="">
-For the third property, $0\leq \varphi^* H(x)\leq m(\varphi^* H) = m(H)$. Therefore $\varphi^* H\in \mathcal{H}(N,\eta)$.
-</div>
+$$0\leq \varphi^* H(x)\leq m(\varphi^* H) = m(H)$$
 
+Therefore $\varphi^* H\in \mathcal{H}(N,\eta)$. Finally, we show that $H$ is admissable iff its extension $\varphi^* H$ is.
 
-#### Proof $\varphi^*H \in\mathcal{H}_a(N,\eta)$ iff $H\in\mathcal{H}_a(M,\omega)$
-<div class="proof-box" markdown=1 proof-name="">
 Let $\gamma: J\to M$ be an integral curve for the vector field $X_H$, since $X_H$ and $X_{\varphi^* H}$ are related $\varphi^{-1}$. If $\gamma$ is a non-constant periodic orbit iff $\varphi\circ \gamma$ is a non-constant periodic orbit for $X_{\varphi^* H}$. Conversely, if $\theta$ is a non-constant periodic orbit of $X_{\varphi^* H}$, this forces the range of $\theta$ to lie in the support of $X_{\varphi^* H}$, which is contained in the image of $\varphi(M)$. So $\varphi^{-1}\circ\theta$ is a non-constant periodic orbit of $X_H$.
 
-In a word: the non-constant periodic orbits of $X_H$ and $X_{\varphi^* H}$ differ up to a reparametrization. This proves the claim.
+In a word: **the non-constant periodic orbits of $X_H$ and $X_{\varphi^* H}$ differ up to a reparametrization**. This proves the claim.
 </div>
 

@@ -84,16 +84,6 @@ where $\varphi: U\to F$ is *tangent to $0$*. A few more things
 </div>
 
 
-
-# Extension Packs
-
-## Tangent, cotangent bundle isomorphsim for Hilbert Manifold
-Using the same notation $E = H^{1/2}$, is a Hilbert space, that is also a Hilbert manifold with the global chart $(E, \operatorname{can})$. The manifold structure we will put on $E$ is the $C^1$ structure. By Proposition 6.1 of Lang:
-
-
-![Lang 6-1]({{ site.baseurl }}{% link /images/lang-6-1.png %})
-
-
 # Minimax Lemma?
 Want to use the minimax lemma on the gradient flow of $\Psi: E\to\real$, 
 

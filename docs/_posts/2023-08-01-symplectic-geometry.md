@@ -1,29 +1,94 @@
 ---
 layout: article
-title: Notes on Symplectic Geometry
+title: Part 1 - Symplectic Geometry
 date: 2023-08-01 14:37
 category: 
 tags: ['symplectic']
 ---
-# Symplectic Vector Spaces
 
-
-
+# Preliminaries
 
 See the document 'Symplectic Geometry and Hamiltonian Systems' for a dicussion on Metric Vector Spaces, algebraic construcitons, etc. 
 
-TODO: add almost complex structures on linear spaces, and almost complex structures on manifolds.
+## Vector space isomorphsims
+Let $V$ be a normed vector space over $\real$. If $f\in V^*$, and $x\in V$, we denote
 
-# todo list
-- symplectic Diffeomorphism
-- symplectic maps
-- symplectic embedding, the phrase 'embeds symplectically',
-- definition for the cylinder and the ball,
-- more on ellipsoid orbits, precise derivation of equations
-- When is an embedded submanifold a symplectic one?
-    - Proof for the open unit ball, and the open cylinder, being symplectic manifolds with the pullback, along with the ellipsoids.
+$$
+f(x) = \langle f,x\rangle_{(V^*, V)}
+$$
 
-# Preliminaries
+If $V=\real^{k}$, and $f$ has simple matrix representation $A\in\real^{1\times k}$, identifying $x$ with its matrix representation,
+
+$$
+\langle f,x\rangle = Ax
+$$
+
+
+<div class="remark-box" markdown=1 name="">
+$\real^{k}$ is also an inner product space with the non-singular billinear form $\langle\cdot,\cdot\rangle_{\real^k}$. By Riesz isomorphism, every covector $a\in (\real^{k})^*$ corresponds to a unique vector $a'\in\real^k$ that realizes $a$ through the inner product,
+
+
+$$
+\langle a,x\rangle_{( (\real^k)^*, \real^k)} = a(x) = \langle a', x\rangle_{\real^k}
+$$
+
+
+</div>
+
+
+
+
+<div class="definition-box" markdown=1 name="Interior Multiplication on General Vector Spaces">
+Let $V$ be a vector space with a non-singular billinear form $\mu: V\times V\to\real$. Let $a,b\in V$, and $f\in V^*$,
+
+$$
+\hat{\mu}(a) = a\lrcorner \mu\in V^* ,\quad\text{defined by}\quad \hat{\mu}(a)(b)=\mu(a,b)
+$$
+
+The inverse Riesz map through $\mu$ is denoted by $\hat{\mu}^{-1}: V^*\to V$
+
+$$
+\hat{\mu}^{-1}(f)\in V,\quad\text{where}\quad \mu\biggl(\hat{\mu}^{-1}(f), a\biggr) = f(a)
+$$
+
+Applying $\hat{\mu}^{-1}$ to a $f$ returns a vector $v$ that realizes $f$ through $\mu(v,\cdot)$.
+</div>
+
+
+<div class="definition-box" markdown=1 name="Interior Multiplication on Symplectic Vector Spaces ">
+If $k=2n$ for $n\in\nat^+$, the standard symplectic form $\omega_0$ is non-singular. Let $\hat{\omega}_0: \real^{2n}\to (\real^{2n})^*$ denote the inverse-Riesz map, for every $a\in\real^{2n}$, and $x\in\real^{2n}$,
+
+$$
+\hat{\omega}_0(a) = \omega_0(a,\cdot)\in(\real^{2n})^* ,\quad\text{defined by}\quad \hat{\omega}_0(a)(x) = \omega_0(a,x)
+$$
+
+We also denote $\hat{\omega}_0(a)$ by $a\lrcorner\omega_0$ (reads: $a$ into $\omega_0$) by placing $a$ into the first slot of $\omega_0$. 
+</div>
+
+
+<div class="definition-box" markdown=1 name="Interior Multiplication of $2$-forms on Manifolds">
+Let $M$ be a smooth manifold equipped with a smooth $2$-form $\omega$. If $X\in\mathfrak{X}(M)$ is a vector field, then it *defines* a covector field through interior multiplication  $X\lrcorner\omega\in\mathfrak{X}^*(M)$
+
+$$
+(X\lrcorner\omega)_p = X_p\lrcorner \omega_p\in T_p^* M
+$$
+
+</div>
+
+<div class="definition-box" markdown=1 name="Interior Multiplication of $k$-forms on Manifolds">
+If $\omega\in\Omega^k(M)$ is a $k$-form, and $X\in\mathfrak{X}(M)$. Interior multiplication by $X$ realized through the map 
+
+$$\iota_X: \Omega^k(M)\to\Omega^{k-1}(M)$$
+
+is linear over $C^\infty(M)$, and therefore corresponds to a smooth bundle homomorphism.
+</div>
+
+<div class="definition-box" markdown=1 name="Tangent-cotangent vector isomorphism on $\real^k$">
+Let $f\in C^\infty(\real^k,\real)\Isomor{can}\Omega^0(\real^k)$. Denote the standard inner product on $\real^k$ by $E(\cdot,\cdot)$. $df$ is a covector field on $\real^k$.
+
+The *gradient of $f$* is a vector field on $\real^k$. Defined by $\operatorname{grad}f = \nabla f = \hat{E}^{-1}(df)$ the Riesz map of $E$.
+</div>
+
 
 ## Symplectic Manifolds
 <div class="definition-box" markdown=1 name="Symplectic manifold">

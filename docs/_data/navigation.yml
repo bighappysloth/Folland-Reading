@@ -55,11 +55,13 @@ docs-en:
   - title: Quick Links
     children:
       - title: Website Setup
-        url: /2023/05/08/website-setup
+        url: website/2023/05/09/website-setup.html
       - title: Latex Setup
-        url: /2023/05/11/useful-latex-resources
+        url: latex/2023/05/11/useful-latex-resources.html
       - title: Analysis Links
-        url: /2023/05/18/useful-links
+        url: math/2023/05/18/useful-links.html
+      - title: Hamiltonian Dynamics
+        url: math/2023/08/22/hamiltonian-dynamics-homepage.html
 
   - title: Folland
     children:

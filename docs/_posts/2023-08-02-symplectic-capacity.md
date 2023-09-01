@@ -405,6 +405,7 @@ We require a function $f:\real\to\real$ that satisfies
 - $f(s) = m(H)$ for $s\leq 1$,
 - $f(s) \geq (\pi + \varepsilon)s$ for all $s\in\real$,
 - $f(s) = (\pi+\varepsilon)s$ for $s$ large 
+- $0<f'(s)<\pi+\varepsilon$ for $s>1$
 </div>
 <div class="proof-box" markdown=1 proof-name="Proof of Smooth Transition Function:">
 

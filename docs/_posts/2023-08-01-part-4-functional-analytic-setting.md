@@ -73,7 +73,7 @@ $$
 </div>
 
 <div class="lemma-box" markdown=1 name="">
-The Fourier Transform of an integrable function is always bounded and continuous (identified a.e), and $\mathcal{F}(L^1)\subseteq BC(\realn)$, and 
+The Fourier Transform of an integrable function is always bounded and continuous (identified a.e), and $$\mathcal{F} (L^1)\subseteq BC(\realn)$$, and 
 
 $$\norm{\hat{f}}_u\leq \norm{f}_1$$
 

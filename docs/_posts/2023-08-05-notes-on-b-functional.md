@@ -156,7 +156,7 @@ $$
 </div>
 
 <div class="lemma-box" markdown=1>
-If $x$ and $h$ are in $L^2(S^1,\real^{2n})$, then $$\langle H(x(t)), \: h(t)\rangle \in L^1(S^{1},\real)$$.
+If $x$ and $h$ are in $L^2(S^1,\real^{2n})$, then $$\langle \nabla H(x(t)), \: h(t)\rangle \in L^1(S^{1},\real)$$.
 </div>
 <div class="proof-box" markdown=1 proof-name="">
 By the previous lemma, both $\nabla H(x(t))$ and $h(t)$ are in $L^2(S^1,\real^{2n})$. Using Holder's Inequality twice yields the result.

@@ -2,22 +2,33 @@
 
 \begin{document}
 \providecommand{\fn}{\{F_n\}}
-\problem{3.1}
 \begin{wts}
-    
+    Let $\nu$ be a signed measure on $(\xx,\mcal)$. If $\{E_j\}$ is an increasing sequence in $\mcal$, $\lim_{n\to +\infty}\nu(E_j)=\nu\qty(\bigcup E_j)$. If $\{E_j\}$ is a decreasing sequence in $\mcal$, $\lim_{n\to +\infty}\nu(E_j)=\nu\qty(\bigcap E_j)$ provided $\nu(E_1)$ is of finite measure.
 \end{wts}
 \begin{proof}
     Let $\nu$ be a signed measure, and fix any increasing sequence $E_j\nearrow E=\bigcup E_{j\geq 1}$ of sets. This induces a disjoint sequence in $\{F_n\}$. Define $F_1 = E_1$, and if $n\geq 2$,
     \[F_n = E_n\setminus\bigcup E_{j\leq n-1}\]
-    and from this, the finite 
-    It is clear that $\bigcup F_{n\geq 1} = E$, and let us assume $\nu(E)$ is of finite measure.\\
-    By countable additivity, and the absolute convergence of the series $\sum_{j\leq n}\nu(F_j)$
+    Use $\sigma$-additivity of $\nu$, where the sum is 'defined' to be non-ambiguous.\\
+
+    For the second part of the proof, notice if $A\subseteq B$ are measurable sets, if $\nu(A)=\pm\infty$, then $\nu(B)=\pm\infty$, because of the second property of $\nu$. Indeed,
+    \[
+        \nu(B) = \nu(A)+\nu(B\setminus A) = \pm\infty+ c
+    \]
+    where $c\in\real\cup\{\pm\infty\}$. Therefore $\nu(B)=\nu(A)$. By assumption $\nu(E_1)\in\real$, the contrapositive of the previous argument shows that the intersection $\cap E_j$ is of finite measure as well. We can produce an increasing sequence $G_n = E_1\setminus E_n$ for $n\in\nat^+$. Then
+    \[
+        \bigcup G_n = \bigcup E_1\setminus E_n = E_1\cap\qty[\bigcup E_n^c]=\qty[\bigcap E_j]^c
+    \]
+    We then write
+    \[
+        E_1 = \qty[\bigcup G_n] + \qty[\bigcap E_n]
+    \]
+    The finiteness of $\nu(E_1)$ on the left hand side implies all the terms in the union converge absolutely. Therefore
     \begin{align*}
-        \nu\biggl(\,\bigcup E_{j\geq 1}\biggr)&= \sum_{j\geq 1}\nu(F_j)\\
-        &= \lim_{n}\sum_{j\leq n}\nu(F_j)\\
-        &=\lim \nu(E_n)
+            \nu(E_1) - \nu\qty(\bigcap E_n) &= \lim_{n\to+\infty} \nu(G_n)    \\
+            &= \lim_{n\to+\infty}\nu(E_1) - \nu(E_n)\\
+            &= \nu(E_1) - \lim_{n\to+\infty}\nu(E_n)
     \end{align*}
-    
+    Cancelling terms finishes the proof.
 \end{proof}
 
 \end{document}

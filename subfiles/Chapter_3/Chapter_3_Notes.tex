@@ -36,5 +36,34 @@
 \end{proof}
 \newpage
 
+\begin{definition}[Signed measure]
+    Let $\mcal$ be a $\sigma$-algebra and $\nu:\mcal\to [-\infty,\: +\infty]$ be a set function on $\mcal$. It is a \emph{signed measure} on $\mcal$ if 
+    \begin{itemize}
+        \item $\nu(\varnothing)=0$,
+        \item $\nu$ assumes at most one of the values $\pm\infty$,
+        \item If $\{E_j\}_{j\geq 1}$ is a countable, disjoint sequence of sets, the expression
+        \[
+            \sum_{j\geq 1}\nu(E_j)\quad\text{is unambiguous, and is equal to }\nu\qty(\bigcup E_j)
+        \]
+        More precisely, 
+        \begin{itemize}
+            \item if $\qty|\nu\qty(\bigcup E_j)|<+\infty$, the series $\sum \nu(E_j)$ converges absolutely,
+            \item if $\nu\qty(\bigcup E_j)= \pm\infty$, the series $\sum \nu(E_j)$ diverges to $\pm\infty$ on every permutation.
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Positive, negative, null sets]
+    Let $\nu$ be a signed measure on $\mcal$. A measurable set $E\in\mcal$ is called \emph{positive} (resp. \emph{negative}, \emph{null}) if every measurable subset $F\subseteq E$ satisfies $\nu(F)\geq 0$ (resp. $\nu(F)\leq 0$, $\nu(F)$=0).
+\end{definition}
+
+
+\begin{definition}[Mutual singularity]
+    Two signed measures, $\nu$ and $\mu$ on a common $\sigma$-algebra $\mcal$ are \emph{mutually singular}, denoted by $\nu\perp\mu$ if there exists disjoint, measurable sets $E,F$ whose union is $\xx$.
+    \[
+        \mu \text{ is null on }E,\quad\text{ and }\nu \text{ is null on }F
+    \]
+\end{definition}
+
 
 \end{document}

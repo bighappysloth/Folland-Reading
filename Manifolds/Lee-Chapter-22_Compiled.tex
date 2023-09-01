@@ -98,7 +98,7 @@
     \end{wts}
 
     \begin{definition}[Alternate matrices]
-        Let $M$ be a matrix with real coefficients, it is \emph{alternate} if it is skew symmetric and is \emph{hollow}; meaning it has $0$s on the main diagonal.
+        Let $M$ be a matrix with $F$-coefficients, it is \emph{alternate} if it is skew symmetric and is \emph{hollow}; meaning it has $0$s on the main diagonal. If $F=\real$ or $\operatorname{char}(F)\neq 2$, then alternate matrices are and are precisely the skew-symmetric matrices.
     \end{definition}
 
     \topheader{Orthogonality}
@@ -141,6 +141,12 @@
             \item $V$ is degenerate if there exists a degenerate vector, $x\perp V$.
         \end{itemize}
     \end{definition}
+    \begin{wts}[Matrix invariants under congruence]\label{matrix-invariants-under-congruence}
+        Non-singularity, symmetry, and skew-symmetry are invariants under congruence.
+    \end{wts}
+    \begin{proof}
+        
+    \end{proof}
     \begin{wts}[Characterization of non-degeneracy]
         $V$ is non-degenerate if and only if every matrix representation $A$ of $\omega$ is non-singular. 
     \end{wts}
@@ -157,8 +163,29 @@
         \]
         therefore $V$ is non-degenerate.
     \end{proof}
+    \begin{wts}[Characterisation of billinear forms from matrix representations]
+        Let $\omega$ be a billinear form on $V$, if $\mcal(\omega)$ the induced matrix representation relative to any basis. Assume $V$ is a vector space over $\real$, then
+        \begin{itemize}
+            \item it is symmetric iff $\mcal(\omega)$ symmetric as a matrix,
+            \item it is skew-symmetric, iff alternating iff $\mcal(\omega)$ is skew-symmetric as a matrix.
+        \end{itemize}
+    \end{wts}
+    
+    \begin{corollary}[Characterisation of non-singular symplectic form]\label{non-singular-symplectic-form-matrix}
+        Let $(V,\omega)$ be a finite dimensional vector space over $\real$, equipped with a billinear form $\omega$. $(V,\omega)$ is a non-singular symplectic vector space iff the matrix representation of $\omega$ with respect to every basis is non-singular and skew-symmetric.
+    \end{corollary}
+    
+    % Matrix Rep for non-singular Alternate Matrix <=> symplectic form
+    
     
 \topheader{Riesz Representation Theorems}
+\begin{wts}
+    Let $(V,\omega)$ be a nonsingular metric vector space, the map $x\mapsto x\lrcorner \omega\in V^*$ defined by
+    \[
+        x\lrcorner\omega = \omega(x,\cdot),\qqtext{and}(x\lrcorner\omega)(y) = \omega(x,y),\quad\forall y\in V
+    \]
+    is a linear isomorphism from $V$ to $V^*$. 
+\end{wts}
 
 \topheader{Isometries}
 \begin{definition}[Isometry between MVS]
@@ -170,7 +197,73 @@
 \begin{definition}[Orthogonal, symplectic groups]
     Let $V$ be a nonsingular metric vector space. If $V$ is an orthogonal (resp. symplectic) geometry, the set of all isometries on $V$ is called the \emph{orthogonal (resp. symplectic) group on $V$}. It is a group under composition, and is denoted by $\mathcal{O}(V)$ (resp. $\operatorname{Sp}(V)$).
 \end{definition}
+
 \topheader{Hyperbolic spaces, nonsingular completions}
 
-\topheader{Symplectic transvections}
+
+\topheader{Canonical Forms}
+
+\topheader{Symplectic Manifolds}
+
+\topheader{Darboux's Theorem}
+\begin{wts}[Lie Derivatives of Tensor Fields (along time-varying vector fields)]\label{lee-chp22:prop-22.14}
+    Let $M$ be a smooth manifold. Suppose $V: J\times M\to TM$ is a smooth time-varying vector field on $M$. Denote the time-varying flow of $V$ by $\psi:\Epsilon\to M$. Let $A\in \Tau^k(M)$ be a smooth time-invariant covariant $k$-tensor field on $M$. For every $(t_1, t_0, p)\in \Epsilon$,
+    \begin{equation}\label{prop-22.14-eq-1}
+        \eval{\dv{t}}_{t=t_1}(\psi^*_{t,t_0}A)_p = (\psi^*_{t_1,t_0}(\mathcal{L}V_{t_1} A))_p
+    \end{equation}
+\end{wts}
+
+\fchapter{Hofer book}
+\begin{definition}[Symplectic vector space]
+    Let $V$ be a finite dimensional vector space over $\real$. It is a \emph{symplectic vector space} if it admits a non-singular, antisymmetric billinear form $\omega: V\times V\to \real$.
+    \[
+        \omega(u,v) = -\omega(v,u)
+    \]
+    for $u,v\in V$. By the previous section on Riesz Representation, the linear map 
+    \[
+        \hat{\omega}:V\to V^*,\quad v\mapsto \omega(v,\cdot)
+    \]
+    is a linear isomorphism of $V$ onto its dual vector $V^*$. \\
+
+    We define the \emph{standard symplectic vector space} $(\real^{2n},\omega_0)$, where $n\in \nat^+$, where 
+    \[
+        \omega_0(u,v) = <Ju, v>\quad J \defined\begin{bmatrix}
+            0    & I_n\\ 
+            -I_n & 0
+        \end{bmatrix}
+    \]
+    where $<\cdot,\cdot>$ denotes the standard inner product on $\real^{2n}$. 
+    \begin{equation}\label{std-symplectic-form}
+        \omega_0(u,v) = <Ju,v> = <u, J^Tv> = u^{T}J^T v
+    \end{equation}
+    $J^T=-J$ by \Cref{non-singular-symplectic-form-matrix}.
+\end{definition}
+We will mainly deal with non-singular symplectic forms because of Riesz isomorphism.
+\begin{definition}[Symplectic linear map]
+    Let $(V,\omega)$ be a symplectic vector space. A linear map $F\in \Hom[V]$ is \emph{symplectic} if it preserves symplectic form $\omega$. For every $u\in V$, 
+    \[
+        <u, v> = <Au, Av> \defined A^*\omega(u,v)
+    \]
+    where $A^*: \Tau^*(V)\to \Tau^*(V)$ denotes the tensor pullback by precomposing any tensor $S$ by $A$
+    \[
+        \forall S\in\Tau^k(V),\quad  A^*S(\Ul{v}[k]) \defined S(\Ul{Av}[k])
+    \]
+    The set of linear symplectic maps on a $2n$-dimensional vector space form a group under composition. It is a Lie Group denoted by $\operatorname{Sp}(n)$.
+\end{definition}
+\begin{wts}[Symplectic Maps are Area-preserving]
+    Let $(\real^{2n},\omega_0)$ denote the standard symplectic space. If $\varphi\in \operatorname{Sp}(n)$, then $\det \varphi = 1$. 
+\end{wts}
+\begin{proof}
+    See page 4.    
+\end{proof}
+
+\begin{align}
+(\Lambda_{s-\vert\alpha\vert}\partial^\alpha f)^{\hat{\:}} &= (1+\vert\zeta\vert^2)^{s/2 - \vert\alpha\vert/2}\cdot(\partial^\alpha f)^{\hat{\:}}\\
+&= (1+\vert\zeta\vert^2)^{s/2 - \vert\alpha\vert/2}\cdot(2\pi i \zeta)^{\alpha}
+\cdot \hat{f}\\
+&= (2\pi i)^{\vert\alpha\vert}(1+\vert\zeta\vert^2)^{(s-\vert\alpha\vert)/2}\cdot\vert\zeta\vert^{\vert\alpha\vert}\cdot\hat{f}\\
+&\leq{\vert\alpha\vert}(1+\vert\zeta\vert^2)^{s/2}\hat{f}
+\end{align}
+
+
 \end{document}

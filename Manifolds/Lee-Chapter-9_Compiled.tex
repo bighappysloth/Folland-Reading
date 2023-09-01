@@ -16,6 +16,80 @@
 
 
 \fchapter{9: Integral Curves and Flows}
+\topheader{Time invariant flows}
+% Stuff here
+
+
+\topheader{Lie Derivatives of Vector Fields}
+\begin{definition}[Lie Derivatives of Vector Fields]\label{lee-chp9:lie-derivative-definition}
+    Let $M$ be a smooth manifold and $V, W$ be smooth vector fields on $M$, and $\theta$ be the flow of $V$. The \emph{Lie derivative of $W$ with respect to $V$} is a rough vector field $\mathcal{L}_V W$
+    \begin{equation}\label{lie-derivative-def-1-vector}
+        (\mathcal{L}_V W)_p \defined \eval{\dv{t}}_{t=0} d(\theta_t)_{\theta_t(p)}(W_{\theta_t(p)})
+    \end{equation}
+    The above uses the Frechet derivative on the (normed) vector space $T_p M$, and the result is an element in $T_p M$. Equivalently,
+    \begin{equation}\label{lie-derivative-def-2-vector}
+        (\mathcal{L}_V W)_p = \lim_{t\to 0}\dfrac{d(\theta_{-t})_{\theta_t (p)}(W_{\theta_t(p)}) - W_p}{t}
+    \end{equation}
+\end{definition}
+\begin{remark}
+    If we use the regular the 'velocity of curves' definition, we will see the result is an element in $T_{W_p}(T_pM)$, which is not what we want. However, Proposition 3.13 allows us to identify, through the canonical linear isomorphism $T_pM\cong T_{W_{p}}(T_p M)$ for a fixed $W_p\in T_pM$.
+\end{remark}
+
+\begin{wts}[Existence of {$\mathcal{L}_V W$}]\label{lee-chp9:lemma-9.36} % Lee Lemma 9.36
+    Let $M$ be a smooth manifold and $V,W\in \vField(M)$, $(\mathcal{L}_V W)_p$ exists for every $p\in M$, and $\mathcal{L}_V W$ defines a smooth vector field.
+\end{wts}
+\begin{proof}
+    Let $\theta$ denote the flow of $V$, and $p\in M$ be arbitrary. Let $(x^i)$ be the local coordinates in some neighbourhood $U$ about $p$. Since $(0,p)$ is a point in the flow domain of $V$, there exists an open interval containing $0$ $J_0$, and an open neighbourhood $U_0$ containing $p$, such that $U_0\subseteq U$.\\
+    Since every single point $\theta_t(x)$ for $(t,x)\in J_0\times U_0$ share the same local coordinates as $p$, the matrix representation of the differential $d(\theta_{-t})_{\theta_t(x)}: T_{\theta_t(x)}: T_{\theta_t(x)}M \to T_{x}M$ is precisely the Jacobian of the coordinate representation of $\theta$. 
+    \[
+        d(\theta_{-t})_{\theta_t(x)} = \qty( \pdv{\theta^i}{x^j}) (-t,\theta(t,x))
+    \]
+    is a matrix of smooth functions $\pdv{\theta^i}{x^j}$ evaluated at $(-t,\theta(t,x))\in J_0\times U_0$. Thinking of $T_pM$ as a normed vector space, it has basis 
+    \[
+        \qty(\eval{\pdv{x^1}}_p,\ldots \eval{\pdv{x^n}}_p)
+    \]
+    To show that $(\mathcal{L}_V W)_p$ exists, let $X: J_0\to T_pM$ be a map (not a curve) starting at $W_p$, given by $X(t) = d(\theta_{-t})_{\theta_t(p)}(W_{\theta_t(p)})$, computing its Frechet derivative with respect to the above basis,
+    \begin{equation}\label{lee-9.36-coefficients}
+        \eval{\dv{t}}_{t=0} X(t) = \eval{\dv{t}}_{t=0} \underbrace{\pdv{\theta^i}{x^j}(-t,\theta(t,p))}_{\text{smooth matrix}} \underbrace{W^j(\theta(t,p))}_{W\text{ vector}} \underbrace{\eval{\pdv{x^i}}_{p}}_{\text{basis}}
+    \end{equation}
+    $X(t)$ clearly has smooth coefficients in $J_0\times U_0$, so the Frechet derivative exists. Further, the coefficients in \Cref{lee-9.36-coefficients} vary smoothly with $t$ and $p$ in $J_0\times U_0$. So the rough vector field $(\mathcal{L}_VW)$ is smooth around any $p$ in $M$, and the proof is complete.
+\end{proof}
+\begin{remark}
+    The above holds for manifold with boundary as well, we require the vector field $V$ to be tangent to $\partial M$, for the flow to be defined on the boundary. Further, we can view this Lie derivative as the Frechet limit of the \emph{pullback} through the diffeomorphism $\theta_{-t}: M_{-t}\to M_{t}$. This point of view will be useful later on, when we look at Lie derivatives of (covariant) tensor fields.
+\end{remark}
+
+
+\begin{wts}[Computing Lie derivatives at {$t_0$}]\label{lee-chp9:prop-9.41}
+    Let $M$ be a smooth manifold, $V,W\in\vField(M)$, and the flow of $V$ by $\theta$ with domain $\mathcal{D}$. If $(t_0, p)\in \mathcal{D}$,
+    \[
+        \eval{\dv{t}}_{t=t_0} d(\theta_{-t})_{\theta_t(p)}(W_{\theta_t}(p)) = d(\theta_{-t_0})\qty((\mathcal{L}_V W)_{\theta_{t_0}(p)})
+    \]
+\end{wts}
+\begin{proof}
+    Let $J_0\times U_0$ is the product of an open interval containing $0$ and an open neighbourhood of $p$, and $X: J_0\to T_pM$, where
+    \[
+        X(t)\defined d(\theta_{-t})_{\theta_t(p)}(W_{\theta_t}(p))
+    \]
+    This is a smooth curve, and we can shrink $J_0$ and $U_0$ respectively so that $\theta$ maps $J_0\times U_0$ into the same chart $(U, (x^i))$. Writing $X$ in local coordinates, noting that $X$ maps into the \emph{vector space $T_pM$}. \Cref{lee-9.36-coefficients} tells us $X$ is indeed a smooth curve in $T_pM$. The composition of smooth maps is again smooth, define $\tau: J_0\to \tau(J_0)$, with $t\mapsto t_0 + t$
+    \[
+        (X\circ \tau)(t) = X(t+t_0)\quad\text{is smooth on }\tau(J_0)
+    \]
+    and
+    \[
+        (X\circ \tau)(t) = d(\theta_{-t_0})_{\theta_{t_0}(p)}\circ d(\theta_{-t})_{\theta_{\theta_{t}(\theta_{t_0}(p))}}(W_{\theta_{t}(\theta_{t_0}(p))})
+    \]
+    \begin{align*}
+        X'(t_0) &=\eval{\dv{t}}_{t=t_0} X(t)\\
+        &= \eval{\dv{t}}_{t=0} X(t + t_0)\\
+        &= \eval{\dv{t}}_{t=0} d(\theta_{-t_0})\circ d(\theta_{-t})(W_{\theta_{t}(\theta_{t_0}(p))})\\
+        &= d(\theta_{-t_0})\qty(\eval{\dv{t}}_{t=0} W_{\theta_t(\theta_{t_0}(p))} )\\
+        &= d(\theta_{-t_0})(\mathcal{L}_VW)_{\theta_{t_0}(p)}
+    \end{align*}
+    One way to justify the second last equality is to view the whole computation using Frechet derivatives.
+\end{proof}
+
+
+
 \topheader{Flowouts from Boundary}
 This will be a draft of Problem 9.11. We wish to modify the proof for Theorem 9.20 (Flowout Theorem). We need to modify the following aspects
 \begin{itemize}
@@ -33,6 +107,11 @@ This will be a draft of Problem 9.11. We wish to modify the proof for Theorem 9.
     where $\delta:\partial M\to \real^+$ is a smooth, strictly positive function.
     \item For each $p\in \partial M$, the map $t\mapsto \Phi(t,p)$ is an integral curve of $N$ starting at $p$. 
 \end{itemize}
+
+\topheader{Time varying flows}
+
+
+
 
 \fchapter{12: Tensors}
 \topheader{Tensor Products}
@@ -76,9 +155,9 @@ The space of $k$-covariant, $k$-contravariant, and $(k,l)$-tensors form a vector
     \[
         \borel = \bigset{\bigotimes \varepsilon^{\Ul{i}[k]},\: \Ul{i}[k]\in \{\underline{n}\}} = \bigset{\varepsilon^{i_1}\otimes\cdots\otimes \varepsilon^{i_k},\: 1\leq i_j\leq n,\:  1\leq j\leq k}
     \]
-    This means, if $F$ is a $k$-tensor, and for every multi-index $I = (\Ul{i}[k])$, define
+    This means, if $A$ is a $k$-tensor, and for every multi-index $I = (\Ul{i}[k])$, define
     \[
-        F_I = F_{i_1,\ldots i_k} = F_{\Ul{i}[k]} = F(E_{\Ul{i}[k]}) = F(E_{i_1},\cdots, E_{i_k}) = F(E_I)
+        A_I = A_{i_1,\ldots i_k} = A_{\Ul{i}[k]} = A(E_{\Ul{i}[k]}) = A(E_{i_1},\cdots, E_{i_k}) = A(E_I)
     \]
     are precisely the \emph{basis coefficients} of $F$ with respect the basis $\borel$, 
     \begin{equation}
@@ -125,16 +204,16 @@ We should expect, that if $A$ is a rough $k$-tensor field over $M$, it is smooth
 \topheader{Pullbacks of Tensor Fields}
 \begin{definition}[Pointwise pullback {$dF_p^*: T^k(T_{F(p)}N)\to T^k(T_pM)$}]
     Let $M$ and $N$ be smooth manifolds with or without boundary. Let $F:M\to N$ be a smooth map. For every $p\in M$, if $\alpha$ is a $k$-tensor on $T_{F(p)}N$, (so that $\alpha\in T^k(T_{F(p)}^*N)$), the \emph{pointwise pullback} of $\alpha$ through $dF_p$ is a $k$-tensor on $T_p M$. Denoted by $dF^*_p(\alpha)$, if $(\Ul{v}[k])$ are tangent vectors in $T_pM$, then
-\[
-    dF^*_p(\alpha)(\Ul{v}[k]) = \alpha\biggl(dF_p(\Ul{v}[k])\biggr)
-\]
+    \begin{equation}\label{tensor-field-pointwise-pullback-eq}
+        dF^*_p(\alpha)(\Ul{v}[k]) = \alpha\biggl(dF_p(\Ul{v}[k])\biggr)
+    \end{equation}
 \end{definition}
 
 \begin{definition}[Tensor Pullback {$F^*: T^kN\to T^kM$}]
     Let $F: M\to N$ be a smooth map, between smooth manifolds with or without boundary, if $A$ is a $k$-tensor field on $N$, we define 
-    \[
+    \begin{equation}\label{tensor-field-pullback-eq}
         (F^*A)_p(\Ul{v}[k]) = dF^*_p(A_{F(p)}) = A_{F(p)}(dF_p(\Ul{v}[k]))
-    \]
+    \end{equation}
     the result is a $k$-tensor field (which is smooth, by the next Proposition).
 \end{definition}
 
@@ -167,8 +246,64 @@ We should expect, that if $A$ is a rough $k$-tensor field over $M$, it is smooth
         \end{itemize}
     \end{enumroman}
 \end{wts}
+\begin{wts}[Tensor Field Pullback in Coordinates]\label{tensor-field-pullback-coordinates}
+    Let $M$ and $N$ be smooth manifolds with or without boundary, and $F:M\to N$ be a smooth map. $A$ is a smooth covariant $k$-tensor field on $N$, and $p\in M$ induces local coordinates $(U,(x^i))$ about $p$, $(V,(y^j))$ about $F(p)$. If $A$ has the following coordinate representation about $F(p)$,
+    \begin{equation}\label{tensor-field-pullback-coordinates-eq0}
+        A = \underbrace{A_{i_1,\ldots,i_k}}_{\substack{\text{smooth }\\ \text{function in N}}} \: dy^{i_1}\otimes\cdots\otimes dy^{i_k} = A_{\Ul{i}[k]}\qty(\bigotimes dy^{\Ul{i}[k]})
+    \end{equation}
+    then $F^*A$ is given by
+    \begin{align}\label{tensor-field-pullback-coordinates-eq1}
+        F^*_pA &= (A_{i_1,\ldots,i_k}\circ F)d(y^{i_1}\circ F)\otimes \cdots\otimes d(y^{i_k}\circ F)\\
+        &= (A_{i_1,\ldots,i_k}\circ F)d(F^{i_1})\otimes \cdots\otimes d(F^{i_k})\\
+        &= (A_{\Ul{i}[k]}\circ F)\qty(\bigotimes d(F^{\Ul{i}[k]}))
+    \end{align}
+    in local coordinates.
+\end{wts}
+
+\topheader{Lie Derivatives of Tensor Fields}
+\begin{definition}[Lie Derivative of Tensor Fields]
+    Let $M$ be a smooth manifold and $V\in\vField(M)$, and let $\theta$ be the flow of $V$. If $A\in \Tau^k(M)$ is a smooth $k$-tensor field, we define the \emph{Lie derivative of $A$ with respect to $V$}, denoted by $\mathcal{L}_V A$, 
+    \begin{equation}\label{lie-derivative-eq1-tensor}
+        (\mathcal{L}_VA)_p \defined\eval{\dv{t}}_{t=0}(\theta^*_tA)_p = \lim_{t\to 0}\dfrac{d(\theta_t)^*_p(A_{\theta_t(p)}) - A_p}{t}
+    \end{equation}
+    Similar to \Cref{lee-chp9:lie-derivative-definition}, we view $T^k(T^*_pM)$ as a vector space, and $\eval{\dv{t}}_{t=0}(\theta_t^*A)_p$ is the Frechet Derivative on $T^k(T^*_pM)$.
+\end{definition}
+
+\begin{wts}[Existence of {$\mathcal{L}_V A$}]
+    Let $M$ be a smooth manifold, and $V\in \vField(M)$ with integral flow $\theta$ defined on $\mathcal{D}\subseteq\real\times M$. If $A$ is a smooth covariant $k$-tensor field on $M$, then $(\mathcal{L}_V A)_p$ exists for every $p\in M$, and defines a smooth $k$-tensor field.
+\end{wts}
+\begin{proof}
+    Fix $p\in M$, following $\Cref{lee-chp9:lemma-9.36}$ closely, since $(0,p)\in\mathcal{D}$ induces an open interval $J_0$ containing $0$ and an open neighbourhood $U_0$ containing $p$. We write $A$ in local coordinates for $(t,x)\in J_0\times U_0$. Shrinking $U_0$ if necessary, we it suffices to assume $\theta$ maps $J_0\times U_0$ into the same chart $(U,(x^i))$.\\
+
+    If $(t,x)\in J_0\times U_0$, $A_{\theta_t(x)}\in T^k(T_{\theta_t(x)}M)$ has coordinate representation
+    \[
+        A_{\theta_t(x)} = \underbrace{A_{i_1,\ldots, i_k}(\theta(t,x))}_{\text{smooth function}}\: \underbrace{dx^{i_1}_{\theta_t(x)}\otimes\cdots\otimes dx^{i_k}_{\theta_t(x)}}_{\text{basis vector}}
+    \]
+    By \Cref{tensor-field-pullback-coordinates-eq1}, the pullback $d(\theta^*_t)_{p}(A_{\theta_t(p)})$ precomposes $A_{\Ul{i}[k]}$ with $\theta_{t}(p)$. Since $\theta(t,x)\in (U,(x^i))$, $\theta^j(t,x)$ is precisely the $j$th coordinate function for all $(t,x)\in J_0\times U_0$.
+    \[
+        d(\theta^*_t)_{p}(A_{\theta_t(p)}) = (A_{\Ul{i}[k]}\circ \theta^{(p)}) (t)\qty(\bigotimes dx_{p}^{\Ul{i}[k]})\in T^k(T^*_pM)
+    \]
+    $(A_{\Ul{i}[k]}\circ \theta^{(p)}) (t)$ is clearly smooth in both arguments. So $(\mathcal{L}_V A)_p$ exists, and is smooth about every $p\in M$.
+\end{proof}
+
+\begin{wts}[Computing Lie derivatives at $t_0$ (Tensor Fields)]
+    Let $M$ be a smooth manifold, $V\in\vField(M)$, and the flow of $V$ by $\theta$ with domain $\mathcal{D}$. Let $A$ be a smooth covariant $k$-tensor field on $M$. If $(t_0, p)\in \mathcal{D}$,
+    \[
+        \eval{\dv{t}}_{t=t_0} d(\theta_{-t})_{\theta_t(p)}(A_{\theta_t}(p)) = d(\theta_{-t_0})\qty((\mathcal{L}_V A)_{\theta_{t_0}(p)})
+    \]
+\end{wts}
+\begin{proof}
+    The proof is the same as in \Cref{lee-chp9:prop-9.41}.
+\end{proof}
+
+\fchapter{13: Riemannian Metrics}
+% Tangent co-tangent isomorphism
+% Musical Isomorphisms
+% Definition of Gradient
+
 \fchapter{14: Differential Forms}
 \topheader{Multi-linear algebra}
+
 \begin{definition}[Wedge Product]
     Let $\omega\in \Lambda^k(V^*)$, $\eta\in\Lambda^l(V^*)$ the wedge product of $\omega$ and $\eta$ is defined 
 

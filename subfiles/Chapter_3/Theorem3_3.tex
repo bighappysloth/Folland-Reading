@@ -1,12 +1,70 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\problem{3.3}
-\begin{wts}
-
+\begin{wts}[Hahn Decomposition Theorem]
+    Let $\nu$ be a signed measure on the measurable space $(\xx,\mcal)$, then there exists positive and negative sets $P, N\in\mcal$ where $P\cup N=\xx$, and $P\cap N=\varnothing$. If $P'$ and $N'$ are another such decomposition, 
+    \[
+        P\Delta P' = N\Delta N'\quad\text{is }\nu\text{-null.}
+    \]
 \end{wts}
 \begin{proof}
+    There are multiple steps to this proof. Suppose $\nu$ does not attain $+\infty$. Define
+    \[
+        m = \sup\bigset{\nu(P),\: P\text{ is a positive set}}
+    \]
+    By assumption $m<+\infty$, let $\{P_j\}$ be a sequence of positive sets with $\nu(P_j)\increasesto m$. We claim the supremum is attained. Indeed, if $P \defined \cup P_j$, then $P$ is a positive set as well, by monotonicity $\nu(P)\geq \nu(P_j)$, taking the supremum on both sides reads $\nu(P)=m$.\\
 
+    Wanting to prove $N \defined \xx\setminus P$ is a $\nu$-negative set, 
+    \begin{itemize}
+        \item Clearly $N$ cannot contain any positive sets $A\subseteq N$ with a non-null measure, since 
+        \[
+            \nu(A)>0\implies \nu(A)+\nu(P) = \nu(A+P)>m
+        \]
+        contradicting the supremum.
+        \item Let us examine the properties of subsets of $N$ with \emph{positive measure}. Call this set $A\subseteq N$, where $\nu(A)>0$. \\
+        
+        The previous bullet point tells us $A$ cannot be a $\nu$-positive set. There exists a $B\subseteq A$ of strictly negative measure,
+        \[
+            \nu(A\setminus B) + \nu(B) = \nu(A)\implies \nu(A\setminus B) > \nu(A)
+        \]
+        Notice the assumption $\nu$ does not attain $+\infty$ allows us to subtract $B$ over. \\
+        Summarizing, 
+        \[
+            \text{existence of subset of positive measure}\implies\text{subset with even greater positive measure}
+        \]
+        We will use the above inductively to construct a measurable subset of $N$, that is 'small' but has 'large' positive measure at the same time.
+        
+        \item Suppose $N$ is not $\nu$-negative, so it admits a set of positive measure in $A_1\subseteq N$.\\
+
+        Let $n_1 = \least\bigset{n\in\nat^+,\: \exists B\subseteq A_1,\: \nu(B)>\nu(A)+n^{-1}}$, since $n_1$ is attained, it corresponds to some $A_2\subseteq A_1$ with $\nu(A_2)>\nu(A_1)+n_1^{-1}$.\\
+
+        Repeating this process inductively, we see
+        \[
+            \nu(A_k)>\nu(A_{k-1}) + n^{-1}_{k}
+        \]
+        Let $A = \bigcap A_k$, this should be a set of large positive measure. A simple induction will show 
+        \[
+            \nu(A_k)>\nu(A_1) + \sum_{j=1}^k n^{-1}_{j}>\sum_{j=1}^k n^{-1}_{j}
+        \]
+        However, $\nu(A)<+\infty$ by assumption. Upon taking limits and using the estimate above,
+        \[
+            \sum_{j\geq 1} n^{-1}_{j}=\lim_{n\to\infty}\nu(A_n) = \nu(A)<+\infty
+        \]
+        The sum on the left is finite, so its terms must converge to $0$. Notice $\nu(A)$ is a subset of $N$ of positive measure, it admits a subset $B\subseteq A$ with $\nu(B)>\nu(A)+n^{-1}$ for $n\geq 1$.\\
+
+        $n_j^{-1}\to 0$ implies $n_j\to\infty$. So $n<n_j$ for large $j$. Notice $B\subseteq A\subseteq A_j$, and $\nu(B)>\nu(A_j)+n^{-1}$. This contradicts our definition of $n_j$, stated below for convenience
+        \[
+            n_j = \least\bigset{n\in\nat^+,\: \exists B\subseteq A_j,\: \nu(B)>\nu(A_j)+n^{-1}}
+        \]
+        This proves $N$ is $\nu$-negative.
+    \end{itemize}
+    To show this composition is $\nu$-unique, let $P'$ and $N'$ be disjoint, measurable positive and negative sets of $\xx$. Then
+    \[
+        P\setminus P'\subseteq P\qqtext{and}P\setminus P'\setminus \xx\setminus P'\subseteq N'
+    \]
+    So $P\setminus P'$ is at the same time a $\nu$-positive and a $\nu$-negative set, hence it is $\nu$-null by Lemma 3.2.\\
+
+    Finally, the case for when $\nu$ attains $+\infty$ can be handled if we consider $-\nu$. $P$ is positive for $-\nu$ iff it is negative for $\nu$, and similarly for $N$. Relabelling $P$ and $N$ finishes the proof.
 \end{proof}
 
 \end{document}

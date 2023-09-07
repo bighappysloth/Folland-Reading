@@ -195,7 +195,9 @@ The following propositions summarizes common operations on smooth maps, a few so
 \end{wts}
 \begin{proof}
     By \Cref{lee-chp2:smooth-maps-are-continuous}, and the fact that complete atlases are closed under restrictions onto open sets, it is clear that the original definition implies the two. The first definition also clearly implies the original definition, as we can restrict 
-    \[(U,\phi)\mapsto \biggl(U\cap F^{-1}(V),\phi|(U\cap F^{-1}(V))\biggr)\]
+    
+    \[(U,\phi)\mapsto \biggl(U\cap F^{-1}(V),\: \phi\eval_{U\cap F^{-1}(V)}\biggr)\]
+    
     since $U\cap F^{-1}(V)$ is open in the domain manifold.\\
 
     The second definition implies the original one as well, since the smooth atlases are taken from the maximal atlas, we can pass the argument to any smoothly-compatible chart. Atlases must cover both the domain and the range, and coordinate transitions between smoothly compatible charts are diffeomorphisms. If $F$ is smooth on a subcollection of those charts, meaning

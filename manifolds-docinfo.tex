@@ -68,6 +68,19 @@
     {{#1}_{#2,\underline{#3}}}
 }
 
+\NewDocumentCommand{\UL}{moo}{
+  \IfNoValueTF{#3}
+    {{#1}_{\underline{#2}}}
+    {{#1}_{#2 \underline{#3}}}
+}
+
+\NewDocumentCommand{\UPL}{moo}{
+  \IfNoValueTF{#3}
+    {{#1}^{\underline{#2}}}
+    {{#1}^{#2 \underline{#3}}}
+}
+
+
 \providecommand{\hook}{\mathop{\lrcorner}} % x into omega, holding the first coordinate at x
 \providecommand{\vField}{\mathfrak{X}} % vector field 
 \providecommand{\cvField}{\mathfrak{X}} % covector field

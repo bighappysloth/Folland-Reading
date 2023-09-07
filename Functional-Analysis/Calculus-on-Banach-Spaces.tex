@@ -1,0 +1,399 @@
+\documentclass[../main-manifolds.tex]{subfiles}
+
+\begin{document}
+
+
+\fchapter{1: Bilinear Maps}\newpage
+\topheader{Introduction}
+A \emph{Banach space} is a normed vector space that is Cauchy-complete under the usual metric induced by its norm. 
+
+If $E$ and $F$ are Banach spaces. We will denote the norms on $E$, and $F$ by single lines, so 
+
+\[
+    \vert x\vert = \norm{x}_E\qqtext{and} \vert y\vert = \norm{y}_F\quad\forall x\in E,\: y\in F
+\]
+
+$L(E,F)$ will denote the space of bounded linear maps between $E$ and $F$, also referred to as the set of \emph{toplinear morphisms}. We use $\norm{\cdot}_{L(E,F)}$ or $\norm{\cdot}$ to denote the operator norm, depending on how much emphasis we wish to place on $L(E,F)$. Recall,
+
+\begin{align*}
+\norm{\varphi}_{L(E,F)} &= \inf\bigset{A\geq 0,\: \vert\varphi(x)\vert\leq A\vert x\vert\:\forall x\in E}\\
+&= \sup\bigset{\vert\varphi(x)\vert,\: x\in E,\: \vert x\vert=1}
+\end{align*}
+
+Invertible elements in $L(E,F)$ are called \emph{toplinear isomorphisms}. If $\varphi\in L(E,F)$ such that $\varphi$ preserves the norm between the Banach Spaces, that is for every $x\in E$, $\vert x\vert = \vert \varphi(x)\vert$ then we call $\varphi$ an \emph{isometry}, or a \emph{Banach space isomorphism}.
+
+If $E_1$ and $E_2$ are Banach spaces, we will use the usual \emph{product norm} $(x_1, x_2)\mapsto \max(\vert x_1\vert,\vert x_2\vert)$. A map $\varphi: E_1\times E_2\to F$, where $F$ is also a Banach space, is said to be \emph{bilinear} if
+
+\[
+    \varphi(x,\cdot): E_2\to F\qqtext{and}\varphi(\cdot,y): E_1\to F
+\]
+
+are linear for every $x\in E_1$ and $y\in E_2$. 
+
+\begin{wts}
+    Let $E_1$, $E_2$, $F$ be Banach spaces, a bilinear map $m: E_1\times E_2\to F$ is continuous if and only if there exists a $C\geq 0$, where
+
+    \[
+    \vert m(x,y)\vert\leq C\vert x\vert\vert y\vert
+    \]
+\end{wts}
+\begin{proof}
+    Suppose such a $C$ exists, fix a convergent sequence $(x_n, y_n)\to (x,y)$ in $E_1\times E_2 = E$. Because the projection maps are continuous, this means $x_n\to x$ and $y_n\to y$. Using inspiration from the proof where $x_ny_n\to xy$, where
+
+    \[
+        x_n(y_n-y) + (x_n-x)y = x_ny_n- xy\quad x,y,x_n,y_n\in\real
+    \]
+
+    Using the inspiration, and replacing multiplication in $\real$ with the bilinear map $m$, we have:
+
+    \begin{align*}
+        m(x_n,\: y_n-y) + m(x_n-x,\: y) &= m(x_n,\:y_n) - m(x,\:y)\\
+        \vert m(x_n,\: y_n) - m(x,\: y)\vert &\leq C[\vert x_n\vert\cdot\vert y_n - y\vert + \vert x_n - x\vert\cdot\vert y\vert]\to 0
+    \end{align*}
+
+    Conversely, if $m$ is continuous, then it is continuous at the origin $(0,0)=0$. There exists a $\delta$ where $\vert (x,y)\vert \leq \delta$ implies $\vert m(x,y)\vert \leq 1$. Now, if $x,y\neq 0$ are elements in $E$, we normalize so that $(x,y)$ has length $\delta$
+
+    \[
+        \vert(x\vert x\vert^{-1}\delta,y\vert y\vert^{-1}\delta)\vert = \delta\vert(x\vert x\vert^{-1},y\vert y\vert^{-1})\vert = \delta
+    \]
+
+    So that $\vert m(x\vert x\vert^{-1}\delta, y\vert y\vert^{-1}\delta)\vert \leq 1$, using bilinearity of $m$:
+
+    \[
+        \vert m(x,y)\vert\leq \delta^{-2}\vert x\vert\cdot\vert y\vert
+    \]
+
+    Setting $\delta^{-2} = C$ finishes the proof (notice if eithe $x$ or $y$ is $0$, then $m$ is trivially $0$ and the inequality holds).
+\end{proof}
+
+
+Currying: the canonical isomorphism between
+
+\[
+    L(E,L(E,F))\Isomor{L} L(E^2, F)
+\]
+
+
+
+\fchapter{2: Differentiability of maps}\newpage
+\topheader{The derivative}
+
+
+
+\fchapter{3: Higher order derivatives}\newpage
+\topheader{Introduction}
+We start with the definition of $C^p(E,F)$. Let $E$ and $F$ be Banach Spaces, if $p\geq 1$ is an integer, we define the class $C^p$ to be the set of maps which are $p$ times differentiable, and $D^p f\in C(E, X)$, where 
+
+\[
+    X = L(E, L(E, L(E,\cdots F))  p\text{ times }  \Isomor{L} L(E^p, F)
+\]
+
+Sometimes we replace $E$ with an open subset $U\subseteq E$ if necessary, and we write $f\in C(U,F)$ if $D^p\in C(U,X)$. Note, even if $f\in C^1(U,F)$, $Df$ is still a map from $U$ into $L(E,F)$. 
+
+We will prove two major results in this section.
+
+\begin{itemize}
+    \item The structure of the derivative $D^p f$, in particular, if $f\in C^p(E,F)$, then $D^pf(x)$ is a \emph{symmetric multilinear map} in $p$ arguments. 
+    \item Taylor's Theorem
+\end{itemize}
+
+\topheader{The second derivative}
+\begin{wts}
+    Let $E_1$, $E_2$ and $F$ be Banach spaces, if $\omega: E_1\times E_2\to F$ is bilinear and continuous, then $\omega$ is differentiable, and for every $(x_1, x_2)\in E_1\times E_2$, $(v_1,v_2)\in E_1\times E_2$,
+
+    \[
+        D\omega(x_1,x_2)(v_1,v_2) = \omega(x_1, v_2) + \omega(v_1, x_2)
+    \]
+
+    Furthermore, $D^2\omega(x,y) = D\omega\in L(E^2,F)$, and $D^3\omega = 0$.
+    
+\end{wts}
+\begin{proof}
+    By the definition of $\omega$, using the familiar interpolation method
+    \[
+        \omega(x_1 + h_2, x_2 + h_2) = \omega(x_1, x_2)  + \omega(x_1, h_2) + \omega(h_1, x_2) + \omega(h_1, h_2)
+    \]
+
+    by continuity of $\omega$, the last term (which we wish to make $o(h)$): 
+    
+    \[
+    \vert \omega(h_1, h_2)\vert\leq \norm{\omega}\cdot\vert (h_1, h_2)\vert^2
+    \]
+
+    so that $\omega(h_1, h_2) = o(h)$, and $D\omega(x_1, x_2)$ exists and is continuous, and is given by the \emph{linear map} $\omega(x_1, \cdot) + \omega(\cdot, x_2)$. The rest of the proof follows, if it is not immediately obvious then read the following note.
+
+    \begin{note}
+        Write $E = E_1\times E_2$ for convenience. The linear map $A = D\omega(x_1, x_2)$ takes arguments $E$ into $F$, consider the projections $\pi_1$ and $\pi_2$, and $v\in E_1\times E_2$, then
+
+        \[A(v) = \omega(x_1, \pi_1 v) + \omega(\pi_2 v, x_2)\]
+
+        We can view $A(x) = D\omega(x_1, x_2)\in L(E,F)$. It is clear that $A$ is linear in $x$, if we fix $v\in E$, 
+
+        \[
+            A(x+y, v) = \omega(\pi_1(x+y), \pi_2 v) + \omega(\pi_1 v, \pi_2 (x+y)) = A(x,v) + A(y,v)
+        \]
+
+        and similarly for scalar multiplication. Hence $DA(x) = A\in L(E, L(E,F))$ and $D^2A(x) = D^3\omega = 0$.
+    \end{note}
+\end{proof}
+
+Our next result is the following, which states that if $f: U\to F$ where $U\osub E$, and $Df, DDf = D^2f$ exists and are continuous maps from $U$ into $L(E,F)$ and $L(E,L(E,F)$ respectively, then $D^2f(x)$ is a \emph{symmetric bilinear map}. The proof is non-trivial, and relies on computing the 'Lie Bracket':
+
+\[
+    D^2f(x)(v,w) - D^2f(x)(w,v)
+\]
+
+Which we will prove is equal to $0$ for every $x\in U$, and $v,w\in E$.
+
+\begin{note}
+The symbol '$\osub$' means $U$ is an open subset of $E$.    
+\end{note}
+
+\begin{wts}
+    Let $f\in C^2(U, F)$, where $U\osub E$ with the possibility that $U = E$. For every point $x\in U$, the \emph{second derivative} $D^2f(x)$ is bilinear and symmetric.
+\end{wts}
+\begin{proof}
+    Fix $x\in U\induces B(r) + x\osub U$. We restrict our attention to vectors $v,w\in E$ where $\vert v\vert, \vert w\vert < r2^{-1}$ for now, so that the
+
+    \[
+    \bigset{x, x+w, x+v, x+v+w}\subseteq U
+    \]
+
+    We will denote the following quantity by $\Delta$
+
+    \[
+        \Delta = f(x+w+v) - f(x+w) - f(x+v) + f(x)
+    \]
+
+    By rearranging terms, we see that $\Delta$ can be approximated in two ways:
+
+    \begin{itemize}
+        \item Postponing the discussion about the the domain of $y$, set $g(y) = f(y+v) - f(y)$ is $C^2$, and 
+        \begin{equation}\label{second-derivative-Delta-g}
+            \Delta = g(x+w) - g(x)
+        \end{equation}
+        \item Again, for $y$ sufficiently close to $x$, define $h(y) = f(y+w) - f(y)$, and
+        \begin{equation}\label{second-derivative-Delta-h}
+            \Delta = h(x+v) - h(x)
+        \end{equation}
+        \item To find the domain for $y$, an easy argument using the Triangle inequality gives us $g,h \in C^2(B(r2^{-1}) + x, F)$,
+        \item Leaving the computations of $h$ as an exercise, we compute $Dg$, recall the shift map $y\mapsto y+v$ commutes with $D$, and
+        \begin{equation}\label{second-derivative-Delta-Dg}
+            Dg(y) = D(\tau_{-w}f)(y)  - Df(y) = Df(y+w) - Df(y)
+        \end{equation}
+    \end{itemize}
+
+    Using MVT twice, once on \Cref{second-derivative-Delta-g} (the line segment $x + tw$, $0\leq t\leq 1$ is contained in the domain of $g$), and another time on \Cref{second-derivative-Delta-Dg} (with $y = x+tw$ in the integrand). We obtain:
+    \begin{align*}
+        \Delta &= g(x+w) - g(x)\\
+        &= \int_{0}^1 Dg(x+tw)\cdot w dt\\
+        &= \int_0^1\int_0^1 D^2f(x + tw+sv)\cdot v ds\: dt \cdot w\\
+        &= \int_0^1\int_0^1 D^2f(x + tw + sv) ds\: dt \cdot v\cdot w
+    \end{align*}
+
+    % Justification for pulling out the duality pairing from the integral
+
+    We can rewrite the application of $v$ then $w$ by $\cdot (v,w)$, and using the approximation $D^2f(x+tw+sv)\cdot(v,w) = D^2f(x)\cdot(v,w)+\delta_1(tw,sv)$. Integrating over $s,t$ gives
+
+    \[
+        \Delta = D^2f(x)\cdot(v,w) + \int_0^1\int_0^1 \delta_1(tw,sv) ds\: dt
+    \]
+
+    \begin{note}
+        The error term $\delta_1$ in the integrand is given by
+        \[
+            \delta_1(tw,sv) = D^2f(x + tw + sv)(v,w) - D^2f(x)(v,w)
+        \]
+        for $v,w$ sufficiently small and $0 \leq s,t\leq 1$.
+    \end{note}
+
+    A similar argument for $h$ shows that $\Delta = D^2f(x)\cdot(w,v) + \int_0^1\int_0^1 \delta_2(tw,sv)ds\: dt$. Combining the two together, the following holds for all $v,w$ sufficiently small:
+
+    \begin{equation}\label{second-derivative-lie-bracket}
+        D^2f(x)\cdot (v,w) - D^2f(x)\cdot (w,v) = \int_0^1\int_0^1 \delta_1(tw,sv)ds\: dt - \int_0^1\int_0^1 \delta_2(tw,sv)ds\: dt
+    \end{equation}
+
+    To show the right hand side is $0$, we will need the following note. 
+
+    \begin{note}
+    We wish to show the RHS of \Cref{second-derivative-lie-bracket} is $0$. We begin by controlling the RHS and show that it is super-bilinear; meaning it shrinks after than the product $\abs{v}\abs{w}$. Then, we will prove a lemma which will show the only bilinear map that satisfies this property is the $0$ map.
+
+    \begin{itemize}
+        \item For $j=1,2$, relabel $\delta = \delta_j$ for convenience. We can use the $L^1$ inequality, to obtain the estimate
+        \begin{equation}\label{second-derivative-step2}
+            \abs{ \int_0^1\int_0^1\delta(tw,sv)ds\: dt} \leq \int_0^1\int_0^1\abs{\delta(tw,sv)}ds\: dt
+        \end{equation}
+        \item $\delta(tw,sv)$ is controlled by $\abs{D^2f(x + tw + sv) - D^2f(x)}\abs{v}\abs{w}$. Take $y = tw+sv$, then $\abs{y} \leq \abs{tw} + \abs{sv}$. Hence,
+        \begin{equation}\label{second-derivative-control-on-rhs}
+            \vert\delta_j\vert\leq\abs{D^2 f(x + tw + sv) - D^2f(x)}\abs{v}\abs{w}
+        \end{equation}
+        \item Let $A$ denote the span of $w,v$ for scalars $s,t\in[0,1]$. In symbols,
+        \[
+            A = \bigset{tw+sv,\: s,t\in [0,1]}
+        \]
+
+        $A$ is clearly compact, and the continuity of $D^2f$ means 
+        
+        \begin{equation}\label{second-derivative-R}
+        R(v,w,\delta) = \sup_{y\in A}\abs{D^2f(x + y) - D^2f(x)}\quad\text{is finite},\qqtext{and}\lim_{(v,w)\to 0}R(v,w,\delta)=0
+        \end{equation}
+        
+        See the remark after this proof for a generalized version of this 'compact linear combination' argument.
+        
+        \item Relabel $R(v,w)$ to be the maximum across $R(v,w,\delta_1)$ and $R(v,w,\delta_2)$. 
+        \item Combining \Cref{second-derivative-step2,second-derivative-control-on-rhs,second-derivative-R}, we obtain the following bound on \Cref{second-derivative-lie-bracket}
+        \begin{align}
+            \abs{D^2f(x)\cdot(v,w) - D^2f(x)\cdot(w,v)} &\leq \abs{\iint\delta_1(tw,sv) ds\: dt - \iint\delta_2(tw,sv)ds\: dt}\nonumber\\
+            &\leq \iint\abs{\delta_1}ds\: dt + \iint\abs{\delta_2}ds\: dt\nonumber \\
+            &\leq \abs{v}\abs{w}R(v,w)\label{second-derivative-step3}
+        \end{align}
+    \end{itemize}
+
+
+    The following Lemma gives a useful criterion to check when a multilinear map is identically $0$.
+    \begin{lemma}
+        Let $E$ be a Banach space, and $k\geq 1$ be an integer. If $\lambda\in L(E^k, F)$ and there exists another map $\theta: E^k\to F$ (defined perhaps on an open neighbourhood of the origin), such that
+
+        \[
+        \vert \lambda(\UL{u}[k])\vert \leq\vert\theta(\UL{u}[k])\vert\cdot\prod\vert \UL{u}[k]\vert
+        \]
+        
+        for all $(\UL{u}[k])$ sufficiently small. And $\lim_{(\UL{u}[k]) \to 0}\theta(\UL{u}[k])=0$, then, $\lambda=0$.
+    \end{lemma}
+    \begin{proof}
+        Fix arbitrary $(\UL{u}[k])\in E^k$, for $s>0$ sufficiently small, the left hand side of the equation reads
+
+        \[
+            \vert s\vert^k\vert\lambda (\UL{u}[k])\vert\leq\vert\theta(s\UL{u}[k])\vert\cdot\vert s\vert^k\prod \vert\UL{u}[k]\vert
+        \]
+        The rest of the argument is Archimedean: divide by $\vert s\vert^k$ and send $s\to 0$ (while paying attention to the term with $\theta$): perhaps after relabelling $v_s = s\UL{u}[k]$ for sufficiently small $s$, then $\vert \theta(v_s)\vert\to 0$ as $s\to 0$.
+    \end{proof}
+        
+    \end{note}
+    
+    
+
+\end{proof}
+\begin{remark}
+    Generalization of the "compact linear combination" argument used above. Let $(\UL{t}[k])\subseteq\mathbb{C}^k$ or $\real^k$, and vectors $\UL{v}[k]\in E$. Suppose further $(\UL{t}[k])\subseteq A$ is compact in $\mathbb{C}^k$ or $\realk$. It is clear that if $y = t_iv^i\in E$, where the summation convention is in effect. Then,
+    \[
+        \abs{y}\Lsim_A \abs{(v^{\underline{k}})}_{E^k}
+    \]
+    Now, fix a continuous function $f\in C(E,F)$, we can approximate the maximum error over all such $y$
+    \[
+        \sup_{y\in B}\abs{f(x+y) - f(x)}< \varepsilon\quad\forall \abs{y}\Lsim_A\vert(v^{\underline{k}})\vert < \delta
+    \]
+
+    where
+
+    \[
+    B = \bigset{\sum t_iv^i,\: (\UL{t}[k])\subseteq A,\: (v^{\underline{k}})\in E^k }
+    \]
+\end{remark}
+
+\topheader{The $p$-th derivatives}
+If $f$ is $p$ times differentiable, and $f, Df, D^2f, \ldots, D^pf$ are all continuous, then we say $f\in C^p(E,F)$ (replacing $E$ with an open subset of $E$ if necessary). A \emph{symmetric, $k$-linear} map between vector spaces $V,W$ is a map $A\in \mathcal{L}(V^k,W)$ such that for every $k$-permutation $\theta\in S_{\underline{k}}$, 
+\[
+    A(\Ul{v}[k]) = A(\Ul{v}[\theta(k)])    
+\]
+\begin{note}
+    \begin{itemize}
+        \item We say a map $F$ is \emph{between} the spaces $X$ and $Y$ if $F: X\to Y$. 
+        \item $\mathcal{L}(V^K,W)$ denotes the space of $k$-linear maps from $V$ to $W$ that are not necessarily continuous. 
+    \end{itemize}
+\end{note}
+
+\begin{wts}
+    If $f\in C^p(E,F)$, then $D^pf(x)$ is symmetric for every $x\in E$. (Replace $E$ with an open set if necessary).
+\end{wts}
+\begin{proof}
+    The main proof proceeds as follows. We will use induction on $p$, with $p=2$ serving as the base case. Our induction hypothesis is that for every $f\in C^{p-1}(E,F)$, for every permutation $\beta\in S_{p-1}$, at every point $x\in E$, for every possible choice of $p-1$ vectors $(v_2,\ldots, v_{p}) = (v_{1 + \underline{p-1}})$,
+    \[
+        D^{p-1}f(x)(v_{1+\underline{p-1}}) = D^{p-1}f(x)(v_{1+\beta(\underline{p-1})})
+    \]
+    To prove the assertion for $p$, it suffices to show $D^pf(x)(v_{\underline{p}})$ is invariant under transpositions of indices; since the transpositions generate $S_p$. Furthermore, the transpositions in $S_p$ are generated by 
+    
+    \begin{itemize}
+        \item the transposition $(1,2,\ldots)\mapsto (2,1,\ldots)$ where the omitted indices are held fixed, and
+        \item the transpositions which leave the first index fixed:
+        \[
+            (1,1+\underline{p-1})\mapsto (1,1+\beta({\underline{p-1}}))
+        \]
+        where $\beta\in S_{p-1}$
+    \end{itemize}
+
+    so it suffices to prove invariance under those two types of transpositions. Let $g = D^{p-2}f$, so $g\in C^2(E, L(E^{p-2}, F))$. Because the application of vectors (currying) on a multilinear map $A\in L(E^p, F)$ is associative, illustrated as follows:
+    \[
+       (A\cdot v_1)\cdot v_2 = A\cdot (v_1,v_2) = A(v_1, v_2,\cdot)\in L(E^{p-2}, F)
+    \]
+    Then, let $\lambda: L(E^{p-2}, F)\to F$ be the evaluation map at $(v_3,\ldots, v_p) = (v_{2+\underline{p-2}})$. 
+    Using the base case on $D^{p-2}f = g\in C^2(E, L(E^{p-2}, F))$, 
+
+    \[
+        (D^2g)(x)(v_1,v_2) = (D^2g)(x)(v_2,v_1)\implies \lambda\qty\Big((D^2g)(x)(v_1,v_2)) = \lambda\qty\Big((D^2g)(x)(v_2,v_1))
+    \]
+
+    But $\lambda$ is the map that \emph{applies} the rest of the vectors, and
+    \begin{equation}\label{second-derivative-D2g-equality}
+        (D^2g)(x)(v_1,v_2)\cdot (v_{2+\underline{p-2}}) = (D^2g)(x)(v_2,v_1)\cdot (v_{2+\underline{p-2}})
+    \end{equation}
+    Since $D$ commutes with continuous linear maps (and $\lambda$ is continuous because $(v_{2+\underline{p-2}})$ is fixed),
+    \begin{equation}\label{second-derivative-application-map-lambda-commute}
+       \lambda(D^2(D^{p-2}f)) = D(\lambda(D(D^{p-2}f)) = D(D\lambda\circ D^{p-2}f) = D^2(\lambda\circ D^{p-2}f) 
+    \end{equation}
+    Substituting \Cref{second-derivative-D2g-equality} for the rightmost hand side of \Cref{second-derivative-application-map-lambda-commute} gives the result.
+    \begin{note}
+        There are no magic 'identifications' being made here. To be perfectly clear, for each $x\in E$, $g(x)$ is an element in $L(E^{p-2}, F)$, and $(D^2g)(x)\in L(E^2, L(E^{p-2}, F))$. Evaluating $g$ at a point $x$ gives a bilinear map that takes values in the Banach space $L(E^{p-2}, F)$.
+    \end{note}
+
+    For the second case, beginning from the induction hypothesis. If $\theta$ is a $p$-permutation that leaves the first coordinate unchanged, then there exists a unique $p-1$-permutation $\beta\in S_{p-1}$ such that
+    \begin{align}\label{multi-derivatives-theta-def}
+    \qty\big(\:\theta(\underline{p})\:) &= \qty\big(1,\theta(1+\underline{p-1}))\nonumber\\
+    &= \qty\big(1,1+\beta(\underline{p-1}))    
+    \end{align}
+    Using a similar argument as the first case, set $g = D^{p-1}f$ and $\lambda, \lambda' \in L(E^{p-1}, F)$ to be the evaluation maps of $(v_1, v_{1+\underline{p-1}}) = (v_{\underline{p}})$ and $(v_1, v_{1+\beta(\underline{p-1})})$ respectively. Rehearsing the same proof as before:
+    \begin{align*}
+        (D^pf)(x)(v_{\underline{p}}) &= D\qty\big(\lambda D^{p-1}f)(x)(v_1)&&\text{\Cref{second-derivative-application-map-lambda-commute}}\\
+        &= D\qty\big(\lambda' D^{p-1}f)(x)(v_1) &&\text{ind. hyp.}\\
+        &= (D^pf)(x)(v_{\theta(\underline{p})})&&\text{\Cref{second-derivative-application-map-lambda-commute}}
+    \end{align*}
+    This proves the induction step, and the proof is complete.
+    
+\end{proof}
+Before stating and proving Taylor's Theorem, an important remark on the 'postcomposition' of linear maps. Summarized in the following note. 
+
+\begin{note}
+    Let $f\in C^p(E,F)$, and $\lambda\in L^p(F,G)$. $\lambda$ induces a map between $L(E^p, F)$ and $L(E^p, G)$ by post-composing any multi-linear map $A\in L(E^p, F)$ by $\lambda$. Denoting this map by $\lambda_*$, 
+\[
+\lambda_*: L(E^p, F)\to L(E^p, G)
+\]
+It is clear $\lambda_*$ is linear and continuous. And its action on $A$, evaluated at $(v_{\underline{p}})\in E^p$ is given by
+\[
+    \lambda_*(A)\in L(E^p, G)\quad \qty\big(\lambda_*(A))(v_{\underline{p}}) = \lambda\qty\big(A(v_{\underline{p}})) = (\lambda\circ A)(v_{\underline{p}})
+\]
+Now, recall that for $p=1$
+\[
+    \qty\big[D(\lambda\circ f)](x) = \lambda\qty\big[(Df)(x)]
+\]
+To simplify the notation, we want to 'move' the evaluation $x$ outside of the brackets, and somehow write $x\mapsto \lambda\qty\big[(Df)(x)]$ as one map between $E$ and $L(E,G)$. We further \emph{identify} $\lambda$ as this map, so that
+\[
+    \qty\big[D(\lambda\circ f)](x) = \lambda  = \qty\big(\lambda \circ Df)(x)
+\]
+Dropping the $x$ from the expression, for $p\geq 2$ \emph{assuming a similar formula holds}, then we write $\qty\big[D^p(\lambda\circ f)] = \lambda_*\circ D^pf$. We make a final identification, of $\lambda = \lambda_*$ (thereby conflating the two different maps, the first is a map from $E$ to $F$, the second is a map from $L(E^p, F)$ into $L(E^p, G)$).
+\end{note}
+
+\begin{wts}
+    If $p\geq 2$, $f\in C^p(E,F)$, $\lambda\in L(F,G)$, then
+    \[
+        D^p(\lambda\circ f) = \lambda\circ D^pf
+    \]
+    Where we have identified $\lambda$ as the same map that acts on $L(E^p, F)$ to produce another map in $L(E^p, G)$, and suppressed the point $x$.
+\end{wts}
+\begin{proof}
+    Use induction on $p$.
+\end{proof}
+\begin{wts}
+    e
+\end{wts}
+\end{document}
+

@@ -124,6 +124,15 @@
     bottomline=true,
 }
 
+\mdfdefinestyle{notestyle}{%
+    style=definitionstyle,
+    backgroundcolor=tab-orange!10,
+    leftline=true,
+    rightline=true,
+    topline=true,
+    bottomline=true,
+}
+
 \mdtheorem[style=definitionstyle]{definition}{Definition}[theproblem]
 \mdtheorem[style=theoremstyle]{wts}{Proposition}[theproblem]
 
@@ -134,6 +143,8 @@
 
 \mdtheorem[style=remarkstyle]{remark}{Remark}[theproblem]
 \mdtheorem[style=theoremstyle]{example}{Example}[theproblem]
+
+\mdtheorem[style=notestyle]{note}{Note}[theproblem]
 
 
 % Other header definitions or configurations
@@ -207,3 +218,6 @@
 
 \crefname{step}{step}{steps}
 \Crefname{step}{Step}{Steps}
+
+\crefname{note}{note}{notes}
+\Crefname{note}{Note}{Notes}

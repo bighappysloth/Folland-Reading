@@ -198,6 +198,7 @@ We will skip the technicalities for now. Recall $k$-tensors on a vector space ac
 \[
     A(\Ul{X}[k]) = A(X_1,\ldots,X_k)\quad\text{such that}\quad A(\Ul{X}[k])(p) = A_p(\Ul{X}[k]\vert_{p}) = A_p(X_1\vert_{p},\ldots,X_k\vert_{p})\in\real
 \]
+
 We should expect, that if $A$ is a rough $k$-tensor field over $M$, it is smooth if and only if for every $k$-tuple of smooth vector fields, the resulting function (as defined pointwise above), is $C^\infty(M)$. See Lee Proposition 12.19 for more details.
 
 
@@ -321,13 +322,14 @@ To simplify the expressions, we will use the following shorthand,
 
 \begin{align}
     (v_1,\ldots v_k) &= (\Ul{v}[k]) \\
-    (v_{k+1},\ldots v_{k+l}) &= (\Ul{v}[k+1][k+l])
+    (v_{k+1},\ldots v_{k+l}) &= (\Ul{v}[k+1][k+l]),\text{ alternatively }\\
+    (v_{k+1},\ldots v_{k+l}) &= (\UL{v}[k+][l]) 
 \end{align}
 
 and \Cref{lee-chp14:wedge-product-evaluated} becomes
 
 \begin{equation}
-    \Alt{\omega\otimes\eta}(\Ul{v}[k+l]) = \dfrac{1}{(k+l)!}\sum_{\sigma\in S_{k+l}}(\sgn\sigma)\omega(\Ul{v}[\sigma({k})])\eta(\Ul{v}[\sigma({k+1})][\sigma({k+l})])
+    \Alt{\omega\otimes\eta}(\Ul{v}[k+l]) = \dfrac{1}{(k+l)!}\sum_{\sigma\in S_{k+l}}(\sgn\sigma)\omega(\Ul{v}[\sigma({k})])\eta(\Ul{v}[\sigma({k})][\sigma({k+l})])
 \end{equation}
 
 \end{definition}
@@ -398,9 +400,9 @@ and \Cref{lee-chp14:wedge-product-evaluated} becomes
 \end{wts}
 
 \begin{definition}[Interior multiplication]
-    Let $V$ be a finite dimensional vector space.  If $x\in V$ is a vector, it induces a linear map $i_x: \Lambda^k(V^*)\to \Lambda^{k-1}(V^*)$ such that for every $\omega\in \Lambda^k(V^*)$, and $\Ul{v}[2][k]\in V$, 
+    Let $V$ be a finite dimensional vector space.  If $x\in V$ is a vector, it induces a linear map $i_x: \Lambda^k(V^*)\to \Lambda^{k-1}(V^*)$ such that for every $\omega\in \Lambda^k(V^*)$, and $\Ul{v}[k-1]\in V$, 
     \[
-        i_x(\omega)(\Ul{v}[2][k]) \defined \omega(x,\Ul{v}[2][k])
+        i_x(\omega)(\Ul{v}[k-1]) \defined \omega(x,\Ul{v}[k-1])
     \]
     by fixing $x$ in the first argument of $\omega$. The result is an alternating $k-1$ covector, and it is clearly linear in $\omega$ over $\real$. We also write
     \[

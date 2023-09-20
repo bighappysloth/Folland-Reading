@@ -119,7 +119,7 @@ M = \begin{bmatrix}
     \vert &  & \vert \\[1ex]
 \end{bmatrix}
 \]
-The determinant of $M$, can then be written as
+The determinant of $M$ is a linear combination of determinants of $k-1$-sized matrices, given in terms of the columns of $b$
 \[
     \det(M) = \sum_{i=\underline{k}}(-1)^{i-1} a_i\det(\UL{b}[i-1],\UL{b}[i+][k-i])
 \]    
@@ -186,7 +186,9 @@ The following theorem should give confidence to the notation we have adopted to 
 \begin{remark}
     The $k$-linear variant of \cref{prop:bilinear-map-isomorphism-currying} holds. We will use but not prove this fact.
 \end{remark}
-We will discuss (covariant) \emph{tensors} on a single Banach space $E$, which are simply $k$-linear maps from the product space of $E$. That is, $E_1 = \cdots = E_k = E$, and we write $L(\UL{E}[k]; F) = L(E^k, F) = L^k(E,F)$. 
+\begin{remark}
+We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L(E^k, F) = L^k(E,F)$. \emph{Tensors} on $E$ are $k$-linear maps from the product space of $E$ into $\real$, by replacing $F$ with $\real$.
+\end{remark}
 %
 % What to include also?
 % Should we start from defining the properties of Banach Spaces? TVS?
@@ -194,12 +196,26 @@ We will discuss (covariant) \emph{tensors} on a single Banach space $E$, which a
 
 \fchapter{2: Differentiation}\newpage
 \topheader{The derivative}
-\begin{definition}
-    A real-valued function in a real variable defined for all $t$ sufficiently small is said to be \emph{$o(t)$} if $\lim_{t\to 0}o(t)/t=0$.
+\begin{definition}[Open sets and neighbourhoods]\label{def:osub-notation}
+    If $U$ is an open subset of a topological space $X$, we denote this by $U\osub X$. If $U$ is a \emph{neighbourhood} of a point $p\in X$, we write $p\oin U$. \\
+    
+    We do not require neighbourhoods to be open sets; rather, we say $U$ is a neighbourhood of $p$ when the interior of $U$ contains $p$.
 \end{definition}
-\begin{definition}
-    A map $\psi: U\to  F$ where $U\osub E$ contains $0$ in $E$, is said to be $o(h)$ if $\vert \psi(h)\vert/\vert h\vert \to 0$ as $h\to 0$ in $E$.
+\begin{definition}[Little $o$]\label{def:little-oh}
+    A real-valued function in a real variable defined for all $t$ sufficiently small is said to be \emph{$o(t)$} if $\lim_{t\to 0}o(t)/t=0$. A map $\psi: U\to  F$ where $U\osub E$ contains $0$ in $E$, is said to be $o(h)$ if $\vert \psi(h)\vert/\vert h\vert \to 0$ as $h\to 0$ in $E$.
 \end{definition}
+\begin{definition}[Differentiability]\label{def:differentiability}
+    Let $f: E\to F$ be a map, replacing $E$ and $F$ by their open subsets if necessary. We say $f$ is \emph{differentiable} at $x\in E$ when there exists a \textbf{continuous linear map on $E$}: $\lambda\in L(E,F)$ such that
+    \begin{equation}\label{eq:differentiability-def}
+        f(x+h) = f(x) + \lambda h + o(h)\quad\text{for sufficiently small }h
+    \end{equation}
+    The role $o(h)$ plays here is a map from $U\to F$, where $U$ is some neighbourhood of $0$. 
+\end{definition}
+\begin{wts}
+    % If $f$ is differentiable at $x$, then the $\lambda$ in \cref{eq:differentiability-def} is unique. We write $f'(x) = Df(x) = \lambda$ as in \cref{eq:differentiability-def}. Furthermore, if $f'(x)$ and $g'(x)$ exist, then $(f+g)'(x) = f'(x) + g'(x)$ as linear maps, similar for scalar multiplication.
+    
+\end{wts}
+
 
 
 \fchapter{4: Higher order derivatives}\newpage

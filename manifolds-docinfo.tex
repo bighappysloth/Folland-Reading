@@ -85,4 +85,38 @@
 \providecommand{\vField}{\mathfrak{X}} % vector field 
 \providecommand{\cvField}{\mathfrak{X}} % covector field
 \def\isum{\mathop{\sum\nolimits{'}}} % increasing sum
-\providecommand{\rad}[1]{\operatorname{rad}({#1})} % radical of V
+\providecommand{\rad}[1]{\operatorname{rad}({#1})} % radical of 
+\providecommand{\fourier}{\mathcal{F}}
+\providecommand{\Torus}{\mathbb{T}}
+\providecommand{\Torusn}{\mathbb{T}^n}
+\providecommand{\dzz}{\mathcal{D}}
+\providecommand{\hil}{\mathcal{H}}
+
+
+% Drawing circles around math operators
+\newcommand\Bigcirc{\raisebox{-0.5mm}{\scalebox{1.5}{$\bigcirc$}}}
+
+% \bigowedge
+\makeatletter
+\newcommand*\bigowedge{\mathpalette\@bigowedge\relax}
+\newcommand*\@bigowedge[1]{%
+  \mathbin{%
+    \ooalign{%
+      $#1\m@th\Bigcirc$\cr
+      \hidewidth$#1\m@th\wedge$\hidewidth\cr
+    }%
+  }%
+}
+\makeatother
+
+\makeatletter
+\newcommand*\bigoprod{\mathpalette\@bigoprod\relax}
+\newcommand*\@bigoprod[1]{%
+  \mathbin{%
+    \ooalign{%
+      $#1\m@th{\raisebox{-0.35mm}{\scalebox{1.5}{$\bigcirc$}}}$\cr
+      \hidewidth$#1\m@th\Pi$\hidewidth\cr
+    }%
+  }%
+}
+\makeatother

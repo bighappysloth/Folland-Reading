@@ -1,0 +1,159 @@
+\documentclass[../main-manifolds.tex]{subfiles}
+
+\begin{document}
+\fchapter{1: Construction of the Manifold}
+\topheader{The structure of a manifold}
+It is fruitful to \emph{construct} the manifold rather than \emph{define} it. We also insist on working with open sets of Banach spaces instead coordinate functions as our primary data.\\
+
+We will be working in the category of $C^p$ Banach spaces (all Banach spaces are assumed to be over $\real$). Its morphisms are $C^p$ morphisms: the maps which are continuously $p$-times differentiable (but not necessarily linear). Note that if $p\geq 0$, every toplinear morphism is a $C^p$ morphism, and every toplinear isomorphism is a $C^p$ isomorphism. However, a bijective $C^p$ morphism is usually not a $C^p$ isomorphism. 
+
+\begin{definition}[Chart]\label{def:chart}
+    Let $X$ be a non-empty set. A \emph{chart on $X$ modelled on a Banach space $E$} is a tuple $(U,\varphi)$, such that $U\subseteq X$,  $\varphi(U)=\hat{U}$ is an \emph{open} subset of $E$, and $\varphi$ is a bijection into $\hat{U}$.
+\end{definition}
+\begin{definition}[Compatibility]\label{def:compatibility}
+    Let $(U,\varphi)$ and $(V,\psi)$ be charts on $X$ modelled on $E$, they are called $C^p$ compatible if $U\cap V=\varnothing$, or 
+    \begin{itemize}
+        \item $\varphi(U\cap V)$ and $\psi(U\cap V)$ are \emph{both} open subsets of $E$, and
+        \item the \emph{transition map} $\psi\circ\varphi^{-1}: \varphi(U\cap V)\to \psi(U\cap V)$ is a $C^p$ isomorphism between open subsets of $E$.
+    \end{itemize}
+    It should be clear that compatibility is an equivalence relation on the space of charts of $X$ (that are modelled on $E$).
+\end{definition}
+\begin{remark}
+    We sometimes omit the \emph{model space} $E$ if it is understood.
+\end{remark}
+
+\begin{definition}[Atlas]\label{def:atlas}
+    A \emph{$C^p$ atlas} on a non-empty set $X$ modelled on $E$ is a pairwise $C^p$ compatible collection of charts $\{(U_\alpha,\varphi_\alpha)\}$ whose union over the domains cover $X$.
+\end{definition}
+\begin{remark}
+    If we are working 'in category' we sometimes say two charts are \emph{compatible} or even \emph{smoothly compatible} to mean that they are $C^p$ compatible. This comes from the viewpoint that when we work in the category of $C^p$ manifolds, being smoother than $C^p$ is simply 'smooth enough'.
+\end{remark}
+
+Let $X$ be a non-empty set, equipped with a $C^p$ atlas $\{(U_\alpha,\varphi_\alpha)\}$ modelled on $E$. If $\alpha$ and $\beta$ both index the atlas, we write  $U_{\alpha\beta} = U_{\alpha}\cap U_{\beta}$.\\
+
+Suppose $U_{\alpha\beta}$ is non-empty. Then, (by definition) the images $\varphi_{\alpha}(U_{\alpha\beta})$, $\varphi_{\beta}(U_{\alpha\beta})$ are \emph{both} open subsets of $E$, and we will denote the transition map by
+
+\begin{equation}\label{def-transition-map}
+    \varphi_{\beta}\circ\varphi_{\alpha}^{-1}=\varphi_{\beta\alpha^{-1}}: \varphi_{\alpha}(U_{\alpha\beta})\to\varphi_{\beta}(U_{\alpha\beta})
+\end{equation}
+
+If $p\in (U,\varphi)$, we write $\hat{p}$ for $\varphi(p)$ if there is no room for ambiguity. From \Cref{def:compatibility,def:atlas}, the compatibility relation on charts descends into a compatibility relation on the space of atlases , whose properties are summarized in the following note.
+
+\begin{note}\label{note:equivalence-relation-descends}
+    Let $\Omega$ be a non-void set equipped with an equivalence relation $\sim$. Then, $\sim$ descends into an equivalence relation onto the set of all subsets of equivalence classes of $\Omega$. Suppose $A$ and $B$ are both subsets of an equivalence class $[A]$ and $[B]$ respectively. Then $A\sim B$ iff for every $x\in A$, and $y\in B$ implies $x\sim y$ iff $A\cup B$ is also a subset of an equivalence class iff $[A]\sim[B]$.\\
+
+    $[A]$ is the maximal subset of $\Omega$ that contains $A$ as a subset, that is also a subset of an equivalence class (namely, itself).
+\end{note}
+
+\begin{definition}[Structure determined by an atlas]
+    The maximal atlas that contains $\mathcal{A}$ as a subset is called the \emph{$C^p$ structure determined by $\mathcal{A}$}. This maximal atlas is unique, by \cref{note:equivalence-relation-descends}.
+\end{definition}
+\begin{definition}[Manifold]
+    A \emph{$C^p$ manifold modelled on $E$} is a non-empty set $X$ with a $C^p$ structure modelled on $E$. We sometimes refer to the manifold as the smooth structure, rather than the set $X$ itself. $\operatorname{Man}^p$ refers to the \emph{category of $C^p$ manifolds}.
+\end{definition}
+\begin{wts}[$E$ is a manifold]
+    Let $p\geq 1$. The identity map $\id{E}: E\to E$ defines an atlas on $E$, which determines a structure called the \emph{standard $C^p$ structure on $E$} or \emph{standard structure on $E$} if the class of morphisms is understood.\\
+
+    Furthermore, open subsets of $E$ are manifolds as well.
+\end{wts}
+
+\begin{wts}[Topology is unique on a manifold]
+    Let $X$ be a manifold modelled on $E$, it has a unique topology such that the domain for each chart in its smooth structure is open, and each chart is a homeomorphism onto its range (with respect to the subspace topology of $E$).
+\end{wts}
+\begin{proof}
+    We offer a sketch of the proof. Fix a chart $(U,\varphi)$, it is clear that $U$ has to be in the topology of $X$, and because $\varphi: U\to \hat{U}$ is required to be a homeomorphism, we duplicate all the open sets in $\hat{U}$ by using the inverse image through $\varphi$. The collection of all such inverse images form a sub-basis, thus defines a unique topology as is well known.\\
+
+    There is an alternate way of thinking about this 'induced topology'. Given a chart domain, there exists a unique coarsest topology such that all charts with the same chart domain are homeomorphisms onto their images. We can stitch these weak topologies together to form a ambient topology on $X$, as the chart domains cover $X$.
+\end{proof}
+\begin{remark}
+    The topology generated is not necessarily Hausdorff, nor second countable. So $X$ may not admit partitions of unity, but for our current purposes we will work with this general definition.
+\end{remark}
+\topheader{Morphisms in $\operatorname{Man}^p$}
+\begin{definition}[$C^p$ morphisms between manifolds]\label{def:smoothness}
+Let $X$ and $Y$ be $C^p$ manifolds over the spaces $E$ and $F$. A map $F: X\to Y$ is a morphism in $\operatorname{Man}^p$ if for every $p\in X$, there exists charts $(U,\varphi)$ in $X$ and $(V,\psi)$ in $Y$ such that the image $F(U)$ is contained in $V$, and the conjugation of $F$ with respect to the two charts is $C^p$ smooth between open subsets of Banach spaces.
+
+\begin{equation}\label{eq:smoothness}
+    F_{U,V}\defined \psi F \varphi^{-1} \in C^p(\hat{U},\hat{V})    
+\end{equation}
+
+The map defined in \cref{eq:smoothness} is called the \emph{coordinate representation of $F$}.
+\end{definition}
+\begin{remark}
+    We have deliberately omitted the phrase 'with respect to the charts $(U,\varphi), (V,\psi)$', and the subscript in $F_{U,V}$ should indicate that the charts themselves are not important. Rather we should focus our attention on the chart domains. We also say $F_{U,V}$ is a coordinate representation about $p$ for brevity. Consistent with our notation for the chart domains and $\hat{p}$, we write $\hat{F} = F_{U,V}$ where $U,V$ are suitably chosen.
+\end{remark}
+
+% Motivation for the definition of smoothness
+\Cref{def:smoothness} may leave one unsatisfied with the definition for smoothness between manifolds. The first question that comes to mind is: why do we require the image $F(U)$ be contained in another chart domain in $Y$? Two main reasons:
+
+\begin{enumerate}
+    \item It is easily verified that the $C^p$ maps between open subsets of Banach spaces satisfy the usual functoral properties in its category. The definition of smoothness between Banach spaces is a purely local one, and it is defined between open subsets; and recall: every chart domain $U$ in a manifold $X$ corresponds to an open subset $\hat{U}\subseteq E$ in the model space. The requirement that $F(U)$ must be contained in a single chart domain of $Y$ is a relic of the original definition.
+    \item Suppose $f$ is a map between $E$ and $F$, and the restriction of $f$ onto a family of open subsets $U_{\alpha}\subseteq E$ is $C^p$ for $p\geq 0$. If $\{U_\alpha\}$ is an open cover for $E$, then $f$ is continuous. \Cref{prop:smoothness-implies-cont-functorality} below shows that this holds for manifolds as well.
+\end{enumerate}
+
+%
+
+\begin{wts}\label{prop:smoothness-implies-cont-functorality}
+    Every $C^p$ morphism between manifolds is a continuous map, and the composition of $C^p$ morphisms is again a morphism.
+\end{wts}
+\begin{proof}
+    The first claim follows immediately from \cref{eq:smoothness}, since $p$ is arbitrary, choose any neighbourhood $W$ of $F(p)$, by shrinking this neighbourhood, it suffices to assume it is a subset of the chart domain $V$. The charts on $X$ and $Y$ are homeomoprhisms, and unwinding the formula shows that $F\vert_{U} = \psi^{-1}F_{U,V}\varphi$, so that
+    \[
+        U\cap F^{-1}(W) = (F\vert_U)^{-1}(W)\quad\text{is open in }X
+    \]
+    To prove the second, let $\UL{X}[3]$ be manifolds modelled over $\UL{E}[3]$, and $F_1$, $F_2$ is smooth between $X_i$ such that $F_2\circ F_1$ makes sense. Since $F_1$ is smooth, there a pair of charts $(U_i,\varphi_i)\in X_i$ for $i = 1,2$ about each $p\in X_1$ such that $F_1{_{U_1,U_2}}$ is $C^p$ between open subsets.\\
+
+    $F_2(F_1(p))$ induces another pair of charts $(V_i,\psi_i)\in X_i$ for $i=2,3$. Since $F_2$ is smooth, it is continuous. $F_1^{-1}\circ F_2^{-1}(V_3)$ is open in $X_1$, and we can shrink all of our charts so that $F_2F_1(U_1)$ is contained in $V_3$. Finally, because $C^p$ morphisms between open subsets of Banach spaces is closed under composition, $F_{U_1\cap F_1^{-1}F_2^{-1}(V_3), V_3}$ is smooth.
+\end{proof}
+\begin{remark}
+    To conclude this section, manifolds hereinafter will be assumed of class $C^p$, where $p\geq 1$. 
+\end{remark}
+\topheader{Tangent spaces}
+The next question that we will address is taking derivatives of smooth maps between manifolds. There is no reason to demand $C^p$ smoothness between maps, or even a $C^p$ category of manifolds if we cannot borrow something 'more' other than the morphisms on open sets.\\
+
+Suppose $U$ is an open subset of $E$ and $f: U\to Y$ is $C^p$ for $p\geq 1$. The derivative $Df(x)$ is a linear map $E\to F$, not from $U$ to $F$ ($U$ might not even be a vector space). This suggests the 'derivative' of a morphism $F: X\to Y$ between manifolds can in some sense be interpreted as the \emph{ordinary derivative} of its coordinate representation $DF_{U,V}(\hat{p})$, adhering to our principle of using open sets.\\
+
+But there is a problem with this 'derivative': it is a chart dependent interpretation of the derivative. With infinitely many charts in $X$ and $Y$, this definition becomes useless. To see this, let $X$ be a manifold modelled on $E$ and $p\in X$. If $g: X\to Y$ is a morphism, and $(U_1,\varphi_1)$, $(U_2,\varphi_2)$ are charts defined about $p$ such that the representations $g_{U_1, V}$ and $g_{U_2, V}$ are morphisms. Writing $p_i = \varphi_i p$, and $\varphi_{1,2}=\varphi_2\varphi_{1}^{-1}$ (because it goes from the domain $U_1$ to $U_2$), a simple computation yields
+\begin{align}
+    Dg_{U_1, V}(p_1)(v) &= D(\psi g \varphi_2^{-1}\varphi_2\varphi_1^{-1})(p_1)(v) \nonumber\\
+    &= Dg_{U_2,V}(p_2)\biggl(D\varphi_{1,2}(p_1)(v)\biggr)\nonumber\\
+    &= Dg_{U_2,V}(p_2)\circ D\varphi_{1,2}(p_1)\cdot (v)\label{eq:tangent-space-quotient-motivation}
+\end{align}
+where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left associative over composition. The computation in \cref{eq:tangent-space-quotient-motivation} suggests that interpreting the derivative by pre-conjugation is dependent on the chart being used to interpret the derivative. In fact, $D\varphi_{1,2}(p_1)$ can be replaced with any toplinear isomorphism on $E$ (relabel $\varphi_2 = A\varphi_1$ where $A\in\operatorname{Laut(E)}$), so the right hand side of \cref{eq:tangent-space-quotient-motivation} can be interpreted as $Dg_{U_2,V}(p_2)(w)$ where $w$ is any vector in $E$. 
+
+\begin{definition}[Concrete tangent vector]
+    Let $X$ be a manifold on $E$, and $p\in X$. If $(U,\varphi)$ is any chart containing $p$, for each $v\in E$ we call $(U,\varphi,p,v)$ a \emph{concrete tangent vector at $p$} that is \emph{interpreted} with respect to the chart $(U,\varphi)$. The disjoint union of
+
+    \begin{equation}\label{eq:concrete-tangent-space-eq}
+        \bigcup_{v\in E}\{(U,\varphi,p,v)\}
+    \end{equation}
+
+    is called the \emph{concrete tangent space at $p$} interpreted with respect to $(U,\varphi)$ and inherits a TVS structure from $E$.
+\end{definition}
+
+Fix a point $p$ in a manifold $X$. Suppose $(U_i,\varphi_i)$ are charts containing $p$, from \cref{eq:tangent-space-quotient-motivation} we see that there exists a natural correspondence between the interpretations of the concrete tangent space, namely 
+\begin{equation}\label{eq:concrete-tangent-vector-relation}
+    (U_1,\varphi_1,p,v_1)\sim (U_2,\varphi_2,p,v_2)\qqtext{iff} v_2 = D\varphi_{1,2}(p_1)(v_1)
+\end{equation}
+where $p_i = \varphi_i p$. 
+\begin{definition}[Tangent vector]
+    A \emph{tangent vector} (or an \emph{abstract} tangent vector) at $p$ is defined as an equivalence class of concrete tangent vectors at $p$, under the relation in \cref{eq:concrete-tangent-vector-relation}.
+\end{definition}
+
+From \cref{eq:concrete-tangent-vector-relation}, since $D\varphi_{1,2}(x)$ is a toplinear automorphism on $E$, this correspondence is a bijection. This means the set of tangent vectors at $p$ inherits a TVS structure from $E$, as $p$ is in the domain of at least one chart $(U,\varphi)$. This is because the concrete tangent space defined in \cref{eq:concrete-tangent-space-eq} admits an obvious (linear) isomorphism with $E$, and each abstract tangent vector admits a unique interpretation with respect to $(U,\varphi)$.
+
+\begin{definition}[Tangent space]
+    The \emph{tangent space} at $p$, denoted by $T_p X$ is the set of all tangent vectors at $p$. It is toplinearly isomorphic to the model space $E$.
+\end{definition}
+
+\begin{definition}[Differential of a morphism]
+    
+\end{definition}
+\begin{note}[Interpretation using co-product]
+    There is another way of interpreting the construction above. Each concrete tangent space is toplinearly isomorphic to $E$, the projection maps onto $\{p\}$ and $E$ can be glued together using the universality of the coproduct, where $\{p\}$ is interpreted as a $0$-dimensional vector space. The construction of $T_pM$ follows by invoking the property of the quotients.
+\end{note}
+% Recap of this section, the tangent space at a point is defined to be such that when the chart in the codomain is fixed, the coordinate interpretation of the derivative is independent of the chart used. This is done by gluing together the inputs. Now, we let the chart in the codomain to vary, and we also see that it is independent of the interpretation used.
+% Let $F$ be a morphism between manifolds $X$ and $Y$. Because the equivalence relation in eq3 is compatible with linear operations. ie: if we relabel (U_1,v_1) = (U_1,\varphi_1, p, v_1), similarly for U_2.
+% (U_1,v_1)\sim (U_2,v_2)\qqtext{and}(U_1,w_1)\sim(U_2,w_2), then their difference and their dilations will be \sim as well.
+% So, DF_{, V} is well defined, and is the unique linear map by the property of the quotients.
+% on the side of the codomain, we just have to compose DF_{, V} with the map that sends each concrete tangent vector to its abstract tangent vector. This map is linear.
+\end{document}

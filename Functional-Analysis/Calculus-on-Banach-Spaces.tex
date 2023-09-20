@@ -2,40 +2,38 @@
 
 \begin{document}
 
-
-\fchapter{1: Bilinear Maps}\newpage
+\fchapter{1: Multilinear maps}\newpage
 \topheader{Introduction}
 A \emph{Banach space} is a normed vector space that is Cauchy-complete under the usual metric induced by its norm. 
 
-If $E$ and $F$ are Banach spaces. We will denote the norms on $E$, and $F$ by single lines, so 
-
+If $E$ and $F$ are Banach spaces over $\real$. We will denote the norms on $E$, and $F$ by single lines, so 
 \[
     \vert x\vert = \norm{x}_E\qqtext{and} \vert y\vert = \norm{y}_F\quad\forall x\in E,\: y\in F
 \]
+$\mathcal{L}(E,F)$ will denote the space of linear maps between $E$ and $F$. In the category of Banach spaces, the space of morphisms are called \emph{toplinear morphisms} - or continuous linear maps; which we will denote by $L(E,F)$ for toplinear morphisms bewteen $E$ and $F$. \\
 
-$L(E,F)$ will denote the space of bounded linear maps between $E$ and $F$, also referred to as the set of \emph{toplinear morphisms}. We use $\norm{\cdot}_{L(E,F)}$ or $\norm{\cdot}$ to denote the operator norm, depending on how much emphasis we wish to place on $L(E,F)$. Recall,
-
+We use $\norm{\cdot}_{L(E,F)}$ or $\norm{\cdot}$ to denote the operator norm, depending on how much emphasis we wish to place on $L(E,F)$. Recall,
 \begin{align*}
 \norm{\varphi}_{L(E,F)} &= \inf\bigset{A\geq 0,\: \vert\varphi(x)\vert\leq A\vert x\vert\:\forall x\in E}\\
 &= \sup\bigset{\vert\varphi(x)\vert,\: x\in E,\: \vert x\vert=1}
 \end{align*}
 
-Invertible elements in $L(E,F)$ are called \emph{toplinear isomorphisms}. If $\varphi\in L(E,F)$ such that $\varphi$ preserves the norm between the Banach Spaces, that is for every $x\in E$, $\vert x\vert = \vert \varphi(x)\vert$ then we call $\varphi$ an \emph{isometry}, or a \emph{Banach space isomorphism}.
-
-If $E_1$ and $E_2$ are Banach spaces, we will use the usual \emph{product norm} $(x_1, x_2)\mapsto \max(\vert x_1\vert,\vert x_2\vert)$. A map $\varphi: E_1\times E_2\to F$, where $F$ is also a Banach space, is said to be \emph{bilinear} if
-
+By the open mapping theorem: any continuous surjective linear map is an open map. Hence invertible elements in $L(E,F)$ are naturally called \emph{toplinear isomorphisms}. If $\varphi\in L(E,F)$ such that $\varphi$ preserves the norm between the Banach Spaces, that is for every $x\in E$, $\vert x\vert = \vert \varphi(x)\vert$ then we call $\varphi$ an \emph{isometry}, or a \emph{Banach space isomorphism}. If $E_1$ and $E_2$ are Banach spaces, we will use the usual \emph{product norm} $(x_1, x_2)\mapsto \max(\vert x_1\vert,\vert x_2\vert)$. 
+\topheader{Bilinear maps}
+\begin{definition}[Bilinear map]
+A map $\varphi: E_1\times E_2\to F$, where $F$ is also a Banach space, is said to be \emph{bilinear} if
 \[
     \varphi(x,\cdot): E_2\to F\qqtext{and}\varphi(\cdot,y): E_1\to F
 \]
+are linear for every $x\in E_1$ and $y\in E_2$.     
+\end{definition}
 
-are linear for every $x\in E_1$ and $y\in E_2$. 
 
-\begin{wts}
+\begin{wts}[Continuity of a bilinear map]\label{prop:characterization-of-continuity-bilinear-map}
     Let $E_1$, $E_2$, $F$ be Banach spaces, a bilinear map $m: E_1\times E_2\to F$ is continuous if and only if there exists a $C\geq 0$, where
-
-    \[
-    \vert m(x,y)\vert\leq C\vert x\vert\vert y\vert
-    \]
+    \begin{equation}\label{eq:continuity-bilinear-map}
+        \vert m(x,y)\vert\leq C\vert x\vert\vert y\vert    
+    \end{equation}
 \end{wts}
 \begin{proof}
     Suppose such a $C$ exists, fix a convergent sequence $(x_n, y_n)\to (x,y)$ in $E_1\times E_2 = E$. Because the projection maps are continuous, this means $x_n\to x$ and $y_n\to y$. Using inspiration from the proof where $x_ny_n\to xy$, where
@@ -45,7 +43,6 @@ are linear for every $x\in E_1$ and $y\in E_2$.
     \]
 
     Using the inspiration, and replacing multiplication in $\real$ with the bilinear map $m$, we have:
-
     \begin{align*}
         m(x_n,\: y_n-y) + m(x_n-x,\: y) &= m(x_n,\:y_n) - m(x,\:y)\\
         \vert m(x_n,\: y_n) - m(x,\: y)\vert &\leq C[\vert x_n\vert\cdot\vert y_n - y\vert + \vert x_n - x\vert\cdot\vert y\vert]\to 0
@@ -58,7 +55,6 @@ are linear for every $x\in E_1$ and $y\in E_2$.
     \]
 
     So that $\vert m(x\vert x\vert^{-1}\delta, y\vert y\vert^{-1}\delta)\vert \leq 1$, using bilinearity of $m$:
-
     \[
         \vert m(x,y)\vert\leq \delta^{-2}\vert x\vert\cdot\vert y\vert
     \]
@@ -67,20 +63,124 @@ are linear for every $x\in E_1$ and $y\in E_2$.
 \end{proof}
 
 
-Currying: the canonical isomorphism between
+\begin{wts}[$L(E_1,E_2;F)$ is isomorphic to $L(E_1, L(E_2,F))$]\label{prop:bilinear-map-isomorphism-currying}
+    For each bilinear map $\omega\in L(E_1,E_2;F)$, there exists a unique map $\varphi_\omega\in L(E_1, L(E_2,F))$ such that $\vert \omega\vert = \vert\varphi_\omega\vert$; such that for every $(x,y)\in E_1\times E_2$, $\omega(x,y) = \varphi(x)(y)$.
+\end{wts}
+\begin{proof}
+    Let $\varphi_\omega: E_1\to L(E_2,F)$ be the unique map such that $\varphi_\omega(x)(y) = \omega(x,y)$. \Cref{prop:characterization-of-continuity-bilinear-map} shows that $\varphi_\omega(x)$ is a continuous linear map into $F$ at each $x$, and $\vert\varphi_\omega(x)\vert\leq\vert\omega\vert\vert x\vert$. This holds for an arbitrary $x$, and $\varphi_{\omega}(\cdot)$ is clearly linear, hence $\vert\varphi_\omega\vert\leq\vert\omega\vert$. Reversing the roles of $\omega$ and $\varphi$ shows proves the other estimate.\\
 
-\[
-    L(E,L(E,F))\Isomor{L} L(E^2, F)
-\]
-
-
-
-\fchapter{2: Differentiability of maps}\newpage
+    The rule as outlined above is linear in $\omega$; and it is not hard to see $\varphi: L(E_1,E_2; F)\to L(E_1, L(E_2, F))$ is an injection. By the open mapping theorem, the proposition is proven if $\varphi$ is a surjection. Fix $\theta\in L(E_1, L(E_2,F))$, define a map $\omega: E_1\times E_2\to F$ such that $\omega(x,\cdot) = \theta(x)(\cdot)$. So that $\omega$ is linear in its second argument. To show $\omega$ is linear in its first: fix a linear combination $A = \sum ax$ in $E_1$, and $y\in E_2$. 
+    \[
+    \omega(A,y) =\theta(\sum ax)(y) = \sum a\theta(x)(y) = \sum a\omega(x,y)
+    \]
+    Continuity follows from \Cref{eq:continuity-bilinear-map}, and $\varphi_\omega = \theta$ as needed.
+\end{proof}
+\topheader{Notation}
+We will use the following notation to simplify computations with multilinear maps. Let $E$ and $F$ be sets, and $v_1,\ldots, v_k\in E$. $f: E\to F$.
+\begin{itemize}
+    \item Listing individual elements: $\UL{v}[k]$ means $v_1,\ldots,v_k$ as separate elements. 
+    \item Creating a $k$-list: $(\UL{v}[k]) = (v_1,\ldots, v_k)\in \prod E_{j\leq k}$
+    \item Double indices: $(\UL{v}[n_k]) = (v_{n_{\underline{k}}}) = (v_{n_1},\ldots, v_{n_k})$, and
+    \[
+        (\UL{v}[n_k]) \neq (v_{n_(1,\ldots,k)})
+    \]
+    \item Closest bracket convention:
+    \[
+        (v_{(n_{\underline{k}})}) = (v_{(n_1, \ldots, n_k)})\qqtext{and}(v_{n_{(\underline{k})})}) = (v_{n_{(1, \ldots, k)}})
+    \]
+    \item Empty list is iterated $0$ times: 
+    \[
+        (\UL{v}[0], a,b,c) = (a,b,c)
+    \]
+    \item Applying $f$ to a particular index: 
+    \[
+        (\UL{v}[i-1], f(v_{i}), \UL{v}[i+][k-i]) = (v_1,\ldots, v_{i-1}, f(v_i), v_{i+1}, \ldots, v_k)
+    \]
+    Of course, if $i=1$, then the above expression reads $(f(v_1), v_2\ldots, v_k)$ by the previous bullet point.
+    \item Skipping an index: 
+    \[
+        (\UL{v}[i-1],\UL{v}[i+][k-i]) = (v_{1},\ldots, v_{i-1},v_{i+1},\ldots, v_{k})
+    \]
+    for $i = \underline{k}$.
+    \item In any list using this 'underline' notation, we can find the size of a list by summing over all the underlined terms.
+    \item If $\wedge: E\times E\to F$ is any associative binary operation,
+    \[
+        \bigowedge(\UL{v}[k]) = v_1\wedge\cdots \wedge v_k
+    \]
+\end{itemize}
+\topheader{$k$-linear maps}
+\begin{definition}[$k$-linear maps]\label{def:k-linear-maps}
+    Let $\UL{E}[k]$, $F$ be Banach spaces. A map $\varphi: \prod \UL{E}[k]$ is $k$-linear if for every $i=\underline{k}$, $v_i\in E_i$, 
+    \[
+        \varphi(\UPL{\cdot}[i-1],v_i,\UPL{\cdot}[k-i]):\: \bigoprod (\UL{E}[i-1],\UL{E}[i+][k-i])\to F\quad\text{is }(k-1)\text{-linear}
+    \]
+\end{definition}
+The following theorem should give confidence to the notation we have adopted to use.
+\begin{wts}
+    Let $\UL{E}[k]$ and $F$ be Banach spaces, a $k$-linear map $\varphi: \prod \UL{E}[k]\to F$ is continuous iff there exists a $C>0$, such that for every $x_i\in E_i$, $i=\underline{k}$
+    \[
+        \abs{\varphi(\UL{x}[k])} \leq C\prod \abs{\UL{x}[k]}
+    \]
+\end{wts}
+\begin{proof}
+    Suppose $\varphi$ is continuous, then it is continuous at the origin. Picking $\varepsilon = 1$ induces a $\delta>0$ such that for $\abs{(\UL{x}[k])}\leq \delta$, $\abs{\varphi(\UL{x}[k])}\leq 1$. The usual trick of normalizing an arbitrary vector $(\UL{x}[k])\in \prod \UL{E}[k]$ does the job:
+    \[
+        \abs{\varphi(x_k\cdot \abs{\UL{x}[k]}^{-1}\cdot\delta)}\leq 1\implies \abs{\varphi(\UL{x}[k])}\leq \delta^{-k}\prod\abs{\UL{x}[k]}
+    \]
+    Conversely, fix a sequence (indexed by $n$, in $k$ elements in the product space $\prod\UL{E}[k]$), so
+    \begin{equation}\label{eq:k-linear-sequence-def}
+        (x_n^{\underline{k}})\to (x^{\underline{k}})\quad \text{as } n\to +\infty
+    \end{equation}
+    To proceed any further, we need to prove an important equation that decomposes a difference in $\varphi$.
+    \begin{equation}\label{eq:k-linear-lemma-1}
+        \varphi(\UPL{b}[k]) - \varphi(\UPL{a}[k]) = \sum_{i=\underline{k}}\varphi(\UPL{b}[i-1],\Delta_i, \UPL{a}[i+][k-i])
+    \end{equation}
+    where $(\UPL{b}[k])$ and $(\UPL{a}[k])$ are elements in $\prod \UL{E}[k]$, and $\Delta_i = b^i - a^i$ for $i = \underline{k}$. The proof is in the following note, which is in more detail than usual - to help the reader ease into the new notation.
+    \begin{note}
+        We proceed by induction, and \cref{eq:k-linear-lemma-1} follows by setting $m=k$ in
+        \begin{equation}\label{eq:k-linear-lemma-2}
+            \varphi(\UPL{a}[k]) = \varphi(\UPL{b}[m],\UPL{a}[m+][k-m]) - \sum_{i=\underline{m}}\varphi(\UPL{b}[i-1],\Delta_i,\UPL{a}[i+][k-i])
+        \end{equation}
+        Base case: set $m=1$, by definition of $k$-linearity (\cref{def:k-linear-maps}) of $\varphi$. Since $a^1 = b^1-\Delta_1$, 
+        \[
+            \varphi(\UPL{a}[k]) = \varphi(b^1-\Delta_1, \UPL{a}[1+][k-1]) = \varphi(b^1, \UPL{a}[1+][k-1]) - \varphi(\Delta_1,\UPL{a}[1+][k-1])
+        \]
+        Induction hypothesis: suppose \cref{eq:k-linear-lemma-2} holds for a fixed $m$. Since $a^{m+1} = b^{m+1} - \Delta_{m+1}$, 
+        \begin{align*}
+            \varphi(\UPL{a}[k]) &= \varphi(\UPL{b}[m],\UPL{a}[m+][k-m]) - \sum_{i=\underline{m}}\varphi(\UPL{b}[i-1],\Delta_i,\UPL{a}[i+][k-i])\\
+            &= \varphi(\UPL{b}[m],a^{m+1},\UPL{a}[(m+1)+][k-(m+1)]) - \sum_{i=\underline{m}}\varphi(\UPL{b}[i-1],\Delta_i,\UPL{a}[i+][k-i])\\
+            &= \varphi(\UPL{b}[m+1],\UPL{a}[(m+1)+][k-(m+1)]) - \varphi(\UPL{b}[m+1],\Delta_{m+1},\UPL{a}[(m+1)+][k-(m+1)]) - \sum_{i=\underline{m}}\varphi(\UPL{b}[i-1],\Delta_i,\UPL{a}[i+][k-i])
+        \end{align*}
+        and this proves \cref{eq:k-linear-lemma-1}
+    \end{note}
+    We substitute $a^i = x^i$, and $b^i = x_n^i$ for $i = \underline{k}$, and \cref{eq:k-linear-lemma-1} becomes \cref{klinear-eq}
+    \begin{equation}\label{klinear-eq}
+        \varphi(x_n^{\underline{k}}) - \varphi(x^{\underline{k}}) = \sum_{i=\underline{k}}\varphi(x_n^{\underline{i-1}}, x_n^i - x^i, x^{i+\underline{k-i}})
+    \end{equation}
+    Then the triangle inequality reads
+    \begin{align*}
+        \abs{\varphi(x_n^{\underline{k}}) - \varphi(x^{\underline{k}})} &\leq \sum_{i=\underline{k}} \abs{\varphi(x_n^{\underline{i-1}}, x_n^i - x^i, x^{i+\underline{k-i}})}\\
+        &\leq \sum_{i=\underline{k}}\abs{\varphi}\cdot\bigoprod\qty({\UPL{x_n}[i-1],\Delta_i,\UPL{x}[i+][k-i]})\\
+        &\leq \sum_{i=\underline{k}}\abs{\varphi}\cdot\abs{x_n^i - x^i}\bigoprod\qty(x_n^{\underline{i-1}}, x^{i+\underline{k-i}})\\
+        &\Lsim_n\vert\varphi\vert\sup_{i=\underline{k}}\vert x_n^i - x^i\vert\to 0
+    \end{align*}
+    where we identify the product $\bigoprod\qty(\UPL{v}[k])$ with the product of their norms $\bigoprod \qty(\abs{\UPL{v}[k]})$. 
+\end{proof}
+\begin{remark}
+    The $k$-linear variant of \cref{prop:bilinear-map-isomorphism-currying} holds. We will use but not prove this fact.
+\end{remark}
+If $E_1 = \cdots = E_k = E$, we write $L(\UL{E}[k]; F) = L(E^k, F) = L^k(E,F)$.
+\fchapter{2: Differentiation}\newpage
 \topheader{The derivative}
+\begin{definition}
+    A real-valued function in a real variable defined for all $t$ sufficiently small is said to be \emph{$o(t)$} if $\lim_{t\to 0}o(t)/t=0$.
+\end{definition}
+\begin{definition}
+    A map $\psi: U\to  F$ where $U\osub E$ contains $0$ in $E$, is said to be $o(h)$ if $\vert \psi(h)\vert/\vert h\vert \to 0$ as $h\to 0$ in $E$.
+\end{definition}
 
 
-
-\fchapter{3: Higher order derivatives}\newpage
+\fchapter{4: Higher order derivatives}\newpage
 \topheader{Introduction}
 We start with the definition of $C^p(E,F)$. Let $E$ and $F$ be Banach Spaces, if $p\geq 1$ is an integer, we define the class $C^p$ to be the set of maps which are $p$ times differentiable, and $D^p f\in C(E, X)$, where 
 
@@ -395,5 +495,11 @@ Dropping the $x$ from the expression, for $p\geq 2$ \emph{assuming a similar for
 \begin{wts}
     e
 \end{wts}
+
+\newpage
+
+\[
+    \ln(e^{a}) = e^{\ln(a)} = a
+\]
 \end{document}
 

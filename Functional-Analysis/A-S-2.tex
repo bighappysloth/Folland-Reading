@@ -1,0 +1,267 @@
+\documentclass[../main-manifolds.tex]{subfiles}
+
+\begin{document}
+\fchapter{1: Introduction}
+\topheader{Periodic Sobolev Spaces $H_s$ over $\mathbb{C}$}
+We give the first definition of the periodic Sobolev spaces $H_s$ over the complex plane. We wish to define $H_s$ as a subspace of $\dzz'(\Torusn)$ by imposing some integrability condition on its Fourier Transform. First we define $\Lambda_s$ to be the map:
+
+$$
+\Lambda_s: \dzz'(\Torusn)\to \dzz'(\Torusn)\quad \Lambda_s F = \mathcal{F}^{-1}((1+\vert k\vert^2)^{s/2}\hat{F}(k))
+$$
+
+where $\mathcal{F}$ and its inverse should be viewed from $\dzz'(\Torusn)$ to $C_s(\mathbb{Z}^n)$.
+\begin{remark}
+$C_s(\mathbb{Z}^n)$ is closed under pointwise multiplication, and $(1+\vert k\vert^2)^{t}$ is in $C_s(\mathbb{Z}^n)$ for every $t\in\real$. The latter is very tedious to show and we will omit
+\end{remark}
+
+\begin{definition}
+If $s\in\real$, the \emph{periodic Sobolev space} $H_s$ is a subspace of $\dzz'(\Torusn)$ where each element $F\in H_s$ satisfies
+
+$$
+\mathcal{F}(\Lambda_s F)\in l^2(\mathbb{Z}^n)\quad\text{or}\quad \sum_{k\in\mathbb{Z}^n}(1+\vert k\vert^2)^s\vert\hat{F}(k)\vert^2< +\infty
+$$
+    
+\end{definition}
+
+As in the case for $H_s(\realn)$, we define the inner product by pulling back the inner product on $l^2$. This makes $H_s$ a Hilbert space, and the Fourier Transform is a unitary isomorphism from $H_s$ into $l^2(\mathbb{Z}^n, (1+\vert k\vert^2)^{s}dk)$, where $dk$ is the counting measure on $\mathbb{Z}^n$, and the $\sigma$-algebra on $\mathbb{Z}^n$ is assumed to be maximal. For all $f,g\in H_s$,
+
+$$
+\langle f,g\rangle_{(s)} = \langle \Lambda_s f,\Lambda_s g\rangle_{(L^2,L^2)} = \sum_{k\in\mathbb{Z}^n}\hat{f}(k)\cl{\hat{g}(k)}(1+\vert k \vert^2)^{s} = \langle \fourier(\Lambda_s f),\fourier(\Lambda_s g)\rangle_{(l^2,l^2)}
+$$
+
+and the norm on $H_s$ is $$\norm{f}_{(s)} = \norm{\Lambda_s f}_{l^2} =\sqrt{\sum_{k\in\mathbb{Z}^n}\vert\hat{f}(k)\vert^2(1+\vert k \vert^2)^s}$$
+
+If $s\geq 0$ we can identify $H_s$ as a subset of $L^2(\Torusn)$. Furthermore, it is fruitful to consider another choice of $\Lambda_s$ that induces the same norm (hence topology), but with a different inner product.
+
+\begin{definition}
+From now on $\Lambda_s$ will refer to the map
+
+$$
+\Lambda_s: \dzz'(\Torusn)\to\dzz'(\Torusn)\quad\Lambda_s F = \mathcal{F}^{-1}( (\delta_0 + 2\pi \vert k\vert^{s})\hat{F}(k))
+$$
+
+In terms of Fourier coefficients, this corresponds to 
+- $\mathcal{F}(\Lambda_s F)(0) = \hat{F}(0)$, while 
+- $\mathcal{F}(\Lambda_s F)(k) = 2\pi\vert k\vert^{s}\hat{F}(k)$ for $k\neq 0$
+    
+\end{definition}
+
+$\Lambda_s$ is clearly $C_s(\mathbb{Z}^n)$, so we define
+\begin{definition}
+If $s\geq 0$, we define the \emph{periodic Sobolev space $H_s$} to be the subspace of distributions on $\Torusn$ that satisfies 
+
+$$
+H_s = \bigset{f\in \dzz'(\Torusn),\: \mathcal{F}(\Lambda_s f)\in l^2(\mathbb{Z}^n,dk)}
+$$
+
+Alternatively, we can absorb the factor of $\Lambda_s$ into the measure, by writing 
+
+$$
+H_s = \bigset{f\in\dzz'(\Torusn),\: \mathcal{F}(f)\in l^2(\mathbb{Z}^n,\mu_s)}
+$$
+
+where $\mu_s(A) = \sum_{i\in A}(\delta_0(i) + \vert i\vert^{2s})$ which is simply the integral of the additional 'factor' with respect to the counting measure $dk$. We can simplify things further if we identify $H_s\subseteq L^2$ (because $s\geq 0$), and
+
+$$
+H_s = \bigset{f\in L^2(\Torusn),\: \mathcal{F}(f)\in l^2(\mathbb{Z}^n, \mu_s)}
+$$
+
+But the Fourier Transform is a unitary isomorphism between $L^2(\Torusn,dx)$ and $l^2(\mathbb{Z}^n,dk)$, combining the first and last characterization, we write
+
+$$
+H_s = \bigset{f\in L^2(\Torusn,dx),\: \Lambda_sf\in L^2(\Torusn,dx)}
+$$
+
+similar to Definition 8.1, the claim $\Lambda_s f\in L^2(\Torusn)$ should be interpreted with respect to $\dzz'$. (This means there exists $g\in L^2(\Torusn)$ that realizes the duality pairing.)
+
+$$
+\langle \Lambda_s f,\phi\rangle_{(\dzz',\dzz)}=\langle g,\iota\phi\rangle_{(L^2,L^2)}
+$$
+
+where $\iota:C^\infty(\Torusn)\to L^2(\Torusn)$ is the toplinear embedding.    
+\end{definition}
+
+The inner product and the norm on $H_s$ is now given by
+
+
+\begin{align}
+\langle f,g\rangle_{(s)} &= \langle \Lambda_s f,\Lambda_s g\rangle_{(L^2,L^2)} \\
+&=\langle \fourier(\Lambda_s f),\fourier(\Lambda_s g)\rangle_{(l^2,l^2)}\\
+&= \sum_{k\in\mathbb{Z}^n}(\delta_0 + 2\pi \vert k\vert^s)\hat{f}(k)\cl{\hat{g}(k)}\\
+\end{align}
+
+
+We define $A_s(j) = \delta_0(j) + \sqrt{2\pi}\vert j\vert^s$ for $j\in\mathbb{Z}^n$, so that 
+
+
+\begin{align}
+\langle f,g\rangle_{(s)} &= \sum{k\in\mathbb{Z}^n} \vert A_s(k)\vert^2 \langle \hat{f}(k),\hat{g}(k)\rangle_{\mathbb{C}}\\
+&= \langle \hat{f}(0),\hat{g}(0)\rangle_{\mathbb{C}} + 2\pi\sum_{k\in\mathbb{Z^n},\: k\neq 0}\vert k\vert^{2s}\langle \hat{f}(k),\hat{g}(k)\rangle_{\mathbb{C}}
+\end{align}
+
+
+\topheader{Vector-valued $H_s$ loops over $\mathbb{C}$}
+We will now consider the case where the domain is $\real^1 = \real$, and measurable which are vector valued, i.e $f: \real\to \mathbb{C}^n$, where $n\geq 1$.
+
+If $f = (f_1,\: \ldots, \: f_n)$ where each $f_i$ is $(\real,\mathbb{C})$ measurable. We say $f$ is $L^p$ if each $f_i\in L^p$. Continuity and smoothness properties of $f$ should be interpreted in a geometric setting. If $f\in C^p$, then it is a **morphsim of class $C^p$**.
+
+For each $f\in L^2(\Torus, \mathbb{C}^n)$, recall
+
+$$
+\hat{f}:\mathbb{Z}\to\mathbb{C}^n\quad \hat{f}(k) = (\hat{f_1}(k),\:\ldots,\:\hat{f_n}(k))
+$$
+
+The $L^2(\Torus,\mathbb{C}^n)=L^2$ inner product of $f,g$ is defined similarly,
+
+$$
+\langle f,g\rangle_{L^2} = \sum_k \langle \hat{f}(k),\hat{g}(k)\rangle_{\mathbb{C}^n} =\sum_k\sum_i\langle\hat{f_i}(k),\hat{g_i} (k)\rangle_{\mathbb{C}} =\sum_{i\leq n}\langle f_i,g_i\rangle_{L^2}
+$$
+
+\begin{wts}
+Prop 3: If $t>s\geq 0$, the Sobolev spaces decrease, while the norms increase.
+
+$$
+H_t\subseteq H_s\quad\text{and}\quad \norm{\cdot}_{(s)}\leq\norm{\cdot}_{(t)}
+$$
+
+Moreoever, the inclusion $I: H_t\to H_s$ is a continuous compact map.    
+\end{wts}
+\begin{proof}
+The first two claims follow immediately from the definition of vector-valued $H_s$, and from Theorem 9.1, 9.2.
+
+To show compactness, we approximate $\iota$ with finite-rank operators (the symmetric partial sums $S_m$ in this case).
+
+$$
+S_m f = \sum_{\vert k\vert \leq N} E_k\hat{f}(k)
+$$
+
+The idea is to use the fact that the norms on $H_s$ are defined through the pullback
+
+$$
+\Lambda_s: f\mapsto \fourier^{-1}(A_s(k)\hat{f}(k))
+$$
+
+with $A_s = \delta_0 + \sqrt{2\pi}\vert k\vert^{s}$. We approximate the inclusion map $I: H_t\to H_s$
+
+
+\begin{align}
+\norm{S_n f - If}_{H_s}^{2} &= \norm{\sum_{\vert k\vert > N}\hat{f}(k)E_k }_{H_s}^{2}\\
+&=2\pi\sum_{\vert k\vert> N}\vert\hat{f}\vert^2\vert A_s\vert^2\\
+&=2\pi\sum_{\vert k\vert> N}\vert\hat{f}\vert^2\vert k\vert^{2s}\\
+&=2\pi\sum_{k}\vert k\vert^{2(s-t)}\vert\cdot \vert k\vert^{2t}\cdot\vert\hat{f}\vert^2\\
+&\leq 2\pi\cdot\vert N\vert^{2(s-t)}\sum_{k}\vert k\vert^{2t}\vert\hat{f}\vert^2\\
+&\Lsim N^{-2a}\norm{f}^2_{H_t}
+\end{align}
+
+
+for some $a = t-s > 0$. Taking square roots gives $$\norm{S_N f - If}_{H_s}\Lsim N^{-a}\norm{f}_{H_t}$$. This holds for an arbitrary $f\in H_t$, therefore
+
+$$
+\norm{S_N -I}_{\mathcal{L}(H_t, H_s)}\Lsim N^{-a}\quad\text{and}\quad\forall M>N,\: \norm{S_M - I}\Lsim N^{-a}\to 0
+$$
+
+and $I$ is compact.    
+\end{proof}
+\begin{wts}
+Prop 4: If $s>k+2^{-1}$, then $H_s(S^1)\subseteq C^k(S^1,\mathbb{C}^n)$. Essentially the periodic analogue of the Sobolev Embedding Theorem, moreover
+
+$$
+\norm{\mathcal{F}(\partial f)}_{l^1}\Lsim_{k,k-s}\norm{f}_{H_s}\quad\text{and}\quad \norm{\partial f}_{u}\Lsim_{k,k-s}\norm{f}_{H_s}
+$$
+
+for all multi-indices $\vert\alpha\vert\leq k$.     
+\end{wts}
+\begin{proof}
+We first compute the first estimate for the $l^1$ norm of the weak-$\alpha$ derivative of $f$. The following holds pointwise for $j\in\mathbb{Z}$.
+
+$$
+\vert\mathcal{F}(\partial^\alpha f)\vert = \vert 2\pi\vert^{\vert\alpha\vert}\cdot\vert j^\alpha\vert\cdot\vert \hat{f}\vert
+$$
+
+Because the domain is $1$-dimensional, the $\alpha$ is a scalar, so $\vert j^\alpha\vert = \vert j\vert^\alpha$. 
+
+$$
+\norm{\fourier(\partial^\alpha f)}_{l^1}\Lsim_k \norm{\vert j\vert^k\cdot\vert \hat{f}\vert}_{l^1}\Lsim \bignorm{\vert j\vert^s\cdot\vert\hat{f}\vert}_{l^2}\cdot\bignorm{\vert j\vert^{k-s}}_{l^2}\Lsim_{k,k-s}\norm{f}_{H_s}
+$$
+
+For the last estimate: 
+- $\vert j\vert^s\leq A_s(j)$ pointwise for $j\in\mathbb{Z}$, and
+- $\sum_{j}\vert j\vert^{2(k-s)}$ has exponent $2(k-s)<-1$, so it converges to *something* finite.
+
+Now, use the Weierstrass $M$-test to show the series:
+
+$$
+\sum_{k\in\mathbb{Z}}\hat{f}(k)E_k\quad\text{converges absolutely, uniformly to some }g\in C(S^1)
+$$
+
+so $f$ (viewed as an a.e class of functions) admits a continuous representative. Furthermore, all the weak-derivatives of $f$ exist (up to order $k$) and are continuous, by the previous section - there exists a unique $C^k$ representative of $f$, whose ordinary derivatives represent the corresponding weak derivatives of $f$.
+
+The $M$-test also gives us the estimate:
+
+$$
+\norm{\partial^\alpha f}_u\leq\norm{\fourier(\partial^\alpha f)}_{l^1}\Lsim_{k,k-s} \norm{f}_{H_s}
+$$
+
+if we equip $C^k$ with the standard norm $$\norm{f}_{C^k} = \sum_{\vert\alpha\vert\leq k}\norm{\partial^\alpha f}_u$$, then $$\norm{f}_{C^k}\Lsim_s \norm{f}_{H_s}$$ as well.
+    
+\end{proof}
+
+\begin{corollary}
+If $f_n\to f$ in $H_s$, and $k$ be a non-negative integer, such that $s > k + 2^{-1}$, then each $f_n$ (resp. $f$) admits unique $C^k$ representatives, whose ordinary derivatives represent the weak derivatives of $f_n$ (resp. $f$) up to order $k$. And $f_n\to f$ in $C^k$.    
+\end{corollary}
+\topheader{Adjoint map $j: H_{1/2}\to L^2$}
+\begin{wts}
+Prop 5: Let $j: H_{1/2}\to L^2$ be the inclusion map. It is a compact continuous linear map, and so is the adjoint map $j^*: L^2\to H_{1/2}$ defined by
+
+$$
+\forall x\in H_{1/2},\: y\in L^2\quad \langle j(x),y\rangle_{L^2} = \langle x,j^*y\rangle_{H_{1/2}}
+$$
+
+If $y\in L^2$, then
+
+$$
+j^*y = \hat{y}(0) + \sum_{k\neq 0}(2\pi\vert k\vert)^{-1}\hat{y}(k)E_k
+$$
+
+The adjoint/pullback map also embeds $L^2$ into $H_1$, with
+
+$$
+\norm{j^*y}_{H_{1/2}}\leq \norm{j^*y}_{H_1}\leq \norm{y}_{L^2}
+$$    
+\end{wts}
+\begin{proof}
+    From the definition of $j^*$, fix $x\in H_{1/2}$ and $y\in L^2$. The left hand side  becomes
+
+
+\begin{align}
+\langle j(x), y\rangle_{L^2} &= \langle x,j^*y\rangle_{H_{1/2}} \\
+&= \langle \fourier(jx),\fourier y\rangle_{l^2}\\
+&= \sum \langle \hat{x}(k),\hat{y}(k)\rangle_{\complex^n}
+\end{align}
+
+
+And RHS:
+
+$$
+\langle \hat{x}(0),\:(j^*y)^{\hat{\:}}(0)\rangle_{\complex^n} + 2\pi\sum_{k\neq 0}\vert k\vert\langle \hat{x}(k),\: (j^*y)^{\hat{\:}}(k)\rangle_{\complex^n}
+$$
+
+We equate both sides using a technique we will reuse in later sections, setting $x$ to an orthonormal basis vector with Fourier representation $x = E_ke_i\quad k\in\mathbb{Z}^n,\: 1\leq i\leq n$ (recall each $\hat{x}(k)$ is an element in $\complex^n$). The "$i$" in the exponent refers to the imaginary unit, while the "$i$" in the lower index is a dummy variable, and $e_i = (0,\ldots,1,\ldots,0)$ is a standard basis vector in $\complex^n$. Then, $\hat{y}(0) = (j^*y)^{\hat{\:}}(0)$, and $\hat{y}(k)=2\pi \vert k\vert (j^*y)^{\hat{\:}}(k)$. Computing the $H_{1}$ norm of $j^*y$, we see
+
+\begin{align}
+\norm{j^*y}^2_{H_{1}} &= \vert \hat{y}(0)\vert^2 + 2\pi\sum_{k\neq 0}\vert k\vert^2\biggl\vert \underbrace{2\pi\cdot\vert k\vert^{-1}\cdot\hat{y}(k)}_{\fourier(j^*y)(k)}\biggr\vert^2\\
+&= \vert \hat{y}(0)\vert^2 + (2\pi)^{-1}\sum_{k\neq 0}\vert \hat{y}(k)\vert^2
+\end{align}
+
+which is clearly less than $\norm{\hat{y}}^2_{l^2} = \norm{y}^2_{L^2}$, and $\norm{j^*y}_{H_{1/2}}\leq \norm{j^*}_{H_1}$ follows because norms increase.
+\end{proof}
+
+
+
+\end{document}
+
+
+
+
+
+

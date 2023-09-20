@@ -5,7 +5,7 @@
 We will use the following notation to simplify computations with multilinear maps. Let $E$ and $F$ be sets, and $v_1,\ldots, v_k\in E$. $f: E\to F$.
 \begin{itemize}
     \item Listing individual elements: $\UL{v}[k]$ means $v_1,\ldots,v_k$ as separate elements. 
-    \item Creating a $k$-list: $(\UL{v}[k]) = (v_1,\ldots, v_k)\in \prod E_{j\leq k}$
+    \item Creating a $k$-list: $(\UL{v}[k]) = (v_1,\ldots, v_k)\in \prod E_{j\leq k}$ if $v_i\in E_i$ for $i = \underline{k}$.
     \item Double indices: $(\UL{v}[n_k]) = (v_{n_{\underline{k}}}) = (v_{n_1},\ldots, v_{n_k})$, and
     \[
         (\UL{v}[n_k]) \neq (v_{n_(1,\ldots,k)})
@@ -14,26 +14,43 @@ We will use the following notation to simplify computations with multilinear map
     \[
         (v_{(n_{\underline{k}})}) = (v_{(n_1, \ldots, n_k)})\qqtext{and}(v_{n_{(\underline{k})})}) = (v_{n_{(1, \ldots, k)}})
     \]
-    \item Empty list is iterated $0$ times: 
+    \item Underlining $0$ means it is iterated $0$ times: 
     \[
         (\UL{v}[0], a,b,c) = (a,b,c)
     \]
-    \item Applying $f$ to a particular index: 
-    \[
-        (\UL{v}[i-1], f(v_{i}), \UL{v}[i+][k-i]) = (v_1,\ldots, v_{i-1}, f(v_i), v_{i+1}, \ldots, v_k)
-    \]
-    Of course, if $i=1$, then the above expression reads $(f(v_1), v_2\ldots, v_k)$ by the previous bullet point.
     \item Skipping an index: 
     \[
         (\UL{v}[i-1],\UL{v}[i+][k-i]) = (v_{1},\ldots, v_{i-1},v_{i+1},\ldots, v_{k})
     \]
     for $i = \underline{k}$.
-    \item In any list using this 'underline' notation, we can find the size of a list by summing over all the underlined terms.
+    \item Applying $f$ to a particular index: 
+    \[
+        (\UL{v}[i-1], f(v_{i}), \UL{v}[i+][k-i]) = (v_1,\ldots, v_{i-1}, f(v_i), v_{i+1}, \ldots, v_k)
+    \]
+    Of course, if $i=1$, then the above expression reads $(f(v_1), v_2\ldots, v_k)$ by the $\underline{0}$ interpretation.
+    \item In any list using this 'underline' notation, we can find the size of a list by summing over all the underlined terms, and the number of terms with no underline.
     \item If $\wedge: E\times E\to F$ is any associative binary operation,
     \[
         \bigowedge(\UL{v}[k]) = v_1\wedge\cdots \wedge v_k
     \]
 \end{itemize}
+\begin{remark}[Preview of exterior calculus]
+We can write the formula for the determinant of a $\real^{k\times k}$ matrix in this notation. Suppose $a_i\in\real$, and $b_i\in\real^{k-1}$ for $i=\underline{k}$.
+
+\[
+M = \begin{bmatrix}
+    a_1 & \cdots & a_k \\[1ex]
+    \vert &  & \vert \\
+    b_1 & \cdots & b_k \\
+    \vert &  & \vert \\[1ex]
+\end{bmatrix}
+\]
+The determinant of $M$, can then be written as
+\[
+    \det(M) = \sum_{i=\underline{k}}(-1)^{i-1} a_i\det(\UL{b}[i-1],\UL{b}[i+][k-i])
+\]    
+\end{remark}
+
 \topheader{$k$-linear maps}
 \begin{definition}[$k$-linear maps]\label{def:k-linear-maps}
     Let $\UL{E}[k]$, $F$ be Banach spaces. A map $\varphi: \prod \UL{E}[k]$ is $k$-linear if for every $i=\underline{k}$, $v_i\in E_i$, 
@@ -91,4 +108,8 @@ The following theorem should give confidence to the notation we have adopted to 
         &\Lsim_n\vert\varphi\vert\sup_{i=\underline{k}}\vert x_n^i - x^i\vert\to 0
     \end{align*}
     where we identify the product $\bigoprod\qty(\UPL{v}[k])$ with the product of their norms $\bigoprod \qty(\abs{\UPL{v}[k]})$. 
-\end{proof}\end{document}
+\end{proof}
+\begin{remark}
+    The $k$-linear variant of \cref{prop:bilinear-map-isomorphism-currying} holds. We will use but not prove this fact.
+\end{remark}
+We will discuss (covariant) \emph{tensors} on a single Banach space $E$, which are simply $k$-linear maps from the product space of $E$. That is, $E_1 = \cdots = E_k = E$, and we write $L(\UL{E}[k]; F) = L(E^k, F) = L^k(E,F)$.\end{document}

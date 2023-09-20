@@ -994,7 +994,7 @@ If $f = (f_1,\: \ldots, \: f_n)$ where each $f_i$ is $(\real,\mathbb{C})$ measur
 See [this section]({{ site.baseurl }}/
 {% post_url 2023-08-12-folland-distribution-excerpts %}#vector-valued-lp-spaces) for a summary.
 
-The Fourier Transform of vector-valued functions is vector valued. Suppose $f\in L^2(\Torus, \mathbb{C}^n)$, we define
+For each $f\in L^2(\Torus, \mathbb{C}^n)$, 
 
 $$
 \hat{f}:\mathbb{Z}\to\mathbb{C}^n\quad \hat{f}(k) = (\hat{f_1}(k),\:\ldots,\:\hat{f_n}(k))
@@ -1018,7 +1018,7 @@ Moreoever, the inclusion $I: H_t\to H_s$ is a continuous compact map.
 <div class="proof-box" markdown=1 proof-name="">
 The first two claims follow immediately from the definition of vector-valued $H_s$, and from Theorem 9.1, 9.2.
 
-To show compactness, we will approximate $\iota$ using a sequence of finite-rank operators in the strong topology. The finite-rank operators we will choose are the symmetric partial sums.
+To show compactness, we approximate $\iota$ with finite-rank operators (the symmetric partial sums $S_m$ in this case).
 
 $$
 S_m f = \sum_{\vert k\vert \leq N} E_k\hat{f}(k)
@@ -1049,7 +1049,7 @@ $$
 \norm{S_N -I}_{\mathcal{L}(H_t, H_s)}\Lsim N^{-a}\quad\text{and}\quad\forall M>N,\: \norm{S_M - I}\Lsim N^{-a}\to 0
 $$
 
-therefore the inclusion map can be approximated by finite-rank operators in the strong topology, and $I$ is compact.
+$I$ is compact.
 
 </div>
 <div class="theorem-box" markdown=1 name="">
@@ -1085,7 +1085,7 @@ $$
 \sum_{k\in\mathbb{Z}}\hat{f}(k)E_k\quad\text{converges absolutely, uniformly to some }g\in C(S^1)
 $$
 
-so $f$ (viewed as an a.e class of functions) admits a continuous representative. Furthermore, all the weak-derivatives of $f$ exist (up to order $k$) and are continuous, by a "well known result" - there exists a unique $C^k$ representative of $f$, whose ordinary derivatives represent the corresponding weak derivatives of $f$.
+so $f$ (viewed as an a.e class of functions) admits a continuous representative. Furthermore, all the weak-derivatives of $f$ exist (up to order $k$) and are continuous, by the previous section - there exists a unique $C^k$ representative of $f$, whose ordinary derivatives represent the corresponding weak derivatives of $f$.
 
 The $M$-test also gives us the estimate:
 

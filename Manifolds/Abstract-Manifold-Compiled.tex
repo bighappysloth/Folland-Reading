@@ -69,7 +69,7 @@ If $p\in (U,\varphi)$, we write $\hat{p}$ for $\varphi(p)$ if there is no room f
 \begin{wts}
     If $U$ is an open subset of a $C^p$ manifold $X$, then $U$ is a $C^p$ manifold whose structure is determined by the atlas
     \begin{equation}\label{eq:open-subset-atlas}
-    \bigset{(V,\varphi) \text{ in the structure of }X,\: V\subseteq U}
+    \bigset{(V,\varphi) \text{ in the structure of }X,\:\text{where} V\subseteq U}
     \end{equation}
 \end{wts}
 \begin{proof}
@@ -90,11 +90,10 @@ The map defined in \cref{eq:smoothness} is called the \emph{coordinate represent
 \end{remark}
 
 % Motivation for the definition of smoothness
-\Cref{def:smoothness} may leave one unsatisfied with the definition for smoothness between manifolds. The first question that comes to mind is: why do we require the image $F(U)$ be contained in another chart domain in $Y$? Two main reasons:
-
+\Cref{def:smoothness} may leave one unsatisfied. A common question that comes to mind is: why do we require the image $F(U)$ be contained in another chart domain in $Y$? The requirement that $F(U)$ must be contained in a single chart domain of $Y$ is a relic of the original definition.
 \begin{enumerate}
-    \item It is easily verified that the $C^p$ maps between open subsets of Banach spaces satisfy the usual functoral properties in its category. The definition of smoothness between Banach spaces is a purely local one, and it is defined between open subsets; and recall: every chart domain $U$ in a manifold $X$ corresponds to an open subset $\hat{U}\subseteq E$ in the model space. The requirement that $F(U)$ must be contained in a single chart domain of $Y$ is a relic of the original definition.
-    \item Suppose $f$ is a map between $E$ and $F$, and the restriction of $f$ onto a family of open subsets $U_{\alpha}\subseteq E$ is $C^p$ for $p\geq 0$. If $\{U_\alpha\}$ is an open cover for $E$, then $f$ is continuous. \Cref{prop:smoothness-implies-cont-functorality} shows this equally holds for manifolds.
+    \item First, it is easily verified that the $C^p$ maps between open subsets of Banach spaces satisfy the usual functoral properties in its category. The definition of smoothness between Banach spaces is a purely local one, and it is defined between open subsets; and recall: every chart domain $U$ in a manifold $X$ corresponds to an open subset $\hat{U}\subseteq E$ in the model space. 
+    \item Second, suppose $f$ is a map between $E$ and $F$, and the restriction of $f$ onto a family of open subsets $U_{\alpha}\subseteq E$ is $C^p$ for $p\geq 0$. If $\{U_\alpha\}$ is an open cover for $E$, then $f$ is continuous. \Cref{prop:smoothness-implies-cont-functorality} shows this equally holds for manifolds.
 \end{enumerate}
 
 %
@@ -111,8 +110,8 @@ The map defined in \cref{eq:smoothness} is called the \emph{coordinate represent
 
     $F_2(F_1(p))$ induces another pair of charts $(V_i,\psi_i)\in X_i$ for $i=2,3$. Since $F_2$ is smooth, it is continuous. $F_1^{-1}\circ F_2^{-1}(V_3)$ is open in $X_1$, and we can shrink all of our charts so that $F_2F_1(U_1)$ is contained in $V_3$. Finally, because $C^p$ morphisms between open subsets of Banach spaces is closed under composition, $F_{U_1\cap F_1^{-1}F_2^{-1}(V_3), V_3}$ is smooth.
 \end{proof}
-\begin{remark}
-    To conclude this section, manifolds hereinafter will be assumed of class $C^p$, where $p\geq 1$. 
+\begin{remark}[Concluding remarks]
+    Manifolds hereinafter will be assumed of class $C^p$, where $p\geq 1$. If $(U,\varphi)$ is a chart in the structure of $X$, we will simply say $(U,\varphi)$ is in $X$; or $(U)$ is in $X$.
 \end{remark}
 \topheader{Tangent spaces}
 The next question that we will address is taking derivatives of smooth maps between manifolds. There is no reason to demand $C^p$ smoothness between maps, or even a $C^p$ category of manifolds if we cannot borrow something 'more' other than the morphisms on open sets.\\
@@ -203,7 +202,7 @@ Every finite dimensional or finite codimensional linear subspace of $E$ splits. 
 \end{remark}
 If $\lambda\in L(E,F)$ is injective, we would like to describe the situation where we can think $E$ being toplinearly isomorphic to its range, similar to the matrix canonical form $\begin{bmatrix}I_{k} & 0_{k\times (n-k)} \end{bmatrix}$.
 \begin{definition}[Splitting in $L(E,F)$]\label{def:splitting-clm}
-A continuous, injective linear map $\lambda\in L(E,F)$ \emph{splits} if there exists a toplinear isomorphism $\alpha: F\to F_1\times F_2$ such that $\lambda$ composed with $\alpha$ induces a toplinear isomorphism. 
+A continuous, injective linear map $\lambda\in L(E,F)$ \emph{splits} if there exists a toplinear isomorphism $\alpha: F\to F_1\times F_2$ such that $\lambda$ composed with $\alpha$ induces a toplinear isomorphism from $E$ onto $F_1\times 0$ - which we identify with $F_1$.
 \end{definition}
 Before we state the definition of a submanifold, it is important to recapitulate the construction of a manifold $X$.
 \begin{enumerate}
@@ -214,13 +213,13 @@ Before we state the definition of a submanifold, it is important to recapitulate
 \end{enumerate}
 In the spirit of borrowing objects and properties from existing objects, it makes sense a submanifold $S$ should be modelled a linear subspace of $E_1$ of $E$. The natural charts we can borrow from the structure of $X$ are those with the 'other coordinates' muted. If $(U,\varphi)$ is a chart whose domain intersects $S$, the restriction of $\varphi$ onto $U\cap S$ should be in bijection with an open subset of $E_1$. 
 \begin{equation}\label{eq:motivation-submanifold}
-    \varphi(S\cap U) = V_1\times ?,\quad V_1\osub E_1
+    \varphi(S\cap U) = U_1\times ?,\quad U_1\osub E_1
 \end{equation}
-However, $\varphi$ is a $C^p$ isomorphism onto $\hat{U}$, and it is not hard to see that the restriction we must place on $E_1$ is that \textbf{it must split in $E$}. Let $\alpha$ be a $C^p$ isomorphism between $E$ and $E_1\times E_2$. \Cref{eq:motivation-submanifold} becomes
+There is a problem with \cref{eq:motivation-submanifold} however, $\varphi$ is a $C^p$ isomorphism onto $\hat{U}$; not onto open subsets of the product space $E_1\times E_2$. An easy fix to this would be to require $E_1$ \textbf{to split in $E$} (and perhaps shrinking the domain of $\varphi$ by a basis argument). Let $\alpha$ be a $C^p$ isomorphism between $E$ and $E_1\times E_2$. \Cref{eq:motivation-submanifold} becomes
 \begin{equation}\label{eq:motivation-submanifold-modified}
-    \alpha\varphi(S\cap U) = V_1\times a_2\qqtext{where} V_1\osub E_1 \text{ and }a_2\in E_2
+    \alpha\varphi(S\cap U) = U_1\times a_2\qqtext{where} V_1\osub E_1 \text{ and }a_2\in E_2
 \end{equation}
-Identifying $\hat{U}$ with $\alpha(\hat{U})$, we arrive at the following defintion.
+Identifying $\hat{U}$ with $\alpha(\hat{U})$, and requiring $U_1\times a_2$ to be in $\alpha(\hat{U})$, we arrive at the following definition.
 \begin{definition}[Submanifold]
     Let $X$ be a manifold, and $S$ a subset of $X$. We call $S$ a \emph{submanifold} of $X$ if there exist split subspaces $E_1$, $E_2$ of $E$; such that, every $p\in S$ is contained in the domain of some chart $(U,\varphi)$ in $X$. Where
     \begin{equation}\label{eq:submanifold-slice-chart-splits}

@@ -45,19 +45,17 @@ If $p\in (U,\varphi)$, we write $\hat{p}$ for $\varphi(p)$ if there is no room f
     $[A]$ is the maximal subset of $\Omega$ that contains $A$ as a subset, that is also a subset of an equivalence class (namely, itself).
 \end{note}
 
-\begin{definition}[Structure determined by an atlas]
+\begin{definition}[Structure determined by an atlas]\label{def:structure-of-manifold}
     The maximal atlas that contains $\mathcal{A}$ as a subset is called the \emph{$C^p$ structure determined by $\mathcal{A}$}. This maximal atlas is unique, by \cref{note:equivalence-relation-descends}.
 \end{definition}
-\begin{definition}[Manifold]
+\begin{definition}[Manifold]\label{def:manifold}
     A \emph{$C^p$ manifold modelled on $E$} is a non-empty set $X$ with a $C^p$ structure modelled on $E$. We sometimes refer to the manifold as the smooth structure, rather than the set $X$ itself. $\operatorname{Man}^p$ refers to the \emph{category of $C^p$ manifolds}.
 \end{definition}
 \begin{wts}[$E$ is a manifold]
     Let $p\geq 1$. The identity map $\id{E}: E\to E$ defines an atlas on $E$, which determines a structure called the \emph{standard $C^p$ structure on $E$} or \emph{standard structure on $E$} if the class of morphisms is understood.\\
-
-    Furthermore, open subsets of $E$ are manifolds as well.
 \end{wts}
 
-\begin{wts}[Topology is unique on a manifold]
+\begin{wts}[Topology is unique on a manifold]\label{def:topology-unique-on-manifold}
     Let $X$ be a manifold modelled on $E$, it has a unique topology such that the domain for each chart in its smooth structure is open, and each chart is a homeomorphism onto its range (with respect to the subspace topology of $E$).
 \end{wts}
 \begin{proof}
@@ -66,8 +64,17 @@ If $p\in (U,\varphi)$, we write $\hat{p}$ for $\varphi(p)$ if there is no room f
     There is an alternate way of thinking about this 'induced topology'. Given a chart domain, there exists a unique coarsest topology such that all charts with the same chart domain are homeomorphisms onto their images. We can stitch these weak topologies together to form a ambient topology on $X$, as the chart domains cover $X$.
 \end{proof}
 \begin{remark}
-    The topology generated is not necessarily Hausdorff, nor second countable. So $X$ may not admit partitions of unity, but for our current purposes we will work with this general definition.
+    The topology generated is not necessarily Hausdorff, nor second countable. So $X$ may not admit partitions of unity, but for our current purposes we will work with this general definition. Because of the uniqueness of the topology, we sometimes refer to the topology as being part of the \emph{structure} of the manifold.
 \end{remark}
+\begin{wts}
+    If $U$ is an open subset of a $C^p$ manifold $X$, then $U$ is a $C^p$ manifold whose structure is determined by the atlas
+    \begin{equation}\label{eq:open-subset-atlas}
+    \bigset{(V,\varphi) \text{ in the structure of }X,\: V\subseteq U}
+    \end{equation}
+\end{wts}
+\begin{proof}
+    The smooth structure of $X$ includes all possible restrictions to open sets; hence the set in \cref{eq:open-subset-atlas} defines an atlas, and a unique structure by \cref{def:structure-of-manifold}.
+\end{proof}
 \topheader{Morphisms in $\operatorname{Man}^p$}
 \begin{definition}[$C^p$ morphisms between manifolds]\label{def:smoothness}
 Let $X$ and $Y$ be $C^p$ manifolds over the spaces $E$ and $F$. A map $F: X\to Y$ is a morphism in $\operatorname{Man}^p$ if for every $p\in X$, there exists charts $(U,\varphi)$ in $X$ and $(V,\psi)$ in $Y$ such that the image $F(U)$ is contained in $V$, and the conjugation of $F$ with respect to the two charts is $C^p$ smooth between open subsets of Banach spaces.
@@ -146,7 +153,7 @@ From \cref{eq:concrete-tangent-vector-relation}, since $D\varphi_{1,2}(x)$ is a 
 \end{definition}
 
 \begin{definition}[Differential of a morphism]
-    
+    Let $X$ and $Y$ be modelled on the spaces $E$ and $F$. If $g$ be a morphism between $X$ and $Y$, the \emph{differential of $g$ at $p$} is the unique linear map $dg_p: T_p X\to T_{g(p)} Y$. For any tangent vector $v_p$ at $p$ that admits a representative in $(U,\varphi,p,v)$. The concrete vector $(V,\psi,g(p), Dg_{U,V}(\hat{p})(v))$ represents $dg_p(v_p)$, where $(U)$ and $(V)$ satisfy the morphism condition in \cref{eq:smoothness} about $p$.
 \end{definition}
 \begin{note}[Interpretation using co-product]
     There is another way of interpreting the construction above. Each concrete tangent space is toplinearly isomorphic to $E$, the projection maps onto $\{p\}$ and $E$ can be glued together using the universality of the coproduct, where $\{p\}$ is interpreted as a $0$-dimensional vector space. The construction of $T_pM$ follows by invoking the property of the quotients.
@@ -156,4 +163,75 @@ From \cref{eq:concrete-tangent-vector-relation}, since $D\varphi_{1,2}(x)$ is a 
 % (U_1,v_1)\sim (U_2,v_2)\qqtext{and}(U_1,w_1)\sim(U_2,w_2), then their difference and their dilations will be \sim as well.
 % So, DF_{, V} is well defined, and is the unique linear map by the property of the quotients.
 % on the side of the codomain, we just have to compose DF_{, V} with the map that sends each concrete tangent vector to its abstract tangent vector. This map is linear.
+
+
+
+\fchapter{2: Submanifolds}
+% Let X be a topological space, a subset $S\subseteq X$ is locally closed if every point $p\in S$ admits a neighbourhood $U\osub X$ such that $U\cap S$ is closed in $U$.
+
+%wts: all locally closed sets are the intersection of a closed set and an open set.
+
+% Let U_\alpha cover our locally closed S, such that U_\alpha\cap S is a closed subset of $U_\alpha$, so that $U_\alpha\setminus S$ is open in $U_\alpha$. Since $U_\alpha$ is open (Munkres Lemma 16.2) implies $U_\alpha\setminus S$ is open in $X$.
+
+% Take the union over all such $U_\alpha\setminus S$, since $U_\alpha$ covers $S$. Denote $\bigcup U_\alpha = U$. And $U\setminus S$ is open in $X$. Its complement relative to $X$ is closed. And
+
+% X\setminus (U\setminus S) = U^c + S is closed in $X$. 
+% Take the intersection with $U$, which is an open subset of $X$,
+% U\cap [X\setminus (U\setminus S)] = U\cap (U^c + S) = U\cap S = S
+% Therefore $S$ is the intersection between an open set and a closed set.
+
+% Embedded submanifolds are precisely the subsets of a manifold $X$ where we can pull existing charts (if we can 'drop' some of the coordinates) from the smooth structure of $M$. Since these charts cover $S$, it defines an atlas: and the uniqueness of the structure (which includes the topology) follows.
+
+% Lang: Fix a manifold $X$ (of class $C^k$), and a subset $S\subseteq X$. For every $p\in S$, we can find a chart $(U,\varphi)$ in the structure of $X$ containing the point $p$, such that
+
+% U is isomorphic, through \varphi to a product manifold $V_1\times V_2$. Where $V_i$ are open subsets of Banach space $E_i$. And that
+
+% \varphi(U\cap S) = V_1\times {a_2}, where $a_2$ is some point in $V_2$. So $U\cap S$ belongs precisely to some fiber. The isomorphism above should be interpreted in the $C^k$ manifold sense. 
+
+%Because open subsets of Banach spaces are submanifolds. (have we proven this yet?)
+
+% Lee interpretation: 
+% Theorem 5.16: every embedded submanifold is locally a levle set. A subset $S\subseteq X$ is an embedded submanifold if and only fi for every $p\in S$ there exists a chart in the smooth structure on $$ such tht $U\cap S$ is precisely a level set of a morphism $f_{U\cap S}$ with codomain $\real^{n-k}$. In this case we say $S$ is an embedded submanifold of dimension $k$.
+
+% The dimension of the codomain of the local defining function of the embedded submanifold is the codimension of the embedded submanifold
+\topheader{Splitting}
+\begin{definition}[Splitting in $E$]\label{def:splitting-subspace}
+Let $E_1$, and $E_2$ be closed, vector subspace complements of each other in $E$; this means . $E_1 + E_2 = E$, $E_1\cap E_2 = 0$. If the addition map $(\cdot,\cdot): E_1\times E_2\to E$ is a toplinear isomorphism $(x,y)\mapsto x + y$ then we say $E_i$ \emph{splits} in $E$.    
+\end{definition}
+\begin{remark}
+Every finite dimensional or finite codimensional linear subspace of $E$ splits. If $E$ is finite dimensional, then every linear subspace splits.    
+\end{remark}
+If $\lambda\in L(E,F)$ is injective, we would like to describe the situation where we can think $E$ being toplinearly isomorphic to its range, similar to the matrix canonical form $\begin{bmatrix}I_{k} & 0_{k\times (n-k)} \end{bmatrix}$.
+\begin{definition}[Splitting in $L(E,F)$]\label{def:splitting-clm}
+A continuous, injective linear map $\lambda\in L(E,F)$ \emph{splits} if there exists a toplinear isomorphism $\alpha: F\to F_1\times F_2$ such that $\lambda$ composed with $\alpha$ induces a toplinear isomorphism. 
+\end{definition}
+Before we state the definition of a submanifold, it is important to recapitulate the construction of a manifold $X$.
+\begin{enumerate}
+    \item Given a non-empty set $X$ and an atlas modelled on a space $E$.
+    \item The purpose of each chart in the atlas is to borrow open subsets $\hat{U}\osub E$. If we single out a single chart, \textbf{the construction is entirely topological}. It is of little importance \emph{how} the individual chart domains $U$ are mapped onto $\hat{U}$,
+    \item Each chart is in \textbf{bijection with its range}, which is an open subset of $E$, and
+    \item the transition maps $\varphi_{\beta\alpha^{-1}}$ are \textbf{morphisms between open subsets of $E$}.
+\end{enumerate}
+In the spirit of borrowing objects and properties from existing objects, it makes sense a submanifold $S$ should be modelled a linear subspace of $E_1$ of $E$. The natural charts we can borrow from the structure of $X$ are those with the 'other coordinates' muted. If $(U,\varphi)$ is a chart whose domain intersects $S$, the restriction of $\varphi$ onto $U\cap S$ should be in bijection with an open subset of $E_1$. Hence
+\[
+    \varphi(S\cap U) = V_1\times ?\quad V_1\osub E_1
+\]
+
+1) As with the formation of the manifold, which is based on open sets of a model Banach space \(E\), our open sets in \(S\subseteq X\) must be judiciously selected.
+2) We aim to structure \(S\) so it inherits the subspace topology of \(X\).
+3) The model space for \(S\) requires selection such that a form of linear injection exists, at least locally.
+4) Our chosen charts for \(S\) must be consistent, ensuring we don't make unnecessary modifications; excessive changes might mandate proofs of \(C^p\) compatibility.
+5) In line with the primary definition of the manifold, the potential atlas for \(S\) should be formed of charts bijectively mapping to open subsets of Banach space \(E_1\).
+\begin{definition}[Submanifold]
+    Let $X$ be a manifold, and $S$ a subset of $X$. We call $S$ a \emph{submanifold} of $X$ if there exist split subspaces $E_1$, $E_2$ of $E$; such that, every $p\in S$ is contained in the domain of some chart $(U,\varphi)$ in $X$. Where
+    \begin{equation}\label{eq:submanifold-slice-chart-splits}
+        \varphi: U\to \hat{U}\cong U_1\times U_2,\qqtext{where} U_i\osub E_i\: i=1,2
+    \end{equation}
+    and there exists an element $a_2\in U_2$
+    \begin{equation}\label{eq:submanifold-slice-chart-level-set}
+        \varphi(U\cap S) = V_1\times a_2
+    \end{equation}
+\end{definition}
+
+
 \end{document}

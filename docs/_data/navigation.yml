@@ -60,9 +60,14 @@ docs-en:
         url: latex/2023/05/11/useful-latex-resources.html
       - title: Analysis Links
         url: math/2023/05/18/useful-links.html
+  - title: Active Projects
+    children:
       - title: Hamiltonian Dynamics
         url: math/2023/08/22/hamiltonian-dynamics-homepage.html
-
+      - title: Quick introduction to manifolds
+        url: /download/Abstract-Manifold-Compiled.pdf
+      - title: Calculus on Banach Spaces
+        url: /download/Calculus-on-Banach-Spaces-Compiled.pdf
   - title: Folland
     children:
       - title: New Errata

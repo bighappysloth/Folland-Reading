@@ -1,7 +1,7 @@
 \documentclass[../main-manifolds.tex]{subfiles}
 
 \begin{document}
-\fchapter{1: Construction of the Manifold}
+\fchapter{1: Manifolds}
 \topheader{The structure of a manifold}
 It is fruitful to \emph{construct} the manifold rather than \emph{define} it. We also insist on working with open sets of Banach spaces instead coordinate functions as our primary data.\\
 
@@ -18,15 +18,11 @@ We will be working in the category of $C^p$ Banach spaces (all Banach spaces are
     \end{itemize}
     It should be clear that compatibility is an equivalence relation on the space of charts of $X$ (that are modelled on $E$).
 \end{definition}
-\begin{remark}
-    We sometimes omit the \emph{model space} $E$ if it is understood.
-\end{remark}
-
 \begin{definition}[Atlas]\label{def:atlas}
-    A \emph{$C^p$ atlas} on a non-empty set $X$ modelled on $E$ is a pairwise $C^p$ compatible collection of charts $\{(U_\alpha,\varphi_\alpha)\}$ whose union over the domains cover $X$.
+    Let $X$ be a non-empty set. A \emph{$C^p$ atlas on $X$ modelled on $E$} is a pairwise $C^p$ compatible collection of charts $\{(U_\alpha,\varphi_\alpha)\}$ whose union over the domains cover $X$.
 \end{definition}
-\begin{remark}
-    If we are working 'in category' we sometimes say two charts are \emph{compatible} or even \emph{smoothly compatible} to mean that they are $C^p$ compatible. This comes from the viewpoint that when we work in the category of $C^p$ manifolds, being smoother than $C^p$ is simply 'smooth enough'.
+\begin{remark}[Omissions]
+    If the \emph{model space} \( E \) is implied, we will not explicitly reference it. When operating 'within category', we might refer to two charts as \emph{compatible} or \emph{smoothly compatible}, implying they are $C^p$ compatible. This comes from the perspective that, in the context of $C^p$ manifolds, any smoothness exceeding $C^p$ is deemed sufficiently smooth for our purposes.
 \end{remark}
 
 Let $X$ be a non-empty set, equipped with a $C^p$ atlas $\{(U_\alpha,\varphi_\alpha)\}$ modelled on $E$. If $\alpha$ and $\beta$ both index the atlas, we write  $U_{\alpha\beta} = U_{\alpha}\cap U_{\beta}$.\\
@@ -37,12 +33,12 @@ Suppose $U_{\alpha\beta}$ is non-empty. Then, (by definition) the images $\varph
     \varphi_{\beta}\circ\varphi_{\alpha}^{-1}=\varphi_{\beta\alpha^{-1}}: \varphi_{\alpha}(U_{\alpha\beta})\to\varphi_{\beta}(U_{\alpha\beta})
 \end{equation}
 
-If $p\in (U,\varphi)$, we write $\hat{p}$ for $\varphi(p)$ if there is no room for ambiguity. From \Cref{def:compatibility,def:atlas}, the compatibility relation on charts descends into a compatibility relation on the space of atlases , whose properties are summarized in the following note.
+If $p\in (U,\varphi)$, we write $\hat{p}$ for $\varphi(p)$ if there is no room for ambiguity. From \Cref{def:compatibility,def:atlas}, the compatibility relation on charts descends into a compatibility relation on the space of atlases, whose properties are summarized in the following note.
 
-\begin{note}\label{note:equivalence-relation-descends}
-    Let $\Omega$ be a non-void set equipped with an equivalence relation $\sim$. Then, $\sim$ descends into an equivalence relation onto the set of all subsets of equivalence classes of $\Omega$. Suppose $A$ and $B$ are both subsets of an equivalence class $[A]$ and $[B]$ respectively. Then $A\sim B$ iff for every $x\in A$, and $y\in B$ implies $x\sim y$ iff $A\cup B$ is also a subset of an equivalence class iff $[A]\sim[B]$.\\
-
-    $[A]$ is the maximal subset of $\Omega$ that contains $A$ as a subset, that is also a subset of an equivalence class (namely, itself).
+\begin{note}[Descent of an equivalence relation]\label{note:equivalence-relation-descends}
+    Let \( \Omega \) be a non-empty set with an associated equivalence relation \( \sim \). This relation \( \sim \) induces another equivalence relation on the set containing all subsets of equivalence classes from \( \Omega \). Suppose \( A \) and \( B \) are subsets of the equivalence classes \( [A] \) and \( [B] \) respectively. The condition \( A \sim B \) holds if and only if for all elements \( x \) in \( A \) and \( y \) in \( B \), \( x \sim y \).\\
+    
+     This is equivalent to stating that the union \( A \cup B \) lies entirely within some equivalence class, and further, that \( [A] \sim [B] \). The class \( [A] \) represents the largest subset of \( \Omega \) that is entirely contained within a single equivalence class (namely $[A]$ itself) and contains $A$ as a subset.
 \end{note}
 
 \begin{definition}[Structure determined by an atlas]\label{def:structure-of-manifold}
@@ -63,13 +59,13 @@ If $p\in (U,\varphi)$, we write $\hat{p}$ for $\varphi(p)$ if there is no room f
 
     There is an alternate way of thinking about this 'induced topology'. Given a chart domain, there exists a unique coarsest topology such that all charts with the same chart domain are homeomorphisms onto their images. We can stitch these weak topologies together to form a ambient topology on $X$, as the chart domains cover $X$.
 \end{proof}
-\begin{remark}
+\begin{remark}[Not necessarily Hausdorff]
     The topology generated is not necessarily Hausdorff, nor second countable. So $X$ may not admit partitions of unity, but for our current purposes we will work with this general definition. Because of the uniqueness of the topology, we sometimes refer to the topology as being part of the \emph{structure} of the manifold.
 \end{remark}
-\begin{wts}
+\begin{wts}[Open subsets of manifolds]\label{prop:open-subsets-of-manifolds}
     If $U$ is an open subset of a $C^p$ manifold $X$, then $U$ is a $C^p$ manifold whose structure is determined by the atlas
     \begin{equation}\label{eq:open-subset-atlas}
-    \bigset{(V,\varphi) \text{ in the structure of }X,\:\text{where} V\subseteq U}
+    \bigset{(V,\varphi) \text{ in the structure of }X,\:\text{where } V\subseteq U}
     \end{equation}
 \end{wts}
 \begin{proof}
@@ -83,10 +79,10 @@ Let $X$ and $Y$ be $C^p$ manifolds over the spaces $E$ and $F$. A map $F: X\to Y
     F_{U,V}\defined \psi F \varphi^{-1} \in C^p(\hat{U},\hat{V})    
 \end{equation}
 
-The map defined in \cref{eq:smoothness} is called the \emph{coordinate representation of $F$}.
+The map defined in \cref{eq:smoothness} is called the \emph{coordinate representation of $F$} with respect to the charts $(U,\varphi), (V,\psi)$.
 \end{definition}
 \begin{remark}
-    We have deliberately omitted the phrase 'with respect to the charts $(U,\varphi), (V,\psi)$', and the subscript in $F_{U,V}$ should indicate that the charts themselves are not important. Rather we should focus our attention on the chart domains. We also say $F_{U,V}$ is a coordinate representation about $p$ for brevity. Consistent with our notation for the chart domains and $\hat{p}$, we write $\hat{F} = F_{U,V}$ where $U,V$ are suitably chosen.
+Consistent with our notation for the chart domains and $\hat{p}$, we write $\hat{F} = F_{U,V}$ for suitably chosen charts $(U,\varphi)$, $(V,\psi)$ in the respective structures. If we wish to place less emphasis on the specific charts, we say $\hat{F}$ is a coordinate representation \emph{about} $p$. 
 \end{remark}
 
 % Motivation for the definition of smoothness
@@ -114,17 +110,17 @@ The map defined in \cref{eq:smoothness} is called the \emph{coordinate represent
     Manifolds hereinafter will be assumed of class $C^p$, where $p\geq 1$. If $(U,\varphi)$ is a chart in the structure of $X$, we will simply say $(U,\varphi)$ is in $X$; or $(U)$ is in $X$.
 \end{remark}
 \topheader{Tangent spaces}
-The next question that we will address is taking derivatives of smooth maps between manifolds. There is no reason to demand $C^p$ smoothness between maps, or even a $C^p$ category of manifolds if we cannot borrow something 'more' other than the morphisms on open sets.\\
+The next question that we will address is taking derivatives of smooth maps between manifolds. There is no reason to demand $C^p$ smoothness between maps, or even a $C^p$ category of manifolds if we cannot borrow something more other than the morphisms on open sets.\\
 
 Suppose $U$ is an open subset of $E$ and $f: U\to Y$ is $C^p$ for $p\geq 1$. The derivative $Df(x)$ is a linear map $E\to F$, not from $U$ to $F$ ($U$ might not even be a vector space). This suggests the 'derivative' of a morphism $F: X\to Y$ between manifolds can in some sense be interpreted as the \emph{ordinary derivative} of its coordinate representation $DF_{U,V}(\hat{p})$, adhering to our principle of using open sets.\\
 
-But there is a problem with this 'derivative': it is a chart dependent interpretation of the derivative. With infinitely many charts in $X$ and $Y$, this definition becomes useless. To see this, let $X$ be a manifold modelled on $E$ and $p\in X$. If $g: X\to Y$ is a morphism, and $(U_1,\varphi_1)$, $(U_2,\varphi_2)$ are charts defined about $p$ such that the representations $g_{U_1, V}$ and $g_{U_2, V}$ are morphisms. Writing $p_i = \varphi_i p$, and $\varphi_{1,2}=\varphi_2\varphi_{1}^{-1}$ (because it goes from the domain $U_1$ to $U_2$), a simple computation yields
+But there is a problem with this 'derivative': it gives different values for different charts. With infinitely many charts in $X$ and $Y$, this definition becomes useless. To see this, let $X$ be a manifold modelled on $E$ and $p\in X$. If $g: X\to Y$ is a morphism, and $(U_1,\varphi_1)$, $(U_2,\varphi_2)$ are charts defined about $p$ such that the representations $g_{U_1, V}$ and $g_{U_2, V}$ are morphisms. Writing $p_i = \varphi_i p$, and $\varphi_{1,2}=\varphi_2\varphi_{1}^{-1}$ (because it goes from the domain $U_1$ to $U_2$), a simple computation yields
 \begin{align}
     Dg_{U_1, V}(p_1)(v) &= D(\psi g \varphi_2^{-1}\varphi_2\varphi_1^{-1})(p_1)(v) \nonumber\\
     &= Dg_{U_2,V}(p_2)\biggl(D\varphi_{1,2}(p_1)(v)\biggr)\nonumber\\
     &= Dg_{U_2,V}(p_2)\circ D\varphi_{1,2}(p_1)\cdot (v)\label{eq:tangent-space-quotient-motivation}
 \end{align}
-where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left associative over composition. The computation in \cref{eq:tangent-space-quotient-motivation} suggests that interpreting the derivative by pre-conjugation is dependent on the chart being used to interpret the derivative. In fact, $D\varphi_{1,2}(p_1)$ can be replaced with any toplinear isomorphism on $E$ (relabel $\varphi_2 = A\varphi_1$ where $A\in\operatorname{Laut(E)}$), so the right hand side of \cref{eq:tangent-space-quotient-motivation} can be interpreted as $Dg_{U_2,V}(p_2)(w)$ where $w$ is any vector in $E$. 
+where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left associative over composition. The computation in \cref{eq:tangent-space-quotient-motivation} suggests that interpreting the derivative by pre-conjugation is dependent on the chart being used to interpret the derivative. In fact, $D\varphi_{1,2}(p_1)$ can be replaced with any toplinear isomorphism on $E$ (relabel $\varphi_2 = A\varphi_1$ where $A$ is any linear automorphism on $E$), so the right hand side of \cref{eq:tangent-space-quotient-motivation} can be interpreted as $Dg_{U_2,V}(p_2)(w)$ where $w$ is any vector in $E$. 
 
 \begin{definition}[Concrete tangent vector]
     Let $X$ be a manifold on $E$, and $p\in X$. If $(U,\varphi)$ is any chart containing $p$, for each $v\in E$ we call $(U,\varphi,p,v)$ a \emph{concrete tangent vector at $p$} that is \emph{interpreted} with respect to the chart $(U,\varphi)$. The disjoint union of
@@ -165,7 +161,7 @@ From \cref{eq:concrete-tangent-vector-relation}, since $D\varphi_{1,2}(x)$ is a 
 
 
 
-\fchapter{2: Submanifolds}
+% \fchapter{2: Submanifolds}
 % Let X be a topological space, a subset $S\subseteq X$ is locally closed if every point $p\in S$ admits a neighbourhood $U\osub X$ such that $U\cap S$ is closed in $U$.
 
 %wts: all locally closed sets are the intersection of a closed set and an open set.
@@ -193,6 +189,8 @@ From \cref{eq:concrete-tangent-vector-relation}, since $D\varphi_{1,2}(x)$ is a 
 % Theorem 5.16: every embedded submanifold is locally a levle set. A subset $S\subseteq X$ is an embedded submanifold if and only fi for every $p\in S$ there exists a chart in the smooth structure on $$ such tht $U\cap S$ is precisely a level set of a morphism $f_{U\cap S}$ with codomain $\real^{n-k}$. In this case we say $S$ is an embedded submanifold of dimension $k$.
 
 % The dimension of the codomain of the local defining function of the embedded submanifold is the codimension of the embedded submanifold
+
+
 \topheader{Splitting}
 \begin{definition}[Splitting in $E$]\label{def:splitting-subspace}
 Let $E_1$, and $E_2$ be closed, vector subspace complements of each other in $E$; this means . $E_1 + E_2 = E$, $E_1\cap E_2 = 0$. If the addition map $(\cdot,\cdot): E_1\times E_2\to E$ is a toplinear isomorphism $(x,y)\mapsto x + y$ then we say $E_i$ \emph{splits} in $E$.    
@@ -204,6 +202,7 @@ If $\lambda\in L(E,F)$ is injective, we would like to describe the situation whe
 \begin{definition}[Splitting in $L(E,F)$]\label{def:splitting-clm}
 A continuous, injective linear map $\lambda\in L(E,F)$ \emph{splits} if there exists a toplinear isomorphism $\alpha: F\to F_1\times F_2$ such that $\lambda$ composed with $\alpha$ induces a toplinear isomorphism from $E$ onto $F_1\times 0$ - which we identify with $F_1$.
 \end{definition}
+\topheader{Submanifolds}
 Before we state the definition of a submanifold, it is important to recapitulate the construction of a manifold $X$.
 \begin{enumerate}
     \item Given a non-empty set $X$ and an atlas modelled on a space $E$.
@@ -211,11 +210,11 @@ Before we state the definition of a submanifold, it is important to recapitulate
     \item Each chart is in \textbf{bijection with its range}, which is an open subset of $E$, and
     \item the transition maps $\varphi_{\beta\alpha^{-1}}$ are \textbf{morphisms between open subsets of $E$}.
 \end{enumerate}
-In the spirit of borrowing objects and properties from existing objects, it makes sense a submanifold $S$ should be modelled a linear subspace of $E_1$ of $E$. The natural charts we can borrow from the structure of $X$ are those with the 'other coordinates' muted. If $(U,\varphi)$ is a chart whose domain intersects $S$, the restriction of $\varphi$ onto $U\cap S$ should be in bijection with an open subset of $E_1$. 
+In the spirit of borrowing definitions and properties from existing objects, it makes (functoral) sense a submanifold $S$ should be modelled a linear subspace of $E_1$ of $E$. The natural charts we can borrow from the structure of $X$ are those with the 'other coordinates' muted. If $(U,\varphi)$ is a chart whose domain intersects $S$, the restriction of $\varphi$ onto $U\cap S$ should be in bijection with an open subset of $E_1$. 
 \begin{equation}\label{eq:motivation-submanifold}
     \varphi(S\cap U) = U_1\times ?,\quad U_1\osub E_1
 \end{equation}
-There is a problem with \cref{eq:motivation-submanifold} however, $\varphi$ is a $C^p$ isomorphism onto $\hat{U}$; not onto open subsets of the product space $E_1\times E_2$. An easy fix to this would be to require $E_1$ \textbf{to split in $E$} (and perhaps shrinking the domain of $\varphi$ by a basis argument). Let $\alpha$ be a $C^p$ isomorphism between $E$ and $E_1\times E_2$. \Cref{eq:motivation-submanifold} becomes
+There is a problem with \cref{eq:motivation-submanifold} however, $\varphi$ is a $C^p$ isomorphism onto $\hat{U}$; not onto open subsets of the product space $E_1\times E_2$. An easy fix to this would be to require $E_1$ \textbf{to split in $E$} (and shrinking $U$ using a basis argument). Let $\alpha$ be a $C^p$ isomorphism between $E$ and $E_1\times E_2$. \Cref{eq:motivation-submanifold} becomes
 \begin{equation}\label{eq:motivation-submanifold-modified}
     \alpha\varphi(S\cap U) = U_1\times a_2\qqtext{where} V_1\osub E_1 \text{ and }a_2\in E_2
 \end{equation}

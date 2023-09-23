@@ -206,16 +206,129 @@ We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L
 \end{definition}
 \begin{definition}[Differentiability]\label{def:differentiability}
     Let $f: E\to F$ be a map, replacing $E$ and $F$ by their open subsets if necessary. We say $f$ is \emph{differentiable} at $x\in E$ when there exists a \textbf{continuous linear map on $E$}: $\lambda\in L(E,F)$ such that
-    \begin{equation}\label{eq:differentiability-def}
+    \begin{equation}\label{eq:differentiability}
         f(x+h) = f(x) + \lambda h + o(h)\quad\text{for sufficiently small }h
     \end{equation}
     The role $o(h)$ plays here is a map from $U\to F$, where $U$ is some neighbourhood of $0$. 
 \end{definition}
-\begin{wts}
-    % If $f$ is differentiable at $x$, then the $\lambda$ in \cref{eq:differentiability-def} is unique. We write $f'(x) = Df(x) = \lambda$ as in \cref{eq:differentiability-def}. Furthermore, if $f'(x)$ and $g'(x)$ exist, then $(f+g)'(x) = f'(x) + g'(x)$ as linear maps, similar for scalar multiplication.
-    
+\begin{wts}[Basic properties of the derivative]\label{prop:basic-properties-of-derivative}
+    If $f$ is differentiable at $x$, then the $\lambda$ in \cref{eq:differentiability} is unique. We write $f'(x) = Df(x) = \lambda$ as in \cref{eq:differentiability-def}. Furthermore, if $f'(x)$ and $g'(x)$ exist, then $(f+g)'(x) = f'(x) + g'(x)$ as linear maps, similar for scalar multiplication.
 \end{wts}
-
+\begin{proof}
+    Suppose $\lambda_i\in L(E,F)$ are both derivatives of $f$ at $x$. Then,
+    \[
+        \begin{cases}
+        f(x+h) = f(x) + \lambda_1(h) + o(h)\\
+        f(x+h) = f(x) + \lambda_2(h) + o(h)
+        \end{cases}
+    \]
+    And $(\lambda_1 - \lambda_2)(h) = o(h) = \varphi(h)\cdot\abs{h}$, where $\varphi(h)\to 0$ as $h\to 0$. Using the operator norm, we see that
+    \[
+        \norm{\lambda_1-\lambda_2}_{L(E,F)}\leq \abs{\varphi(h)}\to 0
+    \]
+    This proves uniqueness. Suppose $f$ and $g$ are differentiable at $x$, denote $\lambda_f = f'(x)$ (resp. $g'(x)$). The definition of \cref{def:differentiability} reads
+    \begin{align}
+        f(x+h) + g(x+h) &= \qty(f(x) + g(x)) + \qty(\lambda_f(h) + \lambda_g(h)) + o(h) + o(h)\nonumber\\
+        (f + g)(x+h) &= (f+g)(x) + (\lambda_f + \lambda_g)(h) + o(h)\label{eq:differentiable-addition-eq}
+    \end{align}
+    since \cref{eq:differentiable-addition-eq} satisfies \cref{eq:differentiability}, the proof is complete.
+\end{proof}
+\begin{wts}[Chain rule]\label{prop:chain-rule}
+    Let $E, F, G$ be Banach spaces. If $f\in C^1(E,F)$, $g\in C^1(F,G)$, for every $x\in E$,
+    \begin{equation}\label{eq:chain-rule}
+        (g\circ f)'(x) = g'(f(x))\circ f'(x)
+    \end{equation}
+\end{wts}
+\begin{proof}
+    Since $f$ is differentiable at $x$, $f(x+h) = f(x) + f'(x)(h) + o_1(h)$, (resp. for $g$, $o_2(h)$). Set $k(h) = f(x+h) - f(x)$, and 
+    \begin{align}
+        g(f(x+h)) &= g(f(x)) + g'(f(x))(k(h)) + o_2(k(h))\\
+        &= g(f(x)) + g'(f(x))(f'(x)(h) + o_1(h)) + o_2(k(h))\\
+        (g\circ f)(x+h) &= (g\circ f)(x) + g'(f(x))\circ f'(x)(h) + g'(f(x))(o_1(h)) + o_2(k(h))
+    \end{align}
+        
+    
+\end{proof}
+\begin{wts}[Product rule in $k$ variables]\label{prop:product-rule-k-variables}
+    Let $m: \prod \UL{F}[k]\to G$ be a $k$-linear map between Banach spaces $\UL{F}[k]$ and $G$. Suppose $f_i\in C^1(E, F_i)$ with $i=\underline{k}$, writing 
+    \begin{equation}\label{eq:k-linear-multiplication-map-def}
+        m(\UL{f}[k])(x) = m(\UL{f}[k](x))
+    \end{equation}
+    then $m(\UL{f}[k])$ is in $C^1(E,G)$ and for every $y\in E$,
+    \begin{equation}\label{eq:k-linear-product-rule}
+        Dm(\UL{f}[k])(x)(y) = \sum_{i=\underline{k}}m(\UL{f}[i-1](x),Df_i(x)(y),\UL{f}[i+][k-i](x))
+    \end{equation}
+\end{wts}
+\begin{proof}
+    Let $x$ be fixed. \Cref{eq:k-linear-product-rule} is proven if we show \cref{eq:product-rule-k-variables-modified-equation}
+    \begin{equation}\label{eq:product-rule-k-variables-modified-equation}
+        m(\UL{f}[k])(x+h) = m(\UL{f}[k])(x) + \qty(\sum_{i=\underline{k}}m(\UL{f}[i-1](x), Df_i(x)(h),\UL{f}[i+][k-i](x))) + o(h)
+    \end{equation}
+    and for sufficiently small $h$ we have
+    \begin{equation}\label{eq:product-rule-k-variables-o(h)}
+        f_i(x+h) - f_i(x) = Df_i(x)(h) + o(h^i)
+    \end{equation}
+    We will use the difference formula in \cref{eq:k-linear-lemma-2}, with the following substitutions
+    \begin{align}
+        f_i(x+h) &= b^i & f_i(x) &=a^i\label{eq:product-rule-k-variables-sub-1}\\
+        Df_i(x)(h) &= c^i &  o(h^i)&=\varepsilon^i\label{eq:product-rule-k-variables-sub-2}\\
+        f_i(x+h) - f_i(x) &= c^i + \varepsilon^i & \Delta^i &= o(h^i) + c^i\label{eq:product-rule-k-variables-sub-3}
+    \end{align}
+    With these substitutions, the equation we want to prove (\cref{eq:k-linear-product-rule}) becomes \cref{eq:product-rule-k-variables-modified-k-linear}
+    \begin{equation}\label{eq:product-rule-k-variables-modified-k-linear}
+        m(\UPL{b}[k]) - m(\UPL{a}[k]) = \qty(\sum_{i=\underline{k}}m(\UPL{a}[i-1],c^i,\UPL{a}[i+][k-i])) + o(h)
+    \end{equation}
+    Starting from \cref{eq:k-linear-lemma-2}, 
+    \[
+    m(\UPL{b}[k]) - m(\UPL{a}[k]) = \sum_{i=\underline{k}}m(\UPL{b}[i-1],\Delta^i,\UPL{a}[i+][k-i])
+    \]
+    We can expand each term, if $i=\underline{k}$, 
+    \begin{equation}\label{eq:product-rule-k-variables-expand-1}
+        m(\UPL{b}[i-1],\Delta^i,\UPL{a}[i+][k-i]) = m(\UPL{b}[i-1],c^i,\UPL{a}[i+][k-i])+ m(\UPL{b}[i-1],o(h^i),\UPL{a}[i+][k-i])
+    \end{equation}
+    Let us study the first term in \cref{eq:product-rule-k-variables-expand-1}, and with $i$ held fixed, define
+    \begin{equation}\label{eq:product-rule-k-variables-m_i-function}
+        m_i(\UPL{z}[i-1]) = m(\UPL{z}[i-1],c_i,\UPL{a}[i+][k-i])
+    \end{equation}
+    Expanding the first term within \cref{eq:product-rule-k-variables-expand-1}, and because $m_i$ as defined in \cref{eq:product-rule-k-variables-m_i-function} is $i-1$-linear (because it is a $k$-linear map with $k-(i-1)$ variables held constant); we use \cref{eq:k-linear-lemma-2} again.
+    \begin{equation}\label{eq:product-rule-k-variables-expand-2}
+        m_i(\UPL{b}[i-1]) = \qty(\sum_{i=\underline{k}} m_i(\UPL{b}[j], \Delta^j, \UPL{a}[j+][(i-1)-j])) + m_i(\UPL{a}[i-1])
+    \end{equation}
+    Unboxing the last term in \cref{eq:product-rule-k-variables-expand-2} using the definition of $m_i$ reads
+    \begin{equation}\label{eq:product-rule-k-variables-expand-3}
+        m(\UPL{b}[i-1],\Delta^i,\UPL{a}[i+][k-i]) = m(\UPL{a}[i-1],c^i,\UPL{a}[i+][k-i]) + \sum_{j=\underline{i-1}}m_i(\UPL{b}[j],\Delta^j,\UPL{a}[j+][(i-1)-j])
+    \end{equation}
+    We wish to remove all of the $b^i$s. Since $\Delta^i = c^i + \varepsilon^i$ (\cref{eq:product-rule-k-variables-sub-3}), we have
+    \begin{align}
+        m(\UPL{b}[k]) - m(\UPL{a}[k]) &= \sum_{i=\underline{k}} m(\UPL{b}[i-1],c^i,\UPL{a}[i+][k-i]) + m(\UPL{b}[i-1],\varepsilon^i,\UPL{a}[i+][k-i])\nonumber\\
+        &= \qty(\sum_{i=\underline{k}}m_i(\UPL{b}[i-1])) + \sum_{i=\underline{k}}m(\UPL{b}[i-1],\varepsilon^i,\UPL{a}[i+][k-i])\nonumber\\
+        &= \qty(\sum_{i=\underline{k}} m_i(\UPL{a}[i-1]) + \sum_{j=\underline{i-1}}m_i(\UPL{b}[j-1],\Delta^{j},\UPL{a}[j+][(i-1)-j])) + \sum_{i=\underline{k}} m(\UPL{b}[i-1],\varepsilon^i,\UPL{a}[i+][k-i])\nonumber\\
+        &= \qty(\sum_{i=\underline{k}}m_i(\UPL{a}[i-1]))  + \sum_{\substack{i=\underline{k}\\ j=\underline{i-1}}} m_i(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j]) + \sum_{i=\underline{k}}m(\UPL{b}[i-1], \varepsilon^i,\UPL{a}[i+][k-i])\label{eq:product-rule-k-variables-expand-4}
+    \end{align}
+    The last term within \cref{eq:product-rule-k-variables-expand-4} is $o(h)$, since it is a linear combination of $o(h^i)$s. 
+    \begin{equation}\label{eq:product-rule-k-variables-last-term-o(h)}
+    \abs{\sum_{i=\underline{k}}m(\UPL{b}[i-1], \varepsilon^i,\UPL{a}[i+][k-i])}\Lsim_{m,a,b}\vert o(h)\vert
+    \end{equation}
+    Each summand in the second last term in \cref{eq:product-rule-k-variables-expand-4} is $o(h)$ as well, as
+    \begin{align}
+        \abs{m_i(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j])}&\leq\vert m_i\vert\bigoprod(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j])\nonumber\\
+        &\leq \abs{m}\cdot\qty(\bigoprod(c^i,\UPL{a}[i+][k-i]))\qty(\bigoprod(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j]))\nonumber\\
+        &\Lsim_{m,a,b}\sup_{\substack{i=\underline{k}\\ j = \underline{i-1}}}\abs{c^i}\cdot\abs{\Delta^j}\nonumber\\
+        &\Lsim_{m,a,b}\sup_{\substack{i=\underline{k}\\ j = \underline{i-1}}}\abs{Df_i(x)(h)}\cdot\abs{f_j(x+h) - f_j(x)}\nonumber\\
+        &\Lsim_{m,a,b}\abs{Df_i(x)}\abs{h}\sup_{\substack{i=\underline{k}\\ j=\underline{i-1}}}\abs{\Delta^j}\nonumber\\
+        &\Lsim_{m,a,b}\abs{o(h)}\label{eq:product-rule-k-variables-second-last-term-o(h)}
+    \end{align}
+    for the second last estimate we used $\Delta^j\to 0$. Therefore the second term in \cref{eq:product-rule-k-variables-expand-4} is $o(h)$, and \cref{eq:product-rule-k-variables-modified-equation} is proven. Therefore $m(\UL{f}[k])$ is differentiable at $x$. Continuity of $Dm(\UL{f}[k])$ follows from the fact that 
+    \begin{equation}\label{eq:product-rule-k-variables-continuity-0}
+        Dm(\UL{f}[k])(x) = \sum_{i=\underline{k}}m(\UL{f}[i-1](x),Df_i(x)(\cdot),\UL{f}[i+][k-i](x))
+    \end{equation}
+    and each of the summands \cref{eq:product-rule-k-variables-continuity-0} can be broken down as the product of the compositions shown in \cref{eq:product-rule-k-variables-continuity-1,eq:product-rule-k-variables-continuity-2}
+    \begin{align}
+        x\mapsto(\UL{f}[i-1](x),\UL{f}[i+][k-i](x))\mapsto m(\UL{f}[i-1](x),\cdot,\UL{f}[i+][k-i](x))\label{eq:product-rule-k-variables-continuity-1}\\
+        x\mapsto Df_i(x)(\cdot)\label{eq:product-rule-k-variables-continuity-2}
+    \end{align}
+    which are continuous from $E$ to $L(E,F)$.
+\end{proof}
 
 
 \fchapter{4: Higher order derivatives}\newpage
@@ -236,7 +349,7 @@ We will prove two major results in this section.
 \end{itemize}
 
 \topheader{The second derivative}
-\begin{wts}
+\begin{wts}[Product rule in $2$ variables]
     Let $E_1$, $E_2$ and $F$ be Banach spaces, if $\omega: E_1\times E_2\to F$ is bilinear and continuous, then $\omega$ is differentiable, and for every $(x_1, x_2)\in E_1\times E_2$, $(v_1,v_2)\in E_1\times E_2$,
 
     \[
@@ -251,26 +364,18 @@ We will prove two major results in this section.
     \[
         \omega(x_1 + h_2, x_2 + h_2) = \omega(x_1, x_2)  + \omega(x_1, h_2) + \omega(h_1, x_2) + \omega(h_1, h_2)
     \]
-
     by continuity of $\omega$, the last term (which we wish to make $o(h)$): 
-    
     \[
     \vert \omega(h_1, h_2)\vert\leq \norm{\omega}\cdot\vert (h_1, h_2)\vert^2
     \]
-
     so that $\omega(h_1, h_2) = o(h)$, and $D\omega(x_1, x_2)$ exists and is continuous, and is given by the \emph{linear map} $\omega(x_1, \cdot) + \omega(\cdot, x_2)$. The rest of the proof follows, if it is not immediately obvious then read the following note.
-
     \begin{note}
         Write $E = E_1\times E_2$ for convenience. The linear map $A = D\omega(x_1, x_2)$ takes arguments $E$ into $F$, consider the projections $\pi_1$ and $\pi_2$, and $v\in E_1\times E_2$, then
-
         \[A(v) = \omega(x_1, \pi_1 v) + \omega(\pi_2 v, x_2)\]
-
         We can view $A(x) = D\omega(x_1, x_2)\in L(E,F)$. It is clear that $A$ is linear in $x$, if we fix $v\in E$, 
-
         \[
             A(x+y, v) = \omega(\pi_1(x+y), \pi_2 v) + \omega(\pi_1 v, \pi_2 (x+y)) = A(x,v) + A(y,v)
         \]
-
         and similarly for scalar multiplication. Hence $DA(x) = A\in L(E, L(E,F))$ and $D^2A(x) = D^3\omega = 0$.
     \end{note}
 \end{proof}
@@ -283,28 +388,23 @@ Our next result is the following, which states that if $f: U\to F$ where $U\osub
 
 Which we will prove is equal to $0$ for every $x\in U$, and $v,w\in E$.
 
-\begin{note}
+\begin{note}[Notation for open subsets]
 The symbol '$\osub$' means $U$ is an open subset of $E$.    
 \end{note}
 
-\begin{wts}
+\begin{wts}[Second derivative is symmetric]
     Let $f\in C^2(U, F)$, where $U\osub E$ with the possibility that $U = E$. For every point $x\in U$, the \emph{second derivative} $D^2f(x)$ is bilinear and symmetric.
 \end{wts}
 \begin{proof}
     Fix $x\in U\induces B(r) + x\osub U$. We restrict our attention to vectors $v,w\in E$ where $\vert v\vert, \vert w\vert < r2^{-1}$ for now, so that the
-
     \[
     \bigset{x, x+w, x+v, x+v+w}\subseteq U
     \]
-
     We will denote the following quantity by $\Delta$
-
     \[
         \Delta = f(x+w+v) - f(x+w) - f(x+v) + f(x)
     \]
-
     By rearranging terms, we see that $\Delta$ can be approximated in two ways:
-
     \begin{itemize}
         \item Postponing the discussion about the the domain of $y$, set $g(y) = f(y+v) - f(y)$ is $C^2$, and 
         \begin{equation}\label{second-derivative-Delta-g}
@@ -386,7 +486,6 @@ The symbol '$\osub$' means $U$ is an open subset of $E$.
             &\leq \abs{v}\abs{w}R(v,w)\label{second-derivative-step3}
         \end{align}
     \end{itemize}
-
 
     The following Lemma gives a useful criterion to check when a multilinear map is identically $0$.
     \begin{lemma}
@@ -530,9 +629,7 @@ Dropping the $x$ from the expression, for $p\geq 2$ \emph{assuming a similar for
 \begin{proof}
     Use induction on $p$.
 \end{proof}
-\begin{wts}
-    e
-\end{wts}
+
 
 \newpage
 

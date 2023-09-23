@@ -262,7 +262,7 @@ Identifying $\hat{U}$ with $\alpha(\hat{U})$, and requiring $U_1\times a_2$ to b
     \begin{equation}\label{eq:submanifold-slice-chart-splits}
         \varphi: U\to \hat{U}\cong \hat{U}_1\times \hat{U}_2,\qqtext{where} U_i\osub E_i\quad i=1,2
     \end{equation}
-    and there exists an element $a_2\in U_2$
+    and there exists an element $a_2\in \hat{U}_2$
     \begin{equation}\label{eq:submanifold-slice-chart-level-set}
         \varphi(U\cap S) = \hat{U}_1\times a_2
     \end{equation}
@@ -274,6 +274,13 @@ We call a chart satisfying \cref{eq:submanifold-slice-chart-splits,eq:submanifol
 \begin{wts}[Structure of a submanifold]\label{prop:structure-of-submanifold}
     If $S$ is a submanifold of $X$, \cref{eq:submanifold-induced-atlas} defines a $C^p$ atlas over the space $E_1$. The manifold $S$ has a topology that coincides with the subspace topology, and the inclusion map $\iota_S: S\to X$ is a morphism and a homeomorphism onto its range.
 \end{wts}
+\begin{proof}
+    Each of the charts in \cref{eq:submanifold-induced-atlas} is in bijection with an open subset of $E_1$. Let $(U^s_{\alpha}, \varphi^1_\alpha)$ and $(U^s_{\beta}, \varphi^1_\beta)$ be overlapping charts. Writing $U^s_{\alpha\beta} = U^s_{\alpha}\cap U^s_{\beta}$ as usual, and the transition map $\varphi^1_{\beta\alpha^{-1}} = \varphi^1_{\beta}(\varphi^1_{\alpha})^{-1}$ from $\varphi_{\alpha}^1(U_{\alpha\beta}^s)$ to $\varphi_{\beta}^1(U_{\alpha\beta}^s)$. \Cref{eq:submanifold-slice-chart-level-set} tells us there exists $a_2\in \hat{U}_{2,\alpha}$ and $b_2\in \hat{U}_{2,\beta}$, that can help us recover the original chart. Identifying $a_2$ (resp. $b_2$) with the constant function $(p\mapsto a_2)$ for $p\in U_{\alpha}^s$, we get \cref{eq:submanifold-chart-recovery}.
+    \begin{equation}\label{eq:submanifold-chart-recovery}
+    \varphi^1_{\alpha}\times a_2 = \varphi_{\alpha}\vert_{U^s_{\alpha}}
+    \end{equation}
+    (resp. $\varphi^1_{\beta}\times b_2 = \varphi_{\beta}\vert_{U^s_{\beta}}$). 
+\end{proof}
 \topheader{Properties of Differentials}
 
 \end{document}

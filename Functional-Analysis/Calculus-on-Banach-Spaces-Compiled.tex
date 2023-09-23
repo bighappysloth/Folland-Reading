@@ -1,9 +1,12 @@
 \documentclass[../main-manifolds.tex]{subfiles}
 
 \begin{document}
-
-\fchapter{1: Multilinear maps}\newpage
+\fchapter{0: Banach Spaces}\newpage
 \topheader{Introduction}
+This section is quite incomplete, and all over the place. I have been meaning to put all the notation/terminology I am going to use in this section. Please skip to the Chapter 1 for now.\\
+
+%
+\topheader{Banach Spaces}
 A \emph{Banach space} is a normed vector space that is Cauchy-complete under the usual metric induced by its norm. 
 
 If $E$ and $F$ are Banach spaces over $\real$. We will denote the norms on $E$, and $F$ by single lines, so 
@@ -12,13 +15,46 @@ If $E$ and $F$ are Banach spaces over $\real$. We will denote the norms on $E$, 
 \]
 $\mathcal{L}(E,F)$ will denote the space of linear maps between $E$ and $F$. In the category of Banach spaces, the space of morphisms are called \emph{toplinear morphisms} - or \emph{CLM}s (\emph{continuous linear maps}); which we will denote by $L(E,F)$ for toplinear morphisms bewteen $E$ and $F$. \\
 
+% Explanation on operator norm
+
 We use $\norm{\cdot}_{L(E,F)}$ or $\norm{\cdot}$ to denote the operator norm, depending on how much emphasis we wish to place on $L(E,F)$. Recall,
 \begin{align*}
 \norm{\varphi}_{L(E,F)} &= \inf\bigset{A\geq 0,\: \vert\varphi(x)\vert\leq A\vert x\vert\:\forall x\in E}\\
 &= \sup\bigset{\vert\varphi(x)\vert,\: x\in E,\: \vert x\vert=1}
 \end{align*}
 
+% Elaborate more
+
 By the open mapping theorem: any continuous surjective linear map is an open map. Hence invertible elements in $L(E,F)$ are naturally called \emph{toplinear isomorphisms}. If $\varphi\in L(E,F)$ such that $\varphi$ preserves the norm between the Banach Spaces, that is for every $x\in E$, $\vert x\vert = \vert \varphi(x)\vert$ then we call $\varphi$ an \emph{isometry}, or a \emph{Banach space isomorphism}. If $E_1$ and $E_2$ are Banach spaces, we will use the usual \emph{product norm} $(x_1, x_2)\mapsto \max(\vert x_1\vert,\vert x_2\vert)$. 
+
+% Where to put this
+\begin{itemize}
+    \item We say a map $F$ is \emph{between} the spaces $X$ and $Y$ if $F: X\to Y$. 
+    \item $\mathcal{L}(V^K,W)$ denotes the space of $k$-linear maps from $V$ to $W$ that are not necessarily continuous. 
+\end{itemize}
+
+% Finite product of Banach spaces
+\begin{definition}[Product of Banach Spaces]\label{def:finite-product-banach-space}
+    Let $E_1,\ldots, E_k$ be Banach spaces over $\real$. The Cartesian product of $(E_1,\ldots E_k)$ is denoted by $\prod_i^k E_i$. It is again a Banach space with the norm
+    \begin{equation}\label{eq:finite-product-banach-space-norm}
+        (x_1,\ldots, x_k)\mapsto \abs{(x_1,\ldots, x_k)} = \sup_{1 \leq i\leq k}\abs{x_i}
+    \end{equation}
+\end{definition}
+
+% Vector space notation
+\topheader{Vector Spaces}
+Let $V$ be any vector space over $\real$ or $\mathbb{C}$, and $\{v_{\alpha}\}\subseteq V$, the symbol $\sum^{\wedge}v_\alpha$ refers to a partially specified object which is any \textbf{finite} linear combination of the elements of $\{v_{\alpha}\}$. If the cardinality of $\{v_{\alpha}\}$ is finite, 
+\begin{equation}\label{eq:finite-sums-notation}
+\sum^\wedge v_{\alpha} = \sum^\wedge\UL{v}[k]\text{ for some $k\geq 1$.}        
+\end{equation}
+where \cref{eq:finite-sums-notation} should be interpreted as \cref{eq:finite-sums-notation-pedantic}
+\begin{equation}\label{eq:finite-sums-notation-pedantic}
+    \sum^\wedge\UL{v}[k] = \sum_{i=\underline{k}}c^iv_i
+\end{equation}
+for some $c^i\in\real$ or $\mathbb{C}$ where $i=\underline{k}$. 
+
+
+\fchapter{1: Multilinear maps}\newpage
 \topheader{Bilinear maps}
 \begin{definition}[Bilinear map]
 A map $\varphi: E_1\times E_2\to F$, where $F$ is also a Banach space, is said to be \emph{bilinear} if
@@ -69,9 +105,9 @@ are linear for every $x\in E_1$ and $y\in E_2$.
 \begin{proof}
     Let $\varphi_\omega: E_1\to L(E_2,F)$ be the unique map such that $\varphi_\omega(x)(y) = \omega(x,y)$. \Cref{prop:characterization-of-continuity-bilinear-map} shows that $\varphi_\omega(x)$ is a continuous linear map into $F$ at each $x$, and $\vert\varphi_\omega(x)\vert\leq\vert\omega\vert\vert x\vert$. This holds for an arbitrary $x$, and $\varphi_{\omega}(\cdot)$ is clearly linear, hence $\vert\varphi_\omega\vert\leq\vert\omega\vert$. Reversing the roles of $\omega$ and $\varphi$ shows proves the other estimate.\\
 
-    The rule as outlined above is linear in $\omega$; and it is not hard to see $\varphi: L(E_1,E_2; F)\to L(E_1, L(E_2, F))$ is an injection. By the open mapping theorem, the proposition is proven if $\varphi$ is a surjection. Fix $\theta\in L(E_1, L(E_2,F))$, define a map $\omega: E_1\times E_2\to F$ such that $\omega(x,\cdot) = \theta(x)(\cdot)$. So that $\omega$ is linear in its second argument. To show $\omega$ is linear in its first: fix a linear combination $A = \sum ax$ in $E_1$, and $y\in E_2$. 
+    The rule as outlined above is linear in $\omega$; and it is not hard to see $\varphi: L(E_1,E_2; F)\to L(E_1, L(E_2, F))$ is an injection. By the open mapping theorem, the proposition is proven if $\varphi$ is a surjection. Fix $\theta\in L(E_1, L(E_2,F))$, define a map $\omega: E_1\times E_2\to F$ such that $\omega(x,\cdot) = \theta(x)(\cdot)$. So that $\omega$ is linear in its second argument. To show $\omega$ is linear in its first: fix a linear combination $A = \sum^\wedge x$ in $E_1$, and $y\in E_2$. 
     \[
-    \omega(A,y) =\theta(\sum ax)(y) = \sum a\theta(x)(y) = \sum a\omega(x,y)
+    \omega(A,y) =\theta(\sum^\wedge x)(y) = \sum^\wedge \theta(x)(y) = \sum^\wedge \omega(x,y)
     \]
     Continuity follows from \Cref{eq:continuity-bilinear-map}, and $\varphi_\omega = \theta$ as needed.
 \end{proof}
@@ -132,6 +168,14 @@ The determinant of $M$ is a linear combination of determinants of $k-1$-sized ma
         \varphi(\UPL{\cdot}[i-1],v_i,\UPL{\cdot}[k-i]):\: \bigoprod (\UL{E}[i-1],\UL{E}[i+][k-i])\to F\quad\text{is }(k-1)\text{-linear}
     \]
 \end{definition}
+%%%
+A $k$-linear \emph{symmetric} map between Banach spaces $E,F$ is a map $A\in \mathcal{L}(E^k,F)$ such that for every $k$-permutation $\theta\in S_{\underline{k}}$, 
+\[
+    A(\Ul{v}[k]) = A(\Ul{v}[\theta(k)])    
+\]
+
+%%%
+
 The following theorem should give confidence to the notation we have adopted to use.
 \begin{wts}[Continuity criterion of $k$-linear maps]
     Let $\UL{E}[k]$ and $F$ be Banach spaces, a $k$-linear map $\varphi: \prod \UL{E}[k]\to F$ is continuous iff there exists a $C>0$, such that for every $x_i\in E_i$, $i=\underline{k}$
@@ -337,36 +381,138 @@ We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L
 \end{proof}
 
 \fchapter{3: Integration}\newpage
+\topheader{Introduction}
+This chapter will be on the integration of \emph{regulated} mappings, the space of which are precisely the uniform closure of rectangle functions. from a compact interval. We will go through some of the elementary results, and prove the Fundamental Theorem.
 \topheader{Integration of step mappings}
-This chapter will be on the integration of \emph{regulated} mappings, the space of which are precisely the uniform closure of rectangle functions. from a compact interval. We will go through some of the elementary results, and prove the Fundamental Theorem.\\
-
 \begin{definition}[Partition on {$[a,b]$}]
-    Let $I=[a,b]$ be a compact interval. An  $N$-\emph{partition} $P$ on $I$ is a list of $N+1$ elements in $[a,b]$, which are assumed to be well ordered as in $p_0\leq p_1\leq\cdots\leq p_N$. 
-    \begin{equation}\label{eq:partition-def}
-        P = (a = p_0,p_1,\ldots,p_N = b)\qqtext{or} P = (\UL{p}[-1+][N+1])
-    \end{equation}
-    The space of partitions on $I$ will be denoted by $I_p$.
+Let $I=[a,b]$ be a compact interval. An  $N$-\emph{partition} $P$ on $I$ is a list of $N+1$ elements in $[a,b]$, which are assumed to be well ordered as in $p_0\leq p_1\leq\cdots\leq p_N$. 
+\begin{equation}\label{eq:partition-def}
+    P = (a = p_0,p_1,\ldots,p_N = b)\qqtext{or} P = (p_0,\UL{p}[N])
+\end{equation}
+The space of partitions on $I$ will be denoted by $I_p$.
 \end{definition}
-
-As per usual, we have \emph{common refinements of partitions}, given two partitions $P$ and $Q$ on the same compact interval $I=[a,b]$, where $P$ is defined as in \cref{eq:partition-def}, and $Q = (\UL{q}[-1+][N+1])$ similarly. The common refinement of $P$ and $Q$ is another partition $R$ on $I$ which contains all of the elements in $P\cup Q$. For the rest of this chapter, we assume all intervals are compact and of the form $I = [a,b]$. If $P$, $Q$, $R$ are partitions, their elements will be represented by $p_i$, (resp. $r_i$, $q_i$).
+As per usual, we have \emph{common refinements of partitions}, given two partitions $P$ and $Q$ on the same compact interval $I=[a,b]$, where $P$ is defined as in \cref{eq:partition-def}, and $Q = (q_0,\UL{q}[N])$ similarly. The common refinement of $P$ and $Q$ is another partition $R$ on $I$ which contains all of the elements in $P\cup Q$. 
+\begin{itemize}
+    \item Given a partition \( P \) of size \( N \) represented as \( P = (p_0, \UL{p}[N]) \), the cells of \( P \) are indexed using their rightmost points.
+    \item The interval \((p_{i-1}, p_i)\) is denoted as \(\cell(p_i)\), and 
+    \item the \emph{length} of the $i$th cell: $\abs{\cell{p_i}}=\abs{p_i - p_{i-1}}$.
+    \item If we want to sequence the cells of \( P \) based on their right endpoints, it is expressed as \( \cell(P) = \qty(\cell(\UL{p}[N])) \).
+    
+    \item Note that these cells do not form a disjoint union of $I$.
+\end{itemize}
+\begin{remark}[Assume all intervals are compact]
+For the rest of this chapter, we assume all intervals are compact and of the form $I = [a,b]$. If $P$, $Q$, $R$ are partitions, their elements will be represented by $p_i$, (resp. $r_i$, $q_i$).
+\end{remark}
 
 \begin{definition}[Step mapping]\label{def:step-mapping}
 A step mapping on $I = [a,b]$ is a vector space of maps from $I$ to a Banach space $E$ over $\real$. It is equipped with the supremum norm, and its elements are denoted by $\Sigma$,
 \begin{equation}\label{eq:step-mapping}
-    \Sigma = \bigset{f: [a,b]\to E,\: \text{there exists a $N$-partition }P\in I_p,\:\{\UL{v}[N]\}\subseteq E\text{ such that } f\vert_{[p_{i-1}, p_i]} = v_i\: \forall i = \underline{N}}
+    \Sigma = \bigset{f: [a,b]\to E,\: \text{there exists a $N$-partition }P\in I_p,\:\{\UL{v}[N]\}\subseteq E\text{ such that } f\vert_{(p_{i-1}, p_i)} = v_i\: \forall i = \underline{N}}
 \end{equation}
+I $f\in \Sigma$, we denote its norm by $\norm{f}_u = \sup_{x\in I}\abs{f(x)}$.
 \end{definition}
-With the domain $I$ held fixed, we now define the integral on step mappings, it is easy to show that \cref{def:integral-step-mappings} is independent of the partition chosen.
+%With the domain $I$ held fixed, we now define the integral on step mappings, it is easy to show that \cref{def:integral-step-mappings} is independent of the partition chosen.
+%
 \begin{definition}[Integration on $\Sigma$]\label{def:integral-step-mappings}
     If $f\in \Sigma$ and is of the form inside the set-builder notation in \cref{eq:step-mapping}, we define the integral of $f$ by
     \begin{equation}\label{eq:integral-step-mappings}
         \int_a^b f = \sum_{i=\underline{N}}(p_i - p_{i-1})v_i
     \end{equation}
-    
 \end{definition}
+%
+\begin{remark}[Distinguishing between intervals $I$, $J$]
+If $I$ and $J$ are compact intervals, we distinguish the step mappings from $I$ and $J$ by $\Sigma_I$ and $\Sigma_J$.    
+\end{remark}
+%
+We now state some definition and properties of \cref{eq:integral-step-mappings} which we will not prove. 
+\begin{wts}[Properties of the integral on $\Sigma$]\label{prop:properties-integral-step-mappings}
+    Let $I$ and $J$ be intervals, $f,\UL{f}[k]\in \Sigma_I$, and $g\in \Sigma_J$. 
+    \begin{itemize}
+        \item The integral is linear, that is
+        \begin{equation}\label{eq:integral-step-mappings-linear}
+            \int \sum^\wedge \UL{f}[k] = \sum^\wedge \int \UL{f}[k]
+        \end{equation}
+        \item The integral over $[b,a]$ is \emph{defined} to be the negative of \cref{eq:integral-step-mappings}:
+        \begin{equation}\label{eq:integral-step-mappings-negative}
+            \int_a^b f = - \int_b^a f
+        \end{equation}
+        \item The integral is domain-additive, if $b=c$, then 
+        \begin{equation}\label{eq:integral-step-mappings-domain-additive}
+            \int_a^b f + \int_c^d g = \int_a^d (f+g)
+        \end{equation}
+        where we identify $(f+g)$ to be the step mapping in $\Sigma_{[a,d]}$ whose restriction $I$ (resp. $J$) agree with $f$ (resp. $g$).
+    \end{itemize}
+\end{wts}
+% Finish introduction to step mappings, now extend by continuity to the space of regulated mappings.
+% Product of step mappings.
+\topheader{Product of step mappings}
+Let $\UL{E}[k]$ be Banach spaces, and $I = [a,b]$ a fixed compact interval. Let $E$ refer  to the product space $\prod \UL{E}[k]$, which is equipped with the supremum norm as outlined in \cref{def:finite-product-banach-space}
+\[
+    \Sigma_i = \bigset{f_i:I \to E_i,\: f_i \text{ is a step mapping.}}
+\]
+There are two ways of defining the space of step-mappings from $I$ into $E$ \cref{eq:finite-product-step-mapping-def-1,eq:finite-product-step-mapping-def-2}. Using a combinatorical argument with common refinements, it is not hard to see the two are subsets of each other.
+\begin{align}
+    \Sigma_{E}^1 &= \bigset{f:I\to E,\: \proj_i f\in \Sigma_i\:\forall i = \underline{k}}\label{eq:finite-product-step-mapping-def-1}\\
+    \Sigma_{E}^2 &= \bigset{f:I\to E,\: f \text{ is a step mapping.}}\label{eq:finite-product-step-mapping-def-2}
+\end{align}
+% Add the proof the above using double inclusion
+% Proof for toplinear isomorphism with its external direct sum?
+
+And since the product space $E$ is toplinearly isomorphic to its external direct sum, $E_1\times \cdots\ E_k$, the integral over $\Sigma_{E} = \Sigma_{E}^1 = \Sigma_E^2$ is defined to be 
+\begin{equation}\label{eq:finite-product-integration-product-space}
+    \int_a^b f = \qty(\int_a^b\UL{\proj}[k]f)
+\end{equation}
 
 
+\topheader{Extension by continuity}
+\begin{definition}[Regulated mappings]\label{def:regulated-mappings}
+    Let $I$ be a compact interval. A mapping from $I$ into $E$ is \emph{regulated} if it is the uniform limit of step mappings. We denote the space of regulated mappings by $\cl{\Sigma_I}$ or $\cl{\Sigma}$.
+\end{definition}
+\begin{wts}[Continuity implies a regulated mapping]\label{prop:continuity-implies-regulated-mapping}
+    Every continuous function $f: I\to E$ is the uniform limit of step mappings in $\Sigma_I = \Sigma$.
+\end{wts}
+\begin{proof}
+    Let $f\in C(I, E)$, the continuity of $f$ is uniform; given $\varepsilon>0$ there exists $\delta>0$ where $\abs{y-x}<\delta$ implies $\abs{f(y)-f(x)}<\varepsilon$. $\delta$ induces a smallest integer $n\geq 1$ such that $p_{n}=a + n\delta > b$. Define $p_0 = a$ and $p_i = a + i\delta$, relabelling $p_{n} = b$, we see that $P = (p_0,\UL{p}[n])$ is a partition.\\
 
+    We construct a step mapping by sampling values of $f$. Set $g\vert_{\cell(p_i)}=f(p_{i})$, $g(a) = f(a)$, $g(p_i) = f(p_i)$. Defining the endpoints is necessary, and $g$ still remains a member of $\Sigma_I$ by \cref{eq:step-mapping}. Each $x\in I\setminus P$ belongs in some $\cell(p_i)$, of which $\abs{p_i - x}<\delta$, and $g(x)=f(p_i)$ implies $\abs{g(x)-f(x)}<\delta$. If $x$ is in $P$, then $g(x) = f(x)$, and $\norm{f-g}_{u}\leq+\varepsilon$.
+\end{proof}
+\begin{wts}[Integration of regulated mappings]\label{prop:continuous-extension-integral-to-regulated-mappings}
+    Let $f: I \to E$ be continuous, if $\{f_n\}\subseteq \Sigma$ converges uniformly to $f$, then $\{\int_a^b f_n\}$ is Cauchy in $E$, whose limit we \emph{define} to be $\int_a^b f$ --- the integral of $f$. Furthermore, 
+    \begin{enumerate}
+        \item For any regulated mapping $f: I\to E$,
+        \begin{equation}\label{eq:regulated-mapping-integral-continuous}
+            \abs{\int_a^b f}\leq \int_a^b\abs{f} \leq (b-a)\norm{f}_u
+        \end{equation}
+        \item The integral on $\cl{\Sigma}$  (resp. $\cl{\Sigma_I}$, $\cl{\Sigma_J}$) satisfies all of the properties in \cref{prop:properties-integral-step-mappings}.
+    \end{enumerate}
+\end{wts}
+\begin{proof}
+    Let $f$ be a step mapping on $E$, we wish to show \cref{eq:regulated-mapping-integral-continuous} holds. If $f$ is induced by some $n$-partition $P$, 
+    \begin{equation}\label{eq:continuous-extension-integral-to-regulated-mappings-eq-1}
+    \int_a^b f = \sum_{i=\underline{n}}\abs{\cell(p_i)} f(p_i)\leq \sum_{i=\underline{n}}\abs{\cell(p_i)}\abs{f(p_i)} = \int_a^b\vert f\vert 
+    \end{equation}
+    The integral in \cref{eq:continuous-extension-integral-to-regulated-mappings-eq-1} should be interpreted as a Riemann integral on $\real$, and \cref{eq:continuous-extension-integral-to-regulated-mappings-eq-2} is immediate:
+    \begin{equation}\label{eq:continuous-extension-integral-to-regulated-mappings-eq-2}
+        \int_a^b\vert f\vert \leq \abs{b-a}\norm{f}_u
+    \end{equation}
+    Next, let $\{f_n\}_{n\geq 1}$ be a sequence of step mappings in $I$ which converges uniformly to $f\in \cl{\Sigma}$. \Cref{eq:continuous-extension-integral-to-regulated-mappings-eq-2} tells us the sequence of integrals is uniformly Cauchy, as
+    \begin{equation}\label{eq:continuous-extension-integral-to-regulated-mappings-eq-3}
+        \abs{\int_a^bf_m - \int_a^b f_n}\leq \abs{b-a}\norm{f_m - f_n}_u
+    \end{equation}
+    Hence $\int_a^b f$ is well defined, \cref{eq:regulated-mapping-integral-continuous} and the properties listed in \cref{prop:properties-integral-step-mappings} follow upon taking limits.
+\end{proof}
+\begin{wts}[Integration and clms]\label{prop:regulated-mappings-integration-clms}
+    
+\end{wts}
+% \begin{wts}[Continuity of the integral]\label{prop:step-mapping-integral-continuous}
+%     The integral on $\Sigma$ is a clm into $\real$, and 
+%     \begin{equation}\label{eq:step-mapping-integral-continuous}
+%         \abs{\int_a^b f}\leq \int_a^b\abs{f}
+%     \end{equation}
+% \end{wts}
+% \begin{proof}
+    
+% \end{proof}
 
 % Step mapping, 
 % Regulated step mapping.
@@ -429,10 +575,6 @@ Our next result is the following, which states that if $f: U\to F$ where $U\osub
 \]
 
 Which we will prove is equal to $0$ for every $x\in U$, and $v,w\in E$.
-
-\begin{note}[Notation for open subsets]
-The symbol '$\osub$' means $U$ is an open subset of $E$.    
-\end{note}
 
 \begin{wts}[Second derivative is symmetric]
     Let $f\in C^2(U, F)$, where $U\osub E$ with the possibility that $U = E$. For every point $x\in U$, the \emph{second derivative} $D^2f(x)$ is bilinear and symmetric.
@@ -571,16 +713,7 @@ The symbol '$\osub$' means $U$ is an open subset of $E$.
 \end{remark}
 
 \topheader{The $p$-th derivatives}
-If $f$ is $p$ times differentiable, and $f, Df, D^2f, \ldots, D^pf$ are all continuous, then we say $f\in C^p(E,F)$ (replacing $E$ with an open subset of $E$ if necessary). A \emph{symmetric, $k$-linear} map between vector spaces $V,W$ is a map $A\in \mathcal{L}(V^k,W)$ such that for every $k$-permutation $\theta\in S_{\underline{k}}$, 
-\[
-    A(\Ul{v}[k]) = A(\Ul{v}[\theta(k)])    
-\]
-\begin{note}
-    \begin{itemize}
-        \item We say a map $F$ is \emph{between} the spaces $X$ and $Y$ if $F: X\to Y$. 
-        \item $\mathcal{L}(V^K,W)$ denotes the space of $k$-linear maps from $V$ to $W$ that are not necessarily continuous. 
-    \end{itemize}
-\end{note}
+If $f$ is $p$ times differentiable, and $f, Df, D^2f, \ldots, D^pf$ are all continuous, then we say $f\in C^p(E,F)$ (replacing $E$ with an open subset of $E$ if necessary). 
 
 \begin{wts}
     If $f\in C^p(E,F)$, then $D^pf(x)$ is symmetric for every $x\in E$. (Replace $E$ with an open set if necessary).

@@ -10,7 +10,7 @@ If $E$ and $F$ are Banach spaces over $\real$. We will denote the norms on $E$, 
 \[
     \vert x\vert = \norm{x}_E\qqtext{and} \vert y\vert = \norm{y}_F\quad\forall x\in E,\: y\in F
 \]
-$\mathcal{L}(E,F)$ will denote the space of linear maps between $E$ and $F$. In the category of Banach spaces, the space of morphisms are called \emph{toplinear morphisms} - or continuous linear maps; which we will denote by $L(E,F)$ for toplinear morphisms bewteen $E$ and $F$. \\
+$\mathcal{L}(E,F)$ will denote the space of linear maps between $E$ and $F$. In the category of Banach spaces, the space of morphisms are called \emph{toplinear morphisms} - or \emph{CLM}s (\emph{continuous linear maps}); which we will denote by $L(E,F)$ for toplinear morphisms bewteen $E$ and $F$. \\
 
 We use $\norm{\cdot}_{L(E,F)}$ or $\norm{\cdot}$ to denote the operator norm, depending on how much emphasis we wish to place on $L(E,F)$. Recall,
 \begin{align*}
@@ -241,14 +241,17 @@ We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L
 \end{wts}
 \begin{proof}
     Since $f$ is differentiable at $x$, $f(x+h) = f(x) + f'(x)(h) + o_1(h)$, (resp. for $g$, $o_2(h)$). Set $k(h) = f(x+h) - f(x)$, and 
-    \begin{align}
+    \begin{align*}
         g(f(x+h)) &= g(f(x)) + g'(f(x))(k(h)) + o_2(k(h))\\
         &= g(f(x)) + g'(f(x))(f'(x)(h) + o_1(h)) + o_2(k(h))\\
-        (g\circ f)(x+h) &= (g\circ f)(x) + g'(f(x))\circ f'(x)(h) + g'(f(x))(o_1(h)) + o_2(k(h))
-    \end{align}
-        
-    
+        (g\circ f)(x+h) &= (g\circ f)(x) + g'(f(x))\circ f'(x)(h) + g'(f(x))(o_1(h)) + o_2(k(h))\\
+        (g\circ f)(x+h) &= (g\circ f)(x) + g'(f(x))\circ f'(x)(h) + o(h)
+    \end{align*}
+    because $\abs{A(o_1(h))}\leq \abs{A}\abs{o_1(h)}$ for all $A\in L(E,F)$; and $o(k(h)) = o(h)$ for every continuous $k: E\to F$ such that $k(h)\to 0$ as $h\to 0$.
 \end{proof}
+\begin{wts}[Derivatives of CLMs]\label{prop:differentiating-linear-maps}
+    
+\end{wts}
 \begin{wts}[Product rule in $k$ variables]\label{prop:product-rule-k-variables}
     Let $m: \prod \UL{F}[k]\to G$ be a $k$-linear map between Banach spaces $\UL{F}[k]$ and $G$. Suppose $f_i\in C^1(E, F_i)$ with $i=\underline{k}$, writing 
     \begin{equation}\label{eq:k-linear-multiplication-map-def}

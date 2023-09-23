@@ -33,6 +33,16 @@ By the open mapping theorem: any continuous surjective linear map is an open map
     \item $\mathcal{L}(V^K,W)$ denotes the space of $k$-linear maps from $V$ to $W$ that are not necessarily continuous. 
 \end{itemize}
 
+% Hahn Banach Theorem
+\begin{wts}[Hahn Banach Theorem (Geometric Form)]\label{prop:hahn-banach-geometric-form}
+    Let $E$ be a Banach space, $A$ and $B$ are closed disjoint subsets of $E$. Assuming one of the two is compact, then there exists a clf $\lambda$ which \emph{strictly separates} $A$ and $B$. 
+    \begin{equation}\label{eq:hahn-banach-geometric-form}
+        A\subseteq [\lambda \leq \alpha-\varepsilon]\qqtext{and} B\subseteq [\lambda\geq\alpha + \varepsilon]
+    \end{equation}
+    for $\alpha\in\real$ and $\varepsilon>0$.
+\end{wts}
+
+
 % Finite product of Banach spaces
 \begin{definition}[Product of Banach Spaces]\label{def:finite-product-banach-space}
     Let $E_1,\ldots, E_k$ be Banach spaces over $\real$. The Cartesian product of $(E_1,\ldots E_k)$ is denoted by $\prod_i^k E_i$. It is again a Banach space with the norm
@@ -53,6 +63,8 @@ where \cref{eq:finite-sums-notation} should be interpreted as \cref{eq:finite-su
 \end{equation}
 for some $c^i\in\real$ or $\mathbb{C}$ where $i=\underline{k}$. 
 
+% Composition of maps.
+Composition of maps: If $f: E\to F$ and $g: F\to G$ are maps between Banach spaces, we write $gf$ to mean $g\circ f$. 
 
 \fchapter{1: Multilinear maps}\newpage
 \topheader{Bilinear maps}
@@ -460,11 +472,11 @@ There are two ways of defining the space of step-mappings from $I$ into $E$ \cre
 
 And since the product space $E$ is toplinearly isomorphic to its external direct sum, $E_1\times \cdots\ E_k$, the integral over $\Sigma_{E} = \Sigma_{E}^1 = \Sigma_E^2$ is defined to be 
 \begin{equation}\label{eq:finite-product-integration-product-space}
-    \int_a^b f = \qty(\int_a^b\UL{\proj}[k]f)
+    \int_a^b f = \qty(\int_a^b\UL{\proj}[k]f) = \qty(\int_a^b\proj_1 f,\ldots,\int_a^b\proj_k f)
 \end{equation}
 
 
-\topheader{Extension by continuity}
+\topheader{Regulated mappings}
 \begin{definition}[Regulated mappings]\label{def:regulated-mappings}
     Let $I$ be a compact interval. A mapping from $I$ into $E$ is \emph{regulated} if it is the uniform limit of step mappings. We denote the space of regulated mappings by $\cl{\Sigma_I}$ or $\cl{\Sigma}$.
 \end{definition}
@@ -502,23 +514,100 @@ And since the product space $E$ is toplinearly isomorphic to its external direct
     Hence $\int_a^b f$ is well defined, \cref{eq:regulated-mapping-integral-continuous} and the properties listed in \cref{prop:properties-integral-step-mappings} follow upon taking limits.
 \end{proof}
 \begin{wts}[Integration and clms]\label{prop:regulated-mappings-integration-clms}
-    
+    Let $E$ and $F$ be Banach spaces, and $\lambda\in L(E,F)$. For a fixed interval $I$, denote the space of step mappings from $I$ to $E$ (resp. $F$) by $\Sigma_E$ (resp. $\Sigma_F$), and regulated mappings similarly. If $\{f_n\}\subseteq \Sigma_E$ converges uniformly to $f\in \cl{\Sigma_E}$, then $\{\lambda f_n\}\to \lambda f$ uniformly in $\cl{\Sigma_F}$. Moreover,
+    \begin{equation}\label{eq:regulated-mappings-integration-clms}
+    \lambda\qty(\int_a^b f) = \int_a^b\lambda f
+    \end{equation}
 \end{wts}
-% \begin{wts}[Continuity of the integral]\label{prop:step-mapping-integral-continuous}
-%     The integral on $\Sigma$ is a clm into $\real$, and 
-%     \begin{equation}\label{eq:step-mapping-integral-continuous}
-%         \abs{\int_a^b f}\leq \int_a^b\abs{f}
-%     \end{equation}
-% \end{wts}
-% \begin{proof}
+\begin{proof}
+    The map $\lambda$ is Lipschitz between $E$ and $F$, and it descends into a map between the vector spaces $\Sigma_E$ and $\Sigma_F$ by composition. If $f$ is a step mapping, and $f\vert_{\cell(p_i)} = v_i$ for $i = \underline{k}$; the composition of $f$ with $\lambda$ is again a step mapping $\lambda f\vert_{\cell{p_i}} = \lambda v_i$.\\
     
-% \end{proof}
+    It is not hard to see $\norm{\lambda f}_u = \leq \abs{\lambda}\norm{f}_u$, and 
+    \begin{itemize}
+        \item $\lambda$ is Lipschitz between $E$ and $F$,
+        \item $\lambda$, when viewed as a map between $\Sigma_E$ and $\Sigma_F$, is Lipschitz.
+    \end{itemize}
+    Computing the integral of $\lambda f\in \Sigma_F$,
+    \[
+        \int_a^b \lambda f = \sum_{i=\underline{k}}\abs{\cell(p_i)}\lambda v_i = \lambda\qty(\sum_{i=\underline{k}}\abs{\cell(p_i)} v_i) = \lambda \int_a^b f
+    \]
+    proves \cref{eq:regulated-mappings-integration-clms} for step mappings, and the general case follows from continuity.
+\end{proof}
+\topheader{Fundamental Theorem of Calculus}
+\begin{wts}
+    Let $I$ be a compact interval, and $f: I\to E$ be regulated. Defining $\varphi:I \to E$ as the \emph{integral of $f$ with basepoint $a$}
+    \begin{equation}\label{eq:ftc-phi-def}
+        \varphi(t) = \int_a^t f
+    \end{equation}
+    Then $\varphi$ is differentiable where $f$ is continuous, and if $t_0\in I$ is such a point:
+    \begin{equation}\label{eq:ftc-1}
+        (D\varphi)(t_0) = f(t_0)
+    \end{equation}
+\end{wts}
+\begin{remark}[Identifications]
+    The left hand side in \cref{eq:ftc-1} should be thought of as a clm in $L(\real, E)$. We identify the point $f(t_0)$ as the map $t\mapsto t\cdot f(t_0)$.
+\end{remark}
 
-% Step mapping, 
-% Regulated step mapping.
-% Integration definition for step mappings
-% Every continuous function can be uniformly approximated by step mappings
-% Extension of integration by continuity to regulated mappings.
+% This is similar to the time-one map of the exponential, is there a connection?
+% The tangent space at the identity = the exponential.
+
+\begin{proof}
+    Suppose $f$ is continuous at $t_0$. For all $h$ sufficiently small, set $\varepsilon(h) = \sup_{{\abs{t-t_0}\leq h, \: t\in I}}\abs{f(t) - f(t_0)}$ as the modulus of continuity; where $\varepsilon(h)\to 0$ as $h\to 0$. Applying the well-known technique of estimating the integrand $f(t) = [f(t) - f(t_0)] + f(t_0)$, we have
+    \begin{align}
+        \varphi(t_0 + h) - \varphi(t_0) &= \int_{t_0}^{t_0 + h}f(t) dt\nonumber\\
+        &= f(t_0)\cdot h + \int_{t_0}^{t_0 + h}[f(t) - f(t_0)]dt\label{eq:ftc-draft-1}
+    \end{align}
+    The last term within \cref{eq:ftc-draft-1} is $o(h)$, and the proof is complete.
+\end{proof}
+\topheader{Mean value theorems}
+If $\lambda\in L(E,F)$, and $x\in E$, we write $\lambda \dot x = x\dot \lambda$. If $t\in \real$, and we want to think of $x$ as the map $t\mapsto tx$, we will write $t\cdot x = x\cdot t = tx$ to emphasize the role that $x$ plays. The duality pairing between $L(E,F)\times E\to F$ is bilinear and continuous. For any regulated mapping $\alpha: I\to L(E,F)$, 
+\begin{equation}\label{eq:regulated-mapping-application}
+    \int_a^b \alpha(t)\cdot x dt = \qty(\int_a^b \alpha(t) dt)\cdot x
+\end{equation}
+Furthermore, if $f\in C^1(I, E)$, we use the notation $f'(t)$ to refer to $Df(t)$; and we identify $f'(t)$ with an element in $E$; while $Df(t)$ should be thought of as a mapping in $L(\real,E)$.
+%
+\begin{lemma}[Constant curves]\label{lem:vanishing-derivative-implies-constant}
+    If $\alpha\in C^1(I,E)$, $\alpha'=0$, iff $\alpha$ is constant.
+\end{lemma}
+\begin{proof}
+    Suppose $\alpha'$ vanishes, and assume for contradiction there exists points $t_0< t_1$ in $I$ such that $\alpha(t_0)\neq \alpha(t_1)$. Hahn Banach gives us a clf $\lambda\in L(E,\real)$ that strictly separates the two points. See \cref{prop:hahn-banach-geometric-form} for a refresher. The ordinary derivative of $\lambda\circ f$ is $0$ everywhere which implies $\lambda\circ f$ is constant. The converse is trivial.
+\end{proof}
+\begin{lemma}[FTC 2]\label{lem:ftc-2}
+    Let $f\in C^1(I, E)$, then
+    \begin{equation}\label{eq:ftc-2}
+        f(b) - f(a) = \int_a^b f'(t)dt    
+    \end{equation}
+    where the integrand in \cref{eq:ftc-2} is --- rigourously speaking --- a map  $\real\to L(\real,E)$, but we treat $f'(t)\in E$.
+\end{lemma}
+\begin{proof}
+    Throughout this proof, we will treat $f': \real\to E$. Because $f'$ is continuous everywhere, it is regulated. Define $\varphi(t) = \int_a^t f'(t)dt$, by \cref{eq:ftc-1}:
+    \[
+        \varphi'(t) - f'(t)\equiv 0
+    \]
+    By \cref{lem:vanishing-derivative-implies-constant}, it suffices to show $(\varphi - f)(t) = f(a)$ at any point $t\in [a,b]$. Take $t = a$, and $(\varphi(a) - f(a)) = 0$, so that 
+    \[
+    \varphi(t) = f(t) + f(a)
+    \]
+    and \cref{eq:ftc-2} follows.
+\end{proof}
+\begin{remark}[Usefulness of FTC 2]
+    \cref{lem:ftc-2} is most useful when $[a,b] = [0,1]$, and the $f$ is a curve interpolating between a $C^1$ function evaluated two different points, as in \cref{prop:mvt-1}.
+\end{remark}
+%
+\begin{wts}[MVT 1]\label{prop:mvt-1}
+    Let $U\osub E$ and $x\in U$, $y\in E$. If the line segment $L = \{x + ty,\: 0\leq t\leq 1\}$ is also contained in $U$ (draw a picture), then \cref{eq:mvt-1} holds.
+    \begin{equation}\label{eq:mvt-1}
+        f(x+y) = f(x) + \int_0^1 Df(x+ty)ydt = \qty(\int_0^1 Df(x+ty)dt)\cdot y
+    \end{equation}
+\end{wts}
+\begin{proof}
+    The curve $g(t) = f(x+ty)$ is composed of $f\circ l(t)$, for $l(t) = x+ty$. It has derivative
+    \[
+        g'(t) = Df(x+ty)\circ l'(t) = Df(x+ty)\circ (y\in L(\real,E))
+    \]
+    By \cref{lem:ftc-2}, $g(1)- g(0) =\int_0^1 Df(x+ty)\cdot y dt$. Given $g(1)-g(0) = f(x+y) - f(x)$, the proof is complete.
+\end{proof}
+
 \fchapter{4: Higher order derivatives}\newpage
 \topheader{Introduction}
 We start with the definition of $C^p(E,F)$. Let $E$ and $F$ be Banach Spaces, if $p\geq 1$ is an integer, we define the class $C^p$ to be the set of maps which are $p$ times differentiable, and $D^p f\in C(E, X)$, where 

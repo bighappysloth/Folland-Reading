@@ -29,7 +29,7 @@ are linear for every $x\in E_1$ and $y\in E_2$.
 \end{definition}
 
 
-\begin{wts}[Continuity of a bilinear map]\label{prop:characterization-of-continuity-bilinear-map}
+\begin{wts}[Continuity criterion of a bilinear map]\label{prop:characterization-of-continuity-bilinear-map}
     Let $E_1$, $E_2$, $F$ be Banach spaces, a bilinear map $m: E_1\times E_2\to F$ is continuous if and only if there exists a $C\geq 0$, where
     \begin{equation}\label{eq:continuity-bilinear-map}
         \vert m(x,y)\vert\leq C\vert x\vert\vert y\vert    
@@ -133,7 +133,7 @@ The determinant of $M$ is a linear combination of determinants of $k-1$-sized ma
     \]
 \end{definition}
 The following theorem should give confidence to the notation we have adopted to use.
-\begin{wts}
+\begin{wts}[Continuity criterion of $k$-linear maps]
     Let $\UL{E}[k]$ and $F$ be Banach spaces, a $k$-linear map $\varphi: \prod \UL{E}[k]\to F$ is continuous iff there exists a $C>0$, such that for every $x_i\in E_i$, $i=\underline{k}$
     \[
         \abs{\varphi(\UL{x}[k])} \leq C\prod \abs{\UL{x}[k]}
@@ -183,10 +183,10 @@ The following theorem should give confidence to the notation we have adopted to 
     \end{align*}
     where we identify the product $\bigoprod\qty(\UPL{v}[k])$ with the product of their norms $\bigoprod \qty(\abs{\UPL{v}[k]})$. 
 \end{proof}
-\begin{remark}
+\begin{remark}[Currying isomorphism]
     The $k$-linear variant of \cref{prop:bilinear-map-isomorphism-currying} holds. We will use but not prove this fact.
 \end{remark}
-\begin{remark}
+\begin{remark}[$k$-linear maps from the same space]
 We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L(E^k, F) = L^k(E,F)$. \emph{Tensors} on $E$ are $k$-linear maps from the product space of $E$ into $\real$, by replacing $F$ with $\real$.
 \end{remark}
 %
@@ -250,8 +250,11 @@ We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L
     because $\abs{A(o_1(h))}\leq \abs{A}\abs{o_1(h)}$ for all $A\in L(E,F)$; and $o(k(h)) = o(h)$ for every continuous $k: E\to F$ such that $k(h)\to 0$ as $h\to 0$.
 \end{proof}
 \begin{wts}[Derivatives of CLMs]\label{prop:differentiating-linear-maps}
-    
+    If $\lambda\in L(E,F)$, then $\lambda\in C^1(E,F)$ and $D\lambda(x) = \lambda$ for every $x\in E$. Furthermore, if $f\in C^1(E,F)$, and $\nu\in L(F,G)$, then the composition $\nu\circ f$ is in $C^1(E,G)$, and $(\nu\circ f)'(x) = \nu\circ f'(x)$ for every $x\in E$.
 \end{wts}
+\begin{proof}
+    See $\lambda(x+h) = \lambda(x) + \lambda(h) + 0$ at every $x\in E$. Using the chain rule (\cref{prop:chain-rule}) proves the second claim.
+\end{proof}
 \begin{wts}[Product rule in $k$ variables]\label{prop:product-rule-k-variables}
     Let $m: \prod \UL{F}[k]\to G$ be a $k$-linear map between Banach spaces $\UL{F}[k]$ and $G$. Suppose $f_i\in C^1(E, F_i)$ with $i=\underline{k}$, writing 
     \begin{equation}\label{eq:k-linear-multiplication-map-def}
@@ -283,7 +286,7 @@ We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L
     \end{equation}
     Starting from \cref{eq:k-linear-lemma-2}, 
     \[
-    m(\UPL{b}[k]) - m(\UPL{a}[k]) = \sum_{i=\underline{k}}m(\UPL{b}[i-1],\Delta^i,\UPL{a}[i+][k-i])
+        m(\UPL{b}[k]) - m(\UPL{a}[k]) = \sum_{i=\underline{k}}m(\UPL{b}[i-1],\Delta^i,\UPL{a}[i+][k-i])
     \]
     We can expand each term, if $i=\underline{k}$, 
     \begin{equation}\label{eq:product-rule-k-variables-expand-1}
@@ -333,7 +336,43 @@ We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L
     which are continuous from $E$ to $L(E,F)$.
 \end{proof}
 
+\fchapter{3: Integration}\newpage
+\topheader{Integration of step mappings}
+This chapter will be on the integration of \emph{regulated} mappings, the space of which are precisely the uniform closure of rectangle functions. from a compact interval. We will go through some of the elementary results, and prove the Fundamental Theorem.\\
 
+\begin{definition}[Partition on {$[a,b]$}]
+    Let $I=[a,b]$ be a compact interval. An  $N$-\emph{partition} $P$ on $I$ is a list of $N+1$ elements in $[a,b]$, which are assumed to be well ordered as in $p_0\leq p_1\leq\cdots\leq p_N$. 
+    \begin{equation}\label{eq:partition-def}
+        P = (a = p_0,p_1,\ldots,p_N = b)\qqtext{or} P = (\UL{p}[-1+][N+1])
+    \end{equation}
+    The space of partitions on $I$ will be denoted by $I_p$.
+\end{definition}
+
+As per usual, we have \emph{common refinements of partitions}, given two partitions $P$ and $Q$ on the same compact interval $I=[a,b]$, where $P$ is defined as in \cref{eq:partition-def}, and $Q = (\UL{q}[-1+][N+1])$ similarly. The common refinement of $P$ and $Q$ is another partition $R$ on $I$ which contains all of the elements in $P\cup Q$. For the rest of this chapter, we assume all intervals are compact and of the form $I = [a,b]$. If $P$, $Q$, $R$ are partitions, their elements will be represented by $p_i$, (resp. $r_i$, $q_i$).
+
+\begin{definition}[Step mapping]\label{def:step-mapping}
+A step mapping on $I = [a,b]$ is a vector space of maps from $I$ to a Banach space $E$ over $\real$. It is equipped with the supremum norm, and its elements are denoted by $\Sigma$,
+\begin{equation}\label{eq:step-mapping}
+    \Sigma = \bigset{f: [a,b]\to E,\: \text{there exists a $N$-partition }P\in I_p,\:\{\UL{v}[N]\}\subseteq E\text{ such that } f\vert_{[p_{i-1}, p_i]} = v_i\: \forall i = \underline{N}}
+\end{equation}
+\end{definition}
+With the domain $I$ held fixed, we now define the integral on step mappings, it is easy to show that \cref{def:integral-step-mappings} is independent of the partition chosen.
+\begin{definition}[Integration on $\Sigma$]\label{def:integral-step-mappings}
+    If $f\in \Sigma$ and is of the form inside the set-builder notation in \cref{eq:step-mapping}, we define the integral of $f$ by
+    \begin{equation}\label{eq:integral-step-mappings}
+        \int_a^b f = \sum_{i=\underline{N}}(p_i - p_{i-1})v_i
+    \end{equation}
+    
+\end{definition}
+
+
+
+
+% Step mapping, 
+% Regulated step mapping.
+% Integration definition for step mappings
+% Every continuous function can be uniformly approximated by step mappings
+% Extension of integration by continuity to regulated mappings.
 \fchapter{4: Higher order derivatives}\newpage
 \topheader{Introduction}
 We start with the definition of $C^p(E,F)$. Let $E$ and $F$ be Banach Spaces, if $p\geq 1$ is an integer, we define the class $C^p$ to be the set of maps which are $p$ times differentiable, and $D^p f\in C(E, X)$, where 
@@ -598,7 +637,6 @@ If $f$ is $p$ times differentiable, and $f, Df, D^2f, \ldots, D^pf$ are all cont
         &= (D^pf)(x)(v_{\theta(\underline{p})})&&\text{\Cref{second-derivative-application-map-lambda-commute}}
     \end{align*}
     This proves the induction step, and the proof is complete.
-    
 \end{proof}
 Before stating and proving Taylor's Theorem, an important remark on the 'postcomposition' of linear maps. Summarized in the following note. 
 

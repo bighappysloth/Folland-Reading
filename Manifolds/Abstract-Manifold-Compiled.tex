@@ -279,7 +279,25 @@ We call a chart satisfying \cref{eq:submanifold-slice-chart-splits,eq:submanifol
     \begin{equation}\label{eq:submanifold-chart-recovery}
     \varphi^1_{\alpha}\times a_2 = \varphi_{\alpha}\vert_{U^s_{\alpha}}
     \end{equation}
-    (resp. $\varphi^1_{\beta}\times b_2 = \varphi_{\beta}\vert_{U^s_{\beta}}$). 
+    (resp. $\varphi^1_{\beta}\times b_2 = \varphi_{\beta}\vert_{U^s_{\beta}}$). The transition map is given by
+    \begin{equation}\label{eq:submanifold-transition-map-1}
+    \varphi^1_{\beta}\circ (\varphi^1_{\alpha})^{-1} = \operatorname{proj}_{1,\beta}\varphi_{\beta}\vert_{U^s_{\beta}}\qty(\varphi_{\alpha}\vert_{U^s_{\alpha}})^{-1}\qty(\operatorname{proj}_{1,\alpha}\vert_{U^s_{\alpha}})^{-1}    
+    \end{equation}
+    We can combine the two middle terms into $\varphi_{\beta}\varphi_{\alpha}^{-1}\vert_{U^s_{\alpha\beta}}=\varphi_{\beta\alpha^{-1}}\vert_{U^s_{\alpha\beta}}$. Which is a $C^p$ isomorphism, because the domain (resp. codomain) of $\varphi_{\alpha}(U^s_{\alpha\beta})$ (resp. $\beta$) is given by \cref{eq:submanifold-slice-chart-level-set}. Suppressing the restrictions onto $U^s_{\alpha\beta}$, we have
+    \[
+        \varphi_{\alpha}(U^s_{\alpha\beta}) = \qty(\hat{U}_{1,\alpha}\cap\hat{U}_{1,\beta})\times a_2 \qqtext{and}\varphi_{\beta}(U^s_{\alpha\beta}) = \qty(\hat{U}_{1,\alpha}\cap\hat{U}_{1,\beta})\times b_2
+    \]
+    The middle term in \cref{eq:submanifold-transition-map-1} then becomes
+    \[
+        \varphi_{\beta\alpha^{-1}} = (\varphi^{1}_{\beta\alpha^{-1}}, (a_2\mapsto b_2))
+    \]
+    Which is a $C^p$ isomorphism. The other terms in \cref{eq:submanifold-transition-map-1} are either projections or products of isomorphisms with constant functions, therefore \cref{eq:submanifold-induced-atlas} forms an atlas.\\
+
+    Denoting the inclusion map by $\iota_{S}: S\to X$, and let $p\in S$ be fixed. We can always find a slice chart $(U,\varphi)$ in the structure of $X$ containing $p$. The induced atlas in \cref{eq:submanifold-induced-atlas} tells us $p$ is in $(U^s,\varphi^1)$ as well. To see this pair of charts satisfy the \cref{eq:smoothness} condition, $\iota_S(U^s) = \iota_S(U\cap S)$ which is contained in $(U,\varphi)$. It follows by definition that $\iota_S$ has coordinate representation in \cref{eq:submanifold-inclusion-map-coordinate-representation}
+    \begin{equation}\label{eq:submanifold-inclusion-map-coordinate-representation}
+        (\iota_S)_{U^s,U} = \varphi\iota_S(\varphi^1)^{-1} = \id{\hat{U}_1}\times a_2
+    \end{equation}
+    \Cref{eq:submanifold-inclusion-map-coordinate-representation} shows that the coordinate representation of $\iota_S$ is a local isomorphism. Since the inclusion map is a bijection and continuous, and the coordinate representation of $\iota_S^{-1}$ is simply the inverse \cref{eq:submanifold-inclusion-map-coordinate-representation}; so $\iota_S^{-1}$ is a morphsim and therefore continuous.
 \end{proof}
 \topheader{Properties of Differentials}
 

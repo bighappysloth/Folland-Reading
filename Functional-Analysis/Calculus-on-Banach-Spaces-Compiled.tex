@@ -749,7 +749,7 @@ Which we will prove is equal to $0$ for every $x\in U$, and $v,w\in E$.
         R(v,w,\delta) = \sup_{y\in A}\abs{D^2f(x + y) - D^2f(x)}\quad\text{is finite},\qqtext{and}\lim_{(v,w)\to 0}R(v,w,\delta)=0
         \end{equation}
         
-        See the remark after this proof for a generalized version of this 'compact linear combination' argument.
+        See \cref{rmk:compact-linear-combination} for a generalization of this argument.
         
         \item Relabel $R(v,w)$ to be the maximum across $R(v,w,\delta_1)$ and $R(v,w,\delta_2)$. 
         \item Combining \Cref{second-derivative-step2,second-derivative-control-on-rhs,second-derivative-R}, we obtain the following bound on \Cref{second-derivative-lie-bracket}
@@ -784,7 +784,7 @@ Which we will prove is equal to $0$ for every $x\in U$, and $v,w\in E$.
     
 
 \end{proof}
-\begin{remark}
+\begin{remark}[Compact linear combinations]\label{rmk:compact-linear-combination}
     Generalization of the "compact linear combination" argument used above. Let $(\UL{t}[k])\subseteq\mathbb{C}^k$ or $\real^k$, and vectors $\UL{v}[k]\in E$. Suppose further $(\UL{t}[k])\subseteq A$ is compact in $\mathbb{C}^k$ or $\realk$. It is clear that if $y = t_iv^i\in E$, where the summation convention is in effect. Then,
     \[
         \abs{y}\Lsim_A \abs{(v^{\underline{k}})}_{E^k}
@@ -892,12 +892,24 @@ Dropping the $x$ from the expression, for $p\geq 2$ \emph{assuming a similar for
 \begin{proof}
     Use induction on $p$.
 \end{proof}
+\begin{wts}[Taylor's Formula]\label{prop:taylors-formula}
+    Let $f\in C^p(U, F)$, where $U\osub E$. For $x\in U$ and $y\in E$ such that $L = \{x + ty,\: 0\leq t\leq 1\}$ is in contained in $U$, then 
+    \begin{equation}\label{eq:taylors-formula-1}
+        f(x+y) = f(x) + \qty(\sum_{i=\underline{p-1}}\dfrac{D^if(x)\cdot (y^{(i)})}{(p-1)!}) + R_p
+    \end{equation}
+    where $\cdot (y^{(i)})$ denotes the application of $y$, consecutively for $i$ times. The remainder $R_p$ is given by \cref{eq:taylors-formula-2}
+    \begin{equation}\label{eq:taylors-formula-2}
+        R_p = \int_0^1 \dfrac{(1-t)^{p-1}}{(p-1)!}D^p f(x+ty)dt\cdot (y^{(p)})
+    \end{equation}
+    Furthermore, we include the $p$th term in the series using \cref{eq:taylors-formula-3}
+    \begin{equation}\label{eq:taylors-formula-3}
+        f(x+y) = f(x) +\sum_{i=\underline{p}}\dfrac{D^if(x)\cdot (y^{(i)})}{i!} + \theta(y)
+    \end{equation}
+    where $\theta$ is defined for small $y$, and $o(\vert y\vert^p)$. 
+    \begin{equation}\label{eq:taylors-formula-4}
+        \abs{\theta(y)}\leq\sup_{0\leq t\leq 1}\dfrac{\abs{D^p f(x+ty) - D^p f(x)}}{p!}\abs{y}^p
+    \end{equation}
+\end{wts}
 
-
-\newpage
-
-\[
-    \ln(e^{a}) = e^{\ln(a)} = a
-\]
 \end{document}
 

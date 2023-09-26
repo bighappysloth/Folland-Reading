@@ -118,19 +118,19 @@ The next question that we will address is taking derivatives of smooth maps betw
 
 Suppose $U$ is an open subset of $E$ and $f: U\to Y$ is $C^p$ for $p\geq 1$. The derivative $Df(x)$ is a linear map $E\to F$, not from $U$ to $F$ ($U$ might not even be a vector space). This suggests the 'derivative' of a morphism $F: X\to Y$ between manifolds can in some sense be interpreted as the \emph{ordinary derivative} of its coordinate representation $DF_{U,V}(\hat{p})$, adhering to our principle of using open sets.\\
 
-But there is a problem with this 'derivative': it gives different values for different charts. With infinitely many charts in $X$ and $Y$, this definition becomes useless. To see this, let $X$ be a manifold modelled on $E$ and $p\in X$. If $g: X\to Y$ is a morphism, and $(U_1,\varphi_1)$, $(U_2,\varphi_2)$ are charts defined about $p$ such that the representations $g_{U_1, V}$ and $g_{U_2, V}$ are morphisms. Writing $p_i = \varphi_i p$, and $\varphi_{1,2}=\varphi_2\varphi_{1}^{-1}$ (because it goes from the domain $U_1$ to $U_2$), a simple computation yields
+But there is a problem with this 'derivative': it gives different values for different charts. With infinitely many charts in $X$ and $Y$, this definition becomes useless. To see this, let $X$ be a manifold modelled on $E$ and $p\in X$. If $f: X\to Y$ is a morphism, and $(U_1,\varphi_1)$, $(U_2,\varphi_2)$ are charts defined about $p$ such that the representations $f_{U_1, V}$ and $f_{U_2, V}$ are morphisms. Writing $p_i = \varphi_i p$, and $\varphi_{1,2}=\varphi_2\varphi_{1}^{-1}$ (because it goes from the domain $U_1$ to $U_2$), a simple computation yields
 \begin{align}
-    Dg_{U_1, V}(p_1)(v) &= D(\psi g \varphi_2^{-1}\varphi_2\varphi_1^{-1})(p_1)(v) \nonumber\\
-    &= Dg_{U_2,V}(p_2)\biggl(D\varphi_{1,2}(p_1)(v)\biggr)\nonumber\\
-    &= Dg_{U_2,V}(p_2)\circ D\varphi_{1,2}(p_1)\cdot (v)\label{eq:tangent-space-quotient-motivation}
+    Df_{U_1, V}(p_1)(v) &= D(\psi f \varphi_2^{-1}\varphi_2\varphi_1^{-1})(p_1)(v) \nonumber\\
+    &= Df_{U_2,V}(p_2)\biggl(D\varphi_{1,2}(p_1)(v)\biggr)\nonumber\\
+    &= Df_{U_2,V}(p_2)\circ D\varphi_{1,2}(p_1)\cdot (v)\label{eq:tangent-space-quotient-motivation}
 \end{align}
-where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left associative over composition. The computation in \cref{eq:tangent-space-quotient-motivation} suggests that interpreting the derivative by pre-conjugation is dependent on the chart being used to interpret the derivative. In fact, $D\varphi_{1,2}(p_1)$ can be replaced with any toplinear isomorphism on $E$ (relabel $\varphi_2 = A\varphi_1$ where $A$ is any linear automorphism on $E$), so the right hand side of \cref{eq:tangent-space-quotient-motivation} can be interpreted as $Dg_{U_2,V}(p_2)(w)$ where $w$ is any vector in $E$. 
+where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left associative over composition. The computation in \cref{eq:tangent-space-quotient-motivation} suggests that interpreting the derivative by pre-conjugation is dependent on the chart being used to interpret the derivative. In fact, $D\varphi_{1,2}(p_1)$ can be replaced with any toplinear isomorphism on $E$ (relabel $\varphi_2 = A\varphi_1$ where $A$ is any linear automorphism on $E$), so the right hand side of \cref{eq:tangent-space-quotient-motivation} can be interpreted as $Df_{U_2,V}(p_2)(w)$ where $w$ is any vector in $E$. 
 
 \begin{definition}[Concrete tangent vector]
     Let $X$ be a manifold on $E$, and $p\in X$. If $(U,\varphi)$ is any chart containing $p$, for each $v\in E$ we call $(U,\varphi,p,v)$ a \emph{concrete tangent vector at $p$} that is \emph{interpreted} with respect to the chart $(U,\varphi)$. The disjoint union of
 
-    \begin{equation}\label{eq:concrete-tangent-space-eq}
-        \bigcup_{v\in E}\{(U,\varphi,p,v)\}
+    \begin{equation}\label{eq:concrete-tangent-space}
+        T_{(U,\varphi,p)}X = \bigcup_{v\in E}\{(U,\varphi,p,v)\}\cong E
     \end{equation}
 
     is called the \emph{concrete tangent space at $p$} interpreted with respect to $(U,\varphi)$ and inherits a TVS structure from $E$.
@@ -145,20 +145,31 @@ where $p_i = \varphi_i p$.
     A \emph{tangent vector} (or an \emph{abstract} tangent vector) at $p$ is defined as an equivalence class of concrete tangent vectors at $p$, under the relation in \cref{eq:concrete-tangent-vector-relation}.
 \end{definition}
 
-From \cref{eq:concrete-tangent-vector-relation}, since $D\varphi_{1,2}(x)$ is a toplinear automorphism on $E$, this correspondence is a bijection. This means the set of tangent vectors at $p$ inherits a TVS structure from $E$, as $p$ is in the domain of at least one chart $(U,\varphi)$. This is because the concrete tangent space defined in \cref{eq:concrete-tangent-space-eq} admits an obvious (linear) isomorphism with $E$, and each abstract tangent vector admits a unique interpretation with respect to $(U,\varphi)$.
+From \cref{eq:concrete-tangent-vector-relation}, since $D\varphi_{1,2}(x)$ is a toplinear automorphism on $E$, this correspondence is a bijection. This means the set of tangent vectors at $p$ inherits a TVS structure from $E$, as $p$ is in the domain of at least one chart $(U,\varphi)$. This is because the concrete tangent space defined in \cref{eq:concrete-tangent-space} admits an obvious (linear) isomorphism with $E$, and each abstract tangent vector admits a unique interpretation with respect to $(U,\varphi)$.
 
 \begin{definition}[Tangent space]
     The \emph{tangent space} at $p$, denoted by $T_p X$ is the set of all tangent vectors at $p$. It is toplinearly isomorphic to the model space $E$.
 \end{definition}
 
 \begin{definition}[Differential of a morphism]
-    Let $X$ and $Y$ be modelled on the spaces $E$ and $F$. If $g$ be a morphism between $X$ and $Y$, the \emph{differential of $g$ at $p$} is the unique linear map $dg_p: T_p X\to T_{g(p)} Y$. For any tangent vector $v_p$ at $p$ that admits a representative in $(U,\varphi,p,v)$. The concrete vector $(V,\psi,g(p), Dg_{U,V}(\hat{p})(v))$ represents $dg_p(v_p)$, where $(U)$ and $(V)$ satisfy the morphism condition in \cref{eq:smoothness} about $p$.
+    Let $X$ and $Y$ be modelled on the spaces $E$ and $F$. If $f$ be a morphism between $X$ and $Y$, the \emph{differential of $f$ at $p$} is the unique linear map denoted by
+    \begin{equation}\label{eq:differential-of-a-morphism}
+        df(p)=df_p: T_p X\to T_{f(p)} Y
+    \end{equation}
+    Whose action is characterized by the following:
+    \begin{itemize}
+        \item if $(U,\varphi)$ and $(V,\psi)$ are any pair of charts that satisfy the morphism condition in \cref{eq:smoothness} about $p$,
+        \item if $v\in T_p X$ is represented by $\qty\Big(U,\varphi,p, \hat{v})$,
+        \item then $df(p)(v)\in T_{f(p)}Y$ is represented by $\qty\Big(V,\psi, f(p), Df_{U,V}(\hat{p})(\hat{v}))$
+    \end{itemize}
 \end{definition}
 \begin{note}[Interpretation using co-product]
     There is another way of interpreting the construction above. Each concrete tangent space is toplinearly isomorphic to $E$, the projection maps onto $\{p\}$ and $E$ can be glued together using the universality of the coproduct, where $\{p\}$ is interpreted as a $0$-dimensional vector space. The construction of $T_pM$ follows by invoking the property of the quotients.
 \end{note}
 \begin{remark}[Omission of chart in concrete representation]\label{rmk:omission-of-chart-in-concrete-rep}
-    If $p$ is a point on a manifold $X$, $v\in T_p M$, we sometimes say $(U,\cl{v})$, or $\cl{v}$ is an interpretation of $v$ if it is clear $(U,\varphi)$ is a chart in $X$. If $X=E$, we will \emph{identify} $v$ with its concrete representation in the \emph{standard chart} $(E,\id{E})$. We say $\cl{w}$ is the \emph{standard representation}, or \emph{standard interpretation} of $w$.
+    If $p$ is a point on a manifold $X$, $v\in T_p M$, we sometimes say $(U,\hat{v})$, or $\hat{v}$ is an interpretation of $v$ if it is clear $(U,\varphi)$ is a chart in $X$. If $X=E$, we will \emph{identify} $v$ with its concrete representation in the \emph{standard chart} $(E,\id{E})$. The standard representation of a tangent vector is written with a bar on top: $\cl{w}$ is the \emph{standard representation}, or \emph{standard interpretation} of $w$.\\
+
+    Furthermore, we also write $(\hat{p},\hat{v})$ where $\hat{p} = \varphi p$ and $(U,\varphi, p, \hat{v})$.
 \end{remark}
 % Recap of this section, the tangent space at a point is defined to be such that when the chart in the codomain is fixed, the coordinate interpretation of the derivative is independent of the chart used. This is done by gluing together the inputs. Now, we let the chart in the codomain to vary, and we also see that it is independent of the interpretation used.
 % Let $F$ be a morphism between manifolds $X$ and $Y$. Because the equivalence relation in eq3 is compatible with linear operations. ie: if we relabel (U_1,v_1) = (U_1,\varphi_1, p, v_1), similarly for U_2.
@@ -176,28 +187,14 @@ Let $J_\varepsilon = (-\varepsilon, +\varepsilon)$ be an open interval in $\real
     Let $p$ be a point on a manifold $X$. For every tangent vector $v\in T_p X$, there exists a curve starting at $p$ whose velocity is $v$.
 \end{wts}
 \begin{proof}
-    Find a chart $(U)$ in the structure of $X$ such that $\hat{p}=0$ in some open set $\hat{U}$ of $X$. Such a chart exists, because translations and dilations are $C^p$ isomorphisms. If the tangent vector $v$ has interpretation $\cl{v}$ in $U$, there exists $\varepsilon>0$ so small that the range of $\hat{\gamma}$, as defined \cref{eq:velocity-curve-gamma-coord-rep}, lies in $\hat{U}$
+    Find a chart $(U)$ in $X$ where $\hat{p}=0$. Such a chart exists, because translations and dilations are $C^p$ isomorphisms. If the tangent vector $v$ has interpretation $\hat{v}$ in $U$, there exists $\varepsilon>0$ so small that the range of $\hat{\gamma}$, as defined \cref{eq:velocity-curve-gamma-coord-rep}, lies in $\hat{U}$
     \begin{equation}\label{eq:velocity-curve-gamma-coord-rep}
-        \hat{\gamma}: J_\varepsilon\to \hat{U}\quad \gamma(t) = \int_0^t \cl{v}dt
+        \hat{\gamma}: J_\varepsilon\to \hat{U}\quad \gamma(t) = \int_0^t \hat{v}dt
     \end{equation}
-    $\hat{\gamma}$ is a curve in $\hat{U}$ starting at $\hat{p}$ with velocity $\cl{v}$. Defining $\gamma$ as the composition of $\hat{\gamma}$ with the chart inverse finishes the proof.
+    $\hat{\gamma}$ is a curve in $\hat{U}$ starting at $\hat{p}$ with velocity $\hat{v}$. Defining $\gamma$ as the composition of $\hat{\gamma}$ with the chart inverse finishes the proof.
 \end{proof}
 
-\topheader{Derivations}
-Let $X$ be a manifold and $F$ be a Banach space, which is a manifold by \cref{prop:banach-space-is-manifold}. There is more to be said about the differentials of morphisms between the two spaces. Indeed, let $f\in \Mor(X,F)$ and fix a point $p\in X$. Let us write $q = f(p)$ for convenience. Identifying a tangent vector $w\in T_q F$ with its canonical interpretation $\cl{w}$ (see \cref{rmk:omission-of-chart-in-concrete-rep}), we further identify $df_p$ as a continuous linear map $T_p X\to F$.\\
 
-The most important case however, is when $F = \real$. Recall, the space of $C^p$ morphisms from a Banach space $E\to \real$ form a commutative ring denoted by $C^p(E,\real)$. If $\UL{f}[k]\in C^p(E,\real)$, for every $x,y\in E$ we have \cref{eq:derivations-product-rule}
-\begin{equation}\label{eq:derivations-product-rule}
-    Dm(\UL{f}[k])(x)(y) = \sum_{i=\underline{k}}m(\UL{f}[i-1](x),Df_i(x)(y),\UL{f}[i+][k-i](x))
-\end{equation}
-where $m$ denotes scalar and pointwise multiplication on $\real$ and $C^p(E,\real)$. Let us introduce some formalism. A \emph{derivation at $x$} is a $v$ linear functional on $C^p(U,\real)$, where $U$ is any open set containing $x$ such that
-\begin{equation}\label{eq:derivations-product-rule-abstract}
-    vm(\UL{f}[k]) = \sum_{i=\underline{k}}m(\UL{f}[i-1](x), vf_i,\UL{f}[i+][k-i](x))
-\end{equation}
-We will denote the space of derivations at $x$ by $\dzz_x(E)$. It is not hard to see that it is a vector space over $\real$, and $E$ injects into $\dzz_x(E)$ through its action on $C^p$ functions in \cref{eq:derivations-product-rule}. If $E = \realn$, \cref{prop:tangent-space-isomorphic-to-derivations-realn} shows that it is a surjection.
-\begin{wts}[$T_x \realn$ is isomorphic to $\dzz_x(\realn)$]\label{prop:tangent-space-isomorphic-to-derivations-realn}
-    
-\end{wts}
 
 % \fchapter{2: Submanifolds}
 % Let X be a topological space, a subset $S\subseteq X$ is locally closed if every point $p\in S$ admits a neighbourhood $U\osub X$ such that $U\cap S$ is closed in $U$.
@@ -299,6 +296,86 @@ We call a chart satisfying \cref{eq:submanifold-slice-chart-splits,eq:submanifol
     \end{equation}
     \Cref{eq:submanifold-inclusion-map-coordinate-representation} shows that the coordinate representation of $\iota_S$ is a local isomorphism. Since the inclusion map is a bijection and continuous, and the coordinate representation of $\iota_S^{-1}$ is simply the inverse \cref{eq:submanifold-inclusion-map-coordinate-representation}; $\iota_S^{-1}$ is a morphism and therefore continuous.
 \end{proof}
-\topheader{Properties of Differentials}
+The differential of the inclusion map $\iota_S: S\to X$ allows us to characterize $T_pS$, up to an isomorphism. Every point $p\in S$ is in the domain of a pair of slice charts, and $\iota_S$ is represented by \cref{eq:submanifold-inclusion-map-coordinate-representation}. The differential of $\iota_S$ at $p$ simply maps 
+
+First, we need a few definitions.
+% We now define the notion of the \emph{exterior tangent space of $S$}
+% The representation of a tangent space in a chart, 
+
+\begin{definition}[Concrete tangent space]
+    Let $p$ be a point on a manifold $X$. The \emph{concrete tangent space} of $p$, with respect to a chart $(U,\varphi)$ is \cref{eq:concrete-tangent-space-eq}
+\end{definition}
+
+% Functoral properties of the differential
+% Tangent space functor, maps a pointed manifold to a tangent space, and 
+% the action on the morphisms on pointed manifold, 'lifts' it to be a differential.
+
+% Fiber Bundle: notebook page 41, 42
+%\topheader{Properties of Differentials}
+% 
+\fchapter{2: }
+
+\topheader{Introduction}
+In the previous chapter, a chart $(U,\varphi)$ was often equated with its domain. We will now express a concrete tangent vector as $(\hat{p}, \hat{v})$, omitting any reference to the chart or its domain. \\
+
+Let $X$ be a manifold and $F$ a Banach space. Consider a morphism $f \in \Mor(X,F)$ and fix a point $p \in X$, and write $q = f(p)$. By adopting the canonical interpretation $\cl{w}$ for a tangent vector $w \in T_q F$ (as discussed in \cref{rmk:omission-of-chart-in-concrete-rep}), we 
+
+\begin{itemize}
+    \item reinterpret the differential at $p$ $df_p$ as a linear map from $T_p X$ to $F$,
+    \item always use the standard chart $(\id{F}, F)$ so that $\hat{f} = f_{U,F}$.
+\end{itemize}
+
+% Add some motivation for why we onlyl consider finite dimensional manifolds here.
+
+In this context, morphisms into $\real$ almost serve as test functions in the framework of distribution theory. This requires a definition.
+
+\begin{definition}[Function on $X$]\label{def:function-on-X}
+    Let $X$ be a manifold of class $C^p$ over $\realn$ for $n,p\geq 1$. A \emph{function} on $X$ is a morphism $f: X\to\real$, where $\real$ should be interpreted as a manifold. We denote the commutative ring of functions on $X$ by $C^p(X,\real)$ or $C^p(X)$. If $U$ is an open subset of $X$, its functions are denoted by $C^p(U,\real)$ or $C^p(U)$.
+\end{definition}
+\textbf{For the rest of this chapter, assume all manifolds to be $C^p$-manifolds over $\realn$, where $n,p \geq 1$}. 
+
+\topheader{Derivations}
+
+% Some more motivation for this? 'If $f$ is only defined on an open subset of a Banach space then its derivative allows us access to the underlying Banach space structure even if $f$ is defined on a very small patch in $E$?
+
+Let $E$ and $F$ be Banach spaces and $U\osub E$, suppose $f$ is a morphism from $U$ to $F$. If $p$ is a point in $U$, $Df(p)$ is of course a linear map from $E$ to $F$; this suggests a natural pairing $\hat{\dzz}$ of $f$ with and $(p,v)\in U\times E$ as shown in \cref{eq:derivation-natural-pairing-motivation}.
+\begin{equation}\label{eq:derivation-natural-pairing-motivation}
+    \hat{\dzz}: (U\times E)\times C^p(U,F)\longrightarrow F:\quad \qty\Big((p,v), f)\mapsto Df(p)(v)\in F
+\end{equation}
+
+Suppose $F = \real$ and denote pointwise multiplication on $\real$ by $m$. The above pairing trivially satisfies the product rule displayed in \cref{eq:derivations-product-rule}.
+\begin{equation}\label{eq:derivations-product-rule}
+    Dm(\UL{f}[k])(p)(v) = \sum_{i=\underline{k}}m(\UL{f}[i-1](p),D f_i(p)(v),\UL{f}[i+][k-i](p))
+\end{equation}
+where $\UL{f}[k]\in C^p(U,\real)$. Next, if $f$ is a function (from a manifold $X$) defined on an open neighbourhood $U$ of $p$. If $v\in T_p X$, the commentary in the introduction suggests a 'duality pairing' between $f$ and $(p,v)$ in the form of \cref{eq:tangent-vector-abstract-action}.
+\begin{equation}\label{eq:tangent-vector-abstract-action}
+    \dzz: (U\times E)\times C^p(U,F)\longrightarrow F:\quad \dzz\qty\Big((p,v),f) = df_p(v)
+\end{equation}
+\textbf{By definition of the differential $df_p$}, the right hand side of \cref{eq:tangent-vector-abstract-action} is representation independent, hence
+\begin{equation}\label{eq:tangent-vector-concrete-action}
+    \dzz((p,v), f) =  D\hat{f}(\hat{p})(\hat{v}),\quad\text{where the right member is an ordinary derivative}
+\end{equation}
+for any representation $(\hat{p},\hat{v})$, $\hat{f}$. We also see that $\dzz((p,v), f) = \hat{\dzz}((\hat{p},\hat{v}),\hat{f})$, which shows functions defined on $U$ are dual to $T_p X$ for each $p\in U$. We will make this notion precise when we introduce covectors.
+
+\begin{definition}[Derivation at $p$]\label{def:derivation-at-p}
+A \emph{derivation at $p$} is a \textbf{linear functional} $v$ on $C^p(U,\real)$, where $U$ is any neighbourhood of $p$; such that for $\UL{f}[k]\in C^p(U)$, \cref{eq:derivations-product-rule-abstract} holds. 
+\begin{equation}\label{eq:derivations-product-rule-abstract}
+    v\qty(m(\UL{f}[k])) = \sum_{i=\underline{k}}m(\UL{f}[i-1](x), v(f_i),\UL{f}[i+][k-i](x))
+\end{equation}
+We will denote the space of derivations at $p$ by $\dzz_p(X)$, and if $v\in \dzz_p(X)$, we say $v$ \emph{derives} $f$ for any function $f$ defined about $p$.
+\end{definition}
+
+%
+%
+We have shown every tangent vector is a derivation, since the product rule descends from \cref{eq:derivations-product-rule} and its computation in coordinates in \cref{eq:tangent-vector-concrete-action}.  If $X$ is finite-dimensional, \cref{prop:tangent-space-isomorphic-to-derivations-finite-dimensional} shows derivations at a point $p\in X$ are uniquely represented by a tangent vector.
+%
+%
+\begin{wts}[$T_p X$ is isomorphic to $\dzz_p(X)$]\label{prop:tangent-space-isomorphic-to-derivations-finite-dimensional}
+Let $p$ be a point on a manifold $X$, then its tangent space is isomorphic to the vector space of derivations. If $(v)$ is a tangent vector at $p$, its derivation of $f$ computed using \cref{eq:tangent-vector-action-derivation} 
+\end{wts}
+\begin{proof}
+    Postponed.
+\end{proof}
+
 
 \end{document}

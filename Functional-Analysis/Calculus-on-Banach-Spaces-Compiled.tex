@@ -64,7 +64,61 @@ where \cref{eq:finite-sums-notation} should be interpreted as \cref{eq:finite-su
 for some $c^i\in\real$ or $\mathbb{C}$ where $i=\underline{k}$. 
 
 % Composition of maps.
-Composition of maps: If $f: E\to F$ and $g: F\to G$ are maps between Banach spaces, we write $gf$ to mean $g\circ f$. 
+Composition of maps: If $f: E\to F$ and $g: F\to G$ are maps between Banach spaces, we write $gf$ to mean $g\circ f$. \\
+
+\topheader{Enumeration of lists}
+We use the following notation to simplify computations concerning multilinear maps. Let $E$ and $F$ be sets, elements $v_1,\ldots, v_k\in E$, and a map $f: E\to F$.
+\begin{itemize}
+    \item Listing individual elements: $\UL{v}[k]$ means $v_1,\ldots,v_k$ as separate elements. 
+    \item Creating a $k$-list: $(\UL{v}[k]) = (v_1,\ldots, v_k)\in \prod E_{j\leq k}$ if $v_i\in E_i$ for $i = \underline{k}$.
+    \item Double indices: $(\UL{v}[n_k]) = (v_{n_{\underline{k}}}) = (v_{n_1},\ldots, v_{n_k})$, and
+    \[
+        (\UL{v}[n_k]) \neq (v_{n_(1,\ldots,k)})
+    \]
+    \item Closest bracket convention:
+    \[
+        (v_{(n_{\underline{k}})}) = (v_{(n_1, \ldots, n_k)})\qqtext{and}(v_{n_{(\underline{k})})}) = (v_{n_{(1, \ldots, k)}})
+    \]
+    \item Underlining $0$ means it is iterated $0$ times: 
+    \[
+        (\UL{v}[0], a,b,c) = (a,b,c)
+    \]
+    \item Skipping an index: 
+    \[
+        (\UL{v}[i-1],\UL{v}[i+][k-i]) = (v_{1},\ldots, v_{i-1},v_{i+1},\ldots, v_{k})
+    \]
+    for $i = \underline{k}$.
+    \item Applying $f$ to a particular index: 
+    \[
+        (\UL{v}[i-1], f(v_{i}), \UL{v}[i+][k-i]) = (v_1,\ldots, v_{i-1}, f(v_i), v_{i+1}, \ldots, v_k)
+    \]
+    Of course, if $i=1$, then the above expression reads $(f(v_1), v_2\ldots, v_k)$ by the $\underline{0}$ interpretation.
+    \item In any list using this 'underline' notation, we can find the size of a list by summing over all the underlined terms, and the number of terms with no underline.
+    \item If $\wedge: E\times E\to F$ is any associative binary operation,
+    \[
+        \bigowedge(\UL{v}[k]) = v_1\wedge\cdots \wedge v_k
+    \]
+\end{itemize}
+\begin{remark}[Preview of exterior calculus]
+We can write the formula for the determinant of a $\real^{k\times k}$ matrix in this notation. Suppose $a_i\in\real$, and $b_i\in\real^{k-1}$ for $i=\underline{k}$.
+
+\[
+M = \begin{bmatrix}
+    a_1 & \cdots & a_k \\[1ex]
+    \vert &  & \vert \\
+    b_1 & \cdots & b_k \\
+    \vert &  & \vert \\[1ex]
+\end{bmatrix}
+\]
+The determinant of $M$ is a linear combination of determinants of $k-1$-sized matrices, given in terms of the columns of $b$
+\[
+    \det(M) = \sum_{i=\underline{k}}(-1)^{i-1} a_i\det(\UL{b}[i-1],\UL{b}[i+][k-i])
+\]    
+\end{remark}
+
+%
+% End of chapter 0%
+%
 
 \fchapter{1: Multilinear maps}\newpage
 \topheader{Bilinear maps}
@@ -123,55 +177,6 @@ are linear for every $x\in E_1$ and $y\in E_2$.
     \]
     Continuity follows from \Cref{eq:continuity-bilinear-map}, and $\varphi_\omega = \theta$ as needed.
 \end{proof}
-\topheader{Notation}
-We will use the following notation to simplify computations with multilinear maps. Let $E$ and $F$ be sets, and $v_1,\ldots, v_k\in E$. $f: E\to F$.
-\begin{itemize}
-    \item Listing individual elements: $\UL{v}[k]$ means $v_1,\ldots,v_k$ as separate elements. 
-    \item Creating a $k$-list: $(\UL{v}[k]) = (v_1,\ldots, v_k)\in \prod E_{j\leq k}$ if $v_i\in E_i$ for $i = \underline{k}$.
-    \item Double indices: $(\UL{v}[n_k]) = (v_{n_{\underline{k}}}) = (v_{n_1},\ldots, v_{n_k})$, and
-    \[
-        (\UL{v}[n_k]) \neq (v_{n_(1,\ldots,k)})
-    \]
-    \item Closest bracket convention:
-    \[
-        (v_{(n_{\underline{k}})}) = (v_{(n_1, \ldots, n_k)})\qqtext{and}(v_{n_{(\underline{k})})}) = (v_{n_{(1, \ldots, k)}})
-    \]
-    \item Underlining $0$ means it is iterated $0$ times: 
-    \[
-        (\UL{v}[0], a,b,c) = (a,b,c)
-    \]
-    \item Skipping an index: 
-    \[
-        (\UL{v}[i-1],\UL{v}[i+][k-i]) = (v_{1},\ldots, v_{i-1},v_{i+1},\ldots, v_{k})
-    \]
-    for $i = \underline{k}$.
-    \item Applying $f$ to a particular index: 
-    \[
-        (\UL{v}[i-1], f(v_{i}), \UL{v}[i+][k-i]) = (v_1,\ldots, v_{i-1}, f(v_i), v_{i+1}, \ldots, v_k)
-    \]
-    Of course, if $i=1$, then the above expression reads $(f(v_1), v_2\ldots, v_k)$ by the $\underline{0}$ interpretation.
-    \item In any list using this 'underline' notation, we can find the size of a list by summing over all the underlined terms, and the number of terms with no underline.
-    \item If $\wedge: E\times E\to F$ is any associative binary operation,
-    \[
-        \bigowedge(\UL{v}[k]) = v_1\wedge\cdots \wedge v_k
-    \]
-\end{itemize}
-\begin{remark}[Preview of exterior calculus]
-We can write the formula for the determinant of a $\real^{k\times k}$ matrix in this notation. Suppose $a_i\in\real$, and $b_i\in\real^{k-1}$ for $i=\underline{k}$.
-
-\[
-M = \begin{bmatrix}
-    a_1 & \cdots & a_k \\[1ex]
-    \vert &  & \vert \\
-    b_1 & \cdots & b_k \\
-    \vert &  & \vert \\[1ex]
-\end{bmatrix}
-\]
-The determinant of $M$ is a linear combination of determinants of $k-1$-sized matrices, given in terms of the columns of $b$
-\[
-    \det(M) = \sum_{i=\underline{k}}(-1)^{i-1} a_i\det(\UL{b}[i-1],\UL{b}[i+][k-i])
-\]    
-\end{remark}
 
 \topheader{$k$-linear maps}
 \begin{definition}[$k$-linear maps]\label{def:k-linear-maps}
@@ -882,7 +887,7 @@ To simplify the notation, we want to 'move' the evaluation $x$ outside of the br
 Dropping the $x$ from the expression, for $p\geq 2$ \emph{assuming a similar formula holds}, then we write $\qty\big[D^p(\lambda\circ f)] = \lambda_*\circ D^pf$. We make a final identification, of $\lambda = \lambda_*$ (thereby conflating the two different maps, the first is a map from $E$ to $F$, the second is a map from $L(E^p, F)$ into $L(E^p, G)$).
 \end{note}
 
-\begin{wts}
+\begin{wts}[Linear maps commute with $D^p$]\label{prop:linear-maps-commute-with-p-derivative}
     If $p\geq 2$, $f\in C^p(E,F)$, $\lambda\in L(F,G)$, then
     \[
         D^p(\lambda\circ f) = \lambda\circ D^pf
@@ -891,6 +896,12 @@ Dropping the $x$ from the expression, for $p\geq 2$ \emph{assuming a similar for
 \end{wts}
 \begin{proof}
     Use induction on $p$.
+\end{proof}
+\begin{wts}[$C^p$ is closed under composition]\label{prop:Cp-banach-closed-under-composition}
+    If $f\in C^p(E,F)$, and $g\in C^p(F,G)$, then $g\circ f\in C^p(E,G)$.
+\end{wts}
+\begin{proof}
+    Postponed.
 \end{proof}
 \begin{wts}[Taylor's Formula]\label{prop:taylors-formula}
     Let $f\in C^p(U, F)$, where $U\osub E$. For $x\in U$ and $y\in E$ such that $L = \{x + ty,\: 0\leq t\leq 1\}$ is in contained in $U$, then 
@@ -910,6 +921,8 @@ Dropping the $x$ from the expression, for $p\geq 2$ \emph{assuming a similar for
         \abs{\theta(y)}\leq\sup_{0\leq t\leq 1}\dfrac{\abs{D^p f(x+ty) - D^p f(x)}}{p!}\abs{y}^p
     \end{equation}
 \end{wts}
-
+\begin{proof}
+    Postponed.
+\end{proof}
 \end{document}
 

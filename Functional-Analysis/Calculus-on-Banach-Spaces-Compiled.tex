@@ -61,7 +61,18 @@ where \cref{eq:finite-sums-notation} should be interpreted as \cref{eq:finite-su
 \begin{equation}\label{eq:finite-sums-notation-pedantic}
     \sum^\wedge\UL{v}[k] = \sum_{i=\underline{k}}c^iv_i
 \end{equation}
-for some $c^i\in\real$ or $\mathbb{C}$ where $i=\underline{k}$. 
+for some $c^i\in\real$ or $\mathbb{C}$ where $i=\underline{k}$. \\
+
+\begin{definition}[$x$ is essentially in $W_1$]
+If $V$ is the vector space direct sum of $W_1$ and $W_2$, a vector $x\in W_1$ is \emph{essentially in $W_i$} if it is invariant under the canonical projection of $\pi_i V\to W_i$. That is,
+\[
+    \pi_i (x) = x
+\]
+equivalently, the $x$ is expressed as the linear combination of $x + 0\in W_1\oplus W_2$.
+\end{definition}
+
+
+
 
 % Composition of maps.
 Composition of maps: If $f: E\to F$ and $g: F\to G$ are maps between Banach spaces, we write $gf$ to mean $g\circ f$. \\
@@ -116,6 +127,16 @@ The determinant of $M$ is a linear combination of determinants of $k-1$-sized ma
 \]    
 \end{remark}
 
+%
+% Hat Notation Is left Associative
+%
+In general, the 'hats' that we will use are left-associative. Meaning 
+\[
+    \hat{x} = x\hat{\:}\qqtext{and} \tau_y f\:\widehat{\:} = \widehat{(\tau_y f)}
+\]
+%
+
+%
 %
 % End of chapter 0%
 %

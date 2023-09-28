@@ -1,6 +1,4 @@
-\documentclass[../main-manifolds.tex]{subfiles}
-\providecommand{\Laut}{\operatorname{Laut}}
-\providecommand{\Topliso}{\operatorname{Topliso}}
+\documentclass[../main-v2-manifolds.tex]{subfiles}
 \begin{document}
 \fchapter{1: Manifolds}
 % Introduce terminology. linear, toplinear, morphism, isomorphism. And Laut, List, etc. How List is open in the space of toplinear endomorphisms on a space $E$.
@@ -30,7 +28,7 @@ We will be working in the category of $C^p$ Banach spaces (all Banach spaces are
         \item $\varphi(U\cap V)$ and $\psi(U\cap V)$ are \emph{both} open subsets of $E$, and
         \item the \emph{transition map} $\psi\circ\varphi^{-1}: \varphi(U\cap V)\to \psi(U\cap V)$ is a $C^p$ isomorphism between open subsets of $E$.
     \end{itemize}
-    It should be clear that compatibility is an equivalence relation on the space of charts of $X$ (that are modelled on $E$).
+    It should be clear that compatibility is an equivalence relation on the space of charts of $X$ (that are modelled on $E$). 
 \end{definition}
 \begin{definition}[Atlas]\label{def:atlas}
     Let $X$ be a non-empty set. A \emph{$C^p$ atlas on $X$ modelled on $E$} is a pairwise $C^p$ compatible collection of charts $\{(U_\alpha,\varphi_\alpha)\}$ whose union over the domains cover $X$.
@@ -93,11 +91,23 @@ Let $X$ and $Y$ be $C^p$ manifolds over the spaces $E$ and $F$. A map $F: X\to Y
     F_{U,V}\defined \psi F \varphi^{-1} \in C^p(\hat{U},\hat{V})    
 \end{equation}
 
-The map defined in \cref{eq:smoothness} is called the \emph{coordinate representation of $F$} with respect to the charts $(U,\varphi), (V,\psi)$.
+The map defined in \cref{eq:smoothness} is called the \emph{coordinate representation of $F$} with respect to the charts $(U,\varphi), (V,\psi)$. 
 \end{definition}
 
 \begin{remark}[Identifying charts with their domains]
-Consistent with our notation for the chart domains and $\hat{p}$, we write $\hat{F} = F_{U,V}$ for suitably chosen charts $(U,\varphi)$, $(V,\psi)$ in the respective structures. If we wish to place less emphasis on the specific charts, we say $\hat{F}$ is a coordinate representation \emph{about} $p$. 
+The scenario in \cref{eq:smoothness} occurs so often that we decide to simply write 
+\begin{equation}\label{eq:suitably-chosen-charts-1}
+    F_{U,V} = \psi F\varphi^{-1}
+\end{equation}
+to mean there exists charts $(U,\varphi)$, $(V\psi)$ in the structure of $X$, $Y$ such that 
+\begin{equation}\label{eq:suitably-chosen-charts-2}
+    F(U)\subseteq V
+\end{equation}
+Consistent with our notation for identifying a chart by its chart domain, we write 
+\begin{equation}\label{eq:suitably-chosen-charts-3}
+    F_{U,V}(\hat{p}) = (\psi F\varphi^{-1})(\hat{p})
+\end{equation}
+for any morphism $F\in \Mor(X,Y)$, charts that satisfy \cref{eq:suitably-chosen-charts-2}. We refer to the map in \cref{eq:suitably-chosen-charts-3} as a \emph{coordinate representation of $F$ about $p$}.
 \end{remark}
 
 % Motivation for the definition of smoothness
@@ -122,10 +132,10 @@ Consistent with our notation for the chart domains and $\hat{p}$, we write $\hat
     $F_2(F_1(p))$ induces another pair of charts $(V_i,\psi_i)\in X_i$ for $i=2,3$. Since $F_2$ is smooth, it is continuous. $F_1^{-1}\circ F_2^{-1}(V_3)$ is open in $X_1$, and we can shrink all of our charts so that $F_2F_1(U_1)$ is contained in $V_3$. Finally, because $C^p$ morphisms between open subsets of Banach spaces is closed under composition, $F_{U_1\cap F_1^{-1}F_2^{-1}(V_3), V_3}$ is smooth.
 \end{proof}
 \begin{remark}[Concluding remarks]
-    Manifolds hereinafter will be assumed of class $C^p$, where $p\geq 1$. If $(U,\varphi)$ is a chart in the structure of $X$, we will simply say $(U,\varphi)$ is in $X$; or $(U)$ is in $X$.
+    Manifolds hereinafter will be assumed of class $C^p$, where $p\geq 0$. If $(U,\varphi)$ is a chart in the structure of $X$, we will simply say $(U,\varphi)$ is in $X$; or $(U)$ is in $X$.
 \end{remark}
 \topheader{Tangent spaces}
-The next question that we will address is taking derivatives of smooth maps between manifolds. There is no reason to demand $C^p$ smoothness between maps, or even a $C^p$ category of manifolds if we cannot borrow something more other than the morphisms on open sets.\\
+The next question that we will address is taking derivatives of smooth maps between manifolds. There is no reason to demand $C^p$ smoothness between maps, or even a $C^p$ category of manifolds if we cannot borrow something more other than the morphisms on open sets. \textbf{In this section, all manifolds will be of class $C^p$ for $p\geq 1$.}\\
 
 Suppose $U$ is an open subset of $E$ and $f: U\to Y$ is $C^p$ for $p\geq 1$. The derivative $Df(x)$ is a linear map $E\to F$, not from $U$ to $F$ ($U$ might not even be a vector space). This suggests the 'derivative' of a morphism $F: X\to Y$ between manifolds can in some sense be interpreted as the \emph{ordinary derivative} of its coordinate representation $DF_{U,V}(\hat{p})$, adhering to our principle of using open sets.\\
 
@@ -142,13 +152,13 @@ But there is a problem with this 'derivative': it gives different values for dif
 where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left associative over composition. The computation in \cref{eq:tangent-space-quotient-motivation} suggests that interpreting the derivative by pre-conjugation is dependent on the chart being used to interpret the derivative. In fact, $D\varphi_{1,2}(p_1)$ can be replaced with any toplinear isomorphism on $E$ (relabel $\varphi_2 = A\varphi_1$ where $A$ is any linear automorphism on $E$), so the right hand side of \cref{eq:tangent-space-quotient-motivation} can be interpreted as $Df_{U_2,V}(p_2)(w)$ where $w$ is any vector in $E$. 
 
 \begin{definition}[Concrete tangent vector]\label{def:concrete-tangent-vector}
-    Let $X$ be a manifold on $E$, and $p\in X$. If $(U,\varphi)$ is any chart containing $p$, for each $v\in E$ we call $(U,\varphi,p,v)$ a \emph{concrete tangent vector at $p$} that is \emph{interpreted} with respect to the chart $(U,\varphi)$. The disjoint union of
+    Suppose $k\geq 1$, $X$ a $C^k$-manifold on $E$, and $p\in X$. If $(U,\varphi)$ is any chart containing $p$, for each $v\in E$ we call $(U,\varphi,p,v)$ a \emph{concrete tangent vector at $p$} that is \emph{interpreted} with respect to the chart $(U,\varphi)$. The disjoint union of concrete tangent vectors, as shown in \cref{eq:concrete-tangent-space}
 
     \begin{equation}\label{eq:concrete-tangent-space}
         T_{(U,\varphi,p)}X = \bigcup_{v\in E}\{(U,\varphi,p,v)\}\cong E
     \end{equation}
 
-    is called the \emph{concrete tangent space at $p$} interpreted with respect to $(U,\varphi)$ and inherits a TVS structure from $E$.
+    is called the \emph{concrete tangent space at $p$} interpreted with respect to $(U,\varphi)$; and it inherits a TVS structure from $E$.
 \end{definition}
 
 Fix a point $p$ in a manifold $X$. Suppose $(U_i,\varphi_i)$ are charts containing $p$, from \cref{eq:tangent-space-quotient-motivation} there exists a natural (toplinear) isomorphism between the concrete tangent spaces, namely 
@@ -183,6 +193,13 @@ where $p_i = \varphi_i (p)$. The right member of \cref{eq:concrete-tangent-vecto
     If $p$ is a point on a manifold $X$, $v\in T_p M$, we sometimes say $(U,\hat{v})$, or $\hat{v}$ is an interpretation of $v$ if it is clear $(U,\varphi)$ is a chart in $X$. If $X=E$, we will \emph{identify} $v$ with its concrete representation in the \emph{standard chart} $(E,\id{E})$. The standard representation of a tangent vector is written with a bar on top: $\cl{w}$ is the \emph{standard representation}, or \emph{standard interpretation} of $w$.\\
 
     Furthermore, we also write $(\hat{p},\hat{v})$ where $\hat{p} = \varphi (p)$ and $(U,\varphi, p, \hat{v})$.
+\end{remark}
+\begin{remark}[Morphisms between $C^k$, $C^p$ manifolds]\label{rmk:morphism-cp-ck}
+    Let $X$ be a $C^k$-manifold, and $Y$ a $C^p$ manifold, where $k,p\geq 0$. A morphism between $X$ and $Y$ is a map $f: X\to Y$ such that each point $p\in X$ admits a coordinate representation 
+    \begin{equation}\label{eq:morphism-cp-ck}
+        f_{U,V}\in C^{\min(p,k)}(\hat{U},\hat{V})
+    \end{equation}
+    If $\min(p,k)\geq 1$, then we define its differential as in \cref{def:differential-of-a-morphism}.
 \end{remark}
 % Recap of this section, the tangent space at a point is defined to be such that when the chart in the codomain is fixed, the coordinate interpretation of the derivative is independent of the chart used. This is done by gluing together the inputs. Now, we let the chart in the codomain to vary, and we also see that it is independent of the interpretation used.
 % Let $F$ be a morphism between manifolds $X$ and $Y$. Because the equivalence relation in eq3 is compatible with linear operations. ie: if we relabel (U_1,v_1) = (U_1,\varphi_1, p, v_1), similarly for U_2.
@@ -247,23 +264,69 @@ A linear subspace $E_1$ splits in $E$ if both $E_1$ and its vector space complem
 \[
     \theta(x,y)= x + y\quad\text{is a toplinear isomorphism.}
 \]
+We sometimes refer to the vector space complement of $W_1$ as its \emph{linear complement}.
 \end{definition}
 \begin{remark}[Every linear subspace splits in finite dimensions.]
 Every finite dimensional or finite codimensional linear subspace of $E$ splits. If $E$ is finite dimensional, then every linear subspace splits.    
 \end{remark}
 %
 %
-If $\lambda\in L(E,F)$ is injective, we would like to describe the situation where we can think $E$ being toplinearly isomorphic to its range, similar to the matrix canonical form $\begin{bmatrix}I_{k} & 0_{k\times (n-k)} \end{bmatrix}$. This requires the range of $\lambda$ to be a toplinear subspace, and we obtain the following.
+% If $\lambda\in L(E,F)$ is injective, we would like to describe the situation where we can think $E$ being toplinearly isomorphic to its range, similar to the matrix canonical form $\begin{bmatrix}I_{k} & 0_{k\times (n-k)} \end{bmatrix}$. This requires the range of $\lambda$ to be a toplinear subspace, and we obtain the following.
 %
 \begin{definition}[Splitting in $L(E,F)$]\label{def:splitting-clm}
-A continuous, injective linear map $\lambda\in L(E,F)$ \emph{splits} if there exists a toplinear isomorphism $\alpha: F\to F_1\times F_2$ such that $\lambda$ composed with $\alpha$ induces a toplinear isomorphism from $E$ onto $F_1\times 0$ - which we identify with $F_1$.
+A continuous, injective linear map $\lambda\in L(E,F)$ \emph{splits} iff its range splits in $F$. Alternatively, $\lambda$ splits iff there exists a toplinear isomorphism $\alpha: F\to F_1\times F_2$ such that $\lambda$ composed with $\alpha$ induces a toplinear isomorphism from $E$ onto $F_1\times 0$ --- which we identify with $F_1$. 
 \end{definition}
 %
 %
-\begin{definition}[Toplinear subspace]
-    Let $E$ be a Banach space, a \emph{toplinear subspace} (of $E$) is a closed linear subspace $E_1$ which splits in $E$.
+
+%
+%
+For the next few definitions, $X$ and $Y$ will be manifolds.
+\begin{definition}[Immersion]\label{def:immersion}
+    A morphism $f\in\Mor(X,Y)$ is an \emph{immersion} at a point $p\in X$ if there exists a coordinate representation about $f_{U,V}$ such that 
+    \begin{equation}\label{eq:immersion-at-point}
+        Df_{U,V}(\hat{p})\quad\text{is injective and splits.}
+    \end{equation}
+    The morphism $f$ is called an immersion if \cref{eq:immersion-at-point} holds at every $p$.
+\end{definition}
+%
+%
+\begin{definition}[Submersion]\label{def:submersion}
+    A morphism $f\in\Mor(X,Y)$ is an \emph{submersion} at a point $p\in X$ if there exists a coordinate representation about $f_{U,V}$ such that 
+    \begin{equation}\label{eq:submersion-at-point}
+        Df_{U,V}(\hat{p})\quad\text{is surjective and its kernel splits.}
+    \end{equation}
+    The morphism $f$ is called an submersion if \cref{eq:submersion-at-point} holds at every $p$.
+\end{definition}
+%
+%
+%
+\begin{remark}[Similarity to Matrix Canonical Forms]
+    Suppose $X$ and $Y$ are finite dimensional and if $f$ is an immersion (resp. submersion), there exist a coordinate representation about each $p\in X$ such that \cref{eq:immersion-matrix-form} (resp. \cref{eq:submersion-matrix-form}) holds.
+    \begin{align}
+        D\hat{f}(\hat{p}) &= \begin{bmatrix}
+            \id{m\times m} \\
+            0_{n-m\times m} 
+        \end{bmatrix}\label{eq:immersion-matrix-form}\\[2ex]
+    D\hat{f}(\hat{p}) &= 
+        \begin{bmatrix}
+            \id{n\times n} & 0_{n\times m-n}
+        \end{bmatrix}\label{eq:submersion-matrix-form}
+    \end{align}
+\end{remark}    
+%
+%
+%
+\begin{definition}[Embedding]\label{def:embedding}
+    A morphism $f\in\Mor(X,Y)$ is an \emph{embedding} if it s a immersion and it is a homeomorphism onto its range.
 \end{definition}
 
+\begin{definition}[Toplinear subspace]\label{def:toplinear-subspace}
+    Let $E$ be a Banach space, a \emph{toplinear subspace} (of $E$) is a closed linear subspace $E_1$ which splits in $E$.
+\end{definition}
+%%%
+
+%%%
 %
 % End of splitting Chapter
 %
@@ -410,13 +473,19 @@ Let $X$ be a class $C^p$ manifold modelled on a space $E$, and $F$ another Banac
 % TRIVIALISATION COVERING
 %
 \begin{definition}[Trivialisation covering]\label{def:trivialisation-covering}
-    Let $W$ be a coproduct of $F$-fibers over $X$. A \emph{$C^p$ trivialisation covering of $W$} is a collection of pairwise $C^p$-compatible local trivialisations $\{(\wig{U}_{\alpha},\Phi_{\alpha})\}$ where $\{U_\alpha\}$ is an open cover of $X$.
+    Let $W$ be a coproduct of $F$-fibers over $X$. A \emph{$C^k$ trivialisation covering of $W$} is a collection of pairwise $C^k$-compatible local trivialisations $\{(\wig{U}_{\alpha},\Phi_{\alpha})\}$ where $\{U_\alpha\}$ is an open cover of $X$.
 \end{definition}
+%
+% VECTOR BUNDLE
+%
 \begin{definition}[Vector bundle]\label{def:vector-bundle}
-    Let $X$ be a $C^p$ manifold over $E$ and $F$ a Banach space. An \emph{$F$-vector bundle} is a coproduct of $F$-fibers modelled over a manifold $X$ equipped with a $C^k$ trivialisation covering.
+    Let $X$ be a $C^p$ manifold over $E$, and let $F$ be a Banach space. An \emph{$F$-vector bundle of rank $k$} is a coproduct of $F$-fibers modelled over a manifold $X$ equipped with a \textbf{maximal $C^k$ trivialisation covering}.
 \end{definition}
+\begin{remark}[Maximality of trivialisation covering]
+    One can easily verify the compatibility condition defines an equivalence relation, thus any $C^k$- trivialisation covering \emph{determines} a maximal one.
+\end{remark}
 \begin{remark}[k vs. p]
-    A vector bundle $W$ over $X$ can be of a different class than $X$.
+    A vector bundle $W$ over $X$ can be of a different class than $X$, a morphism between $C^k$ and $C^p$ manifolds are precisely the maps whose coordinate representation about every point is $C^{\min(p,k)}$; see \cref{rmk:morphism-cp-ck} for details.
 \end{remark} 
 % https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHdpZ3tVfSJdLFswLDMsIlUiXSxbMywwLCJVXFx0aW1lcyBGIl0sWzAsMSwiXFxwaSIsMl0sWzAsMiwiXFxQaGkiXSxbMiwxLCJcXHByb2pfVSJdXQ==
     \begin{figure}
@@ -446,8 +515,28 @@ Suppose we have a structure on $W$, then $X=\bigcup_{p\in X}\{p\}\times 0$ is a 
     \]
     In fact, the tangent bundle is a $C^{p-1}$ vector bundle (modelled on $E$) over $X$.
 \end{itemize}
+Suppose $W$ is an $F$-vector bundle over $X$ with the trivialisation covering $\{(\wig{U}^\alpha, \Phi_\alpha)\}$. For each $\alpha$, we can cover $U^\alpha$ using chart domains $(U^\alpha_\beta, \varphi^\alpha_\beta)$ in $X$ --- without loss of generality, we can assume $U^\alpha_\beta\subseteq U^\alpha$ by restricting the chart domain and relabelling. \\
 
-Our charts will be $\varphi\times \id{F}$, where $(U,\varphi)$ is in the structure of $X$ and $U\subseteq U_\alpha$.
+Similar to the construction of the induced atlas of a submanifold, given a 'piece' of the original manifold $X$ --- \textbf{instead of dropping the coordinates that correspond to $E_2$, we add an $F$-component to construct a bijection with an open subset of $E\times F$}. This is shown in \cref{eq:vector-bundle-product-chart} 
+\begin{equation}\label{eq:vector-bundle-product-chart}
+    \wig{\varphi}^{\alpha}_\beta:\wig{U}^\alpha_\beta\longrightarrow\hat{U}^\alpha_\beta \times F \qqtext{defined by} \wig{\varphi}^{\alpha}_\beta = \qty(\varphi^\alpha_\beta\times \id{F})\circ \Phi_\alpha
+\end{equation}
+\begin{remark}[Hats and wiggles]
+    Here, $\wig{U}^\alpha_\beta$ should be interpreted as the inverse image of the open set $U^\alpha_\beta$ through $\pi$. Similarly, $\hat{U}^\alpha_\beta$ is the image of $U^\alpha_\beta$ through $\varphi^\alpha_\beta$.
+\end{remark}
+The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with their chart domains, and each chart is in bijection with an open subset of $E\times F$.
+\begin{equation}\label{eq:vector-bundle-charts-ALPHA}
+    \mathcal{A} =\bigset{\qty\big(\wig{U}^\alpha_\beta,\: \wig{\varphi}^\alpha_\beta),\:  (\wig{U}^\alpha,\Phi_\alpha) \text{ is in the trivialisation covering of  } W.}
+\end{equation}
+
+
+\begin{wts}[Structure of a Vector Bundle]\label{prop:structure-of-vector-bundle}
+    Let $X$ be a $C^p$ manifold modelled over $E$. If $W$ is a $C^k$ vector bundle modelled on $F$ over the manifold $X$, then $W$ is a $C^k$ manifold modelled on the product space $E\times F$. Furthermore:
+    \begin{enumerate}
+        \item The \emph{canonical projection} $\pi: W\to X$ is a morphism and a submersion.
+        \item 
+    \end{enumerate}
+\end{wts}
 % This ties into the computing the exterior derivative of a differential form.
 % What is the reason for 'taking the covector field of the component function?' and replacing it with a wedge product?
 % 

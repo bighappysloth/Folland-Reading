@@ -200,15 +200,15 @@ for any morphism $f\in \Mor(X,Y)$, and charts that satisfy \cref{eq:suitably-cho
 
 Suppose $U$ is an open subset of $E$ and $f: U\to Y$ is $C^p$. The derivative $Df(x)$ is a linear map $E\to F$, not from $U$ to $F$ ($U$ might not even be a vector space). This suggests the 'derivative' of a morphism $F: X\to Y$ between manifolds can in some sense be interpreted as the \emph{ordinary derivative} of its coordinate representation $DF_{U,V}(\hat{p})$, adhering to our principle of using open sets.\\
 
-But there is a problem with this 'derivative': it gives different values for different charts. With infinitely many charts in $X$ and $Y$, this definition becomes useless. To see this, let $X$ be a manifold modelled on $E$ and $p\in X$. If $f: X\to Y$ is a morphism, and $(U_1,\varphi_1)$, $(U_2,\varphi_2)$ are charts defined about $p$ such that the representations $f_{U_1, V}$ and $f_{U_2, V}$ are morphisms. Writing $p_i = \varphi_i (p)$, $U_{1,2} = U_1\cap U_2$ and
+But there is a problem with this 'derivative': it gives different values for different charts. With infinitely many charts in $X$ and $Y$, this definition becomes useless. To see this, let $X$ be a manifold modelled on $E$ and $p\in X$. If $f: X\to Y$ is a morphism, and $(U_1,\varphi_1)$, $(U_2,\varphi_2)$ are charts defined about $p$ such that the representations $f_{U_1, V}$ and $f_{U_2, V}$ are morphisms. Writing $p_i = \varphi_i (p)$, $U_{12} = U_1\cap U_2$ and
 \begin{equation}\label{eq:tangent-space-overlap-motivation}
-    \varphi_{1,2}=\varphi_2\varphi_{1}^{-1}: \varphi_1(U_{1,2})\to \varphi_2(U_{1,2})
+    \varphi_{12}=\varphi_2\varphi_{1}^{-1}: \varphi_1(U_{12})\to \varphi_2(U_{12})
 \end{equation}
 (because the map in \cref{eq:tangent-space-overlap-motivation} goes from the domain $U_1$ to $U_2$), a simple computation yields \cref{eq:tangent-space-quotient-motivation}.
 \begin{align}
     Df_{U_1, V}(p_1)(v) &= D(\psi f \varphi_2^{-1}\varphi_2\varphi_1^{-1})(p_1)(v) \nonumber\\
-    &= Df_{U_2,V}(p_2)\biggl(D\varphi_{1,2}(p_1)(v)\biggr)\nonumber\\
-    &= Df_{U_2,V}(p_2)\circ D\varphi_{1,2}(p_1)\cdot (v)\label{eq:tangent-space-quotient-motivation}
+    &= Df_{U_2,V}(p_2)\biggl(D\varphi_{12}(p_1)(v)\biggr)\nonumber\\
+    &= Df_{U_2,V}(p_2)\circ D\varphi_{12}(p_1)\cdot (v)\label{eq:tangent-space-quotient-motivation}
 \end{align}
 where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left associative over composition. The computation in \cref{eq:tangent-space-quotient-motivation} suggests that interpreting the derivative by pre-conjugation is dependent on the chart being used to interpret the derivative. In fact, $D\varphi_{1,2}(p_1)$ can be replaced with any toplinear isomorphism on $E$ (relabel $\varphi_2 = A\varphi_1$ where $A$ is any linear automorphism on $E$), so the right hand side of \cref{eq:tangent-space-quotient-motivation} can be interpreted as $Df_{U_2,V}(p_2)(w)$ where $w$ is any vector in $E$. 
 
@@ -224,7 +224,7 @@ where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left a
 
 Fix a point $p$ in a manifold $X$. Suppose $(U_i,\varphi_i)$ are charts containing $p$, from \cref{eq:tangent-space-quotient-motivation} there exists a natural (toplinear) isomorphism between the concrete tangent spaces, namely 
 \begin{equation}\label{eq:concrete-tangent-vector-relation}
-    (U_1,\varphi_1,p,v_1)\sim (U_2,\varphi_2,p,v_2)\qqtext{iff} v_2 = D\varphi_{1,2}(p_1)(v_1)
+    (U_1,\varphi_1,p,v_1)\sim (U_2,\varphi_2,p,v_2)\qqtext{iff} v_2 = D\varphi_{12}(p_1)(v_1)
 \end{equation}
 where $p_i = \varphi_i (p)$. The right member of \cref{eq:concrete-tangent-vector-relation}  is the derivative of a transition map --- which is a toplinear automorphism on $E$. Hence $D\varphi_{1,2}(p_1)$ defines a toplinear isomorphism between $T_{(U_1,\varphi_1,p)}X$ and $T_{(U_1,\varphi_2,p)}X$. With this, we define the primary object of our study.
 \begin{definition}[Tangent vector]\label{def:tangent-vector}
@@ -248,22 +248,24 @@ where $p_i = \varphi_i (p)$. The right member of \cref{eq:concrete-tangent-vecto
     \end{itemize}
     Alternatively, the diagram shown in \cref{fig:differential-of-morphism} commutes. We also write $df_p = df(p)$.
 \end{definition}
-
-% https://q.uiver.app/#q=WzAsNCxbMywwLCJUX3soVSxcXHZhcnBoaSxwKX1YIl0sWzAsMCwiVF9wIFgiXSxbMywzLCJUX3soVixcXHBzaSxmKHApKX1ZIl0sWzAsMywiVF97ZihwKX0gWSJdLFswLDIsIkRmX3tVLFZ9KFxcaGF0e3B9KSJdLFsxLDMsImRmIiwyXSxbMywyXSxbMSwwXV0=
-\begin{figure}
+% Link to diagram for differential of a morphism
+% https://q.uiver.app/#q=WzAsNCxbMiwwLCJUX3soVSxcXHZhcnBoaSxwKX1YIl0sWzAsMCwiVF9wIFgiXSxbMiwyLCJUX3soVixcXHBzaSxmKHApKX1ZIl0sWzAsMiwiVF97ZihwKX0gWSJdLFswLDIsIkRmX3tVLFZ9KFxcaGF0e3B9KSIsMV0sWzMsMl0sWzEsMF0sWzEsMywiZGYiLDFdXQ==
+\begin{figure}[!h]
 \centering
 \begin{tikzcd}
-	{T_p X} &&& {T_{(U,\varphi,p)}X} \\
+	{T_p X} && {T_{(U,\varphi,p)}X} \\
 	\\
-	\\
-	{T_{f(p)} Y} &&& {T_{(V,\psi,f(p))}Y}
-	\arrow["{Df_{U,V}(\hat{p})}", from=1-4, to=4-4]
-	\arrow["df"', from=1-1, to=4-1]
-	\arrow[from=4-1, to=4-4]
-	\arrow[from=1-1, to=1-4]\end{tikzcd}
+	{T_{f(p)} Y} && {T_{(V,\psi,f(p))}Y}
+	\arrow["{Df_{U,V}(\hat{p})}"{description}, from=1-3, to=3-3]
+	\arrow[from=3-1, to=3-3]
+	\arrow[from=1-1, to=1-3]
+	\arrow["df"{description}, from=1-1, to=3-1]
+\end{tikzcd}
 \caption{Differential of a morphism}
 \label{fig:differential-of-morphism}
 \end{figure}
+
+
 %
 %
 % \begin{note}[Interpretation using co-product]
@@ -370,11 +372,11 @@ Every finite dimensional or finite codimensional linear subspace of $E$ splits. 
 
 If $E$ and $F$ are finite dimensional (so $E = \realn$ and $F = \realm$ respectively), \cref{def:splitting-clm} refers to the familiar matrix canonical form in \cref{eq:immersion-matrix-form}. \Cref{def:immersion,def:submersion} are the infinite-dimensional, manifold analogues of \cref{eq:immersion-matrix-form,eq:submersion-matrix-form}.
 \begin{align}
-    D\hat{f}(\hat{p}) &= \begin{bmatrix}
+    A_{injective} &= \begin{bmatrix}
         \id{m\times m} \\
         0_{n-m\times m} 
     \end{bmatrix}\label{eq:immersion-matrix-form}\\[2ex]
-    D\hat{f}(\hat{p}) &= 
+    A_{surjective} &= 
     \begin{bmatrix}
         \id{n\times n} & 0_{n\times m-n}
     \end{bmatrix}\label{eq:submersion-matrix-form}
@@ -487,8 +489,9 @@ Write $U^s_{\alpha\beta} = U^s_{\alpha}\cap U^s_{\beta}$ and as an intermediate 
 The diagram in \cref{fig:submanifold-chart-overlap} provides a summary. 
 
 \end{note}
+% Link to diagram of slice charts in quvier
 % https://q.uiver.app/#q=WzAsOSxbMCwwLCJVX3tcXGFscGhhXFxiZXRhfSJdLFsyLDAsIlxcYWxwaGEoVV97XFxhbHBoYVxcYmV0YX0pIl0sWzQsMCwiXFxhbHBoYShVX3tcXGFscGhhXFxiZXRhfSlfMVxcdGltZXMgXFxhbHBoYShVX3tcXGFscGhhXFxiZXRhfSlfMiJdLFsyLDIsIlxcYmV0YShVX3tcXGFscGhhXFxiZXRhfSkiXSxbNiw2XSxbNCwyLCJcXGJldGEoVV97XFxhbHBoYVxcYmV0YX0pXzFcXHRpbWVzIFxcYmV0YShVX3tcXGFscGhhXFxiZXRhfSlfMiJdLFswLDIsIlVfe1xcYWxwaGFcXGJldGF9Il0sWzYsMCwiXFxhbHBoYShVX3tcXGFscGhhXFxiZXRhfSlfMSJdLFs2LDIsIlxcYmV0YShVX3tcXGFscGhhXFxiZXRhfSlfMSJdLFswLDEsIlxcYWxwaGEiLDFdLFsxLDIsIlxcdGhldGEiLDFdLFsxLDMsIlxcdmFycGhpX3tcXGFscGhhXFxiZXRhfSIsMV0sWzMsNSwiXFx0aGV0YSIsMV0sWzYsMywiXFxiZXRhIiwxXSxbMiw1LCJcXHRoZXRhXFx2YXJwaGlfe1xcYWxwaGFcXGJldGF9XFx0aGV0YV57LTF9IiwxXSxbMiw3LCJcXHByb2pfMSIsMV0sWzUsOCwiXFxwcm9qXzEiLDFdXQ==
-\begin{figure}
+\begin{figure}[!h]
 \centering
 \begin{tikzcd}
     {U^s_{\alpha\beta}} && {\varphi_\alpha(U^s_{\alpha\beta})} && {\varphi_\alpha(U^s_{\alpha\beta})_1\times a_2} && {\varphi^s_\alpha(U_{\alpha\beta}^s)} \\
@@ -526,7 +529,7 @@ The diagram in \cref{fig:submanifold-chart-overlap} provides a summary.
     \end{equation}
     which is a morphism between open subsets. Reversing the roles of $\alpha$, $\beta$ shows that \cref{eq:submanifold-transition-map-1} is an isomorphism. Therefore the collection of charts in \cref{eq:submanifold-induced-atlas} forms an atlas of $S$.\\
 
-    Let us use $\iota_{S}: S\to X$ to represent the inclusion map and consider a fixed point $p\in S$. It is always possible to identify a slice chart $(U,\varphi)$ for the structure of $X$ that contains $p =\iota_S(p)$. By definition of the atlas on $S$, this induces a 'truncated' chart $(U^s,\varphi^s)$. \\
+    Let us use $\iota_{S}: S\to X$ to represent the inclusion map and consider a fixed point $p\in S$. It is always possible to identify a slice chart $(U,\varphi)$ within $X$ that contains $p =\iota_S(p)$ in its domain. By definition of the atlas on $S$, this induces a 'truncated' chart $(U^s,\varphi^s)$. \\
     
     Observing that $\iota_S(U^s) = \iota_S(U\cap S)$ lies within $(U,\varphi)$, the morphism criteria in \cref{eq:smoothness} is satisfied. Computing the coordinate representation of $\iota_S$, we obtain \cref{eq:submanifold-inclusion-map-coordinate-representation}.
     \begin{equation}\label{eq:submanifold-inclusion-map-coordinate-representation}
@@ -593,6 +596,7 @@ Suppose for each $p$, the set $W_p$ is toplinearly isomorphic to $F$ at for each
 \begin{equation}\label{eq:vector-bundle-coproduct}
     W = \coprod_{p\in X}W_p\qqtext{comes with} \pi: W\to X,\quad \pi^{-1}(p) = W_p
 \end{equation}
+where $\pi$ is a surjection onto $X$ and is called the \emph{canonical projection}.
 \end{definition}
 It turns out the natural way of making $W$ a manifold would be to steal open sets from \emph{both} $E$ and $F$ --- in this case, sets of the form $\hat{U}\times F$. We sometimes write $\wig{U}$ instead of $\pi^{-1}(U)$ for brevity, and $\wig{p}$ in place of $\pi^{-1}(p)$. The next few definitions will ring a few bells.
 %
@@ -631,16 +635,19 @@ It turns out the natural way of making $W$ a manifold would be to steal open set
 % VECTOR BUNDLE
 %
 \begin{definition}[Vector bundle]\label{def:vector-bundle}
-    Let $X$ be a $C^p$ manifold over $E$, and let $F$ be a Banach space. An \emph{$F$-vector bundle of rank $k$} is a coproduct of $F$-fibers modelled over a manifold $X$ equipped with a \textbf{maximal $C^k$ trivialisation covering}.
+    Let $X$ be a $C^p$ manifold over $E$, and let $F$ be a Banach space. An \emph{$F$-vector bundle of rank $k$ over $X$} is a coproduct of $F$-fibers modelled over $X$ equipped with a \textbf{maximal $C^k$ trivialisation covering}.
 \end{definition}
 \begin{remark}[Maximality of trivialisation covering]
     One can easily verify the compatibility condition defines an equivalence relation, thus any $C^k$- trivialisation covering \emph{determines} a maximal one.
+\end{remark}
+\begin{remark}[Omissions for Vector Bundles]
+    We say $W$ is a \emph{bundle over $X$} when it is unambiguous to do so.
 \end{remark}
 % \begin{remark}[k vs. p]
 %     A vector bundle $W$ over $X$ can be of a different class than $X$, a morphism between $C^k$ and $C^p$ manifolds are precisely the maps whose coordinate representation about every point is $C^{\min(p,k)}$; see \cref{rmk:morphism-cp-ck} for details.
 % \end{remark} 
 % https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHdpZ3tVfSJdLFswLDMsIlUiXSxbMywwLCJVXFx0aW1lcyBGIl0sWzAsMSwiXFxwaSIsMl0sWzAsMiwiXFxQaGkiXSxbMiwxLCJcXHByb2pfVSJdXQ==
-\begin{figure}
+\begin{figure}[!h]
 \centering
 \begin{tikzcd}
 {\wig{U}} &&& {U\times F} \\
@@ -675,16 +682,6 @@ Suppose we have a structure on $W$, then $X=\bigcup_{p\in X}\{p\}\times 0$ is a 
          \item The requirement that the mapping \cref{def:vb-transition-function} is a morphism is because we wish to \textbf{have control over the smoothness of morphisms $X\to W$}. 
      \end{itemize}
 \end{enumerate}
-
-\Cref{note:tangent-bundle} provides an example of a tangent bundle.
- \begin{note}[Tangent Bundle]\label{note:tangent-bundle}
-Let $X$ be a $C^p$ manifold with $p\geq 1$, so that the tangent space at every point is defined. If $p\in (U_i,\varphi_i)$ for $i=1,2$. Then $\varphi_{12}$ is a $C^p$ isomorphism between $\varphi_1(U_{12})$ and $\varphi_2(U_{12})$; \textbf{whose derivative is a $C^{p-1}$ map into $\Laut(E)$ that encodes the transformation between the concrete tangent spaces}. In the notation of \cref{eq:tangent-space-overlap-motivation}, this means
-\[
-    x\mapsto D\varphi_{1,2}(x)\quad\text{is in } C^{p-1}(\hat{U}_{12}, \Laut(E))
-\]
-In fact, the tangent bundle $TX \defined \coprod_{p\in X}T_p X$ is a $C^{p-1}$ vector bundle (modelled on $E$) over $X$.
-\end{note}
-
 
 Suppose $W$ is an $F$-vector bundle over $X$ with the trivialisation covering $\{(\wig{U}^\alpha, \Phi_\alpha)\}$. For each $\alpha$, we can cover $U^\alpha$ using chart domains $(U^\alpha_\beta, \varphi^\alpha_\beta)$ in $X$ --- without loss of generality, we can assume $U^\alpha_\beta\subseteq U^\alpha$ by restricting the chart domain and relabelling. \\
 
@@ -731,7 +728,7 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
 
     To prove $\pi$ is a submersion, recall $W$ is the set-theoretic disjoint union of $F$-fibers. Every element in $W$ can be represented by $(x,v)\in X\times F$. \textbf{We will identify elements of $W$ as elements in $X\times F$. However, this is not a manifold isomorphism}.\\
 
-    Fix $(x,v)\in W$, it is in the domain of some chart $(\wig{U}^{\alpha}_{\beta},\wig{\varphi}^{\alpha}_{\beta})$. The projection is a surjection, hence the $\pi$-image of the chart domain is $\pi\pi^{-1}(U^{\alpha}_\beta)=U^{\alpha}_{\beta}$. Using \cref{eq:vector-bundle-product-chart} and the diagram \cref{fig:local-trivialisation}, the coordinate representation of $\pi$ becomes
+    Fix $(x,v)\in W$, it is in the domain of some chart $(\wig{U}^{\alpha}_{\beta},\wig{\varphi}^{\alpha}_{\beta})$. The projection is a surjection, hence the $\pi$-image of the chart domain is $\pi\pi^{-1}(U^{\alpha}_\beta)=U^{\alpha}_{\beta}$. Using \cref{eq:vector-bundle-product-chart} and the diagram found in \cref{fig:local-trivialisation}, the coordinate representation of $\pi$ becomes
     \begin{align}
         \pi_{(\wig{U}^{\alpha}_{\beta}, U^{\alpha}_{\beta})} &= \varphi^\alpha_\beta\circ \pi\circ \Phi_{\alpha}^{-1}\circ \qty((\varphi^{\alpha}_\beta)^{-1}\times \id{F}) \nonumber\\
         &= \varphi^{\alpha}_\beta\circ \proj_1\circ\qty((\varphi^{\alpha}_\beta)^{-1}\times \id{F})\nonumber\\
@@ -745,12 +742,119 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
 
     Finally, the subset $X\times 0\subseteq W$ is easily shown to be a submanifold of $W$, and is isomorphic to $X$ by dropping the $F$ coordinates and retracting the argument we made in constructing $W$.
 \end{proof}
+\begin{remark}[Pair of VB charts]\label{rmk:pair-of-vb-charts}
+    If $X$ is a manifold and $W$ a vector bundle over $X$, the charts realizing the representations of $\pi$ in \cref{eq:VB-canonical-projection-coordinate-representation,eq:VB-canonical-projection-derivative} are called \emph{VB charts}. 
+\end{remark}
+% We will refer to vector bundles as bundles from now on.
+% Section of a vector bundle:
+% commutative diagram.
+% A section of the bundle is a morphism A: X\to W such that $\pi A = \id$.
+% A local section of the bundle is a section defined on an open subset of $X$.
+% We refer to bundle = vector bundle?
+\begin{definition}[Section of a vector bundle]\label{def:section-of-VB}
+    Let $W$ be a bundle over a manifold $X$. A \emph{section} of $W$ is a morphism $\sigma\in\Mor(X,W)$ such that the diagram in \cref{fig:VB-section-diagram}  commutes, or $\pi\sigma = \id{X}$. A \emph{local section} of $W$ is a morphism $\sigma: U\to W$ where $U\osub X$ is viewed as a submanifold and $\pi\sigma = \id{U}$.\\
+
+    The \emph{zero section} of $W$ is the section $\sigma(p) = 0\in W_p$ for every $p\in X$. If $\sigma$ is a section of $W$, $\supp{\sigma}$ refers to the \emph{support} of $\sigma$, and is defined in \cref{eq:support-of-section}.
+    \begin{equation}\label{eq:support-of-section}
+        \supp{\sigma} = \cl{\{p\in X,\: \sigma(p)\neq 0\}}
+    \end{equation}
+\end{definition}
+\begin{remark}[VB coordinates]\label{rmk:VB-coordinates}
+    Let $X$ and $W$ be as in \cref{def:section-of-VB}. If $\sigma$ is a section on $W$, $p\in X$. Using a pair of VB charts, $(U)\in X$ and $(\wig{U})\in W$, we define the \emph{VB coordinates of $\sigma$} \begin{equation}\label{eq:VB-coordinates}
+        \sigma_{U,\wig{U}} = \wig{\varphi}\circ \sigma \circ \varphi^{-1}
+    \end{equation}
+    expanding the induced chart on $W$ within  \cref{eq:VB-coordinates} reads
+    \begin{equation}\label{eq:VB-coordinates-2}
+        \sigma_{U,\wig{U}} = (\varphi\times \id{F})\circ \Phi\circ \sigma\circ \varphi^{-1}
+    \end{equation}
+    Refer to the diagram in \cref{fig:VB-section-coordinates}. We will always use VB charts when discussing the coordinate representation of a section, and we write
+    \[
+        \sigma_U = \sigma_{U,\wig{U}} = \hat{\sigma}
+    \]
+    We have achieved our goal of constructing morphisms whose coordinate representation locally resembles a graph: $\hat{\sigma}:\hat{U}\to\hat{U}\times F$ and because of this, we identify $\hat{\sigma}(\hat{p}) = (\hat{p},v)\in \hat{U}\times F$ with $v\in F$.
+\end{remark}
+
+% FIGURE WITH TWO DIAGRAMS
+\begin{figure}[!h]
+% VB Section diagram LINK
+% https://q.uiver.app/#q=WzAsMixbMCwwLCJXIl0sWzAsMiwiWCJdLFswLDEsIlxccGkiLDJdLFsxLDAsIlxcc2lnbWEiLDAseyJsYWJlbF9wb3NpdGlvbiI6NjAsIm9mZnNldCI6MSwiY3VydmUiOjR9XV0=
+\begin{subfigure}[b]{.5\textwidth}
+\centering
+\begin{tikzcd}
+	W \\
+	\\
+	X
+	\arrow["\pi"{description}, from=1-1, to=3-1]
+	\arrow["\sigma"{pos=0.6}, shift right, curve={height=-24pt}, from=3-1, to=1-1]
+\end{tikzcd}
+\caption{Section of a bundle}
+\label{fig:VB-section-diagram}
+\end{subfigure}
+% VB Section COORDINATES diagram LINK
+% https://q.uiver.app/#q=WzAsNSxbMCwwLCJcXHdpZ3tVfSJdLFswLDIsIlUiXSxbMCw0LCJcXGhhdHtVfSJdLFsyLDAsIlVcXHRpbWVzIEYiXSxbMiwyLCJcXGhhdHtVfVxcdGltZXMgRiJdLFswLDEsIlxccGkiLDFdLFsxLDAsIlxcc2lnbWEiLDAseyJsYWJlbF9wb3NpdGlvbiI6NjAsIm9mZnNldCI6MSwiY3VydmUiOi00fV0sWzEsMiwiXFx2YXJwaGkiLDJdLFswLDNdLFszLDEsIlxccHJval8xIiwxXSxbMyw0LCJcXHdpZ3tcXHZhcnBoaX0iXSxbMiw0LCJcXHNpZ21hX3tVLFxcd2lne1V9IiwxXV0=
+\begin{subfigure}[b]{.5\textwidth}
+    \centering
+    \begin{tikzcd}
+	{\wig{U}} && {U\times F} \\
+	\\
+	U && {\hat{U}\times F} \\
+	\\
+	{\hat{U}}
+	\arrow["\pi"{description}, from=1-1, to=3-1]
+	\arrow["\sigma"{pos=0.6}, shift right, curve={height=-24pt}, from=3-1, to=1-1]
+	\arrow["\varphi"{description}, from=3-1, to=5-1]
+	\arrow[from=1-1, to=1-3]
+	\arrow["{\proj_1}"{description}, from=1-3, to=3-1]
+	\arrow["{\wig{\varphi}}"{description}, from=1-3, to=3-3]
+	\arrow["{\sigma_{U,\wig{U}}}"{description}, from=5-1, to=3-3]
+    \end{tikzcd}    
+    \caption{Coordinates of a VB section}
+    \label{fig:VB-section-coordinates}
+\end{subfigure}
+\end{figure}
+
+%
+%
+%
+
+
+\clearpage
+
+%
+% End of Manifold Chapter
+%
+%
+\fchapter{2: }
+\topheader{Tangent Bundle}
+\begin{definition}[Tangent Bundle]
+    
+\end{definition}
+\begin{definition}[Cotangent bundle]
+    
+\end{definition}
+\Cref{note:tangent-bundle} provides an example of a tangent bundle.
+ \begin{note}[Tangent Bundle]\label{note:tangent-bundle}
+Let $X$ be a $C^p$ manifold with $p\geq 1$, so that the tangent space at every point is defined. If $p\in (U_i,\varphi_i)$ for $i=1,2$. Then $\varphi_{12}$ is a $C^p$ isomorphism between $\varphi_1(U_{12})$ and $\varphi_2(U_{12})$; \textbf{whose derivative is a $C^{p-1}$ map into $\Laut(E)$ that encodes the transformation between the concrete tangent spaces}. In the notation of \cref{eq:tangent-space-overlap-motivation}, this means
+\[
+    x\mapsto D\varphi_{12}(x)\quad\text{is in } C^{p-1}(\hat{U}_{12}, \Laut(E))
+\]
+In fact, the tangent bundle $TX \defined \coprod_{p\in X}T_p X$ is a $C^{p-1}$ vector bundle (modelled on $E$) over $X$. If $(U,\varphi)$ is a chart in $X$, it induces a local trivialisation on $TX$ by taking each tangent vector $v\in T_p X$ to its concrete representation $(p,\hat{v})\in X\times E$.
+\begin{equation}\label{eq:tangent-bundle-local-trivialisation}
+    \Phi: \wig{U}\to U\times E\qqtext{and} \Phi(v) = (p,\hat{v})
+\end{equation}
+where $(U,\varphi, p,\hat{v})$ is a concrete representation of $v\in T_pX$.
+\end{note}
+%
+
+
+% Cotangent bundle?
+
 % \vert_{\wig{U}^{\alpha_1\alpha_2}_{\beta_1\beta_2}}
 % This ties into the computing the exterior derivative of a differential form.
 % What is the reason for 'taking the covector field of the component function?' and replacing it with a wedge product?
 % 
 
-\fchapter{2: Coordinates}
+\fchapter{3: Coordinates}
 
 \topheader{Introduction}
 In the previous chapters, a chart $(U,\varphi)$ was often equated with its domain. We will now express a concrete tangent vector as $(\hat{p}, \hat{v})$, omitting any reference to the chart or its domain. \\

@@ -68,7 +68,7 @@ If $V$ is the vector space direct sum of $W_1$ and $W_2$, a vector $x\in W_1$ is
 \[
     \pi_i (x) = x
 \]
-equivalently, the $x$ is expressed as the linear combination of $x + 0\in W_1\oplus W_2$.
+equivalently, the element $x\in V$ is expressed as the linear combination of $x + 0\in W_1\oplus W_2$.
 \end{definition}
 
 
@@ -338,7 +338,7 @@ We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L
     See $\lambda(x+h) = \lambda(x) + \lambda(h) + 0$ at every $x\in E$. Using the chain rule (\cref{prop:chain-rule}) proves the second claim.
 \end{proof}
 \begin{wts}[Product rule in $k$ variables]\label{prop:product-rule-k-variables}
-    Let $m: \prod \UL{F}[k]\to G$ be a $k$-linear map between Banach spaces $\UL{F}[k]$ and $G$. Suppose $f_i\in C^1(E, F_i)$ with $i=\underline{k}$, writing 
+    Let $m: \prod \UL{F}[k]\to G$ be a continuous $k$-linear map between Banach spaces $\UL{F}[k]$ and $G$. Suppose $f_i\in C^1(E, F_i)$ with $i=\underline{k}$, writing 
     \begin{equation}\label{eq:k-linear-multiplication-map-def}
         m(\UL{f}[k])(x) = m(\UL{f}[k](x))
     \end{equation}
@@ -908,7 +908,7 @@ To simplify the notation, we want to 'move' the evaluation $x$ outside of the br
 Dropping the $x$ from the expression, for $p\geq 2$ \emph{assuming a similar formula holds}, then we write $\qty\big[D^p(\lambda\circ f)] = \lambda_*\circ D^pf$. We make a final identification, of $\lambda = \lambda_*$ (thereby conflating the two different maps, the first is a map from $E$ to $F$, the second is a map from $L(E^p, F)$ into $L(E^p, G)$).
 \end{note}
 
-\begin{wts}[Linear maps commute with $D^p$]\label{prop:linear-maps-commute-with-p-derivative}
+\begin{wts}[CLMs commute past $D^p$]\label{prop:linear-maps-commute-with-p-derivative}
     If $p\geq 2$, $f\in C^p(E,F)$, $\lambda\in L(F,G)$, then
     \[
         D^p(\lambda\circ f) = \lambda\circ D^pf

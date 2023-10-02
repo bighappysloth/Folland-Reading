@@ -165,15 +165,13 @@ for any morphism $f\in \Mor(X,Y)$, and charts that satisfy \cref{eq:suitably-cho
 \end{remark}
 
 % Motivation for the definition of smoothness
-\Cref{def:smoothness} may leave one unsatisfied. A common question that comes to mind is: why do we require the image $f(U)$ be contained in another chart domain in $Y$? There are two reasons.
+\Cref{def:smoothness} may leave one unsatisfied. Why do we require the image $f(U)$ be contained in another chart domain in $Y$? There are two reasons.
 \begin{enumerate}
     \item Suppose $f$ is a map between $E$ and $F$, and the restriction of $f$ onto a family of open subsets $U_{\alpha}\subseteq E$ is $C^p$ for $p\geq 0$. If $\{U_\alpha\}$ is an open cover for $E$, then $f$ is continuous. \Cref{prop:smoothness-implies-cont-functorality} shows this equally holds for manifolds.
-    \item The definition of smoothness between open subsets of Banach spaces (see \cref{def:cp-banach-space}) is a purely local one. And let us recall: \textbf{every chart domain $U$ in a manifold $X$ corresponds to an open subset $\hat{U}\subseteq E$ in the model space}. \\
-    
-    The necessity that $f(U)$ must be contained in a single chart domain of $Y$ is a relic of the original definition (see \cref{rmk:cp-banach-space-mapping-image-contained} as well). 
+    \item The definition of smoothness between open subsets of Banach spaces (see \cref{def:cp-banach-space}) is a purely local one. And let us recall: every chart domain $U$ in a manifold $X$ corresponds to an open subset $\hat{U}\subseteq E$ in the model space, and see \cref{rmk:cp-banach-space-mapping-image-contained} as well. Hence, \textbf{the necessity that the image $f(U)$ is contained in a single chart domain of $Y$ is a relic of the original definition}. 
 \end{enumerate}
 %
-\begin{wts}\label{prop:smoothness-implies-cont-functorality}
+\begin{wts}[Properties of morphisms between manifolds]\label{prop:smoothness-implies-cont-functorality}
     Every $C^p$ morphism between manifolds is a continuous map, and the composition of $C^p$ morphisms is again a morphism.
 \end{wts}
 \begin{proof}
@@ -208,7 +206,7 @@ But there is a problem with this 'derivative': it gives different values for dif
     &= Df_{U_2,V}(p_2)\biggl(D\varphi_{12}(p_1)(v)\biggr)\nonumber\\
     &= Df_{U_2,V}(p_2)\circ D\varphi_{12}(p_1)\cdot (v)\label{eq:tangent-space-quotient-motivation}
 \end{align}
-where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left associative over composition. The computation in \cref{eq:tangent-space-quotient-motivation} suggests that interpreting the derivative by pre-conjugation is dependent on the chart being used to interpret the derivative. In fact, $D\varphi_{1,2}(p_1)$ can be replaced with any toplinear isomorphism on $E$ (relabel $\varphi_2 = A\varphi_1$ where $A$ is any linear automorphism on $E$), so the right hand side of \cref{eq:tangent-space-quotient-motivation} can be interpreted as $Df_{U_2,V}(p_2)(w)$ where $w$ is any vector in $E$. 
+where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left associative over composition. The computation in \cref{eq:tangent-space-quotient-motivation} suggests that interpreting the derivative by pre-conjugation is dependent on the chart being used to interpret the derivative. In fact, $D\varphi_{12}(p_1)$ can be replaced with any toplinear isomorphism on $E$ (relabel $\varphi_2 = A\varphi_1$ where $A$ is any linear automorphism on $E$), so the right hand side of \cref{eq:tangent-space-quotient-motivation} can be interpreted as $Df_{U_2,V}(p_2)(w)$ where $w$ is any vector in $E$. 
 
 \begin{definition}[Concrete tangent vector]\label{def:concrete-tangent-vector}
     Suppose $k\geq 1$, $X$ a $C^k$-manifold on $E$, and $p\in X$. If $(U,\varphi)$ is any chart containing $p$, for each $v\in E$ we call $(U,\varphi,p,v)$ a \emph{concrete tangent vector at $p$} that is \emph{interpreted} with respect to the chart $(U,\varphi)$. The disjoint union of concrete tangent vectors, as shown in \cref{eq:concrete-tangent-space}
@@ -382,12 +380,12 @@ If $E$ and $F$ are finite dimensional (so $E = \realn$ and $F = \realm$ respecti
 %
 %
 % Should I include the fact that X and Y are should still be considered as manifolds?
-% No
+% No, what about the point p?
 %
 %
 %
 \begin{definition}[Immersion]\label{def:immersion}
-    A morphism $f\in\Mor(X,Y)$ is an \emph{immersion} at a point $p\in X$ if there exists a coordinate representation about $f_{U,V}$ such that 
+    A morphism $f\in\Mor(X,Y)$ is an \emph{immersion at $p$} if there exists a coordinate representation about $f_{U,V}$ such that 
     \begin{equation}\label{eq:immersion-at-point}
         Df_{U,V}(\hat{p})\quad\text{is injective and splits.}
     \end{equation}
@@ -396,11 +394,11 @@ If $E$ and $F$ are finite dimensional (so $E = \realn$ and $F = \realm$ respecti
 %
 %
 \begin{definition}[Submersion]\label{def:submersion}
-    A morphism $f\in\Mor(X,Y)$ is an \emph{submersion} at a point $p\in X$ if there exists a coordinate representation about $f_{U,V}$ such that 
+    A morphism $f\in\Mor(X,Y)$ is a \emph{submersion at $p$} if there exists a coordinate representation about $f_{U,V}$ such that 
     \begin{equation}\label{eq:submersion-at-point}
         Df_{U,V}(\hat{p})\quad\text{is surjective and its kernel splits.}
     \end{equation}
-    The morphism $f$ is called an submersion if \cref{eq:submersion-at-point} holds at every $p$.
+    The morphism $f$ is called a submersion if \cref{eq:submersion-at-point} holds at every $p$.
 \end{definition}
 %
 %
@@ -413,7 +411,7 @@ If $E$ and $F$ are finite dimensional (so $E = \realn$ and $F = \realm$ respecti
 \end{definition}
 
 \begin{definition}[Toplinear subspace]\label{def:toplinear-subspace}
-    Let $E$ be a Banach space, a \emph{toplinear subspace} (of $E$) is a closed linear subspace $E_1$ which splits in $E$.
+    Let $E$ be a Banach space, a \emph{toplinear subspace of $E$} is a closed linear subspace $E_1$ which splits in $E$.
 \end{definition}
 %%%
 
@@ -442,19 +440,19 @@ Identifying $\hat{U}$ with $\theta(\hat{U})$, and requiring $U_1\times a_2$ to b
 \begin{definition}[Submanifold]
     Let $X$ be a manifold, and $S$ a subset of $X$. We call $S$ a \emph{submanifold} of $X$ if there exist split subspaces $E_1$, $E_2$ of $E$; such that, every $p\in S$ is contained in the domain of some chart $(U,\varphi)$ in $X$. Where
     \begin{equation}\label{eq:submanifold-slice-chart-splits}
-        \varphi: U\to \hat{U}\cong \hat{U}_1\times \hat{U}_2,\qqtext{where} \hat{U}_i\osub E_i\quad i=1,2
+        \varphi: U\to \hat{U}\cong \hat{U}_1\times \hat{U}_2,\qqtext{where} \hat{U}_i\osub E_i\qqtext{for} i=\underline{2}.
     \end{equation}
     and there exists an element $a_2\in \hat{U}_2$
     \begin{equation}\label{eq:submanifold-slice-chart-level-set}
         \varphi(U\cap S) = \hat{U}_1\times a_2
     \end{equation}
 \end{definition}
-We call a chart satisfying \cref{eq:submanifold-slice-chart-splits,eq:submanifold-slice-chart-level-set} a \emph{slice chart} of $S$; to simplify what follows, we write $\varphi^i = \operatorname{proj}_i\varphi$ for $i = 1,2$ for any slice chart $(U)$. Given that $\operatorname{proj}_i$ is a morphism between open subsets of Banach spaces, $\varphi^i$ is again a morphism. In particular, $\varphi^1$ is in bijection from $U^s=U\cap S$ onto $\hat{U}_1$; the latter being an open subset of $E_1$. To show $S$ is indeed a manifold it remains to show the collection of charts in \cref{eq:submanifold-induced-atlas} forms a $C^p$ atlas modelled $E_1$, which we will prove in \cref{prop:structure-of-submanifold}
+We call a chart satisfying \cref{eq:submanifold-slice-chart-splits,eq:submanifold-slice-chart-level-set} a \emph{slice chart} of $S$; to simplify what follows, we write $\varphi^i = \operatorname{proj}_i\varphi$ for $i = \underline{2}$ for any slice chart $(U)$. Given that $\operatorname{proj}_i$ is a morphism between open subsets of Banach spaces, $\varphi^i$ is again a morphism. In particular, $\varphi^1$ is a bijection from $U^s=U\cap S$ onto $\hat{U}_1$; the latter being an open subset of $E_1$. To show $S$ is indeed a manifold it remains to show the collection of charts in \cref{eq:submanifold-induced-atlas} forms a $C^p$ atlas modelled $E_1$, which we will prove in \cref{prop:structure-of-submanifold}
 \begin{equation}\label{eq:submanifold-induced-atlas}
     \acal = \bigset{(U^s,\varphi^s) = (U^s, \varphi^1),\:\: (U,\varphi)\text{ is a slice chart of }S}
 \end{equation}
 \begin{wts}[Structure of a submanifold]\label{prop:structure-of-submanifold}
-    If $S$ is a submanifold of $X$, \cref{eq:submanifold-induced-atlas} defines a $C^p$ atlas over the space $E_1$. The manifold $S$ has a topology that coincides with the subspace topology. Furthermore, the inclusion map $\iota_S: S\to X$ is a morphism, and an embedding.
+    If $S$ is a submanifold of $X$, \cref{eq:submanifold-induced-atlas} defines a $C^p$ atlas over the space $E_1$. The manifold $S$ has a topology that coincides with the subspace topology. Furthermore, the inclusion map $\iota_S: S\to X$ is a morphism and an embedding.
 \end{wts}
 \begin{proof}
     Each of the charts in \cref{eq:submanifold-induced-atlas} is in bijection with an open subset of $E_1$. Let $(U^s_{\alpha}, \varphi^s_\alpha)$ and $(U^s_{\beta}, \varphi^s_\beta)$ be overlapping charts in $\acal$. Using $\theta$ as our toplinear isomorphism from $E$ onto $E_1\times E_2$ as usual. 
@@ -471,14 +469,14 @@ We call a chart satisfying \cref{eq:submanifold-slice-chart-splits,eq:submanifol
     \end{itemize}
     
 \begin{note}
-Write $U^s_{\alpha\beta} = U^s_{\alpha}\cap U^s_{\beta}$ and as an intermediate step, we will show \cref{lem:submanifold-slice-chart-image-is-open}.
+Let us define $U^s_{\alpha\beta} = U^s_{\alpha}\cap U^s_{\beta}$, we will show \cref{lem:submanifold-slice-chart-image-is-open}.
 \begin{lemma}\label{lem:submanifold-slice-chart-image-is-open}
     Both $\varphi_{\alpha}^s(U^s_{\alpha\beta})$ and $\varphi_{\beta}^s(U^s_{\alpha\beta})$ are open subsets of $E_1$.
 \end{lemma}
 \begin{proof}[Proof of \cref{lem:submanifold-slice-chart-image-is-open}]
-    We can factor $U^s_{\alpha\beta} = (U^s\cap U_\alpha)\cap U_{\alpha\beta}$, and because $\varphi_\alpha$ is a bijection, we write $\varphi_\alpha^s(U^s_{\alpha\beta}) = \proj_1\theta\qty\Big(\varphi_\alpha(U^s\cap U_{\alpha})\cap \varphi_\alpha(U_{\alpha\beta}))$. Notice $\theta$ and $\proj_1$ are open maps.\\
+    We can factor $U^s_{\alpha\beta} = (U^s\cap U_\alpha)\cap U_{\alpha\beta}$, and because $\varphi_\alpha$ is a bijection, we have $\varphi_\alpha^s(U^s_{\alpha\beta}) = \proj_1\theta\qty\Big(\varphi_\alpha(U^s\cap U_{\alpha})\cap \varphi_\alpha(U_{\alpha\beta}))$.\\
     
-    Since $W\defined \varphi_{\alpha}(U_{\alpha\beta})$ is open in $E$, and $\theta(\varphi(U^s\cap U_\alpha)\cap W)$ splits into a subset of $\hat{U}^s_\alpha\times a_2$, 
+     $\theta$ and $\proj_1$ are both open maps, and because $W\defined \varphi_{\alpha}(U_{\alpha\beta})$ is open in $E$: $\theta(\varphi_\alpha(U^s\cap U_\alpha)\cap W)$ splits into a subset of $\hat{U}^s_\alpha\times a_2$, 
     \[
         \proj_1\theta(\varphi_{\alpha}(U^s\cap U_\alpha)\cap W) = \proj_1(\text{Open subset of }E_1 \times a_2)
     \]
@@ -531,7 +529,7 @@ The diagram in \cref{fig:submanifold-chart-overlap} provides a summary.
     
     Observing that $\iota_S(U^s) = \iota_S(U\cap S)$ lies within $(U,\varphi)$, the morphism criteria in \cref{eq:smoothness} is satisfied. Computing the coordinate representation of $\iota_S$, we obtain \cref{eq:submanifold-inclusion-map-coordinate-representation}.
     \begin{equation}\label{eq:submanifold-inclusion-map-coordinate-representation}
-        (\iota_S)_{U^s,U} = \varphi\iota_S(\varphi^1)^{-1} = \id{\hat{U}_1}\times a_2
+        (\iota_S)_{U^s,U} = \varphi\iota_S(\varphi^s)^{-1} = \id{\hat{U}_1}\times a_2
     \end{equation}
     \Cref{eq:submanifold-inclusion-map-coordinate-representation} shows that the coordinate representation of $\iota_S$ is a local isomorphism. Since the inclusion map is a bijection and continuous, and the coordinate representation of $\iota_S^{-1}$ is simply the inverse \cref{eq:submanifold-inclusion-map-coordinate-representation}; $\iota_S^{-1}$ is a morphism and therefore continuous. The manifold topology of $S$ coincides with its subspace topology.\\
 

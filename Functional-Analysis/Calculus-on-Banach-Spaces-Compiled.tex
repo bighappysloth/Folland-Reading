@@ -32,6 +32,12 @@ By the open mapping theorem: any continuous surjective linear map is an open map
     \item We say a map $F$ is \emph{between} the spaces $X$ and $Y$ if $F: X\to Y$. 
     \item $\mathcal{L}(V^K,W)$ denotes the space of $k$-linear maps from $V$ to $W$ that are not necessarily continuous. 
 \end{itemize}
+%
+% Inverse function notation, square brackets
+% CLF = continuous linear functional (assumed to be real)
+% CLM = continuous linear map
+
+
 
 % Hahn Banach Theorem
 \begin{wts}[Hahn Banach Theorem (Geometric Form)]\label{prop:hahn-banach-geometric-form}
@@ -929,7 +935,7 @@ Dropping the $x$ from the expression, for $p\geq 2$ \emph{assuming a similar for
     \begin{equation}\label{eq:taylors-formula-1}
         f(x+y) = f(x) + \qty(\sum_{i=\underline{p-1}}\dfrac{D^if(x)\cdot (y^{(i)})}{(p-1)!}) + R_p
     \end{equation}
-    where $\cdot (y^{(i)})$ denotes the application of $y$, consecutively for $i$ times. The remainder $R_p$ is given by \cref{eq:taylors-formula-2}
+    where $\cdot (y^{(i)})$ denotes the consecutive application of $y$ for $i$ times. The remainder $R_p$ is given by \cref{eq:taylors-formula-2}
     \begin{equation}\label{eq:taylors-formula-2}
         R_p = \int_0^1 \dfrac{(1-t)^{p-1}}{(p-1)!}D^p f(x+ty)dt\cdot (y^{(p)})
     \end{equation}

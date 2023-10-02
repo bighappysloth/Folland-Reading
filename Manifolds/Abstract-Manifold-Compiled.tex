@@ -6,12 +6,12 @@
 \topheader{Introduction}
 In this chapter, $E$ and $F$ will always denote Banach spaces, and all Banach spaces will be over $\real$. We sometimes say $E$ (resp. $F$) is a space for brevity, and
 \begin{itemize}
-    \item $\mathcal{L}(E,F)$, (resp. $L(E,F)$) = Linear (resp. toplinear) maps between $E$ and $F$, 
+    \item $\mathcal{L}(E,F)$  = linear maps between $E$ and $F$, 
+    \item $L(E,F)$ = toplinear (continuous and linear) maps between $E$ and $F$,
     \item $\Topliso(E,F)$ = toplinear isomorphisms between $E$ and $F$, 
     \item $\Laut(E)$ = toplinear automorphisms on $E$, which form a strongly open subset of $L(E,E)$.
 \end{itemize}
-
-We will be working in the category of $C^p$ Banach spaces --- where $p\geq 0$. The morphisms in the category of $\operatorname{Ban}_\real$ morphisms are $C^p$ morphisms, which are $p$-times continuously differentiable functions. 
+We will be working in the category of $C^p$ Banach spaces --- where $p\geq 0$. The morphisms in the category of $\operatorname{Ban}_\real$ are called $C^p$ morphisms, which are $p$-times continuously differentiable functions. 
 \begin{definition}[Morphisms between open subsets of Banach spaces]\label{def:cp-banach-space}
     Let $E$ and $F$ be Banach spaces, and $U\subseteq E$, $V\subseteq F$ be open subsets. A mapping $f: E\to F$ is of class $C^p$ if $f\in C(E,F)$ and \cref{eq:cp-banach-space-mapping} holds.
     \begin{equation}\label{eq:cp-banach-space-mapping}
@@ -24,19 +24,12 @@ We will be working in the category of $C^p$ Banach spaces --- where $p\geq 0$. T
     We sometimes write $C^p$ for $C^p(E,F)$ when it is clear. A \emph{$C^p$ isomorphism} is a bijective $C^p$ morphism whose inverse is also a morphism.
 \end{definition}
 \begin{remark}[Implicit assumption]\label{rmk:cp-banach-space-mapping-image-contained}
-    In \cref{eq:cp-banach-space-mapping-local} we assumed that $f(U)\subseteq V$. This is a non-trivial part of the definition of $C^p$ morphisms between $E$ and $F$, we will come back to this later.
+    In \cref{eq:cp-banach-space-mapping-local} we assumed that $f(U)\subseteq V$. This is a non-trivial part of the definition of $C^p$ morphisms between $E$ and $F$, we will come back to this in \cref{def:smoothness}.
 \end{remark}
-It is easy to see that composable $C^p$ mappings are functors in the category of open subsets between Banach spaces. A few more things.
-\begin{itemize}
-    \item If $f$ is a toplinear mapping between $E$ and $F$, then $f\in C^p(E,F)$ for all $p\geq 0$.
-    \item If $f$ is a bijective toplinear mapping, then it is a $C^p$ isomprhism for all $p\geq 0$,
-    \item However, a bijective $C^p$ morphism need not be a $C^p$ isomorphism.
-\end{itemize}
-
 Let $f_1$ and $f_2$ be mappings, and $X$ a non-empty set.
 \begin{itemize}
     \item We say they are \emph{composable} if either one of $f_2\circ f_1$ or $f_1\circ f_2$ makes sense. 
-    \item We also write $f_2f_1$ to refer to $f_2\circ f_2$ if there is no ambiguity.
+    \item We also write $f_2f_1$ to refer to $f_2\circ f_1$ if there is no ambiguity.
     \item If $U\subseteq X$ and $V\subseteq Y$, and $f: U\to V$ is a bijection --- meaning $f(U) = V$ and $f$ is injective, we say $f$ is a bijection between $U$ and $V$.
     \item With regards to inverse image notation, we allow ourselves to write 
     \[
@@ -47,9 +40,14 @@ Let $f_1$ and $f_2$ be mappings, and $X$ a non-empty set.
         f_2f_1^{-1}=f_2\circ f_1^{-1}\neq (f_2\circ f_1)^{-1}
     \]
 \end{itemize}
+Composable $C^p$ mappings are functors in the category of open subsets between Banach spaces. Few basic facts about $C^p$ morphisms:
+\begin{itemize}
+    \item If $f$ is a toplinear mapping between $E$ and $F$, then $f\in C^p(E,F)$ for all $p\geq 0$.
+    \item If $f$ is a bijective toplinear mapping, then it is a $C^p$ isomorphism for all $p\geq 0$.
+    \item However, a bijective $C^p$ morphism need not be a $C^p$ isomorphism.
+\end{itemize}
 
-
-\topheader{The structure of a manifold}
+\topheader{Structure of a manifold}
 It is fruitful to \emph{construct} the manifold rather than \emph{define} it. We also insist on working with open sets of Banach spaces instead coordinate functions as our primary data.\\
 
 % We will be working in the category of $C^p$ Banach spaces (all Banach spaces are assumed to be over $\real$). Its morphisms are $C^p$ morphisms: the maps which are continuously $p$-times differentiable (but not necessarily linear). Note that if $p\geq 0$, every toplinear morphism is a $C^p$ morphism, and every toplinear isomorphism is a $C^p$ isomorphism. However, a bijective $C^p$ morphism is usually not a $C^p$ isomorphism. 
@@ -155,11 +153,11 @@ The scenario in \cref{eq:smoothness} occurs so often that we decide to simply wr
 \begin{equation}\label{eq:suitably-chosen-charts-1}
     f_{U,V} = \psi f\varphi^{-1}
 \end{equation}
-to mean there exists charts $(U,\varphi)$, $(V\psi)$ in the structure of $X$, $Y$ such that 
+to mean there exists charts $(U,\varphi)$, $(V\psi)$ in the structure of $X$, $Y$ with 
 \begin{equation}\label{eq:suitably-chosen-charts-2}
     f(U)\subseteq V
 \end{equation}
-Consistent with the notation of putting a 'hat' on the objects that are borrowed from the model space, we write $\hat{f}=f_{U,V}$. \Cref{eq:suitably-chosen-charts-3} gives an example of this.
+Consistent with the notation of putting hats on objects borrowed or pulled back from the model spaces, we write $\hat{f}=f_{U,V}$. \Cref{eq:suitably-chosen-charts-3} gives an example of this.
 \begin{equation}\label{eq:suitably-chosen-charts-3}
     \hat{f}(\hat{p}) = f_{U,V}(\hat{p}) = f_{U,V}(\varphi(p))
 \end{equation}
@@ -169,12 +167,12 @@ for any morphism $f\in \Mor(X,Y)$, and charts that satisfy \cref{eq:suitably-cho
 % Motivation for the definition of smoothness
 \Cref{def:smoothness} may leave one unsatisfied. A common question that comes to mind is: why do we require the image $f(U)$ be contained in another chart domain in $Y$? There are two reasons.
 \begin{enumerate}
-    \item First, suppose $f$ is a map between $E$ and $F$, and the restriction of $f$ onto a family of open subsets $U_{\alpha}\subseteq E$ is $C^p$ for $p\geq 0$. If $\{U_\alpha\}$ is an open cover for $E$, then $f$ is continuous. \Cref{prop:smoothness-implies-cont-functorality} shows this equally holds for manifolds.
-    \item Second, the definition of smoothness between open subsets of Banach spaces (see \cref{def:cp-banach-space}) is a purely local one. And let us recall: \textbf{every chart domain $U$ in a manifold $X$ corresponds to an open subset $\hat{U}\subseteq E$ in the model space}. The necessity that $f(U)$ must be contained in a single chart domain of $Y$ is a relic of the original definition (see \cref{rmk:cp-banach-space-mapping-image-contained} as well). 
+    \item Suppose $f$ is a map between $E$ and $F$, and the restriction of $f$ onto a family of open subsets $U_{\alpha}\subseteq E$ is $C^p$ for $p\geq 0$. If $\{U_\alpha\}$ is an open cover for $E$, then $f$ is continuous. \Cref{prop:smoothness-implies-cont-functorality} shows this equally holds for manifolds.
+    \item The definition of smoothness between open subsets of Banach spaces (see \cref{def:cp-banach-space}) is a purely local one. And let us recall: \textbf{every chart domain $U$ in a manifold $X$ corresponds to an open subset $\hat{U}\subseteq E$ in the model space}. \\
+    
+    The necessity that $f(U)$ must be contained in a single chart domain of $Y$ is a relic of the original definition (see \cref{rmk:cp-banach-space-mapping-image-contained} as well). 
 \end{enumerate}
-
 %
-
 \begin{wts}\label{prop:smoothness-implies-cont-functorality}
     Every $C^p$ morphism between manifolds is a continuous map, and the composition of $C^p$ morphisms is again a morphism.
 \end{wts}
@@ -226,7 +224,7 @@ Fix a point $p$ in a manifold $X$. Suppose $(U_i,\varphi_i)$ are charts containi
 \begin{equation}\label{eq:concrete-tangent-vector-relation}
     (U_1,\varphi_1,p,v_1)\sim (U_2,\varphi_2,p,v_2)\qqtext{iff} v_2 = D\varphi_{12}(p_1)(v_1)
 \end{equation}
-where $p_i = \varphi_i (p)$. The right member of \cref{eq:concrete-tangent-vector-relation}  is the derivative of a transition map --- which is a toplinear automorphism on $E$. Hence $D\varphi_{1,2}(p_1)$ defines a toplinear isomorphism between $T_{(U_1,\varphi_1,p)}X$ and $T_{(U_1,\varphi_2,p)}X$. With this, we define the primary object of our study.
+where $p_i = \varphi_i (p)$. The right member of \cref{eq:concrete-tangent-vector-relation}  is the derivative of a transition map --- which is a toplinear automorphism on $E$. Hence $D\varphi_{12}(p_1)$ defines a toplinear isomorphism between $T_{(U_1,\varphi_1,p)}X$ and $T_{(U_2,\varphi_2,p)}X$. With this, we define the primary object of our study.
 \begin{definition}[Tangent vector]\label{def:tangent-vector}
     A \emph{tangent vector} (or an \emph{abstract} tangent vector) at $p$ is defined as an equivalence class of concrete tangent vectors at $p$, under the relation in \cref{eq:concrete-tangent-vector-relation}.
 \end{definition}
@@ -259,7 +257,7 @@ where $p_i = \varphi_i (p)$. The right member of \cref{eq:concrete-tangent-vecto
 	\arrow["{Df_{U,V}(\hat{p})}"{description}, from=1-3, to=3-3]
 	\arrow[from=3-1, to=3-3]
 	\arrow[from=1-1, to=1-3]
-	\arrow["df"{description}, from=1-1, to=3-1]
+	\arrow["df(p)"{description}, from=1-1, to=3-1]
 \end{tikzcd}
 \caption{Differential of a morphism}
 \label{fig:differential-of-morphism}
@@ -306,7 +304,7 @@ Let $J_\varepsilon = (-\varepsilon, +\varepsilon)$ be an open interval in $\real
     \begin{equation}\label{eq:velocity-of-a-curve}
         \gamma'(t_0)=\qty[D\gamma_{J_\varepsilon,V}(t_0)(\cl{1})]
     \end{equation}
-    where $(J_{\varepsilon},\id{J_\varepsilon},t_0,\cl{1})$ is a concrete tangent vector in $T_t J_\varepsilon$.
+    where $(J_{\varepsilon},\id{J_\varepsilon},t_0,\cl{1})$ is a concrete tangent vector within $T_{t_0} J_\varepsilon$.
 \end{definition}
 \begin{wts}[Tangent vectors are velocities]\label{prop:tangent-vectors-are-velocities}
     Let $p$ be a point on a manifold $X$. For every tangent vector $v\in T_p X$, there exists a curve starting at $p$ whose velocity is $v$.
@@ -318,9 +316,9 @@ Let $J_\varepsilon = (-\varepsilon, +\varepsilon)$ be an open interval in $\real
     \end{equation}
     $\hat{\gamma}$ is a curve in $\hat{U}$ starting at $\hat{p}$ with velocity $\hat{v}$. Defining $\gamma$ as the composition of $\hat{\gamma}$ with the chart inverse finishes the proof.
 \end{proof}
-
-
-
+%
+%
+%
 % \fchapter{2: Submanifolds}
 % Let X be a topological space, a subset $S\subseteq X$ is locally closed if every point $p\in S$ admits a neighbourhood $U\osub X$ such that $U\cap S$ is closed in $U$.
 
@@ -407,7 +405,7 @@ If $E$ and $F$ are finite dimensional (so $E = \realn$ and $F = \realm$ respecti
 %
 %
 %
-
+%
 %
 %
 \begin{definition}[Embedding]\label{def:embedding}
@@ -523,13 +521,13 @@ The diagram in \cref{fig:submanifold-chart-overlap} provides a summary.
     \end{equation}
     which is clearly a bijection. It suffices to show \cref{eq:submanifold-transition-map-1} is a morphism between open subsets of $E_1$. Let $a_2: \varphi_\alpha^s(U^s_{\alpha\beta})\to \hat{U}_{2,\alpha}$, which is the constant function $a_2$ and hence a morphism.\\
 
-    The product $(\id{\varphi^s_\alpha(U^s_{\alpha\beta})}\times a_2)=\proj_1^{-1}$ is a morphism into $\varphi^s_\alpha(U^s_{\alpha\beta})\times \hat{U}_{2,\alpha}$. The inverse of $\theta$ is an open morphism, and terms $\varphi_\beta\varphi_\alpha^{-1}$ combine into the transition map $\varphi_{\alpha\beta}$ in $X$ (up to a restriction on an open set). \Cref{eq:submanifold-transition-map-1} then reads
+    The product $(\id{\varphi^s_\alpha(U^s_{\alpha\beta})}\times a_2)=\proj_1^{-1}$ is a morphism into $\varphi^s_\alpha(U^s_{\alpha\beta})\times \hat{U}_{2,\alpha}$. The inverse of $\theta$ is an open morphism, and the terms $\varphi_\beta\varphi_\alpha^{-1}$ combine into the transition map $\varphi_{\alpha\beta}$ in $X$ (up to a restriction on an open set). \Cref{eq:submanifold-transition-map-1} then reads
     \begin{equation}\label{eq:submanifold-transition-map-2}
         \varphi_\beta^s\circ(\varphi^s_\alpha)^{-1}=\proj_1\theta\varphi_{\alpha\beta}\theta^{-1}(\id{\varphi^s_\alpha(U^s_{\alpha\beta})}\times a_2)
     \end{equation}
     which is a morphism between open subsets. Reversing the roles of $\alpha$, $\beta$ shows that \cref{eq:submanifold-transition-map-1} is an isomorphism. Therefore the collection of charts in \cref{eq:submanifold-induced-atlas} forms an atlas of $S$.\\
 
-    Let us use $\iota_{S}: S\to X$ to represent the inclusion map and consider a fixed point $p\in S$. It is always possible to identify a slice chart $(U,\varphi)$ within $X$ that contains $p =\iota_S(p)$ in its domain. By definition of the atlas on $S$, this induces a 'truncated' chart $(U^s,\varphi^s)$. \\
+    Let us use $\iota_{S}: S\to X$ to represent the inclusion map and consider a point $p\in S$. It is always possible to identify a slice chart $(U,\varphi)$ within $X$ that contains $p =\iota_S(p)$ in its domain. By definition of the atlas on $S$, this induces a truncated chart $(U^s,\varphi^s)$. \\
     
     Observing that $\iota_S(U^s) = \iota_S(U\cap S)$ lies within $(U,\varphi)$, the morphism criteria in \cref{eq:smoothness} is satisfied. Computing the coordinate representation of $\iota_S$, we obtain \cref{eq:submanifold-inclusion-map-coordinate-representation}.
     \begin{equation}\label{eq:submanifold-inclusion-map-coordinate-representation}
@@ -598,7 +596,7 @@ Suppose for each $p$, the set $W_p$ is toplinearly isomorphic to $F$ at for each
 \end{equation}
 where $\pi$ is a surjection onto $X$ and is called the \emph{canonical projection}.
 \end{definition}
-It turns out the natural way of making $W$ a manifold would be to steal open sets from \emph{both} $E$ and $F$ --- in this case, sets of the form $\hat{U}\times F$. We sometimes write $\wig{U}$ instead of $\pi^{-1}(U)$ for brevity, and $\wig{p}$ in place of $\pi^{-1}(p)$. The next few definitions will ring a few bells.
+It turns out the natural way of making $W$ a manifold would be to steal open sets from \emph{both} $E$ and $F$ --- in this case, sets of the form $\hat{U}\times F$. We sometimes write $\wig{U}$ instead of $\pi^{-1}(U)$ for brevity, and $\wig{p}$ in place of $\pi^{-1}(p)$. The next few definitions should feel familiar.
 %
 % LOCAL TRIVIALISATIONS
 %
@@ -615,14 +613,14 @@ It turns out the natural way of making $W$ a manifold would be to steal open set
 \begin{definition}[Compatibility between trivialisations]\label{def:compatibility-local-trivialisations}
     Let $(\wig{U},\Phi)$ and $(\wig{V},\Psi)$ be local trivialisations of $W$, they are called $C^k$-compatible if $U\cap V=\varnothing$, or both of the following hold:
     \begin{itemize}
-        \item for each $p\in U\cap V$ --- the restriction of $\Psi\circ\Phi^{-1}$ onto the fiber of $p$ --- $(\Psi\circ\Phi^{-1})\vert_{\wig{p}}$ is in $\Laut(F)$, and
+        \item for each $p\in U\cap V$ --- the restriction of $\Psi\circ\Phi^{-1}$ onto the fiber of $p$ --- $(\Psi\circ\Phi^{-1})\vert_{\wig{p}}$ is a toplinear isomorphism, and
         \item the map $\theta: U\cap V\to L(F,F)$ as defined by \cref{def:vb-transition-function}, is a $C^k$ morphism into the Banach space $L(F,F)$.
         \begin{equation}\label{def:vb-transition-function}
             \theta(p) = (\Psi\circ\Phi^{-1})\vert_{\wig{p}}
         \end{equation}
-        (equivalently, we can require $\theta$ be a $C^k$ morphism into the manifold $\Laut(F)$).
+        (equivalently, we can require $\theta$ be a $C^k$ morphism into the open submanifold $\Laut(F)$).
     \end{itemize}
-    Note: we assume that $k\leq p$.
+    Note: we assume that $0\leq k\leq p$.
 \end{definition}
 
 %
@@ -654,9 +652,9 @@ It turns out the natural way of making $W$ a manifold would be to steal open set
 \\
 \\
 U
-\arrow["\pi"', from=1-1, to=4-1]
-\arrow["\Phi", from=1-1, to=1-4]
-\arrow["{\proj_1}", from=1-4, to=4-1]\end{tikzcd}
+\arrow["\pi"{description}, from=1-1, to=4-1]
+\arrow["\Phi"{description}, from=1-1, to=1-4]
+\arrow["{\proj_1}"{description}, from=1-4, to=4-1]\end{tikzcd}
 \caption{Local Trivialisation}
 \label{fig:local-trivialisation}
 \end{figure}
@@ -664,14 +662,14 @@ U
 %%
 %%
 % We call the map $\theta$ in \cref{def:vb-transition-function} the \emph{transition function}.
-The above definitions calls for some commentary, our end goal is to make an arbitrary vector bundle $W$ a $C^p$ manifold. Open sets will still be our primary 'topological' data. But in order to make $W$ as compatible to $X$ as possible, the eventual manifold structure we will put on $W$ will \textbf{embed the structure of $X$ into $W$}. This is the same argument as in the submanifold case but with the roles of $X$ and $S$ reversed.\\
+The above definitions calls for some commentary, our end goal is to make an arbitrary rank $C^k$ vector bundle $W$ a $C^k$ manifold. Open sets will still be our primary topological data. To ensure that $W$ is as similar to $X$ as possible, the eventual manifold structure we will put on $W$ will \textbf{embed the structure of $X$ into $W$}. We are repeating (essentially) the same argument as in the submanifold case but with the roles of $X$ and the submanifold $S$ reversed.\\
 
-Suppose we have a structure on $W$, then $X=\bigcup_{p\in X}\{p\}\times 0$ is a submanifold of the $W$ --- since $E$ splits in the product space $E\times F$. Let us motivate a couple of the requirements above.
+Suppose we have a structure on $W$, then $X=\bigcup_{p\in X}\{p\}\times 0$ is a submanifold of the $W$ as $E$ splits in the product space $E\times F$. Let us motivate a couple of the requirements above.
 \begin{enumerate}
     \item[\Cref{def:local-trivialisation}]
     \begin{itemize}
-        \item $U$ is required to be open because $W$ needs to inherit part of the topology, and we wish to 'steal' all of the charts in $E$ whose domain is a subset of $U$, 
-        \item The second requirement implies \textbf{each $\Phi$ is in bijection with $\Phi(\wig{U}) = U\times F$, which is open in $E\times F$}, which will allow us to construct bijections with open subsets of the model space $E\times F$. Furthermore, if $V\subseteq X$, then
+        \item $U$ is required to be open because $W$ inherits part of the topology, and hence the charts in $E$ whose domain is a subset of $U$, 
+        \item The second requirement implies \textbf{each $\Phi$ is in bijection with $\Phi(\wig{U}) = U\times F$, which is open in $E\times F$}, which will allow us to construct bijections with open subsets of the model space $E\times F$. Furthermore, \cref{eq:local-trivialisation-bijection-restriction-also-bijection} holds for an arbitrary $V\subseteq X$.
         \begin{equation}\label{eq:local-trivialisation-bijection-restriction-also-bijection}
             \Phi\vert_{\pi^{-1}(U\cap V)}\quad\text{is a bijection onto } U\cap V\times F
         \end{equation}
@@ -712,23 +710,23 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
         &= \qty[(\varphi^{\alpha_1}_{\beta_1}\times \id{F})\circ \Phi_{\alpha_1}](\pi^{-1}(U^{\alpha_1}_{\beta_1}\cap U^{\alpha_2}_{\beta_2})) \\
         &= (\varphi^{\alpha_1}_{\beta_1}\times \id{F})\qty((U^{\alpha_1}_{\beta_1}\cap U^{\alpha_2}_{\beta_2})\times F)&&\text{by \cref{eq:local-trivialisation-bijection-restriction-also-bijection}}
     \end{align*}
-    Computing the chart transition, and suppressing restrictions in \cref{eq:VB-trivialisation-overlap-chart-1}.
+    Suppressing restrictions and computing the chart transistions in \cref{eq:VB-trivialisation-overlap-chart-1},
     \begin{equation}\label{eq:VB-trivialisation-overlap-chart-1}
         \wig{\varphi}^{\alpha_2}_{\beta_2}\qty(\wig{\varphi}^{\alpha_1}_{\beta_1})^{-1} = (\varphi^{\alpha_2}_{\beta_2}\times \id{F})\circ \Phi_{\alpha_2}\Phi_{\alpha_1}^{-1}\circ \qty((\varphi^{\alpha_1}_{\beta_1})^{-1}\times \id{F})
     \end{equation}
-    which is clearly a bijection. It is not hard to see that \cref{eq:VB-trivialisation-overlap-chart-1} can be factored into
+    which is clearly a bijection. And it is not hard to see that \cref{eq:VB-trivialisation-overlap-chart-1} can be factored into
     \begin{equation}\label{eq:VB-trivialisation-overlap-chart-2}
         \wig{\varphi}^{\alpha_2}_{\beta_2}\qty(\wig{\varphi}^{\alpha_1}_{\beta_1})^{-1}(x,v)  = \qty\Bigg(\varphi^{\alpha_1\alpha_2}_{\beta_1\beta_2}(x),\: \qty[\theta\circ(\varphi^{\alpha_1}_{\beta_1})^{-1}](x)(v))
     \end{equation}
-    for any $x\in \varphi^{\alpha_1}_{\beta_1}(U^{\alpha_1\alpha_2}_{\beta_1\beta_2})$ and $v\in F$. \textbf{It should now be clear why we demand $k\leq p$ from \cref{eq:VB-trivialisation-overlap-chart-2}}. The mapping in the second coordinate within \cref{eq:VB-trivialisation-overlap-chart-2} can be reduced to the composition with the evaluation map $\mathbf{E}:\Laut(F)\times F\to F$.
+    for any $x\in \varphi^{\alpha_1}_{\beta_1}(U^{\alpha_1\alpha_2}_{\beta_1\beta_2})$ and $v\in F$. \textbf{From \cref{eq:VB-trivialisation-overlap-chart-2}, it should now be clear why we demand $k\leq p$ }. The mapping in the second coordinate within \cref{eq:VB-trivialisation-overlap-chart-2} can be reduced to a composition with the evaluation map $\mathbf{E}:\Laut(F)\times F\to F$.
     \begin{equation}\label{eq:VB-trivialisation-evaluation-map-technique}
         \qty[\theta\circ(\varphi^{\alpha_1}_{\beta_1})^{-1}](x)(v) = \mathbf{E}\circ \qty([\theta\circ (\varphi^{\alpha_1}_{\beta_1})^{-1}]\times \id{F})
     \end{equation}
-    Since $\mathbf{E}$ is continuous and bilinear, \cref{eq:VB-trivialisation-evaluation-map-technique} and hence \cref{eq:VB-trivialisation-overlap-chart-1} describes a $C^k$ mapping between open subsets of Banach spaces. It is a isomorphism because it is a bijection, and reversing the roles of the two charts proves its inverse is again a morphism.\\
+    Since $\mathbf{E}$ is continuous and bilinear, \cref{eq:VB-trivialisation-evaluation-map-technique} and hence \cref{eq:VB-trivialisation-overlap-chart-1} describes a $C^k$ mapping between open subsets of Banach spaces. It is a morphism, and reversing the roles of the two charts proves its inverse is again a morphism.\\
 
     To prove $\pi$ is a submersion, recall $W$ is the set-theoretic disjoint union of $F$-fibers. Every element in $W$ can be represented by $(x,v)\in X\times F$. \textbf{We will identify elements of $W$ as elements in $X\times F$. However, this is not a manifold isomorphism}.\\
 
-    Fix $(x,v)\in W$, it is in the domain of some chart $(\wig{U}^{\alpha}_{\beta},\wig{\varphi}^{\alpha}_{\beta})$. The projection is a surjection, hence the $\pi$-image of the chart domain is $\pi\pi^{-1}(U^{\alpha}_\beta)=U^{\alpha}_{\beta}$. Using \cref{eq:vector-bundle-product-chart} and the diagram found in \cref{fig:local-trivialisation}, the coordinate representation of $\pi$ becomes
+    Fix $(x,v)\in W$, it is in the domain of some chart $(\wig{U}^{\alpha}_{\beta},\wig{\varphi}^{\alpha}_{\beta})$. The $\pi$-image of the chart domain is $\pi\pi^{-1}(U^{\alpha}_\beta)=U^{\alpha}_{\beta}$ because $\pi$ is surjective. Using \cref{eq:vector-bundle-product-chart} and the diagram found in \cref{fig:local-trivialisation}, the coordinate representation of $\pi$ becomes
     \begin{align}
         \pi_{(\wig{U}^{\alpha}_{\beta}, U^{\alpha}_{\beta})} &= \varphi^\alpha_\beta\circ \pi\circ \Phi_{\alpha}^{-1}\circ \qty((\varphi^{\alpha}_\beta)^{-1}\times \id{F}) \nonumber\\
         &= \varphi^{\alpha}_\beta\circ \proj_1\circ\qty((\varphi^{\alpha}_\beta)^{-1}\times \id{F})\nonumber\\
@@ -740,7 +738,7 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
     \end{equation}
     which means $\pi$ submersion.\\
 
-    Finally, the subset $X\times 0\subseteq W$ is easily shown to be a submanifold of $W$, and is isomorphic to $X$ by dropping the $F$ coordinates and retracting the argument we made in constructing $W$.
+    Finally, the subset $X\times 0\subseteq W$ is easily shown to be a submanifold of $W$, and is isomorphic to $X$ by dropping the $F$ coordinate and retracing the argument we made in constructing the structure of $W$.
 \end{proof}
 \begin{remark}[Pair of VB charts]\label{rmk:pair-of-vb-charts}
     If $X$ is a manifold and $W$ a vector bundle over $X$, the charts realizing the representations of $\pi$ in \cref{eq:VB-canonical-projection-coordinate-representation,eq:VB-canonical-projection-derivative} are called \emph{VB charts}. 
@@ -752,7 +750,7 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
 % A local section of the bundle is a section defined on an open subset of $X$.
 % We refer to bundle = vector bundle?
 \begin{definition}[Section of a vector bundle]\label{def:section-of-VB}
-    Let $W$ be a bundle over a manifold $X$. A \emph{section} of $W$ is a morphism $\sigma\in\Mor(X,W)$ such that the diagram in \cref{fig:VB-section-diagram}  commutes, or $\pi\sigma = \id{X}$. A \emph{local section} of $W$ is a morphism $\sigma: U\to W$ where $U\osub X$ is viewed as a submanifold and $\pi\sigma = \id{U}$.\\
+    Let $W$ be a bundle over a manifold $X$. A \emph{section} of $W$ is a morphism $\sigma\in\Mor(X,W)$ such that the diagram in \cref{fig:VB-section-diagram}  commutes, which is synonymous with $\pi\sigma = \id{X}$. A \emph{local section} of $W$ is a morphism $\sigma: U\to W$ where $U\osub X$ is viewed as a submanifold and $\pi\sigma = \id{U}$.\\
 
     The \emph{zero section} of $W$ is the section $\sigma(p) = 0\in W_p$ for every $p\in X$. If $\sigma$ is a section of $W$, $\supp{\sigma}$ refers to the \emph{support} of $\sigma$, and is defined in \cref{eq:support-of-section}.
     \begin{equation}\label{eq:support-of-section}
@@ -760,7 +758,7 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
     \end{equation}
 \end{definition}
 \begin{remark}[VB coordinates]\label{rmk:VB-coordinates}
-    Let $X$ and $W$ be as in \cref{def:section-of-VB}. If $\sigma$ is a section on $W$, $p\in X$. Using a pair of VB charts, $(U)\in X$ and $(\wig{U})\in W$, we define the \emph{VB coordinates of $\sigma$} \begin{equation}\label{eq:VB-coordinates}
+    Let $X$ and $W$ be as in \cref{def:section-of-VB}, and suppose $\sigma$ is a section on $W$. Using a pair of VB charts, $(U)\in X$ and $(\wig{U})\in W$, we define the \emph{VB coordinates of $\sigma$} \begin{equation}\label{eq:VB-coordinates}
         \sigma_{U,\wig{U}} = \wig{\varphi}\circ \sigma \circ \varphi^{-1}
     \end{equation}
     expanding the induced chart on $W$ within  \cref{eq:VB-coordinates} reads
@@ -771,7 +769,7 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
     \[
         \sigma_U = \sigma_{U,\wig{U}} = \hat{\sigma}
     \]
-    We have achieved our goal of constructing morphisms whose coordinate representation locally resembles a graph: $\hat{\sigma}:\hat{U}\to\hat{U}\times F$ and because of this, we identify $\hat{\sigma}(\hat{p}) = (\hat{p},v)\in \hat{U}\times F$ with $v\in F$.
+    Sections are precisely the morphisms into $W$ whose coordinate representation resembles that of a graph: $\hat{\sigma}:\hat{U}\to\hat{U}\times F$ and because of this: we identify $\hat{\sigma}(\hat{p}) = (\hat{p},v)$ with $v\in F$.
 \end{remark}
 
 % FIGURE WITH TWO DIAGRAMS
@@ -791,8 +789,8 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
 \label{fig:VB-section-diagram}
 \end{subfigure}
 % VB Section COORDINATES diagram LINK
-% https://q.uiver.app/#q=WzAsNSxbMCwwLCJcXHdpZ3tVfSJdLFswLDIsIlUiXSxbMCw0LCJcXGhhdHtVfSJdLFsyLDAsIlVcXHRpbWVzIEYiXSxbMiwyLCJcXGhhdHtVfVxcdGltZXMgRiJdLFswLDEsIlxccGkiLDFdLFsxLDAsIlxcc2lnbWEiLDAseyJsYWJlbF9wb3NpdGlvbiI6NjAsIm9mZnNldCI6MSwiY3VydmUiOi00fV0sWzEsMiwiXFx2YXJwaGkiLDJdLFswLDNdLFszLDEsIlxccHJval8xIiwxXSxbMyw0LCJcXHdpZ3tcXHZhcnBoaX0iXSxbMiw0LCJcXHNpZ21hX3tVLFxcd2lne1V9IiwxXV0=
-\begin{subfigure}[b]{.5\textwidth}
+% % https://q.uiver.app/#q=WzAsNSxbMCwwLCJcXHdpZ3tVfSJdLFswLDIsIlUiXSxbMCw0LCJcXGhhdHtVfSJdLFsyLDAsIlVcXHRpbWVzIEYiXSxbMiwyLCJcXGhhdHtVfVxcdGltZXMgRiJdLFswLDEsIlxccGkiLDFdLFsxLDAsIlxcc2lnbWEiLDAseyJsYWJlbF9wb3NpdGlvbiI6NjAsIm9mZnNldCI6MSwiY3VydmUiOi00fV0sWzEsMiwiXFx2YXJwaGkiLDJdLFswLDMsIlxcUGhpIiwxXSxbMywxLCJcXHByb2pfMSIsMV0sWzMsNCwiXFx3aWd7XFx2YXJwaGl9Il0sWzIsNCwiXFxzaWdtYV97VSxcXHdpZ3tVfSIsMV1d
+\hfill\begin{subfigure}[b]{.5\textwidth}
     \centering
     \begin{tikzcd}
 	{\wig{U}} && {U\times F} \\
@@ -803,14 +801,16 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
 	\arrow["\pi"{description}, from=1-1, to=3-1]
 	\arrow["\sigma"{pos=0.6}, shift right, curve={height=-24pt}, from=3-1, to=1-1]
 	\arrow["\varphi"{description}, from=3-1, to=5-1]
-	\arrow[from=1-1, to=1-3]
+	\arrow["\Phi"{description}, from=1-1, to=1-3]
 	\arrow["{\proj_1}"{description}, from=1-3, to=3-1]
 	\arrow["{\wig{\varphi}}"{description}, from=1-3, to=3-3]
 	\arrow["{\sigma_{U,\wig{U}}}"{description}, from=5-1, to=3-3]
-    \end{tikzcd}    
-    \caption{Coordinates of a VB section}
+    \end{tikzcd}
+    \caption{Local coordinates of a VB section}
     \label{fig:VB-section-coordinates}
 \end{subfigure}
+\caption{Diagrams for VB section and its local representation}
+\label{fig:VB-section-both}
 \end{figure}
 
 %

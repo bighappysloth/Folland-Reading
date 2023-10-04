@@ -1,6 +1,6 @@
 .layout--landing {
   .heros {
-    max-width: map-get($layout, content-max-width) * 2;
+    max-width: map-get($layout, content-max-width) * 1;
     margin-right: auto;
     margin-left: auto;
   }

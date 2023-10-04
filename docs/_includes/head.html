@@ -15,12 +15,34 @@
         ready: () => {
           MathJax.startup.defaultReady();
           // Your custom code after MathJax is ready
+          MathJax.startup.promise.then(() => {
+              // List of classes to process
+              const classes = ['definition-box', 'theorem-box', 'remark-box', 'lemma-box', 'corollary-box','note-box'];
+
+              classes.forEach(className => {
+                // Grab elements of the current class
+                const elements = document.querySelectorAll('.' + className);
+
+                elements.forEach(element => {
+                  const nameValue = element.getAttribute('name');
+                  if (nameValue) {  // Check if "name" attribute exists and is not empty
+                    const strongElement = document.createElement('strong');  // Create a new <strong> element
+                    strongElement.textContent = nameValue;  // Set its text content
+                    element.insertBefore(strongElement, element.firstChild);  // Insert it as the first child of the element
+
+                    // Update MathJax to typeset the changed content
+                    MathJax.typesetPromise([element]).catch((err) => console.error(err.message));
+                  }
+                });
+              });
+            }).catch((err) => console.error(err.message));
         }
       },
       loader: {
         load: ["input/tex-base", "output/chtml"]
       },
       tex: {
+        tags: 'ams',
         inlineMath: [              // start/end delimiter pairs for in-line math
           ['\\(', '\\)'],
           ['$', '$'],
@@ -29,7 +51,6 @@
           ['$$', '$$'],
           ['\\[', '\\]']
         ],
-        // packages: { '[+]': ['physics'] },
         processEscapes: true,
         macros: {
           induces: "{\\: \\looparrowright \\:}",

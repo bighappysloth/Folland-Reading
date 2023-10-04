@@ -1,43 +1,43 @@
 $base: (
-  font-family:            (-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif),
-  font-family-code:       (Menlo, Monaco, Consolas, Andale Mono, lucida console, Courier New, monospace),
+  font-family: (-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif),
+  font-family-code: (Menlo, Monaco, Consolas, Andale Mono, lucida console, Courier New, monospace),
 
-  font-size-root:         16px,
-  font-size-root-sm:      14px,
+  font-size-root:         12px,
+  font-size-root-sm:      10px,
 
-  font-size-xl:           1.5rem,
-  font-size-lg:           1.25rem,
-  font-size:              1rem,
-  font-size-sm:           .85rem,
-  font-size-xs:           .7rem,
+  font-size-xl:           1.0rem,
+  font-size-lg:           1.0rem,
+  font-size:              1.0rem,
+  font-size-sm:           1.0rem,
+  font-size-xs:           1.0rem,
 
-  font-size-h1-xl:        3.5rem,
-  font-size-h2-xl:        2.5rem,
-  font-size-h3-xl:        2rem,
-  font-size-h4-xl:        1.75rem,
-  font-size-h5-xl:        1.5rem,
-  font-size-h6-xl:        1.5rem,
+  font-size-h1-xl:        1.5rem,
+  font-size-h2-xl:        1.25rem,
+  font-size-h3-xl:        1.0rem,
+  font-size-h4-xl:        1.0rem,
+  font-size-h5-xl:        1.0rem,
+  font-size-h6-xl:        1.0rem,
 
-  font-size-h1-lg:        3rem,
-  font-size-h2-lg:        2rem,
-  font-size-h3-lg:        1.75rem,
-  font-size-h4-lg:        1.5rem,
-  font-size-h5-lg:        1.25rem,
-  font-size-h6-lg:        1.25rem,
+  font-size-h1-lg:        1.5rem,
+  font-size-h2-lg:        1.25rem,
+  font-size-h3-lg:        1.0rem,
+  font-size-h4-lg:        1.0rem,
+  font-size-h5-lg:        1.0rem,
+  font-size-h6-lg:        1.0rem,
 
-  font-size-h1:           2.5rem,
-  font-size-h2:           1.9rem,
-  font-size-h3:           1.5rem,
-  font-size-h4:           1.2rem,
-  font-size-h5:           1rem,
-  font-size-h6:           1rem,
+  font-size-h1:           1.5rem,
+  font-size-h2:           1.25rem,
+  font-size-h3:           1.0rem,
+  font-size-h4:           1.0rem,
+  font-size-h5:           1.0rem,
+  font-size-h6:           1.0rem,
 
-  font-size-h1-sm:        2rem,
-  font-size-h2-sm:        1.5rem,
-  font-size-h3-sm:        1.35rem,
-  font-size-h4-sm:        1.15rem,
-  font-size-h5-sm:        1rem,
-  font-size-h6-sm:        1rem,
+  font-size-h1-sm:        1.5rem,
+  font-size-h2-sm:        1.25rem,
+  font-size-h3-sm:        1.0rem,
+  font-size-h4-sm:        1.0rem,
+  font-size-h5-sm:        1.0rem,
+  font-size-h6-sm:        1.0rem,
 
   font-size-h1-xs:        1.05rem,
   font-size-h2-xs:        1rem,
@@ -47,19 +47,19 @@ $base: (
   font-size-h6-xs:        .85rem,
 
   font-weight:            400,
-  font-weight-bold:       700,
+  font-weight-bold:       500,
 
   line-height-xl:         2,
-  line-height-lg:         1.8,
-  line-height:            1.6,
-  line-height-sm:         1.4,
+  line-height-lg:         1.4,
+  line-height:            1.2,
+  line-height-sm:         2,
   line-height-xs:         1.2,
 
-  spacer:                 1rem,
+  spacer:                 0.4rem,
 
-  border-radius-lg:       .8rem,
-  border-radius:          .4rem,
-  border-radius-sm:       .2rem
+  border-radius-lg:       .4rem,
+  border-radius:          .2rem,
+  border-radius-sm:       .1rem
 );
 
 $spacers: (
@@ -67,8 +67,8 @@ $spacers: (
   1:                      map-get($base, spacer) * .25,
   2:                      map-get($base, spacer) * .5,
   3:                      map-get($base, spacer),
-  4:                      map-get($base, spacer) * 1.5,
-  5:                      map-get($base, spacer) * 3
+  4:                      map-get($base, spacer) * 0.75,
+  5:                      map-get($base, spacer) * 1
 );
 
 $z-indexes: (
@@ -81,10 +81,10 @@ $z-indexes: (
 $layout: (
   header-height:          5rem,
   header-height-sm:       3rem,
-  content-max-width:      950px,
-  sidebar-width:          250px,
+  content-max-width:      600px,
+  sidebar-width:          150px,
   sidebar-header-height:  3rem,
-  aside-width:            220px
+  aside-width:            150px
 );
 
 //     sm       md       lg

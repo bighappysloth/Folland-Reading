@@ -17,7 +17,7 @@ h2 {
 
 
 // \definecolor{tab-blue}{rgb}{0.341,0.471,0.643}
-// \definecolor{tab-orange}{rgb}{0.894,0.580,0.267}
+// \definecolor{tab-orange}{rgb}{0.894,0.580,0.167}
 // \definecolor{tab-red}{rgb}{0.820,0.380,0.365}
 // \definecolor{tab-teal}{rgb}{0.522,0.714,0.698}
 // \definecolor{tab-green}{rgb}{0.416,0.624,0.345}
@@ -42,8 +42,8 @@ h2 {
     position: relative;
     margin: 1rem 0;
     padding: 0.5rem 1rem;
-    border: 2px solid #000;
-    border-radius: 0.2rem;
+    border: 1px solid #000;
+    border-radius: 0.0rem;
     align-items: center; // Align content vertically in the center
 
     &::before {
@@ -67,8 +67,6 @@ h2 {
     @include box-style;
     background-color: $color;
 
-
-    
     &::before {
         counter-increment: $type;
         content: '#{$capitalizedType} ' counter(h2counter) '.' counter($type);
@@ -85,7 +83,7 @@ h2 {
 }
 
 .definition-box {
-    @include content-with-name(definition, rgba(231, 201, 95, 0.2));
+    @include content-with-name(definition, rgba(231, 201, 95, 0.1));
 
     .definition-label {
         font-weight: bold;
@@ -93,15 +91,15 @@ h2 {
 }
 
 .theorem-box {
-    @include content-with-name(theorem, rgba(86, 120, 163, 0.2));
+    @include content-with-name(theorem, rgba(86, 120, 163, 0.1));
 }
 
 .lemma-box {
-    @include content-with-name(lemma, rgba(133, 182, 177, 0.2));
+    @include content-with-name(lemma, rgba(133, 182, 177, 0.1));
 }
 
 .corollary-box {
-    @include content-with-name(corollary, rgba(86, 120, 163, 0.2));
+    @include content-with-name(corollary, rgba(86, 120, 163, 0.1));
 }
 
 .note-box {
@@ -109,21 +107,16 @@ h2 {
 }
 
 .remark-box {
-    @include content-with-name(remark, rgba(86, 120, 163, 0.1));
+    @include content-with-name(remark, rgba(86, 120, 163, 0.05));
 }
-
-
-
-
-
 
 
 @mixin proof-style {
     position: relative;
     margin: 1rem 0;
     padding: 0.5rem 1rem;
-    border: 1px solid #000;
-    border-radius: 0.2rem;
+    border: 0.5px solid #000;
+    border-radius: 0.0rem;
     /* Use flex display to arrange content */
     align-items: center;
     /* Align content vertically in the center */
@@ -152,7 +145,7 @@ h2 {
 
 .proof-box {
     @include proof-style;
-    background-color: rgba(184, 175, 172, 0.05);
+    background-color: rgba(238, 230, 228, 0.05);
 
     &::before {
         content: 'Proof.'; // Default content

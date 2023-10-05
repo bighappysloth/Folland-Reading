@@ -4,7 +4,7 @@ title: Electromagnetism rigourously
 date: 2023-10-04 10:17
 category: 
 author: 
-tags: []
+tags: ['vector calculus','multivariable calculus','rigourously','geometry']
 summary: 
 ---
 # Introduction
@@ -402,3 +402,20 @@ dV_{S} &= \iota_S^*(N\lrcorner dV_{\real^3})\\
 \end{align*}
 $$
 
+# Current
+This section is incomplete, but we list all of its equations. Let $S$ be a compact hypersurface with or without boundary in $\real^3$. The surface integral of a vector field $X\in\mathfrak{X}(M)$ over $S$ is defined by the integral in \eqref{eq:current-density-area-integral}
+
+$$
+\begin{equation}
+I = \int_{S} \langle X, N\rangle_{\real^3} dV_{s}
+\label{eq:current-density-area-integral}
+\end{equation}
+$$
+
+where $${dV}_{s} = \iota_S^{*}(N\lrcorner dV_g)$$ is the usual volume form on $S$ that descends from ${dV}_{\real^3}$ with the help of a smooth unit normal $N\in\mathfrak{X}(M)$.
+
+$$
+a\qqtext{b}a
+$$
+
+a

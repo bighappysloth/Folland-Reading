@@ -103,7 +103,7 @@ h2 {
 }
 
 .note-box {
-    @include content-with-name(note, rgba(227, 147, 68, 0.1));
+    @include content-with-name(note, rgba(227, 147, 68, 0.05));
 }
 
 .remark-box {

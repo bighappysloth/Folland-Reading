@@ -402,8 +402,10 @@ dV_{S} &= \iota_S^*(N\lrcorner dV_{\real^3})\\
 \end{align*}
 $$
 
-# Current
-This section is incomplete, but we list all of its equations. Let $S$ be a compact hypersurface with or without boundary in $\real^3$. The surface integral of a vector field $X\in\mathfrak{X}(M)$ over $S$ is defined by the integral in \eqref{eq:current-density-area-integral}
+
+
+# Integral over hypersurfaces
+Let $S$ be a compact hypersurface with or without boundary in $\real^3$. The surface integral of a vector field $X\in\mathfrak{X}(M)$ over $S$ is defined by the integral in \eqref{eq:current-density-area-integral}
 
 $$
 \begin{equation}
@@ -414,8 +416,7 @@ $$
 
 where $${dV}_{s} = \iota_S^{*}(N\lrcorner dV_g)$$ is the usual volume form on $S$ that descends from ${dV}_{\real^3}$ with the help of a smooth unit normal $N\in\mathfrak{X}(M)$.
 
-$$
-a\qqtext{b}a
-$$
+# Current
+This section is incomplete, but we list all of its equations. 
 
-a
+s

@@ -39,9 +39,9 @@
           }).catch((err) => console.error(err.message));
         }
       },
-      loader: {
-        load: ['[tex]/physics']
-      },
+      // loader: {
+      //   load: ['[tex]/textmacros','[tex]/physics']
+      // },
       tex: {
         tags: 'ams',
         inlineMath: [              // start/end delimiter pairs for in-line math
@@ -52,8 +52,9 @@
           ['$$', '$$'],
           ['\\[', '\\]']
         ],
-        packages: {'[+]': ['physics']},
+        // packages: {'[+]': ['textmacros']},
         processEscapes: true,
+        processEnvironments: true,
         macros: {
           induces: "{\\: \\looparrowright \\:}",
           inducedby: "{\\: \\looparrowleft \\:}",
@@ -81,7 +82,7 @@
           exp: "\\operatorname{exp}",
           wt: "\\operatorname{wt}",
           least: "\\operatorname{least}",
-          // norm: ["\\lVert {#1} \\rVert", 1],
+          norm: ["\\lVert {#1} \\rVert", 1],
           bignorm: ["\\left\\lVert {#1} \\right\\rVert", 1],
           bigset: ["\\biggl \\{ {#1} \\biggr \\}", 1],
           bigbrackets: ["\\biggl ( {#1} \\biggr )", 1],
@@ -139,8 +140,8 @@
           Torusn: "\\mathbb{T}^n",
           dzz: "\\mathbf{D}",
           hil: "\\mathcal{H}",
-          Grad: "\\operatorname{grad}",
-          Div: "\\operatorname{div}",
+          grad: "\\operatorname{grad}",
+          div: "\\operatorname{div}",
           unab: ["{\\nabla{\\widehat{#1}}}", 1],
           nab: ["{\\nabla{#1}}", 1],
         },

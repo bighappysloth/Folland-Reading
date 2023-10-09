@@ -9,7 +9,7 @@ $base: (
   font-size-lg:           1.0rem,
   font-size:              1.0rem,
   font-size-sm:           1.0rem,
-  font-size-xs:           1.0rem,
+  font-size-xs:           0.8rem,
 
   font-size-h1-xl:        1.5rem,
   font-size-h2-xl:        1.25rem,
@@ -52,7 +52,7 @@ $base: (
   line-height-xl:         2,
   line-height-lg:         1.4,
   line-height:            1.2,
-  line-height-sm:         2,
+  line-height-sm:         1.2,
   line-height-xs:         1.2,
 
   spacer:                 0.4rem,
@@ -96,6 +96,8 @@ $responsive: (
   md:                      500px,
   lg:                      1024px
 );
+
+
 
 $animation: (
   duration:               .4s,

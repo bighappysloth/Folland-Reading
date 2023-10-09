@@ -20,7 +20,7 @@ remote_theme: kitian616/jekyll-TeXt-theme
 ##############################
 text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
 
-highlight_theme: tomorrow-night-blue # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
+highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
 
 url     : "https://bighappysloth.github.io" # 
 baseurl : "/Folland-Reading/" # does not include hostname

@@ -31,25 +31,142 @@ $$\dfrac{1}{2} =x$$
 - custom-header.html does not work for some reason.
 - minima 3.0 is actually called minima 2.5.1
 
-# current head.html file
+# MathJax setup in head.html
+## Commentary
+The startup section is to fix the div labels within the theorem boxes. Those labels are rendered after the main page, so we (chatgpt and me) used a javascript promise `MathJax.typesetPromise([element])` to delay rendering all the math until the entire html has been loaded, shown below. The custom startup script also loops through each of the coloured boxes (definition, theorem, remark, lemma, corollary, note) and replaces the labels, and renders the labels in latex. Example of these boxes can be found [here]({{ site.baseurl }}/{% post_url 2023-10-04-Electromagnetism-Rigourously %}).
+
+Things that do not work:
+- MathJax plugins: I could not get the latex extensions to work for some resaon. My macros would not work with any of the plugins, and upon removing all my macros even then the plugins do not load consistently.
+- The delimiters `\[` and `\]` do not trigger math mode for some reason. However, writing 
+
+```latex
+\begin{equation}
+\dfrac{1}{2} 
+\end{equation}
+```
+
+renders 
+
+\begin{equation}
+\dfrac{1}{2}
+\end{equation}
+
+The CSS styling is found across `_variables.scss`, `custom.scss`. The code that is responsible for changing the *style of the codeblocks* is found within `_reset.scss`, where
+
+```css
+pre, code {
+  font-family: map-get($base, font-family-code);
+}
+
+code {
+  font-size: map-get($base, font-size-xs);
+  line-height: map-get($base, line-height-sm);
+}
+```
+
+As usual, we use three backticks to delimit code blocks. Font size adjustents are found in `_variables.scss`, where 
+- the two variables 
+  ```css
+    font-size-root:         12px,
+    font-size-root-sm:      10px,
+  ```
+  control the absolute size of the fonts, and the variables below are the ones I found to be most impactful. Adjust the lineheight to your liking.
+  ```css
+  font-size-xl:           1.0rem,
+  font-size-lg:           1.0rem,
+  font-size:              1.0rem,
+  font-size-sm:           1.0rem,
+  font-size-xs:           0.8rem,
+
+  font-weight:            400,
+  font-weight-bold:       500,
+
+  line-height-xl:         2,
+  line-height-lg:         1.4,
+  line-height:            1.2,
+  line-height-sm:         1.2,
+  line-height-xs:         1.2,
+
+  spacer:                 0.4rem,
+
+  border-radius-lg:       .4rem,
+  border-radius:          .2rem,
+  border-radius-sm:       .1rem
+  ```
+
+  The margins of the website is adjusted in several places: the first is in `_variables.scss`.
+  ```css
+  $layout: (
+    header-height:          5rem, // top bar
+    header-height-sm:       3rem, // top bar small mode
+    content-max-width:      600px, // very useful to control how wide the main content is
+    sidebar-width:          150px, // so that the sidebar does not take up too much of the screen
+    sidebar-header-height:  3rem,
+    aside-width:            150px // the 'TOC" portion of the article
+  );
+  ```
+  Adjusting `content-max-width` does not change the width of the homepage correspondingly. One has to change the variable `width` something, in another place I cannot recall off the top of my head. EDIT: I believe it is the third line in `_main.scss` which reads `max-width: map-get($layout, content-max-width);` but do not quote me on this.
+
+  To change the spacing between post thumbnails: look into `_articles.scss`
+  ```css
+  .layout--articles {
+    margin: map-get($spacers, 4) 0;
+    margin-top: map-get($spacers, 5);
+    @include media-breakpoint-down(md) {
+      margin-top: map-get($spacers, 4);
+    }
+    .card__header {
+      font-size: map-get($base, font-size);
+    }
+    .card__image {
+      & > .overlay {
+        &, .card__header {
+          font-size: map-get($base, font-size-sm);
+        }
+      }
+    }
+  }
+  ```
+
+Cutom startup script
 {% highlight html %}
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {%- seo -%}
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
-  {%- feed_meta -%}
-  {%- if jekyll.environment == 'production' and site.google_analytics -%}
-    {%- include google-analytics.html -%}
-  {%- endif -%}
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script>
-    MathJax = {
-      loader: {
-        load: ["input/tex", "output/chtml"]
+    window.MathJax = {
+      startup: {
+        ready: () => {
+          MathJax.startup.defaultReady();
+          // Your custom code after MathJax is ready
+          MathJax.startup.promise.then(() => {
+            MathJax.typesetClear();
+            // List of classes to process
+            const classes = ['definition-box', 'theorem-box', 'remark-box', 'lemma-box', 'corollary-box', 'note-box'];
+
+            classes.forEach(className => {
+              // Grab elements of the current class
+              const elements = document.querySelectorAll('.' + className);
+
+              elements.forEach(element => {
+                const nameValue = element.getAttribute('name');
+                if (nameValue) {  // Check if "name" attribute exists and is not empty
+                  const strongElement = document.createElement('strong');  // Create a new <strong> element
+                  strongElement.textContent = nameValue;  // Set its text content
+                  element.insertBefore(strongElement, element.firstChild);  // Insert it as the first child of the element
+
+                  // Update MathJax to typeset the changed content
+                  MathJax.typesetPromise([element]).catch((err) => console.error(err.message));
+                }
+              });
+            });
+          }).catch((err) => console.error(err.message));
+        }
       },
+      // loader: {
+      //   load: ['[tex]/textmacros','[tex]/physics']
+      // },
       tex: {
+        tags: 'ams',
         inlineMath: [              // start/end delimiter pairs for in-line math
           ['\\(', '\\)'],
           ['$', '$'],
@@ -58,84 +175,22 @@ $$\dfrac{1}{2} =x$$
           ['$$', '$$'],
           ['\\[', '\\]']
         ],
-        
+        // packages: {'[+]': ['textmacros']},
         processEscapes: true,
+        processEnvironments: true,
         macros: {
-          real: "\\mathbb{R}",
-          realn: "\\mathbb{R}^n",
-          nat: "\\mathbb{N}}",
-          natplus: "\\mathbb{N}^+",
-          integer: "\\mathbb{Z}",
-          rat: "\\mathbb{Q}",
-          borel: "\\mathbb{B}",
-          complex: "\\mathbb{C}",
-          range: "\\operatorname{range}",
-          dom: "\\operatorname{dom}",
-          codom: "\\operatorname{codom}",
-          image: "\\operatorname{im}",
-          id: ["\\operatorname{id}_{#1}", 1],
-          sgn: "\\operatorname{sgn}",
-          exp: "\\operatorname{exp}",
-          wt: "\\operatorname{wt}",
-          least: "\\operatorname{least}",
-          norm: ["\\lVert {#1} \\rVert", 1],
-          bignorm: ["\\left\\lVert {#1} \\right\\rVert", 1],
-          bigset: ["\\biggl \\{ {#1} \\biggr \\}", 1],
-          bigbrackets: ["\\biggl ( {#1} \\biggr )", 1],
-          acc: "\\operatorname{acc}",
-          nb: ["\\mathcal{N}_B({#1})", 1],
-          N: ["\\mathcal{N}(#1)", 1],
-          Tau: "\\mathcal{T}",
-          cl: ["\\overline{#1}", 1],
-          clc: ["\\overline{#1}^c", 1],
-          Epsilon: "\\mathcal{E}",
-          diam: "\\operatorname{diam}",
-          increasesto: "\\nearrow",
-          decreasesto: "\\searrow",
-          cond: "\\operatorname{cond}}",
-          card: "\\operatorname{card}",
-          szz: "\\mathcal{S}",
-          cinf: "C^{\\infty}",
-          ccinf: "C_c^{\\infty}",
-          cnv: "\\ast",
-          pmap: ["\\pi_{#1}({#2})", 2],
-          pnv: ["\\pi_{#1}^{-1}({#2})", 2],
-          bc: ["\\operatorname{BC}({#1})", 1],
-          cc: ["\\operatorname{C}_c({#1})", 1],
-          cnot: ["\\operatorname{C}_0({#1})", 1],
-          supp: ["\\operatorname{supp}({#1})", 1],
-          acal: "\\mathcal{A}",
-          mcal: "\\mathcal{M}",
-          ncal: "\\mathcal{N}",
-          mustar: "\\mu^*",
-          mubar: "\\cl{\\mu}",
-          munot: "\\mu_0",
-          muStar: "\\mu_*",
-          diag: "\\operatorname{diag}",
-          dim: "\\operatorname{dim}",
-          defect: "\\operatorname{def}",
-          rank: "\\operatorname{rank}",
-          col: "\\operatorname{col}",
-          row: "\\operatorname{row}",
-          lin: "\\operatorname{lin}",
-          spn: "\\operatorname{span}",
-          tr: "\\operatorname{tr}",
-          poly: "\\mathbb{P}",
-          ff: "\\mathbb{F}",
-          xx: "\\mathbf{X}}",
-          yy: "\\mathbf{Y}}",
-          ss: "\\mathbf{S}}",
-          ww: "\\mathbf{W}}",
-          uu: "\\mathbf{U}}",
-          tt: "\\mathbf{T}}",
-          xn: "\\{x_n\\}_{n\\geq 1}",
-          yn: "\\{y_n\\}_{n\\geq 1}"
-        }
+          induces: "{\\: \\looparrowright \\:}",
+          // other macros omitted
+          Isomor: ["\\overset{\\:\\mathcal{#1}\\:}{\\rightleftharpoons}", 1],
+          oin: "\\: \\mathring{\\in} \\:",
+        },
+        formatError: (jax, err) => jax.formatError(err)
       }
     };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
   </script>
+
 </head>
 {% endhighlight %}
 
@@ -150,10 +205,13 @@ base.html	default.html	home.html	page.html	post.html
 copy base, default, home, page and post.html from the minima repo. copy head.html into ./_includes, then modify it. 
 
 ## interesting plugins
+In my experience none of the plugins work and they break everything 
 [pdf embedding](https://mihajlonesic.gitlab.io/projects/jekyll-pdf-embed/#result)
 [algolia search](https://github.com/algolia/jekyll-algolia)(abandoned)
 
-## how i implemented cross repo syncing
+## Cross Repo Syncing, how does it work?
 
 honestly i am not a computer expert i spent 3-4 hours googling how to make this wokr. my main mistake was using gpt 3.5 rather than gpt 4. gpt 4 was able to code somethign that works while i wasted hours using gpt 3.5.
 [link to github workflow](https://github.com/bighappysloth/Folland-Reading/blob/main/.github/workflows/latex.yml)
+
+Update later.

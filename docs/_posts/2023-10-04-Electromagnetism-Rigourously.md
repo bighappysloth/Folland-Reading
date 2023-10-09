@@ -10,6 +10,17 @@ summary:
 # Introduction
 Within the study of electromagnetism, Maxwell's equations often get reduced to computational formulas, sidestepping the mathematical depth they contain. This blog post aims to change that. We will rigorously justify his equations using techniques from analysis, distribution theory, differential and symplecetic geometry. If you are comfortable with topics like Sobolev spaces, Fourier transforms, and Riemannian manifolds, you will find this approach revealing.
 
+## Prequisites
+- Measure theory, Lp spaces, Distributions and Fourier transforms
+- Point set topology, finite and infinite dimensional manifold theory
+- Exterior calculus and tensor algebra.
+
+## Reading List
+- Laurent Schwartz: Mathematics for the Physical Sciences
+- Laurent Schwartz: Introduction to the Theory of Distributions
+- Lawerence Evans: Partial Differential Equations
+- Lieb and Loss: Analysis
+
 ## Charts
 Let $M = \real^3$ equipped with its standard $C^\infty$ structure. We define the following charts on $M$. 
 <div class="definition-box" markdown=1 name="Standard Chart">
@@ -402,14 +413,23 @@ dV_{S} &= \iota_S^*(N\lrcorner dV_{\real^3})\\
 \end{align*}
 $$
 
+# Potential
 
+
+# Electric field
+{% highlight mathematica %}
+(* Potential at TestPointCartesian *)
+PotentialAnswer = 
+ N[Apply[Potential, TestPointCartesian], 4] (* Fake answer*)
+UnitConvert[PotentialAnswer, "SIBase"] (* Has correct units as well *)
+{% endhighlight %}
 
 # Integral over hypersurfaces
 Let $S$ be a compact hypersurface with or without boundary in $\real^3$. The surface integral of a vector field $X\in\mathfrak{X}(M)$ over $S$ is defined by the integral in \eqref{eq:current-density-area-integral}
 
 $$
 \begin{equation}
-I = \int_{S} \langle X, N\rangle_{\real^3} dV_{s}
+I = \int_{S} \langle X, N\rangle_{\real^3} dV_{S}
 \label{eq:current-density-area-integral}
 \end{equation}
 $$
@@ -418,5 +438,53 @@ where $${dV}_{s} = \iota_S^{*}(N\lrcorner dV_g)$$ is the usual volume form on $S
 
 # Current
 This section is incomplete, but we list all of its equations. 
+Free space?
+* Current density J has units $A/m^2$,
+* $I = \int_S \langle J, N\rangle_{\real^3} dV_{s}$
+* $\nu$ = charge velocity,
+* $\rho_v$ = charge density,
+* $J = \rho_v \nu$
+* $\div J = -\partial_t \rho_v$ (negative sign because leaving the surface: $div J$ using outward pointing normal)
 
-s
+Conductor equations
+* $\nu_d$ = drift velocity
+* $\mu_e$ = mobility of electron
+* $\rho_e$ = free electron charge density
+* $\nu_d = -\mu_e E$
+* $J = -\rho_e\mu_e E$
+
+Uniform conductivity
+- $J = \sigma E$. We can replace $\sigma\in\real$ by a tensor in $${\realn}^*\otimes \realn\cong L(\realn,\realn)$$. Using the [isomorphism between linear maps and tensors](https://en.wikipedia.org/wiki/Tensor_product#Linear_maps_as_tensors).
+- $\sigma = -\rho_e\mu_e$
+
+Macroscopic properties
+- If uniform area of cross section, and uniform conductivity: $I = \int_S \langle J, N\rangle_{\real^3} dV_s = J\operatorname{area}(S)$. 
+- $V = IR$,
+- $R = \frac{L}{\sigma\operatorname{area}(S)}$
+
+<!-- - If uniform area of cross section, but not uniform conductivity, we can compute the resistance by 
+
+\begin{equation}
+R = \frac{V_{ab}}{I} = \frac{-\int_{\gamma}E^{\flat}}{\int_{}}
+\label{eq:resistance-conductor-non-uniform-conductivity}
+\end{equation} -->
+
+<div class="remark-box" markdown=1 name="Conductor is orientable">
+We assume the conductor is a smooth orientable embedded, connected submanifold whose orientation can be defined by a smooth unit normal $N\in\mathfrak{X}(\real^3)$, we assume its boundary is also connected. (Although it feels like connectedness of the conductor would imply that its boundary would be conected.)
+</div>
+
+Boundary conditions
+- $\rho_{s}$ = surface charge density.
+- Electric field intensity, $E$ is normal to the (exterior tangent space) of the boundary of the conductor. 
+    $$
+    E\vert_{S} = E_N N
+    $$
+- Electric flux density, $D$ has magnitude $\rho_{s}$ in the direction of the smooth unit normal to the boundary of the conductor. 
+    $$
+        \langle D, N\rangle_{\real^3} = \rho_{s}
+    $$
+- Static electric field intensity inside the interior of the conductor is always $0$.
+
+## Equipotential along boundary of conductor
+Because of the second condition, two points on the boundary of the conductor are equipotential (connectedness implies path-connectedess in locally path-connected spaces). Fix two points $a,b\in S$ on the boundary of the conductor, and $V_{a,b}=\int_{\gamma} E^{\flat}$. We can choose $\gamma$ such that its range lies entirely in the boundary. Because $E^{\beta}(\gamma(t))(\gamma'(t)) = \langle E(\gamma(t)), [\gamma'(t)]^{\sharp}\rangle=0$. Therefore $V_{a,b}=0$.
+

@@ -49,10 +49,46 @@ $$
 
 An interesting application: we can model the diode with a constant voltage drop at $a\in\real$ by $\max(x-a,0)$. It is clear that $\max$ and $\min$ are continuous with respect to the product topology. A simple argument by contrapositive will show that it is impossible to write the unit step using compositions of $\max$, $\min$ (in fact they are interchangable), subtraction, addition, and the identity map $f(x) = x$.
 
-\begin{remark}
-We can produce a triangle jigsaw pattern by writing $x - floor(x)$.
-\end{remark}
+<div class="remark-box" markdown=1 name="label">
+We can produce a triangle jigsaw pattern by writing $x - floor(x)$. The floor function can be written as a pointwise sum of 
 
-The usual step function quantizer can be written as:
+\begin{equation}
+floor(x) = \frac{1}{4}\sum_{j\geq 1}\biggl(x-j + \vert x-j\vert+ 2\biggr) - \frac{1}{4}\vert x - 1\vert
+\label{eq:floor-function}
+\end{equation}
+
+For every finite $x$, all but finitely many terms in \eqref{eq:floor-function} vanish. We will discuss the convergence properties of the sum in \eqref{eq:floor-function} at a later dtae.
+</div>
+
+## Piecewise ramps
+
+
+## Integral of signum function
+Let $a\leq b$, the closed form to the integral $\int_a^b\sgn(x)dx$ is given by \eqref{eq:signum-integral-value}.
+
+\begin{equation}
+\int_a^b\sgn(x)dx = \frac{1}{2}(b-a)[\sgn(a) + \sgn(b)] + \frac{1}{4}(b+a)[\sgn{b}+1][1-\sgn{a}]
+\label{eq:signum-integral-value}
+\end{equation}
+
+The proof is shown below.
+
+![]({{ site.baseurl }}{% link /images/signum-integral-proof.png %})
+
+
+## Step function quantizer
+Let $a\leq b$, and we define $g_{a,b}(x) =\max(\min(x-a,0), b-a)$. We obtain the [graph shown here](https://www.desmos.com/calculator/gnkbswheum). 
+
+We can produce a 3-piecewise ramp function using the same $\max\min$ composition [shown here](https://www.desmos.com/calculator/1ewgezs0fz)
+
+\begin{equation}
+\min(\max(x-a_1,0),a_2) + \min(\max(x-a_3,0),a_4) - a_4
+\label{eq:max-min-composition}
+\end{equation}
+
+for suitable scalars $a_i$ for $i = \underline{4}$
+
+
+
 
 

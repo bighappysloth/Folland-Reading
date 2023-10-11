@@ -168,7 +168,7 @@ for any morphism $f\in \Mor(X,Y)$, and charts that satisfy \cref{eq:suitably-cho
 \Cref{def:smoothness} may leave one unsatisfied. Why do we require the image $f(U)$ be contained in another chart domain in $Y$? There are two reasons.
 \begin{enumerate}
     \item Suppose $f$ is a map between $E$ and $F$, and the restriction of $f$ onto a family of open subsets $U_{\alpha}\subseteq E$ is $C^p$ for $p\geq 0$. If $\{U_\alpha\}$ is an open cover for $E$, then $f$ is continuous. \Cref{prop:smoothness-implies-cont-functorality} shows this equally holds for manifolds.
-    \item The definition of smoothness between open subsets of Banach spaces (see \cref{def:cp-banach-space}) is a purely local one. And let us recall: every chart domain $U$ in a manifold $X$ corresponds to an open subset $\hat{U}\subseteq E$ in the model space, and see \cref{rmk:cp-banach-space-mapping-image-contained} as well. Hence, \textbf{the necessity that the image $f(U)$ is contained in a single chart domain of $Y$ is a relic of the original definition}. 
+    \item The definition of smoothness between open subsets of Banach spaces (see \cref{def:cp-banach-space}) is a purely local one. And let us recall: every chart domain $U$ in a manifold $X$ corresponds to an open subset $\hat{U}\subseteq E$ in the model space, and see \cref{rmk:cp-banach-space-mapping-image-contained} as well. Hence, \textbf{the necessity that the image $f(U)$ is contained in a single chart domain of $Y$ is a relic of the original definition}. The astute reader will also see that the openness requirement of $\psi(U\cap V)$, and $\varphi(U\cap V)$ in \cref{def:compatibility} is completely natural as well, since $C^p$ morphisms are defined between open subsets of Banach spaces.
 \end{enumerate}
 %
 \begin{wts}[Properties of morphisms between manifolds]\label{prop:smoothness-implies-cont-functorality}
@@ -304,6 +304,7 @@ Let $J_\varepsilon = (-\varepsilon, +\varepsilon)$ be an open interval in $\real
     \end{equation}
     where $(J_{\varepsilon},\id{J_\varepsilon},t_0,\cl{1})$ is a concrete tangent vector within $T_{t_0} J_\varepsilon$.
 \end{definition}
+\Cref{eq:velocity-of-a-curve} might seem arbitrary at first, but we must emphasize that this is the most natural interpretation of a velocity, encodes much of the geometric information of a tangent vector. We will revisit this topic when we discuss exterior differentiation.
 \begin{wts}[Tangent vectors are velocities]\label{prop:tangent-vectors-are-velocities}
     Let $p$ be a point on a manifold $X$. For every tangent vector $v\in T_p X$, there exists a curve starting at $p$ whose velocity is $v$.
 \end{wts}
@@ -314,6 +315,8 @@ Let $J_\varepsilon = (-\varepsilon, +\varepsilon)$ be an open interval in $\real
     \end{equation}
     $\hat{\gamma}$ is a curve in $\hat{U}$ starting at $\hat{p}$ with velocity $\hat{v}$. Defining $\gamma$ as the composition of $\hat{\gamma}$ with the chart inverse finishes the proof.
 \end{proof}
+
+
 %
 %
 %
@@ -574,6 +577,14 @@ The diagram in \cref{fig:submanifold-chart-overlap} provides a summary.
 %\topheader{Properties of Differentials}
 % 
 
+
+\clearpage
+
+%
+% End of Manifold Chapter
+%
+%
+\fchapter{2: Vector Bundles}
 \topheader{Vector Bundles}
 % We want to make the idea of a map from a manifold to its tangent space rigorous, and to define what it means for such a map to be a morphism. 
 %
@@ -636,7 +647,7 @@ It turns out the natural way of making $W$ a manifold would be to steal open set
 \begin{remark}[Maximality of trivialisation covering]
     One can easily verify the compatibility condition defines an equivalence relation, thus any $C^k$- trivialisation covering \emph{determines} a maximal one.
 \end{remark}
-\begin{remark}[Omissions for Vector Bundles]
+\begin{remark}[Omissions for vector bundles]
     We say $W$ is a \emph{bundle over $X$} when it is unambiguous to do so.
 \end{remark}
 % \begin{remark}[k vs. p]
@@ -694,7 +705,7 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
 \end{equation}
 
 
-\begin{wts}[Structure of a Vector Bundle]\label{prop:structure-of-vector-bundle}
+\begin{wts}[Structure of a vector bundle]\label{prop:structure-of-vector-bundle}
     Let $X$ be a $C^p$ manifold modelled over $E$. If $W$ is a $C^k$ vector bundle modelled on $F$ over the manifold $X$, then $W$ is a $C^k$ manifold modelled on the product space $E\times F$. Furthermore:
     \begin{enumerate}
         \item The \emph{canonical projection} $\pi: W\to X$ is a morphism and a submersion.
@@ -738,8 +749,8 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
 
     Finally, the subset $X\times 0\subseteq W$ is easily shown to be a submanifold of $W$, and is isomorphic to $X$ by dropping the $F$ coordinate and retracing the argument we made in constructing the structure of $W$.
 \end{proof}
-\begin{remark}[Pair of VB charts]\label{rmk:pair-of-vb-charts}
-    If $X$ is a manifold and $W$ a vector bundle over $X$, the charts realizing the representations of $\pi$ in \cref{eq:VB-canonical-projection-coordinate-representation,eq:VB-canonical-projection-derivative} are called \emph{VB charts}. 
+\begin{remark}[Pair of bundle charts]\label{rmk:pair-of-vb-charts}
+    If $X$ is a manifold and $W$ a vector bundle over $X$, the charts realizing the representations of $\pi$ in \cref{eq:VB-canonical-projection-coordinate-representation,eq:VB-canonical-projection-derivative} are called \emph{bundle charts}. 
 \end{remark}
 % We will refer to vector bundles as bundles from now on.
 % Section of a vector bundle:
@@ -748,22 +759,25 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
 % A local section of the bundle is a section defined on an open subset of $X$.
 % We refer to bundle = vector bundle?
 \begin{definition}[Section of a vector bundle]\label{def:section-of-VB}
-    Let $W$ be a bundle over a manifold $X$. A \emph{section} of $W$ is a morphism $\sigma\in\Mor(X,W)$ such that the diagram in \cref{fig:VB-section-diagram}  commutes, which is synonymous with $\pi\sigma = \id{X}$. A \emph{local section} of $W$ is a morphism $\sigma: U\to W$ where $U\osub X$ is viewed as a submanifold and $\pi\sigma = \id{U}$.\\
+    Let $W$ be a bundle over a manifold $X$. A \emph{section} of $W$ is a morphism $\sigma\in\Mor(X,W)$ such that the diagram in \cref{fig:VB-section-diagram}  commutes, which is synonymous with $\pi\sigma = \id{X}$. A \emph{local section} of $W$ is a morphism $\sigma: U\to W$ where $U\osub X$ is viewed as a submanifold and $\pi\sigma = \id{U}$. We denote the sections of $W$ by $\Gamma(W)$.
+    \begin{equation}\label{eq:section-of-vb-symbol}
+        \Gamma(W) = \bigset{\sigma: X\to W,\: \sigma \text{ is a section of } W.}
+    \end{equation}
 
     The \emph{zero section} of $W$ is the section $\sigma(p) = 0\in W_p$ for every $p\in X$. If $\sigma$ is a section of $W$, $\supp{\sigma}$ refers to the \emph{support} of $\sigma$, and is defined in \cref{eq:support-of-section}.
     \begin{equation}\label{eq:support-of-section}
         \supp{\sigma} = \cl{\{p\in X,\: \sigma(p)\neq 0\}}
     \end{equation}
 \end{definition}
-\begin{remark}[VB coordinates]\label{rmk:VB-coordinates}
-    Let $X$ and $W$ be as in \cref{def:section-of-VB}, and suppose $\sigma$ is a section on $W$. Using a pair of VB charts, $(U)\in X$ and $(\wig{U})\in W$, we define the \emph{VB coordinates of $\sigma$} \begin{equation}\label{eq:VB-coordinates}
+\begin{remark}[Bundle coordinates]\label{rmk:VB-coordinates}
+    Let $X$ and $W$ be as in \cref{def:section-of-VB}, and suppose $\sigma$ is a section on $W$. Using a pair of bundle charts, $(U)\in X$ and $(\wig{U})\in W$, we define the \emph{bundle coordinates of $\sigma$} \begin{equation}\label{eq:VB-coordinates}
         \sigma_{U,\wig{U}} = \wig{\varphi}\circ \sigma \circ \varphi^{-1}
     \end{equation}
     expanding the induced chart on $W$ within  \cref{eq:VB-coordinates} reads
     \begin{equation}\label{eq:VB-coordinates-2}
         \sigma_{U,\wig{U}} = (\varphi\times \id{F})\circ \Phi\circ \sigma\circ \varphi^{-1}
     \end{equation}
-    Refer to the diagram in \cref{fig:VB-section-coordinates}. We will always use VB charts when discussing the coordinate representation of a section, and we write
+    Refer to the diagram in \cref{fig:VB-section-coordinates}. We will always use bundle charts when discussing the coordinate representation of a section, and we write
     \[
         \sigma_U = \sigma_{U,\wig{U}} = \hat{\sigma}
     \]
@@ -804,25 +818,193 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
 	\arrow["{\wig{\varphi}}"{description}, from=1-3, to=3-3]
 	\arrow["{\sigma_{U,\wig{U}}}"{description}, from=5-1, to=3-3]
     \end{tikzcd}
-    \caption{Local coordinates of a VB section}
+    \caption{Local coordinates of a bundle section}
     \label{fig:VB-section-coordinates}
 \end{subfigure}
-\caption{Diagrams for VB section and its local representation}
+\caption{Diagrams for bundle section and its local representation}
 \label{fig:VB-section-both}
 \end{figure}
-
-%
-%
 %
 
 
-\clearpage
+% Cotangent bundle?
 
+% \vert_{\wig{U}^{\alpha_1\alpha_2}_{\beta_1\beta_2}}
+% This ties into the computing the exterior derivative of a differential form.
+% What is the reason for 'taking the covector field of the component function?' and replacing it with a wedge product?
+% 
+
+\topheader{Functorality}
+% Motivation for functorality
+Let $X$ and $E_i$ be Banach spaces for $i = \underline{2}$. We discussed the difference in the role that a toplinear mapping $f\in L(E_1,E_2)$ plays in pushing points from $E_1\to E_2$, and the role it plays from pushing \emph{incoming maps} with source $X$ from $L(X,E_1)\to L(X,E_2)$ by composing the incoming map with itself. 
+\begin{equation}\label{eq:toplinear-mapping-functorality-motivation}
+    f: E_1\to E_2\qqtext{and}f_{c}: L(X,E_1)\to L(X,E_2)
+\end{equation}
+where the $c$ within $f_c$ stands for composition. This is summarized in \cref{fig:functorality-motivation-hom}
+
+% Commutative diagram for functorality motivation
+% https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzIsMCwiRV8yIl0sWzIsMiwiRV8yIl0sWzAsMSwiXFxsYW1iZGEiLDFdLFsxLDIsImYiLDFdLFswLDIsIlxcbGFtYmRhX3tjfShmKSIsMV1d
+\begin{figure}[!h]
+\centering
+\begin{tikzcd}
+	X && {E_2} \\
+	\\
+	&& {E_2}
+	\arrow["\lambda"{description}, from=1-1, to=1-3]
+	\arrow["f"{description}, from=1-3, to=3-3]
+	\arrow["{\lambda_{c}(f)}"{description}, from=1-1, to=3-3]
+\end{tikzcd}
+\caption{Functorality through post-composition}
+\label{fig:functorality-motivation-hom}
+\end{figure}
+
+The two maps $f$ and $f_c$ often thought of as the same, and we can identify $f$ with two separate actions. Here, it is not so obvious why we need the concept of functorality, a closer look at the \textbf{different roles that the same mathematical object can play} will surely motivate the above discussion. \\
+
+Let $E_i$ be Banach spaces, $f\in C^p(E_1,E_2)$ and $\lambda\in L(E_2, E_3)$. 
+\begin{itemize}
+    \item The derivative of $f$ is a continuous map $Df: E_1\to L(E_1,E_2)$.
+    \item The derivative of $\lambda$ (now 'identified with $\lambda\in C^p(E_2,E_3)$), is continuous constant map from $E_2$ to $L(E_2,E_3)$
+\end{itemize}
+
+\begin{equation}
+    D(\lambda\circ f) = \lambda\circ Df(x)
+\end{equation}
+
+% This is very similar to the case where we identify a number c\in\real by its action on \real by multiplication.
+% Or when we identify $p$ an element in $E$, a Banach space by the clm $t\mapsto tp$ where $t\in\real$.
+
+ but what if we have a multi-linear map whose destination is $E_1$, and what about symmetric/alternating multi-linear maps, continuous maps, $C^p$ morphisms? Should we let $f$ take on all of those roles as well? Should we identify $f$ with its adjoint as well? 
+This is the first of the many problems.\\
+
+The problem becomes even clearer when we look at maps between $F$-fibers. Fix a manifold $X$ and $F_i$-bundles $W^i$ over $X$ for $i = \underline{2}$. Suppose $A:X\to W^1$ is a section on $W^1$, and $\lambda\in L(F_1, F_2)$.\\
+
+At each point $p\in X$, our linear map $\lambda$ can be identified with the linear map that acts between the fibers.
+\[
+\lambda_p: W^1_p\to W^2_p
+\]
+which is toplinear hence a morphism. Our main problem is concerned with the conditions under which the composition $\lambda A$ --- as defined in \cref{eq:motivation-functorality} --- is a morphism.
+\begin{equation}\label{eq:motivation-functorality}
+    \lambda A: X\to W^2\qqtext{and} (\lambda A)(p) = \lambda_p (A_p)\in W_p^2
+\end{equation}
+
+Under what conditions can a morphism take on additional roles? The mapping $\lambda_p$ on each tangent space is a $C^p$ morphism in the manifold sense, and the morphisms that preserve the $C^p$ smoothness of sections are called VB morphisms. Which we will define after some more category theory. \\
+
+For the remainder of this section, let $C_1$ and $C_2$ be categories. We denote the objects of $C_1$ by $E_i$, and the objects of $C_2$ by $F_i$.
+\begin{definition}[Functor]\label{def:functor}
+     A correspondence $\theta$ between $C_1$ and $C_2$ is called a \emph{functor} --- which we denote by $\theta: C_1\rightrightarrows C_2$ --- if all of the following rules satisfied.
+    \begin{itemize}[labelwidth=\widthof{Mor4:},leftmargin=1.5cm]
+    \item[Ob1:] $\theta$ maps objects in $C_1$ to objects in $C_2$. We write
+    \begin{equation}\label{eq:functor-objects-correspondence}
+        \forall E\in Ob(C_1),\quad E^{\theta}=\theta(E)\in Ob(C_2)
+    \end{equation}
+    \item[Mor1:] $\theta$ associates morphisms in $C_1$ to morphisms in $C_2$ that respects Ob1. 
+    \begin{equation}\label{eq:functor-morphisms-correspondence}
+        \forall f\in \Mor_{C_1}(E_1,E_2),\quad \theta(f)\in \Mor_{C_2}(E_1^\theta, E_2^\theta)
+    \end{equation}
+    \item[Mor2:] Identity is associated with identity: $\theta(\id{E})  = \theta(\id{\theta(E)})$.
+    \item[Mor3:] Commutes with inversion: $\theta(f^{-1}) = \theta(f)^{-1}$ if the inverse of $f$ exists.
+    \item[Mor4:] Functoral: $\theta(g\circ f) = \theta(g)\circ \theta(f)$.
+    \end{itemize}
+\end{definition}
+
+
+% Remember: a functor is not a mapping between elements of the objects, it is a correspondence between objects in a category. Functors are correspondences between categories. Transforming a problem in one category to another. This is very powerful in algebraic topology.
+% \begin{itemize}
+% \item Category = Top. spaces, and  Groups
+% \item Objects = $[0,1],\real,L^p$, and $GL(n,\real)$,
+% \item Morphisms = $C([0,1], X)$ (the space of curves) and $\det: GL(n,\real)\to (\real\setminus 0, \times)$.
+% \item Functors = The Homotopy functor, that sends each pointed topological space to a group (the fundamental group), and to each pointed continuous function to a homomorphism between fundamental groups.
+% \end{itemize}
+
+% Notes: special notation for incoming and outgoing functors?
+
+\begin{note}[The $\Hom_X$ functor]\label{note:hom-functor}
+    We continue our discussion from \cref{fig:functorality-motivation-hom}. Recall $\RealBanach$ is the category of Banach spaces over $\real$, and we will refer to toplinear morphisms as morphisms for brevity. If $X$ is an object in $\RealBanach$,  the \emph{$\operatorname{Hom}_X$ functor} is a covariant functor between $\RealBanach$ and $L(X, \cdot)$ --- the space of toplinear mappings with source $X$ such that
+    \begin{enumerate}
+        \item to each $E_i\in \Ob(\RealBanach)$ $\Hom_X(E_i) = L(X,E_i)$ --- \textbf{the space of incoming morphisms with source $X$}, and 
+        \item to each morphism $f\in L(E_1,E_2)$ another morphism between $L(X,E_1)$ and $L(X,E_2)$ --- denoted by $(\operatorname{Hom}_X)f$. 
+        \item The functor $\operatorname{Hom}_X$ converts \textbf{outgoing morphisms from $E_1$ to the redirection morphism of incoming morphisms with source $X$}.
+    \end{enumerate}
+    Notice this is precisely what the diagram in \cref{fig:functorality-motivation-hom} describes.
+\end{note}
+
+\begin{wts}[$\Hom_X$ functor is a functor]\label{prop:verification-hom-functor}
+    The $\Hom_X$ functor as defined in \cref{note:hom-functor} is a covariant functor.
+\end{wts}
+\begin{proof}
+    Postponed.
+\end{proof}
+
+\begin{note}[The tangent space functor]\label{note:tangent-space-functor}
+Let $X$ be a $C^1$ manifold, we call the tuple $(p,X)$ for $p\in X$ the \emph{centering of $X$ centered at $p$}. The category of pointed manifolds, denoted by $\operatorname{Man}_{*}$. Its objects consist of all centerings across $C^1$ manifolds, and the morphisms in $\operatorname{Man}_{*}$ are called \emph{pointed morphisms}. \\
+
+If $(q,Y)$ is another object in $\operatorname{Man}_{*}$, a pointed morphism between $(p,X)$ and $(q,Y)$ is a tuple $(p,f)$; where $f$ is a manifold morphism between $X$ and $Y$ and $f(p) = q$. We sometimes write $f_p=(p,f)$ when it is clear.\\
+
+The \emph{tangent space functor}, denoted by $T:\operatorname{Man}_{*}\rightrightarrows \RealBanach$ is a covariant functor where
+\begin{itemize}
+    \item we define $T(p,X)= T_pX$ that takes a pointed $C^1$ manifold to its tangent space, and
+    \item to each pointed $C^1$ morphism $f_p\in\Mor_{\operatorname{Man}_{*}}( (p,X)\,(q,Y))$ we associate with the toplinear mapping 
+    \begin{equation}\label{eq:tangent-space-functor-morphism-action}
+        Tf_p = df(p): T_p X\to T_{q}Y
+    \end{equation}
+\end{itemize}
+\end{note}
+\begin{wts}[Tangent space functor is a functor]\label{prop:verification-tangent-space-functor}
+    The tangent space functor as defined in \cref{note:tangent-space-functor} is a covariant functor.
+\end{wts}
+\begin{proof}
+    Postponed.
+\end{proof}
+We leave the verification that $T$ satisfies the properties in \cref{def:functor} as an exercise. Dual to the concept of a functor is that of the cofunctor, which --- for our purposes --- captures the idea of the toplinear adjoint.
+
+\begin{definition}[Cofunctor]\label{def:cofunctor}
+    Let $C_1$ and $C_2$ be categories. A correspondence $\eta: C_1\leftrightarrows C_2$ is called a \emph{cofunctor} (or a contravariant functor) if all of the following rules are satisfied.
+    \begin{enumerate}[labelwidth=\widthof{Mor4:},leftmargin=1.5cm]
+        \item[Ob:] $\eta$ maps objects in $C_1$ to objects in $C_2$. We write $E^\lambda = \lambda(E)\in \Ob(C_2)$ for every $E\in\Ob(C_1)$.
+        \item[Mor1:] $\eta$ associates morphisms in $C_1$ to morphisms in $C_2$ that respects Ob1. 
+        \begin{equation}\label{eq:cofunctor-morphisms-correspondence}
+            \forall f\in \Mor_{C_1}(E_1,E_2),\quad \eta(f)\in \Mor_{C_2}(E_2^\eta, E_1^\eta)
+        \end{equation}
+        \item[Mor2:] Identity is associated with identity: $\eta(\id{E})  = \eta(\id{\eta(E)})$.
+        \item[Mor3:] Commutes with inversion: $\eta(f^{-1}) = \eta(f)^{-1}$ if the inverse of $f$ exists.
+        \item[Mor4:] Cofunctoral: $\eta(g\circ f) = \eta(f)\circ \eta(g)$.
+    \end{enumerate}
+\end{definition}
+\begin{remark}[Cofunctors are opposite to functors]
+    The cofunctor $\eta$ reverses the arrows a morphism $f$. Refer to \cref{fig:functor-cofunctor-comparison} for a comparison between \cref{eq:cofunctor-morphisms-correspondence} and \cref{eq:functor-morphisms-correspondence}.
+\end{remark}
+
+
+\begin{note}[The $\Hom^X$ cofunctor]
+    Let $X\in\Ob(\RealBanach)$, it defines a cofunctor from $\RealBanach\leftrightarrows L(\cdot, X)$ where $L(\cdot, X)$ is the space of toplinear mappings whose destination is $X$.
+    \begin{enumerate}
+        \item to each $E_i\in \Ob(\RealBanach)$ $\Hom^X(E_i) = L(E_i,X)$ --- \textbf{the space of outgoing morphisms with destination $X$}, and 
+        \item to each morphism $f\in L(E_1,E_2)$ another morphism between $L(E_1,X)$ and $L(E_2,X)$ --- denoted by $(\operatorname{Hom}^X)f$. 
+        \item The functor $\operatorname{Hom}^X$ converts \textbf{outgoing morphisms from $E_1$ to the precomposition morphism which acts on morphisms with destination $X$}.
+    \end{enumerate}
+\end{note}
+% https://q.uiver.app/#q=WzAsNixbMiwwLCJFXzEiXSxbMiwyLCJFXzIiXSxbNCwyLCJcXHRoZXRhKEVfMikiXSxbNCwwLCJcXHRoZXRhKEVfMSkiXSxbMCwwLCJcXGV0YShFXzEpIl0sWzAsMiwiXFxldGEoRV8yKSJdLFswLDEsImYiLDFdLFsxLDIsIlxcdGhldGEiLDFdLFswLDMsIlxcdGhldGEiLDFdLFszLDIsIlxcdGhldGEoZikiLDFdLFswLDQsIlxcZXRhIiwxXSxbMSw1LCJcXGV0YSIsMV0sWzUsNCwiXFxldGEoZikiLDFdXQ==
+\begin{figure}[!h]
+\centering
+\begin{tikzcd}
+	{\eta(E_1)} && {E_1} && {\theta(E_1)} \\
+	\\
+	{\eta(E_2)} && {E_2} && {\theta(E_2)}
+	\arrow["f"{description}, from=1-3, to=3-3]
+	\arrow["\theta"{description}, from=3-3, to=3-5]
+	\arrow["\theta"{description}, from=1-3, to=1-5]
+	\arrow["{\theta(f)}"{description}, from=1-5, to=3-5]
+	\arrow["\eta"{description}, from=1-3, to=1-1]
+	\arrow["\eta"{description}, from=3-3, to=3-1]
+	\arrow["{\eta(f)}"{description}, from=3-1, to=1-1]
+\end{tikzcd}
+\caption{Functor $\theta$ vs. cofunctor $\eta$ comparison}
+\label{fig:functor-cofunctor-comparison}
+\end{figure}
+%\cref{fig:functor-cofunctor-comparison}
 %
-% End of Manifold Chapter
 %
 %
-\fchapter{2: }
 \topheader{Tangent Bundle}
 \begin{definition}[Tangent Bundle]
     
@@ -842,60 +1024,53 @@ In fact, the tangent bundle $TX \defined \coprod_{p\in X}T_p X$ is a $C^{p-1}$ v
 \end{equation}
 where $(U,\varphi, p,\hat{v})$ is a concrete representation of $v\in T_pX$.
 \end{note}
-%
 
 
-% Cotangent bundle?
-
-% \vert_{\wig{U}^{\alpha_1\alpha_2}_{\beta_1\beta_2}}
-% This ties into the computing the exterior derivative of a differential form.
-% What is the reason for 'taking the covector field of the component function?' and replacing it with a wedge product?
-% 
 
 \fchapter{3: Coordinates}
 
 \topheader{Introduction}
 In the previous chapters, a chart $(U,\varphi)$ was often equated with its domain. We will now express a concrete tangent vector as $(\hat{p}, \hat{v})$, omitting any reference to the chart or its domain. \\
-
+%
 Let $X$ be a manifold and $F$ a Banach space. Consider a morphism $f \in \Mor(X,F)$ and fix a point $p \in X$, and write $q = f(p)$. By adopting the canonical interpretation $\cl{w}$ for a tangent vector $w \in T_q F$ (as discussed in \cref{rmk:omission-of-chart-in-concrete-rep}), we 
-
+%
 \begin{itemize}
     \item reinterpret the differential at $p$ $df_p$ as a linear map from $T_p X$ to $F$,
     \item always use the standard chart $(\id{F}, F)$ so that $\hat{f} = f_{U,F}$.
 \end{itemize}
-
+%
 % Add some motivation for why we onlyl consider finite dimensional manifolds here.
-
+%
 In this context, morphisms into $\real$ almost serve as test functions in the framework of distribution theory. This requires a definition.
-
+%
 \begin{definition}[Function on $X$]\label{def:function-on-X}
     Let $X$ be a manifold of class $C^p$ over $\realn$ for $n,p\geq 1$. A \emph{function} on $X$ is a morphism $f: X\to\real$, where $\real$ should be interpreted as a manifold. We denote the commutative ring of functions on $X$ by $C^p(X,\real)$ or $C^p(X)$. If $U$ is an open subset of $X$, its functions are denoted by $C^p(U,\real)$ or $C^p(U)$.
 \end{definition}
 \textbf{For the rest of this chapter, assume all manifolds to be $C^p$-manifolds over $\realn$, where $n,p \geq 1$}. 
-
+%
 \topheader{Derivations}
-
+%
 % Some more motivation for this? 'If $f$ is only defined on an open subset of a Banach space then its derivative allows us access to the underlying Banach space structure even if $f$ is defined on a very small patch in $E$?
-
+%
 Let $E$ and $F$ be Banach spaces and $U\osub E$, suppose $f$ is a morphism from $U$ to $F$. If $p$ is a point in $U$, $Df(p)$ is of course a linear map from $E$ to $F$; this suggests a natural pairing $\hat{\dzz}$ of $f$ with and $(p,v)\in U\times E$ as shown in \cref{eq:derivation-natural-pairing-motivation}.
 \begin{equation}\label{eq:derivation-natural-pairing-motivation}
     \hat{\dzz}: (U\times E)\times C^p(U,F)\longrightarrow F:\quad \qty\Big((p,v), f)\mapsto Df(p)(v)\in F
 \end{equation}
-
+%
 Suppose $F = \real$ and denote pointwise multiplication on $\real$ by $m$. The above pairing trivially satisfies the product rule displayed in \cref{eq:derivations-product-rule}.
 \begin{equation}\label{eq:derivations-product-rule}
     Dm(\UL{f}[k])(p)(v) = \sum_{i=\underline{k}}m(\UL{f}[i-1](p),D f_i(p)(v),\UL{f}[i+][k-i](p))
 \end{equation}
 where $\UL{f}[k]\in C^p(U,\real)$. Next, if $f$ is a function (from a manifold $X$) defined on an open neighbourhood $U$ of $p$. If $v\in T_p X$, the commentary in the introduction suggests a 'duality pairing' between $f$ and $(p,v)$ in the form of \cref{eq:tangent-vector-abstract-action}.
 \begin{equation}\label{eq:tangent-vector-abstract-action}
-    \dzz: (U\times E)\times C^p(U,F)\longrightarrow F:\quad \dzz\qty\Big((p,v),f) = df_p(v)
+    \dzz: (U\times E)\times C^p(U,F)\longrightarrow F\qqtext{and} \dzz\qty\Big((p,v),f) = df_p(v)
 \end{equation}
 \textbf{By definition of the differential $df_p$}, the right hand side of \cref{eq:tangent-vector-abstract-action} is representation independent, hence
 \begin{equation}\label{eq:tangent-vector-concrete-action}
     \dzz((p,v), f) =  D\hat{f}(\hat{p})(\hat{v}),\quad\text{where the right member is an ordinary derivative}
 \end{equation}
 for any representation $(\hat{p},\hat{v})$, $\hat{f}$. We also see that $\dzz((p,v), f) = \hat{\dzz}((\hat{p},\hat{v}),\hat{f})$, which shows functions defined on $U$ are dual to $T_p X$ for each $p\in U$. We will make this notion precise when we introduce covectors.
-
+%
 \begin{definition}[Derivation at $p$]\label{def:derivation-at-p}
 A \emph{derivation at $p$} is a \textbf{linear functional} $v$ on $C^p(U,\real)$, where $U$ is any neighbourhood of $p$; such that for $\UL{f}[k]\in C^p(U)$, \cref{eq:derivations-product-rule-abstract} holds. 
 \begin{equation}\label{eq:derivations-product-rule-abstract}
@@ -903,7 +1078,7 @@ A \emph{derivation at $p$} is a \textbf{linear functional} $v$ on $C^p(U,\real)$
 \end{equation}
 We will denote the space of derivations at $p$ by $\dzz_p(X)$, and if $v\in \dzz_p(X)$, we say $v$ \emph{derives} $f$ for any function $f$ defined about $p$.
 \end{definition}
-
+%
 %
 %
 We have shown every tangent vector is a derivation, since the product rule descends from \cref{eq:derivations-product-rule} and its computation in coordinates in \cref{eq:tangent-vector-concrete-action}.  If $X$ is finite-dimensional, \cref{prop:tangent-space-isomorphic-to-derivations-finite-dimensional} shows derivations at a point $p\in X$ are uniquely represented by a tangent vector.
@@ -924,4 +1099,39 @@ Let $p$ be a point on a manifold $X$, then its tangent space is isomorphic to th
     % The definition should be using the curves with domains (-\varepsilon, 0] and [0,+\varepsilon)
     %
 % Recap the submanifold tangent space criterion? An abstract tangent vector is in the exterior tangent space of the submanifold if its concrete repreresentation in a slice chart is 
+
+\topheader{Exterior Derivative}
+Let $X$ be a manifold, and $f\in C^p(X)$. If $\gamma: (-\delta, +\delta)\to X$ is a curve starting at $x_0\in X$ with velocity $v$, the composition $f\circ \gamma$ is a morphism. Let us write 
+\begin{equation}
+    F:(-\delta,+\delta)\to \real,\quad F(\varepsilon) = f\circ \gamma(\varepsilon) - f\circ\gamma(0)
+    \label{eq:exterior-derivative-motivation-1-form-1}
+\end{equation}
+Suppose we wish to measure the rate at which $f$ moves in the direction of $v$, then we can simply take the derivative of \cref{eq:exterior-derivative-motivation-1-form-1}. We define the \emph{exterior derivative of $f$ at $x_0$}, denoted by $df(x_0): T_{x_0}X\to\real$ by \cref{eq:exterior-derivative-motivation-1-form-2}
+\begin{equation}
+    df(x_0)(v) = DF(0)(\cl{1})\qqtext{where} F = f\circ \gamma
+    \label{eq:exterior-derivative-motivation-1-form-2}
+\end{equation}
+for any curve starting at $x_0$ with velocity $v$.
+
+% Given a way of measuring k-dimensional volumes, the exterior derivative gives rise to a k+1 realvalued function in k+1 arguments at a point.
+
+Let $E$ be a Banach space, and suppose $\omega$ is a $k$-form on $E$, and $x_0\in E$ with $k+1$ tangent vectors $v_{\underline{k+1}}$. The parallelopiped defined by the $k+1$ vectors is 
+\[
+    P_{x_0}(v_{\underline{k+1}}) = \bigset{x_0 + \sum_{i=\underline{k+1}} t_iv_i,\: 0\leq t_i\leq 1\: \forall i = \underline{k+1}}
+\]
+% We can rewrite $P_{x_0}(v_{\underline{k+1}}) = x_0 + P(v_{\underline{k+1}})$ where $P_0(\cdot) = P(\cdot)$. 
+As with \cref{eq:exterior-derivative-motivation-1-form-1}, we can integrate over the boundary defined by $P_{x_0}(v_{\underline{k+1}})$, and obtain a new function. We can shrink each $v_i$ by $\varepsilon_i$, and we define
+\begin{equation}
+    P_{x_0}^{\varepsilon_{\underline{k+1}}}(v_{\underline{k+1}}) = \bigset{x_0 + \sum_{i=\underline{k+1}} t_iv_i,\: 0\leq t_i\leq \varepsilon_i\: \forall i = \underline{k+1}}
+    \label{eq:exterior-derivative-motivation-k-form-shrinkage}
+\end{equation}
+
+(Note: Perhaps after shrinking the domain of $F$, here we should replace everything by their coordinate representations).
+\begin{equation}
+    F:(-\delta,+\delta)^{k+1}\to \real,\quad F(\varepsilon_{\underline{k+1}}) = \int_{\partial P_{x_0}^{\varepsilon_{\underline{k+1}}}(v_{\underline{k+1}})}\omega
+    \label{eq:exterior-derivative-motivation-k-form-1}
+\end{equation}
+We define the exterior derivative of a $k$-form by the map $DF(0)(1^{(k+1)})$
+
+
 \end{document}

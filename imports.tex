@@ -147,7 +147,6 @@
     \providecommand{\mcal}{\mathcal{M}}         % Sigma Algebra M
     \providecommand{\ncal}{\mathcal{N}}         % Sigma Algebra N
 
-
     % Measures
     \providecommand{\mustar}{\mu^*}             % Outer Measure
     \providecommand{\mubar}{\cl{\mu}}            % Completion
@@ -172,7 +171,6 @@
     \providecommand{\ff}{\mathbb{F}} % Field
     \providecommand{\entry}[2]{{{#1,\, #2}}} % Matrix Entries
 
-
     % Some Bold Face Fonts
     \providecommand{\xx}{{\mathbf{X}}}
     \providecommand{\yy}{{\mathbf{Y}}}
@@ -181,8 +179,6 @@
     \providecommand{\ww}{{\mathbf{W}}}
     \providecommand{\uu}{{\mathbf{U}}}
     \providecommand{\tt}{{\mathbf{T}}}
-
-    
 
     % Shortcut for sequences
     \providecommand{\xn}{\{x_n\}_{n\geq 1}}
@@ -193,14 +189,21 @@
     \providecommand{\idh}{e_H}
 
 
+% \IfNoValueTF {⟨argument ⟩} {⟨true code ⟩} {⟨false code ⟩} 
+% \IfNoValueT {⟨argument ⟩} {⟨true code ⟩}
+% \IfNoValueF {⟨argument⟩} {⟨false code⟩}
 
     % Category Theory
-    \NewDocumentCommand{\Hom}{oo}{
-      {\operatorname{Hom}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+    \NewDocumentCommand{\Hom}{ooo}{
+      {\operatorname{Hom}_{\IfNoValueF{#3}{{#1}}}}\IfNoValueTF{#3}{\IfNoValueF{#1}{
+        ({#1}{\IfNoValueF{#2}{,\: {#2}}})}}{({#2},\: {#3})}
     }
     \NewDocumentCommand{\End}{oo}{
-      {\operatorname{Hom}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+      {\operatorname{End}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
     }
+    \providecommand{\RealBanach}{\operatorname{Ban}_{\mathbb{R}}}
+    \providecommand{\Ob}{\operatorname{Ob}}
+    
 
     % Lattice
     \providecommand{\lub}{\operatorname{lub}}

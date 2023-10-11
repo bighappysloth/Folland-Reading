@@ -1,6 +1,6 @@
 ---
 layout: article
-title: mathjax v3 on minima, jekyll site management
+title: Jekyll Site Management and MathJax tips
 date:   2023-05-09 12:02:12 -0400
 categories: website
 ---
@@ -18,39 +18,10 @@ $$\dfrac{1}{2} =x$$
 ## fixing 404
 - [guide on URLs](https://mademistakes.com/mastering-jekyll/site-url-baseurl/#absolute_url-filter)
 
-## resources for mathjax:
-- [mathjax v3 configuration](https://docs.mathjax.org/en/latest/options/input/tex.html#tex-options)
-- [mathjax v2 syntax for delimiters](https://scaomath.github.io/blog/welcome-to-jekyll/)
 
-- [steps to obtain default.html back](https://stackoverflow.com/questions/50998466/how-to-use-latex-in-new-jekyll-gem-based-theme-minima)
+# Styling
 
-- basically: clone minima, then copy all the required files (what is needed is default.html, and head.html)
-
-- paste the required configuration scripts, the cdn for mathjax into the head section.
-
-- custom-header.html does not work for some reason.
-- minima 3.0 is actually called minima 2.5.1
-
-# MathJax setup in head.html
-## Commentary
-The startup section is to fix the div labels within the theorem boxes. Those labels are rendered after the main page, so we (chatgpt and me) used a javascript promise `MathJax.typesetPromise([element])` to delay rendering all the math until the entire html has been loaded, shown below. The custom startup script also loops through each of the coloured boxes (definition, theorem, remark, lemma, corollary, note) and replaces the labels, and renders the labels in latex. Example of these boxes can be found [here]({{ site.baseurl }}/{% post_url 2023-10-04-Electromagnetism-Rigourously %}).
-
-Things that do not work:
-- MathJax plugins: I could not get the latex extensions to work for some resaon. My macros would not work with any of the plugins, and upon removing all my macros even then the plugins do not load consistently.
-- The delimiters `\[` and `\]` do not trigger math mode for some reason. However, writing 
-
-```latex
-\begin{equation}
-\dfrac{1}{2} 
-\end{equation}
-```
-
-renders 
-
-\begin{equation}
-\dfrac{1}{2}
-\end{equation}
-
+## General Styling
 The CSS styling is found across `_variables.scss`, `custom.scss`. The code that is responsible for changing the *style of the codeblocks* is found within `_reset.scss`, where
 
 ```css
@@ -127,6 +98,149 @@ As usual, we use three backticks to delimit code blocks. Font size adjustents ar
     }
   }
   ```
+# MathJax setup
+## Coloured boxes
+To implement the boxed theorem environments, we use a html div. All of the boxes are defined within `_custom.scss`. A few more things to note: the numbering on the boxes reset on each `h2` section (so double `##` pound sign), you can adjust it 
+
+```css
+// Initialize the definition counter
+body {
+    counter-reset: h1counter h2counter definition lemma theorem example remark note corollary; 
+}
+
+h1 {
+    counter-increment: h1counter;
+}
+
+// Reset the definition counter every time a new <h2> starts
+h2 {
+    counter-increment: h2counter;
+    counter-reset: definition lemma theorem example remark corollary note; 
+}
+```
+
+The default colours are from matplotlib's Tableau theme, we have commented out the rgb values inside `_custom.scss` for convenience. There are two skeleton styles for the boxes (proof style excluded for now),
+
+```css
+@mixin box-style {
+    position: relative;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 0.0rem;
+    align-items: center; // Align content vertically in the center
+
+    &::before {
+        margin: 0 0;
+        padding: 0;
+        font-weight: bold;
+        color: #000;
+    }
+
+    &::after {
+        white-space: pre; // Retain spaces and newlines
+    }
+
+    p {
+        margin: 0; // Reset margin for the paragraph
+    }
+}
+
+@mixin content-with-name($type, $color) {
+    $capitalizedType: capitalize($type);
+    @include box-style;
+    background-color: $color;
+
+    &::before {
+        counter-increment: $type;
+        content: '#{$capitalizedType} ' counter(h2counter) '.' counter($type);
+    }
+
+    &[name]:not([name=""])::before {
+        content: '#{$capitalizedType} ' counter(h2counter) '.' counter($type) ':   ';
+        white-space: pre;
+    }
+}
+```
+
+The first `box-style` controls the colouring and the amrgin of the boxes. The second one serves as a wrapper to process the latex labels and numbering options. The label changes depending on if the `"name"` field is blank. Writing 
+
+```html
+<div class="definition-box" markdown=1 name="Associated open Ellipsoid">
+Let $q\in P$, it defines an open set called the **associated open ellipsoid of $q$**, denoted by $E(q)$ or $E_q$ 
+
+$$
+E(q) = \bigset{x\in\real^{2n},\: q(x)< 1} = [ q<1 ] 
+$$
+
+</div>
+```
+
+gives 
+
+<div class="definition-box" markdown=1 name="Associated open Ellipsoid">
+Let $q\in P$, it defines an open set called the **associated open ellipsoid of $q$**, denoted by $E(q)$ or $E_q$ 
+
+$$
+E(q) = \bigset{x\in\real^{2n},\: q(x)< 1} = [ q<1 ] 
+$$
+
+</div>
+
+Example of these boxes can be found [here]({{ site.baseurl }}/{% post_url 2023-08-01-part-4-functional-analytic-setting %}). Including the styling implementation for the boxes for convenience:
+
+```css
+.definition-box {
+    @include content-with-name(definition, rgba(231, 201, 95, 0.1));
+
+    .definition-label {
+        font-weight: bold;
+    }
+}
+
+.theorem-box {
+    @include content-with-name(theorem, rgba(86, 120, 163, 0.1));
+}
+
+.lemma-box {
+    @include content-with-name(lemma, rgba(133, 182, 177, 0.1));
+}
+
+.corollary-box {
+    @include content-with-name(corollary, rgba(86, 120, 163, 0.1));
+}
+
+.note-box {
+    @include content-with-name(note, rgba(227, 147, 68, 0.05));
+}
+
+.remark-box {
+    @include content-with-name(remark, rgba(86, 120, 163, 0.05));
+}
+```
+
+
+
+## Custom startup script
+We modified `head.html` to include a special startup script (along with the script that launches MathJax). The startup section is to fix the div labels within the theorem boxes. Those labels are rendered after the main page, so we (chatgpt and me) used a javascript promise `MathJax.typesetPromise([element])` to delay rendering all the math until the entire html has been loaded, shown below. The custom startup script also loops through each of the coloured boxes (definition, theorem, remark, lemma, corollary, note) and replaces the labels, and renders the labels in latex.
+
+Things that do not work:
+- MathJax plugins: I could not get the latex extensions to work for some resaon. My macros would not work with any of the plugins, and upon removing all my macros even then the plugins do not load consistently.
+- The delimiters `\[` and `\]` do not trigger math mode for some reason. However, writing 
+
+```latex
+\begin{equation}
+\dfrac{1}{2} 
+\end{equation}
+```
+
+renders 
+
+\begin{equation}
+\dfrac{1}{2}
+\end{equation}
+
+
 
 Cutom startup script
 {% highlight html %}
@@ -193,6 +307,15 @@ Cutom startup script
 
 </head>
 {% endhighlight %}
+
+## Additional resources for MathJax:
+- [mathjax v3 configuration](https://docs.mathjax.org/en/latest/options/input/tex.html#tex-options)
+- [mathjax v2 syntax for delimiters](https://scaomath.github.io/blog/welcome-to-jekyll/)
+- [steps to obtain default.html back](https://stackoverflow.com/questions/50998466/how-to-use-latex-in-new-jekyll-gem-based-theme-minima)
+- basically: clone minima, then copy all the required files (what is needed is default.html, and head.html)
+- paste the required configuration scripts, the cdn for mathjax into the head section.
+- custom-header.html does not work for some reason.
+- minima 3.0 is actually called minima 2.5.1
 
 ## current folder structure
 {% raw %}

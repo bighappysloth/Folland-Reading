@@ -2,8 +2,8 @@ $base: (
   font-family: (-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif),
   font-family-code: (Menlo, Monaco, Consolas, Andale Mono, lucida console, Courier New, monospace),
 
-  font-size-root:         12px,
-  font-size-root-sm:      10px,
+  font-size-root:         14px,
+  font-size-root-sm:      12px,
 
   font-size-xl:           1.0rem,
   font-size-lg:           1.0rem,
@@ -81,7 +81,7 @@ $z-indexes: (
 $layout: (
   header-height:          5rem,
   header-height-sm:       3rem,
-  content-max-width:      600px,
+  content-max-width:      750px,
   sidebar-width:          150px,
   sidebar-header-height:  3rem,
   aside-width:            150px
@@ -96,8 +96,6 @@ $responsive: (
   md:                      500px,
   lg:                      1024px
 );
-
-
 
 $animation: (
   duration:               .4s,

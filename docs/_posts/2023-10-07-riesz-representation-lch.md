@@ -56,3 +56,10 @@ A **positive linear functional** on $C_c(\xx)$ is a linear functional (not neces
 
 
 
+## Outermeasure proof
+
+![]({{ site.baseurl }}{% link /images/riesz-folland-2.jpg %})
+![]({{ site.baseurl }}{% link /images/riesz-folland-3.jpg %})
+![]({{ site.baseurl }}{% link /images/riesz-folland-4.jpg %})
+![]({{ site.baseurl }}{% link /images/riesz-folland-5.jpg %})
+![]({{ site.baseurl }}{% link /images/riesz-folland-6.jpg %})

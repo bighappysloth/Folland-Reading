@@ -1,7 +1,8 @@
-\documentclass[11pt, oneside]{book}
+\documentclass[11Q          pt, oneside]{book}
 \usepackage{import}         % Import our packages, see import.tex
 \import{./}{imports}
 \import{./}{manifolds-docinfo.tex}
+\bibliographystyle{plainurl}
 \usepackage{subfiles}
 
 \begin{document}
@@ -10,9 +11,11 @@
 
 % \maketitle\newpage          % Title Page, uncomment if necessary
 \tableofcontents\newpage    % Table of Contents, uncomment if necessary
-
+\subfile{Functional-Analysis/Preliminaries-Compiled.tex}\newpage
 \subfile{Functional-Analysis/Calculus-on-Banach-Spaces-Compiled.tex}\newpage
+\subfile{Functional-Analysis/Analytic-Setting-Compiled.tex}\newpage
 \subfile{Manifolds/Abstract-Manifold-Compiled.tex}\newpage
+\bibliography{Functional-Analysis/manifolds-references}
 % \subfile{Manifolds/Lee-Appendix_A_Compiled.tex}\newpage
 % \subfile{Algebra/Hungerford-Chapter-1_Compiled.tex}\newpage
 % \subfile{Munkres/Munkres-Compiled.tex}\newpage

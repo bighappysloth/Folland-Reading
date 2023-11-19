@@ -95,4 +95,49 @@ A Frechet space is a complete, Hausdorff, topological vector space whose topolog
 \end{itemize}
 \newpage
 
+\subsection{Density Arguments}
+Let $(X,\mcal,\mu)$ be a measure space, where $X$ is LCH and $\mu$ is Radon. We wish to prove several things.
+\begin{itemize}
+    \item If $p$ is usual, then the $L^p$ simple functions, $\Sigma^p$ are dense in $L^p$. (This applies for an arbitrary measure space). 
+    \item If $p$ is usual, then $C_c(X)$ is dense in $L^p$.
+\end{itemize}
+
+Then we will prove, in the case of $(\realn,\borel,\mu)$,
+\begin{itemize}
+    \item If $p$ is usual, then translation is continuous in $C_c(\realn)$, that is
+    \[
+        \lim_{y\to 0}\norm{\tau_y f - f}=0\quad\forall f\in C_c
+    \]
+    \item If $p$ is usual, then translation is continuous in $L^p$.
+\end{itemize}
+These claims are clearly related to one another. 
+\begin{proof}[Proof of First Claim]
+    If $f\in L^p$, there exists a sequence of simple functions, $g_n\in\Sigma$ that converge to $f$ pointwise a.e, and $\abs{g_n}\nearrow \abs{f}$. By the triangle inequality, we have $\abs{f - g_n}\leq 2\abs{f}$ and $\abs{f - g_n}^p \leq 2^p\abs{f}$. The right member is in $L^1$, and $g_n\to f$ in $L^p$ upon pushing the limit into the integral. Since $\abs{g_n}^p\leq \abs{f}^p$, we see that each $g_n\in \Sigma^p$ as well.
+\end{proof}
+\begin{proof}[Proof of Second Claim]
+    Let $E\in\mcal$ be measurable, and $\mu(E)<+\infty$. Since $\mu$ is inner regular on all of its $\sigma$-finite sets, it is inner-regular on $E$. This means we can use the 'compact-open' sandwich to obtain $\mu(U\setminus K)<+\varepsilon$ where 
+    \[
+    K\subseteq^\wedge E\subseteq U\osub X
+    \]
+    By Urysohn's Lemma, we obtain some $f$ that approximates the indicator on $E$,
+    \[
+        K\Lsim f\Lsim U
+    \]
+    Note that $f = \chi_E=1$ on $K$ and $f = \chi_E = 0$ outside $U$. Therefore $\{f\neq \chi_E\}\subseteq U\setminus K$. Because the pointwise values of $f$ live inside $[0,1]$, the maximum pointwise error between $f$ and $E$ is $1$, and we have
+    \[
+        \norm{f-\chi_E}_p^p=\int \abs{f-\chi_E}^p\leq \mu(U\setminus K)<+\varepsilon
+    \]
+\end{proof}
+\begin{proof}[Proof of Third Claim]
+    Let $f\in C_c(\realn)$, and $K_1 = \supp{f}$. Because the translation map $\tau_{-y}(x) = x-y$ is continuous at every $y$, $\tau_{-y}(K_1)\subseteq^\wedge\realn$. Write $K = K_1\cup \tau_{-1}(K_1)$, which is again compact in $\realn$. Because $f$ is $UBC$, for every $\varepsilon(\mu(K)+1)^{-1}$, $\norm{\tau_ye f - f}_u<+\varepsilon(\mu(K)+1)^{-1/p}$ for sufficiently small $y$. Since the $p$-norm is defined through integration for usual $p$, we see that 
+    \[
+        \norm{\tau_y f - f}_p^p\leq \varepsilon
+    \]
+\end{proof}
+\begin{proof}[Proof of the Fourth Claim]
+    We use a density argument, let $\varepsilon>0$ be fixed. There exists a $\phi\in C_c$ that approximates $f$ in $L^p$ by $\varepsilon/3$. Moreover, $\tau_y\phi$ approximates $\tau_f$ in $L^p$ as well. Hence,
+    \[
+        \norm{\tau_y f - f}_p^p\leq \norm{\tau_y \phi - \phi}_p^p + \norm{\tau_y - \tau_f}_p^p + \norm{\phi - f}_p^p
+    \]  
+\end{proof}
 \end{document}

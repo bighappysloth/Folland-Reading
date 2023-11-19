@@ -3,10 +3,47 @@
 \begin{document}
 \problem{2.27}
 \begin{wts}
-
+    Let $I = [a,b]$ or $\real$, suppose that $f: X\times I\to \complex$, and that 
+    \begin{quote}
+        $f$ is integrable when the second coordinate is held fixed, meaning $f(\cdot,t)\in \mathcal{L}^1(X)$. Writing $F(t) = \int_X f(x,t)d\mu(x)$, then
+    \end{quote}
+    \begin{itemize}
+        \item Continuity: If $f$ is dominated by a $g\in \mathcal{L}^1\cap \mathcal{L}^+(X)$ on $X\times I$, meaning
+        \[
+            \abs{f(x,t)}\leq g(x)
+        \]
+        and $f$ is continuous in the second coordinate: $f(x,\cdot)\in C(I,\complex)$ at every $x$ then $F(t)$ is continuous.
+        \item Suppose that $\pdv{f}{t}$ exists exists on $X\times I$, and $\abs{\pdv{f}{t}(x_0,t_0)}\leq g(x_0)$ for some $g\in \mathcal{L}^1\cap \mathcal{L}^+(X)$ where 
+        \begin{equation}
+            \pdv{f}{t}\eval_{(x_0,t_0)} = \lim_{h\to 0}\frac{f(x_0,t_0 + h) - f(x_0, t_0)}{h}
+        \label{thm:2.27 partial derivative}
+        \end{equation}
+        then $F$ is differentiable, and $\dv{F}{t}\eval_{t_0} = \int (\partial f/\partial t)(x,t)d\mu(x)$.
+    \end{itemize}
 \end{wts}
 \begin{proof}
+    The first claim called for an application for the dominated theorem. Let $t_0\in I$ be fixed, and $t_n\to t_0$ in $I$. Set $f_n(x) = f(x,t_n)$, then $\abs{f_n}\leq g$. Applying the dominated theorem, we see that $\lim F(t_n) = \lim \int f(x,t_n)d\mu(x) = F(t_0)$.\\
 
+    For the second claim, recall that 
+    \[
+        \dv{F}{t}\eval_{t_0} = \lim_{h\to 0}\int_X \frac{f(x,t_0 + h) - f(x, t_0)d\mu(x)}{h}
+    \]
+    Fix any sequence $t_n \to t_0$ (replacing $t_0 + h$), and we write $\varphi_n(x) = [f(x,t_n) - f(x,t_0)](t_n - t_0)^{-1}$. By the mean value theorem, because $D_2 f(x, t_0) = \partial f/\partial t(x,t_0)$ exists at every $x$, we have
+    \[
+        f(x, t_0 + h) = f(x, t_0) + \int_0^1 D_2 f(x, t_0 sh)\cdot h ds
+    \]
+    Which implies the following estimate
+    \[
+        \abs{\frac{f(x_0, t_0 + h) - f(x, t_0)}{h}}\leq \sup_{z\in t_0 + [0,1]h}\abs{D_2 f(x, z)}\leq g(x)
+    \]
+    Applying the dominated theorem, we see that 
+    \[
+        \dv{F}{t}\eval_{t_0}=\lim_{n\to\infty}\int_X \varphi_n(x) d\mu(x) = \int_X \pdv{f}{t}(x,t_0)(x,t_0)d\mu(x)
+    \]
 \end{proof}
+
+\begin{corollary}[Integration by parts]
+    
+\end{corollary}
 
 \end{document}

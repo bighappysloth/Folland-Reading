@@ -65,6 +65,7 @@
     % Bigger Brackets    
     \providecommand{\bigset}[1]{\biggl\{{#1}\biggr\}}
     \providecommand{\bigbrackets}[1]{\biggl( {#1}\biggr)}
+    \providecommand{\bigangle}[2]{\Big\langle {#1},\: {#2} \Big\rangle}
     
     % Topology
     \providecommand{\acc}{\operatorname{acc}} % Set of Accumulation Points
@@ -188,6 +189,8 @@
     \providecommand{\idg}{e_G}
     \providecommand{\idh}{e_H}
 
+    \providecommand{\lcal}{{\mathcal{L}}}
+
 
 % \IfNoValueTF {⟨argument ⟩} {⟨true code ⟩} {⟨false code ⟩} 
 % \IfNoValueT {⟨argument ⟩} {⟨true code ⟩}
@@ -214,7 +217,14 @@
 
     % Morphism
     \providecommand{\Mor}{\operatorname{Mor}}
-    
+
+    \providecommand{\flatb}{\mathfrak{b}}
+    \renewcommand{\sharp}{\#}
+    \renewcommand{\curl}{\operatorname{curl}}
+    \renewcommand{\grad}{\operatorname{grad}}
+    \renewcommand{\div}{\operatorname{div}}
+    \renewcommand{\abs}[1]{\vert {#1} \vert}
+    \providecommand{\bigabs}[1]{\biggl\vert {#1} \biggr\vert}
 % Settings
 \setlength{\parindent}{0pt} %default no indent
 

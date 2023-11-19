@@ -1,152 +1,10 @@
-\documentclass[../main-manifolds.tex]{subfiles}
+\documentclass[../main-v2-manifolds.tex]{subfiles}
 
 \begin{document}
-\fchapter{0: Banach Spaces}\newpage
-\topheader{Introduction}
-This section is quite incomplete, and all over the place. I have been meaning to put all the notation/terminology I am going to use in this section. Please skip to the Chapter 1 for now.\\
-
-%
-\topheader{Banach Spaces}
-A \emph{Banach space} is a normed vector space that is Cauchy-complete under the usual metric induced by its norm. 
-
-If $E$ and $F$ are Banach spaces over $\real$. We will denote the norms on $E$, and $F$ by single lines, so 
-\[
-    \vert x\vert = \norm{x}_E\qqtext{and} \vert y\vert = \norm{y}_F\quad\forall x\in E,\: y\in F
-\]
-$\mathcal{L}(E,F)$ will denote the space of linear maps between $E$ and $F$. In the category of Banach spaces, the space of morphisms are called \emph{toplinear morphisms} - or \emph{CLM}s (\emph{continuous linear maps}); which we will denote by $L(E,F)$ for toplinear morphisms bewteen $E$ and $F$. \\
-
-% Explanation on operator norm
-
-We use $\norm{\cdot}_{L(E,F)}$ or $\norm{\cdot}$ to denote the operator norm, depending on how much emphasis we wish to place on $L(E,F)$. Recall,
-\begin{align*}
-\norm{\varphi}_{L(E,F)} &= \inf\bigset{A\geq 0,\: \vert\varphi(x)\vert\leq A\vert x\vert\:\forall x\in E}\\
-&= \sup\bigset{\vert\varphi(x)\vert,\: x\in E,\: \vert x\vert=1}
-\end{align*}
-
-% Elaborate more
-
-By the open mapping theorem: any continuous surjective linear map is an open map. Hence invertible elements in $L(E,F)$ are naturally called \emph{toplinear isomorphisms}. If $\varphi\in L(E,F)$ such that $\varphi$ preserves the norm between the Banach Spaces, that is for every $x\in E$, $\vert x\vert = \vert \varphi(x)\vert$ then we call $\varphi$ an \emph{isometry}, or a \emph{Banach space isomorphism}. If $E_1$ and $E_2$ are Banach spaces, we will use the usual \emph{product norm} $(x_1, x_2)\mapsto \max(\vert x_1\vert,\vert x_2\vert)$. 
-
-% Where to put this
-\begin{itemize}
-    \item We say a map $F$ is \emph{between} the spaces $X$ and $Y$ if $F: X\to Y$. 
-    \item $\mathcal{L}(V^K,W)$ denotes the space of $k$-linear maps from $V$ to $W$ that are not necessarily continuous. 
-\end{itemize}
-%
-% Inverse function notation, square brackets
-% CLF = continuous linear functional (assumed to be real)
-% CLM = continuous linear map
-
-
-
-% Hahn Banach Theorem
-\begin{wts}[Hahn Banach Theorem (Geometric Form)]\label{prop:hahn-banach-geometric-form}
-    Let $E$ be a Banach space, $A$ and $B$ are closed disjoint subsets of $E$. Assuming one of the two is compact, then there exists a clf $\lambda$ which \emph{strictly separates} $A$ and $B$. 
-    \begin{equation}\label{eq:hahn-banach-geometric-form}
-        A\subseteq [\lambda \leq \alpha-\varepsilon]\qqtext{and} B\subseteq [\lambda\geq\alpha + \varepsilon]
-    \end{equation}
-    for $\alpha\in\real$ and $\varepsilon>0$.
-\end{wts}
-
-
-% Finite product of Banach spaces
-\begin{definition}[Product of Banach Spaces]\label{def:finite-product-banach-space}
-    Let $E_1,\ldots, E_k$ be Banach spaces over $\real$. The Cartesian product of $(E_1,\ldots E_k)$ is denoted by $\prod_i^k E_i$. It is again a Banach space with the norm
-    \begin{equation}\label{eq:finite-product-banach-space-norm}
-        (x_1,\ldots, x_k)\mapsto \abs{(x_1,\ldots, x_k)} = \sup_{1 \leq i\leq k}\abs{x_i}
-    \end{equation}
-\end{definition}
-
-% Vector space notation
-\topheader{Vector Spaces}
-Let $V$ be any vector space over $\real$ or $\mathbb{C}$, and $\{v_{\alpha}\}\subseteq V$, the symbol $\sum^{\wedge}v_\alpha$ refers to a partially specified object which is any \textbf{finite} linear combination of the elements of $\{v_{\alpha}\}$. If the cardinality of $\{v_{\alpha}\}$ is finite, 
-\begin{equation}\label{eq:finite-sums-notation}
-\sum^\wedge v_{\alpha} = \sum^\wedge\UL{v}[k]\text{ for some $k\geq 1$.}        
-\end{equation}
-where \cref{eq:finite-sums-notation} should be interpreted as \cref{eq:finite-sums-notation-pedantic}
-\begin{equation}\label{eq:finite-sums-notation-pedantic}
-    \sum^\wedge\UL{v}[k] = \sum_{i=\underline{k}}c^iv_i
-\end{equation}
-for some $c^i\in\real$ or $\mathbb{C}$ where $i=\underline{k}$. \\
-
-\begin{definition}[$x$ is essentially in $W_1$]
-If $V$ is the vector space direct sum of $W_1$ and $W_2$, a vector $x\in W_1$ is \emph{essentially in $W_i$} if it is invariant under the canonical projection of $\pi_i V\to W_i$. That is,
-\[
-    \pi_i (x) = x
-\]
-equivalently, the element $x\in V$ is expressed as the linear combination of $x + 0\in W_1\oplus W_2$.
-\end{definition}
-
-
-
-
-% Composition of maps.
-Composition of maps: If $f: E\to F$ and $g: F\to G$ are maps between Banach spaces, we write $gf$ to mean $g\circ f$. \\
-
-\topheader{Enumeration of lists}
-We use the following notation to simplify computations concerning multilinear maps. Let $E$ and $F$ be sets, elements $v_1,\ldots, v_k\in E$, and a map $f: E\to F$.
-\begin{itemize}
-    \item Listing individual elements: $\UL{v}[k]$ means $v_1,\ldots,v_k$ as separate elements. 
-    \item Creating a $k$-list: $(\UL{v}[k]) = (v_1,\ldots, v_k)\in \prod E_{j\leq k}$ if $v_i\in E_i$ for $i = \underline{k}$.
-    \item Double indices: $(\UL{v}[n_k]) = (v_{n_{\underline{k}}}) = (v_{n_1},\ldots, v_{n_k})$, and
-    \[
-        (\UL{v}[n_k]) \neq (v_{n_(1,\ldots,k)})
-    \]
-    \item Closest bracket convention:
-    \[
-        (v_{(n_{\underline{k}})}) = (v_{(n_1, \ldots, n_k)})\qqtext{and}(v_{n_{(\underline{k})})}) = (v_{n_{(1, \ldots, k)}})
-    \]
-    \item Underlining $0$ means it is iterated $0$ times: 
-    \[
-        (\UL{v}[0], a,b,c) = (a,b,c)
-    \]
-    \item Skipping an index: 
-    \[
-        (\UL{v}[i-1],\UL{v}[i+][k-i]) = (v_{1},\ldots, v_{i-1},v_{i+1},\ldots, v_{k})
-    \]
-    for $i = \underline{k}$.
-    \item Applying $f$ to a particular index: 
-    \[
-        (\UL{v}[i-1], f(v_{i}), \UL{v}[i+][k-i]) = (v_1,\ldots, v_{i-1}, f(v_i), v_{i+1}, \ldots, v_k)
-    \]
-    Of course, if $i=1$, then the above expression reads $(f(v_1), v_2\ldots, v_k)$ by the $\underline{0}$ interpretation.
-    \item In any list using this 'underline' notation, we can find the size of a list by summing over all the underlined terms, and the number of terms with no underline.
-    \item If $\wedge: E\times E\to F$ is any associative binary operation,
-    \[
-        \bigowedge(\UL{v}[k]) = v_1\wedge\cdots \wedge v_k
-    \]
-\end{itemize}
-\begin{remark}[Preview of exterior calculus]
-We can write the formula for the determinant of a $\real^{k\times k}$ matrix in this notation. Suppose $a_i\in\real$, and $b_i\in\real^{k-1}$ for $i=\underline{k}$.
-
-\[
-M = \begin{bmatrix}
-    a_1 & \cdots & a_k \\[1ex]
-    \vert &  & \vert \\
-    b_1 & \cdots & b_k \\
-    \vert &  & \vert \\[1ex]
-\end{bmatrix}
-\]
-The determinant of $M$ is a linear combination of determinants of $k-1$-sized matrices, given in terms of the columns of $b$
-\[
-    \det(M) = \sum_{i=\underline{k}}(-1)^{i-1} a_i\det(\UL{b}[i-1],\UL{b}[i+][k-i])
-\]    
-\end{remark}
-
-%
-% Hat Notation Is left Associative
-%
-In general, the 'hats' that we will use are left-associative. Meaning 
-\[
-    \hat{x} = x\hat{\:}\qqtext{and} \tau_y f\:\widehat{\:} = \widehat{(\tau_y f)}
-\]
-%
-
 %
 %
 % End of chapter 0%
 %
-
 \fchapter{1: Multilinear maps}\newpage
 \topheader{Bilinear maps}
 \begin{definition}[Bilinear map]
@@ -166,11 +24,9 @@ are linear for every $x\in E_1$ and $y\in E_2$.
 \end{wts}
 \begin{proof}
     Suppose such a $C$ exists, fix a convergent sequence $(x_n, y_n)\to (x,y)$ in $E_1\times E_2 = E$. Because the projection maps are continuous, this means $x_n\to x$ and $y_n\to y$. Using inspiration from the proof where $x_ny_n\to xy$, where
-
     \[
         x_n(y_n-y) + (x_n-x)y = x_ny_n- xy\quad x,y,x_n,y_n\in\real
     \]
-
     Using the inspiration, and replacing multiplication in $\real$ with the bilinear map $m$, we have:
     \begin{align*}
         m(x_n,\: y_n-y) + m(x_n-x,\: y) &= m(x_n,\:y_n) - m(x,\:y)\\
@@ -264,10 +120,8 @@ The following theorem should give confidence to the notation we have adopted to 
     \end{equation}
     Then the triangle inequality reads
     \begin{align*}
-        \abs{\varphi(x_n^{\underline{k}}) - \varphi(x^{\underline{k}})} &\leq \sum_{i=\underline{k}} \abs{\varphi(x_n^{\underline{i-1}}, x_n^i - x^i, x^{i+\underline{k-i}})}\\
-        &\leq \sum_{i=\underline{k}}\abs{\varphi}\cdot\bigoprod\qty({\UPL{x_n}[i-1],\Delta_i,\UPL{x}[i+][k-i]})\\
-        &\leq \sum_{i=\underline{k}}\abs{\varphi}\cdot\abs{x_n^i - x^i}\bigoprod\qty(x_n^{\underline{i-1}}, x^{i+\underline{k-i}})\\
-        &\Lsim_n\vert\varphi\vert\sup_{i=\underline{k}}\vert x_n^i - x^i\vert\to 0
+        \abs{\varphi(x_n^{\underline{k}}) - \varphi(x^{\underline{k}})} &\leq \sum_{i=\underline{k}} \abs{\varphi(x_n^{\underline{i-1}}, x_n^i - x^i, x^{i+\underline{k-i}})}\leq \sum_{i=\underline{k}}\abs{\varphi}\cdot\bigoprod\qty({\UPL{x_n}[i-1],\Delta_i,\UPL{x}[i+][k-i]})\\[1ex]
+        &\leq \sum_{i=\underline{k}}\abs{\varphi}\cdot\abs{x_n^i - x^i}\bigoprod\qty(x_n^{\underline{i-1}}, x^{i+\underline{k-i}})\Lsim_n\vert\varphi\vert\sup_{i=\underline{k}}\vert x_n^i - x^i\vert\to 0
     \end{align*}
     where we identify the product $\bigoprod\qty(\UPL{v}[k])$ with the product of their norms $\bigoprod \qty(\abs{\UPL{v}[k]})$. 
 \end{proof}
@@ -405,12 +259,10 @@ We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L
     \end{equation}
     Each summand in the second last term in \cref{eq:product-rule-k-variables-expand-4} is $o(h)$ as well, as
     \begin{align}
-        \abs{m_i(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j])}&\leq\vert m_i\vert\bigoprod(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j])\nonumber\\
-        &\leq \abs{m}\cdot\qty(\bigoprod(c^i,\UPL{a}[i+][k-i]))\qty(\bigoprod(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j]))\nonumber\\
-        &\Lsim_{m,a,b}\sup_{\substack{i=\underline{k}\\ j = \underline{i-1}}}\abs{c^i}\cdot\abs{\Delta^j}\nonumber\\
-        &\Lsim_{m,a,b}\sup_{\substack{i=\underline{k}\\ j = \underline{i-1}}}\abs{Df_i(x)(h)}\cdot\abs{f_j(x+h) - f_j(x)}\nonumber\\
-        &\Lsim_{m,a,b}\abs{Df_i(x)}\abs{h}\sup_{\substack{i=\underline{k}\\ j=\underline{i-1}}}\abs{\Delta^j}\nonumber\\
-        &\Lsim_{m,a,b}\abs{o(h)}\label{eq:product-rule-k-variables-second-last-term-o(h)}
+        \abs{m_i(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j])}&\leq\vert m_i\vert\bigoprod(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j])\\[1ex]
+        &\leq \abs{m}\cdot\qty(\bigoprod(c^i,\UPL{a}[i+][k-i]))\qty(\bigoprod(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j]))\Lsim_{m,a,b}\sup_{\substack{i=\underline{k}\\ j = \underline{i-1}}}\abs{c^i}\cdot\abs{\Delta^j}\nonumber\\[1ex]
+        &\Lsim_{m,a,b}\sup_{\substack{i=\underline{k}\\ j = \underline{i-1}}}\abs{Df_i(x)(h)}\cdot\abs{f_j(x+h) - f_j(x)}\nonumber\\[1ex]
+        &\Lsim_{m,a,b}\abs{Df_i(x)}\abs{h}\sup_{\substack{i=\underline{k}\\ j=\underline{i-1}}}\abs{\Delta^j}\Lsim_{m,a,b}\abs{o(h)}\label{eq:product-rule-k-variables-second-last-term-o(h)}
     \end{align}
     for the second last estimate we used $\Delta^j\to 0$. Therefore the second term in \cref{eq:product-rule-k-variables-expand-4} is $o(h)$, and \cref{eq:product-rule-k-variables-modified-equation} is proven. Therefore $m(\UL{f}[k])$ is differentiable at $x$. Continuity of $Dm(\UL{f}[k])$ follows from the fact that 
     \begin{equation}\label{eq:product-rule-k-variables-continuity-0}
@@ -423,6 +275,17 @@ We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L
     \end{align}
     which are continuous from $E$ to $L(E,F)$.
 \end{proof}
+\begin{corollary}[Higher order product rule]
+    Let $m: \prod F_{\underline{k}}\to G$ be a continuous $k$-linear map between $F_{\underline{k}}$ and $G$. Suppose $f_i\in C^p(E, F_i)$ for $i = \underline{k}$. Then $m(f_{\underline{k}})$ is in $C^p(E,G)$ as defined in \cref{eq:k-linear-multiplication-map-def}, and 
+    \begin{equation}
+        D^p m(f_{\underline{k}})(x) = \sum_{\abs{\alpha}=p}\qty(\frac{p!}{\alpha !})m(D^{\alpha_{i=\underline{k}}}f_i(x))
+        \label{eq:higher-order-k-linear-product-rule}
+    \end{equation}
+    where $D^0 f_i(x) = f_i(x)$, $\alpha$ is a $k$ multi-index with entries $\alpha_i\geq 0$ and 
+    \[
+        \alpha! = \prod_{i=\underline{k}}\alpha_i !
+    \]
+\end{corollary}
 
 \fchapter{3: Integration}\newpage
 \topheader{Introduction}
@@ -728,20 +591,14 @@ Which we will prove is equal to $0$ for every $x\in U$, and $v,w\in E$.
 
     Using MVT twice, once on \Cref{second-derivative-Delta-g} (the line segment $x + tw$, $0\leq t\leq 1$ is contained in the domain of $g$), and another time on \Cref{second-derivative-Delta-Dg} (with $y = x+tw$ in the integrand). We obtain:
     \begin{align*}
-        \Delta &= g(x+w) - g(x)\\
-        &= \int_{0}^1 Dg(x+tw)\cdot w dt\\
-        &= \int_0^1\int_0^1 D^2f(x + tw+sv)\cdot v ds\: dt \cdot w\\
-        &= \int_0^1\int_0^1 D^2f(x + tw + sv) ds\: dt \cdot v\cdot w
+        \Delta &= g(x+w) - g(x)= \int_{0}^1 Dg(x+tw)\cdot w dt\\[1ex]
+        &= \int_0^1\int_0^1 D^2f(x + tw+sv)\cdot v ds\: dt \cdot w= \int_0^1\int_0^1 D^2f(x + tw + sv) ds\: dt \cdot v\cdot w
     \end{align*}
-
     % Justification for pulling out the duality pairing from the integral
-
     We can rewrite the application of $v$ then $w$ by $\cdot (v,w)$, and using the approximation $D^2f(x+tw+sv)\cdot(v,w) = D^2f(x)\cdot(v,w)+\delta_1(tw,sv)$. Integrating over $s,t$ gives
-
     \[
         \Delta = D^2f(x)\cdot(v,w) + \int_0^1\int_0^1 \delta_1(tw,sv) ds\: dt
     \]
-
     \begin{note}
         The error term $\delta_1$ in the integrand is given by
         \[
@@ -751,7 +608,6 @@ Which we will prove is equal to $0$ for every $x\in U$, and $v,w\in E$.
     \end{note}
 
     A similar argument for $h$ shows that $\Delta = D^2f(x)\cdot(w,v) + \int_0^1\int_0^1 \delta_2(tw,sv)ds\: dt$. Combining the two together, the following holds for all $v,w$ sufficiently small:
-
     \begin{equation}\label{second-derivative-lie-bracket}
         D^2f(x)\cdot (v,w) - D^2f(x)\cdot (w,v) = \int_0^1\int_0^1 \delta_1(tw,sv)ds\: dt - \int_0^1\int_0^1 \delta_2(tw,sv)ds\: dt
     \end{equation}
@@ -774,15 +630,12 @@ Which we will prove is equal to $0$ for every $x\in U$, and $v,w\in E$.
         \[
             A = \bigset{tw+sv,\: s,t\in [0,1]}
         \]
-
         $A$ is clearly compact, and the continuity of $D^2f$ means 
         
         \begin{equation}\label{second-derivative-R}
         R(v,w,\delta) = \sup_{y\in A}\abs{D^2f(x + y) - D^2f(x)}\quad\text{is finite},\qqtext{and}\lim_{(v,w)\to 0}R(v,w,\delta)=0
         \end{equation}
-        
         See \cref{rmk:compact-linear-combination} for a generalization of this argument.
-        
         \item Relabel $R(v,w)$ to be the maximum across $R(v,w,\delta_1)$ and $R(v,w,\delta_2)$. 
         \item Combining \Cref{second-derivative-step2,second-derivative-control-on-rhs,second-derivative-R}, we obtain the following bound on \Cref{second-derivative-lie-bracket}
         \begin{align}
@@ -791,20 +644,16 @@ Which we will prove is equal to $0$ for every $x\in U$, and $v,w\in E$.
             &\leq \abs{v}\abs{w}R(v,w)\label{second-derivative-step3}
         \end{align}
     \end{itemize}
-
     The following Lemma gives a useful criterion to check when a multilinear map is identically $0$.
     \begin{lemma}
         Let $E$ be a Banach space, and $k\geq 1$ be an integer. If $\lambda\in L(E^k, F)$ and there exists another map $\theta: E^k\to F$ (defined perhaps on an open neighbourhood of the origin), such that
-
         \[
         \vert \lambda(\UL{u}[k])\vert \leq\vert\theta(\UL{u}[k])\vert\cdot\prod\vert \UL{u}[k]\vert
         \]
-        
         for all $(\UL{u}[k])$ sufficiently small. And $\lim_{(\UL{u}[k]) \to 0}\theta(\UL{u}[k])=0$, then, $\lambda=0$.
     \end{lemma}
     \begin{proof}
         Fix arbitrary $(\UL{u}[k])\in E^k$, for $s>0$ sufficiently small, the left hand side of the equation reads
-
         \[
             \vert s\vert^k\vert\lambda (\UL{u}[k])\vert\leq\vert\theta(s\UL{u}[k])\vert\cdot\vert s\vert^k\prod \vert\UL{u}[k]\vert
         \]
@@ -825,9 +674,7 @@ Which we will prove is equal to $0$ for every $x\in U$, and $v,w\in E$.
     \[
         \sup_{y\in B}\abs{f(x+y) - f(x)}< \varepsilon\quad\forall \abs{y}\Lsim_A\vert(v^{\underline{k}})\vert < \delta
     \]
-
     where
-
     \[
     B = \bigset{\sum t_iv^i,\: (\UL{t}[k])\subseteq A,\: (v^{\underline{k}})\in E^k }
     \]
@@ -861,11 +708,9 @@ If $f$ is $p$ times differentiable, and $f, Df, D^2f, \ldots, D^pf$ are all cont
     \]
     Then, let $\lambda: L(E^{p-2}, F)\to F$ be the evaluation map at $(v_3,\ldots, v_p) = (v_{2+\underline{p-2}})$. 
     Using the base case on $D^{p-2}f = g\in C^2(E, L(E^{p-2}, F))$, 
-
     \[
         (D^2g)(x)(v_1,v_2) = (D^2g)(x)(v_2,v_1)\implies \lambda\qty\Big((D^2g)(x)(v_1,v_2)) = \lambda\qty\Big((D^2g)(x)(v_2,v_1))
     \]
-
     But $\lambda$ is the map that \emph{applies} the rest of the vectors, and
     \begin{equation}\label{second-derivative-D2g-equality}
         (D^2g)(x)(v_1,v_2)\cdot (v_{2+\underline{p-2}}) = (D^2g)(x)(v_2,v_1)\cdot (v_{2+\underline{p-2}})
@@ -878,7 +723,6 @@ If $f$ is $p$ times differentiable, and $f, Df, D^2f, \ldots, D^pf$ are all cont
     \begin{note}
         There are no magic 'identifications' being made here. To be perfectly clear, for each $x\in E$, $g(x)$ is an element in $L(E^{p-2}, F)$, and $(D^2g)(x)\in L(E^2, L(E^{p-2}, F))$. Evaluating $g$ at a point $x$ gives a bilinear map that takes values in the Banach space $L(E^{p-2}, F)$.
     \end{note}
-
     For the second case, beginning from the induction hypothesis. If $\theta$ is a $p$-permutation that leaves the first coordinate unchanged, then there exists a unique $p-1$-permutation $\beta\in S_{p-1}$ such that
     \begin{align}\label{multi-derivatives-theta-def}
     \qty\big(\:\theta(\underline{p})\:) &= \qty\big(1,\theta(1+\underline{p-1}))\nonumber\\

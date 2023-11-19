@@ -2,7 +2,7 @@
 \begin{document}
 \fchapter{1: Manifolds}
 % Introduce terminology. linear, toplinear, morphism, isomorphism. And Laut, List, etc. How List is open in the space of toplinear endomorphisms on a space $E$.
-
+This chapter, along with the two subsequent ones --- serve to give the reader the shortest introduction to manifold theory. It is loosely based on \cite{Lang2012Fundamentals,Lee2013Introduction}.
 \topheader{Introduction}
 In this chapter, $E$ and $F$ will always denote Banach spaces, and all Banach spaces will be over $\real$. We sometimes say $E$ (resp. $F$) is a space for brevity, and
 \begin{itemize}
@@ -678,7 +678,7 @@ Suppose we have a structure on $W$, then $X=\bigcup_{p\in X}\{p\}\times 0$ is a 
     \item[\Cref{def:local-trivialisation}]
     \begin{itemize}
         \item $U$ is required to be open because $W$ inherits part of the topology, and hence the charts in $E$ whose domain is a subset of $U$, 
-        \item The second requirement implies \textbf{each $\Phi$ is in bijection with $\Phi(\wig{U}) = U\times F$, which is open in $E\times F$}, which will allow us to construct bijections with open subsets of the model space $E\times F$. Furthermore, \cref{eq:local-trivialisation-bijection-restriction-also-bijection} holds for an arbitrary $V\subseteq X$.
+        \item The second requirement implies \textbf{each $\Phi$ is in bijection with $\Phi(\wig{U}) = U\times F$, which is open in $E\times F$}, which will allow us to construct bijections with open subsets of the model space $E\times F$. Furthermore, \cref{eq:local-trivialisation-bijection-restriction-also-bijection} below holds for an arbitrary $V\subseteq X$.
         \begin{equation}\label{eq:local-trivialisation-bijection-restriction-also-bijection}
             \Phi\vert_{\pi^{-1}(U\cap V)}\quad\text{is a bijection onto } U\cap V\times F
         \end{equation}
@@ -1132,6 +1132,7 @@ As with \cref{eq:exterior-derivative-motivation-1-form-1}, we can integrate over
     \label{eq:exterior-derivative-motivation-k-form-1}
 \end{equation}
 We define the exterior derivative of a $k$-form by the map $DF(0)(1^{(k+1)})$
+
 
 
 \end{document}

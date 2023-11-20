@@ -820,11 +820,11 @@ with $A_s = \delta_0 + \sqrt{2\pi}\abs{k}^{s}$. We approximate the inclusion map
 &=2\pi\sum_{\abs{k}> N}\abs{\hat{f}}^2\abs{k}^{2s}=2\pi\sum_{k}\abs{k}^{2(s-t)} \abs{k}^{2t}\abs{\hat{f}}^2\\
 &\leq 2\pi\abs{N}^{2(s-t)}\sum_{k}\abs{k}^{2t}\abs{\hat{f}}^2\Lsim N^{-2a}\norm{f}^2_{H_t}
 \end{align*}
-for some $a = t-s > 0$. Taking square roots gives $\norm{S_N f - If}_{H_s}\Lsim N^{-a}\norm{f}_{H_t}$. This holds for an arbitrary $f\in H_t$, therefore
+for some $a = t-s > 0$. Taking square roots gives $\norm{S_N f - If}_{H_s}\Lsim N^{-a}\norm{f}_{H_t}$. This holds for an arbitrary $f\in H_t$, which yields
 \[
-\norm{S_N -I}_{\mathcal{L}(H_t, H_s)}\Lsim N^{-a}\quad\text{and}\quad\forall M>N,\: \norm{S_M - I}\Lsim N^{-a}\to 0
+\norm{S_N -I}_{\mathcal{L}(H_t, H_s)}\Lsim N^{-a}\quad\text{and}\quad\forall M>N,\: \norm{S_M - I}\Lsim N^{-a}\to 0.
 \]
-$I$ is compact.
+Therefore $I$ is compact.
 \end{proof}
 \begin{wts}
 Prop 4: If $s>k+2^{-1}$, then $H_s(S^1)\subseteq C^k(S^1,\mathbb{C}^n)$. Essentially the periodic analogue of the Sobolev Embedding Theorem, moreover
@@ -905,393 +905,66 @@ which is clearly less than $\norm{\hat{y}}^2_{l^2} = \norm{y}^2_{L^2}$, and $\no
 %
 %
 %
-\fchapter{2: Distinguished Sobolev Space $H_{1/2}$}
-\providecommand{\realtn}{{\real^{2n}}}
-Let $n\geq 1$. We will be working in $\real^{2n}$. Let us define
-\begin{itemize}
-    \item $X = C^\infty(S^1\,\realtn)$, where $S^1 = \{z\in\complex, \abs{z}=1\}$.
-    \item Recall the Sobolev space $M = H_{1/2}$ is equipped with the inner product and norm defined in \cref{eq:hofer 1/2 inner product,eq:hofer 1/2 norm}.
-\end{itemize}
-\[
-    s
-\]
-%%%%
-Loops are always closed, and we assume all loops are $1$-periodic. We will not distinguish between $S^1$ and $\real/\mathbb{Q}$. The measure we will use on $S^1$ is the Lebesgue measure.\\
-%%%%
-% \topheader{Almost complex structure}
-% \begin{definition}[Almost complex structure]
-%     A smooth manifold $M$ of dimension $2n$ has an \emph{almost complex structure} whenever it admits a smooth 'transformation' on the tangent spaces of each $x\in M$, 
+
+
+% \topheader{Reduction 2}
+% %
+% %
+% %
+% %
+% %
+% %
+% We write the general case for $n\geq 1$ as a placeholder. There are two conventions for the matrix $J$. The first one is given in \cref{eq:std symplectic form r2n 1}
+% \begin{equation}
+%     J = \begin{bmatrix}
+%         \dmat{\symatrix,\ddots,\ddots,\symatrix}
+%     \end{bmatrix}
+%     \label{eq:std symplectic form r2n 1}
+% \end{equation}
+% The second one, given in \cref{eq:std symplectic form r2n 2} is the one we will use.
+% \begin{equation}
+%     J =\begin{bmatrix}
+%         \admat[0]{I_n,-I_n}
+%     \end{bmatrix}
+%     \label{eq:std symplectic form r2n 2}
+% \end{equation}
+% %
+% %
+% %
+% For a general vector $x\in\realtn$, $Jx = (\UL{x}[n+][n],-\UL{x}[n])$, and $x^TJ = (-\UL{x}[n+][n],-\UL{x}[n])$. 
+% \begin{itemize}
+%     \item Computing the time-$1$ map of its flow gives
 %     \[
-%     J_x: T_xM \to T_xM\quad J_xJ_x = -\id{T_x{M}}
+%         e^Jx = \cos(1)x + \sin(1)Jx
 %     \]
-% \end{definition}
-% \begin{remark}
-%     This transformation should be interpreted in the 'tensor' sense. If $n = 1$, then $J$ is a section of the $\Tau^2 TM$ bundle, so that $J_x\in L(T_xM, T_xM;\real)$ is a $2$-covariant tensor --- which can be identified as a bilinear form on each tangent space.
-% \end{remark}
+% \end{itemize}
+% \topheader{Hamiltonian Flows}
+% Given $f\in C^\infty(\realtn)$, we want to describe what actually is the induced Hamiltonian flow $X_f\in \mathfrak{X}(\realtn)$.\\
 
-%%
-
-%%
-%% Custom commands for this section????
-\providecommand{\symatrix}{\begin{bmatrix}
-    0 & 1 \\ -1 & 0
-\end{bmatrix}}
-\newcommand{\bigdot}[1]{\overset{\bullet}{#1}}
-%%
-\topheader{Standard Symplectic Form}
-We begin the case in $\real^2$. The \emph{standard symplectic form} on $\real^2$ is the bilinear form represented by the matrix (with repect to the standard basis) in \cref{eq:std symplectic form r2}.
-\begin{equation}
-    J = \mqty[0 & 1\\ -1 & 0]
-    \label{eq:std symplectic form r2}
-\end{equation}
-If $x,y\in\real^2$, \cref{eq:std symplectic form r2} defines a pairing $\omega_0\in \Omega^2(\real^2)$ between $x$ and $y$. Where $\omega_0(x,y) = \langle x, Jy\rangle_{\real^{2}}$. An easy computation in coordinates will show that
-\begin{equation}
-    \omega_0(x,y) = \begin{bmatrix}x_1 & x_2
-    \end{bmatrix}\begin{bmatrix}0 & 1 \\ -1 & 0\end{bmatrix}\begin{bmatrix} y_1 \\ y_2\end{bmatrix} = \det\qty(\begin{bmatrix} x_1 & y_1 \\ x_2 & y_2\end{bmatrix}) = \det(x,y)
-    \label{eq:std symplectic action pw r2}
-\end{equation}
-We list several properties of $J$.
-\begin{itemize}
-    \item $J$ is non-singular and skew-symmetric, and $J^{-1} = (-1)J$.
-    \item $\omega$ is non-singular and skew-symmetric, it is a non-degenerate $2$-form on $\real^{2n}$ by \cref{lem:characterisation of bilinear forms}.
-    \item Left multiplication by a vector $v = (v^1, v^2)$ reads 
-    and
-    \[
-        \omega_0(v,\cdot) = v^1\varepsilon^{2} + (-1)v^2\varepsilon^1
-    \]
-    \item Right multiplication by $v$: by skew-symmetry of $J$ reads
-    \[
-        \omega_0(\cdot, v) = (-1)v^1\varepsilon^2 + v^2\varepsilon^1
-    \]
-\end{itemize}
-Extending the case to $\realtn$ for an arbitrary $n\geq 1$, the \emph{standard symplectic form} is given by \cref{eq:std symplectic form r2n 2}. 
-\begin{equation}
-    J =\begin{bmatrix}
-        \admat[0]{I_n,-I_n}
-    \end{bmatrix}
-    \label{eq:std symplectic form r2n 2}
-\end{equation}
-The matrix in \cref{eq:std symplectic form r2n 2} induces a bilinear pairing, which we will denote by $\omega_0\in \Omega^2(\realtn)$. Its defining property is that it computes the sum of $n$ $2\times 2$ determinants, as shown in \cref{eq:std symplectic form r2n determinants}. 
-\begin{equation}
-    \omega_0(x,y) = \sum_{i=\underline{n}}\det\qty(\mqty[x^i & y^i \\ x^{n+i} & y^{n+i}])
-    \label{eq:std symplectic form r2n determinants}
-\end{equation}
-Furthermore, \cref{eq:std symplectic form r2n determinants} in terms of wedge products of differential forms. Recall that $(\varepsilon^{\underline{2n}})$ form the basis of the covector space, and
-\begin{equation}
-    \omega_0 = \sum_{i=\underline{n}}\varepsilon^{i}\wedge\varepsilon^{n+i}
-    \label{eq: std symplectic form r2n wedge products using covectors}
-\end{equation}
-The standard symplectic form is exact, one can verify that if $\lambda = \sum x^i dx^{n+i}$ with the sum taken over $\underline{n}$, then $d\lambda = \omega_0$. Recall if $p,v\in\realtn$, 
-\[
-    \lambda(p) = \sum p^{i}dx^{n+i}\qqtext{and} \lambda(p)(v) = \sum p^{i}v^{n+i}.
-\]
-%
-%
-\begin{remark}
-    We sometimes write $\langle x,y\rangle_{\omega_0}$ to refer to $\omega_0(x,y)$. 
-\end{remark}
-\begin{remark}
-    $\Omega^k(\realtn)$ is the space of differential forms on $\realtn$, which are alternating $k$ tensors (that are not necessarily non-singular).
-\end{remark}
-\begin{remark}[Alternate $J$]
-    Some texts use \cref{eq:std symplectic form r2n 1}, or $J = \mqty[0 & -I_n\\ I_n & 0]$. The following decomposition is called the \emph{maximal hyperbolic decomposition} of $\realtn$, see \cite{Roman2007Advanced} Chapter 13. We will return to this later when we discuss periodic solutions on ellipsoids.
-    \begin{equation}
-    J = \begin{bmatrix}
-        \dmat{\symatrix,\ddots,\ddots,\symatrix}
-    \end{bmatrix}
-    \label{eq:std symplectic form r2n 1}
-\end{equation}
-\end{remark}
-%
-%
-\begin{note}[Symplectic form computations]\label{note: symplectic form summation computations}
-    We call the standard symplectic form given in \cref{eq:std symplectic form r2n 2} in terms of the Kronecker delta. A moment's thought will show that $J = [\delta_{(i,j-n)} - \delta_{(i,j+n)}]_{ij} = [\delta_{(n+i,j)} - \delta_{(i-n,j)}]$. Left multiplication by a vector $v = (v^{\underline{2n}})$ yields
-    \begin{align*}
-        \omega_0(v,\cdot) &= \langle v, J\cdot\rangle_{\realtn} = v^i[\delta_{(i,j-n)} - \delta_{(i,j+n)}]\varepsilon^j\\[2ex]
-        &=\sum_{i=\underline{2n}}v^i\varepsilon^{i+n} - v^i\varepsilon^{i-n} =\sum_{i=\underline{n}}v^i\varepsilon^{i+n} - v^{i+n}\varepsilon^{i}
-    \end{align*}
-    Right multiplication then give us 
-    \[
-        \omega_0(\cdot, v) = \langle \cdot,Jv\rangle_{\realtn} = \sum_{i=\underline{n}}(-1)v^i\varepsilon^{i+n} - v^{i+n}\varepsilon^i
-    \]
-\end{note}
-\topheader{Symplectic Action}
-We return to a more abstract-analytic perspective. Let $(X,\mcal,\mu)$ be a measure space, suppose $\gamma, \eta: X\to \realtn$ is an $L^2$ function, in the sense that it is $L^2$ in each coordinate. Holder's inequality tells us that
-\[
-    \langle \gamma,\eta\rangle_{\omega_0} = 2^{-1}\int_{X}\langle \gamma(x),\eta (x)\rangle_{\omega_0} d\mu(x)\quad\text{converges absolutely.}
-\]
-If $X = S^1$ with the standard Lebesgue measure, we define the space of \emph{loops} as the function space $\Omega$.
-\begin{equation}
-    \Omega = C^\infty(S^1, \realtn)
-    \label{eq:loop space S1 r2n}
-\end{equation}
-It is equipped with the \emph{symplectic pairing}, which is also denoted by $\omega_0:\Omega\times\Omega\to\real$ whose properties we now summarize.
-\begin{itemize}
-    \item If $x,y\in\Omega$, $\omega_0(x,y)$ is defined by the integral in \cref{eq:loop space S1 r2n symplectic pairing}
-    \begin{equation}
-        \langle x,y\rangle_{\omega_0}= 2^{-1}\int_{S^1} \langle \mathring{x}(t), y(t) \rangle_{\omega_0} dt\quad\forall x,y\in\Omega.
-        \label{eq:loop space S1 r2n symplectic pairing}
-    \end{equation}
-    \item which can be written explicitly as the sum of half-determinants as in \cref{eq:symplectic pairing loops r2n determinant formula}.
-    \begin{equation}
-        \langle x,y\rangle_{\omega_0} = 2^{-1}\int_{S^1} \sum_{i=\underline{n}}\det\qty(\mqty[\dot{x}_i & y_i \\ \dot{x}_{n+i} & y_{n+i}])
-        \label{eq:symplectic pairing loops r2n determinant formula}
-    \end{equation}
-    \item We also have the bound for the symplectic pairing.
-    \[
-        \abs{\langle x,y\rangle_{\omega_0}}\leq 2^{-1}\sum_{i=\underline{n}}\norm{y_i\dot{x}_{n+i}}_{L^2} + \norm{y_{n+i}\dot{x}_{i}}_{L^2}
-    \]    
-\end{itemize}
-\begin{definition}[Symplectic Action]\label{def:symplectic action closed curves}
-    The \emph{symplectic action} (on closed curves) is a mapping $A:\Omega\to\real$ which \textbf{computes the area swept by the curve}. 
-    \begin{itemize}
-        \item For an arbitrary loop $\gamma\in\Omega$, its action $A(\gamma)$ is given by \cref{eq:loop space S1 r2n symplectic action}:
-        \begin{equation}
-            A(\gamma) = 2^{-1}\int_{S^1}\langle\mathring{\gamma}(t),\gamma(t)\rangle_{\omega_0} = 2^{-1}\int_{S^1}\det\qty(\mqty[\mathring{\gamma}^{i} & \gamma^{i}\\ \mathring{\gamma}^{n+i} & \gamma^{n+i}])dt
-            \label{eq:loop space S1 r2n symplectic action}
-        \end{equation}
-        \item or in terms of determinants, 
-        \begin{equation}
-            A(\gamma) = 2^{-1}\int_{S^1}\sum_{i=\underline{n}}\det\qty(\mqty[\mathring{\gamma}^i & \gamma^i \\ \mathring{\gamma}^{n+i} & \gamma^{n+i}]).
-            \label{eq:loop space S1 r2n symplectic action determinant formula}
-        \end{equation}
-    \end{itemize}
-\end{definition}
-\begin{lemma}[Symplectic Action in terms of $\lambda$]
-    The symplectic action, as defined in \cref{eq:loop space S1 r2n symplectic action} on $\Omega$ is also given by the line integral over $\lambda$.
-    \begin{equation}
-        A(\gamma) = \int_{\gamma}\lambda
-        \label{eq:loop space S1 r2n symplectic action lambda}
-    \end{equation}
-\end{lemma}
-\begin{proof}
-    We expand \cref{eq:loop space S1 r2n symplectic action determinant formula} to obtain 
-    \begin{equation}
-        A(\gamma) = 2^{-1}\int_{S^1} \sum_{i =\underline{n}} \gamma^i\mathring{\gamma}^{n+i} - \mathring{\gamma}^{i}\gamma^{n+i} 
-        \label{eq:action lambda step1}
-    \end{equation}
-    Notice that the first term $\int_{S^1} \sum_{i=\underline{n}} \gamma^i\mathring{\gamma}^{n+i}$ is equal to $2^{-1}\int_\gamma \lambda$. Indeed,
-    \[
-        \int_{\gamma}\lambda = \int_{0}^1 \lambda(\gamma(t))(\mathring{\gamma}(t)) dt = \int_{S_1} \sum_{i=\underline{n}}\gamma^i\mathring{\gamma}^{n+i}
-    \]
-    Using integration by parts, the integral over the each of the second terms in \cref{eq:action lambda step1} evaluates to
-    \[
-        2^{-1}\int_{S^1} \sum_{i=\underline{n}} \mathring{\gamma}^{i}\gamma^{n+i}=2^{-1}\sum_{i=\underline{n}}\gamma^{i}\gamma^{n+i}\eval_{\partial S^1} - 2^{-1}\int_{S^1}\sum_{i=\underline{n}}\mathring{\gamma}^{n+i}\gamma^{i}
-    \]
-    The boundary terms disappear since $\gamma$ is periodic, and we notice that the left hand side of \cref{eq:action lambda step1} is the sum of $2^{-1}\int_\gamma\lambda + 2^{-1}\int_{\gamma}\lambda$, and the proof is complete.
-\end{proof}
-
-\begin{remark}[Line integrals]
-    Let $\gamma: [0,L]\to M$ where $M$ is a smooth manifold. For any smooth $1$-form $\lambda$ on $M$, the integral of $\gamma$ over $\lambda$ is the integral
-    \[
-        \int_\gamma \lambda =  \int_{[0,L]} \gamma^*\lambda = \int_{0}^{L}\lambda(\gamma(t))(\mathring{\gamma}(t))dt.
-    \]
-\end{remark}
-%
-%
-%
-\begin{remark}[General loops with period $L$]
-    More generally, if we have two loops of period $L$ \cref{eq:loop space S1 r2n symplectic action} suggests that we can descend $\omega_0$ to an even larger space.
-    \begin{equation}
-        \Omega_{[0,L]} = C^\infty(\real/L\mathbb{Z}, \realtn)
-        \label{eq:[0,L] r2n space}
-    \end{equation}
-    with $A_{[0,L]}(\gamma,\eta) = A(\gamma(Lt),\eta(Lt))$ which evaluates to
-    \begin{equation}
-     A_{[0,L]}(\gamma,\eta) = \frac{1}{2L}\int_{0}^{L}\langle \mathring{\gamma}(t),\eta(t)\rangle_{\omega_0}dt
-     \label{eq:[0,L] r2n symplectic action}
-    \end{equation}
-\end{remark}
-
-%
-%
-%
-%
-%
-%
-\begin{remark}[$L^2$ descent of bilinear forms]
-    The argument in this section about descending symplectic (resp. orthogonal) geometries onto $L^2$ functions \emph{into} the space is one of the reasons why $L^2$ functions are of such importance. To recapitulate:
-    \begin{itemize}
-        \item Given a bilinear form $\upsilon$ on $\real$, we can extend it to $\realtn$ for $n\geq 1$ using a 'hyperbolic decomposition' similar to \cref{eq:std symplectic form r2n 1}.
-        \item This bilinear form on $\realtn$ descends into a bilinear form on the space of $L^2$ $1$-periodic loops from $S^1$ into $\realtn$,
-        \item Since every loop with period $L$ admits a $1$-periodic representation, $\upsilon$ further descends to a bilinear form on $L^2([0,L], \realtn)$. Whose action is defined by the integral
-        \[
-            \langle \gamma,\eta\rangle_{\upsilon} = \frac{1}{2L}\int_{0}^{L}\langle\gamma(t),\eta(t)\rangle_{\upsilon}dt
-        \]
-    \end{itemize}
-\end{remark}
-\topheader{Symplectomorphisms}
-We introduce a more differential geometric viewpoint. Let $\varphi:\realtn\to\realtn$ be smooth, we say $\varphi$ is a \emph{symplectomorphism} (or $\varphi$ is symplectic as an adjective) whenever it preserves $\omega$. That is,
-\[
-    \left\langle D\varphi(x)(v_1), D\varphi(x)(v_2)\right\rangle_{\omega_0} = \omega_0(v_1, v_2)\quad\forall x,v_1,v_2\in\realtn,
-\]
-where $D\varphi(x)$ refers to the Jacobian matrix of $\varphi$ evaluated at $x\in\realtn$. If $\varphi$ is a $C^\infty$ diffeomorphism and $\varphi$ and its inverse are symplectomorphisms, we call $\varphi$ a \emph{symplectic isomorphism}. 
-%
-\begin{remark}[Alternate interpretation using tensor pullbacks]
-    Equivalently, we say $\varphi$ is a symplectomorphism whenever $\omega_0$ is invariant under its tensor pullback. This means, 
-    \begin{equation}
-        \varphi^*(\omega_0) =\omega_0
-        \label{eq:symplectomorphism tensor pullback}
-    \end{equation}
-    This is the same as
-    \[
-        (D\varphi(x))^{T}J D\varphi(x) = J\quad\text{in the sense of matrix multiplication.}
-    \]
-    An immediate consequence of the previous formula is that a symplectomorphism $\varphi$ must be volume-preserving, meaning $\det D\varphi(x) = 1$ at every point.
-\end{remark}
-%
-\begin{lemma}[Symplectomorphisms preserve the symplectic action]
-    If $\varphi$ is a symplectomorphism on $\realtn$, then $A(\varphi\circ\gamma) = A(\gamma)$ for every $\gamma\in \Omega$.
-\end{lemma}
-\begin{proof}
-    Because the exterior derivative commutes with the tensor pullback, we have
-    \[
-        d(\lambda - \varphi^*\lambda) = d\lambda - \varphi^*(d\lambda)= 0
-    \]
-    whence $\lambda - \varphi^*\lambda$ is a closed differential form. Using \cref{eq:loop space S1 r2n symplectic action lambda}, we see that
-    \[
-        A(\varphi\circ\gamma) - A(\gamma) = \int_{\gamma}\varphi^*\lambda - \int_{\gamma}\lambda = \int_{\gamma}(\varphi^*\lambda - \lambda)
-    \]
-    It follows from Poincare's Lemma that the right hand vanishes, since it is the closed curve over an exact form.
-\end{proof}
-\topheader{Hamiltonian Vector Fields}
-We begin with some well known sign conventions for area.
-\begin{quote}
-    Fix any two vectors $v_1, v_2\in \realn$, we say that positive area opens anti-clockwise from $v_1$. (Draw a picture).
-\end{quote}
-Because of this, we refer to $\det(v_1, v_2)$ as the \emph{area spanned from $v_1$ to $v_2$} if $v_1,v_2\in\real^2$, and we call $\omega_0(v_1,v_2)$ the \emph{symplectic area from $v_1$ to $v_2$}. \\
-% say this is different from calculating area, where we can say the 'angle' between v_1 and v_2 without any issue because the cosine is an even function.
-
-Moreoever, if $S$ is a compact region in $\realn$ whose (topological or manifold) boundary $\partial S$ can be traversed by a continuous curve $\gamma:[0,1]\to\realn$. 
-\begin{quote}
-We say $\gamma$ is positively oriented (with respect to the \emph{Stokes' orientation}), whenever the region $S$ lies to the left of $\gamma$ at every point.
-\end{quote}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/positive-area-opens-to-left-sketch.png}
-    \caption{Illustrations of area sign conventions}
-    \label{fig:area sign conventions}
-\end{figure}
-\begin{remark}[Gradient Flow]\label{rmk:gradient flow}
-Let $H\in C^\infty(\realtn)$, the \emph{gradient flow} of $H$ is the vector field $\grad H$ such that at every point $p\in \realtn$, and $v_p\in T_p \realtn$:
-\begin{quote}
-    The \textbf{angle between $\grad{H}(p)$ and $v_p$ is equal to $DH(p)(v_p)$}, where
-    \begin{equation}
-    H(p+v_p) = H(p) + DH(p)(v_p) + o(\abs{v_p})\quad\text{for sufficiently small }v.
-    \label{eq:Frechet Derivative as best possible linear approximation}
-\end{equation}
-\end{quote}
-By the 'angle' we refer to the Euclidean inner product which takes on values in $\real$ instead of in $[-\pi, +\pi]$.
-\end{remark}
-\begin{definition}[Hamiltonian Flow]
-    The \emph{Hamiltonian flow} of $H$ is the vector field $X_H$ such that at every point $p\in \realtn$, and $v_p\in T_p\realtn$:
-    \begin{quote}
-        The \textbf{symplectic area from $X_H(p)$ to $v_p$ is equal to $DH(p)(v_p)$.}
-    \end{quote}
-    More precisely, the Hamiltonian flow of $H$ is defined by the sharpening the covector field of $H$:  $X_H = \omega_0^{\wedge}(dH)$, such that
-    \begin{equation}
-        \omega_0(X_H(p), v_p) = dH(p)(v_p)\quad\text{for all }p\in \realtn,\: v_p\in T_p\realtn.
-        \label{eq:hamiltonian flow definition symplectic pairing}
-    \end{equation}
-\end{definition}
-In Euclidean coordinates, the $X_H$ has a simple structure. It can be easily shown that
-\[X_H = J\nabla H.\]
-\begin{definition}[Regular Hypersurface]\label{def:regular hypersurface}
-    A \emph{regular hypersurface} on a smooth manifold $M$ is a subset $S = f^{-1}(c)$ where $f\in C^\infty(M,\real)$, and $df(p)\neq 0$ for every $p\in S$. We call $f$ the \emph{defining function} of $S$ which admits a natural manifold structure that makes $S$ a submanifold of $M$. 
-\end{definition}
-\begin{wts}[WC Reduction 1 --- Independence of Hamiltonian]
-    Let $S$ be a compact, regular hypersurface on $\realtn$.
-\end{wts}
-\begin{remark}
-    By manifold we always mean a $\real$-manifold of class $C^\infty$, modelled over $\realn$ where $n\geq 1$.
-\end{remark}
-%% Footnote: a differential form is said to be closed whenever its exterior derivative is zero.
-%% Footnote: a differential form is said to be exact whenever it is the exterior derivative of another differential form.
-%% Poincare's Lemma: if M is a star-shaped domain, then a differential 1-form is closed if and only if it is exact.
-%% Fact: Exact forms are always closed, but closed forms are not always exact - depends on deRham cohomology.
-%
-%
-%
-\topheader{Symplectic Manifold}
-Let $n\geq 1$ be an integer, a \emph{symplectic manifold} of class $C^\infty$ is a real manifold of dimension $2n$ that is equipped with a $2$-form $\omega\in \Omega^2(M)$ such that
-\begin{itemize}
-    \item $\omega$ is non-degenerate, that is: at every $x\in M$ for every tangent vector $v_1\in T_xM$ there exists another tangent vector $v_2\in T_xM$ such that $\omega(v_1,v_2)$. Alternatively, the flat map is non-singular --- meaning
-    \[
-        \breve{\omega}(v_1) = \omega(v_1,\cdot) \neq 0\in T^*_xM\quad\forall v_1\in T_xM
-    \]
-    \item $\omega$ is closed, meaning $d\omega=0$ where $d$ refers to the exterior derivative of $\omega$.
-\end{itemize}
-We call a $2$-form that satisfies the two properties above a \emph{symplectic form} on $M$. 
-\begin{remark}
-    All finite-dimensional manifolds hereinafter will be assumed $C^\infty$.
-\end{remark}
-
-\topheader{Symplectic Action}
-Let us assume $n=1$, and we will be working in $\real^{2}$. We define the \emph{standard symplectic form} represented by the matrix in \cref{eq:std symplectic form r2}
+% The symplectic form now becomes the evaluation map, and,
+% \begin{quote}
+%     calculating the area spanned between $X_f$ and another vector $v\in \realtn$, is the same as evaluating $df(v)$.
+% \end{quote}
+% so, if $v$ 
 
 
-Next, let $x,y\in C^\infty(S^1,\real^{2})$. We define the $a(x,y)$ to be normalized the pointwise integral of \cref{eq:std symplectic action pw r2} but with $\dot{x}$ instead of $x$.
-\begin{equation}
-    a(x,y) = 2^{-1}\int_{S^1}\omega(\dot{x},y)= 2^{-1}\int_{S^1}\det(\dot{x},y)
-    \label{std:std symplectic action loop r2}
-\end{equation}
-We see that \cref{std:std symplectic action loop r2} computes the area of the triangle being swept by $\dot{x}$ and $y$. We also have the following bound
-\[
-    2^{-1}\int_{S_1}\abs{\omega(\dot{x},y)}\leq 2^{-1}(\norm{y_1\dot{x}_2}_{L^2} + \norm{y_2\dot{x}_1}_{L^2})
-\]
+% %% Here we want to explain what happens in coordinates
+% Computing the symplectic pairing between $X_H$ and a tangent vector $v_p$, we get
+% \[
+% \omega_0\qty(X_H(p),v_p) = \sum_{i=\underline{n}} \det\qty(\mqty[X_H^i & v_p^i \\ X_H^{n+i} & v_p^{n+i}])
+% \]
+% Writing the standard symplectic matrix in terms of tensor products, 
+% \[
+%     J = \mqty[ 0 & -I_n \\ I_n & 0] = [\delta_{(i,n+j)} - \delta_{(n+i,j)}]_{ij}
+% \]
 
-%%
-%
-%
-%
-%
-We write the general case for $n\geq 1$ as a placeholder. There are two conventions for the matrix $J$. The first one is given in \cref{eq:std symplectic form r2n 1}
-\begin{equation}
-    J = \begin{bmatrix}
-        \dmat{\symatrix,\ddots,\ddots,\symatrix}
-    \end{bmatrix}
-    \label{eq:std symplectic form r2n 1}
-\end{equation}
-The second one, given in \cref{eq:std symplectic form r2n 2} is the one we will use.
-\begin{equation}
-    J =\begin{bmatrix}
-        \admat[0]{I_n,-I_n}
-    \end{bmatrix}
-    \label{eq:std symplectic form r2n 2}
-\end{equation}
-%
-%
-%
-For a general vector $x\in\realtn$, $Jx = (\UL{x}[n+][n],-\UL{x}[n])$, and $x^TJ = (-\UL{x}[n+][n],-\UL{x}[n])$. 
-\begin{itemize}
-    \item Computing the time-$1$ map of its flow gives
-    \[
-        e^Jx = \cos(1)x + \sin(1)Jx
-    \]
-\end{itemize}
-\topheader{Hamiltonian Flows}
-Given $f\in C^\infty(\realtn)$, we want to describe what actually is the induced Hamiltonian flow $X_f\in \mathfrak{X}(\realtn)$.\\
+% \[
+%     \omega_0^{\wedge}(X_H(p)) = \sum_{i=\underline{n}}
+% \]
 
-The symplectic form now becomes the evaluation map, and,
-\begin{quote}
-    calculating the area spanned between $X_f$ and another vector $v\in \realtn$, is the same as evaluating $df(v)$.
-\end{quote}
-so, if $v$ 
-
-
-%% Here we want to explain what happens in coordinates
-Computing the symplectic pairing between $X_H$ and a tangent vector $v_p$, we get
-\[
-\omega_0\qty(X_H(p),v_p) = \sum_{i=\underline{n}} \det\qty(\mqty[X_H^i & v_p^i \\ X_H^{n+i} & v_p^{n+i}])
-\]
-Writing the standard symplectic matrix in terms of tensor products, 
-\[
-    J = \mqty[ 0 & -I_n \\ I_n & 0] = [\delta_{(i,n+j)} - \delta_{(n+i,j)}]_{ij}
-\]
-
-\[
-    \omega_0^{\wedge}(X_H(p)) = \sum_{i=\underline{n}}
-\]
+\ifSubfilesClassLoaded{%
+  \bibliography{Functional-Analysis/manifolds-references.bib}%
+}{}
 
 \end{document}
 

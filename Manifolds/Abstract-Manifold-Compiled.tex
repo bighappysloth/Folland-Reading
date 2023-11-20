@@ -2,9 +2,8 @@
 \begin{document}
 \fchapter{1: Manifolds}
 % Introduce terminology. linear, toplinear, morphism, isomorphism. And Laut, List, etc. How List is open in the space of toplinear endomorphisms on a space $E$.
-This chapter, along with the two subsequent ones --- serve to give the reader the shortest introduction to manifold theory. It is loosely based on \cite{Lang2012Fundamentals,Lee2013Introduction}.
 \topheader{Introduction}
-In this chapter, $E$ and $F$ will always denote Banach spaces, and all Banach spaces will be over $\real$. We sometimes say $E$ (resp. $F$) is a space for brevity, and
+We serve to give the reader the shortest introduction to manifold theory. This and the subsequent two chapters are loosely based on \cite{Lang2012Fundamentals,Lee2013Introduction}, and the symbols $E,F$ will always denote Banach spaces, and all Banach spaces are assumed to be over $\real$. We sometimes say $E$ (resp. $F$) is a space for brevity, and
 \begin{itemize}
     \item $\mathcal{L}(E,F)$  = linear maps between $E$ and $F$, 
     \item $L(E,F)$ = toplinear (continuous and linear) maps between $E$ and $F$,
@@ -202,8 +201,7 @@ But there is a problem with this 'derivative': it gives different values for dif
 \end{equation}
 (because the map in \cref{eq:tangent-space-overlap-motivation} goes from the domain $U_1$ to $U_2$), a simple computation yields \cref{eq:tangent-space-quotient-motivation}.
 \begin{align}
-    Df_{U_1, V}(p_1)(v) &= D(\psi f \varphi_2^{-1}\varphi_2\varphi_1^{-1})(p_1)(v) \nonumber\\
-    &= Df_{U_2,V}(p_2)\biggl(D\varphi_{12}(p_1)(v)\biggr)\nonumber\\
+    Df_{U_1, V}(p_1)(v) &= D(\psi f \varphi_2^{-1}\varphi_2\varphi_1^{-1})(p_1)(v) = Df_{U_2,V}(p_2)\biggl(D\varphi_{12}(p_1)(v)\biggr)\nonumber\\
     &= Df_{U_2,V}(p_2)\circ D\varphi_{12}(p_1)\cdot (v)\label{eq:tangent-space-quotient-motivation}
 \end{align}
 where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left associative over composition. The computation in \cref{eq:tangent-space-quotient-motivation} suggests that interpreting the derivative by pre-conjugation is dependent on the chart being used to interpret the derivative. In fact, $D\varphi_{12}(p_1)$ can be replaced with any toplinear isomorphism on $E$ (relabel $\varphi_2 = A\varphi_1$ where $A$ is any linear automorphism on $E$), so the right hand side of \cref{eq:tangent-space-quotient-motivation} can be interpreted as $Df_{U_2,V}(p_2)(w)$ where $w$ is any vector in $E$. 
@@ -369,17 +367,18 @@ A continuous, injective linear map $\lambda\in L(E,F)$ \emph{splits} iff its ran
 \end{definition}
 Every finite dimensional or finite codimensional linear subspace of $E$ splits. And if $E$ itself is finite dimensional, then every linear subspace of $E$ splits. An alternative definition of \cref{def:splitting-clm}  is as follows: an map $\lambda\in L(E,F)$ splits iff there exists a toplinear isomorphism $\theta: F\to F_1\times F_2$ such that $\lambda$ composed with $\alpha$ induces a toplinear isomorphism from $E$ onto $F_1\times 0$ --- which we identify with $F_1$. \\
 
-If $E$ and $F$ are finite dimensional (so $E = \realn$ and $F = \realm$ respectively), \cref{def:splitting-clm} refers to the familiar matrix canonical form in \cref{eq:immersion-matrix-form}. \Cref{def:immersion,def:submersion} are the infinite-dimensional, manifold analogues of \cref{eq:immersion-matrix-form,eq:submersion-matrix-form}.
-\begin{align}
-    A_{injective} &= \begin{bmatrix}
+If $E$ and $F$ are finite dimensional (so $E = \realn$ and $F = \realm$ respectively), \cref{def:splitting-clm} refers to the familiar matrix canonical form in \cref{eq:matrix-canonical-forms}, and \cref{def:immersion,def:submersion} can be seen as infinite-dimensional analogues of \cref{eq:matrix-canonical-forms}.
+    \begin{align}
+    A_{\mathrm{injective}} = \begin{bmatrix}
         \id{m\times m} \\
         0_{n-m\times m} 
-    \end{bmatrix}\label{eq:immersion-matrix-form}\\[2ex]
-    A_{surjective} &= 
+    \end{bmatrix}
+    & & 
+    A_{\mathrm{surjective}} = 
     \begin{bmatrix}
         \id{n\times n} & 0_{n\times m-n}
-    \end{bmatrix}\label{eq:submersion-matrix-form}
-\end{align}
+    \end{bmatrix}\label{eq:matrix-canonical-forms}
+    \end{align}
 %
 %
 % Should I include the fact that X and Y are should still be considered as manifolds?
@@ -555,7 +554,7 @@ The diagram in \cref{fig:submanifold-chart-overlap} provides a summary.
 \begin{definition}[Exterior tangent space of $S$]
     The \emph{exterior tangent space} of a point $p\in S$ is the image of $T_p S$ under $d\iota_S(p)$,
     \begin{equation}\label{eq:exterior-tangent-space}
-        T_p^{ext}S = d\iota_S(p)(T_p S)
+        T_p^{\mathrm{ext}}S = d\iota_S(p)(T_p S),
     \end{equation}
     which is a toplinear subspace of $T_p X$. 
 \end{definition}
@@ -715,21 +714,20 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
 \begin{proof}
     Suppose we are given two charts in \cref{eq:vector-bundle-charts-ALPHA}, $(\wig{U}^{\alpha_1}_{\beta_1})$, and $(\wig{U}^{\alpha_2}_{\beta_2}, \wig{\varphi}^{\alpha_2}_{\beta_2})$. We first prove that $\wig{\varphi}^{\alpha_1}_{\beta_1}(\wig{U}^{\alpha_1}_{\beta_1}\cap \wig{U}^{\alpha_2}_{\beta_2})$ is open in $E\times F$. 
     \begin{align*}
-        \wig{\varphi}^{\alpha_1}_{\beta_1}(\wig{U}^{\alpha_1}_{\beta_1}\cap \wig{U}^{\alpha_2}_{\beta_2}) &= \qty[(\varphi^{\alpha_1}_{\beta_1}\times \id{F})\circ \Phi_{\alpha_1}](\wig{U}^{\alpha_1}_{\beta_1}\cap \wig{U}^{\alpha_2}_{\beta_2})\\
-        &= \qty[(\varphi^{\alpha_1}_{\beta_1}\times \id{F})\circ \Phi_{\alpha_1}](\pi^{-1}(U^{\alpha_1}_{\beta_1}\cap U^{\alpha_2}_{\beta_2})) \\
-        &= (\varphi^{\alpha_1}_{\beta_1}\times \id{F})\qty((U^{\alpha_1}_{\beta_1}\cap U^{\alpha_2}_{\beta_2})\times F)&&\text{by \cref{eq:local-trivialisation-bijection-restriction-also-bijection}}
+        \wig{\varphi}^{\alpha_1}_{\beta_1}(\wig{U}^{\alpha_1}_{\beta_1}\cap \wig{U}^{\alpha_2}_{\beta_2}) &= \qty[(\varphi^{\alpha_1}_{\beta_1}\times \id{F})\circ \Phi_{\alpha_1}](\wig{U}^{\alpha_1}_{\beta_1}\cap \wig{U}^{\alpha_2}_{\beta_2})= \qty[(\varphi^{\alpha_1}_{\beta_1}\times \id{F})\circ \Phi_{\alpha_1}](\pi^{-1}(U^{\alpha_1}_{\beta_1}\cap U^{\alpha_2}_{\beta_2})) \\
+        &= (\varphi^{\alpha_1}_{\beta_1}\times \id{F})\qty((U^{\alpha_1}_{\beta_1}\cap U^{\alpha_2}_{\beta_2})\times F)&&\text{by \cref{eq:local-trivialisation-bijection-restriction-also-bijection}.}
     \end{align*}
     Suppressing restrictions and computing the chart transistions in \cref{eq:VB-trivialisation-overlap-chart-1},
     \begin{equation}\label{eq:VB-trivialisation-overlap-chart-1}
-        \wig{\varphi}^{\alpha_2}_{\beta_2}\qty(\wig{\varphi}^{\alpha_1}_{\beta_1})^{-1} = (\varphi^{\alpha_2}_{\beta_2}\times \id{F})\circ \Phi_{\alpha_2}\Phi_{\alpha_1}^{-1}\circ \qty((\varphi^{\alpha_1}_{\beta_1})^{-1}\times \id{F})
+        \wig{\varphi}^{\alpha_2}_{\beta_2}\qty(\wig{\varphi}^{\alpha_1}_{\beta_1})^{-1} = (\varphi^{\alpha_2}_{\beta_2}\times \id{F})\circ \Phi_{\alpha_2}\Phi_{\alpha_1}^{-1}\circ \qty((\varphi^{\alpha_1}_{\beta_1})^{-1}\times \id{F}).
     \end{equation}
     which is clearly a bijection. And it is not hard to see that \cref{eq:VB-trivialisation-overlap-chart-1} can be factored into
     \begin{equation}\label{eq:VB-trivialisation-overlap-chart-2}
-        \wig{\varphi}^{\alpha_2}_{\beta_2}\qty(\wig{\varphi}^{\alpha_1}_{\beta_1})^{-1}(x,v)  = \qty\Bigg(\varphi^{\alpha_1\alpha_2}_{\beta_1\beta_2}(x),\: \qty[\theta\circ(\varphi^{\alpha_1}_{\beta_1})^{-1}](x)(v))
+        \wig{\varphi}^{\alpha_2}_{\beta_2}\qty(\wig{\varphi}^{\alpha_1}_{\beta_1})^{-1}(x,v)  = \qty\Bigg(\varphi^{\alpha_1\alpha_2}_{\beta_1\beta_2}(x),\: \qty[\theta\circ(\varphi^{\alpha_1}_{\beta_1})^{-1}](x)(v)).
     \end{equation}
     for any $x\in \varphi^{\alpha_1}_{\beta_1}(U^{\alpha_1\alpha_2}_{\beta_1\beta_2})$ and $v\in F$. \textbf{From \cref{eq:VB-trivialisation-overlap-chart-2}, it should now be clear why we demand $k\leq p$ }. The mapping in the second coordinate within \cref{eq:VB-trivialisation-overlap-chart-2} can be reduced to a composition with the evaluation map $\mathbf{E}:\Laut(F)\times F\to F$.
     \begin{equation}\label{eq:VB-trivialisation-evaluation-map-technique}
-        \qty[\theta\circ(\varphi^{\alpha_1}_{\beta_1})^{-1}](x)(v) = \mathbf{E}\circ \qty([\theta\circ (\varphi^{\alpha_1}_{\beta_1})^{-1}]\times \id{F})
+        \qty[\theta\circ(\varphi^{\alpha_1}_{\beta_1})^{-1}](x)(v) = \mathbf{E}\circ \qty([\theta\circ (\varphi^{\alpha_1}_{\beta_1})^{-1}]\times \id{F}).
     \end{equation}
     Since $\mathbf{E}$ is continuous and bilinear, \cref{eq:VB-trivialisation-evaluation-map-technique} and hence \cref{eq:VB-trivialisation-overlap-chart-1} describes a $C^k$ mapping between open subsets of Banach spaces. It is a morphism, and reversing the roles of the two charts proves its inverse is again a morphism.\\
 
@@ -865,7 +863,6 @@ Let $E_i$ be Banach spaces, $f\in C^p(E_1,E_2)$ and $\lambda\in L(E_2, E_3)$.
     \item The derivative of $f$ is a continuous map $Df: E_1\to L(E_1,E_2)$.
     \item The derivative of $\lambda$ (now 'identified with $\lambda\in C^p(E_2,E_3)$), is continuous constant map from $E_2$ to $L(E_2,E_3)$
 \end{itemize}
-
 \begin{equation}
     D(\lambda\circ f) = \lambda\circ Df(x)
 \end{equation}
@@ -1006,14 +1003,12 @@ We leave the verification that $T$ satisfies the properties in \cref{def:functor
 %
 %
 \topheader{Tangent Bundle}
-\begin{definition}[Tangent Bundle]
-    
+\begin{definition}[Tangent bundle]\label{def:tangent-bundle}
+    Let $X$ be a $C^p$ manifold over $E$, the \emph{tangent bundle} is a $E$-vector bundle of rank $p-1$, denoted by $TX$, and
+    \[TX=\coprod_{x\in X} T_{x}X.\]
 \end{definition}
-\begin{definition}[Cotangent bundle]
-    
-\end{definition}
-\Cref{note:tangent-bundle} provides an example of a tangent bundle.
- \begin{note}[Tangent Bundle]\label{note:tangent-bundle}
+The construction of the tangent bundle is outlined in \cref{note:tangent-bundle}.
+\begin{note}[Construction of the Tangent Bundle]\label{note:tangent-bundle}
 Let $X$ be a $C^p$ manifold with $p\geq 1$, so that the tangent space at every point is defined. If $p\in (U_i,\varphi_i)$ for $i=1,2$. Then $\varphi_{12}$ is a $C^p$ isomorphism between $\varphi_1(U_{12})$ and $\varphi_2(U_{12})$; \textbf{whose derivative is a $C^{p-1}$ map into $\Laut(E)$ that encodes the transformation between the concrete tangent spaces}. In the notation of \cref{eq:tangent-space-overlap-motivation}, this means
 \[
     x\mapsto D\varphi_{12}(x)\quad\text{is in } C^{p-1}(\hat{U}_{12}, \Laut(E))
@@ -1024,11 +1019,15 @@ In fact, the tangent bundle $TX \defined \coprod_{p\in X}T_p X$ is a $C^{p-1}$ v
 \end{equation}
 where $(U,\varphi, p,\hat{v})$ is a concrete representation of $v\in T_pX$.
 \end{note}
-
+Similarly, we have the cotangent bundle which is modelled on toplienar dual of the tangent spaces of $X$.
+\begin{definition}[Cotangent bundle]\label{def:cotangent-bundle}
+    Let $X$ be a $C^p$ manifold over $E$, the \emph{cotangent bundle} is a $E$-vector bundle of rank $p-1$, denoted by $T*X$, and
+    \[T^*X = \coprod_{x\in X}T_xX^*,\]
+    where $T_xX$ is toplinearly isomorphic to $X$, and $T_xX^*$ its toplinear dual.
+\end{definition}
 
 
 \fchapter{3: Coordinates}
-
 \topheader{Introduction}
 In the previous chapters, a chart $(U,\varphi)$ was often equated with its domain. We will now express a concrete tangent vector as $(\hat{p}, \hat{v})$, omitting any reference to the chart or its domain. \\
 %
@@ -1046,13 +1045,42 @@ In this context, morphisms into $\real$ almost serve as test functions in the fr
 \begin{definition}[Function on $X$]\label{def:function-on-X}
     Let $X$ be a manifold of class $C^p$ over $\realn$ for $n,p\geq 1$. A \emph{function} on $X$ is a morphism $f: X\to\real$, where $\real$ should be interpreted as a manifold. We denote the commutative ring of functions on $X$ by $C^p(X,\real)$ or $C^p(X)$. If $U$ is an open subset of $X$, its functions are denoted by $C^p(U,\real)$ or $C^p(U)$.
 \end{definition}
-\textbf{For the rest of this chapter, assume all manifolds to be $C^p$-manifolds over $\realn$, where $n,p \geq 1$}. 
 %
+\topheader{Exterior Derivative}
+Let $X$ be a manifold, and $f\in C^p(X)$. If $\gamma: (-\delta, +\delta)\to X$ is a curve starting at $x_0\in X$ with velocity $v$, the composition $f\circ \gamma$ is a morphism. Let us write 
+\begin{equation}
+    F:(-\delta,+\delta)\to \real,\quad F(\varepsilon) = f\circ \gamma(\varepsilon) - f\circ\gamma(0)
+    \label{eq:exterior-derivative-motivation-1-form-1}
+\end{equation}
+Suppose we wish to measure the rate at which $f$ moves in the direction of $v$, then we can simply take the derivative of \cref{eq:exterior-derivative-motivation-1-form-1}. We define the \emph{exterior derivative of $f$ at $x_0$}, denoted by $df(x_0): T_{x_0}X\to\real$ by \cref{eq:exterior-derivative-motivation-1-form-2}
+\begin{equation}
+    df(x_0)(v) = DF(0)(\cl{1})\qqtext{where} F = f\circ \gamma
+    \label{eq:exterior-derivative-motivation-1-form-2}
+\end{equation}
+for any curve starting at $x_0$ with velocity $v$.\\
+% Given a way of measuring k-dimensional volumes, the exterior derivative gives rise to a k+1 realvalued function in k+1 arguments at a point.
+
+Let $E$ be a Banach space, and suppose $\omega$ is a $k$-form on $E$, and $x_0\in E$ with $k+1$ tangent vectors $v_{\underline{k+1}}$. The parallelopiped defined by the $k+1$ vectors is 
+\[
+    P_{x_0}(v_{\underline{k+1}}) = \bigset{x_0 + \sum_{i=\underline{k+1}} t_iv_i,\: 0\leq t_i\leq 1\: \forall i = \underline{k+1}}
+\]
+% We can rewrite $P_{x_0}(v_{\underline{k+1}}) = x_0 + P(v_{\underline{k+1}})$ where $P_0(\cdot) = P(\cdot)$. 
+As with \cref{eq:exterior-derivative-motivation-1-form-1}, we can integrate over the boundary defined by $P_{x_0}(v_{\underline{k+1}})$, and obtain a new function. We can shrink each $v_i$ by $\varepsilon_i$, and we define
+\begin{equation}
+    P_{x_0}^{\varepsilon_{\underline{k+1}}}(v_{\underline{k+1}}) = \bigset{x_0 + \sum_{i=\underline{k+1}} t_iv_i,\: 0\leq t_i\leq \varepsilon_i\: \forall i = \underline{k+1}}
+    \label{eq:exterior-derivative-motivation-k-form-shrinkage}
+\end{equation}
+(Note: Perhaps after shrinking the domain of $F$, here we should replace everything by their coordinate representations).
+\begin{equation}
+    F:(-\delta,+\delta)^{k+1}\to \real,\quad F(\varepsilon_{\underline{k+1}}) = \int_{\partial P_{x_0}^{\varepsilon_{\underline{k+1}}}(v_{\underline{k+1}})}\omega
+    \label{eq:exterior-derivative-motivation-k-form-1}
+\end{equation}
+We define the exterior derivative of a $k$-form by the map $DF(0)(1^{(k+1)})$.
 \topheader{Derivations}
 %
 % Some more motivation for this? 'If $f$ is only defined on an open subset of a Banach space then its derivative allows us access to the underlying Banach space structure even if $f$ is defined on a very small patch in $E$?
 %
-Let $E$ and $F$ be Banach spaces and $U\osub E$, suppose $f$ is a morphism from $U$ to $F$. If $p$ is a point in $U$, $Df(p)$ is of course a linear map from $E$ to $F$; this suggests a natural pairing $\hat{\dzz}$ of $f$ with and $(p,v)\in U\times E$ as shown in \cref{eq:derivation-natural-pairing-motivation}.
+\textbf{For the rest of this chapter, assume all manifolds to be $C^p$-manifolds over $\realn$, where $n,p \geq 1$}. Let $E$ and $F$ be Banach spaces and $U\osub E$, suppose $f$ is a morphism from $U$ to $F$. If $p$ is a point in $U$, $Df(p)$ is of course a linear map from $E$ to $F$; this suggests a natural pairing $\hat{\dzz}$ of $f$ with and $(p,v)\in U\times E$ as shown in \cref{eq:derivation-natural-pairing-motivation}.
 \begin{equation}\label{eq:derivation-natural-pairing-motivation}
     \hat{\dzz}: (U\times E)\times C^p(U,F)\longrightarrow F:\quad \qty\Big((p,v), f)\mapsto Df(p)(v)\in F
 \end{equation}
@@ -1090,49 +1118,54 @@ Let $p$ be a point on a manifold $X$, then its tangent space is isomorphic to th
 \begin{proof}
     Postponed.
 \end{proof}
-
 \topheader{Boundary}
-
 % Define the half space.
 % Manifolds with boundary defined a the half space.
 % Inward, outward, and tangent vectors.
     % The definition should be using the curves with domains (-\varepsilon, 0] and [0,+\varepsilon)
     %
 % Recap the submanifold tangent space criterion? An abstract tangent vector is in the exterior tangent space of the submanifold if its concrete repreresentation in a slice chart is 
+\begin{definition}[Subsets of the upper half-plane]\label{def:subsets-of-upper-half-plane}
+    Let $n\geq 1$, the \emph{upper half plane} of $\realn$ is the subset $\halfn = [x^n\geq 0]$. Its topological interior (resp. boundary) is denoted by $\Int\halfn = [x^n>0]$ (resp. $\partial\halfn = [x^n=0]$).
+\end{definition}
+We wish to define a notion of the boundary for a manifold. Instead of modelling $X$ on open subsets of $\realn$, we consider open subsets of both $\realn$ and $\halfn$. To wit, we start by generalizing the notion of $C^p$ smoothness between \textbf{arbitrary subsets of $\realn$}. Let $S\subseteq\realn$ be a subset of $\realn$, recall that:
+\begin{quote}
+    A function $f: S\to\realm$ is said to be continuous on $S$, if $f^{-1}(U)$ is relatively open in $S$ for every $U\osub \realm$.
+\end{quote}
+The take-away intuitinon for this is that manifolds with boundary are supposedly used to model geometric objects that are suddenly 'cut off'. In the case of the upper half-plane, this manifests in a sudden stop in the $n$-th coordinate. The morphisms we seek are the ones which are ordinary morphisms but whose domains 'cut off'.
+\begin{quote}
+Let $F:S\to S'$ be a mapping between arbitrary subsets of $\realn$ and $\realm$. It is a $C^p$ morphism, whenever each point $p\in S$ admits a $C^p$ extension to a neighbourhood containing $p$.    
+\end{quote}
+With this, a $C^p$ isomorphism between subsets of $\realn$ is a bijective $C^p$ morphism whose inverse is also a $C^p$ morphism.
+% Equivalently, this means that $f$ is a continuous function iff it is the restriction of a continuous mapping $\wig{f}: W\to\realn$ where $W$ is an open neighbourhood containing $S$.
+\begin{definition}[Boundary chart]\label{def:boundary-chart}
+    Let $X$ be a non-empty subset. A \emph{boundary chart} on $X$ modelled on $\realn$ is a tuple $(U,\varphi)$, such that $U\subseteq X$, $\varphi(U) =\hat{U}$ is an open subset of $\halfn$, and $\varphi$ is a bijection onto $\hat{U}$.
+\end{definition}
+To distinguish between this new definition of the previous one, the word \emph{chart} will always refer to the charts defined in Chapter 1. If we wish to be precise, we will use the word \emph{interior chart}. 
+\begin{definition}[Compatibility between boundary and interior charts]\label{def:boundary-interior-charts}
+    Let $(U,\varphi)$ and $(V,\psi)$ be boundary or interior charts of $X$, modelled on $\realn$ or $\halfn$. They are called \emph{$C^p$-compatible} (for $p\geq 0$) if $U\cap V=\varnothing$, or both of the following hold:
+    \begin{itemize}
+        \item $\varphi(U\cap V)$ and $\psi(U\cap V)$ are \emph{both} open subsets of $\realn$ or $\halfn$.
+        \item the \emph{transition map} $\psi\circ\varphi^{-1}:\varphi(U\cap V)\to\psi(U\cap V)$ is a $C^p$ isomorphism between open subsets of $\realn$ or $\halfn$.
+    \end{itemize}
+\end{definition}
+\begin{definition}[Boundary atlas, structure with boundary]
+    Let $X$ be a non-empty set and $p\geq 0$. A $C^p$ \emph{boundary atlas} on $X$ modelled on $\realn$ is a pairwise $C^p$-compatible collection of charts $\{(U_{\alpha},\varphi_{\alpha})\}$ whose union over the domains cover $X$.\\
 
-\topheader{Exterior Derivative}
-Let $X$ be a manifold, and $f\in C^p(X)$. If $\gamma: (-\delta, +\delta)\to X$ is a curve starting at $x_0\in X$ with velocity $v$, the composition $f\circ \gamma$ is a morphism. Let us write 
-\begin{equation}
-    F:(-\delta,+\delta)\to \real,\quad F(\varepsilon) = f\circ \gamma(\varepsilon) - f\circ\gamma(0)
-    \label{eq:exterior-derivative-motivation-1-form-1}
-\end{equation}
-Suppose we wish to measure the rate at which $f$ moves in the direction of $v$, then we can simply take the derivative of \cref{eq:exterior-derivative-motivation-1-form-1}. We define the \emph{exterior derivative of $f$ at $x_0$}, denoted by $df(x_0): T_{x_0}X\to\real$ by \cref{eq:exterior-derivative-motivation-1-form-2}
-\begin{equation}
-    df(x_0)(v) = DF(0)(\cl{1})\qqtext{where} F = f\circ \gamma
-    \label{eq:exterior-derivative-motivation-1-form-2}
-\end{equation}
-for any curve starting at $x_0$ with velocity $v$.
-
-% Given a way of measuring k-dimensional volumes, the exterior derivative gives rise to a k+1 realvalued function in k+1 arguments at a point.
-
-Let $E$ be a Banach space, and suppose $\omega$ is a $k$-form on $E$, and $x_0\in E$ with $k+1$ tangent vectors $v_{\underline{k+1}}$. The parallelopiped defined by the $k+1$ vectors is 
-\[
-    P_{x_0}(v_{\underline{k+1}}) = \bigset{x_0 + \sum_{i=\underline{k+1}} t_iv_i,\: 0\leq t_i\leq 1\: \forall i = \underline{k+1}}
-\]
-% We can rewrite $P_{x_0}(v_{\underline{k+1}}) = x_0 + P(v_{\underline{k+1}})$ where $P_0(\cdot) = P(\cdot)$. 
-As with \cref{eq:exterior-derivative-motivation-1-form-1}, we can integrate over the boundary defined by $P_{x_0}(v_{\underline{k+1}})$, and obtain a new function. We can shrink each $v_i$ by $\varepsilon_i$, and we define
-\begin{equation}
-    P_{x_0}^{\varepsilon_{\underline{k+1}}}(v_{\underline{k+1}}) = \bigset{x_0 + \sum_{i=\underline{k+1}} t_iv_i,\: 0\leq t_i\leq \varepsilon_i\: \forall i = \underline{k+1}}
-    \label{eq:exterior-derivative-motivation-k-form-shrinkage}
-\end{equation}
-
-(Note: Perhaps after shrinking the domain of $F$, here we should replace everything by their coordinate representations).
-\begin{equation}
-    F:(-\delta,+\delta)^{k+1}\to \real,\quad F(\varepsilon_{\underline{k+1}}) = \int_{\partial P_{x_0}^{\varepsilon_{\underline{k+1}}}(v_{\underline{k+1}})}\omega
-    \label{eq:exterior-derivative-motivation-k-form-1}
-\end{equation}
-We define the exterior derivative of a $k$-form by the map $DF(0)(1^{(k+1)})$
+    If $\acal$ is a boundary atlas of $X$, the maximal boundary atlas containing $\acal$ is called the \emph{$C^p$ boundary structure determined by $\acal$}. A $C^p$ \emph{manifold with boundary} modelled on $\realn$ is a a non-empty set $X$ with a $C^p$ boundary structure modelled on $\realn$.
+\end{definition}
+We also have the following terminology for points in a manifold with boundary $X$. Let $p\in X$,
+\begin{itemize}
+    \item $p$ is called a \emph{boundary point} whenever it is in the domain of a boundary chart $(U,\varphi)$, \textbf{and $\varphi(p)\in\partial\halfn$},
+    \item $p$ is called an \emph{interior point} otherwise.
+\end{itemize}
+\begin{remark}
+    It can be shown (using deRham cohomology, see Chapter 16-17 \cite{Lee2013Introduction}) that a point on a manifold cannot be a boundary point and an interior point at the same time.
+\end{remark}
 
 
+\ifSubfilesClassLoaded{%
+  \bibliography{Functional-Analysis/manifolds-references.bib}%
+}{}
 
 \end{document}

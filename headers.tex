@@ -116,21 +116,18 @@
 }
 
 \mdfdefinestyle{remarkstyle}{%
-    style=definitionstyle,
+    style=theoremstyle,
     backgroundcolor=tab-blue!5,
-    leftline=true,
-    rightline=true,
-    topline=true,
-    bottomline=true,
 }
 
 \mdfdefinestyle{notestyle}{%
-    style=definitionstyle,
+    style=theoremstyle,
     backgroundcolor=tab-orange!5,
-    leftline=true,
-    rightline=true,
-    topline=true,
-    bottomline=true,
+}
+
+\mdfdefinestyle{examplestyle}{%
+    style=theoremstyle,
+    backgroundcolor=tab-green!5,
 }
 
 \mdtheorem[style=definitionstyle]{definition}{Definition}[theproblem]
@@ -139,12 +136,10 @@
 \mdtheorem[style=theoremstyle]{lemma}{Lemma}[theproblem]
 \mdtheorem[style=theoremstyle]{corollary}{Corollary}[theproblem]
 
-
-
 \mdtheorem[style=remarkstyle]{remark}{Remark}[theproblem]
-\mdtheorem[style=theoremstyle]{example}{Example}[theproblem]
 
 \mdtheorem[style=notestyle]{note}{Note}[theproblem]
+\mdtheorem[style=examplestyle]{example}{Example}[theproblem]
 
 
 % Other header definitions or configurations
@@ -200,6 +195,9 @@
 
 \crefname{exercise}{exercise}{exercises}
 \Crefname{exercise}{Exercise}{Exercises}
+
+\crefname{example}{exmp.}{exmps.}
+\Crefname{example}{Example}{Exercises}
 
 \crefname{definition}{def.}{defs.}
 \Crefname{definition}{Definition}{Definitions}

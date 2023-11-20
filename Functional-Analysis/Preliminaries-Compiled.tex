@@ -77,7 +77,7 @@ We use the following notation to simplify computations concerning multilinear ma
     \item In any list using this 'underline' notation, we can find the size of a list by summing over all the underlined terms, and the number of terms with no underline.
     \item If $\wedge: E\times E\to F$ is any associative binary operation: $\bigowedge(\UL{v}[k]) = v_1\wedge\cdots \wedge v_k$.
 \end{itemize}
-\begin{remark}[Preview of exterior calculus]\label{rmk:preview of exterior calculus}
+\begin{example}[Preview of exterior calculus]\label{rmk:preview of exterior calculus}
 We can write the formula for the determinant of a $\real^{k\times k}$ matrix in this notation. Suppose $a_i\in\real$, and $b_i\in\real^{k-1}$ for $i=\underline{k}$.
 
 \[
@@ -92,7 +92,7 @@ The determinant of $M$ is a linear combination of determinants of $k-1$-sized ma
 \[
     \det(M) = \sum_{i=\underline{k}}(-1)^{i-1} a_i\det(\UL{b}[i-1],\UL{b}[i+][k-i])
 \]    
-\end{remark}
+\end{example}
 \topheader{Metric Vector Spaces}
     
     Let $V$ be a vector space over $\real$. 
@@ -111,15 +111,15 @@ The determinant of $M$ is a linear combination of determinants of $k-1$-sized ma
             \item $V$ is called a(n) \emph{orthogonal geometry} (resp. \emph{symplectic geometry}) if $\omega$ is symmetric (resp. alternating). 
             \item $V$ is called a \emph{metric vector space} (hereinafter abbreviated as MVS) if it is an orthogonal or a symplectic geometry.
         \end{itemize}
-\topheader{Matrices and billinear forms}
-    \begin{definition}[Matrix of billinear form]
+\topheader{Matrices and bilinear forms}
+    \begin{definition}[Matrix of bilinear form]
         If $B=(b_1,\ldots,b_n)$ is an ordered basis for $V$, we define the \emph{matrix representation of $\omega$} by
         \[
             \mcal(\omega) = (a_{ij}) = (\omega(b_i, b_j))
         \]
     \end{definition}
     
-    Let $A = (a_{ij})$ be a matrix on $V$ with respect to some basis $B = (\Ul{b}[n])$ it is clear that $A$ induces a billinear form, on $V$ through $A(x,y) = [x]_B^TA[y]_B$, where $[\cdot]_B$ denotes the canonical isomorphism $V\cong \realn$ with respect to the basis $B$.
+    Let $A = (a_{ij})$ be a matrix on $V$ with respect to some basis $B = (\Ul{b}[n])$ it is clear that $A$ induces a bilinear form, on $V$ through $A(x,y) = [x]_B^TA[y]_B$, where $[\cdot]_B$ denotes the canonical isomorphism $V\cong \realn$ with respect to the basis $B$.
     \[
         [x]_B^T A [y]_B = \begin{bmatrix}
             x^1 &\ldots & x^n
@@ -211,7 +211,7 @@ The determinant of $M$ is a linear combination of determinants of $k-1$-sized ma
         is a linear isomorphism from $V$ to $V^*$. 
     \end{wts}
 
-    Let $(V,\omega)$ and $(W, \eta)$ be metric vector spaces. An \emph{isometry} $\tau\in L(V,W)$ is a linear isomorphism that preserves the billinear form.
+    Let $(V,\omega)$ and $(W, \eta)$ be metric vector spaces. An \emph{isometry} $\tau\in L(V,W)$ is a linear isomorphism that preserves the bilinear form.
     \[
         \omega(u,v) = \eta(\tau u, \tau v)
     \]
@@ -302,7 +302,7 @@ Partial pairing of indices. (Again: focus on the position.)
     \end{equation}
     In \cref{eq:musical flatten coordinates}, the coefficients $(v_i)$ get paired with the first index in $a_{ji}$, which represents multiplication of $A$ 'from the left' --- which is \emph{precisely} what the matrix transpose does.
 \end{itemize}
-\begin{remark}[Advanced Example]
+\begin{example}[Advanced Example]
     Let $F$ be a $(0,k)$-tensor on $\realn$. If $I=(i_{\underline{k}})$ is a multi-index with entries $1\leq i_j\leq n$ for $j = \underline{k}$, we write 
     \[
         F_I = F(e_{i_{\underline{k}}}) = F(e_{i_1},\ldots, e_{i_k})
@@ -321,7 +321,7 @@ Partial pairing of indices. (Again: focus on the position.)
     \[
         x_L\lrcorner F = \bigoprod(x_{l_{r=\underline{p}}}^{i_{l_r}})F_{I} \varepsilon^{L\lrcorner I}
     \]
-\end{remark}
+\end{example}
 \topheader{Musical Isomorphisms}
 
 Let $n\geq 1$ be a non-negative integer. Let $a:\realn\times\realn\to\real$ be a bilinear form that makes $(\realn,a)$ a metric vector space. \\
@@ -339,21 +339,29 @@ Similarly, the RHS reads
     a(v,w)=\sum_{i,j=\underline{n}} v^iw^ja_{ij} = \bigangle{(v^i)}{(a_{ij})(w^j)}_{\realn}
 \]
 We see that $(\nu_k) = A^T (v_j)$. We now define
-\begin{definition}[Musical isomorphism $\hat{a}$]
-    Let $(\realn,a)$ be a MVS, every vector $v\in \realn$ induces a covector, denoted by $\hat{a}(v)$ such that the bilinear form $a$ \emph{becomes} the evaluation map.
+\begin{definition}[Musical isomorphism $\breve{a}$]
+    Let $(\realn,a)$ be a MVS, every vector $v\in \realn$ induces a covector, denoted by $\breve{a}(v)$ such that the bilinear form $a$ \emph{becomes} the evaluation map.
     \begin{equation}
-        \hat{a}(v) = v\lrcorner a\qqtext{such that}\hat{a}(v)(w) = a(v,w)\:\forall w\in \realn
+        \breve{a}(v) = v\lrcorner a\qqtext{such that}\breve{a}(v)(w) = a(v,w)\:\forall w\in \realn
         \label{eq:musical isomorphism flatten}
     \end{equation}
-    The mapping $\hat{a}$ is called a \emph{musical isomorphism}. We sometimes write $\hat{a}(v) = v^{\flat}$ if the ambient MVS is understood.
+    The mapping $\breve{a}$ is called a \emph{musical isomorphism}. We sometimes write $\breve{a}(v) = v^{\flatb}$ if the ambient MVS interpretation is understood.
 \end{definition}
-
 We can write \cref{eq:musical isomorphism flatten} in coordinates by appealing to the \emph{summation convention}. \\
 
-
-Conversely, by the Riesz Representation Theorem (see \cref{eq:Riesz Representation MVS}), covector $B\in(\realn)^*$ can be uniquely identified with a vector $b\in\realn$.\\
-
-Since $a$ is non-singular, its matrix representation $(a_{ij})$ is non-singular as well. \\
+Conversely, by the Riesz Representation Theorem (see \cref{eq:Riesz Representation MVS}), covector $B\in(\realn)^*$ can be uniquely identified with a vector $b\in\realn$. Since $a$ is non-singular, its matrix representation $(a_{ij})$ is non-singular as well,
+\begin{definition}[Musical isomorphism $\hat{a}$]
+    Let $(\realn,a)$ be a MVS, every covector $f\in \realn^*$ induces a vector, denoted by $\hat{a}(f)\in \realn$ such that $a$ becomes the evaluation map.
+    \begin{equation}
+        a\biggl(\hat{a}(f),\: v\biggr)=f(v)\quad\forall v\in\realn
+        \label{eq:musical isomorphism sharpen}
+    \end{equation}
+    We sometimes write $\hat{a}(f) = f^{\wedge}$.
+\end{definition}
+We can compute the musical isomorphisms in coordinates. Let $(a_{ij})$ be the matrix representation of $a$ with matrix inverse $(a^{ij})$, then 
+\[
+    \breve{a}(v)=a_{ij}v^j\varepsilon^i\qqtext{and}\hat{a}(f) = a^{ij}f_j e_i
+\]
 %
 %
 %
@@ -410,7 +418,7 @@ The space of $k$-covariant tensors on $V$ (resp. alternating $k$-forms on $V$) f
     \end{equation}
     That is, every element in $\Lambda^k(V)$ is the FLC of elements in $\mathcal{B}^k_{\Lambda}$.
 \end{itemize}
-With this, we can extend the wedge product by (multi-linearity) to arbitrary alternating forms. An alternating $k$-tensor is \emph{decomposable} if it is the $k$ wedge product of $k$ covectors (that are not necessarily elementary).\\
+With this, we can extend the wedge product by (multilinearity) to arbitrary alternating forms. An alternating $k$-tensor is \emph{decomposable} if it is the $k$ wedge product of $k$ covectors (that are not necessarily elementary).\\
 
 For example, if $\omega=\bigowedge(\omega_{\underline{k}})\in \Lambda^k(V)$ and $\eta=\bigowedge(\eta_{\underline{l}})\in\Lambda^l(V)$, the wedge product between the two alternating tensor is a $k+l$ alternating tensor where
 \begin{equation}
@@ -442,13 +450,13 @@ For example, if $\omega=\bigowedge(\omega_{\underline{k}})\in \Lambda^k(V)$ and 
 \end{equation}
 The block matrices on the off diagonal in \cref{eq:wedge product of kl tensors}  are not square unless $k=l$. If that is the case, then the wedge product admits the obvious simplification. Let $\omega$ and $\eta$ be alternating $k$ and $l$ tensors respectively (not necessarily decomposable) where $k,l\geq 1$. The following properties of the wedge product are derived entirely from \cref{eq:wedge product of kl tensors}. 
 \begin{itemize}
-    \item Anticommutativity: $\eta\wedge\omega = (-1)^{kl}\omega\wedge\eta$. Sketch of proof: Assume all tensors involved are decomposable, and swap the columns in \cref{eq:wedge product of kl tensors}. Extend by multi-linearity.
-    \item Bilinearity and associativity. Sketch of proof: Assume all tensors involved are decomposable, and compare the matrices that are used in the determinants. Extend by multi-linearity.
+    \item Anticommutativity: $\eta\wedge\omega = (-1)^{kl}\omega\wedge\eta$. Sketch of proof: Assume all tensors involved are decomposable, and swap the columns in \cref{eq:wedge product of kl tensors}. Extend by multilinearity.
+    \item Bilinearity and associativity. Sketch of proof: Assume all tensors involved are decomposable, and compare the matrices that are used in the determinants. Extend by multilinearity.
     \item Interior multiplication: if $v_1\in V$, we define the the alternating $k+l-1$ form $\iota_{v_1}(\omega\wedge \eta)\in \Lambda^{k+l-1}(V)$ by placing $v_1$ into the first argument of $\omega\wedge\eta$,
     \[
         \iota_{v_1}(\omega\wedge\eta)(\UL{v}[1+][k+l-1]) = (\omega\wedge\eta)(\UL{v}[k+l])\quad\forall \UL{v}[1+][k+l-1]\in V
     \]
-    satisfies $(\iota_{v_1}\omega)\wedge \eta + (-1)^{k} \omega\wedge(\iota_{v_1}\eta)$. Sketch: Assume decomposable, and use \cref{rmk:preview of exterior calculus}. Extend by multi-linearity.
+    satisfies $(\iota_{v_1}\omega)\wedge \eta + (-1)^{k} \omega\wedge(\iota_{v_1}\eta)$. Sketch: Assume decomposable, and use \cref{rmk:preview of exterior calculus}. Extend by multilinearity.
 \end{itemize}
 \topheader{Vector and Covector Fields}
 
@@ -563,11 +571,45 @@ Let $X$ be a Banach space over $K = \real$ or $\complex$.
 \end{itemize}
 Let $X$ and $Y$ be Banach spaces over $K = \real$ or $\complex$.
 \begin{itemize}
+    \item We say a map $F$ is \emph{between} the spaces $X$ and $Y$ if $F: X\to Y$. 
+    \item $\mathcal{L}(V^K,W)$ denotes the space of $k$-linear maps from $V$ to $W$ that are not    necessarily continuous. 
     \item $\mathcal{L}(X,Y)$ will denote the space of linear maps between $X$ and $Y$. 
     \item In the category of Banach spaces, the space of morphisms are called \emph{toplinear morphisms} - or \emph{CLM}s (\emph{continuous linear maps}); which we will denote by $L(X,Y)$ for toplinear morphisms bewteen $X$ and $Y$.
     \item We use $\norm{\cdot}_{L(E,F)}$ or $\norm{\cdot}$ to denote the \emph{operator norm}, depending on how much emphasis we wish to place on $L(E,F)$. Recall that,
     \[\norm{\varphi}_{L(E,F)} = \inf\bigset{A\geq 0,\: \abs{\varphi(x)}\leq A\abs{x}\:\forall x\in E} = \sup\bigset{\abs{\varphi(x)},\: x\in E,\: \abs{x}=1}\]
 \end{itemize}
+
+
+If $E$ and $F$ are Banach spaces over $\real$. We will denote the norms on $E$, and $F$ by single lines, so 
+\[
+    \vert x\vert = \norm{x}_E \qqtext{and} \vert y\vert = \norm{y}_F\quad\forall x\in E,\: y\in F
+\]
+$\mathcal{L}(E,F)$ will denote the space of linear maps between $E$ and $F$. In the category of Banach spaces, the space of morphisms are called \emph{toplinear morphisms} - or \emph{CLM}s (\emph{continuous linear maps}); which we will denote by $L(E,F)$ for toplinear morphisms bewteen $E$ and $F$. \\
+
+% Elaborate more
+
+By the open mapping theorem: any continuous surjective linear map is an open map. Hence invertible elements in $L(E,F)$ are naturally called \emph{toplinear isomorphisms}. If $\varphi\in L(E,F)$ such that $\varphi$ preserves the norm between the Banach Spaces, that is for every $x\in E$, $\vert x\vert = \vert \varphi(x)\vert$ then we call $\varphi$ an \emph{isometry}, or a \emph{Banach space isomorphism}. If $E_1$ and $E_2$ are Banach spaces, we will use the usual \emph{product norm} $(x_1, x_2)\mapsto \max(\vert x_1\vert,\vert x_2\vert)$. 
+
+% Inverse function notation, square brackets
+% CLF = continuous linear functional (assumed to be real)
+% CLM = continuous linear map
+% Hahn Banach Theorem
+\begin{wts}[Hahn Banach Theorem (Geometric Form)]\label{prop:hahn-banach-geometric-form}
+    Let $E$ be a Banach space, $A$ and $B$ are closed disjoint subsets of $E$. Assuming one of the two is compact, then there exists a clf $\lambda$ which \emph{strictly separates} $A$ and $B$. 
+    \begin{equation}\label{eq:hahn-banach-geometric-form}
+        A\subseteq [\lambda \leq \alpha-\varepsilon]\qqtext{and} B\subseteq [\lambda\geq\alpha + \varepsilon]\quad\text{for all }\alpha\in\real \text{ and } \varepsilon>0.
+    \end{equation}
+\end{wts}
+
+
+% Finite product of Banach spaces
+\begin{definition}[Product of Banach Spaces]\label{def:finite-product-banach-space}
+    Let $E_1,\ldots, E_k$ be Banach spaces over $\real$. The Cartesian product of $(E_1,\ldots E_k)$ is denoted by $\prod_i^k E_i$. It is again a Banach space with the norm
+    \begin{equation}\label{eq:finite-product-banach-space-norm}
+        (x_1,\ldots, x_k)\mapsto \abs{(x_1,\ldots, x_k)} = \sup_{1 \leq i\leq k}\abs{x_i}
+    \end{equation}
+\end{definition}
+
 The following are natural generalizations of Banach spaces.
 \begin{itemize}
     \item A \emph{topological vector space} (hereinafter abbreviated as TVS) is a vector space $X$ over a field $K = \real$ or $\complex$ such that the addition map $A(x,y) = x+y$ and the scalar multiplication map $m(k,x) = kx$ is continuous.
@@ -740,61 +782,10 @@ More facts about $L^p$ spaces
         \lim_{y\to 0}\norm{\tau_y f-f}_p = 0
     \]
 \end{itemize}
-%
-%
-\fchapter{0: Banach Spaces}\newpage
-\topheader{Introduction}
-This section is quite incomplete, and all over the place. I have been meaning to put all the notation/terminology I am going to use in this section. Please skip to the Chapter 1 for now.\\
 
-%
-\topheader{Banach Spaces}
-A \emph{Banach space} is a normed vector space that is Cauchy-complete under the usual metric induced by its norm. 
+% The following cannot be enabled otherwise it crashes other files that wishes to reference it.
+% \ifSubfilesClassLoaded{%
+%   \bibliography{Functional-Analysis/manifolds-references.bib}%
+% }{}
 
-If $E$ and $F$ are Banach spaces over $\real$. We will denote the norms on $E$, and $F$ by single lines, so 
-\[
-    \vert x\vert = \norm{x}_E \qqtext{and} \vert y\vert = \norm{y}_F\quad\forall x\in E,\: y\in F
-\]
-$\mathcal{L}(E,F)$ will denote the space of linear maps between $E$ and $F$. In the category of Banach spaces, the space of morphisms are called \emph{toplinear morphisms} - or \emph{CLM}s (\emph{continuous linear maps}); which we will denote by $L(E,F)$ for toplinear morphisms bewteen $E$ and $F$. \\
-
-% Explanation on operator norm
-
-We use $\norm{\cdot}_{L(E,F)}$ or $\norm{\cdot}$ to denote the operator norm, depending on how much emphasis we wish to place on $L(E,F)$. Recall,
-\begin{align*}
-\norm{\varphi}_{L(E,F)} &= \inf\bigset{A\geq 0,\: \vert\varphi(x)\vert\leq A\vert x\vert\:\forall x\in E}\\
-&= \sup\bigset{\vert\varphi(x)\vert,\: x\in E,\: \vert x\vert=1}
-\end{align*}
-
-% Elaborate more
-
-By the open mapping theorem: any continuous surjective linear map is an open map. Hence invertible elements in $L(E,F)$ are naturally called \emph{toplinear isomorphisms}. If $\varphi\in L(E,F)$ such that $\varphi$ preserves the norm between the Banach Spaces, that is for every $x\in E$, $\vert x\vert = \vert \varphi(x)\vert$ then we call $\varphi$ an \emph{isometry}, or a \emph{Banach space isomorphism}. If $E_1$ and $E_2$ are Banach spaces, we will use the usual \emph{product norm} $(x_1, x_2)\mapsto \max(\vert x_1\vert,\vert x_2\vert)$. 
-
-% Where to put this
-\begin{itemize}
-    \item We say a map $F$ is \emph{between} the spaces $X$ and $Y$ if $F: X\to Y$. 
-    \item $\mathcal{L}(V^K,W)$ denotes the space of $k$-linear maps from $V$ to $W$ that are not necessarily continuous. 
-\end{itemize}
-%
-% Inverse function notation, square brackets
-% CLF = continuous linear functional (assumed to be real)
-% CLM = continuous linear map
-
-
-
-% Hahn Banach Theorem
-\begin{wts}[Hahn Banach Theorem (Geometric Form)]\label{prop:hahn-banach-geometric-form}
-    Let $E$ be a Banach space, $A$ and $B$ are closed disjoint subsets of $E$. Assuming one of the two is compact, then there exists a clf $\lambda$ which \emph{strictly separates} $A$ and $B$. 
-    \begin{equation}\label{eq:hahn-banach-geometric-form}
-        A\subseteq [\lambda \leq \alpha-\varepsilon]\qqtext{and} B\subseteq [\lambda\geq\alpha + \varepsilon]
-    \end{equation}
-    for $\alpha\in\real$ and $\varepsilon>0$.
-\end{wts}
-
-
-% Finite product of Banach spaces
-\begin{definition}[Product of Banach Spaces]\label{def:finite-product-banach-space}
-    Let $E_1,\ldots, E_k$ be Banach spaces over $\real$. The Cartesian product of $(E_1,\ldots E_k)$ is denoted by $\prod_i^k E_i$. It is again a Banach space with the norm
-    \begin{equation}\label{eq:finite-product-banach-space-norm}
-        (x_1,\ldots, x_k)\mapsto \abs{(x_1,\ldots, x_k)} = \sup_{1 \leq i\leq k}\abs{x_i}
-    \end{equation}
-\end{definition}
 \end{document}

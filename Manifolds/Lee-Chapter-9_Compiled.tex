@@ -219,21 +219,12 @@ We should expect, that if $A$ is a rough $k$-tensor field over $M$, it is smooth
 \end{definition}
 
 \begin{wts}[Proposition 12.25, Properties of Tensor Pullbacks]
-    Let $F: M\to N$ and $G:N\to P$ be smooth maps between smooth manifold with or without boundary, and $A$ and $B$ are $k$-tensor fields on $N$, then
+    Let $F: M\to N$ and $G:N\to P$ be smooth maps between smooth manifold with or without boundary, and $A$ and $B$ are $k$-tensor fields on $N$.
     \begin{enumroman}
-        \item For every $f\in C^\infty(N)$,
-        \[
-            F^*(fB) = \underbrace{(f\circ F)}_{C^\infty(M)}F^*B
-        \]
-        \item $F^*$ commutes with tensor products,
-        \[
-            F^*(A\otimes B) = F^*(A)\otimes F^*(B)
-        \]
-        \item $F^*$ is linear over $\real$, 
-        \[
-            F^*(aA + bB) = aF^*(A) + bF^*(B)
-        \]
-        \item $F^*(B)$ is smooth,
+        \item For every $f\in C^\infty(N)$, $F^*(fB) = \underbrace{(f\circ F)}_{C^\infty(M)}F^*B$
+        \item $F^*$ commutes with tensor products: $F^*(A\otimes B) = F^*(A)\otimes F^*(B)$
+        \item $F^*$ is linear over $\real$: $F^*(aA + bB) = aF^*(A) + bF^*(B)$.
+        \item $F^*(B)$ is smooth $k$-tensor field on $M$.
         \item The tensor pullback satisfies the following co-functoral properties
         \begin{itemize}
             \item The (tensor) pullback of the composition is the (tensor) pullback of the \emph{pre}-composition,
@@ -250,7 +241,7 @@ We should expect, that if $A$ is a rough $k$-tensor field over $M$, it is smooth
 \begin{wts}[Tensor Field Pullback in Coordinates]\label{tensor-field-pullback-coordinates}
     Let $M$ and $N$ be smooth manifolds with or without boundary, and $F:M\to N$ be a smooth map. $A$ is a smooth covariant $k$-tensor field on $N$, and $p\in M$ induces local coordinates $(U,(x^i))$ about $p$, $(V,(y^j))$ about $F(p)$. If $A$ has the following coordinate representation about $F(p)$,
     \begin{equation}\label{tensor-field-pullback-coordinates-eq0}
-        A = \underbrace{A_{i_1,\ldots,i_k}}_{\substack{\text{smooth }\\ \text{function in N}}} \: dy^{i_1}\otimes\cdots\otimes dy^{i_k} = A_{\Ul{i}[k]}\qty(\bigotimes dy^{\Ul{i}[k]})
+        A = \underbrace{A_{i_1,\ldots,i_k}}_{C^\infty(N)}dy^{i_1}\otimes\cdots\otimes dy^{i_k} = A_{\Ul{i}[k]}\qty(\bigotimes dy^{\Ul{i}[k]})
     \end{equation}
     then $F^*A$ is given by
     \begin{align}\label{tensor-field-pullback-coordinates-eq1}
@@ -274,7 +265,7 @@ We should expect, that if $A$ is a rough $k$-tensor field over $M$, it is smooth
     Let $M$ be a smooth manifold, and $V\in \vField(M)$ with integral flow $\theta$ defined on $\mathcal{D}\subseteq\real\times M$. If $A$ is a smooth covariant $k$-tensor field on $M$, then $(\mathcal{L}_V A)_p$ exists for every $p\in M$, and defines a smooth $k$-tensor field.
 \end{wts}
 \begin{proof}
-    Fix $p\in M$, following $\Cref{lee-chp9:lemma-9.36}$ closely, since $(0,p)\in\mathcal{D}$ induces an open interval $J_0$ containing $0$ and an open neighbourhood $U_0$ containing $p$. We write $A$ in local coordinates for $(t,x)\in J_0\times U_0$. Shrinking $U_0$ if necessary, we it suffices to assume $\theta$ maps $J_0\times U_0$ into the same chart $(U,(x^i))$.\\
+    Fix $p\in M$, following \Cref{lee-chp9:lemma-9.36} closely, since $(0,p)\in\mathcal{D}$ induces an open interval $J_0$ containing $0$ and an open neighbourhood $U_0$ containing $p$. We write $A$ in local coordinates for $(t,x)\in J_0\times U_0$. Shrinking $U_0$ if necessary, we it suffices to assume $\theta$ maps $J_0\times U_0$ into the same chart $(U,(x^i))$.\\
 
     If $(t,x)\in J_0\times U_0$, $A_{\theta_t(x)}\in T^k(T_{\theta_t(x)}M)$ has coordinate representation
     \[
@@ -457,11 +448,11 @@ One of the better ways of introducing the wedge product is through the 'determin
             (\omega\wedge\eta)_p\defined \omega_p\wedge\eta_p
         \]
         We can inherit all the properties of the pointwise wedge product (see \Cref{lee-chp14:lemma14.11}), namely \begin{itemize}
-            \item Bi-linearity over $\real$,
+            \item Bilinearity over $\real$,
             \item Associativity,
             \item Anti-commutativity
         \end{itemize}
-        With this, the direct sum of all $\Omega^k(M)$ forms an associative, anticommutative graded algebra over $\real$, with the tensor wedge product as the algebra product.
+        With this, the direct sum of all $\Omega^k(M)$ forms an associative, anti-commutative graded algebra over $\real$, with the tensor wedge product as the algebra product.
         \[
             \Omega^*(M) = \bigoplus_{k\geq 0}\Omega^k(M)
         \]
@@ -524,17 +515,13 @@ One of the better ways of introducing the wedge product is through the 'determin
         Since the wedge product differs by the alternating product by a constant, $F^*$ commutes with the wedge product. The general case follows upon induction, and associativity of the wedge product.\\
 
         For the third claim, use linearity, and the pullback of the wedge product is the wedge product of the pullback, noting that each $y^{i_j}$ is a smooth function on $N$, so $F^*(dy^{i_j}) = d(y^{i_j}\circ F)$ by Proposition 11.25b in Lee, we state this Proposition for completeness:
-
         \begin{quote}
             Let $F:M\to N$ be a smooth map, and $u$ is a smooth function on $N$, then
             \[
                 F^*du = d(u\circ F)
             \]
         \end{quote}
-        
     \end{proof}
-
-    
     \begin{wts}[Corollary 14.21, Tensor Pullback of Top-Degree Forms]\label{lee-chp14:corollary-14.21}
         Let $F: M\to N$ be a smooth map between manifolds with or without boundary \emph{of the same rank $n$}. If $(x^i)$ and $(y^j)$ are local coordinates on open subsets $U$ and $V$ of $M$ and $N$ respectively, for every $u\in C(V,\real)$, 
         \[

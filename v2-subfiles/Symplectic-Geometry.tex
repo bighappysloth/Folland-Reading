@@ -1,7 +1,6 @@
 \documentclass[../main-v2-manifolds.tex]{subfiles}
-
-
 \begin{document}
+\graphicspath{{../images/}{images/}} 
 %%%%%%%%%
 %%%%%%%%%
 %%%%%%%%%
@@ -95,7 +94,7 @@ Let $M$ be a manifold modelled on $\realn$.
 If $N$ is another manifold and $u: M\to N$ a morphism, 
 \begin{itemize}
     \item for every $f\in C^\infty(N)$, the \emph{pullback} through $u$ is the precomposition $u^*f = f\circ u\in C^\infty(M)$, and
-    \item for every $A\in\cvField(N)$, the \emph{tensor field pullback} through $u$ is the precomposition.  It is defined by
+    \item for every $A\in\cvField(N)$, the \emph{tensor field pullback} through $u$ is the precomposition.  Ita is defined by
     \[
         (u^*A)(p)(v) = A[u(p)][du(p)(v)],\quad\text{where the square brackets are for readability.}
     \]
@@ -489,19 +488,12 @@ With this, we can extend the symplectic form $\omega_0$ to $L^2$ mappings into $
     \]    
 \end{definition}
 \begin{definition}[Symplectic Action]\label{def:symplectic action closed curves}
-    The \emph{symplectic action} (on closed curves) is a mapping $A:\Omega\to\real$ which \textbf{computes the area swept by the curve}. 
-    \begin{itemize}
-        \item For an arbitrary loop $\gamma\in\Omega$, its action $A(\gamma)$ is given by \cref{eq:loop space S1 r2n symplectic action}:
-        \begin{equation}
-            A(\gamma) = 2^{-1}\int_{S^1}\langle\mathring{\gamma},\gamma\rangle_{\omega_0} = 2^{-1}\int_{S^1}\det\qty(\mqty[\mathring{\gamma}^{i} & \gamma^{i}\\ \mathring{\gamma}^{n+i} & \gamma^{n+i}])dt
-            \label{eq:loop space S1 r2n symplectic action}
-        \end{equation}
-        \item or in terms of determinants, 
-        \begin{equation}
-            A(\gamma) = 2^{-1}\int_{S^1}\sum_{i=\underline{n}}\det\qty(\mqty[\mathring{\gamma}^i & \gamma^i \\ \mathring{\gamma}^{n+i} & \gamma^{n+i}]).
-            \label{eq:loop space S1 r2n symplectic action determinant formula}
-        \end{equation}
-    \end{itemize}
+    The \emph{symplectic action} (on closed curves) is a mapping $A:\Omega\to\real$ which \textbf{computes the area swept by the curve}. For an arbitrary loop $\gamma\in\Omega$, its action $A(\gamma)$ is given by \cref{eq:loop space S1 r2n symplectic action}:
+    \begin{equation}
+        A(\gamma) = 2^{-1}\int_{S^1}\langle\mathring{\gamma},\gamma\rangle_{\omega_0} = 2^{-1}\int_{S^1}\sum{i=\underline{n}}\det\qty(\mqty[\mathring{\gamma}^{i} & \gamma^{i}\\ \mathring{\gamma}^{n+i} & \gamma^{n+i}])dt
+        \label{eq:loop space S1 r2n symplectic action}
+    \end{equation}
+    
 \end{definition}
 \begin{lemma}[Symplectic Action in terms of $\lambda$]
     The symplectic action, as defined in \cref{eq:loop space S1 r2n symplectic action} on $\Omega$ is also given by the line integral over $\lambda$.
@@ -610,6 +602,6 @@ With this, we can extend the symplectic form $\omega_0$ to $L^2$ mappings into $
 
 
 \ifSubfilesClassLoaded{%
-  \bibliography{Functional-Analysis/manifolds-references.bib}%
+  \bibliography{v2-subfiles/manifolds-references}%
 }{}
 \end{document}

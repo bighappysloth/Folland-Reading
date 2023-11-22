@@ -309,6 +309,9 @@ $$
 \end{align*}
 $$
 
+# Metric and inverse metric tensors
+I have found the following [post](https://physics.stackexchange.com/questions/394492/extreme-confusion-with-the-metric-tensors?newreg=86d4e49461f141b39d9c26e09c5e969f) to be extremely helpful.
+
 # Volume forms
 The standard volume form on $\real^3$ is the nowhere vanishing $dV_{\real^3}$, defined by \eqref{eq:standard-vol-form}.
 

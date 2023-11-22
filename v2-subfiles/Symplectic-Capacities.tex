@@ -1,0 +1,84 @@
+\documentclass[../main-v2-manifolds.tex]{subfiles}
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+\makeatletter
+\newcommand*{\addFileDependency}[1]{% argument=file name and extension
+\typeout{(#1)}% latexmk will find this if $recorder=0
+% however, in that case, it will ignore #1 if it is a .aux or 
+% .pdf file etc and it exists! If it doesn't exist, it will appear 
+% in the list of dependents regardless)
+%
+% Write the following if you want it to appear in \listfiles 
+% --- although not really necessary and latexmk doesn't use this
+%
+\@addtofilelist{#1}
+%
+% latexmk will find this message if #1 doesn't exist (yet)
+\IfFileExists{#1}{}{\typeout{No file #1.}}
+}\makeatother
+
+\newcommand*{\myexternaldocument}[1]{%
+\externaldocument{#1}%
+\addFileDependency{#1.tex}%
+\addFileDependency{#1.aux}%
+}
+%------------End of helper code--------------
+%%%%%%%%
+% PUT ALL EXTERNAL DOCUMENTS YOU WANT TO REFERENCE IN THIS SECTION
+\myexternaldocument{./Preliminaries} % Reference the Preliminiaries Page
+\myexternaldocument{./Symplectic-Geometry}
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+
+\begin{document}
+%%%%%%%%
+%%%%%%%%
+\graphicspath{{../images/}{images/}} 
+%%%%%%%%
+%%%%%%%%
+
+\fchapter{5: Symplectic Capacities}
+\topheader{Introduction}
+%% Maybe add that the total volume of ?????
+We will discuss a class of correspondences from the set of all symplectic manifolds to $[0,+\infty]$ --- similar to the total measure or volume of a space --- but are preserved under symplectomorphisms. First, we recall two very special symplectic manifolds, the \emph{open $r$-ball} and the \emph{open $r$-cylinder}:
+\[
+    B(r) = \bigset{x\in\realtn,\: \sum_{i=\underline{n}} x^2_{i} + x^2_{n+i}=\abs{x}^2<r^2}\qqtext{and}Z(r) = \bigset{x\in\realtn,\: x^2_1 + x^2_{n+1}<r^2};
+\]
+which are both equipped with the standard symplectic form $\omega_0$.
+\begin{definition}[Symplectic capacity]
+    A \emph{symplectic capacity} $\mathfrak{C}$ is a function that assigns to each symplectic manifold $(M,\omega)$:  a number $\mathfrak{C}(M,\omega)\in[0,+\infty]$ satisfying the following properties
+    \begin{enumerate}
+        \item Monotonicity: Given two symplectic manifolds $(M,\omega)$ and $(N,\eta)$ \textbf{of the same dimension}, if $(M,\omega)$ embeds symplectically into $(N,\eta)$, then $\mathfrak{C}(M,\omega) \leq \mathfrak{C}(N,\eta)$.
+        \item Conformality: If $\alpha\neq 0$ is a real number, then $\mathfrak{C}(M,\alpha\omega) = \abs{\alpha}\mathfrak{C}(M,\omega)$.
+        \item Non-triviality: The capacities of $B(1)$ and $Z(1)$ are equal to $\pi$, \textbf{across all $n$}.
+    \end{enumerate}
+\end{definition}
+\providecommand{\Grom}{\mathrm{Gromov}}
+
+\begin{wts}[Gromov's Width]
+    If $(M,\omega)$ is a symplectic manifold modelled on $\realtn$, its \emph{Gromov's width} is the number 
+    \[
+        \Grom(M,\omega) = \sup\bigset{\pi r^2,\: \parbox{15em}{There exists a symplectic embedding of $(B(r),\omega_0)\hookrightarrow (M,\omega)$.}}.
+    \]
+    Gromov's width is a symplectic capacity, and it is minimal:
+    \[
+        \mathfrak{C}(M,\omega)\geq \Grom(M,\omega)\quad\text{for every symplectic manifold} (M,\omega).
+    \]
+\end{wts}
+
+\begin{wts}[Darboux's Theorem]\label{wts:darbouxs theorem}
+    Let $(M,\omega)$ be a symplectic manifold modelled on $\realtn$. At every point $p\in M$, there exists a chart $\varphi: U\to\hat{U}$ where its \textbf{inverse} satisfies
+    \[
+        (\varphi^{-1})^*\omega = \omega_0.
+    \]
+\end{wts}
+\begin{corollary}[Gromov's width is non-negative]
+    For every symplectic manifold $(M,\omega)$, the set $\{\pi r^2, \: B(r)\hookrightarrow (M,\omega) \text{ symplectically.}\}$ is non-empty.
+\end{corollary}
+% \ifSubfilesClassLoaded{% 
+%   \bibliography{v2-subfiles/manifolds-references}%
+% }{}
+\end{document}

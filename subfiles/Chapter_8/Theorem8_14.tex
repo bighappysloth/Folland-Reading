@@ -74,25 +74,25 @@
 \begin{proof}[Proof of Part C]
     Next, suppose that $f\in L^\infty$, and $f\in C(U)$, where $U$ is open in $\real^n$. We claim that 
     \[f\cnv \phi_t\to af\]
-    within the topology of uniform convergence on compact subsets of $U$. So that for every $K\in\cpt$, $K\subseteq U$\[\sup_{x\in K}\biggl|f\cnv\phi_t-af\biggr|\to 0,\,\text{as }t\to 0\]
+    within the topology of uniform convergence on compact subsets of $U$. So that for every compact $K\subseteq U$\[\sup_{x\in K}\biggl|f\cnv\phi_t-af\biggr|\to 0,\,\text{as }t\to 0\]
     First, a small technical Lemma.
     \begin{lemma}\label{814 lemma}
-        If $\phi\in L^1(\realn)$, then for every $\varepsilon>0$, there exists $E\in\cpt$, with
+        If $\phi\in L^1(\realn)$, then for every $\varepsilon>0$, there exists a compact $E\subseteq\realn$, with
         \[\int_{E^c}|\phi|=\norm{\phi\chi_{E^c}}_1<+\varepsilon\]
     \end{lemma}
     \begin{proof}
-        Assume that $\phi\geq 0$, if not, replace $\phi$ by $|\phi|$. Since $\cc{\realn}$ is dense in $L^1$ for every $\varepsilon2^{-1}>0$ there exists some $\psi\in\cc{\realn}$ with $\norm{\psi-\phi}_1<\varepsilon^{-1}$, and denote $E=\supp{\psi}\in\cpt$, then
+        Assume that $\phi\geq 0$, if not, replace $\phi$ by $|\phi|$. Since $\cc{\realn}$ is dense in $L^1$ for every $\varepsilon2^{-1}>0$ there exists some $\psi\in\cc{\realn}$ with $\norm{\psi-\phi}_1<\varepsilon^{-1}$, and denote the compact support of $\psi$ by $E=\supp{\psi}$, then
         \[\norm{|\psi|-|\phi|}_1\leq\norm{\psi-\phi}_1<\varepsilon2^{-1}\]
         So we can assume $\psi\geq 0$ as well, perhaps by relabelling $\psi$ by $|\psi|$. Then,
         \[\norm{\psi-\chi_E\phi}_1=\norm{\chi_E(\psi-\phi)}_1\leq\norm{\psi-\phi}_1<\varepsilon2^{-1}\]
         by monotonicity in $L^+$. The Triangle Inequality in $L^1$ gives
         \[\norm{\chi_{E^c}\phi}_1=\norm{\phi-\chi_E\phi}_1=\norm{\phi(1-\chi_E)}_1\leq \norm{\phi - \psi}_1 + \norm{\psi - \chi_{E}\phi}_1<\varepsilon\]
     \end{proof}
-        Back to the main proof of Part C, fix any $\varepsilon>0$, then by Lemma \ref{814 lemma}, $\phi$ induces some $E\in\cpt$ with $\norm{\chi_{E^c}\phi}_1<+\varepsilon$. By Lemma 8.4, $\chi_Kf\in \cc{\realn}\subseteq\ubc(\real^n)$. Uniform continuity of $\chi_Kf$ gives us the continuity of translations. Now for the same $\varepsilon>0$, there exists $r>0$, for every $w\in\realn$,
+        Back to the main proof of Part C, fix any $\varepsilon>0$, then by Lemma \ref{814 lemma}, $\phi$ induces some compact $E$ with $\norm{\chi_{E^c}\phi}_1<+\varepsilon$. By Lemma 8.4, $\chi_Kf\in \cc{\realn}\subseteq\ubc(\real^n)$. Uniform continuity of $\chi_Kf$ gives us the continuity of translations. Now for the same $\varepsilon>0$, there exists $r>0$, for every $w\in\realn$,
         \begin{equation}\label{814 condition 1}
             |w|<r\implies\norm{\tau_w\chi_Kf-\chi_Kf}_u<+\varepsilon
         \end{equation}
-        Since $E\in\cpt$, it is bounded, and let $t$ be a small positive number such that for every $z\in E$,
+        Since $E$ is compact, it is bounded, and let $t$ be a small positive number such that for every $z\in E$,
         \[|tz|<t\cdot(1+\sup_{z\in E}|z|)<r\]
         There exists such a a $t$, namely $t = r2^{-1}(1+\sup_{z\in E}|z|)^{-1}$. And for this $t>0$, it follows that for every $z\in E$, \[\sup_{x\in K}\left|\tau_{tz}f-f\right|<+\varepsilon\]
         Since this holds for every $z\in E$, we write

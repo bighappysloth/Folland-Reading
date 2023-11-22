@@ -29,6 +29,8 @@
     \providecommand{\wig}[1]{\widetilde{#1}}
     
     % Common Sets
+
+    % Real numbers and their products
     \renewcommand{\real}{\mathbb{R}}
     \providecommand{\realn}{{\mathbb{R}^n}}
     \providecommand{\realm}{{\mathbb{R}^m}}
@@ -37,7 +39,6 @@
     \providecommand{\natplus}{\mathbb{N}^+}
     \providecommand{\ints}{\mathbb{Z}}
     \providecommand{\rat}{\mathbb{Q}}
-    \providecommand{\borel}{{\mathbb{B}}}
     \providecommand{\complex}{{\mathbb{C}}}
     
     
@@ -94,7 +95,7 @@
     
     % Sets in Topology
     \providecommand{\Epsilon}{\mathcal{E}} % Base, generating set for Topology and Sigma algebras
-    \providecommand{\cpt}{\musEighth} % Compact set, see old command \quaver does not scale properly in Math Mode.
+    % \providecommand{\cpt}{\musEighth} % Compact set, see old command \quaver does not scale properly in Math Mode.
     \providecommand{\diam}{\operatorname{diam}} %diameter of a set
 
     \providecommand{\osub}{\:\mathring{\subseteq}\:}
@@ -147,6 +148,7 @@
     \providecommand{\acal}{\mathcal{A}}         % Algebra of Sets A
     \providecommand{\mcal}{\mathcal{M}}         % Sigma Algebra M
     \providecommand{\ncal}{\mathcal{N}}         % Sigma Algebra N
+    \providecommand{\borel}{{\mathbb{B}}}
 
     % Measures
     \providecommand{\mustar}{\mu^*}             % Outer Measure
@@ -225,6 +227,105 @@
     \renewcommand{\div}{\operatorname{div}}
     \renewcommand{\abs}[1]{\vert {#1} \vert}
     \providecommand{\bigabs}[1]{\biggl\vert {#1} \biggr\vert}
+
+
+    %%%% Manifold Shortcuts
+        
+    % Manifold half spaces
+    \providecommand{\half}{\mathbb{H}}
+    \providecommand{\halfn}{{\mathbb{H}^n}}
+    \providecommand{\halfm}{{\mathbb{H}^m}}
+    % \providecommand{\df}{\mathcal{D}}
+    
+    \providecommand{\Laut}{\operatorname{Laut}}
+    \providecommand{\Topliso}{\operatorname{Topliso}}
+    
+    % Shortcuts
+    
+    % Relations
+    \providecommand{\htp}{\simeq}    % Homotopy
+    \providecommand{\phtp}{\simeq_p} % Path Homotopy
+    
+    
+    % Path and PathClass
+    \NewDocumentCommand{\Path}{oo}{
+          {\operatorname{Path}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+        }
+    \NewDocumentCommand{\Loop}{o}{
+      {\operatorname{Loop}}\IfNoValueF{#1}{({#1})}
+    }
+    \NewDocumentCommand{\PathClass}{oo}{
+          {\operatorname{PathClass}}\IfNoValueF{#1}{({#1}\IfNoValueF{#2}{,\: {#2}})}
+        }
+        
+    \providecommand{\fgroup}[2]{\pi_{1}({#1},{#2})}
+    \providecommand{\inbhd}{\overset{\mathring}{\in}} % in neighbourhood
+    \providecommand{\opensubset}{\overset{\mathring}{\subseteq}} % open subset
+    \providecommand{\opensupset}{\overset{\mathring}{\supseteq}} % open superset
+    
+    \providecommand{\Alt}[1]{\operatorname{Alt}(#1)}
+    
+    \NewDocumentCommand{\Ul}{moo}{
+      \IfNoValueTF{#3}
+        {{#1}_{\underline{#2}}}
+        {{#1}_{#2,\underline{#3}}}
+    }
+    
+    \NewDocumentCommand{\UL}{moo}{
+      \IfNoValueTF{#3}
+        {{#1}_{\underline{#2}}}
+        {{#1}_{#2 \underline{#3}}}
+    }
+    
+    \NewDocumentCommand{\UPL}{moo}{
+      \IfNoValueTF{#3}
+        {{#1}^{\underline{#2}}}
+        {{#1}^{#2 \underline{#3}}}
+    }
+    
+    
+    \providecommand{\hook}{\mathop{\lrcorner}} % x into omega, holding the first coordinate at x
+    \providecommand{\vField}{\mathfrak{X}} % vector field 
+    \providecommand{\cvField}{\mathfrak{X}^*} % covector field
+    \def\isum{\mathop{\sum\nolimits{'}}} % increasing sum
+    \providecommand{\rad}[1]{\operatorname{rad}({#1})} % radical of 
+    \providecommand{\fourier}{\mathcal{F}}
+    \providecommand{\Torus}{\mathbb{T}}
+    \providecommand{\Torusn}{\mathbb{T}^n}
+    \providecommand{\dzz}{\mathcal{D}}
+    \providecommand{\hil}{\mathcal{H}}
+    \providecommand{\cell}{\operatorname{cell}}
+    
+    
+    
+    % Drawing circles around math operators
+    \newcommand\Bigcirc{\raisebox{-0.5mm}{\scalebox{1.5}{$\bigcirc$}}}
+    
+    % \bigowedge
+    \makeatletter
+    \newcommand*\bigowedge{\mathpalette\@bigowedge\relax}
+    \newcommand*\@bigowedge[1]{%
+      \mathbin{%
+        \ooalign{%
+          $#1\m@th\Bigcirc$\cr
+          \hidewidth$#1\m@th\wedge$\hidewidth\cr
+        }%
+      }%
+    }
+    \makeatother
+    
+    \makeatletter
+    \newcommand*\bigoprod{\mathpalette\@bigoprod\relax}
+    \newcommand*\@bigoprod[1]{%
+      \mathbin{%
+        \ooalign{%
+          $#1\m@th{\raisebox{-0.35mm}{\scalebox{1.5}{$\bigcirc$}}}$\cr
+          \hidewidth$#1\m@th\Pi$\hidewidth\cr
+        }%
+      }%
+    }
+    \makeatother
+
 % Settings
 \setlength{\parindent}{0pt} %default no indent
 

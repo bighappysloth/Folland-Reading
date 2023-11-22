@@ -1,6 +1,4 @@
 \documentclass[../main-v2-manifolds.tex]{subfiles}
-\begin{document}
-\graphicspath{{../images/}{images/}} 
 %%%%%%%%%
 %%%%%%%%%
 %%%%%%%%%
@@ -28,11 +26,18 @@
 %------------End of helper code--------------
 %%%%%%%%
 % PUT ALL EXTERNAL DOCUMENTS YOU WANT TO REFERENCE IN THIS SECTION
-\myexternaldocument{./Preliminaries-Compiled} % Reference the Preliminiaries Page
+\myexternaldocument{./Preliminaries} % Reference the Preliminiaries Page
 %%%%%%%%%
 %%%%%%%%%
 %%%%%%%%%
 %%%%%%%%%
+
+\begin{document}
+%%%%%%%%
+%%%%%%%%
+\graphicspath{{../images/}{images/}} 
+%%%%%%%%
+%%%%%%%%
 \fchapter{4: Symplectic Geometry}
 % Let $n\geq 1$. We will be working in $\real^{2n}$. Let us define
 % \begin{itemize}
@@ -55,17 +60,6 @@
 % \begin{remark}
 %     This transformation should be interpreted in the 'tensor' sense. If $n = 1$, then $J$ is a section of the $\Tau^2 TM$ bundle, so that $J_x\in L(T_xM, T_xM;\real)$ is a $2$-covariant tensor --- which can be identified as a bilinear form on each tangent space.
 % \end{remark}
-
-%%
-
-%%
-%% Custom commands for this section????
-\providecommand{\symatrix}{\begin{bmatrix}
-    0 & 1 \\ -1 & 0
-\end{bmatrix}}
-\newcommand{\bigdot}[1]{\overset{\bullet}{#1}}
-\providecommand{\realtn}{{\real^{2n}}}
-%%
 \topheader{Primer on Differential Forms}
 \begin{remark}[Finite-dimensional Manifolds]
     We assume all manifolds modelled over $\realn$ ($n\geq 1$) are of class $C^\infty$, and are equipped with Hausdorff, second-countable topologies.
@@ -280,6 +274,16 @@ Let $\varphi:\realtn\to\realtn$ be smooth, we say $\varphi$ is a \emph{symplecto
 \]
 where $D\varphi(x)$ refers to the Jacobian matrix of $\varphi$ evaluated at $x\in\realtn$. If $\varphi$ is a $C^\infty$ diffeomorphism and $\varphi$ and its inverse are symplectomorphisms, we call $\varphi$ a \emph{symplectic diffeomorphism} or a \emph{symplectic isomorphism}.
 \end{example}
+\begin{definition}[Symplectic action on $(M,\omega)$]
+    If $(M,\omega)$ is a symplectic manifold, we write
+    \[
+        \langle v_{1}, v_{2}\rangle_{\omega(p)} = \omega(p)(v_1, v_2)\quad\text{for every }p\in M,\text{ and } v_{1},v_2\in T_pM.
+    \]
+    Given an interval $\mathcal{I}\subseteq\real$, the \emph{symplectic pairing} between two curves is defined to be $A(\gamma,\eta) = 2^{-1}\int_{\mathcal{I}} \langle \mathring{\gamma},\eta\rangle_{\omega_0}$, for every $\gamma,\eta\in C^\infty(\mathcal{I}, M)$. The \emph{symplectic action} on a curve $\gamma$ is 
+    \[
+        A(\gamma) = A(\gamma,\gamma) =2^{-1}\int_{\mathcal{I}}\langle\mathring{\gamma},\gamma\rangle_{\omega}
+    \]
+\end{definition}
 %
 %
 %
@@ -299,8 +303,8 @@ where $D\varphi(x)$ refers to the Jacobian matrix of $\varphi$ evaluated at $x\i
     Symplectomorphisms are volume preserving. If $\varphi:M\to N$ is a symplectomorphism, then the determinant of the Jacobian matrix (with respect to any pair of charts) is $1$.
 \end{remark}
 %
-\begin{lemma}[Symplectomorphisms preserve the symplectic action]
-    If $\varphi$ is a symplectomorphism on $\realtn$, then $A(\varphi\circ\gamma) = A(\gamma)$ for every $\gamma\in \Omega$.
+\begin{lemma}[Symplectomorphisms from $\realtn$ preserve the symplectic action]\label{lem:symplectomorphisms from realtn preserve symplectic action}
+    If $\varphi:(\realtn,\omega_0)\to (M,\eta)$, then $A(\varphi\circ\gamma) = A(\gamma)$ for every $\gamma\in \Omega$.
 \end{lemma}
 \begin{proof}
     Because the exterior derivative commutes with the tensor pullback, we have
@@ -313,6 +317,9 @@ where $D\varphi(x)$ refers to the Jacobian matrix of $\varphi$ evaluated at $x\i
     \]
     It follows from Poincare's Lemma that the right hand vanishes, since it is the closed curve over an exact form.
 \end{proof}
+\begin{corollary}
+    If $\varphi: (M,\omega)\to (N,\eta)$ is a symplectomorphism, and $H_{dR}^{1}(M) = 0$, then $A(\varphi\circ\gamma) = A(\gamma)$ for every curve $\gamma$ in $M$.
+\end{corollary}
 \topheader{Hamiltonian Vector Fields}
 We begin with some well known sign conventions for area.
 \begin{quote}
@@ -394,7 +401,7 @@ In Euclidean space, $X_H$ has a simple structure, and is related to the $\nabla 
 \end{definition}
 We conclude this section by stating Weinstein's conjecture on $\realtn$.
 \begin{quote}
-    Does every energy surface on $(\realtn,\omega_0)$ admit a non-degnerate, closed orbit?
+    Does every energy surface on $(\realtn,\omega_0)$ admit a non-degenerate, closed orbit?
 \end{quote}
 A more abstract reformulation of the conjecture is given below.
 \begin{quote}
@@ -472,9 +479,9 @@ We return to a more abstract-analytic perspective. Let $(X,\mcal,\mu)$ be a meas
 \]
 With this, we can extend the symplectic form $\omega_0$ to $L^2$ mappings into $\realtn$. The following is a natural function space to consider.
 \begin{definition}[Loop Space]
-    We define the space of \emph{loops} as the function space $\Omega = C^\infty(S^1, \realtn)$. It is equipped with the \emph{symplectic pairing}, which is also by $\omega_0:\Omega\times\Omega\to\real$. Given $x,y\in\Omega$, $\omega_0(x,y)$ is defined by the integral in \cref{eq:loop space S1 r2n symplectic pairing}.
+    We define the space of \emph{loops} as the function space $\Omega = C^\infty(S^1, \realtn)$. It is equipped with the \emph{symplectic pairing}, which is denoted by $A:\Omega\times\Omega\to\real$;and $A(\cdot,\cdot)$ is defined by the integral in \cref{eq:loop space S1 r2n symplectic pairing}.
     \begin{equation}
-        \langle x,y\rangle_{\omega_0}= 2^{-1}\int_{S^1} \langle \mathring{x}(t), y(t) \rangle_{\omega_0} dt\quad\forall x,y\in\Omega.
+        A(x,y) = \langle \mathring{x},y\rangle_{\omega_0}= 2^{-1}\int_{S^1} \langle \mathring{x}(t), y(t) \rangle_{\omega_0} dt\quad\forall x,y\in\Omega.
         \label{eq:loop space S1 r2n symplectic pairing}
     \end{equation}
     \Cref{eq:loop space S1 r2n symplectic pairing} can be rewritten explicitly as the sum of half-determinants, which we now give
@@ -599,7 +606,178 @@ With this, we can extend the symplectic form $\omega_0$ to $L^2$ mappings into $
 \begin{corollary}
     Let $M,N$ and $u$ be as in \Cref{thm:wc reduction 2 symplectic structure }, the orbits of $X_F$ correspond bijectively to the orbits of $X_{F\circ u}$ through conjugation; and the same for the non-degenerate orbits.
 \end{corollary}
+\topheader{Quadratic Forms}
+Let $n\geq 1$ be fixed, a \emph{quadratic form} on $\realn$ is a mapping $q:\realn\to\real$ where $q(rx) = \abs{r}^2q(x)$ for every $r\in\real$ and $x\in \realn$ and
+\[
+   \langle x,y\rangle_{q} = q(x+y) - [q(x)+q(y)]\quad\text{is a symmetric bilinear form.}
+\]
+If $q$ is a quadratic form, it is \emph{positive definite} whenever $\langle \cdot,\cdot\rangle_q$ is. We denote the set of positive definite quadratic forms by $\mathbb{P}$. The following proposition shows that every $q\in\mathbb{P}$  can be symplectically diagonalized on $\realtn$. 
+\begin{wts}[Symplectic diagonalization of positive definite quadratic forms]
+    If $q\in \mathbb{P}$ , there exists a linear mapping $\varphi\in\operatorname{Sp}(n)$ such that $q\circ \varphi$  takes on the form:
+    \begin{equation}
+    q\circ\varphi(x) = \sum_{i=\underline{n}} \frac{x_i^2 + x_{n+i}^2}{r_i^2}\qqtext{where} 0<r_1\leq r_2\leq\cdots\leq r_n.
+    \label{eq:quadratic form symplectically diagonalized 1}
+\end{equation}
+    We call \cref{eq:quadratic form symplectically diagonalized 1} the \emph{normal form} of $q$.
+\end{wts}
+\begin{proof}
+    Postponed for now.
+\end{proof}
+\begin{definition}[Associated open ellipsoid]
+    Let $q$ be a positive definite quadratic form on $\realtn$; its \emph{asscoiated open ellipsoid}  is the subset $\Epsilon_q=[q<1]$. If $q$ is given in normal coordinates,
+    \[
+        \Epsilon_q = \bigset{x\in\realtn,\:\sum_{i=\underline{n}} r_j^{-2}(x_j^2 + x_{n+j}^2)<1}, \qqtext{and} \partial \Epsilon_q = \{x\in\realtn, \: q(x) = 1\}.
+    \]
+\end{definition}
+\topheader{Orbits on Ellipsoids}
+We see that reparametrization by a diffeomorphism $\alpha$ does not affect the \textbf{magnitude} of the symplectic action. Indeed, if $\gamma$ is a closed characteristic, and $\alpha$ a reparametrization, then 
+\[
+  A(\gamma)=\int_{\gamma}\lambda = \pm \int_{\gamma\circ\alpha}\lambda = \pm A(\gamma\circ \alpha).
+\]
+In the previous chapter, we have also proven that symplectomorphisms on $\realtn$ leave the action invariant; so it makes sense to speak of the action across closed characteristics on an energy surface (on $\realtn$). Our main result in this section concerns the \textbf{non-constant, periodic solutions} of Hamiltonian flows on the boundaries of ellipsoids. \\
 
+Let $X$ be a vector field on a manifold $M$.
+\begin{itemize}
+    \item A \emph{solution} to $X$ is a mapping $\gamma: \mathcal{I}\to M$ where $\mathring{\gamma}(t) = X(\gamma(t)$ at every $t$ in the open interval $\mathcal{I}$.
+    \item An \emph{orbit} of $X$ is a non-constant solution.
+    \item A solution $\gamma$, to $X$ is said to be of $p$-type, or a $p$-solution whenever it is periodic; and respectively for orbits of $X$.
+\end{itemize}
+Let $(M,\omega)$ be a symplectic manifold, and $S$ an energy surface.
+\begin{itemize}
+    \item A \emph{smooth defining function} of $S$ is a function $F\in C^\infty(M,\real)$ such that $S$ is a regular level set of $F$. We sometimes say $F$ is a \emph{defining function} of $S$ when it is implicit.
+    \item A \emph{characteristic} of $S$ is the image $\gamma(\mathcal{I})$ where $\gamma$ is a solution of the Hamiltonian flow of a defining function of $S$. 
+    \item Given a characteristic of $S$, $\gamma(\mathcal{I})$. It is \emph{closed} whenever $\gamma$ is of $p$-type, and is \emph{non-degenerate} whenever $\gamma$ is an orbit.
+\end{itemize}
+
+
+We will prove \Cref{thm:symplectic action on the boundary of ellipsoids} in a few steps.
+\begin{wts}[Action on the boundary of ellipsoids]\label{thm:symplectic action on the boundary of ellipsoids}
+    Let $q$ be a positive definite quadratic form, (not necessarily normal with respect to standard coordinates), then:
+    \[
+        \pi r_1^2 = \inf\bigset{\abs{A(\gamma)},\: \parbox{21em}{$\gamma$ is a non-degenerate closed characteristic of $\partial \Epsilon_q$.}},
+    \]
+    and the infimum is attained.
+\end{wts}
+\begin{step}[Orbits of $X_q$ on $\partial \Epsilon_q$]
+    Suppose $q = \sum_{i=\underline{n}}(x^2_{i} + x^2_{n+i})$ is in normal form. Every non-constant solution $\gamma$ on $\partial \Epsilon_q$ is given by
+    \[
+        \gamma(t) = \sum_{i=\underline{n}} [c_{\lambda_i}\gamma_i(0) + s_{\lambda_i}\gamma_{n+i}(0)]e_i + [-s_{\lambda_i}\gamma_i(0) + c_{\lambda_i}\gamma_{n+i}(0)]e_{n+i},
+    \]
+    or equivalently: $\gamma(t) = \sum_{i=\underline{n}}\exp(\lambda_j\sysmallmatrix t)\begin{bsmallmatrix}
+            \gamma_i(0) \\ \gamma_{n+i}(0)
+        \end{bsmallmatrix}$ with $\sysmallbasis$ suppressed.
+\end{step}
+\begin{proof}[Proof of Step 1]
+    Making the substitution, $\lambda_i = 2{r_i}^{-2}$, we can rewrite \cref{eq:quadratic form symplectically diagonalized 1}, which is convenient when we compute the gradient of $q\circ\varphi$.
+\begin{equation}
+    q\circ\varphi(x) = 2^{-1}\sum_{i=\underline{n}}\lambda_i(x_i^2 + x_{n+i}^2)\qqtext{where} 0<\lambda_n\leq\lambda_{n-1}\leq\cdots\leq\lambda_1.
+    \label{eq:quadratic form symplectically diagonalized 2}
+\end{equation}
+Suppose $q$ is given by the right hand side of \cref{eq:quadratic form symplectically diagonalized 2}, then $\nabla q(x) = (\lambda_1x_1,\:\ldots,\:\lambda_nx_n,\:\lambda_1x_{n+1},\:\ldots,\:\lambda_nx_{2n})$; or
+\[
+    \nabla q(x) = \sum_{i=\underline{n}} \lambda_i(x_ie_i + x_{n+i}e_{n+i}) \qqtext{and}X_q(x) = \sum_{i=\underline{n}}\lambda_i(x_{n+i}e_i - x_ie_{n+i})
+\]
+Before proceeding any further, we will need to work out some computations involving symplectic bases (see \cite{Roman2007Advanced}).
+\begin{note}[Hyperbolic decompositions]
+    Given a vector $x = (x_1, \ldots,x_n,x_{n+1},\ldots,x_{2n})$, we can write $x$ in terms of the symplectic bases:
+    \[
+        x = \sum_{i=\underline{n}} x_ie_i + x_{n+i}e_{n+i} = \sum_{i=\underline{n}} \begin{bmatrix}e_i & e_{n+i}\end{bmatrix} \begin{bmatrix}x_i \\ x_{n+i}\end{bmatrix}.
+    \]
+    Where $J$ acts on $x$ in a convenient manner:
+    \[
+        Jx = \sum_{i=\underline{n}}\begin{bmatrix}
+            e_i & e_{n+i}
+        \end{bmatrix}\symatrix \begin{bmatrix}
+            x_i \\ x_{n+i}
+        \end{bmatrix} = \sum_{i=\underline{n}}\begin{bmatrix}
+            e_i & e_{n+i}
+        \end{bmatrix}\begin{bmatrix}
+            x_{n+i} \\ -x_{i}
+        \end{bmatrix}.
+    \]
+    Now, suppose we are given a Hamiltonian $F\in C^\infty(\realtn,\real)$, its Hamiltonian flow given by
+    \[
+        X_F = J\nabla F = \sum_{i=\underline{n}}\begin{bmatrix}
+            e_i & e_{n+i}
+        \end{bmatrix}\begin{bmatrix}
+            \partial_{n+i}F \\ (-1)\partial_{i}F 
+        \end{bmatrix}.
+    \]
+\end{note}
+If $\gamma(t) = (\gamma_1,\ldots,\gamma_{2n})$ is a solution to $X_q$ it must satisfy $\mathring{\gamma} = X_q(\gamma)$. Suppressing $\sysmallbasis$ within the summation, it follows that
+\[
+\sum \mathring{\gamma}_ie_{i} + \mathring{\gamma}_{n+i}e_{n+i} =\sum\lambda_i\sysmallmatrix \begin{bsmallmatrix}
+    \gamma_i \\ \gamma_{n+i}
+\end{bsmallmatrix}\quad\text{where }i=\underline{n}\] 
+Comparing coefficients, we see that for $j = \underline{n}$, and $z_j(t) = (\gamma_j, \gamma_{n+j})\in\real^2$:
+\[
+    \mathring{z}_j = \lambda_j \sysmallmatrix z_j\qqtext{implies} z_j(t) = \exp(\lambda_j \sysmallmatrix t)z_j(0).
+\]
+Each $z_j$ has eigenvalues $\pm i\lambda_j$, where $i = \sqrt{-1}$ in this context. Computing $\exp(\lambda_j \sysmallmatrix t)$ with the eigenvalues gives us
+\[
+    \exp(\lambda_j \sysmallmatrix t) = \begin{bmatrix}
+        \cos(\lambda_j t) & \sin(\lambda_j t)\\
+        -\sin(\lambda_j t) & \cos(\lambda_j t)
+    \end{bmatrix},\quad\text{which has period }2\pi \lambda_j^{-1} = \pi r_j^2.
+\]
+\begin{note}[Matrix exponentials]
+    Write $J_2 = \symatrix$, and $J = J_{2n}$ is still the standard symplectic form on $\realtn$, then
+    \begin{equation}
+        \exp(\lambda J_2 t) = \begin{bmatrix}
+            \cos(\lambda t) & \sin(\lambda t)\\
+            -\sin(\lambda t) & \cos(\lambda t)
+        \end{bmatrix} = \cos(\lambda t)\id{\real^2} + \sin(\lambda t)J_2;
+        \label{eq:matrix exponential j2 lambda}
+    \end{equation}
+    and for the general case with the substitution $c_\lambda(t) = \cos(\lambda t)$, (resp. $s_\lambda(t)$):
+    \begin{equation}
+        \exp(\lambda J t) = \begin{bmatrix}
+            c_\lambda \id{\realn} & s_\lambda \id{\realn} \\ 
+            -s_\lambda \id{\realn} & c_{\lambda} \id{\realn}
+        \end{bmatrix} = \cos(\lambda t)\id{\realtn} +\sin(\lambda t)J.
+        \label{eq:matrix exponential j r2n lambda}
+    \end{equation}
+    % There is
+\end{note}
+Suppose $\gamma(0) = (\gamma_{\underline{2n}}(0))\in\partial\Epsilon_q$, then the integral curve generated by $\gamma(0)$ is the sum of the eigenmodes $\pm\lambda_i$:
+\[
+    \gamma(t) = \sum_{i=\underline{n}}\exp(\lambda_j\sysmallmatrix t)\begin{bsmallmatrix}
+        \gamma_i(0) \\ \gamma_{n+i}(0)
+    \end{bsmallmatrix},\quad\text{with }\sysmallbasis \text{ suppressed.}
+\]
+We note that: because $0<r_1\leq r_2\leq\cdots\leq r_n$, the minimum period of a non-degenerate orbit is $\pi r_1^2$. 
+\end{proof}
+\begin{step}[Action of solutions of $X_q$ on $\partial \Epsilon_q$]
+    Let $q = \sum_{i=\underline{n}} r_i^{-2}(x^2_i + x^2_{n+i})$ be a positive definite ellipsoid in normal form on $(\realtn,\omega_0)$, then
+    \[
+        \pi r_1^2 = \inf\bigset{\abs{A(\gamma)},\: \parbox{25em}{$\gamma$ is a non-constant, periodic integral curve of $X_q$ on $\partial \Epsilon_q$.}}.
+    \]
+\end{step}
+\begin{proof}[Proof of Step 2]
+    Suppose $q$ is in normal form, and let $\gamma(t)$ be such a curve on $\partial \Epsilon_q$, and define 
+    \begin{multicols}{3}
+    \begin{itemize}
+        \item $z_i = \gamma_i(0)$ for $i = \underline{2n}$,
+        \item $\vec{z}_i = (z_i, z_{n+i})$ for $i = \underline{n}$,
+        \item $J_2 = \sysmallmatrix$.
+    \end{itemize}    
+    \end{multicols}
+    Notice that $\dv{t}e^{\lambda_i J_2 t} = \lambda_i J_2e^{\lambda_i J_2 t}$, and from Step 1, we compute the integrand of $A(\gamma)$:
+    \begin{align*}
+        2^{-1}\langle \mathring{\gamma}(t),\gamma(t)\rangle_{\omega_0} &= 2^{-1}\sum \left\langle \lambda_i J_2 e^{\lambda_i \sysmallmatrix t} \vec{z}_i,\quad J_2e^{\lambda_i \sysmallmatrix t}\vec{z}_i\right\rangle_{\realtn}\\[2ex]
+        &= 2^{-1}\sum \lambda_i\abs{\vec{z}_i}^2=q(\gamma(t))=1
+    \end{align*}
+    Hence, $A(\gamma) = L$ where $L$ is the period of $\gamma$, and is minimized whenever $L = \pi r_1^2$. For an arbitrary $q$, there exists a linear symplectic mapping $\varphi$ such that $\varphi\circ q$ is in normal form. Since $\varphi$ preserves the symplectic action, this proves Step 2.
+\end{proof}
+\begin{step}[Action of arbitrary Hamiltonian flows on $\partial \Epsilon_q$]
+    Let $q\in\mathbb{P}$, and $F$ define the boundary of $\Epsilon_q$, then
+    \[
+        \pi r_1^2 = \inf\bigset{\abs{A(\gamma)},\: \parbox{22em}{$\gamma$ is a non-constant, periodic solution to $X_F$ on $\partial \Epsilon_q$.}}.
+    \]   
+\end{step}
+\begin{proof}[Proof of Step 3]
+    From \Cref{thm:wc reduction 1 hamiltonian}, we know that the orbits of $X_q$ and $X_F$ on $\partial \Epsilon_q$ correspond one-to-one with each other. Given an orbit, $\gamma$ of  $X_F$, the composition $\gamma\circ\alpha$ is an orbit of $X_q$ for some diffeomorphism $\alpha$. Therefore, $A(\gamma) = A(\gamma\circ\alpha) = \pm A(\gamma)$ and the proof is complete.
+\end{proof}
 
 \ifSubfilesClassLoaded{%
   \bibliography{v2-subfiles/manifolds-references}%

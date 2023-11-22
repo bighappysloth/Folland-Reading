@@ -436,22 +436,22 @@ If $(U,\varphi)\in X$ is a chart whose domain intersects $S$, the question then 
 
 The range of the restricted chart is still a subset of $E$, and not $E_1$. An easy fix to this would be to require $E_1$ \textbf{to split in $E$} (and shrinking $U$ using a basis argument). Let $\theta$ be a toplinear isomorphism between $E$ and $E_1\times E_2$, and we obtain \cref{eq:motivation-submanifold-modified}.
 \begin{equation}\label{eq:motivation-submanifold-modified}
-    \theta\varphi(S\cap U) = \hat{U}_1\times a_2\qqtext{where} \hat{U}_1\osub E_1 \text{ and }a_2\in E_2
+    \theta\varphi(S\cap U) = \hat{U}_1\times a_2\qqtext{where} \hat{U}_1\osub E_1 \text{ and }a_2\in E_2.
 \end{equation}
 Identifying $\hat{U}$ with $\theta(\hat{U})$, and requiring $U_1\times a_2$ to be in $\theta(\hat{U})$, we arrive at the following definition.
 \begin{definition}[Submanifold]
     Let $X$ be a manifold, and $S$ a subset of $X$. We call $S$ a \emph{submanifold} of $X$ if there exist split subspaces $E_1$, $E_2$ of $E$; such that, every $p\in S$ is contained in the domain of some chart $(U,\varphi)$ in $X$. Where
     \begin{equation}\label{eq:submanifold-slice-chart-splits}
-        \varphi: U\to \hat{U}\cong \hat{U}_1\times \hat{U}_2,\qqtext{where} \hat{U}_i\osub E_i\qqtext{for} i=\underline{2}.
+        \varphi: U\to \hat{U}\cong \hat{U}_1\times \hat{U}_2,\qqtext{where} \hat{U}_i\osub E_i\qqtext{for} i=\underline{2},
     \end{equation}
-    and there exists an element $a_2\in \hat{U}_2$
+    and there exists an element $a_2\in \hat{U}_2$ where
     \begin{equation}\label{eq:submanifold-slice-chart-level-set}
-        \varphi(U\cap S) = \hat{U}_1\times a_2
+        \varphi(U\cap S) = \hat{U}_1\times a_2.
     \end{equation}
 \end{definition}
 We call a chart satisfying \cref{eq:submanifold-slice-chart-splits,eq:submanifold-slice-chart-level-set} a \emph{slice chart} of $S$; to simplify what follows, we write $\varphi^i = \operatorname{proj}_i\varphi$ for $i = \underline{2}$ for any slice chart $(U)$. Given that $\operatorname{proj}_i$ is a morphism between open subsets of Banach spaces, $\varphi^i$ is again a morphism. In particular, $\varphi^1$ is a bijection from $U^s=U\cap S$ onto $\hat{U}_1$; the latter being an open subset of $E_1$. To show $S$ is indeed a manifold it remains to show the collection of charts in \cref{eq:submanifold-induced-atlas} forms a $C^p$ atlas modelled $E_1$, which we will prove in \cref{prop:structure-of-submanifold}
 \begin{equation}\label{eq:submanifold-induced-atlas}
-    \acal = \bigset{(U^s,\varphi^s) = (U^s, \varphi^1),\:\: (U,\varphi)\text{ is a slice chart of }S}
+    \acal = \bigset{(U^s,\varphi^s) = (U^s, \varphi^1),\:\: (U,\varphi)\text{ is a slice chart of }S}.
 \end{equation}
 \begin{wts}[Structure of a submanifold]\label{prop:structure-of-submanifold}
     If $S$ is a submanifold of $X$, \cref{eq:submanifold-induced-atlas} defines a $C^p$ atlas over the space $E_1$. The manifold $S$ has a topology that coincides with the subspace topology. Furthermore, the inclusion map $\iota_S: S\to X$ is a morphism and an embedding.
@@ -459,7 +459,7 @@ We call a chart satisfying \cref{eq:submanifold-slice-chart-splits,eq:submanifol
 \begin{proof}
     Each of the charts in \cref{eq:submanifold-induced-atlas} is in bijection with an open subset of $E_1$. Let $(U^s_{\alpha}, \varphi^s_\alpha)$ and $(U^s_{\beta}, \varphi^s_\beta)$ be overlapping charts in $\acal$. Using $\theta$ as our toplinear isomorphism from $E$ onto $E_1\times E_2$ as usual. 
     \begin{itemize}
-        \item By \cref{eq:submanifold-slice-chart-splits}, $(U^s_\alpha,\varphi^s_\alpha)$ is induced by a chart $(U_\alpha,\varphi_\alpha)\in X$.
+        \item By \cref{eq:submanifold-slice-chart-splits}, $(U^s_\alpha,\varphi^s_\alpha)$ is induced by a chart $(U_\alpha,\varphi_\alpha)\in X$,
         \[
             \varphi_\alpha: U_\alpha\to \hat{U}_{\alpha}\osub E\qqtext{which splits into }\theta(\hat{U}_\alpha) = \hat{U}_{\alpha}^s\times \hat{U}_{2,\alpha}
         \]
@@ -1165,7 +1165,7 @@ We also have the following terminology for points in a manifold with boundary $X
 
 
 \ifSubfilesClassLoaded{%
-  \bibliography{Functional-Analysis/manifolds-references.bib}%
+  \bibliography{v2-subfiles/manifolds-references}%
 }{}
 
 \end{document}

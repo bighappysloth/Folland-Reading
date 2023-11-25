@@ -13,12 +13,33 @@
 \definecolor{tab-brown}{rgb}{0.588,0.463,0.384}
 \definecolor{tab-grey}{rgb}{0.722,0.690,0.675}
 
+%%%
+%Counters
+\newcounter{theproblem}
+\newcounter{thechapter}
+\newcounter{thestep}
+%%%
+% Define fChapter
+%for putting chapter numbers after the title
+\titleformat{\section}[hang]{%
+    \normalfont\Large\bfseries% 
+}%
+{}{0em}{}{}
 
+% Chapters
+\newcommand{\fchapter}[1]%
+{%
+    \phantomsection\chapter*{Chapter #1}%
+    \setcounter{theproblem}{0}%
+    \stepcounter{thechapter}
+    \addcontentsline{toc}{chapter}{Chapter #1}\newpage% Chapter Number
+} 
+%%%%
 % Custom QED symbol
 \renewcommand\qedsymbol{$\blacksquare$}
 
 % Problem Number for assignments
-\newcounter{theproblem}
+
 
 \newcommand{\problem}[1]{%
     \phantomsection\subsection*{Theorem #1}%
@@ -95,7 +116,7 @@
     style=definitionstyle,
     backgroundcolor=tab-blue!5
 }
-\newcounter{thestep}
+
 \mdtheorem[style=stepstyle]{mysteps}{}[thestep]
 \renewcommand{\themysteps}{Step \arabic{thestep}}
 
@@ -130,16 +151,16 @@
     backgroundcolor=tab-green!5,
 }
 
-\mdtheorem[style=definitionstyle]{definition}{Definition}[theproblem]
-\mdtheorem[style=theoremstyle]{wts}{Proposition}[theproblem]
+\mdtheorem[style=definitionstyle]{definition}{Definition}[thechapter]
+\mdtheorem[style=theoremstyle]{wts}{Proposition}[thechapter]
 
-\mdtheorem[style=theoremstyle]{lemma}{Lemma}[theproblem]
-\mdtheorem[style=theoremstyle]{corollary}{Corollary}[theproblem]
+\mdtheorem[style=theoremstyle]{lemma}{Lemma}[thechapter]
+\mdtheorem[style=theoremstyle]{corollary}{Corollary}[thechapter]
 
-\mdtheorem[style=remarkstyle]{remark}{Remark}[theproblem]
+\mdtheorem[style=remarkstyle]{remark}{Remark}[thechapter]
 
-\mdtheorem[style=notestyle]{note}{Note}[theproblem]
-\mdtheorem[style=examplestyle]{example}{Example}[theproblem]
+\mdtheorem[style=notestyle]{note}{Note}[thechapter]
+\mdtheorem[style=examplestyle]{example}{Example}[thechapter]
 
 
 % Other header definitions or configurations
@@ -164,22 +185,6 @@
 \newenvironment{enumroman}%
     {\begin{enumerate}[label=(\roman*), leftmargin=*]}%
     {\end{enumerate}}
-
-
-%for putting chapter numbers after the title
-\titleformat{\section}[hang]{%
-    \normalfont\Large\bfseries% 
-}%
-{}{0em}{}{}
-
-% Chapters
-\newcommand{\fchapter}[1]%
-{%
-    \phantomsection\chapter*{Chapter #1}%
-    \setcounter{theproblem}{0}%
-    \addcontentsline{toc}{chapter}{Chapter #1}\newpage% Chapter Number
-} 
-
 
 
 

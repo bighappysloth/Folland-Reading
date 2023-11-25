@@ -40,6 +40,12 @@
 %%%%%%%%
 %%%%%%%%
 
+% External Commands to be used
+\providecommand{\Grom}{\mathrm{Gromov}}
+\providecommand{\Periodic}{\mathrm{Periodic}}
+\providecommand{\frakc}{\mathfrak{C}}
+%
+
 \fchapter{5: Symplectic Capacities}
 \topheader{Introduction}
 %% Maybe add that the total volume of ?????
@@ -47,25 +53,86 @@ We will discuss a class of correspondences from the set of all symplectic manifo
 \[
     B(r) = \bigset{x\in\realtn,\: \sum_{i=\underline{n}} x^2_{i} + x^2_{n+i}=\abs{x}^2<r^2}\qqtext{and}Z(r) = \bigset{x\in\realtn,\: x^2_1 + x^2_{n+1}<r^2};
 \]
-which are both equipped with the standard symplectic form $\omega_0$.
+which are both equipped with the standard symplectic form $\omega_0$.\\
+
+We have yet to prove that all open submanifolds of a manifold are symplectic submanifolds. Which we will do so now.
+\begin{wts}[Open submanifolds are symplectically embedded]
+    If $U$ is an open subset of a symplectic manifold $(M,\omega)$, then $(U,\omega)$ is again a symplectic submanifold, and the inclusion map $\iota_U$ is a symplectic embedding.
+\end{wts}
+\begin{proof}
+    It is clear that $U$ is an embedded submanifold of $M$ by elementary manifold theory. Because $U$ has codimension $0$, the differential of the inclusion map $\iota_U$ is the identity (in the sense of a mapping between abstract tangent spaces). Therefore the pullback $\iota_U^*(\omega) = \omega$ as needed. 
+\end{proof}
+\begin{lemma}
+    Let $(U,\omega_0)$ be a sympelctic submanifold of $(\realtn,\omega_0)$. For every $\alpha\neq 0$, $(\alpha U,\omega_0)$ is symplectically isomorphic to $(U,\sgn(\alpha)\abs{\alpha}^2\omega_0)$, where $\alpha U=\{\alpha x,\: x\in U\}=\{x\in\realtn,\: \alpha^{-1}x\in U\}$.
+\end{lemma}
+\begin{proof}
+    We construct a mapping which relates $\alpha U$ with $U$. Define $\varphi:\realtn\to\realtn$ where $\varphi(x) = \alpha^{-1}x$. Its Jacobian is simply $\alpha^{-1}\id{\realtn}$ at every point, and it is clear that $\varphi\vert_{\alpha U}$ is a diffeomorphism onto $U$.\\
+
+    Next, we claim that $(\alpha U,\omega_0)$ is symplectically isomorphic to $(U,\sgn(\alpha)\abs{\alpha}^2\omega_0)$. This is easy to see, because the differential of $\varphi$ is $\alpha^{-1}$, and it pops out by a factor of $\alpha^{-2}$. Indeed, fix any $\alpha x\in \alpha U$, then 
+    \[
+        \varphi^*(\sgn(\alpha)\abs{\alpha}^2\omega_0)(\alpha x)(v_1,v_2) = (\sgn(\alpha)\abs{\alpha}^2\omega_0)(x)\biggl(\alpha^{-1}v_1, \alpha^{-1}v_2\biggr) = \omega_0(x)(v_1,v_2).
+    \]
+\end{proof}
 \begin{definition}[Symplectic capacity]
-    A \emph{symplectic capacity} $\mathfrak{C}$ is a function that assigns to each symplectic manifold $(M,\omega)$:  a number $\mathfrak{C}(M,\omega)\in[0,+\infty]$ satisfying the following properties
+    A \emph{symplectic capacity} $\frakc$ is a function that assigns to each symplectic manifold $(M,\omega)$:  a number $\frakc(M,\omega)\in[0,+\infty]$ satisfying the following properties
     \begin{enumerate}
-        \item Monotonicity: Given two symplectic manifolds $(M,\omega)$ and $(N,\eta)$ \textbf{of the same dimension}, if $(M,\omega)$ embeds symplectically into $(N,\eta)$, then $\mathfrak{C}(M,\omega) \leq \mathfrak{C}(N,\eta)$.
-        \item Conformality: If $\alpha\neq 0$ is a real number, then $\mathfrak{C}(M,\alpha\omega) = \abs{\alpha}\mathfrak{C}(M,\omega)$.
+        \item Monotonicity: Given two symplectic manifolds $(M,\omega)$ and $(N,\eta)$ \textbf{of the same dimension}, if $(M,\omega)$ embeds symplectically into $(N,\eta)$, then $\frakc(M,\omega) \leq \frakc(N,\eta)$.
+        \item Conformality: If $\alpha\neq 0$ is a real number, then $\frakc(M,\alpha\omega) = \abs{\alpha}\frakc(M,\omega)$.
         \item Non-triviality: The capacities of $B(1)$ and $Z(1)$ are equal to $\pi$, \textbf{across all $n$}.
     \end{enumerate}
 \end{definition}
-\providecommand{\Grom}{\mathrm{Gromov}}
+It is clear that, if two symplectic manifolds are symplectically isomorphic, then their symplectic capacities must agree. Furthermore,
+\begin{wts}[Scaling of open subsets of $\realtn$]\label{thm:symplectic capacity scaling open subsets}
+    Let $U$ be an open subset of $\realtn$, then $(U,\omega_0)$ is a symplectic manifold that is symplectically embedded into $(\realtn,\omega_0)$, and 
+    \[
+        \frakc(\alpha U,\realtn) = \abs{\alpha}^2\frakc(U,\realtn)\quad\text{ for all }\alpha\neq 0,\quad\text{ where } \alpha U = \{x\in\realtn,\: \alpha x\in U\}.
+    \]
+\end{wts}
+\begin{proof}
+    First, every $U\osub\realtn$ is an embedded submanifold of $\realtn$, with the inclusion $\iota_{U} = \id{U}$. At every point $x\in U$: we see that $\iota_U^{*}(\omega_0)(x)(\cdot,\cdot) = \omega_0(x)(d\id{U}(\cdot),\: d\id{U}(\cdot))$ which is equal to the symplectic form on $U$.\\
 
-\begin{wts}[Gromov's Width]
+    Given a capacity $\frakc$, $(\alpha U,\omega_0)$ is again an open submanifold of $\realtn$, for all $\alpha\neq 0$; so $\frakc(\alpha U,\omega_0)$ makes sense. \\
+    By conformality of $\frakc$, $\frakc(\alpha U,\omega_0) = \frakc(U,\pm\abs{\alpha}^2\omega_0) = \abs{\alpha}^2\frakc(U,\omega_0)$.
+\end{proof}
+\begin{wts}[Capacities of Ellipsoids of $\realtn$]
+    Let $\frakc$ be a capacity, then $\frakc(\Epsilon,\omega_0) = \pi r_1^2$ for every open ellipsoid $\Epsilon$ with $r(\Epsilon) = (r_1,\ldots, r_n)$.
+\end{wts}
+\begin{proof}
+    By \Cref{thm:symplectic capacity scaling open subsets}, we see that
+    \begin{align}
+        \frakc(B(r),\omega_0) &= \abs{r}^2\frakc(B(1),\omega_0) = \pi\abs{r}^2\\
+        \frakc(Z(r),\omega_0) &= \abs{r}^2\frakc(Z(1),\omega_0) = \pi\abs{r}^2.
+    \end{align}
+    There exists a linear symplectic isomorphism that puts $(\Epsilon,\omega_0)$ in normal form --- with $\varphi(\Epsilon,\omega_0) = (\Epsilon_{\mathrm{normal}}, \omega_0)$, and because $U\osub V\osub \realtn$ means $U$ symplectically embeds into $V$, and
+    \[
+        \frakc(\varphi B(r_1),\omega_0)\leq \frakc(\varphi\Epsilon,\omega_0)\leq \frakc(\varphi Z(r_1),\omega_0)\qqtext{implies} \frakc(\Epsilon,\omega_0) = \pi r_1^2.
+    \]
+\end{proof}
+Every capacity function $\frakc$ induces a smaller capacity which takes the monotonicity of the open embeddings into account. We define 
+\begin{definition}[Inner capacity]
+    If $\frakc$ is a capacity, the \emph{inner capacity} of $\frakc$ is a function
+    \[
+        \frakc^{\vee}(M,\omega) = \sup\bigset{(U,\omega),\: U\osub M\text{ and hides in } M}.
+    \]
+    Notice that the open submanifold $U$ inherits the same symplectic form as $M$. 
+\end{definition}
+\begin{wts}[Properties of the inner capacity]
+    The inner capacity is a symplectic capacity, and $\frakc^\vee\leq \frakc$.
+\end{wts}
+\begin{definition}[Inner regularity of symplectic capacities]
+    A symplectic capacity $\frakc$ is \emph{inner regular} whenever $\frakc^\vee = \frakc$.
+\end{definition}
+\topheader{Gromov's Width}
+\begin{definition}[Gromov's Width]
     If $(M,\omega)$ is a symplectic manifold modelled on $\realtn$, its \emph{Gromov's width} is the number 
     \[
         \Grom(M,\omega) = \sup\bigset{\pi r^2,\: \parbox{15em}{There exists a symplectic embedding of $(B(r),\omega_0)\hookrightarrow (M,\omega)$.}}.
     \]
+\end{definition}
+\begin{wts}[Properties of Gromov's Width]
     Gromov's width is a symplectic capacity, and it is minimal:
     \[
-        \mathfrak{C}(M,\omega)\geq \Grom(M,\omega)\quad\text{for every symplectic manifold} (M,\omega).
+        \frakc(M,\omega)\geq \Grom(M,\omega)\quad\text{for every symplectic manifold} (M,\omega).
     \]
 \end{wts}
 
@@ -78,6 +145,79 @@ which are both equipped with the standard symplectic form $\omega_0$.
 \begin{corollary}[Gromov's width is non-negative]
     For every symplectic manifold $(M,\omega)$, the set $\{\pi r^2, \: B(r)\hookrightarrow (M,\omega) \text{ symplectically.}\}$ is non-empty.
 \end{corollary}
+% Give example of a symplectic manifold with boundary.
+% What about the set \{\abs{x}\leq 1\}?
+\topheader{The Orbital Capacity}
+Let $(M,\omega)$ be a symplectic manifold (possibly with boundary), we first define a subspace of $C^\infty(M,\real)$ that will help us to view periodic orbits in a different angle, by leveraging a distinguished symplectic capacity.
+\begin{definition}[Regular Hamiltonian]\label{def:regular hamiltonians}
+    A smooth function $H\in C^\infty(M,\real)$ is called a \emph{regular Hamiltonian}, if all of the following hold.
+    \begin{enumerate}
+        \item There exists an open subset $U\osub M$ where $H$ vanishes; or $H(U) = 0=\min(H)$.
+        \item There exists a compact $K\subseteq M\setminus \partial M$, outside of which $H$ attains its maximum; or $H(M\setminus K) = \max(H)$.
+    \end{enumerate}
+    The set of all regular Hamiltonians of $(M,\omega)$ is hereinafter denoted by $\mathcal{H}(M,\omega)$; and the quantity $m(H) = \max(H) - \min(H)$ is called the \emph{$\frakc_0$-oscillation of $H$}.
+\end{definition}
+The second requirement tells us that the Hamiltonian flow of $H$ must be compactly supported.
+\begin{definition}[Admissable Hamiltonian]\label{def:admissable hamiltonians}
+    A regular Hamiltonian $H\in\mathcal{H}$
+\end{definition}
+%
+%
+%
+%
+%
+%
+\fchapter{7: Applications of the orbital capacity $\frakc_0$}
+\topheader{Introduction}
+In this section, $(M,\omega)$ will always refer to a symplectic manifold.
+\begin{remark}
+    \begin{itemize}
+        \item $\mathcal{I}$ refers to an open interval in $\real$, and
+        \item $\mathcal{I}_0$ refers to an open interval in $\real$ containing the origin.
+    \end{itemize}
+\end{remark}
+\begin{definition}[Parametrized family of hypersurfaces modelled on $S$]
+    Let $S$ be a compact hypersurface of $(M,\omega)$, a parametrized family (of hypersurfaces) modelled on $S$ is a diffeomorphism $\Psi_S: S\times \mathcal{I}\to U\osub M$, where $U$ is an open neighbourhood of $S$ and $\mathcal{I}$ is an open interval containing the origin, and similar to a homotopy: $\Psi_S(\cdot,0) = \id{S}$.\\
+
+    If $S$ is understood to be a hypersurface with a parametrized family, the notation $S_{\varepsilon}$ will always refer to  $\Psi_S(S\times\{\varepsilon\})$; and $S = S_0$.
+\end{definition}
+\begin{wts}[page 114]
+    The following statements are equivalent:
+    \begin{itemize}
+        \item The line bundle $\mathcal{L}_S\to S$ is orientable
+        \item The normal bundle $N_S\to S$ is orientable,
+        \item $S$ is orientable,
+        \item There exists a parametrized family of hypersurfaces modelled on $S$,
+        \item There exists a smooth function $H\in C^\infty(U,\real)$ where $S\subseteq U\osub M$ such that $dH\vert_U\neq 0$ and $S = H^{-1}(c)$ for some constant $c\in\real$.
+    \end{itemize}
+\end{wts}   
+
+\topheader{Hypersurfaces that are boundaries of symplectic manifolds}
+In this section, we only consider hypersurfaces that are the boundary to a compact symplectic manifold. If $S$ is the manifold boundary of $(B,\omega)$, and $S$ has a parametrized family, then every $S_{\varepsilon}$ is the manifold boundary of $(B_\varepsilon,\omega)$, and we can assume (?) that these symplectic manifolds are nested as follows
+\[
+    B_{\varepsilon}\hookrightarrow B_{\varepsilon'}\quad\forall\varepsilon\leq\varepsilon'.
+\]
+And by monotonicity of $\frakc_0$: $\frakc_0(B_{\varepsilon},\omega)\leq\frakc_{0}(B_{\varepsilon'},\omega)$.
+\begin{definition}[Orbital-Lipschitz hypersurfaces]
+    A compact hypersurface $S_{\varepsilon^*}$ is of orbital-Lipschitz (or $\frakc_0$-Lipschitz) type, if there are positive constants $L, \mu$ where
+    \[
+        C(\varepsilon)\leq C(\varepsilon^*) + L(\varepsilon - \varepsilon^*)\quad\forall \varepsilon \in [\varepsilon^*,\: \varepsilon^* +\mu],
+    \]
+    where $\frakc_0(B_{\varepsilon},\omega) = C(\varepsilon)$.
+\end{definition}
+\begin{wts}[Theorem 3. page 116]
+    Let $(M,\omega)$ be a symplectic manifold with finite orbital capacity. Given an energy surface $S\subseteq M$ that is 1) the boundary of a symplectic manifold, and 2) is of $\frakc_0$-Lipschitz type, then
+    \[
+        \Periodic(S)\neq \varnothing.
+    \]
+\end{wts}
+\begin{remark}
+    This means, there exists a small interval to the right of $\varepsilon^*$ where the symplectic capacities of the manifolds $B_{\varepsilon}$ are controlled linearly a linear term:
+    \[
+        \abs{C(\varepsilon) - C(\varepsilon^*)}\leq L(\varepsilon - \varepsilon^*).
+    \]
+\end{remark}
+
 % \ifSubfilesClassLoaded{% 
 %   \bibliography{v2-subfiles/manifolds-references}%
 % }{}

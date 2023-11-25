@@ -47,13 +47,14 @@ Let $V$ be a vector space over $\real$ or $\mathbb{C}$.
     \begin{itemize}
     \item The \emph{convex combination} of two elements $x_1$, $x_2\in V$ is the linear combination 
     \[
-        \mathfrak{c}_t(x_1, x_2) = x_1 + t(x_2 - x_1) \quad t\in [0,1]
+        \mathfrak{c}_t(x_1, x_2) = x_1 + t(x_2 - x_1) \quad t\in [0,1].
     \]
     \item A mapping $f: V\to \real$ is \emph{convex} whenever 
     \[
-        \mathfrak{c}_t(x_1, x_2)\leq c_t\qty(f(x_1),f(x_2))\quad\forall t\in[0,1],\: x_1,x_2\in V
+        \mathfrak{c}_t(x_1, x_2)\leq c_t\qty(f(x_1),f(x_2))\quad\forall t\in[0,1],\: x_1,x_2\in V.
     \]
-    \item A mapping $f: V\to \real$ is a \emph{subadditive} whenever 'adding inside is less than adding outside'. That is, $f\circ\sum^\wedge\leq \sum^\wedge\circ f$.
+    Moreover, $f$ is \emph{strictly convex} when the estimate above is strict.
+    \item A mapping $f: V\to \real$ is a \emph{subadditive} whenever $f\circ\sum^\wedge\leq \sum^\wedge\circ f$.
     \item A mapping $f: V\to W$ is \emph{linear} whenever FLCs commute with $f$. This is written as $\sum^\wedge_K \circ f = f\circ \sum^\wedge_K$.
 \end{itemize}
 It is useful to have the following generalization when $V$ and $W$ are vector spaces over different base fields.

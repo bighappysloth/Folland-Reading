@@ -73,7 +73,6 @@
     \stepcounter{theproblem}
 }
 
-
 \newtheoremstyle{subtheorem}    % name
     {1.5\topsep}        % space above
     {1.5\topsep}        % space below
@@ -117,25 +116,6 @@
     backgroundcolor=tab-blue!5
 }
 
-\mdtheorem[style=stepstyle]{mysteps}{}[thestep]
-\renewcommand{\themysteps}{Step \arabic{thestep}}
-
-
-\NewDocumentEnvironment{step}{o}
-{
-    \stepcounter{thestep}
-    \IfNoValueTF{#1}
-    {
-        \begin{mysteps}
-    }
-    {
-        \begin{mysteps}[{#1}]
-    }
-}
-{
-    \end{mysteps}
-}
-
 \mdfdefinestyle{remarkstyle}{%
     style=theoremstyle,
     backgroundcolor=tab-blue!5,
@@ -162,6 +142,26 @@
 \mdtheorem[style=notestyle]{note}{Note}[thechapter]
 \mdtheorem[style=examplestyle]{example}{Example}[thechapter]
 
+
+%% Step environment requires more care because we want to remove the chapter number from the counter
+\mdtheorem[style=stepstyle]{mysteps}{}[thestep]
+\renewcommand{\themysteps}{Step~\arabic{thestep}}
+
+\NewDocumentEnvironment{step}{o}
+{
+    \stepcounter{thestep}
+    \IfNoValueTF{#1}
+    {
+        \begin{mysteps}
+    }
+    {
+        \begin{mysteps}[{#1}]
+    }
+}
+{
+    \end{mysteps}
+}
+% \mdtheorem[style=stepstyle]{step}{Step}[thestep]
 
 % Other header definitions or configurations
 %\newtheorem{definition}{Definition}[theproblem]         % Definition

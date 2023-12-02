@@ -208,17 +208,15 @@ where $\cdot(v)$ denotes the evaluation at $v\in E$, and is assumed to be left a
 
 \begin{definition}[Concrete tangent vector]\label{def:concrete-tangent-vector}
     Suppose $k\geq 1$, $X$ a $C^k$-manifold on $E$, and $p\in X$. If $(U,\varphi)$ is any chart containing $p$, for each $v\in E$ we call $(U,\varphi,p,v)$ a \emph{concrete tangent vector at $p$} that is \emph{interpreted} with respect to the chart $(U,\varphi)$. The disjoint union of concrete tangent vectors, as shown in \cref{eq:concrete-tangent-space}
-
     \begin{equation}\label{eq:concrete-tangent-space}
-        T_{(U,\varphi,p)}X = \bigcup_{v\in E}\{(U,\varphi,p,v)\}\cong E
+        T_{(U,\varphi,p)}X = \bigcup_{v\in E}\{(U,\varphi,p,v)\}\cong E,
     \end{equation}
-
     is called the \emph{concrete tangent space at $p$} interpreted with respect to $(U,\varphi)$; and it inherits a TVS structure from $E$.
 \end{definition}
 
 Fix a point $p$ in a manifold $X$. Suppose $(U_i,\varphi_i)$ are charts containing $p$, from \cref{eq:tangent-space-quotient-motivation} there exists a natural (toplinear) isomorphism between the concrete tangent spaces, namely 
 \begin{equation}\label{eq:concrete-tangent-vector-relation}
-    (U_1,\varphi_1,p,v_1)\sim (U_2,\varphi_2,p,v_2)\qqtext{iff} v_2 = D\varphi_{12}(p_1)(v_1)
+    (U_1,\varphi_1,p,v_1)\sim (U_2,\varphi_2,p,v_2)\qqtext{iff} v_2 = D\varphi_{12}(p_1)(v_1),
 \end{equation}
 where $p_i = \varphi_i (p)$. The right member of \cref{eq:concrete-tangent-vector-relation}  is the derivative of a transition map --- which is a toplinear automorphism on $E$. Hence $D\varphi_{12}(p_1)$ defines a toplinear isomorphism between $T_{(U_1,\varphi_1,p)}X$ and $T_{(U_2,\varphi_2,p)}X$. With this, we define the primary object of our study.
 \begin{definition}[Tangent vector]\label{def:tangent-vector}
@@ -485,7 +483,6 @@ Let us define $U^s_{\alpha\beta} = U^s_{\alpha}\cap U^s_{\beta}$, we will show \
     which is open in $E_1$.
 \end{proof}
 The diagram in \cref{fig:submanifold-chart-overlap} provides a summary. 
-
 \end{note}
 % Link to diagram of slice charts in quvier
 % https://q.uiver.app/#q=WzAsOSxbMCwwLCJVX3tcXGFscGhhXFxiZXRhfSJdLFsyLDAsIlxcYWxwaGEoVV97XFxhbHBoYVxcYmV0YX0pIl0sWzQsMCwiXFxhbHBoYShVX3tcXGFscGhhXFxiZXRhfSlfMVxcdGltZXMgXFxhbHBoYShVX3tcXGFscGhhXFxiZXRhfSlfMiJdLFsyLDIsIlxcYmV0YShVX3tcXGFscGhhXFxiZXRhfSkiXSxbNiw2XSxbNCwyLCJcXGJldGEoVV97XFxhbHBoYVxcYmV0YX0pXzFcXHRpbWVzIFxcYmV0YShVX3tcXGFscGhhXFxiZXRhfSlfMiJdLFswLDIsIlVfe1xcYWxwaGFcXGJldGF9Il0sWzYsMCwiXFxhbHBoYShVX3tcXGFscGhhXFxiZXRhfSlfMSJdLFs2LDIsIlxcYmV0YShVX3tcXGFscGhhXFxiZXRhfSlfMSJdLFswLDEsIlxcYWxwaGEiLDFdLFsxLDIsIlxcdGhldGEiLDFdLFsxLDMsIlxcdmFycGhpX3tcXGFscGhhXFxiZXRhfSIsMV0sWzMsNSwiXFx0aGV0YSIsMV0sWzYsMywiXFxiZXRhIiwxXSxbMiw1LCJcXHRoZXRhXFx2YXJwaGlfe1xcYWxwaGFcXGJldGF9XFx0aGV0YV57LTF9IiwxXSxbMiw3LCJcXHByb2pfMSIsMV0sWzUsOCwiXFxwcm9qXzEiLDFdXQ==
@@ -673,8 +670,8 @@ U
 The above definitions calls for some commentary, our end goal is to make an arbitrary rank $C^k$ vector bundle $W$ a $C^k$ manifold. Open sets will still be our primary topological data. To ensure that $W$ is as similar to $X$ as possible, the eventual manifold structure we will put on $W$ will \textbf{embed the structure of $X$ into $W$}. We are repeating (essentially) the same argument as in the submanifold case but with the roles of $X$ and the submanifold $S$ reversed.\\
 
 Suppose we have a structure on $W$, then $X=\bigcup_{p\in X}\{p\}\times 0$ is a submanifold of the $W$ as $E$ splits in the product space $E\times F$. Let us motivate a couple of the requirements above.
-\begin{enumerate}
-    \item[\Cref{def:local-trivialisation}]
+\begin{itemize}
+    \item \Cref{def:local-trivialisation}
     \begin{itemize}
         \item $U$ is required to be open because $W$ inherits part of the topology, and hence the charts in $E$ whose domain is a subset of $U$, 
         \item The second requirement implies \textbf{each $\Phi$ is in bijection with $\Phi(\wig{U}) = U\times F$, which is open in $E\times F$}, which will allow us to construct bijections with open subsets of the model space $E\times F$. Furthermore, \cref{eq:local-trivialisation-bijection-restriction-also-bijection} below holds for an arbitrary $V\subseteq X$.
@@ -682,13 +679,12 @@ Suppose we have a structure on $W$, then $X=\bigcup_{p\in X}\{p\}\times 0$ is a 
             \Phi\vert_{\pi^{-1}(U\cap V)}\quad\text{is a bijection onto } U\cap V\times F
         \end{equation}
     \end{itemize}
-    \item[\Cref{def:compatibility-local-trivialisations}]
+    \item \Cref{def:compatibility-local-trivialisations}
      \begin{itemize}
          \item The overlap restricts to a toplinear isomorphism on each fiber because, it allows us \textbf{ to quotient out the effects of the trivialisation transitions}, by rehearsing the same 'coproduct and quotient' argument in \Cref{def:concrete-tangent-vector,def:tangent-vector,def:tangent-space}.
          \item The requirement that the mapping \cref{def:vb-transition-function} is a morphism is because we wish to \textbf{have control over the smoothness of morphisms $X\to W$}. 
      \end{itemize}
-\end{enumerate}
-
+\end{itemize}
 Suppose $W$ is an $F$-vector bundle over $X$ with the trivialisation covering $\{(\wig{U}^\alpha, \Phi_\alpha)\}$. For each $\alpha$, we can cover $U^\alpha$ using chart domains $(U^\alpha_\beta, \varphi^\alpha_\beta)$ in $X$ --- without loss of generality, we can assume $U^\alpha_\beta\subseteq U^\alpha$ by restricting the chart domain and relabelling. \\
 
 Similar to the construction of the induced atlas of a submanifold, given a 'piece' of the original manifold $X$ --- \textbf{instead of dropping the coordinates that correspond to $E_2$, we add an $F$-component to construct a bijection with an open subset of $E\times F$}. This is shown in \cref{eq:vector-bundle-product-chart} 
@@ -698,7 +694,7 @@ Similar to the construction of the induced atlas of a submanifold, given a 'piec
 \begin{remark}[Hats and wiggles]
     Here, $\wig{U}^\alpha_\beta$ should be interpreted as the inverse image of the open set $U^\alpha_\beta$ through $\pi$. Similarly, $\hat{U}^\alpha_\beta$ is the image of $U^\alpha_\beta$ through $\varphi^\alpha_\beta$.
 \end{remark}
-The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with their chart domains, and each chart is in bijection with an open subset of $E\times F$.
+The collection of charts $\acal$,  in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with their chart domains, and each chart is in bijection with an open subset of $E\times F$.
 \begin{equation}\label{eq:vector-bundle-charts-ALPHA}
     \mathcal{A} =\bigset{\qty\big(\wig{U}^\alpha_\beta,\: \wig{\varphi}^\alpha_\beta),\:  (\wig{U}^\alpha,\Phi_\alpha) \text{ is in the trivialisation covering of  } W.}
 \end{equation}
@@ -712,12 +708,13 @@ The collection of charts in \cref{eq:vector-bundle-charts-ALPHA} cover $W$ with 
     \end{enumerate}
 \end{wts}
 \begin{proof}
-    Suppose we are given two charts in \cref{eq:vector-bundle-charts-ALPHA}, $(\wig{U}^{\alpha_1}_{\beta_1})$, and $(\wig{U}^{\alpha_2}_{\beta_2}, \wig{\varphi}^{\alpha_2}_{\beta_2})$. We first prove that $\wig{\varphi}^{\alpha_1}_{\beta_1}(\wig{U}^{\alpha_1}_{\beta_1}\cap \wig{U}^{\alpha_2}_{\beta_2})$ is open in $E\times F$. 
+    Suppose we are given two charts in \cref{eq:vector-bundle-charts-ALPHA}, $(\wig{U}^{\alpha_1}_{\beta_1})$, and $(\wig{U}^{\alpha_2}_{\beta_2}, \wig{\varphi}^{\alpha_2}_{\beta_2})$. First, prove that $\wig{\varphi}^{\alpha_1}_{\beta_1}(\wig{U}^{\alpha_1}_{\beta_1}\cap \wig{U}^{\alpha_2}_{\beta_2})$ is open in $E\times F$:
     \begin{align*}
-        \wig{\varphi}^{\alpha_1}_{\beta_1}(\wig{U}^{\alpha_1}_{\beta_1}\cap \wig{U}^{\alpha_2}_{\beta_2}) &= \qty[(\varphi^{\alpha_1}_{\beta_1}\times \id{F})\circ \Phi_{\alpha_1}](\wig{U}^{\alpha_1}_{\beta_1}\cap \wig{U}^{\alpha_2}_{\beta_2})= \qty[(\varphi^{\alpha_1}_{\beta_1}\times \id{F})\circ \Phi_{\alpha_1}](\pi^{-1}(U^{\alpha_1}_{\beta_1}\cap U^{\alpha_2}_{\beta_2})) \\
+        \wig{\varphi}^{\alpha_1}_{\beta_1}(\wig{U}^{\alpha_1}_{\beta_1}\cap \wig{U}^{\alpha_2}_{\beta_2}) &= \qty[(\varphi^{\alpha_1}_{\beta_1}\times \id{F})\circ \Phi_{\alpha_1}](\wig{U}^{\alpha_1}_{\beta_1}\cap \wig{U}^{\alpha_2}_{\beta_2})\\[1ex]
+        &= \qty[(\varphi^{\alpha_1}_{\beta_1}\times \id{F})\circ \Phi_{\alpha_1}](\pi^{-1}(U^{\alpha_1}_{\beta_1}\cap U^{\alpha_2}_{\beta_2})) \\[1ex]
         &= (\varphi^{\alpha_1}_{\beta_1}\times \id{F})\qty((U^{\alpha_1}_{\beta_1}\cap U^{\alpha_2}_{\beta_2})\times F)&&\text{by \cref{eq:local-trivialisation-bijection-restriction-also-bijection}.}
     \end{align*}
-    Suppressing restrictions and computing the chart transistions in \cref{eq:VB-trivialisation-overlap-chart-1},
+    Suppressing restrictions and computing the chart transitions in \cref{eq:VB-trivialisation-overlap-chart-1},
     \begin{equation}\label{eq:VB-trivialisation-overlap-chart-1}
         \wig{\varphi}^{\alpha_2}_{\beta_2}\qty(\wig{\varphi}^{\alpha_1}_{\beta_1})^{-1} = (\varphi^{\alpha_2}_{\beta_2}\times \id{F})\circ \Phi_{\alpha_2}\Phi_{\alpha_1}^{-1}\circ \qty((\varphi^{\alpha_1}_{\beta_1})^{-1}\times \id{F}).
     \end{equation}

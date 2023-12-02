@@ -1,8 +1,18 @@
-\documentclass[11pt, oneside]{book}
+\documentclass[10pt,b5paper]{book}
 \usepackage{import}         % Import our packages, see import.tex
 \import{./}{imports}
 \import{./}{manifolds-docinfo.tex}
+
 \bibliographystyle{plainurl}
+\newif\ifhideproofs
+% \hideproofstrue %uncomment to hide proofs
+
+\ifhideproofs
+\usepackage{environ}
+\NewEnviron{hide}{}
+\let\proof\hide
+\let\endproof\endhide
+\fi
 \usepackage{subfiles}
 
 \begin{document}
@@ -11,12 +21,13 @@
 
 % \maketitle\newpage          % Title Page, uncomment if necessary
 \tableofcontents\newpage    % Table of Contents, uncomment if necessary
+\setcounter{thechapter}{-1}
 \subfile{v2-subfiles/Preliminaries.tex}\newpage
 \subfile{v2-subfiles/Manifolds.tex}\newpage
-\subfile{v2-subfiles/Symplectic-Geometry.tex}\newpage
-\subfile{v2-subfiles/Symplectic-Capacities.tex}\newpage
 \subfile{v2-subfiles/Analytic-Setting.tex}\newpage
-\subfile{v2-subfiles/Calculus-on-Banach-Spaces.tex}\newpage
+\subfile{v2-subfiles/Symplectic-Geometry.tex}\newpage
+% \subfile{v2-subfiles/Symplectic-Capacities.tex}\newpage
+% \subfile{v2-subfiles/Calculus-on-Banach-Spaces.tex}\newpage
 \bibliography{v2-subfiles/manifolds-references}
 
 % \subfile{Functional-Analysis/Calculus-on-Banach-Spaces-Compiled.tex}\newpage

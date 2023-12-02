@@ -26,7 +26,20 @@
 %         C_s^\infty = \bigset{f\in C^\infty,\: \abs{\partial^\alpha f(x)}\Lsim_\alpha (1+\abs{x})^{N_{\alpha}}}
 %     \end{equation}
 % \end{definition}
-This section serves to recall a few results from \cite{Brezis2010Functional,Folland2013Real,Roman2007Advanced,Lee2013Introduction,Lee2019Introduction}, as well as to define the symbols and notation we will use.
+This section serves to recall a few results from \cite{Brezis2010Functional,Folland2013Real,Roman2007Advanced,Lee2013Introduction,Lee2019Introduction}, as well as to define the symbols and notation we will use. 
+\topheader{Sets}
+\begin{itemize}
+    \item $\mathbb{N}= \{0,1,2,\ldots\}$ is the set of natural numbers (including $0$),
+    \item $\nat^+= \{1,2,\ldots \}$ is the set of \emph{counting numbers}, 
+    \item $\mathbb{Z}=\{0,-1,+1,\ldots\}$ is the set of \emph{integers},
+    \item $\mathbb{Q}$ is the set of \emph{rational numbers},
+    \item $\real$ is the set \emph{real numbers}, 
+    \item $\complex$ is the set of \emph{complex numbers}, and
+    \item $\abs{\real}=[0,+\infty)$ are the non-negative reals.
+\end{itemize}
+\begin{remark}[Cardinality]
+The notation $\abs{X}$ should not be confused with \emph{cardinality} of a set $X$; which is always denoted by $\card{X}$.     
+\end{remark}
 \topheader{Vector Spaces}
 Let $V$ be a vector space over $\real$ or $\mathbb{C}$. 
 \begin{itemize}
@@ -53,7 +66,7 @@ Let $V$ be a vector space over $\real$ or $\mathbb{C}$.
     \[
         \mathfrak{c}_t(x_1, x_2)\leq c_t\qty(f(x_1),f(x_2))\quad\forall t\in[0,1],\: x_1,x_2\in V.
     \]
-    Moreover, $f$ is \emph{strictly convex} when the estimate above is strict.
+    Moreover, a convex mapping $f$ is \emph{strictly convex} the above estimate is for all $t\in[0,1]$, $x_1,x_2\in V$.
     \item A mapping $f: V\to \real$ is a \emph{subadditive} whenever $f\circ\sum^\wedge\leq \sum^\wedge\circ f$.
     \item A mapping $f: V\to W$ is \emph{linear} whenever FLCs commute with $f$. This is written as $\sum^\wedge_K \circ f = f\circ \sum^\wedge_K$.
 \end{itemize}
@@ -80,7 +93,6 @@ We use the following notation to simplify computations concerning multilinear ma
 \end{itemize}
 \begin{example}[Preview of exterior calculus]\label{rmk:preview of exterior calculus}
 We can write the formula for the determinant of a $\real^{k\times k}$ matrix in this notation. Suppose $a_i\in\real$, and $b_i\in\real^{k-1}$ for $i=\underline{k}$.
-
 \[
 M = \begin{bmatrix}
     a_1 & \cdots & a_k \\[1ex]
@@ -136,13 +148,13 @@ The determinant of $M$ is a linear combination of determinants of $k-1$-sized ma
             A(b_1,x)\\
             \vdots\\
             A(b_n,x)
-        \end{bmatrix}\quad \parbox{4cm}{is a \emph{column} vector whose entries are given by applying $x$ on the second coordinate}
+        \end{bmatrix}\quad \parbox{8cm}{is a \emph{column} vector whose entries are given by applying $x$ on the second coordinate,}
     \]
     and 
     \[
         [x]_B^T A = \begin{bmatrix}
             A(x,b_1) & \cdots & A(x, b_n)
-        \end{bmatrix}\quad\parbox{4cm}{is a \emph{row} vector whose entries are given by applying $x$ on the first coordinate}
+        \end{bmatrix}\quad\parbox{8cm}{is a \emph{row} vector whose entries are given by applying $x$ on the first coordinate.}
     \]
     Let $A_B$ be the matrix representation of $\omega$ with respect to the $B$, if $C$ is another basis on $V$, then how do we compute $A_C$? The answer is simple, recall for any vector $x\in V$, $x = x^i_Bb_i$ and $x = x^j_C c_j$, then
     \[
@@ -150,9 +162,8 @@ The determinant of $M$ is a linear combination of determinants of $k-1$-sized ma
     \]
     $\omega(x,y) = [x]_B^TA_B[y]_B = ([x]_C^TM_{C,B}^T)A_B(M_{C,B}[y]_C) = [x]_C^T A_C [y]_C$, then
     \begin{equation}\label{lee-chp22:congruent-matrices}
-        M^T_{C,B}A_BM_{C,B} = A_C
+        M^T_{C,B}A_BM_{C,B} = A_C.
     \end{equation}
-    We can describe this relation between the two matrices $A_B$ and $A_C$ by the following
     \begin{definition}[Congruent matrices]
         Two matrices $M$ and $N$ are said to be \emph{congruent}, if there exists an invertible matrix $P$ for which
         \[
@@ -316,28 +327,22 @@ Partial pairing of indices. (Again: focus on the position.)
 
     Let $I$ be a $k$-index and $L$ an increasing $p$-index with entries $1\leq l_r\leq k$ for $r=\underline{p}$ and $p\leq k$. We define the \emph{contraction} of $I$ in $L$ to be a $(k-p)$-index --- $L\lrcorner I$ --- to be $I$ but with the entries at $l_{\underline{p}}$ removed. \\
     
-    For example: if $L = (1,2)$, then $L\lrcorner I = (\UL{i}[2+][k-2])$ is the same multi-index but with its first two entries removed.\\
-
-    Finally, we see that
-    \[
-        x_L\lrcorner F = \bigoprod(x_{l_{r=\underline{p}}}^{i_{l_r}})F_{I} \varepsilon^{L\lrcorner I}
-    \]
+    For example: if $L = (1,2)$, then $L\lrcorner I = (\UL{i}[2+][k-2])$ is the same multi-index but with its first two entries removed. Finally, we see that $x_L\lrcorner F = \bigoprod(x_{l_{r=\underline{p}}}^{i_{l_r}})F_{I} \varepsilon^{L\lrcorner I}$.
 \end{example}
 \topheader{Musical Isomorphisms}
-
 Let $n\geq 1$ be a non-negative integer. Let $a:\realn\times\realn\to\real$ be a bilinear form that makes $(\realn,a)$ a metric vector space. \\
 
 If $a$ has matrix representation $A = (a_{ij})$, $v = \sum_{i=\underline{n}} v^i e_i$, and $w = \sum_{i=\underline{n}} w^i e_i$, then
 \[
-    v\lrcorner a(w) = a(v,w)\quad\text{by definition}
+    v\lrcorner a(w) = a(v,w)\quad\text{by definition.}
 \]
-Since $v\lrcorner a$ is an element in the dual space, it can be written as $\sum_{k=\underline{n}}\nu_k \varepsilon^k$. We wish to compute the coefficients $\nu_k$, and the left hand side becomes
+Since $v\lrcorner a$ is an element in the dual space, it can be written as $\sum_{k=\underline{n}}\nu_k \varepsilon^k$, and
 \[
-    \sum_{k=\underline{n}}\nu_k\varepsilon^k\qty(\sum_{i=\underline{n}}w^ie_i) = \sum_{i,k=\underline{n}}\nu_kw^i = \bigangle{(\nu_k)}{(w^i)}_{\realn}
+\sum_{k=\underline{n}}\nu_k\varepsilon^k\qty(\sum_{i=\underline{n}}w^ie_i) = \sum_{i,k=\underline{n}}\nu_kw^i = \bigangle{(\nu_k)}{(w^i)}_{\realn}.
 \]
 Similarly, the RHS reads
 \[
-    a(v,w)=\sum_{i,j=\underline{n}} v^iw^ja_{ij} = \bigangle{(v^i)}{(a_{ij})(w^j)}_{\realn}
+    a(v,w)=\sum_{i,j=\underline{n}} v^iw^ja_{ij} = \bigangle{(v^i)}{(a_{ij})(w^j)}_{\realn}.
 \]
 We see that $(\nu_k) = A^T (v_j)$. We now define
 \begin{definition}[Musical isomorphism $\breve{a}$]
@@ -352,9 +357,9 @@ We can write \cref{eq:musical isomorphism flatten} in coordinates by appealing t
 
 Conversely, by the Riesz Representation Theorem (see \cref{eq:Riesz Representation MVS}), covector $B\in(\realn)^*$ can be uniquely identified with a vector $b\in\realn$. Since $a$ is non-singular, its matrix representation $(a_{ij})$ is non-singular as well,
 \begin{definition}[Musical isomorphism $\hat{a}$]
-    Let $(\realn,a)$ be a MVS, every covector $f\in \realn^*$ induces a vector, denoted by $\hat{a}(f)\in \realn$ such that $a$ becomes the evaluation map.
+    Let $(\realn,a)$ be a MVS, every covector $f\in \realn^*$ induces a vector, denoted by $\hat{a}(f)\in \realn$ such that $a$ becomes the evaluation map,
     \begin{equation}
-        a\biggl(\hat{a}(f),\: v\biggr)=f(v)\quad\forall v\in\realn
+        a\biggl(\hat{a}(f),\: v\biggr)=f(v)\quad\forall v\in\realn.
         \label{eq:musical isomorphism sharpen}
     \end{equation}
     We sometimes write $\hat{a}(f) = f^{\wedge}$.
@@ -422,8 +427,9 @@ The space of $k$-covariant tensors on $V$ (resp. alternating $k$-forms on $V$) f
 With this, we can extend the wedge product by (multilinearity) to arbitrary alternating forms. An alternating $k$-tensor is \emph{decomposable} if it is the $k$ wedge product of $k$ covectors (that are not necessarily elementary).\\
 
 For example, if $\omega=\bigowedge(\omega_{\underline{k}})\in \Lambda^k(V)$ and $\eta=\bigowedge(\eta_{\underline{l}})\in\Lambda^l(V)$, the wedge product between the two alternating tensor is a $k+l$ alternating tensor where
-\begin{equation}
-    (\omega\wedge\eta)(v_{\underline{k}}, y_{\underline{l}}) = \bigowedge(\omega_{\underline{k},\eta_{\underline{l}}})(v_{\underline{k}}, y_{\underline{l}})= \det\qty(
+\begin{multline}
+    (\omega\wedge\eta)(v_{\underline{k}}, y_{\underline{l}}) = \bigowedge(\omega_{\underline{k},\eta_{\underline{l}}})(v_{\underline{k}}, y_{\underline{l}})\\[2ex]
+    = \det\qty(
     \mqty[
         \mqty[
         \omega_1(v_1) & \cdots & \omega_1(v_k)  \\
@@ -448,8 +454,10 @@ For example, if $\omega=\bigowedge(\omega_{\underline{k}})\in \Lambda^k(V)$ and 
     ]
     )
     \label{eq:wedge product of kl tensors}
-\end{equation}
-The block matrices on the off diagonal in \cref{eq:wedge product of kl tensors}  are not square unless $k=l$. If that is the case, then the wedge product admits the obvious simplification. Let $\omega$ and $\eta$ be alternating $k$ and $l$ tensors respectively (not necessarily decomposable) where $k,l\geq 1$. The following properties of the wedge product are derived entirely from \cref{eq:wedge product of kl tensors}. 
+\end{multline}
+The block matrices on the off diagonal in \cref{eq:wedge product of kl tensors}  are not square unless $k=l$; and in which case: the wedge product admits an obvious simplification. \\
+
+Let $\omega$ and $\eta$ be alternating $k$ and $l$ tensors where $k,l\geq 1$. The properties below are derived entirely from \cref{eq:wedge product of kl tensors}, and we offer sketches for each of their proofs.
 \begin{itemize}
     \item Anticommutativity: $\eta\wedge\omega = (-1)^{kl}\omega\wedge\eta$. Sketch of proof: Assume all tensors involved are decomposable, and swap the columns in \cref{eq:wedge product of kl tensors}. Extend by multilinearity.
     \item Bilinearity and associativity. Sketch of proof: Assume all tensors involved are decomposable, and compare the matrices that are used in the determinants. Extend by multilinearity.
@@ -468,20 +476,19 @@ The \emph{differential} or the covector field of a function $f\in C^p(M)$ is a $
 \[
     df\in\mathfrak{X}^*(M)\qqtext{where} df(p)(v) = \sum_{i=\underline{n}}\pdv{f}{x^i}\eval_pv^i
 \]
-for any tangent vector $v = v^ie_i\in T_pM$.\\
-
-If $\alpha\in \Omega^k(M)$, we define the \emph{exterior derivative} of $\alpha$ to be a section of the $k+1$ alternating tensor bundle. In coordinates, if $\alpha = \isum \alpha_I dx^I$, then 
+for any tangent vector $v = v^ie_i\in T_pM$. If $\alpha\in \Omega^k(M)$, we define the \emph{exterior derivative} of $\alpha$ to be a section of the $k+1$ alternating tensor bundle. In coordinates, if $\alpha = \isum \alpha_I dx^I$, then 
 \[
-    d\alpha =  d\alpha_I \wedge dx^I
+    d\alpha =  d\alpha_I \wedge dx^I.
 \]
-\topheader{Measure theory}
+\topheader{Measure Theory}
 Let $(X,\mcal,\mu)$ be a measure space. A measurable function is a measurable mapping $f:X\to\complex$. we often write $f\in \mcal$ in an abuse of notation.
 \begin{itemize}
     \item $\lcal^+(X,\mu)$ for non-negative measurable functions, and $L^+(X,\mu)$ its quotient space.
-    \item If $p\in [1,+\infty)$, $\lcal^p(X,\mu)$ for the '$L^p$' functions and $L^p(X,\mu)$ its quotient space.
-    \[
-        \lcal^p(X,\mu) = \bigset{f\in\mcal,\: \int\abs{f}^p<+\infty}\qqtext{resp.} L^p(X,\mu) = \lcal^p(X,\mu)/\text{equality a.e}
-    \]
+    \item If $p\in [1,+\infty)$, $\lcal^p(X,\mu)$ for the '$L^p$' functions and $L^p(X,\mu)$ its quotient space
+    \begin{align*}
+        \lcal^p(X,\mu) &= \bigset{f\in\mcal,\: \int\abs{f}^p<+\infty},\quad\text{and}\\[2ex]
+        L^p(X,\mu) &= \lcal^p(X,\mu)/\text{equality a.e}.
+    \end{align*}
     \item In the context of $L^p$ theory, we say $p$ is \emph{usual} if $p\in [1,+\infty)$, and $p$ is \emph{reflexive} whenever $L^p$ is (meaning $1< p <\infty$).
     \item A measurable function $\phi\in\mcal$ is \emph{simple} whenever its range is a finite subset of $\complex$. 
     \[
@@ -531,9 +538,9 @@ All functions hereinafter are assumed to be complex valued. The following functi
     \end{equation}
     \item $UBC(X)$ = uniformly continuous functions, whenever $X$ is a metric space.
 \end{itemize}
-We also use the following shorthand when discussing partitions of unity and bump functions. Let $E$ be any subset of $X$, and $f\in C(X,[0,1])$.
+We also use the following shorthand when discussing partitions of unity and bump functions. Let $E$ be any subset of $X$, and $f\in C(X,[0,1])$, we write
 \begin{itemize}
-    \item $E\Lsim f$ whenever $f=1$ on $E$.
+    \item $E\Lsim f$ whenever $f=1$ on $E$, and
     \item $f\Lsim E$ whenever $\supp{f}\subseteq E$.
 \end{itemize}
 
@@ -557,7 +564,7 @@ A topological space $X$ is \emph{locally compact} if every point $p\in X$ admits
 \begin{itemize}
     \item A \emph{normed vector space} (hereinafter abbreviated as NVS) is a vector space $X$ with a norm $p\mapsto \abs{p}$. We always use $\abs{\cdot}$ to refer to the endowed norm of a NVS. A \emph{Banach space} is a Cacuchy-complete NVS.
     \item An \emph{inner product space} (hereinafter abbreviated as IPS) is a vector space $X$ over $K$ with an inner product $(x,y)\mapsto \langle x,y\rangle\in K$. It is also an NVS with the norm $\abs{x}=\langle x,x\rangle^{1/2}$. A \emph{Hilbert space} is a Cauchy-complete IPS.
-    \item If $X$ is a IPS, its inner product will always be denoted by $\langle \cdot,\cdot\rangle_{X}$ or $\langle \cdot,\cdot\rangle$ when it is unambigious to do so.
+    \item If $X$ is an IPS, its inner product will always be denoted by $\langle \cdot,\cdot\rangle_{X}$ or $\langle \cdot,\cdot\rangle$ when it is unambigious to do so.
 \end{itemize}
 Let $X$ be a Banach space over $K = \real$ or $\complex$.
 \begin{itemize}
@@ -568,24 +575,24 @@ Let $X$ be a Banach space over $K = \real$ or $\complex$.
         \langle f,\cdot\rangle: X\to\real\qqtext{and}\langle f,\cdot\rangle(x) = f(x)
     \]
     \item The \emph{weak-$\ast$ topology} on $X^*$ refers to the coarsest topology on $X^*$ that makes the evaluation maps $\{\langle\cdot, x\rangle\}_{x\in X}$ continuous.
-    \item The \emph{duality pairing} between $X$ and $X^*$ is always denoted by $\langle \cdot,\cdot\rangle_{X}$ where elements in $X$ are placed in the right hand side of the bracket.
+    \item The \emph{duality pairing} between $X$ and $X^*$ is denoted by $\langle \cdot,\cdot\rangle_{X}$ with elements in $X$  positioned in the right slot.
 \end{itemize}
 Let $X$ and $Y$ be Banach spaces over $K = \real$ or $\complex$.
 \begin{itemize}
+    \item The norm of elements in $E$, and $F$ are denoted by single lines; for every $x,y\in E,F$
+    \[
+        \vert x\vert = \norm{x}_E \qqtext{and} \vert y\vert = \norm{y}_F.
+    \]
     \item We say a map $F$ is \emph{between} the spaces $X$ and $Y$ if $F: X\to Y$. 
-    \item $\mathcal{L}(V^K,W)$ denotes the space of $k$-linear maps from $V$ to $W$ that are not    necessarily continuous. 
+    \item $\mathcal{L}(V^K,W)$ denotes the space of $k$-linear maps from $V$ to $W$ that are not necessarily continuous. 
     \item $\mathcal{L}(X,Y)$ will denote the space of linear maps between $X$ and $Y$. 
     \item In the category of Banach spaces, the space of morphisms are called \emph{toplinear morphisms} - or \emph{CLM}s (\emph{continuous linear maps}); which we will denote by $L(X,Y)$ for toplinear morphisms bewteen $X$ and $Y$.
-    \item We use $\norm{\cdot}_{L(E,F)}$ or $\norm{\cdot}$ to denote the \emph{operator norm}, depending on how much emphasis we wish to place on $L(E,F)$. Recall that,
-    \[\norm{\varphi}_{L(E,F)} = \inf\bigset{A\geq 0,\: \abs{\varphi(x)}\leq A\abs{x}\:\forall x\in E} = \sup\bigset{\abs{\varphi(x)},\: x\in E,\: \abs{x}=1}\]
+    \item We use $\norm{\cdot}_{L(E,F)}$ or $\norm{\cdot}$ to denote the \emph{operator norm}, depending on how much emphasis we wish to place on $L(E,F)$; and recall for any $\varphi\in L(E,F)$,
+    \begin{align*}
+        \norm{\varphi}_{L(E,F)} &= \inf\bigset{A\geq 0,\: \abs{\varphi(x)}\leq A\abs{x}\:\forall x\in E} \\
+        &= \sup\bigset{\abs{\varphi(x)},\: x\in E,\: \abs{x}=1}. 
+    \end{align*}
 \end{itemize}
-
-
-If $E$ and $F$ are Banach spaces over $\real$. We will denote the norms on $E$, and $F$ by single lines, so 
-\[
-    \vert x\vert = \norm{x}_E \qqtext{and} \vert y\vert = \norm{y}_F\quad\forall x\in E,\: y\in F
-\]
-$\mathcal{L}(E,F)$ will denote the space of linear maps between $E$ and $F$. In the category of Banach spaces, the space of morphisms are called \emph{toplinear morphisms} - or \emph{CLM}s (\emph{continuous linear maps}); which we will denote by $L(E,F)$ for toplinear morphisms bewteen $E$ and $F$. \\
 
 % Elaborate more
 
@@ -621,7 +628,7 @@ Let $X$ and $Y$ be TVS whose topologies are defined by the families (not necessa
 \begin{quote}
     for each $\beta$, there exists \textbf{finitely many} $(\alpha_{\underline{k}})$ and a constant $C>0$ such that 
     \[
-        q_\beta(F(x))\leq C\sum p_{\alpha_{\underline{k}}}(x)\quad\forall x\in X
+        q_\beta(F(x))\leq C\sum p_{\alpha_{\underline{k}}}(x)\quad\forall x\in X.
     \]
 \end{quote}
 
@@ -630,8 +637,10 @@ Let $X$ and $Y$ be TVS whose topologies are defined by the families (not necessa
 
 
 \topheader{Functions on Euclidean Space}
-
-We turn to the case where $X=\realn$, where we adopt the following terminology. 
+We turn to the case where $X=\realn$, where $\realn$ is a Banach space and a measurable space with the Borel $\sigma$-algebra.
+\begin{definition}[Multi-index]
+    Let $n\geq 1$, a list $I=(i_{\underline{n}})$ is called an $n$-index, whenever $I$ has entries in $\abs{\mathbb{Z}}$.
+\end{definition}
 \begin{itemize}
     \item $L^1_{loc}$ = quotient space of locally integrable functions. If $f\in L^1_{loc}$ then $f\chi_K\in L^1$ for every bounded measurable $K$.
     \item $C^k = C^k(\realn)$ the space of $k$ times continuously differentiable functions, where $k\geq 0$.
@@ -649,24 +658,22 @@ Let $E\subseteq \realn$ be any subset.
     \item $C^\infty_c(E)=\bigset{f\in C_c^\infty(\realn),\: \supp{f}\subseteq E}$ = compactly supported smooth functions whose support is contained within $E$.
 \end{itemize}
 \begin{itemize}
-    \item $\szz$ = Schwartz space, defined in \cref{eq:schwartz space} is the space of \emph{rapidly decreasing} smooth functions.
+    \item $\szz$ is the Schwartz space of \emph{rapidly decreasing} smooth functions:
         \begin{equation}
-        \szz=\bigset{f\in C^\infty,\: \norm{f}_{(N,\alpha)} <+\infty\:\text{ for all }N,\alpha}
+        \szz=\bigset{f\in C^\infty,\: \norm{f}_{(N,\alpha)} <+\infty\:\text{ for all }N,\alpha},
         \label{eq:schwartz space}
     \end{equation}
     where $\norm{f}_{(N,\alpha)} = \sup_{x}(1+\abs{x})^{N}\abs{\partial^\alpha f(x)}$.
-    \item $C_s^\infty= C_s^\infty(\realn)$ = \emph{slowly increasing} smooth functions, defined in \cref{eq:slowly increasing functions}.
+    \item $C_s^\infty= C_s^\infty(\realn)$ is the space of  \emph{slowly increasing} smooth functions:
         \begin{equation}\label{eq:slowly increasing functions}
-        C_s^\infty = \bigset{f\in C^\infty,\: \abs{\partial^\alpha f(x)}\Lsim_\alpha (1+\abs{x})^{N_{\alpha}}}
+        C_s^\infty = \bigset{f\in C^\infty,\: \abs{\partial^\alpha f(x)}\Lsim_\alpha (1+\abs{x})^{N_{\alpha}}}.
     \end{equation}
 \end{itemize}
-
-We write $\Epsilon = C^\infty$ (resp. $\Epsilon(E)$ for $E\subseteq\realn$). If $K$ is a compact subset of $\realn$, then $\Epsilon(K)$ is a Frechet Space with the norms in \cref{eq:dzz(K) norm}
+We write $\Epsilon = C^\infty$ (resp. $\Epsilon(E)$ for $E\subseteq\realn$). If $K$ is a compact subset of $\realn$, then $\Epsilon(K)$ is a Frechet Space with the norm
 \begin{equation}\label{eq:dzz(K) norm}
-    \phi\mapsto \norm{\partial^\alpha\phi\vert_K}_u = \norm{\partial^\alpha\phi}_u
+    \phi\mapsto \norm{\partial^\alpha\phi\vert_K}_u = \norm{\partial^\alpha\phi}_u,\quad\text{where }\alpha\text{ ranges through all }n\text{-indices}.
 \end{equation}
-where $\alpha$ ranges over all multi-indices of length $n$. \\
-
+We sometimes identify $e_i$ to be the $n$ index with $0$s on each entry, and $1$ on the $i$th entry.
 We write $\dzz = C^\infty_c$ (resp. $\dzz(E)$ for $E\subseteq\realn$) and recall that $\dzz$ is equipped with the canonical LF topology which means it locally borrows the open sets of $\Epsilon(K)$ where $K\subseteq U$ is compact. 
 \begin{itemize}
     \item A sequence $\{\phi_j\}\subseteq\dzz(U)$ where $U\osub\realn$ converges to some $\phi\in \dzz$ whenever $\{\phi_j\}\subseteq \dzz(K)$ for compact $K$ and $\phi_j\to \phi$ in $\dzz(K)$.
@@ -681,32 +688,21 @@ We write $\dzz = C^\infty_c$ (resp. $\dzz(E)$ for $E\subseteq\realn$) and recall
 \begin{definition}[Slowly increasing sequences]
     $C_s(\mathbb{Z}^n)$ is the space of slowly increasing sequences with domain $\mathbb{Z}^n$,
     \[
-    C_s(\mathbb{Z}^n) = \bigset{g: \mathbb{Z}^n\to\mathbb{C},\: \vert g(k)\vert\Lsim_{g}(1+\abs{k})^{N},\:N\in\mathbb{N}^+}
+    C_s(\mathbb{Z}^n) = \bigset{g: \mathbb{Z}^n\to\mathbb{C},\: \vert g(k)\vert\Lsim_{g}(1+\abs{k})^{N},\:N\in\mathbb{N}^+}.
     \]
 \end{definition}
 \topheader{Fourier Transforms}
-The \emph{Fourier Transform of a function} (a.e class, or pointwise) $f$ is defined by the integral in \cref{eq:fourier transform realn l1}.
+The \emph{Fourier Transform of a function} (a.e class, or pointwise) $f$ is defined by the integral in \cref{eq:fourier transform realn l1} for $\zeta\in\realn$
 \begin{equation}
-    \fourier{f}(\zeta)= \hat{f}(\zeta) = \int_{\realn} f(x)E_{-\zeta}(x)dx\quad \zeta\in\realn
+    \fourier{f}(\zeta)= \hat{f}(\zeta) = \int_{\realn} f(x)E_{-\zeta}(x)dx
     \label{eq:fourier transform realn l1}
 \end{equation}
-where $E_{-\zeta}(x) = e^{-2\pi i \langle \zeta, x\rangle}$. 
+where $E_{-\zeta}(x) = e^{-2\pi i \langle \zeta, x\rangle}$ is the \emph{exponential function at frequency $-\zeta$}. The two results below are commonly referred together as the Hausdorff-Young Lemma.
 \begin{itemize}
-    \item The integral in \cref{eq:fourier transform realn l1} converges whenever $f\in L^p$ for $1\leq p \leq 2$. 
-    \item $\norm*{\hat{f}}_{q}\leq \norm{f}_p$ for $1\leq p\leq 2$ and $q$ conjugate to $p$.
-    \item In particular, $\norm*{\hat{f}}_2 = \norm{f}_{2}$.
+    \item The Fourier Transform integral converges whenever $f\in L^p$ for $1\leq p \leq 2$. 
+    \item For $1\leq p\leq 2$, we have $\norm*{\hat{f}}_{q}\leq \norm{f}_p$, where $q$ conjugate to $p$, and in particular, $\norm*{\hat{f}}_2 = \norm{f}_{2}$.
 \end{itemize}
-
-The \emph{periodic} Fourier Transform of a measurable function $f: \Torusn\to \complex$ is the map in \cref{eq:fourier transform torusn l1}.
-\begin{equation}
-    \fourier{f}(k) = \int_{\Torusn} f(x)E_{-k}(x)dx\quad k\in\mathbb{Z}^n
-    \label{eq:fourier transform torusn l1}
-\end{equation}
-If $f$ is in $L^2(\Torusn)$, \cref{eq:fourier transform torusn l1} simplifies to
-\[
-    \fourier{f}(k) = \hat{f}(k)=\langle f, E_{k}\rangle_{L^2(\Torusn)}
-\]
-We list some properties of Fourier Transforms on $L^1$, Let $f,g\in L^1(\realn)$.
+We list some properties of Fourier Transforms on $L^1$, $f,g\in L^1(\realn)$.
 \begin{itemize}
     \item Translations: $(\tau_y f)^\wedge(\zeta) = E_{-y}(\zeta)\hat{f}(\zeta)$, and $(\tau_{y}\hat{f})(\zeta) = (E_{y}f)^{\wedge}(\zeta)$.
     \item If $M\in GL(n)$, then $(f\circ M)^{\wedge} = \hat{f}\circ M^{-T}$, where $M^{-T}$ is the inverse of the adjoint map.
@@ -725,21 +721,23 @@ The \emph{inverse Fourier Transform} is the integral in \cref{eq:fourier transfo
     \fourier^{-1}{f}(x) = \breve{f}(x) = \hat{f}(-x) = \int_{\realn}f(\zeta)E_{x}(\zeta)d\zeta
     \label{eq:fourier transform inverse realn l1}
 \end{equation}
-We also have the following isomorphisms.
+% Should include soem properties of the inverse transform.
+\topheader{Periodic Fourier Transforms}
+The \emph{periodic} Fourier Transform of a measurable function $f: \Torusn\to \complex$ at \emph{(lattice) frequency $k\in\mathbb{Z}$} is the integral:
+\begin{equation}
+    \fourier{f}(k) = \int_{\Torusn} f(x)E_{-k}(x)dx.
+    \label{eq:fourier transform torusn l1}
+\end{equation}
+If $f$ is in $L^2(\Torusn)$, \cref{eq:fourier transform torusn l1} simplifies to $\fourier{f}(k) = \hat{f}(k)=\langle f, E_{k}\rangle_{L^2(\Torusn)}$. We also have the following isomorphisms.
 \begin{itemize}
-    \item $\fourier$ is a linear automorphism on $\szz$
-    \item $\fourier$ is a unitary isomorphism on $L^2(\realn)$.
+    \item $\fourier$ is a linear automorphism on $\szz$,
+    \item $\fourier$ is a unitary isomorphism on $L^2(\realn)$,
     \item $\fourier$ is a unitary isomorphism between $L^2(\Torusn)$ and $l^2(\mathbb{Z}^n,\complex)$.
 \end{itemize}
 \topheader{Distributions}
 Let $U$ be an open subset of $\realn$. 
 \begin{quote}
-    A \emph{distribution on $U$} is a continuous linear functional $F:\dzz(U)\to\real$ such that $\lim \langle F,\phi_j\rangle_{\dzz} = \langle F,\lim \phi_j\rangle_{\dzz}$.\\
-    
-    The space of distributions on $U$ is denoted by $\dzz'(U)$ and has the weak-$\ast$ topology, where $\lim F_n=F$ if and only if
-    \[
-        \lim\langle F_n,\phi\rangle_{\dzz}=\langle \lim F_n,\phi\rangle_{\dzz}\quad\forall \phi\in\dzz
-    \]
+    A \emph{distribution on $U$} is a continuous linear functional $F:\dzz(U)\to\real$ such that $\lim \langle F,\phi_j\rangle_{\dzz} = \langle F,\lim \phi_j\rangle_{\dzz}$. The space of distributions on $U$ is denoted by $\dzz'(U)$ and has the weak-$\ast$ topology, where $\lim F_n=F$ if and only if $\lim\langle F_n,\phi\rangle_{\dzz}=\langle \lim F_n,\phi\rangle_{\dzz}$ for every $\phi\in\dzz$.
 \end{quote}
 We also define several operations on $\dzz'$. Let $F\in\dzz'$ and $\phi\in\dzz$.
 \begin{itemize}
@@ -751,10 +749,11 @@ We also define several operations on $\dzz'$. Let $F\in\dzz'$ and $\phi\in\dzz$.
     \item Convolutions: We define a new pointwise function $(F\ast \phi)$ such that $(F\ast\phi)(x) = \langle F,\tau_x\wig{\phi}\rangle_{\dzz}$. 
 \end{itemize}
 \begin{remark}[Reflections and Translations]
-    The function $\tau_x\wig{\phi}$ should be interpreted as the translation of the reflection of $\phi$. 
-    \[
-        \tau_x\wig{\phi} = \tau_x(\wig{\phi}) = \tau_x(y\mapsto \phi(-y)) = y\mapsto \qty\Big(y-x\mapsto \phi(-(y-x))) = y\mapsto \phi(x-y)
-    \]
+    The function $\tau_x\wig{\phi}$ is the translation of the reflection of $\phi$:
+    \begin{align*}
+        \tau_x\wig{\phi} &= \tau_x(\wig{\phi}) = \tau_x(y\mapsto \phi(-y)) \\
+        &= y\mapsto \qty\Big(y-x\mapsto \phi(-(y-x))) = y\mapsto \phi(x-y).
+    \end{align*}
 \end{remark}
 
 \begin{lemma}[Density Lemma]

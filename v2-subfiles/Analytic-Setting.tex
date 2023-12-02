@@ -38,7 +38,7 @@
 \graphicspath{{../images/}{images/}} 
 %%%%%%%%
 %%%%%%%%
-\fchapter{1: Sobolev spaces}\newpage
+\fchapter{4: Sobolev spaces}\newpage
 \topheader{Introduction}
 In this chapter, we will introduce a special subset of tempered distributions on $\realn$ called the \emph{Sobolev spaces}, denoted by $H_s$ for $s\in\real$. What is nice about $H_s$ is that the are Hilbert spaces, and the \emph{periodic Sobolev spaces} over $\real$ are used in the proof of the \emph{non-triviality of the special symplectic capacity $c_0$}. \\
 
@@ -53,7 +53,7 @@ In this chapter, we will introduce a special subset of tempered distributions on
 \begin{lemma}[Slowly increasing lemma]\label{lem:slowly increasing lemma}
 The space of slowly increasing function is closed under pointwise multiplication. If $f_{\underline{k}}\in C_s^\infty$, then $m(f_{\underline{k}})\in C_s^\infty$ as well. \\
 
-Moreoever, the multiplication map by $C_s^\infty$ on $\szz$ is toplinear. That is, for any $g\in C_s^\infty$ the map 
+Moreover, the multiplication map by $C_s^\infty$ on $\szz$ is toplinear. That is, for any $g\in C_s^\infty$ the map 
 \[
 m_g: \szz\to\szz \quad m_g(\phi) = g\phi\quad\text{is an endomorphism on }\szz
 \]
@@ -92,7 +92,7 @@ m_g: \szz\to\szz \quad m_g(\phi) = g\phi\quad\text{is an endomorphism on }\szz
     
 \end{proof}
 \begin{lemma}[Multiplication by Sobolev factor is an automorphism]\label{lem:multiplication sobolev factor automorphism}
-The map $A_s: \realn\to\real$ defined by $A_s(x) = (1+\abs{x}^2)^{s/2}$ is slowly increasing for all $s\in\real$. Moreoever, $\Lambda_s: f\mapsto [(1+\abs{\zeta}^2)^{s/2}\hat{f}]^{\vee}$ is an automorphism on $\szz$ and $\szz'$, with inverse $\Lambda_s^{-1} = \Lambda_{-s}$.
+The map $A_s: \realn\to\real$ defined by $A_s(x) = (1+\abs{x}^2)^{s/2}$ is slowly increasing for all $s\in\real$. Moreover, $\Lambda_s: f\mapsto [(1+\abs{\zeta}^2)^{s/2}\hat{f}]^{\vee}$ is an automorphism on $\szz$ and $\szz'$, with inverse $\Lambda_s^{-1} = \Lambda_{-s}$.
 \end{lemma}
 \begin{proof}
     We postpone the proof for $A_s\in C_s^\infty$ for now, but proving the rest of the Lemma. The Fourier Transform on $\szz'$ is an on $\szz'$, hence the first and last step below are continuous. 
@@ -457,7 +457,7 @@ and this proves the second bullet point.
 \begin{corollary}
 If $f\in H_s$ for all $s>0$ as a tempered distribution, then it can be identified pointwisely as a function in $C^\infty\cap C_0$.
 \end{corollary}
-\fchapter{2: Periodic Distributions}
+\fchapter{5: Periodic Distributions}
 \topheader{Periodic Fourier Transform}
 If $f$ is periodic, we define the Fourier Transform of $f$ to be
 \begin{equation}
@@ -530,8 +530,8 @@ The last claim is summarized in the following Lemma.
     \]
     Multiplying across proves \cref{eq:reg transforms into decay periodic l1 pt2}.
 \end{proof}
-
-\topheader{Exercise 9.22-9.24}
+%Exercise 9.22-9.24
+\topheader{The Periodization Map}
 Few more things, if $\phi\in C_c^\infty(\realn)$, we define the \emph{periodization map $P$} by the sum in \cref{eq: periodization map}. 
 \begin{equation}
 P\phi(x) = \sum_{k\in\mathbb{Z}^n}\tau_k\phi(x) = \sum_{k\in\mathbb{Z}^n}\phi(x-k)
@@ -545,7 +545,8 @@ that precomposes $F\in \mathbb{D}'(\Torusn)$ with $P$. That means
 \[
 \langle P'F,\phi \rangle_{\dzz(\realn)} = \langle F, P\phi\rangle_{(\dzz(\Torusn))}
 \]
-\begin{wts}[Exercise 9.22]\label{thm: exercise 9.22 Folland Periodization}
+%Exercise 9.22
+\begin{wts}[Properties of the Periodization map --- Part 1]\label{thm: exercise 9.22 Folland Periodization}
     The periodization map $P: C_c^\infty(\realn)\to C^\infty(\Torusn)$ and its adjoint, defined in \cref{eq: periodization map} are toplinear.
 \end{wts}
 \begin{proof}
@@ -571,16 +572,16 @@ With this, we define the range of $P'$ --- the space of \emph{shift invariant di
 \label{eq: shift-invariant distributions}
 \end{equation}
 Our goal in this section is to show that the mapping $P'$ is a bijection. 
-\begin{lemma}
-It can also be shown that $\dzz'_{per}(\realn)\subseteq\szz'$, which states: \emph{every} shift-invariant distribution is tempered. Moreoever, $P$ maps $\dzz'(\Torusn)$ into $\dzz'_{per}(\realn)$. This is a bijection.    
+\begin{lemma}[Properties of the Periodization map --- Part 2]
+It can also be shown that $\dzz'_{per}(\realn)\subseteq\szz'$, which states: \emph{every} shift-invariant distribution is tempered. Moreover, $P$ maps $\dzz'(\Torusn)$ into $\dzz'_{per}(\realn)$. This is a bijection.    
 \end{lemma}
 \begin{proof}
-    
+    Postponed.
 \end{proof}
-\begin{lemma}
+\begin{lemma}[Properties of the Periodization map --- Part 3]
     If $g\in C_s^\infty(\mathbb{Z}^n)$, meaning $\abs{g(k)}\leq C(1+\abs{k})^N$ for some $C$, $N$. Then, the Fourier Series $\sum_{k\in\mathbb{Z}^n}g(k)E_{k}(x)$ converges in $\dzz'(\Torusn)$ to a distribution $F$ such that $\hat{F} = g$.\\
 
-    Moreoever, it converges to a tempered distribution $G\in \szz'(\realn)$ such that $G = P'F$, and $G$ is \emph{shift invariant} --- that is, $\tau_k G = G$ for all $k$.
+    Moreover, it converges to a tempered distribution $G\in \szz'(\realn)$ such that $G = P'F$, and $G$ is \emph{shift invariant} --- that is, $\tau_k G = G$ for all $k$.
 \end{lemma}
 \begin{proof}
     
@@ -618,20 +619,24 @@ Let $\mathbb{T}^n = (S^1)^n = (\real/\mathbb{Z})^n$ is a compact Hausdorff space
 
 
 \begin{definition}[Periodic function]
-A function $f: \realn\to\mathbb{C}$ is \emph{periodic} (or $1$-periodic) if $f(x+k) = f(x)$ for every $k\in\mathbb{Z}^n$. $f$ can be uniquely identified within the space of $1$-periodic functions by its values in $Q=[0,1)^n$. The space of smooth periodic functions on $\realn$ is denoted by $C^\infty(\mathbb{T}^n)$.
-
-\[
-C^\infty(\Torusn) = \bigset{f\in C^\infty(\realn),\: f\text{ is periodic.}}
-\]
+A function $f: \realn\to\mathbb{C}$ is \emph{periodic} (or $1$-periodic) if $f(x+k) = f(x)$ for every $k\in\mathbb{Z}^n$. $f$ can be uniquely identified within the space of $1$-periodic functions by its values in $Q=[0,1)^n$. 
+\end{definition}
+\begin{definition}[Periodic smooth function]
+    The space of smooth periodic functions on $\realn$ is denoted by $C^\infty(\mathbb{T}^n)$, and
+    \[
+    C^\infty(\Torusn) = \bigset{f\in C^\infty(\realn),\: f\text{ is periodic.}}.
+    \]
 \end{definition}
 
     Because the $n$-torus is compact, we can endow $C^\infty(\Torusn)$ with the Frechet topology of uniform convergence, and if $f\in C^\infty(\Torusn)$, its \emph{restriction} onto the $Q$ is smooth. Since $Q$ represents $\Torusn$ as a quotient space, there exists an injection from smooth functions $C^\infty(Q)\to C^\infty(\Torusn)$. \\
 
-If $g\in C^\infty(Q)$ the values of $g$ are completely determine by points in $Q$. We can extend $g$ to a pointwise function on $\realn$ by the \emph{extension map} $W: C^\infty(\Torusn)\to C^\infty(\realn)$. We note that this sum in \cref{eq: extension map} converges to a smooth function in $C^\infty(\realn)$, and $W: C^\infty(\Torusn)\to C^\infty(\realn)$ can be shown to be toplinear.
+If $g\in C^\infty(Q)$ the values of $g$ are completely determine by points in $Q$. We can extend $g$ to a pointwise function on $\realn$ by the \emph{extension map} $W: C^\infty(\Torusn)\to C^\infty(\realn)$. 
 \begin{equation}
-Wg(t) = W_g(t) = g(x)\quad \text{where } t-x\in\mathbb{Z}^n
+Wg(t) = W_g(t) = g(x)\quad \text{where } t-x\in\mathbb{Z}^n,
 \label{eq: extension map}
 \end{equation}
+and we note that this sum in \cref{eq: extension map} converges to a smooth function in $C^\infty(\realn)$. It can also be shown that $W: C^\infty(\Torusn)\to C^\infty(\realn)$ is toplinear.\\
+
 This coincides with the definition of $C^\infty(\Torusn)$, where each $f\in C^\infty(\Torusn)$ is uniquely determined by its values in $Q$, meaning
 \[
 W {f\vert_{Q}} = f
@@ -805,7 +810,7 @@ Prop 3: If $t>s\geq 0$, the Sobolev spaces decrease, while the norms increase.
 \[
 H_t\subseteq H_s\quad\text{and}\quad \norm{\cdot}_{(s)}\leq\norm{\cdot}_{(t)}
 \]
-Moreoever, the inclusion $I: H_t\to H_s$ is a continuous compact map.
+Moreover, the inclusion $I: H_t\to H_s$ is a continuous compact map.
 \end{wts}
 \begin{proof}
 The first two claims follow immediately from the definition of vector-valued $H_s$, and from Theorem 9.1, 9.2.\\
@@ -868,7 +873,7 @@ If $f_n\to f$ in $H_s$, and $k$ be a non-negative integer, such that $s > k + 2^
 \end{corollary}
 
 \topheader{Adjoint map $j: H_{1/2}\to L^2$}
-\begin{wts}
+\begin{wts}[A compact embedding]
 Let $j: H_{1/2}\to L^2$ be the inclusion map. It is a compact continuous linear map, and so is the adjoint map $j^*: L^2\to H_{1/2}$ defined by
 \[
 \forall x\in H_{1/2},\: y\in L^2\quad \langle j(x),y\rangle_{L^2} = \langle x,j^*y\rangle_{H_{1/2}}

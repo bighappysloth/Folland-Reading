@@ -38,7 +38,7 @@
 \graphicspath{{../images/}{images/}} 
 %%%%%%%%
 %%%%%%%%
-\fchapter{4: Symplectic Geometry}
+\fchapter{6: Symplectic Geometry}
 % Let $n\geq 1$. We will be working in $\real^{2n}$. Let us define
 % \begin{itemize}
 %     \item $X = C^\infty(S^1\,\realtn)$, where $S^1 = \{z\in\complex, \abs{z}=1\}$.
@@ -65,7 +65,6 @@
     We assume all manifolds modelled over $\realn$ ($n\geq 1$) are of class $C^\infty$, and are equipped with Hausdorff, second-countable topologies.
 \end{remark}
 Let $M$ be a manifold modelled on $\realn$.
-\begin{multicols}{2}
 \begin{itemize}
     \item $\vField(M)$ = ($C^\infty(M)$) module of vector fields on $M$,
     \item $\cvField(M)$ = module of covector fields on $M$,
@@ -73,7 +72,6 @@ Let $M$ be a manifold modelled on $\realn$.
     \item $\Tau^{k}(M)$ = $\Tau^{(0,k)}(M)$.
     \item $\Omega^k(M)$ = module of $k$-forms on $M$.
 \end{itemize}
-\end{multicols}
 
 \begin{note}[Covariant and Contravariant Tensors]
     We recall that if $V$ is a $\real$-vector space, a $j$-contravariant, $k$-covariant tensor on $V$ --- denoted by $F$ --- is a $(j+k)$ linear mapping that takes $j$-covectors, and $k$-vectors to a real number. In symbols,
@@ -85,10 +83,14 @@ Let $M$ be a manifold modelled on $\realn$.
     If $V$ is finite dimensional, then $V=\Tau^{(1,0)}(V)$, and $V^* = \Tau^{(0,1)}(V)$.
     Similarly, $\vField(M) = \Tau^{(1,0)}(M)$,  $\cvField(M) = \Tau^{(0,1)}(M)$ and $C^\infty(M) = \Tau^{(0,0)}(M)$.
 \end{note}
-If $N$ is another manifold and $u: M\to N$ a morphism, 
+If $N$ is another manifold and $u: M\to N$ a morphism, because the differential of $u$ pushes tangent vectors from $TM$ into $TN$, we identify $du$ with the mapping that pushes, where
+\[
+    du: \prod_{\underline{k}}TM\to \prod_{\underline{k}}TN,\qqtext{and}du(p)[v_{\underline{k}}] = (du(p)[v_{1}],\ldots, du(p)[v_k]).
+\]
+With $u: M\to N$ still being a morphism, 
 \begin{itemize}
     \item for every $f\in C^\infty(N)$, the \emph{pullback} through $u$ is the precomposition $u^*f = f\circ u\in C^\infty(M)$, and
-    \item for every $A\in\cvField(N)$, the \emph{tensor field pullback} through $u$ is the precomposition.  Ita is defined by
+    \item for every $A\in\cvField(N)$, the \emph{tensor field pullback} through $u$ is the precomposition.  It is defined by
     \[
         (u^*A)(p)(v) = A[u(p)][du(p)(v)],\quad\text{where the square brackets are for readability.}
     \]
@@ -98,15 +100,12 @@ If $N$ is another manifold and $u: M\to N$ a morphism,
     \]
     \item If $u$ is a diffeomorphism, we define the \emph{vector field pullback} of a vector field $Y\in\vField(N)$ by
     \[
-        (u^*Y)(p) = du^{-1}\qty(Y_{u(p)}) = (du^{-1}\circ Y\circ u)(p)
+        (u^*Y)(p) = du^{-1}\qty(Y_{u(p)}) = (du^{-1}\circ Y\circ u)(p).
     \]
 \end{itemize}
 We recall a few facts from differential geometry.
 \begin{itemize}
-    \item If $f\in C^\infty(M)$, the \emph{exterior derivative} of $f$ is the covector field $df$ with coordinate representation
-    \[
-        df(p) = \sum_{i=\underline{n}}\pdv{f}{x^i}dx^i.
-    \]
+    \item If $f\in C^\infty(M)$, the \emph{exterior derivative} of $f$ is the covector field $df$ with coordinate representation $df(p) = \partial_i f(p) dx^i$.
     \item If $A\in \Omega^k(M)$, the \emph{exterior derivative} of $A$ is a $k+1$ form that is defined by its local coordinate representation. 
     \item The exterior derivative $d$ commutes with the tensor field pullback. That is, for every $A\in \Omega^k(N)$, $u^*(dA) = du^*A$.
 \end{itemize}
@@ -186,7 +185,7 @@ We recall a few facts from differential geometry.
 %% Poincare's Lemma: if M is a star-shaped domain, then a differential 1-form is closed if and only if it is exact.
 %% Fact: Exact forms are always closed, but closed forms are not always exact - depends on deRham cohomology.
 \topheader{Standard Symplectic Form}
-We begin the case in $\real^2$. The \emph{standard symplectic form} on $\real^2$ is the bilinear form represented by the matrix (with repect to the standard basis) in \cref{eq:std symplectic form r2}.
+We begin the case in $\real^2$. The \emph{standard symplectic form} on $\real^2$ is the bilinear form represented by the matrix (with respect to the standard basis) in \cref{eq:std symplectic form r2}.
 \begin{equation}
     J = \mqty[0 & 1\\ -1 & 0]
     \label{eq:std symplectic form r2}
@@ -212,9 +211,9 @@ The following note summarizes several properties of $J$.
 \begin{definition}[Standard symplectic form]\label{def:std-symplectic-form}
     Let $n\geq 1$, the \emph{standard symplectic form} is the bilinear form defined by the matrix representation in \cref{eq:std symplectic form r2n 2}.
     \begin{equation}
-        J =\begin{bmatrix}
+        J =\mqty[0 & 1 \\ -1 & 0]\otimes \id{\realn}=\begin{bmatrix}
             \admat[0]{I_n,-I_n}
-        \end{bmatrix}
+        \end{bmatrix}\quad\text{where }\otimes\text{ denotes the Kronecker Product}.
         \label{eq:std symplectic form r2n 2}
     \end{equation}
     The matrix in \cref{eq:std symplectic form r2n 2} induces a bilinear pairing, which we will denote by $\omega_0\in \Omega^2(\realtn)$. Its defining property is that it computes the sum of $n$ $2\times 2$ determinants, as shown in \cref{eq:std symplectic form r2n determinants}. 
@@ -228,7 +227,7 @@ The following note summarizes several properties of $J$.
         \label{eq: std symplectic form r2n wedge products using covectors}
     \end{equation}
 \end{definition}
-The properties outlined in \cref{note:properties of std symplectic form r2} all hold for $\realtn$. Moreoever, $\omega_0$ is exact, as one can verify that if $\lambda = \sum x^i dx^{n+i}$ with the sum taken over $\underline{n}$, then $d\lambda = \omega_0$. Recall if $p,v\in\realtn$, 
+The properties outlined in \cref{note:properties of std symplectic form r2} all hold for $\realtn$. Moreover, $\omega_0$ is exact, as one can verify that if $\lambda = \sum x^i dx^{n+i}$ with the sum taken over $\underline{n}$, then $d\lambda = \omega_0$. Recall if $p,v\in\realtn$, 
 \[
     \lambda(p) = \sum p^{i}dx^{n+i}\qqtext{and} \lambda(p)(v) = \sum p^{i}v^{n+i}.
 \]
@@ -263,25 +262,25 @@ We introduce a more differential geometric viewpoint, and work with arbitrary sy
 \begin{definition}[Symplectomorphism]
     Let $(M,\omega)$ and $(N,\eta)$ be symplectic manifolds of dimension $2m$ and $2n$ respectively. A mapping $u: M\to N$ is a \emph{symplectomorphism} (or is symplectic as an adjective) whenever it preserves the symplectic structure under the tensor pullback. That is,
     \[
-        u^*\eta =\omega,\qqtext{which means} \omega(p)(v_1,v_2) = \eta(u(p))\biggl(du(p)[v_1], \:du(p)[v_2]\biggr)\quad\forall p\in M,\: v_{\underline{2}}\in T_pM.
+        u^*\eta =\omega,\qqtext{which means} \omega(p)(v_1,v_2) = \eta(u(p))\biggl(du(p)[v_1,v_2]\biggr),
     \]
-    An embedding that is a symplectomorphism is called a \emph{symplectic embedding}.
+    for every $p\in M$, and $v_{\underline{2}}\in T_p M$. An embedding that is a symplectomorphism is called a \emph{symplectic embedding}.
 \end{definition}
 \begin{example}[Symplectomorphism on $\realtn$]
 Let $\varphi:\realtn\to\realtn$ be smooth, we say $\varphi$ is a \emph{symplectomorphism} (or $\varphi$ is symplectic as an adjective) whenever it preserves $\omega$. That is,
 \[
-    \left\langle D\varphi(x)(v_1), D\varphi(x)(v_2)\right\rangle_{\omega_0} = \omega_0(v_1, v_2)\quad\forall x,v_1,v_2\in\realtn,
+    \left\langle D\varphi(x)(v_1), D\varphi(x)(v_2)\right\rangle_{\omega_0} = \omega_0(v_1, v_2),\forall x,v_1,v_2\in\realtn,
 \]
 where $D\varphi(x)$ refers to the Jacobian matrix of $\varphi$ evaluated at $x\in\realtn$. If $\varphi$ is a $C^\infty$ diffeomorphism and $\varphi$ and its inverse are symplectomorphisms, we call $\varphi$ a \emph{symplectic diffeomorphism} or a \emph{symplectic isomorphism}.
 \end{example}
 \begin{definition}[Symplectic action on $(M,\omega)$]
     If $(M,\omega)$ is a symplectic manifold, we write
     \[
-        \langle v_{1}, v_{2}\rangle_{\omega(p)} = \omega(p)(v_1, v_2)\quad\text{for every }p\in M,\text{ and } v_{1},v_2\in T_pM.
+        \langle v_{1}, v_{2}\rangle_{\omega(p)} = \omega(p)(v_1, v_2),\quad\text{for every }p\in M,\text{ and } v_{1},v_2\in T_pM.
     \]
     Given an interval $\mathcal{I}\subseteq\real$, the \emph{symplectic pairing} between two curves is defined to be $A(\gamma,\eta) = 2^{-1}\int_{\mathcal{I}} \langle \mathring{\gamma},\eta\rangle_{\omega_0}$, for every $\gamma,\eta\in C^\infty(\mathcal{I}, M)$. The \emph{symplectic action} on a curve $\gamma$ is 
     \[
-        A(\gamma) = A(\gamma,\gamma) =2^{-1}\int_{\mathcal{I}}\langle\mathring{\gamma},\gamma\rangle_{\omega}
+        A(\gamma) = A(\gamma,\gamma) =2^{-1}\int_{\mathcal{I}}\langle\mathring{\gamma},\gamma\rangle_{\omega}.
     \]
 \end{definition}
 %
@@ -377,9 +376,6 @@ In Euclidean space, $X_H$ has a simple structure, and is related to the $\nabla 
     \]
     The proof is complete upon seeing that $(-1)J=J^{-1}$.
 \end{proof}
-\begin{remark}
-    If $X_H$ is a Hamiltonian flow, we sometimes refer to its integral curves as \emph{solutions}. If a solution is periodic, it is called an \emph{orbit} of $X_H$.
-\end{remark}
 \topheader{Statement of the Weinstein's Conjecture}
 \begin{definition}[Closed submanifold]\label{def:closed-submanifolds}
     Let $M$ be a manifold modelled on $\realn$. A submanifold $S\subseteq M$ is said to be \emph{closed} whenever it is a compact subset of $M$, and the $S$ is a manifold without boundary.
@@ -399,7 +395,23 @@ In Euclidean space, $X_H$ has a simple structure, and is related to the $\nabla 
 \begin{definition}[Energy surface]\label{def:energy surface}
     An \emph{energy surface} is a compact, regular hypersurface of a symplectic manifold $(M,\omega)$.
 \end{definition}
-We conclude this section by stating Weinstein's conjecture on $\realtn$.
+\begin{remark}[Terminology surrounding Weinstein' Conjecture]
+    Let $X$ be a vector field on a manifold $M$.
+\begin{itemize}
+    \item A \emph{solution} to $X$ is a mapping $\gamma: \mathcal{I}\to M$ where $\mathring{\gamma}(t) = X(\gamma(t))$ at every $t$ in the open interval $\mathcal{I}$.
+    \item An \emph{orbit} of $X$ is a non-constant solution.
+    \item A solution $\gamma$, to $X$ is said to be of $p$-type, or a $p$-solution whenever it is periodic; and respectively for orbits of $X$.
+\end{itemize}
+Let $(M,\omega)$ be a symplectic manifold, and $S$ an energy surface.
+\begin{itemize}
+    \item A \emph{smooth defining function} of $S$ is a function $F\in C^\infty(M,\real)$ such that $S$ is a regular level set of $F$. We sometimes say $F$ is a \emph{defining function} of $S$ when it is implicit.
+    \item A \emph{characteristic} of $S$ is the image $\gamma(\mathcal{I})$ where $\gamma$ is a solution of the Hamiltonian flow of a defining function of $S$. 
+    \item Given a characteristic of $S$, $\gamma(\mathcal{I})$. It is \emph{closed} whenever $\gamma$ is of $p$-type, and is \emph{non-degenerate} whenever $\gamma$ is an orbit.
+\end{itemize}
+
+\end{remark}
+
+We conclude this section by stating Weinstein's conjecture on $\realtn$ and proving the first reduction.
 \begin{quote}
     Does every energy surface on $(\realtn,\omega_0)$ admit a non-degenerate, closed orbit?
 \end{quote}
@@ -497,7 +509,7 @@ With this, we can extend the symplectic form $\omega_0$ to $L^2$ mappings into $
 \begin{definition}[Symplectic Action]\label{def:symplectic action closed curves}
     The \emph{symplectic action} (on closed curves) is a mapping $A:\Omega\to\real$ which \textbf{computes the area swept by the curve}. For an arbitrary loop $\gamma\in\Omega$, its action $A(\gamma)$ is given by \cref{eq:loop space S1 r2n symplectic action}:
     \begin{equation}
-        A(\gamma) = 2^{-1}\int_{S^1}\langle\mathring{\gamma},\gamma\rangle_{\omega_0} = 2^{-1}\int_{S^1}\sum{i=\underline{n}}\det\qty(\mqty[\mathring{\gamma}^{i} & \gamma^{i}\\ \mathring{\gamma}^{n+i} & \gamma^{n+i}])dt
+        A(\gamma) = 2^{-1}\int_{S^1}\langle\mathring{\gamma},\gamma\rangle_{\omega_0} = 2^{-1}\int_{S^1}\sum_{i=\underline{n}}\det\qty(\mqty[\mathring{\gamma}^{i} & \gamma^{i}\\ \mathring{\gamma}^{n+i} & \gamma^{n+i}])dt.
         \label{eq:loop space S1 r2n symplectic action}
     \end{equation}
     
@@ -603,8 +615,8 @@ With this, we can extend the symplectic form $\omega_0$ to $L^2$ mappings into $
     \end{align*}
     and $u\circ \gamma$ is an integral curve of $X_F$. \Cref{eq:reduction 2 eq3} is proven upon realizing that $X_F$ and $X_{F\circ u}$ are $u$-related (Theorem 9.13 of \cite{Lee2013Introduction}).
 \end{proof}
-\begin{corollary}
-    Let $M,N$ and $u$ be as in \Cref{thm:wc reduction 2 symplectic structure }, the orbits of $X_F$ correspond bijectively to the orbits of $X_{F\circ u}$ through conjugation; and the same for the non-degenerate orbits.
+\begin{corollary}[WC Reduction 2.5 --- Periodic Orbits]\label{cor:wc reduction 2.5}
+    Let $M,N$ and $u$ be as in \Cref{thm:wc reduction 2 symplectic structure }, the periodic orbits of $X_F$ correspond bijectively to the periodic orbits of $X_{F\circ u}$ through conjugation; and so do their periods.
 \end{corollary}
 \topheader{Quadratic Forms}
 Let $n\geq 1$ be fixed, a \emph{quadratic form} on $\realn$ is a mapping $q:\realn\to\real$ where $q(rx) = \abs{r}^2q(x)$ for every $r\in\real$ and $x\in \realn$ and
@@ -634,32 +646,18 @@ We see that reparametrization by a diffeomorphism $\alpha$ does not affect the \
 \[
   A(\gamma)=\int_{\gamma}\lambda = \pm \int_{\gamma\circ\alpha}\lambda = \pm A(\gamma\circ \alpha).
 \]
-In the previous chapter, we have also proven that symplectomorphisms on $\realtn$ leave the action invariant; so it makes sense to speak of the action across closed characteristics on an energy surface (on $\realtn$). Our main result in this section concerns the \textbf{non-constant, periodic solutions} of Hamiltonian flows on the boundaries of ellipsoids. \\
-
-Let $X$ be a vector field on a manifold $M$.
-\begin{itemize}
-    \item A \emph{solution} to $X$ is a mapping $\gamma: \mathcal{I}\to M$ where $\mathring{\gamma}(t) = X(\gamma(t)$ at every $t$ in the open interval $\mathcal{I}$.
-    \item An \emph{orbit} of $X$ is a non-constant solution.
-    \item A solution $\gamma$, to $X$ is said to be of $p$-type, or a $p$-solution whenever it is periodic; and respectively for orbits of $X$.
-\end{itemize}
-Let $(M,\omega)$ be a symplectic manifold, and $S$ an energy surface.
-\begin{itemize}
-    \item A \emph{smooth defining function} of $S$ is a function $F\in C^\infty(M,\real)$ such that $S$ is a regular level set of $F$. We sometimes say $F$ is a \emph{defining function} of $S$ when it is implicit.
-    \item A \emph{characteristic} of $S$ is the image $\gamma(\mathcal{I})$ where $\gamma$ is a solution of the Hamiltonian flow of a defining function of $S$. 
-    \item Given a characteristic of $S$, $\gamma(\mathcal{I})$. It is \emph{closed} whenever $\gamma$ is of $p$-type, and is \emph{non-degenerate} whenever $\gamma$ is an orbit.
-\end{itemize}
-
+In the previous chapter, we have also proven that symplectomorphisms on $\realtn$ leave the action invariant; so it makes sense to speak of the action across closed characteristics on an energy surface (on $\realtn$). Our main result in this section concerns the \textbf{$p$-orbits} of Hamiltonian flows on the boundaries of ellipsoids. \\
 
 We will prove \Cref{thm:symplectic action on the boundary of ellipsoids} in a few steps.
 \begin{wts}[Action on the boundary of ellipsoids]\label{thm:symplectic action on the boundary of ellipsoids}
     Let $q$ be a positive definite quadratic form, (not necessarily normal with respect to standard coordinates), then:
     \[
-        \pi r_1^2 = \inf\bigset{\abs{A(\gamma)},\: \parbox{21em}{$\gamma$ is a non-degenerate closed characteristic of $\partial \Epsilon_q$.}},
+        \pi r_1^2 = \inf\bigset{\abs{A(\gamma)},\: \parbox{15em}{$\gamma$ is a non-degenerate closed characteristic of $\partial \Epsilon_q$.}},
     \]
     and the infimum is attained.
 \end{wts}
-\begin{step}[Orbits of $X_q$ on $\partial \Epsilon_q$]
-    Suppose $q = \sum_{i=\underline{n}}(x^2_{i} + x^2_{n+i})$ is in normal form. Every non-constant solution $\gamma$ on $\partial \Epsilon_q$ is given by
+\begin{step}[Solutions of $X_q$ on $\partial \Epsilon_q$]
+    Suppose $q = \sum_{i=\underline{n}}(x^2_{i} + x^2_{n+i})$ is in normal form. Every solution $\gamma$ on $\partial \Epsilon_q$ is given by
     \[
         \gamma(t) = \sum_{i=\underline{n}} [c_{\lambda_i}\gamma_i(0) + s_{\lambda_i}\gamma_{n+i}(0)]e_i + [-s_{\lambda_i}\gamma_i(0) + c_{\lambda_i}\gamma_{n+i}(0)]e_{n+i},
     \]
@@ -673,7 +671,7 @@ We will prove \Cref{thm:symplectic action on the boundary of ellipsoids} in a fe
     q\circ\varphi(x) = 2^{-1}\sum_{i=\underline{n}}\lambda_i(x_i^2 + x_{n+i}^2)\qqtext{where} 0<\lambda_n\leq\lambda_{n-1}\leq\cdots\leq\lambda_1.
     \label{eq:quadratic form symplectically diagonalized 2}
 \end{equation}
-Suppose $q$ is given by the right hand side of \cref{eq:quadratic form symplectically diagonalized 2}, then $\nabla q(x) = (\lambda_1x_1,\:\ldots,\:\lambda_nx_n,\:\lambda_1x_{n+1},\:\ldots,\:\lambda_nx_{2n})$; or
+Suppose $q$ is given by the right hand side of \cref{eq:quadratic form symplectically diagonalized 2}, then $\nabla q(x) = \diag(\lambda_{\underline{n}},\lambda_{\underline{n}})x$; or
 \[
     \nabla q(x) = \sum_{i=\underline{n}} \lambda_i(x_ie_i + x_{n+i}e_{n+i}) \qqtext{and}X_q(x) = \sum_{i=\underline{n}}\lambda_i(x_{n+i}e_i - x_ie_{n+i})
 \]
@@ -742,15 +740,15 @@ Each $z_j$ has eigenvalues $\pm i\lambda_j$, where $i = \sqrt{-1}$ in this conte
 Suppose $\gamma(0) = (\gamma_{\underline{2n}}(0))\in\partial\Epsilon_q$, then the integral curve generated by $\gamma(0)$ is the sum of the eigenmodes $\pm\lambda_i$:
 \[
     \gamma(t) = \sum_{i=\underline{n}}\exp(\lambda_j\sysmallmatrix t)\begin{bsmallmatrix}
-        \gamma_i(0) \\ \gamma_{n+i}(0)
+        \gamma_{i}(0) \\ \gamma_{n+i}(0)
     \end{bsmallmatrix},\quad\text{with }\sysmallbasis \text{ suppressed.}
 \]
 We note that: because $0<r_1\leq r_2\leq\cdots\leq r_n$, the minimum period of a non-degenerate orbit is $\pi r_1^2$. 
 \end{proof}
-\begin{step}[Action of solutions of $X_q$ on $\partial \Epsilon_q$]
+\begin{step}[Action of $p$-orbits of $X_q$ on $\partial \Epsilon_q$]
     Let $q = \sum_{i=\underline{n}} r_i^{-2}(x^2_i + x^2_{n+i})$ be a positive definite ellipsoid in normal form on $(\realtn,\omega_0)$, then
     \[
-        \pi r_1^2 = \inf\bigset{\abs{A(\gamma)},\: \parbox{25em}{$\gamma$ is a non-constant, periodic integral curve of $X_q$ on $\partial \Epsilon_q$.}}.
+        \pi r_1^2 = \inf\bigset{\abs{A(\gamma)},\: \parbox{12em}{$\gamma$ is a $p$-orbit of $X_F$ on $\partial \Epsilon_q$.}}.
     \]
 \end{step}
 \begin{proof}[Proof of Step 2]
@@ -769,16 +767,291 @@ We note that: because $0<r_1\leq r_2\leq\cdots\leq r_n$, the minimum period of a
     \end{align*}
     Hence, $A(\gamma) = L$ where $L$ is the period of $\gamma$, and is minimized whenever $L = \pi r_1^2$. For an arbitrary $q$, there exists a linear symplectic mapping $\varphi$ such that $\varphi\circ q$ is in normal form. Since $\varphi$ preserves the symplectic action, this proves Step 2.
 \end{proof}
-\begin{step}[Action of arbitrary Hamiltonian flows on $\partial \Epsilon_q$]
+\begin{step}[Action of arbitrary $p$-orbits on $\partial \Epsilon_q$]
     Let $q\in\mathbb{P}$, and $F$ define the boundary of $\Epsilon_q$, then
     \[
-        \pi r_1^2 = \inf\bigset{\abs{A(\gamma)},\: \parbox{22em}{$\gamma$ is a non-constant, periodic solution to $X_F$ on $\partial \Epsilon_q$.}}.
+        \pi r_1^2 = \inf\bigset{\abs{A(\gamma)},\: \parbox{12em}{$\gamma$ is a $p$-orbit of $X_F$ on $\partial \Epsilon_q$.}}.
     \]   
 \end{step}
 \begin{proof}[Proof of Step 3]
     From \Cref{thm:wc reduction 1 hamiltonian}, we know that the orbits of $X_q$ and $X_F$ on $\partial \Epsilon_q$ correspond one-to-one with each other. Given an orbit, $\gamma$ of  $X_F$, the composition $\gamma\circ\alpha$ is an orbit of $X_q$ for some diffeomorphism $\alpha$. Therefore, $A(\gamma) = A(\gamma\circ\alpha) = \pm A(\gamma)$ and the proof is complete.
 \end{proof}
+\clearpage
+%%%%%
+%%%%%
+%%%%% Custom symbols for symplectic capacities
+\providecommand{\Grom}{\mathrm{Gromov}}
+\providecommand{\Periodic}{\mathrm{Periodic}}
+\providecommand{\frakc}{\mathcal{C}}
+\providecommand{\frakco}{\mathcal{C}_0}
+\providecommand{\hcal}{\mathcal{H}}
+\providecommand{\hcala}{\mathcal{H}_a}
+\providecommand{\osc}{\mathrm{osc}}
+%
+%
+\fchapter{7: Symplectic Capacities}
+\topheader{Introduction}
+%% Maybe add that the total volume of ?????
+We will discuss a class of correspondences from the set of all symplectic manifolds to $[0,+\infty]$ --- similar to the total measure or volume of a space --- but are preserved under symplectomorphisms. First, we recall two very special symplectic manifolds, the \emph{open $r$-ball} and the \emph{open $r$-cylinder}:
+\[
+    B(r) = \bigset{x\in\realtn,\: \sum_{i=\underline{n}} x^2_{i} + x^2_{n+i}=\abs{x}^2<r^2}\qqtext{and}Z(r) = \bigset{x\in\realtn,\: x^2_1 + x^2_{n+1}<r^2};
+\]
+which are both equipped with the standard symplectic form $\omega_0$. We have yet to prove that all open submanifolds of a manifold are symplectic submanifolds --- which we will do so now.
+\begin{wts}[Open submanifolds are symplectically embedded]
+    If $U$ is an open subset of a symplectic manifold $(M,\omega)$, then $(U,\omega)$ is again a symplectic submanifold, and the inclusion map $\iota_U$ is a symplectic embedding.
+\end{wts}
+\begin{proof}
+    It is clear that $U$ is an embedded submanifold of $M$ by elementary manifold theory. Because $U$ has codimension $0$, the differential of the inclusion map $\iota_U$ is the identity (in the sense of a mapping between abstract tangent spaces). Therefore the pullback $\iota_U^*(\omega) = \omega$ as needed. 
+\end{proof}
+\begin{lemma}[Dilations of open subsets of $\realtn$]
+    Let $(U,\omega_0)$ be an open symplectic submanifold of $(\realtn,\omega_0)$. For every $\alpha\neq 0$, $(\alpha U,\omega_0)$ is symplectically isomorphic to $(U,\sgn(\alpha)\abs{\alpha}^2\omega_0)$, where $\alpha U=\{\alpha x,\: x\in U\}=\{x,\: \alpha^{-1}x\in U\}$.
+\end{lemma}
+\begin{proof}
+    We construct a mapping which relates $\alpha U$ with $U$. Define $\varphi:\realtn\to\realtn$ where $\varphi(x) = \alpha^{-1}x$. Its Jacobian is simply $\alpha^{-1}\id{\realtn}$ at every point, and it is clear that $\varphi\vert_{\alpha U}$ is a diffeomorphism onto $U$. Next, we claim that $(\alpha U,\omega_0)$ is symplectically isomorphic to $(U,\sgn(\alpha)\abs{\alpha}^2\omega_0)$. This is easy to see, because the differential of $\varphi$ is the linear map $\id{\realtn}{\alpha^{-1}}$, and the two $\alpha$s pop out by bilinearity within the tensor pullback. Indeed, fix any $\alpha x\in \alpha U$, then 
+    \[
+        \varphi^*(\sgn(\alpha)\abs{\alpha}^2\omega_0)(\alpha x)(v_1,v_2) = (\sgn(\alpha)\abs{\alpha}^2\omega_0)(x)\biggl(\alpha^{-1}v_1, \alpha^{-1}v_2\biggr) = \omega_0(x)(v_1,v_2).
+    \]
+\end{proof}
+\begin{definition}[Symplectic capacity]
+    A \emph{symplectic capacity} $\frakc$ is a function that assigns to each symplectic manifold $(M,\omega)$:  a number $\frakc(M,\omega)\in[0,+\infty]$ satisfying the following properties
+    \begin{enumerate}
+        \item Monotonicity: Given two symplectic manifolds $(M,\omega)$ and $(N,\eta)$ \textbf{of the same dimension}, if $(M,\omega)$ embeds symplectically into $(N,\eta)$, then $\frakc(M,\omega) \leq \frakc(N,\eta)$.
+        \item Conformality: If $\alpha\neq 0$ is a real number, then $\frakc(M,\alpha\omega) = \abs{\alpha}\frakc(M,\omega)$.
+        \item Non-triviality: The capacities of $B(1)$ and $Z(1)$ are equal to $\pi$, \textbf{across all $n$}.
+    \end{enumerate}
+\end{definition}
+It is clear that, if two symplectic manifolds are symplectically isomorphic, then their symplectic capacities must agree. Furthermore,
+\begin{wts}[Scaling of open subsets of $\realtn$]\label{thm:symplectic capacity scaling open subsets}
+    Let $U$ be an open subset of $\realtn$, then $(U,\omega_0)$ is a symplectic manifold that is symplectically embedded into $(\realtn,\omega_0)$, and $\frakc(\alpha U,\omega_0) = \abs{\alpha}^2\frakc(U,\omega_0)$ for all $\alpha\neq 0$, where $\alpha U = \{x,\: \alpha^{-1} x\in U\}$.
+\end{wts}
+\begin{proof}
+    First, every $U\osub\realtn$ is an embedded submanifold of $\realtn$, with the inclusion $\iota_{U} = \id{U}$. At every point $x\in U$: we see that $\iota_U^{*}(\omega_0)(x)(\cdot,\cdot) = \omega_0(x)(d\id{U}(\cdot,\cdot))$ which is equal to the symplectic form on $U$. Given a capacity $\frakc$, $(\alpha U,\omega_0)$ is again an open submanifold of $\realtn$, for all $\alpha\neq 0$; so $\frakc(\alpha U,\omega_0)$ makes sense. By conformality of $\frakc$, we see that$\frakc(\alpha U,\omega_0) = \frakc(U,\pm\abs{\alpha}^2\omega_0) = \abs{\alpha}^2\frakc(U,\omega_0)$.
+\end{proof}
+The following Proposition uses the fact that the non-triviality and the conformality properties of $\frakc$ means that the capacity of any open subset $U$, that is squeezed between 
+\[
+    B(r)\subseteq U\subseteq Z(r),\quad \text{is precisely }\pi r^2.
+\]
+Together with the symplectic invariance of capacities, we have:
+\begin{wts}[Capacities of Ellipsoids of $\realtn$]
+    Let $\frakc$ be a capacity, then $\frakc(\Epsilon,\omega_0) = \pi r_1^2$ for every open ellipsoid $\Epsilon$ with $r(\Epsilon) = (r_1,\ldots, r_n)$.
+\end{wts}
+\begin{proof}
+    By \Cref{thm:symplectic capacity scaling open subsets}, we see that
+    \begin{align*}
+        \frakc(B(r),\omega_0) &= \abs{r}^2\frakc(B(1),\omega_0) = \pi\abs{r}^2\\
+        \frakc(Z(r),\omega_0) &= \abs{r}^2\frakc(Z(1),\omega_0) = \pi\abs{r}^2.
+    \end{align*}
+    There exists a linear symplectic isomorphism that puts $(\Epsilon,\omega_0)$ in normal form --- with $\varphi(\Epsilon,\omega_0) = (\Epsilon_{\mathrm{normal}}, \omega_0)$, and because $U\osub V\osub \realtn$ means $U$ symplectically embeds into $V$, and
+    \[
+        \frakc(\varphi B(r_1),\omega_0)\leq \frakc(\varphi\Epsilon,\omega_0)\leq \frakc(\varphi Z(r_1),\omega_0)\qqtext{implies} \frakc(\Epsilon,\omega_0) = \pi r_1^2.
+    \]
+\end{proof}
+Every capacity function $\frakc$ induces a smaller capacity which takes the monotonicity of the open embeddings into account. We define 
+\begin{definition}[Inner capacity]
+    If $\frakc$ is a capacity, the \emph{inner capacity} of $\frakc$ is a function
+    \[
+        \frakc^{\vee}(M,\omega) = \sup\bigset{(U,\omega),\: U\osub M\text{ and hides in } M}.
+    \]
+    Notice that the open submanifold $U$ inherits the same symplectic form as $M$. 
+\end{definition}
+\begin{wts}[Properties of the inner capacity]
+    The inner capacity is a symplectic capacity, and $\frakc^\vee\leq \frakc$.
+\end{wts}
+\begin{definition}[Inner regularity of symplectic capacities]
+    A symplectic capacity $\frakc$ is \emph{inner regular} whenever $\frakc^\vee = \frakc$.
+\end{definition}
+\topheader{Gromov's Width}
+\begin{definition}[Gromov's Width]
+    If $(M,\omega)$ is a symplectic manifold modelled on $\realtn$, its \emph{Gromov's width} is the number 
+    \[
+        \Grom(M,\omega) = \sup\bigset{\pi r^2,\: \parbox{15em}{There exists a symplectic embedding of $(B(r),\omega_0)\hookrightarrow (M,\omega)$.}}.
+    \]
+\end{definition}
+\begin{wts}[Properties of Gromov's Width]
+    Gromov's width is a symplectic capacity, and it is minimal:
+    \[
+        \frakc(M,\omega)\geq \Grom(M,\omega)\quad\text{for every symplectic manifold} (M,\omega).
+    \]
+\end{wts}
+\begin{wts}[Darboux's Theorem]\label{wts:darbouxs theorem}
+    Let $(M,\omega)$ be a symplectic manifold modelled on $\realtn$. At every point $p\in M$, there exists a chart $\varphi: U\to\hat{U}$ where its \textbf{inverse} satisfies
+    \[
+        (\varphi^{-1})^*\omega = \omega_0.
+    \]
+\end{wts}
+\begin{corollary}[Gromov's width is non-negative]
+    For every symplectic manifold $(M,\omega)$, the set $\{\pi r^2, \: B(r)\hookrightarrow (M,\omega) \text{ symplectically.}\}$ is non-empty.
+\end{corollary}
+% Give example of a symplectic manifold with boundary.
+% What about the set \{\abs{x}\leq 1\}?
+\topheader{The Orbital Capacity}
+Let $(M,\omega)$ be a symplectic manifold (possibly with boundary), we define a subspace of $C^\infty(M,\real)$ that will help us to view periodic orbits in a different angle, by leveraging a distinguished symplectic capacity. 
+\begin{definition}[Regular Hamiltonian]\label{def:regular hamiltonians}
+    A smooth function $H\in C^\infty(M,\real)$ is called a \emph{regular Hamiltonian}, if all of the following hold.
+    \begin{enumerate}
+        \item There exists an open subset $U\osub M$ where $H$ vanishes; or $H(U) = 0=\min(H)$.
+        \item There exists a compact $K\subseteq M\setminus \partial M$, outside of which $H$ attains its maximum; or $H(M\setminus K) = \max(H)$.
+    \end{enumerate}
+    The set of all regular Hamiltonians of $(M,\omega)$ is hereinafter denoted by $\hcal(M,\omega)$; and the quantity $\osc(H) = \max(H) - \min(H)$ is called the \emph{$\frakc_0$-oscillation of $H$}.
+\end{definition}
+We point out that the notion of a regular Hamiltonian is a topological one. The Hamiltonian flow of an arbitrary $H\in\hcal(M)$ must be compactly supported, as $H$ is constant outside of $K$; and we sometimes write $\supp{X_H}$ to refer to the smallest compact set outside of which $H = \osc(H)$.
+\begin{definition}[Admissable Hamiltonian]\label{def:admissable hamiltonians}
+    A Hamiltonian $H\in \hcal(M,\omega)$ is \emph{admissable} if all $p$-orbits of $X_H$ have period $T > 1$.
+\end{definition}
+\begin{definition}[Orbital capacity]
+    The \emph{orbital capacity} of a symplectic manifold (with or without boundary) $(M,\omega)$ is denoted by $\frakc_0(M,\omega)$ and is the quantity
+    \[
+        \frakc_0(M,\omega) = \sup\bigset{\osc(H),\: \parbox{17em}{$H$ is an admissable Hamiltonian of $M$.}}.
+    \]
+\end{definition}
+\textbf{Our goal is to prove that $\frakco$ is an inner regular capacity}. The proof is extremely long, and will be divided into several chapters. First, we need a small, but useful definition.
+\begin{definition}[Increasing/Decreasing correspondence]
+    If $A$ and $B$ are non-empty subsets of $\real$, an \emph{increasing correspondence} from $A$ to $B$ (resp. \emph{decreasing}) is a mapping $f: A\to B$ where $\id{A}\leq f$ (resp. $f\leq \id{A}$).
+\end{definition}
+It follows that if there exists an increasing correspondence from $A$ to $B$, then $\sup A\leq \sup B$; and if $A\subseteq B$, then $\sup A\leq \sup B$, this follows from the previous claim with $f =\id{A}$.
+\begin{wts}[Monotonicity of $\frakco$]\label{thm:monotonicity of frakco}
+    If $\varphi: M\hookrightarrow N$ is a symplectic embedding between manifolds of dimension $2n$, there exists an increasing correspondence from $\{\osc(H),\: H\in\hcal_a(M)\}$ into $\{\osc(H),\: H\in\hcal_a(N)\}$; and $\frakco(M)\leq \frakco(N)$.
+\end{wts}
+\begin{proof}
+We construct a correspondence from $\hcal(M)$ into $\hcal(N)$ --- keeping in mind that regularity is a purely topological phenomenon. For every regular Hamiltonian $H\in\hcal(M)$, we can extend $H$ to $\hcal(N)$ with
+    \[
+        H_{\varphi} = H\circ\varphi^{-1}\vert_{\varphi(M)} + \osc(H)\vert_{N\setminus \varphi(M)},\text{ with }\osc(H) = \osc(H_{\varphi}).
+    \]
+    The following note encapsulates this routine argument.
+\begin{note}[Extension of regular Hamiltonians from submanifolds]
+\begin{lemma}[Regularity of $H_{\varphi}$]
+        Let $M$ and $N$ be symplectic manifolds of dimension $2n$, and $\varphi: M\hookrightarrow N$ a symplectic embedding. For every regular Hamiltonian $H\in\hcal(M)$, we can extend $H$ to $\hcal(N)$ with
+        \[
+        H_{\varphi} = H\circ\varphi^{-1}\vert_{\varphi(M)} + \osc(H)\vert_{N\setminus \varphi(M)},\text{ with }\osc(H) = \osc(H_{\varphi}).
+        \]
+\end{lemma}
+\begin{proof}
+    Let $K = \supp{X_H}$, because $M$ is LCH, we obtain a precompact $U\osub M\setminus\partial M$ with $K\subseteq U$. Every point in $U$ admits a $2n$-Euclidean neighbourhood, because $\varphi(M)$ is a submanifold (we assume all submanifolds are embedded); we obtain slice charts about every point $p\in \varphi(K)\subseteq\varphi(M)$ --- which is a submanifold of $N$ with codimension $0$. \\
 
+    Because $\varphi(K)$ is compact in $N$, and its complement can be written as $N\setminus \varphi(M) + \varphi(M)\setminus\varphi(K)$; and a moment's thought will show that $H_{\varphi}\vert_{N\setminus \varphi(K)} = \osc(H)$. Next, we claim that $H_{\varphi}$ is a smooth extension. The manifold interior $M\setminus \partial M$ is an open submanifold of $N$ --- by appealing to a LCH argument --- we obtain an open, precompact subset $V$ where $K\subseteq V\subseteq \cl{V}\subseteq M\setminus\partial M$ that is open and precompact relative to $N$ as well.\\
+
+    Let $H' = \osc(H) - H$ be defined on $K$, we can extend $H'$ to be a smooth function on $N$, where $H'\vert_{K} = \osc(H)- H$ and $\supp{H'}\subseteq V$. Taking the reflection of $\wig{H} = \osc(H) - H'$, we see that $\wig{H}\in C^\infty(N)$, and $\supp{X_{\wig{H}}}\subseteq \cl{V}$. Furthermore, because $\wig{H}\vert_{M\setminus\partial M} = H$, it follows $\supp{X_{\wig{H}}} = \supp{X_H}=K$. Notice if $W$ is an open subset on which $H$ vanishes, then $\wig{H}\vert_W = 0$ as well. Finally, $\wig{H} = H_{\varphi}$, this proves that $H_{\varphi}$ is regular in $N$ with $\osc(H) = \osc(H_{\varphi})$.
+    \end{proof}
+\end{note}
+We now show that $H$ is admissable if and only if $H_{\varphi}$ is. The orbits of $H$ and $H_{\varphi}$ are contained in $M\setminus\partial M$. Since $\varphi\vert_{M\setminus\partial M}$ is a symplectic isomorphism, \Cref{cor:wc reduction 2.5} tells us that their orbits correspond to each other by conjugation of $\varphi$, and therefore their periods are identical.
+\end{proof}
+\begin{wts}[Conformality of $\frakco$]\label{thm:conformality of frakco}
+    Let $(M,\omega)$ be a symplectic manifold. If $\alpha\neq 0$ and $F\in\hcal(M,\omega)$, we write $\wig{F}=\abs{\alpha}F$, and
+    \begin{itemize}
+        \item $\wig{F}$ is in $\hcal(M,\omega)$, and has oscillation $\abs{\alpha}\osc(F)$,
+        \item $\wig{X}_{\wig{F}} = (\sgn{\alpha})X_{F}$, where $\wig{X}_{\wig{F}}$ is the Hamiltonian flow of $\wig{F}$ under $(M,\alpha\omega)$, 
+        \item the vector fields $X_{F}$ and $\wig{X}_{\wig{F}}$ have the same (non-degenerate) closed characteristics, and
+        \item the periodic orbits of $X_{F}$ and $\wig{X}_{\wig{F}}$ correspond to each other (up to a change in orientation of the parametrization).
+    \end{itemize}
+\end{wts}
+\begin{proof}
+    We start with some important properties of dilations, beginning with a simple equation that follows from the $C^\infty(M)$-linearity of $\omega^{\wedge}$:
+    \[
+        X_{\alpha F} = \alpha X_{F}\quad\text{for every } \alpha\neq 0.
+    \]
+    The rest is given in the note below.
+    \begin{note}[Dilations and Flows]
+    \begin{lemma}[Dilation of Hamiltonian vs. Symplectic Structure]
+        Let $(M,\omega)$ be a symplectic manifold and $\alpha\neq 0$. For any $F\in C^\infty(M)$, 
+        \[
+            \wig{X}_{F} = \alpha^{-1}X_{F},\quad\text{where } \wig{X}_{F} = (\alpha\omega)^{\wedge}(dF).
+        \]
+    \end{lemma}
+    \begin{proof}
+    If $(M,\omega)$ is a symplectic manifold, for any smooth function $F$ we have
+    \[
+    \omega(X_F, v) = dF(v)  = (\alpha\omega)(\alpha^{-1}X_{F}, v) = (\alpha\omega)(\wig{X}_F,v).
+    \]
+    \end{proof}
+    \begin{lemma}[Dilation of Vector Fields]
+        Let $M$ be an arbitrary manifold and $X\in \vField(M)$. If $\alpha\neq 0$, 
+        \begin{itemize}
+            \item a curve $\gamma(t)$ is a solution (resp. an orbit) to $X_F$ if and only if $\gamma(\alpha t)$ is a solution (resp. an orbit) to $\alpha X_F$; and
+            \item $\gamma(t)$ is a $T$-orbit of $X_F$, if and only if $\gamma(\alpha t)$ is a $T\abs{\alpha}^{-1}$-orbit of $\alpha X_F$.
+        \end{itemize}
+    \end{lemma}
+    \begin{proof}
+        The chain rule gives us the first claim; and the second follows from solving for $t$ within $\alpha t = (\sgn{\alpha})T$.
+    \end{proof}
+\end{note}
+Let $F$ be a regular Hamiltonian of $(M,\omega)$, it is clear that $\wig{F} = \abs{\alpha} F$ is in $\hcal(M,\alpha\omega)$ with oscillation as described in the statement of \Cref{thm:conformality of frakco}. It follows that $\wig{X}_{\wig{F}} = \alpha^{-1}X_{\wig{F}}= \sgn{\alpha} X_F$, and from which we can deduce the rest of the claims.
+\end{proof}
+
+\fchapter{8: The orbital capacity $\frakco$}
+\topheader{Non-triviality Part 1}
+This section's main result is to show
+\[
+    \pi \leq \frakco(B(1))\leq \frakco(Z(1))
+\]
+Will use a mollifier/convolution argument.
+\topheader{Start of Non-Triviality Part 2}
+wts
+\[
+    \frakco(Z(1))\leq \pi.
+\]
+\topheader{An engulfing ellipsoid}
+
+\topheader{Critical points}
+%
+%
+%%%
+
+%
+%
+%
+%
+\fchapter{9: Applications of the orbital capacity $\frakc_0$}
+\topheader{Introduction}
+In this section, $(M,\omega)$ will always refer to a symplectic manifold.
+\begin{remark}
+    \begin{itemize}
+        \item $\mathcal{I}$ refers to an open interval in $\real$, and
+        \item $\mathcal{I}_0$ refers to an open interval in $\real$ containing the origin.
+    \end{itemize}
+\end{remark}
+\begin{definition}[Parametrized family of hypersurfaces modelled on $S$]
+    Let $S$ be a compact hypersurface of $(M,\omega)$, a parametrized family (of hypersurfaces) modelled on $S$ is a diffeomorphism $\Psi_S: S\times \mathcal{I}\to U\osub M$, where $U$ is an open neighbourhood of $S$ and $\mathcal{I}$ is an open interval containing the origin, and similar to a homotopy: $\Psi_S(\cdot,0) = \id{S}$.\\
+
+    If $S$ is understood to be a hypersurface with a parametrized family, the notation $S_{\varepsilon}$ will always refer to  $\Psi_S(S\times\{\varepsilon\})$; and $S = S_0$.
+\end{definition}
+\begin{wts}[page 114]
+    The following statements are equivalent:
+    \begin{itemize}
+        \item The line bundle $\mathcal{L}_S\to S$ is orientable
+        \item The normal bundle $N_S\to S$ is orientable,
+        \item $S$ is orientable,
+        \item There exists a parametrized family of hypersurfaces modelled on $S$,
+        \item There exists a smooth function $H\in C^\infty(U,\real)$ where $S\subseteq U\osub M$ such that $dH\vert_U\neq 0$ and $S = H^{-1}(c)$ for some constant $c\in\real$.
+    \end{itemize}
+\end{wts}   
+\topheader{Hypersurfaces that are boundaries of symplectic manifolds}
+In this section, we only consider hypersurfaces that are the boundary to a compact symplectic manifold. If $S$ is the manifold boundary of $(B,\omega)$, and $S$ has a parametrized family, then every $S_{\varepsilon}$ is the manifold boundary of $(B_\varepsilon,\omega)$, and we can assume (?) that these symplectic manifolds are nested as follows
+\[
+    B_{\varepsilon}\hookrightarrow B_{\varepsilon'}\quad\forall\varepsilon\leq\varepsilon'.
+\]
+And by monotonicity of $\frakc_0$: $\frakc_0(B_{\varepsilon},\omega)\leq\frakc_{0}(B_{\varepsilon'},\omega)$.
+\begin{definition}[Orbital-Lipschitz hypersurfaces]
+    A compact hypersurface $S_{\varepsilon^*}$ is of orbital-Lipschitz (or $\frakc_0$-Lipschitz) type, if there are positive constants $L, \mu$ where
+    \[
+        C(\varepsilon)\leq C(\varepsilon^*) + L(\varepsilon - \varepsilon^*)\quad\forall \varepsilon \in [\varepsilon^*,\: \varepsilon^* +\mu],
+    \]
+    where $\frakc_0(B_{\varepsilon},\omega) = C(\varepsilon)$.
+\end{definition}
+\begin{wts}[Theorem 3. page 116]
+    Let $(M,\omega)$ be a symplectic manifold with finite orbital capacity. Given an energy surface $S\subseteq M$ that is 1) the boundary of a symplectic manifold, and 2) is of $\frakc_0$-Lipschitz type, then
+    \[
+        \Periodic(S)\neq \varnothing.
+    \]
+\end{wts}
+\begin{remark}
+    This means, there exists a small interval to the right of $\varepsilon^*$ where the symplectic capacities of the manifolds $B_{\varepsilon}$ are controlled linearly a linear term:
+    \[
+        \abs{C(\varepsilon) - C(\varepsilon^*)}\leq L(\varepsilon - \varepsilon^*).
+    \]
+\end{remark}
+%
+%
+%
 \ifSubfilesClassLoaded{%
   \bibliography{v2-subfiles/manifolds-references}%
 }{}

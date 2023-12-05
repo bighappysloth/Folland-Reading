@@ -31,7 +31,9 @@
 %%%%%%%%%
 %%%%%%%%%
 %%%%%%%%%
-
+%\usepackage{xcomment}
+%\xcomment{definition,wts,lemma,corollary,note,figure}
+%%%%%%%%
 \begin{document}
 %%%%%%%%
 %%%%%%%%
@@ -475,17 +477,16 @@ Some properties of the integral defined in \cref{eq:fourier transform torusn l1}
     \]
     \item Regularity transforms into integrability (or decay): if $f\in C^k(\Torusn)$, then 
     \begin{equation}
-        (\partial^\alpha f)^\wedge(k) = (2\pi i k)^{\alpha}\hat{f}(k)
+        (\partial^\alpha f)^\wedge(k) = (2\pi i k)^{\alpha}\hat{f}(k),
         \label{eq:reg transforms into decay periodic l1 pt0}
     \end{equation}
     and
     \begin{equation}
-        \norm*{(2\pi i k)^{\alpha}\hat{f}(k)}_{l^\infty}\leq \norm*{\partial^\alpha f}_{L^1(\Torusn)}
+        \norm*{(2\pi i k)^{\alpha}\hat{f}(k)}_{l^\infty}\leq \norm*{\partial^\alpha f}_{L^1(\Torusn)}\qqtext{and}\forall\abs{\alpha}\leq k.
         \label{eq:reg transforms into decay periodic l1 pt1}
     \end{equation}
-    for $\abs{\alpha}\leq k$.
 \end{itemize}
-The last claim is summarized in the following Lemma.
+The last claim is proven in the following Lemma.
 \begin{lemma}[Regularity transforms into decay]\label{lem:regularity transforms into decay periodic functions}
     If $f\in C^p(\Torusn)$, then \cref{eq:reg transforms into decay periodic l1 pt0,eq:reg transforms into decay periodic l1 pt1} holds for all $\abs{\alpha}\leq p$. Furthermore, 
     \begin{equation}
@@ -514,7 +515,7 @@ The last claim is summarized in the following Lemma.
     \end{multline}
     therefore $\langle \partial^{e_j}f, E_k\rangle = (2\pi i k^j)\hat{f}(k)$. The general case follows from the fact that $\partial^{\alpha}f = \partial^{e_j}\partial^{\alpha-e_j}f$. This proves \cref{eq:reg transforms into decay periodic l1 pt0}, and \cref{eq:reg transforms into decay periodic l1 pt1} follows by Holder's inequality with respect to the counting measure.
     \begin{remark}
-        The argument above relies on the fact that the boundary terms vanish. This is why we require $\partial^\alpha f\in C_0(\realn)$ in order to diagonalise differentiation.
+        The argument above relies on the fact that the boundary terms vanish. This is why we require $\partial^\alpha f\in C_0(\realn)$ in order to diagonalize differentiation.
     \end{remark}
     Next, given $f\in C^p(\Torusn)$ we see that if $\abs{\beta}\leq p$, $\abs{k^\beta}\abs{\hat{f}(k)}\leq C_{\beta}$. We can take the maximum of all such $\abs{\beta}\leq p$, and relabel $C$. To proceed any further we will need the following very useful estimate, which allows us to bound the polynomial factor by powers of multi-indices with degree less than $N$.
     \begin{equation}

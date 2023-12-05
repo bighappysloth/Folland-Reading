@@ -62,13 +62,13 @@ Let $V$ be a vector space over $\real$ or $\mathbb{C}$.
     \[
         \mathfrak{c}_t(x_1, x_2) = x_1 + t(x_2 - x_1) \quad t\in [0,1].
     \]
-    \item A mapping $f: V\to \real$ is \emph{convex} whenever 
+    \item A function $f: V\to \real$ is \emph{convex} whenever 
     \[
         \mathfrak{c}_t(x_1, x_2)\leq c_t\qty(f(x_1),f(x_2))\quad\forall t\in[0,1],\: x_1,x_2\in V.
     \]
-    Moreover, a convex mapping $f$ is \emph{strictly convex} the above estimate is for all $t\in[0,1]$, $x_1,x_2\in V$.
+    Moreover, a convex function $f$ is \emph{strictly convex} if the estimate above holds strictly.
     \item A mapping $f: V\to \real$ is a \emph{subadditive} whenever $f\circ\sum^\wedge\leq \sum^\wedge\circ f$.
-    \item A mapping $f: V\to W$ is \emph{linear} whenever FLCs commute with $f$. This is written as $\sum^\wedge_K \circ f = f\circ \sum^\wedge_K$.
+    \item A mapping $f: V\to W$ is \emph{linear} whenever  $\sum^\wedge_K \circ f = f\circ \sum^\wedge_K$.
 \end{itemize}
 It is useful to have the following generalization when $V$ and $W$ are vector spaces over different base fields.
 \begin{itemize}
@@ -79,7 +79,7 @@ If $V$ is the vector space direct sum of $W_1$ and $W_2$, a vector $x\in W_i$ is
 % % Composition of maps.
 % Composition of maps: If $f: E\to F$ and $g: F\to G$ are maps between Banach spaces, we write $gf$ to mean $g\circ f$. \\
 \topheader{Enumeration of lists}
-We use the following notation to simplify computations concerning multilinear maps. Let $E$ and $F$ be sets, elements $v_1,\ldots, v_k\in E$, and a map $f: E\to F$.
+We use the following notation to simplify computations with multilinear maps. Let $E$ and $F$ be sets, elements $v_1,\ldots, v_k\in E$, and a mapping $f: E\to F$.
 \begin{itemize}
     \item Individual elements: $\UL{v}[k]$ means $v_1,\ldots,v_k$ as separate elements. 
     \item Creating a $k$-list: $(\UL{v}[k]) = (v_1,\ldots, v_k)\in \prod E_{j\leq k}$ if $v_i\in E_i$ for $i = \underline{k}$.
@@ -508,7 +508,7 @@ Some notation regarding the $L^p$ spaces.
 \begin{remark}[Assumption of almost everywhere]
     In any measure theoretical setting, when we say $f$ is '$L^p$', we mean $f\in L^p$ unless otherwise stated. We also identify $\borel_X$ with its quotient space.
 \end{remark}
-\topheader{Topology}
+\topheader{Basic Topology}
 Let $X$ be a topological space, and $E\subseteq X$.
 \begin{itemize}
     \item The topological interior of $E\subseteq X$ is denoted by $E^o$.
@@ -517,8 +517,21 @@ Let $X$ be a topological space, and $E\subseteq X$.
     \item A neighbourhood of a point $p\in X$ is a subset $U\subseteq X$ (not necessarily open) where $p\in U^o$.
     \item A subset of $X$ is \emph{precompact} whenever its closure is compact.
     \item If $A,B\subseteq X$, we say $A$ \emph{hides} in $B$ whenever $\cl{A}\subseteq B^o$.
-\end{itemize}    
-Furthermore, 
+\end{itemize}
+We also have the classifications for $X$, let $\mathcal{E} = \{E_{\alpha}\}$ be a family of subsets of $X$.
+\begin{itemize}
+    \item $\{E_{\alpha}\}$ is said to be \emph{locally finite} if every point $p\in X$ admits a neighbourhood that intersects finitely many $E_{\alpha}$.
+    \item A refinement of $\{E_{\alpha}\}$ is a family of subsets $\{U_{\beta}\}$ where each $U_{\beta}$ is contained in some element of $\mathcal{E}$. This element need not be unique, and each $U_{\beta}$ is not required to be an element of $\mathcal{E}$.
+    \item $X$ is \emph{paracompact} if every open cover of $X$ admits a locally finite open refinement.
+\end{itemize}
+We list a few separation classifications.
+\begin{itemize}
+    \item $X$ is \emph{Hausdorff} (or $T_2$) if its points can be separated by open sets. That is, for every pair of distinct points $p_{\underline{i}}$, there exists \textbf{open sets} $U_{\underline{2}}$ where $p_i\in U_{i}$ for $i = \underline{2}$ and $\cap U_{\underline{2}}=\varnothing$.
+    \item $X$ is \emph{regular} (or $T_3$) if the same Hausdorff condition holds with $p_1$ replaced by a closed set $A$. That is, given any closed set $A$ and $p\notin A$, one is able to find $U_{\underline{2}}\osub X$ where $A\subseteq U_1$ and $p\in U_2$, with $\cap U_{\underline{2}}=\varnothing$.
+    \item $X$ is \emph{normal} (or $T_4$) if the same regularity condition holds with $p$ is replaced by a closed set $B$. We note in passing that every metric space is normal.
+\end{itemize}
+
+\topheader{Functions on a Topological Space}
 \begin{itemize}
     \item $\borel_X$ = Borel $\sigma$-algebra of $X$.
     \item $C(X)$ = continuous, complex valued functions from $X$.
@@ -539,15 +552,14 @@ All functions hereinafter are assumed to be complex valued. The following functi
     \item $UBC(X)$ = uniformly continuous functions, whenever $X$ is a metric space.
 \end{itemize}
 We also use the following shorthand when discussing partitions of unity and bump functions. Let $E$ be any subset of $X$, and $f\in C(X,[0,1])$, we write
-\begin{itemize}
-    \item $E\Lsim f$ whenever $f=1$ on $E$, and
-    \item $f\Lsim E$ whenever $\supp{f}\subseteq E$.
-\end{itemize}
-
-
-
+\[
+    \parbox{10cm}{$E\Lsim f$ whenever $f=1$ on $E$, and
+    $f\Lsim E$ whenever $\supp{f}\subseteq E$.}
+\]
 \topheader{Partitions of Unity}
-Let $X$ be a topological space. A (continuous) \emph{partition of unity} on $X$ is family of continuous functions $\{\varphi_\alpha\}\subseteq C(X,[0,1])$ where $\sum \varphi_\alpha\equiv 1$ and whose supports form a \emph{locally finite} collection of subsets. That is, every point $p\in X$ admits a neighbourhood $U$ such that $U$ intersects finitely many of $\supp \varphi_\alpha$. \\
+Let $X$ be a topological space. We say $X$ is \emph{paracompact} whenever every open cover of $X$ admits a locally finite open refinement. \\
+
+A (continuous) \emph{partition of unity} on $X$ is family of continuous functions $\{\varphi_\alpha\}\subseteq C(X,[0,1])$ where $\sum \varphi_\alpha\equiv 1$ and whose supports form a \emph{locally finite} collection of subsets. That is, every point $p\in X$ admits a neighbourhood $U$ such that $U$ intersects finitely many of $\supp \varphi_\alpha$. \\
 
 If $\{U_{\alpha}\}$ be an open cover of $X$, we say a partition of unity $\{\varphi_\alpha\}$ is  \emph{subordinate to $\{U_\alpha\}$} whenever $\varphi_\alpha\Lsim U_\alpha$. We often place additional requirements on $\{\varphi_\alpha\}$, e.g $\{\varphi_\alpha\}$ is a compactly supported partition of unity whenever $\{\varphi_\alpha\}\subseteq C_c(X,[0,1])$.\\
 
@@ -562,7 +574,7 @@ A topological space $X$ is \emph{locally compact} if every point $p\in X$ admits
 
 \topheader{Banach Spaces}
 \begin{itemize}
-    \item A \emph{normed vector space} (hereinafter abbreviated as NVS) is a vector space $X$ with a norm $p\mapsto \abs{p}$. We always use $\abs{\cdot}$ to refer to the endowed norm of a NVS. A \emph{Banach space} is a Cacuchy-complete NVS.
+    \item A \emph{normed vector space} (hereinafter abbreviated as NVS) is a vector space $X$ with a norm $p\mapsto \abs{p}$. We always use $\abs{\cdot}$ to refer to the endowed norm of a NVS. A \emph{Banach space} is a Cauchy-complete NVS.
     \item An \emph{inner product space} (hereinafter abbreviated as IPS) is a vector space $X$ over $K$ with an inner product $(x,y)\mapsto \langle x,y\rangle\in K$. It is also an NVS with the norm $\abs{x}=\langle x,x\rangle^{1/2}$. A \emph{Hilbert space} is a Cauchy-complete IPS.
     \item If $X$ is an IPS, its inner product will always be denoted by $\langle \cdot,\cdot\rangle_{X}$ or $\langle \cdot,\cdot\rangle$ when it is unambigious to do so.
 \end{itemize}

@@ -258,11 +258,12 @@ We denote the space of $k$-linear maps from $E$ into $F$ by $L(\UL{E}[k]; F) = L
     Each summand in the second last term in \cref{eq:product-rule-k-variables-expand-4} is $o(h)$ as well, as
     \begin{align}
         \abs{m_i(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j])}&\leq\vert m_i\vert\bigoprod(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j])\\[1ex]
-        &\leq \abs{m}\cdot\qty(\bigoprod(c^i,\UPL{a}[i+][k-i]))\qty(\bigoprod(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j]))\Lsim_{m,a,b}\sup_{\substack{i=\underline{k}\\ j = \underline{i-1}}}\abs{c^i}\cdot\abs{\Delta^j}\nonumber\\[1ex]
+        &\leq \abs{m}\cdot\qty(\bigoprod(c^i,\UPL{a}[i+][k-i]))\qty(\bigoprod(\UPL{b}[j-1],\Delta^j,\UPL{a}[j+][(i-1)-j]))\\[1ex]
+        &\Lsim_{m,a,b}\sup_{\substack{i=\underline{k}\\ j = \underline{i-1}}}\abs{c^i}\cdot\abs{\Delta^j}\nonumber\\[1ex]
         &\Lsim_{m,a,b}\sup_{\substack{i=\underline{k}\\ j = \underline{i-1}}}\abs{Df_i(x)(h)}\cdot\abs{f_j(x+h) - f_j(x)}\nonumber\\[1ex]
         &\Lsim_{m,a,b}\abs{Df_i(x)}\abs{h}\sup_{\substack{i=\underline{k}\\ j=\underline{i-1}}}\abs{\Delta^j}\Lsim_{m,a,b}\abs{o(h)}\label{eq:product-rule-k-variables-second-last-term-o(h)}
     \end{align}
-    for the second last estimate we used $\Delta^j\to 0$. Therefore the second term in \cref{eq:product-rule-k-variables-expand-4} is $o(h)$, and \cref{eq:product-rule-k-variables-modified-equation} is proven. Therefore $m(\UL{f}[k])$ is differentiable at $x$. Continuity of $Dm(\UL{f}[k])$ follows from the fact that 
+    for the second last estimate we used $\Delta^j\to 0$ as $h\to 0$. The second term in \cref{eq:product-rule-k-variables-expand-4} is $o(h)$, and \cref{eq:product-rule-k-variables-modified-equation} is proven. Therefore $m(\UL{f}[k])$ is differentiable at $x$. Continuity of $Dm(\UL{f}[k])$ follows from the fact that 
     \begin{equation}\label{eq:product-rule-k-variables-continuity-0}
         Dm(\UL{f}[k])(x) = \sum_{i=\underline{k}}m(\UL{f}[i-1](x),Df_i(x)(\cdot),\UL{f}[i+][k-i](x))
     \end{equation}
@@ -415,7 +416,7 @@ And since the product space $E$ is toplinearly isomorphic to its external direct
 \begin{proof}
     The map $\lambda$ is Lipschitz between $E$ and $F$, and it descends into a map between the vector spaces $\Sigma_E$ and $\Sigma_F$ by composition. If $f$ is a step mapping, and $f\vert_{\cell(p_i)} = v_i$ for $i = \underline{k}$; the composition of $f$ with $\lambda$ is again a step mapping $\lambda f\vert_{\cell{p_i}} = \lambda v_i$.\\
     
-    It is not hard to see $\norm{\lambda f}_u = \leq \abs{\lambda}\norm{f}_u$, and 
+    It is not hard to see $\norm{\lambda f}_u \leq \abs{\lambda}\norm{f}_u$, and 
     \begin{itemize}
         \item $\lambda$ is Lipschitz between $E$ and $F$,
         \item $\lambda$, when viewed as a map between $\Sigma_E$ and $\Sigma_F$, is Lipschitz.

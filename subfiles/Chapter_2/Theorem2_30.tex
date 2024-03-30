@@ -2,11 +2,184 @@
 
 \begin{document}
 \problem{2.30}
-\begin{wts}
-
+\begin{wts}[Rudin 7.8]
+    Let $E$ be a metric space and $\{f_n\}$ be a uniformly Cauchy sequence of functions on $E$, then there exists a function $f$ to which $f_n\to f$ uniformly.
 \end{wts}
 \begin{proof}
+    Let $x\in E$ be fixed, then $\{f_n(x)\}$ is a Cauchy sequence in $\real$ or $\complex$. We define $f(x)$ to be the limit of $f_n(x)$, this is well defined because Cauchy limits (in $\real$ or $\complex$) exist and are unique.\\
 
+    We isolate the mechanism that is used in the next part of the proof.
+    \begin{note}[Cauchy Sequences in Metric Spaces]
+        Cauchy sequences in metric spaces behave like equivalence classes. We summarize some of the interesting and useful techniques regarding them.
+
+        \begin{lemma}[Dragging friends along]\label{lem:dragging-friends-along}
+        Let $\{x_n\}\subseteq E$ be Cauchy, suppose $x^*$ is a point in $E$, and $i\in \nat^+$ such that $d(x_i, x^*)<\varepsilon$. Then, we can find an entire subsequence of $x_{n_k}$ where $d(x_{n_k},x^*)<\varepsilon$.     
+        \end{lemma}
+        \begin{lemma}[Replacing a sequence by its limit --- Continuity Edition]\label{lem:replace limit continuity edition}
+            Let $A: E\times E\to F$ be a continuous mapping between the product metric space $E\times E$ into another metric space $F$. Then $A(x,\cdot)$ is continuous from $E$ into $F$, suppose further that $x_n\to x$ in $E$, then
+            \[
+                A(x_n, x_m)\to A(x_n, x)\quad\text{as }m\to\infty.
+            \]
+        \end{lemma}
+    \end{note}
+    Let $\varepsilon>0$ be fixed, this induces a $N\in\nat^+$ where $\norm{f_n - f_m}_{u}\leq \varepsilon$ for $n,m\geq N$. For every $x\in E$, $\abs{f_n(x) - f_m(x)}$ converges to $\abs{f_n(x) - f(x)}$ as $m\to\infty$, but the topological argument: 
+    \[\{\abs{f_n(x) - f_m(x)},\: \min(n,m)\geq N,\: x\in E\}\subseteq [0,\varepsilon]\]
+    implies that $\norm{f_n - f}_u\leq \varepsilon$.
+    
+\end{proof}
+\begin{note}[Cauchy Sequences in Measure Spaces]
+        \begin{lemma}[Cauchy Sequences derived from an $l^1$ bound]\label{lem: cauchy sequences from l1 bound}
+        If $d(x_n, x_{n+1})\leq c_n$ where $\{c_n\}\in l^1$, then $x_n$ is Cauchy.    
+        \end{lemma}
+        \begin{proof}
+            The tail $\sum_{j\geq n}\abs{c_j}$ vanishes, and $d(x_{i_1}, x_{i_2})\leq \sum_{\min(i_1,i_2)}^\infty c_j\to 0$.
+        \end{proof}
+        \begin{lemma}[$l^1$ bounds derived from a Cauchy Sequence]\label{lem: l1 bounds from Cauchy sequence}
+            If $\{x_n\}\subseteq E$ is a Cauchy sequence, for every $\{c_j\}\in l^1(\real)$, there exists a subsequence $x_k$ where $d(x_{k}, x_{k+1})\leq c_k$.
+        \end{lemma}
+        \begin{corollary}[Limsup is null using $l^1$ bound]\label{lem: l1 bounded limsup is null}
+            If $E_j$ is a sequence of measurable sets with $\mu(E_j)\leq c_j$, where $c_j$ is a $l^1$ sequence, then $\limsup E_j$ is null.
+        \end{corollary}
+        \begin{proof}
+            Let $C_n = \sum_{n\geq N}c_n$, and if $x\in \limsup E_j$, then $x\in E_j$ frequently. Set $F_n = \cup_{j\geq n} E_j$ to be the tail, and $x\in F_n$ for all $n$; and because each $F_n$ has measure controlled by $C_n$, the proof is complete.
+        \end{proof}
+\end{note}
+\begin{wts}[Theorem 2.30 --- Part 1]
+    Let $\{f_n\}$ be Cauchy in measure, then there is a measurable function $f$, and a subsequence $f_k$ where $f_k\to f$ pointwise a.e.
+\end{wts}
+\begin{proof}
+    Let $\{c_k\}$ and $\{d_k\}$ be non-negative and summable. At each $c_k$, the sequence $E(k,n,m) = \{\abs{f_n-f_m}\geq c_k\}$ has vanishing measure as $\min(n,m)\to\infty$. Choosing an increasing sequence of numbers $\{N_k\}\subseteq\nat^+$ such that $\mu(\abs{f_n - f_m}\geq c_k)\leq d_k$ for all $\min(n,m)\geq N_k$, we obtain a subsequence $f_{N_k}$ where
+    \[
+        \mu(E(k,N_k,N_k + m))=\mu(\abs{f_{N_k} - f_{{N_k}+m}}\geq c_k)\leq d_k\quad\forall m\geq 1.
+    \]
+    We identify $N_k = k$ whenever it is a subscript, and we define $E_k = \{\abs{f_{k} - f_{k+1}}\geq c_k\}$. If $x\notin \limsup E_k$, \Cref{lem: cauchy sequences from l1 bound} shows that $\{f_k(x)\}$ is Cauchy, and because $\mu(\limsup E_k)=0$ by \Cref{lem: l1 bounded limsup is null}, $f_k\to f$ pointwise a.e.
+\end{proof}
+\begin{remark}[Commentary for Theorem 2.30 Part 1]
+        The sequence $\{c_k\}$ assumes uniform pointwise control of our subsequence $f_k$ over $E_k$, whereas $\{d_k\}$ allows us to control --- in addition to the size of $E_k$ --- measure-theoretic properties of $\{f_k\}$.
+    \end{remark}
+\begin{wts}[Theorem 2.30 --- Part 2]
+    Let $f_n$, $f_k$ and $f$ be as in Part 1. The subsequential pointwise a.e. limit is also a subsequential limit in measure. That is: $f_k\to f$ in measure.
+\end{wts}
+\begin{proof}
+    We can afford a bit of wiggle room since $C_k = \sum c_{j\geq k}$ and $D_k = \sum d_{j\geq k}$ both vanish as $k\to\infty$. If $x$ is not in $\bigcup E_{j\geq k}$, one obtains from subadditivity $\abs{f_k(x) - f_{l}(x)} \leq C_k$ for every $l = N_l\geq N_k$. Using \Cref{lem:replace limit continuity edition}, we can replace $f_l(x)$ by $f(x)$ and $\mu(\abs{f_k-f}\leq C_k)\leq D_k$ as needed.
+\end{proof}
+\begin{wts}[Theorem 2.30 --- Part 3]
+    Let $f_n$, $f_k$, and $f$ be as in Part 2, then $f_{n}\to f$ in measure.
+\end{wts}
+\begin{proof}
+    The proof imitates that of \Cref{lem:dragging-friends-along}. We demonstrate a useful mechanism involving finite, non-negative sums.
+    \begin{note}[Summation over non-negative, finite lists]
+        Let $x_{\underline{n}}$ be non-negative.
+        \begin{enumerate}
+            \item Because '$\exists \leq \max \leq \forall$', if $a< \sum x_{\underline{n}} \leq b$, then 
+        $
+        an^{-1}< \max(x_{\underline{n}})\leq b
+        $,
+        \item and '$\forall \leq \min \leq \exists$' means if $a \leq \sum x_{\underline{n}}< b$, then 
+        $
+            a\leq \min(x_{\underline{n}})< bn^{-1}
+        $.
+        \end{enumerate}
+    \end{note}
+    By the Triangle Inequality (there is potentially more to be said here), we see that
+    \[
+        \varepsilon\leq \abs{f_n - f}\leq \abs{f_n - f_k} + \abs{f_k - f}\qqtext{implies}\varepsilon2^{-1}{\leq }\max(\abs{f_k - f}, \abs{f_n - f_k}),
+    \]
+    where a nudge in $\varepsilon$ has been suppressed. We can represent this with sets, 
+    \begin{equation}\label{eq:theorem2.30 cauchy pointwise = pointwise}
+        \{\abs{f_n - f}\geq \varepsilon\}\subseteq \{\abs{f_n - f_k}\geq \varepsilon2^{-1}\}\cup \{\abs{f_k - f}\geq \varepsilon2^{-1}\}.
+    \end{equation}
+    We conclude that $f_n\to f$ in measure, as the measures of the right members vanish as $n,k\to\infty$.
 \end{proof}
 
+\begin{wts}[Theorem 2.30 --- Part 4]
+    Let $f_n$, $f_k$, and $f$ be as in Part 3. The limit in measure is also unique, that is: if $f_n\to g$ in measure, then $g = f$ pointwise a.e.
+\end{wts}
+\begin{proof}
+    Given that $f_n\to g$ in measure, if $\varepsilon_m\to 0$ is a positive sequence, then
+    \[
+        \{\abs{f-g}\geq \varepsilon_m\}\subseteq \{\abs{f_n - f} \geq \varepsilon_m2^{-1}\}\cup\{\abs{f - g}\geq\varepsilon_m2^{-1}\},
+    \]
+    So that $\mu(\abs{f-g}\geq\varepsilon_m)=0$, and $\sigma$-subadditivity tell us $\mu(\abs{f-g}\neq 0)=0$.
+\end{proof}
+\begin{remark}[Cauchy + Pointwise = Pointwise: Part 1]
+    The construction in \Cref{eq:theorem2.30 cauchy pointwise = pointwise} occurs quite often. Elements of a Cauchy sequence lump together at infinity, and given that some subsequence converges to a limit, we are able to drag the entire sequence in by means of the Triangle Inequality. Convergence requires
+    \[
+        \varepsilon\in \bigcup_{N\in\nat^+}\bigcap_{n\geq N}(\abs{x_n - x},\infty)
+    \]
+    whereas the Cauchy Criterion gives us 
+    \[
+        \varepsilon\in\bigcup_{N\in\nat^+}\bigcap_{\min(m,n)\geq N}(\abs{x_n - x_m}, \infty).
+    \]
+\end{remark}
+\begin{remark}[a.e sets behave like open sets]
+    One can reuse the same mental muscle, since the family of a.e. sets are closed under finite unions (follows from $\sigma$-subadditivity).
+\end{remark}
+\begin{remark}[Two failed attempts at Theorem 2.30 Part 2]
+    \begin{note}[Attempt 1: Replacing sequence with limit --- DCT Edition]
+        A direct appeal to \Cref{lem:replace limit continuity edition} will not work. Given $\varepsilon>0$, the mapping 
+        \[A_\varepsilon: \mcal\times\mcal\to [0,+\infty)\qqtext{where} A_\varepsilon(f,g) = \mu(\abs{f-g}\geq \varepsilon)\] 
+        does not admit an obvious 'continuity' criterion where we can exchange
+        \[
+            A(f_n, f_k)\to A(f_n,f)\quad\text{as }f_k\to f\quad \text{pwae.}
+        \]
+        An easy fix to this would be to write the measure as an integral, and pass to a DCT argument, that is: 
+        \[\mu(\abs{f_n - f_k}\geq \varepsilon) = \int \chi_{\abs{f_n - f_k}\geq \varepsilon}\qqtext{and}\chi_{\abs{f_n - f_k}\geq\varepsilon}\to \chi_{\abs{f_n - f}\geq \varepsilon}.
+        \]
+        However, this would require the pwae convergence of the indicator functions, as $\abs{f_n(x)-f_k(x)}\to \abs{f_n(x) - f_k(x)}$ does not imply $\abs{f_n(x)-f_k(x)}$ approaches its limit from above.
+    \end{note}
+    \begin{note}[Attempt 2: Replacing sequence with limit --- $L^1$ Edition]
+        The idea behind the proof is to utilize the 'in-measure closeness' (brought about by $\{f_n\}$ being Cauchy in measure). First, we provide a bit of motivation to the technique used. \\
+    
+        Let us recall the fact that we have the measure theoretic bound $d_k$, and
+        \[
+            \mu(\abs{f_n - f_k}\geq \varepsilon)\leq d_k\quad\forall n\geq k\qqtext{and}\mu(\abs{f_k - f}\geq k).
+        \]
+        We can control the convergence using two pieces: $\abs{\chi_{\abs{f_n - f_k}\geq\varepsilon} - \chi_{\abs{f_n - f}\geq\varepsilon}} = \chi_{\{\abs{f_n - f_k}\geq\varepsilon\} \Delta \{\abs{f_n - f}\geq \varepsilon\}}$; and one of the two pieces are difficult to deal with.
+    \end{note}
+\end{remark}
+\begin{definition}[Almost Uniform Convergence]
+    A sequence of measurable functions $f_n$ is said to converge \emph{almost uniformly} if for every $\varepsilon>0$, there exists $E\in\mcal$ where $f_n\to f$ uniformly on $E^c$ (as an equivalence class), and $\mu(E)<\varepsilon$.
+\end{definition}
+\begin{wts}[Egorov's Theorem]
+    Let $\{f_n\}$ be a sequence of complex-valued measurable functions, and $f_n\to f$ pointwise a.e, and $\abs{f_n}\leq g\in L^1\cap L^+$, then $f_n\to f$ almost uniformly.
+\end{wts}
+\begin{remark}[Egorov's Theorem on Finite Measure Spaces]
+    If $\mu(X)$ is finite, then the requirement that $f_n$ is dominated can be dropped.
+\end{remark}
+\begin{proof}
+    First, notice that if $f_n\to f$ pointwise a.e, and $f_n$ is dominated, then $\abs{f_n}\to \abs{f}$. An application of Lebesgue's Theorem with $\abs{f}\leq \abs{g}$ tells us $\norm{f_n - f}_{1}\to 0$ and $f\in L^1$ by completeness.\\
+    
+    Let $\{c_j\}$, $\{d_j\}$, $\{e_j\}$ be positive, $c_j\to 0$, $\{d_j\},\{e_j\}\in l^1$ and $\sum d_j \leq 1$. We define $A(j,n) = \{\abs{f_n - f}\geq c_j\}$, and since $f_n\to f$ pointwise a.e, we see that
+    \[
+        \mu(\limsup_{n\to\infty} A(j,n)) = 0\quad\forall j\geq 1.
+    \]
+    \begin{note}[Finite Measure Space or $f_n$ is dominated]
+        If the measure space is finite, continuity from above reads
+        \[
+            \mu(\cup_{\geq n} A(j,\cdot))\to 0 \quad\text{as }n\to\infty.
+        \]
+    \end{note}
+    If $\mu(X)=+\infty$, since $\norm{f_n - f}_{1}\to 0$, we can choose a subsequence $f_k$ where $\norm{f_k - f}_{1}$ is controlled by $e_k$. This means
+    \[
+        \mu(\cup_{\geq n} A(j,\cdot))\leq c_j^{-1}\sum e_{i} <+\infty,
+    \]
+    and continuity from above gives us $\mu(\cup_{\geq n}A(j,\cdot))\to 0$ as $n\to \infty$. Fix $\varepsilon>0$, at every $j\geq 1$, we can choose $K_j\in \nat^+$ where $\mu(\cup_{k\geq K_j} A(j,k))\leq\varepsilon d_j$, and we set
+    \[
+        \wig{A} = \bigcup_{j\geq 1}\bigcup_{k\geq K_j}A(j,k)\qqtext{where}\mu(\wig{A})\leq\varepsilon.
+    \]
+    If $x\notin \wig{A}$, for every $j\geq 1$, we see that $x\in \cap_{k\geq K_j} A(j,k)^c$, and $\sup_{\substack{{x\notin\wig{A}},\\ {k\geq K_j}}}\abs{f_k(x) - f(x)}< c_j$. Since $c_j\to 0$, this establishes the claim for the subsequence $f_k$.\\
+
+    Our goal is to extend something that is valid on a subsequence of $f_n$ to the entire sequence. To wit, we write 
+    \[B(j) = \bigcap_{N\geq 1}\bigcup_{\min(n,m)\geq N}\{\abs{f_n - f_m}\geq c_j\},\]
+    which describes the set of points where Cauchyness fails. We note that $\mu(B(j))=0$, since $x\in B(j)$ means that $\{f_n(x)\}$ is not Cauchy. Since $\wig{B} = \bigcup B(j)$ has measure zero, and $\mu(\wig{A}\cup \wig{B})\leq\varepsilon$. The set $\wig{A}\cup\wig{B}$ is the set where the 1) the subsequence $f_k$ does not converge uniformly to $f$ or 2) the sequence $f_n(x)$ fails to be Cauchy. If $x\notin \wig{A}\cup\wig{B}$, one sees that
+    \begin{itemize}
+        \item for every $j\geq 1$, there exists $K_j\in \nat^+$ where $k\geq K_j$, $\abs{f_{k}(x)- f(x)} < c_j$, and
+        \item there exists $N_j$ where $\min(n,m)\geq N_j$ implies $\abs{f_n(x) - f_m(x)} < c_j$;
+    \end{itemize}
+    and the proof is complete upon combining the two estimates.
+\end{proof}
+\begin{remark}[Pointwise + Cauchy = Pointwise: Part 2]
+    We motivate the construction of $\wig{A}\cup \wig{B}$ reminding the reader that $\wig{A}^c$ (resp. $\wig{B}^c$) is responsible for subsequential pointwise convergence (resp. Cauchy criterion of the tail).
+\end{remark}
 \end{document}

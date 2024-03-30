@@ -1,12 +1,63 @@
-\documentclass[10pt,b5paper]{book}
+\documentclass[11pt,letterpaper]{book}
 \usepackage{import}         % Import our packages, see import.tex
 \import{./}{imports}
-\import{./}{manifolds-docinfo.tex}
+%%% DOCINFO 
+\author{Anson Li}
+\title{Manifolds and Symplectic Geometry}
+% Page Style
+\pagestyle{fancy}
+\fancyhead{}\fancyfoot{}
+\setlength{\headheight}{52pt} % At least 51.7pt to prevent error
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt so no footer line
+% Headers % 
+\fancyhead[L]{%
+\hyperlink{toc}{\textbf{Manifolds}}
+}
+\fancyhead[R]{%
+\small\rightmark
+}
 
+\fancyfoot[L]{\small\textbf{Updated \today\, at \,\currenttime}}
+\fancyfoot[R]{\small\textbf{Page \thepage}}
+
+% Alternate Date-Time, if the above does not work.
+%
+% Also see 'latexmkrc' to adjust timezone. That file has to be placed in the root directory. If we have /Lab7/main.tex, then it should be placed /latexmkrc, instead of /Lab7/latexmkrc
+%
+% Alternate latexmkrc: $ENV{'TZ'}='America/Toronto';
+%
+% See https://www.overleaf.com/learn/latex/Questions/How_do_I_make_%5Ctoday_display_the_date_according_to_my_time_zone%3F#.Vt4dR6grLow
+% \fancyfoot[L]{\textbf{Updated \today\, at \,\DTMcurrenttime\: \hfill Page \thepage}}
+
+%%
+
+%%
+%% Custom Commands for Symplectic Geometry
+\providecommand{\symatrix}{\begin{bmatrix}
+    0 & 1 \\ -1 & 0
+\end{bmatrix}}
+\providecommand{\sybasis}{\begin{bmatrix}
+    e_i & e_{n+i}
+\end{bmatrix}}
+\providecommand{\sysmallmatrix}{
+\begin{bsmallmatrix}
+        0 & 1 \\ -1 & 0
+    \end{bsmallmatrix}}
+\providecommand{\sysmallbasis}{
+\begin{bsmallmatrix}
+        e_i & e_{n+i}
+    \end{bsmallmatrix}}
+\newcommand{\bigdot}[1]{\overset{\bullet}{#1}}
+\providecommand{\realtn}{{\real^{2n}}}
+\providecommand{\omegao}{\omega_0}
+%%
+%%%
+
+% \import{./}{manifolds-docinfo.tex}
+% \import{./}{header-monochrome.tex}
 \bibliographystyle{plainurl}
-\newif\ifhideproofs
+\newif\ifhideproofs 
 % \hideproofstrue %uncomment to hide proofs
-
 \ifhideproofs
 \usepackage{environ}
 \NewEnviron{hide}{}
@@ -15,9 +66,7 @@
 \fi
 
 \usepackage{subfiles}
-
 \begin{document}
-
 \addtocontents{toc}{\protect\hypertarget{toc}{}}
 
 % \maketitle\newpage          % Title Page, uncomment if necessary
@@ -27,7 +76,7 @@
 \subfile{v2-subfiles/Manifolds.tex}\newpage
 \subfile{v2-subfiles/Analytic-Setting.tex}\newpage
 \subfile{v2-subfiles/Symplectic-Geometry.tex}\newpage
-% \subfile{v2-subfiles/Symplectic-Capacities.tex}\newpage
+\subfile{v2-subfiles/Equations.tex}\newpage
 % \subfile{v2-subfiles/Calculus-on-Banach-Spaces.tex}\newpage
 \bibliography{v2-subfiles/manifolds-references}
 

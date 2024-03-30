@@ -1,0 +1,107 @@
+\documentclass{book}
+\usepackage{amsthm,xcolor,mdframed,hyperref,cleveref}
+% Colors
+\definecolor{tab-blue}{rgb}{0.341,0.471,0.643}
+\definecolor{tab-orange}{rgb}{0.894,0.580,0.267}
+
+%%%
+%Counters
+\newcounter{thechapter}
+
+% Chapters
+\newcommand{\fchapter}[1]%
+{%
+    \phantomsection\chapter*{Chapter #1}%
+    \stepcounter{thechapter}
+    \newpage% Chapter Number
+} 
+
+% Copy the same style but modify the colour only
+\mdfdefinestyle{theoremstyle}{%
+    backgroundcolor=tab-blue!10
+}
+
+\mdfdefinestyle{remarkstyle}{%
+    backgroundcolor=tab-blue!5,
+}
+
+\mdfdefinestyle{notestyle}{%
+    backgroundcolor=tab-orange!5,
+}
+
+\newcounter{boxcounter}[thechapter]
+\renewcommand{\theboxcounter}{\arabic{thechapter}.\arabic{boxcounter}}
+
+\newenvironment{lemma}[1][]{%
+    \refstepcounter{boxcounter}
+    \begin{mdframed}[%
+        frametitle={Lemma \theboxcounter\ #1},
+        style=theoremstyle
+    ]%
+}{%
+    \end{mdframed}
+}
+
+\newenvironment{note}[1][]{%
+    \refstepcounter{boxcounter}
+    \begin{mdframed}[%
+        frametitle={Note \theboxcounter\ #1},
+        style=notestyle
+    ]%
+}{%
+    \end{mdframed}
+}
+
+\newenvironment{remark}[1][]{%
+    \refstepcounter{boxcounter}
+    \begin{mdframed}[%
+        frametitle={Remark \theboxcounter\ #1},
+        style=remarkstyle
+    ]%
+}{%
+    \end{mdframed}
+}
+
+% Here we manage Clever Headers
+\crefname{lemma}{lem.}{lems.}
+\Crefname{lemma}{Lemma}{Lemmas}
+
+\crefname{note}{note}{notes}
+\Crefname{note}{Note}{Notes}
+
+\begin{document}
+\fchapter{1: main result}
+\begin{lemma}[main lemma]\label{lem:main}
+1234556
+\end{lemma}
+\begin{proof}
+    123
+\begin{note}[calculations]\label{note:calculations}
+\begin{lemma}[calculation 1]\label{lem:calc 1}
+calc 1 here
+\end{lemma}
+\begin{proof}
+calc 1 proof
+\end{proof}
+\begin{lemma}[calculation 2]\label{lem:calc 2}
+calc 2 here
+\end{lemma}
+\begin{proof}
+calc 2 proof
+\end{proof}
+\begin{remark}[rmk 1]\label{rmk: rmk 1}
+rmk 
+\end{remark}
+\end{note}
+
+\end{proof}
+
+Cleveref tests: 
+\begin{itemize}
+    \item main lemma \cref{lem:main}
+    \item note calculations: \cref{note:calculations}
+    \item lemma calc 1: \cref{lem:calc 1}
+    \item lemma calc 2: \cref{lem:calc 2}
+    \item rmk 1 1: \cref{rmk: rmk 1}
+\end{itemize}
+\end{document}

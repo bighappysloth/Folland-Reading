@@ -23,7 +23,7 @@
 % \begin{definition}[Slowly increasing function]\label{def:slowly increasing functions}
 %     A smooth function $f\in C^\infty$ is \emph{slowly increasing} if for every multi-index $\alpha$, its growth is bounded by a polynomial. 
 %     \begin{equation}\label{eq:slowly increasing functions}
-%         C_s^\infty = \bigset{f\in C^\infty,\: \abs{\partial^\alpha f(x)}\Lsim_\alpha (1+\abs{x})^{N_{\alpha}}}
+%         c_s^\infty = \bigset{f\in C^\infty,\: \abs{\partial^\alpha f(x)}\Lsim_\alpha (1+\abs{x})^{N_{\alpha}}}
 %     \end{equation}
 % \end{definition}
 This section serves to recall a few results from \cite{Brezis2010Functional,Folland2013Real,Roman2007Advanced,Lee2013Introduction,Lee2019Introduction}, as well as to define the symbols and notation we will use. 
@@ -223,10 +223,13 @@ The determinant of $M$ is a linear combination of determinants of $k-1$-sized ma
         is a linear isomorphism from $V$ to $V^*$. 
     \end{wts}
 
-    Let $(V,\omega)$ and $(W, \eta)$ be metric vector spaces. An \emph{isometry} $\tau\in L(V,W)$ is a linear isomorphism that preserves the bilinear form.
+    \begin{definition}[Isometry between MVS]
+    Let $(X,\omega)$ and $(Y, \eta)$ be metric vector spaces. An \emph{isometry} $\tau\in L(X,Y)$ is a linear isomorphism that preserves the bilinear form:
     \[
-        \omega(u,v) = \eta(\tau u, \tau v)
-    \]
+        \omega(u,v) = \eta(\tau u, \tau v).
+    \]    
+    \end{definition}
+    
     \begin{definition}[Orthogonal, symplectic groups]
         Let $V$ be a nonsingular metric vector space. If $V$ is an orthogonal (resp. symplectic) geometry, the set of all isometries on $V$ is called the \emph{orthogonal (resp. symplectic) group on $V$}. It is a group under composition, and is denoted by $\mathcal{O}(V)$ (resp. $\operatorname{Sp}(V)$).
     \end{definition}
@@ -286,11 +289,11 @@ Some advice for understanding summation notation.
 We will list a few examples. \\
 
 The first (and only) coordinate is summed over. 
-\begin{itemize}
-    \item Dot Product: $v\cdot w = v_iw^i = \sum_{i=\underline{n}}v^iw^i$.
-    \item Vector basis expansion: $v = v^ie_i$ if $v = \sum_{i=\underline{n}} v^ie_i$.
-    \item Covector basis expansion: $B = b_i\varepsilon^i$ if $B = \sum_{i=\underline{n}} b_i\varepsilon^i$.
-\end{itemize}
+\begin{description}
+    \item[Dot Product] $v\cdot w = v_iw^i = \sum_{i=\underline{n}}v^iw^i$.
+    \item[Vector basis expansion] $v = v^ie_i$ if $v = \sum_{i=\underline{n}} v^ie_i$.
+    \item[Covector basis expansion] $B = b_i\varepsilon^i$ if $B = \sum_{i=\underline{n}} b_i\varepsilon^i$.
+\end{description}
 Both indices in the matrix entries are summed over.
 \begin{itemize}
     \item Full Evaluation of a Bilinear Form: $a(v,w)= v^iw^ja_{ij}=\langle v,Aw\rangle_\realn $.
@@ -698,9 +701,9 @@ We write $\dzz = C^\infty_c$ (resp. $\dzz(E)$ for $E\subseteq\realn$) and recall
 \end{itemize}
 
 \begin{definition}[Slowly increasing sequences]
-    $C_s(\mathbb{Z}^n)$ is the space of slowly increasing sequences with domain $\mathbb{Z}^n$,
+    $c_s(\mathbb{Z}^n)$ is the space of slowly increasing sequences with domain $\mathbb{Z}^n$,
     \[
-    C_s(\mathbb{Z}^n) = \bigset{g: \mathbb{Z}^n\to\mathbb{C},\: \vert g(k)\vert\Lsim_{g}(1+\abs{k})^{N},\:N\in\mathbb{N}^+}.
+    c_s(\mathbb{Z}^n) = \bigset{g: \mathbb{Z}^n\to\mathbb{C},\: \vert g(k)\vert\Lsim_{g}(1+\abs{k})^{N},\:N\in\mathbb{N}^+}.
     \]
 \end{definition}
 \topheader{Fourier Transforms}

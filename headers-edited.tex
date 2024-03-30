@@ -26,8 +26,6 @@
 }%
 {}{0em}{}{}
 
-\titleformat{\subsection}{\normalfont\Large\bfseries}{}{0em}{}{}
-
 % Chapters
 \newcommand{\fchapter}[1]%
 {%
@@ -89,8 +87,15 @@
 % \newtheorem{wts}{Proposition}[theproblem]
 
 \theoremstyle{subtheorem}                       % Lemma, Corollary follows Theorem 4.16.X
+%%%%%%%%%
+%%%%%%%%%
+\newcounter{boxcounter}[thechapter]
+
+\renewcommand{\theboxcounter}{\arabic{thechapter}.\arabic{boxcounter}}
 
 
+%%%%%%%%%
+%%%%%%%%%
 % Yellow Boxes for definitions
 \mdfdefinestyle{definitionstyle}{%
     %backgroundcolor=,
@@ -109,7 +114,7 @@
 % Copy the same style but modify the colour only
 \mdfdefinestyle{theoremstyle}{%
     style=definitionstyle,
-    backgroundcolor=tab-green!10
+    backgroundcolor=tab-blue!10
 }
 
 
@@ -133,21 +138,90 @@
     backgroundcolor=tab-green!5,
 }
 
-\mdtheorem[style=definitionstyle]{definition}{Definition}[thechapter]
-\mdtheorem[style=theoremstyle]{wts}{Proposition}[thechapter]
+% \mdtheorem[style=definitionstyle]{definition}{Definition}[thechapter]
+\newenvironment{definition}[1][]{%
+    \refstepcounter{boxcounter}
+    \begin{mdframed}[%
+        frametitle={Definition \theboxcounter\ #1},
+        style=definitionstyle
+    ]%
+}{%
+    \end{mdframed}
+}
 
-\mdtheorem[style=theoremstyle]{lemma}{Lemma}[thechapter]
-\mdtheorem[style=theoremstyle]{corollary}{Corollary}[thechapter]
+\newenvironment{wts}[1][]{%
+    \refstepcounter{boxcounter}
+    \begin{mdframed}[%
+        frametitle={Proposition \theboxcounter\ #1},
+        style=theoremstyle
+    ]%
+}{%
+    \end{mdframed}
+}
 
-\mdtheorem[style=remarkstyle]{remark}{Remark}[thechapter]
+\newenvironment{lemma}[1][]{%
+    \refstepcounter{boxcounter}
+    \begin{mdframed}[%
+        frametitle={Lemma \theboxcounter\ #1},
+        style=theoremstyle
+    ]%
+}{%
+    \end{mdframed}
+}
 
-\mdtheorem[style=notestyle]{note}{Note}[thechapter]
-\mdtheorem[style=examplestyle]{example}{Example}[thechapter]
+\newenvironment{corollary}[1][]{%
+    \refstepcounter{boxcounter}
+    \begin{mdframed}[%
+        frametitle={Corollary \theboxcounter\ #1},
+        style=theoremstyle
+    ]%
+}{%
+    \end{mdframed}
+}
+
+\newenvironment{remark}[1][]{%
+    \refstepcounter{boxcounter}
+    \begin{mdframed}[%
+        frametitle={Remark \theboxcounter\ #1},
+        style=remarkstyle
+    ]%
+}{%
+    \end{mdframed}
+}
+
+\newenvironment{note}[1][]{%
+    \refstepcounter{boxcounter}
+    \begin{mdframed}[%
+        frametitle={Note \theboxcounter\ #1},
+        style=notestyle
+    ]%
+}{%
+    \end{mdframed}
+}
+\newenvironment{example}[1][]{%
+    \refstepcounter{boxcounter}
+    \begin{mdframed}[%
+        frametitle={Example \theboxcounter\ #1},
+        style=examplestyle
+    ]%
+}{%
+    \end{mdframed}
+}
+% \mdtheorem[style=theoremstyle]{wts}{Proposition}[boxcounter]
+
+% \mdtheorem[style=theoremstyle]{lemma}{Lemma}[boxcounter]
+% \mdtheorem[style=theoremstyle]{corollary}{Corollary}[boxcounter]
+
+% \mdtheorem[style=remarkstyle]{remark}{Remark}[boxcounter]
+
+% \mdtheorem[style=notestyle]{note}{Note}[boxcounter]
+% \mdtheorem[style=examplestyle]{example}{Example}[boxcounter]
 
 
 %% Step environment requires more care because we want to remove the chapter number from the counter
 \mdtheorem[style=stepstyle]{mysteps}{}[thestep]
 \renewcommand{\themysteps}{Step~\arabic{thestep}}
+
 
 \NewDocumentEnvironment{step}{o}
 {
@@ -174,8 +248,7 @@
 
 % Two custom enumerate environments.
 % The labels for these are (a), (iv) respectively.
-%% Modifying description environment
-\setlist[description]{style=nextline}
+
 
 % enumalpha environment for 
 % a), b), c)

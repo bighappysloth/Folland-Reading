@@ -1,0 +1,40 @@
+\mdfdefinestyle{definitionstyle}{%
+    %backgroundcolor=,
+    linewidth=1pt,
+    innerleftmargin=6pt,
+    innerrightmargin=6pt,
+    innertopmargin=6pt, % Adjusted value
+    innerbottommargin=6pt,
+    skipabove=5pt,
+    skipbelow=5pt,
+    topline=true, % Added option
+    bottomline=true,
+    backgroundcolor=tab-yellow!0
+}
+
+% Copy the same style but modify the colour only
+\mdfdefinestyle{theoremstyle}{%
+    style=definitionstyle,
+    backgroundcolor=tab-green!0
+}
+
+
+\mdfdefinestyle{stepstyle}{%
+    style=definitionstyle,
+    backgroundcolor=tab-blue!0
+}
+
+\mdfdefinestyle{remarkstyle}{%
+    style=theoremstyle,
+    backgroundcolor=tab-blue!0,
+}
+
+\mdfdefinestyle{notestyle}{%
+    style=theoremstyle,
+    backgroundcolor=tab-orange!0,
+}
+
+\mdfdefinestyle{examplestyle}{%
+    style=theoremstyle,
+    backgroundcolor=tab-green!0,
+}

@@ -1,0 +1,225 @@
+\documentclass[../main-v2-manifolds.tex]{subfiles}
+\providecommand{\frakc}{\mathfrak{C}}
+%%
+\begin{document}
+\topheader{Tempered Distributions}
+Loosely corresponds to "Equations (1), pages 1 to 7"
+\begin{description}
+    \item[Reference] Chapter 9.2, and Exercise 9.22 of \cite{Folland2013Real}
+    \item[Characterization of Periodic Tempered Distributions] Every periodic tempered distribution has a slowly increasing Fourier Transform
+    \[
+    \fourier: \szz'(S^1, \realtn)\to c_s(\mathbb{Z},\realtn),
+    \]
+    where
+    \[  
+        c_s(\mathbb{Z},\realtn) = \bigset{f:\mathbb{Z}\to\realtn,\ \abs{f(k)}\Lsim_{f} (1+\abs{k}^2)^{N}\quad \exists N}
+    \]
+    \item[Converse of the above]
+    Every slowly increasing sequence gives rise to a tempered distribution,
+    \[
+        \forall x\in \szz'(S^1,\realtn),\quad \sum_{k\in\mathbb{Z}}\hat{x}(k)g(k)
+    \]
+    converges absolutely whenever $g(k)\in c_s(\mathbb{Z},\realtn)$. This defines a tempered distribution $G$, whose Fourier Transform 
+    \[
+        \hat{G}(k) = g(k)\qqtext{where}\hat{G}(k) = G(E_{-k}(t))\in \realtn,
+    \]
+    where $E_{-k}:S^1\to\realtn$ is the function $E_{-k}(t) = (e^{-2\pi i k t}, \ldots, e^{-2\pi i k t})\in\realtn$, and $k\in\mathbb{Z}$.
+    \item[Caveat] The same does not hold for \textbf{non-periodic} tempered distributions. \footnote{The distribution $\phi\in\dzz'(\realn,\realm)$ has to be \emph{compactly supported} for its FT to be slowly increasing.}
+\end{description}
+;l
+\topheader{Chapter 1 HZ}
+Corresponds to "Equations (2)" pages 10 to 11
+\begin{description}
+\item[Pages 1-4]
+Every symplectic vector space looks like $(\real^{2n},\omega)$. After a basis change.
+\item[Page 7-8]
+Mentions the symplectic action $\realtn$. Some of the formulas that are not in "Equations (1)" or "(2)" of relevance are:
+\begin{description}
+    \item[Symplectic Pairing]
+    $a: C^\infty(S^1,\realtn)\times C^\infty(S^1,\realtn)\to\real$ with 
+    \[a(x,y) = 2^{-1}\int_0^1 \langle\mathring{x}(t),\ y(t)\rangle_{\omega_0}dt.\]
+    \item[Symplectic Action]
+    Also denoted by $a: C^\infty(S^1,\realtn)\to\real$, defined by $a(x) = a(x,x)$,
+    \[
+        a(x) = 2^{-1}\int_0^1\langle \mathring{x}(t),\ x(t)\rangle_{\omega_0}dt
+    \]
+    \item[Symplectic Pairing is Symmetric] 
+    Using integration by parts, one sees that the boundary terms vanish and the negative sign can be used to flip the arguments within the integrand (because $\omega_0$ is skew-symmetric).
+    \[
+        \int_0^1\langle\mathring{x}(t),\ y(t)\rangle_{\omega_0}dt = \int_0^1\langle\mathring{y}(t),\ x(t)\rangle_{\omega_0}dt.
+    \]
+\end{description}
+\item Note that $\langle -J\dot{x}(t), x(t)\rangle$ is equal to $\langle J\dot{x}(t), x(t) \rangle$ by skew-symmetry of $J$
+\item[Equations (1.22) to (1.23)]
+Deriving expression for $X_H = J\nabla H$ in the case of $(\realtn,\omega_0)$.
+
+\item[Equations (1.25) to (1.26)]
+Refers to the symplectic invariance the Hamiltonian on $(\realtn,\omega_0)$.
+
+\item[Page 10]
+Definition of Symplectic Manifold: 
+\begin{quote}
+Manifold with closed, non-degenerate bilinear form.    
+\end{quote}
+\begin{enumerate}
+    \item Closed = $d\omega = 0$: Used in Darboux's, Noether's Theorem.
+    \item Non-degenerate = non-singular on each tangent space. used in Riesz Representation Theorems: "every vector field is a covector field, vice versa".
+\end{enumerate}
+Theorem 1: Darboux's Theorem
+\begin{quote}
+	If $(M,\omega)$ is a symplectic manifold of dimension $2n$. About every point $p\in M$ is a chart $\varphi: U\to \varphi(U)$ such that $\varphi^*\omega_0 = \omega$, where $(\realtn,\omega_0)$ is the standard symplectic manifold.\\
+ 
+	This means every symplectic manifold looks like $(\realtn,\omega_0)$ locally.\\
+ 
+	The analagous statement is not true in Riemannian geometry, not every Riemannian manifold looks the same as $\realn$. (we call such a manifold \emph{flat} if so)
+\end{quote}
+
+
+\item[Page 13]
+Proposition 4 is about the WC's independence of symplectic structure.
+\begin{quote}
+    The statement of Proposition 4 is the same as the discussion from Equations (1.25) to (1.26), but for general symplectic manifold $(M,\omega)$.
+\end{quote}
+\end{description}
+\begin{wts}[WC Reduction 2 --- Independence of the Symplectic Structure]\label{thm:wc reduction 2 symplectic structure }
+    Suppose $(M,\omega)$ and $(N,\eta)$ are symplectic manifolds modelled on $\realtn$, and $u:M\to N$ is a symplectomorphism. 
+    \begin{quote}
+        To every function $F\in C^\infty(N)$, the vector field pullback of the Hamiltonian flow of $F$ is equal to the Hamiltonian flow of its pullback through $u$.     
+    \end{quote}
+    More precisely, if $X_F = \eta^{\wedge}(dF)$ and $u^*F = F\circ u$, we claim that
+    \begin{equation}
+        \omega^{\wedge}(d(u^* F)) = u^*(\eta^{\wedge}(dF))\qqtext{where} u^*(\eta^{\wedge}(dF)) = du^{-1}\circ X_F\circ u.
+        \label{eq:reduction 2 eq1}
+    \end{equation}
+    If $\gamma$ is an integral curve of $X_{F\circ u}$, then $u\circ \gamma$ is an integral curve of $X_F$, and if $\varphi(s,x)$ and $\theta(t,y)$ denote the flows of $X_{F\circ u}$ and $X_{F}$, they relate to each other by $u$-conjugation as in \cref{eq:reduction 2 eq2}
+    \begin{equation}
+        u\circ\varphi^t = \theta^t\circ u.
+        \label{eq:reduction 2 eq2}
+    \end{equation}
+\end{wts}
+\begin{description}
+\item[Page 14]
+Proposition 5: Not relevant now, but will be later around page 110.
+
+\item[Page 17]
+Beginning after the end of the proof (below black square) is a discussion about Gromov's width, the first symplectic capacity to be discovered.
+
+\item[Page 19]
+Equations (1.47) to (1.49)
+
+Describe how on every compact regular hypersurface, there exists a unique Riemannian volume form.\\
+
+The Hodge star operator (from Riemannian Geometry \cite{Lee2019Introduction}) on (1.47) of the proof, which justifies the existence of $\alpha$, and the fact that tensor pullback commutes with wedge product \cite{Lee2013Introduction}.
+\item[Page 21]
+Discussion about WC
+
+\item[Page 22]
+Mentions the WC independence of the Hamiltonian function. 
+\end{description}
+\begin{wts}[WC Reduction 1 --- Independence of Hamiltonian (Page 22)]
+    Let $S$ be an energy surface defined by $F, G\in C^\infty(M)$, which means
+    \begin{align*}
+        S &= F^{-1}(c), &  &dF\vert_S\text{ does not vanish, }\\
+        S &= G^{-1}(c'), & &dG\vert_S\text{ does not vanish.}
+    \end{align*}
+    Then, there exists $\rho\in C^\infty(M,\real)$ which does not vanish in a neighbourhood about $S$, such that
+    \[
+        dF = \rho dG\qqtext{and}X_F = \rho X_G\quad\text{about }S.
+    \]
+\end{wts}
+ \begin{wts}[WC Reduction 1 --- Correspondence of Solutions (Page 22)]
+        Assuming the existence of such a $\rho$, 
+    \begin{itemize}
+        \item For any $x\in S$, let $\varphi_x(s) = \varphi(s,x)$ and $\theta_x(t) = \theta(t,x)$ denote the integral curves starting at $x$ of $X_F$ and $X_G$. The smooth function $\alpha$ constructed by solving the IVP in \cref{eq:wc reduction1: alpha reparam} relates the two flows by its reparameterization.
+        \begin{equation}
+            \dv{\alpha}{s} = \rho(\varphi_x(s))\quad\alpha(0)=0
+            \label{eq:wc reduction1: alpha reparam}
+        \end{equation}
+        By reparameterization we mean that $\varphi_x(s) = \theta_x(\alpha(s))$ for all $s$ whenever either side is defined.
+        \item The periodic orbits of $X_{F}$ and $X_G$ on $S$ correspond bijectively.
+        \item For any $x\in S$, $\varphi_x$ is a non-degenerate periodic orbit if and only if $\theta_x\circ\alpha$ is.
+    \end{itemize}
+\end{wts}
+\begin{description}
+\item[Page 24: WC Original Proof for strictly convex region]
+I do not recommend reading this proof because it is very terse and not at all self-contained.
+
+\textbf{For more on Legendre Transform}
+\begin{quote}
+    See Chapters 18 to 20 "Hamiltonian Mechanics" of Lectures on Symplectic Geometry \cite{Silva_2004}, or here: \url{https://people.math.ethz.ch/~acannas/Papers/lsg.pdf}.
+\end{quote}    
+
+\item[Page 35 to 40]
+	Every positive definite quadratic form on $\realtn$ can be symplectically diagonalized into
+	\[
+q(x) = \sum_{i=1}^{n}\dfrac{x_i^{2} + x_{n+i}^2}{r_i^2},\qqtext{where}0< r_1\leq \cdots \leq r_n.
+\]
+Symplectically diagonalized means there exists a symplectic linear mapping $\varphi$ such that $q\circ \varphi$ takes on the form shown above. The numbers $r_1\leq \cdots \leq r_n$ invariant under the orbit of precomposing with symplectic mappings. 
+\[
+	r_j(q) = r_j(q\circ \varphi)\quad\forall\varphi\in\operatorname{Sp}(n)
+\]
+We write $r_j(q)$ to refer to the $j$th smallest radius of the positive definite quadratic form $q$.
+
+Main result is Theorem 9 (Page 40)
+If $q$ and $Q$ are positive definite quadratic forms on $\realtn$, that induce open ellipsoids $E = \{q<1\}$ and $F = \{Q<1\}$. The existence of a linear symplectic mapping $\varphi\in\operatorname{Sp}(n)$ such that 
+\[
+    \varphi(E)\subseteq F\qqtext{is equivalent to} r_j(q)\leq r_j(Q)\quad \forall 1\leq j\leq n.
+\]
+\item[Page 41] 
+Action of Periodic Orbits on the boundary of Quadratic Forms
+Let $q$ be a positive definite quadratic for on $\realtn$, that is in normal coordinates.
+\[
+q(x) = \sum_{i=1}^{n}\dfrac{x_i^2 + x_{n+i}^2}{r_i^2}\quad 0<r_1\leq \cdots \leq r_n.
+\]
+And its induced ellipsoid and boundary
+\[
+	E = \{x\in\realtn,\ q(x)<1 \}\quad\partial E = \{x\in\realtn,\ q(x) = 1\}.\footnote{this is not a topological nor manifold boundary, just a ‘boundary’ in the cultural sense.}
+\]
+Has calculations with the eigenmodes of $X_q(x)$ along with derivations of their periods. (Very terse) 
+\end{description}
+\topheader{Chapter 2 HZ}
+Corresponds to "Symplectic Capacities", "Gromov's Theorems" on "Equations (2)" (pages 11-13)
+\begin{description}
+    \item[Page 51]
+	Definition of a symplectic capacity.
+ \begin{quote}
+     Is a function that is very similar to a measure, satisfies  monotonicity, non-triviality (like Lebesgue measure on $[0,1]$ is $1$), dilates in a special way. We will not use weak non-triviality.
+ \end{quote}
+\item[Page 52]
+	Lemma 1: Dilations of open subsets. 
+    \begin{quote}
+    It means that a symplectic capacity scales like a quadratic form (2-homogeneous function).    
+    \end{quote}
+\item[Page 53 to 54]
+	Starting from the end of proof symbol on Page 53 to statement of Proposition 2.
+    \begin{quote}
+        The capacity of any open subset $U\subseteq\realtn$ where
+        \[
+            B(r)\subseteq U\subseteq Z(r),
+        \]
+        must equal $\pi r^2$, because of monotonicity.
+    \end{quote}
+	
+	Proposition 2
+ \begin{quote}
+     Let $E = \{q<1\}$ be an open ellipsoid of a positive definite quadratic form $q: \realtn\to\real$. If $\frakc$ is any symplectic capacity, then $\frakc(E) = \pi r_1^2$. (because of symplectic diagonalization, and the ‘squeeze theorem’ shown above).
+ \end{quote}
+	
+\item[Pages 55 to 57]
+An example of the first symplectic capacity that was discovered and its properties.
+\begin{itemize}
+    \item Theorem 1: Gromov Squeezing Theorem
+    \item Proposition 5.
+    \item Definition of Gromov’s Width
+    \item Theorem 2
+\end{itemize}
+We will not use inner capacities until much later
+\begin{itemize}
+    \item Definition of Inner Capacity
+    \item Proposition 6.
+\end{itemize}
+\end{description}
+\ifSubfilesClassLoaded{% 
+  \bibliography{v2-subfiles/manifolds-references}%
+}{}
+\end{document}

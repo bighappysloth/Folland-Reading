@@ -88,7 +88,15 @@ We can produce a 3-piecewise ramp function using the same $\max\min$ composition
 
 for suitable scalars $a_i$ for $i = \underline{4}$
 
+# Affine mappings of bounded sets
+Let $K$ be bounded in a Banach space $E$, and $x\in E$ is non-zero, then 
+$$
+    a\vert {x}\vert \leq \vert{x + K}\vert \leq b\vert{x}\vert,
+$$
+in other words: 
 
-
+$$
+a\vert{x}\vert\leq\inf_{y\in K}\vert{x+y}\vert\leq\sup_{y\in K}\vert{x+y}\vert\leq b\vert{x}\vert.
+$$
 
 

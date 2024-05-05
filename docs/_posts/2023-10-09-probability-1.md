@@ -65,3 +65,6 @@ $$
 $$
 
 </div>
+
+## Convergence in measure?
+Let $f_n$ be a measurable sequence of functions, we say $f_n\to f$ in measure if: for every $\varepsilon>0$ the set $\mu(\vert f_n - f\vert \geq \varepsilon)\to 0$.
